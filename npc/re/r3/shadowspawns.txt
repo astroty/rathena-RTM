@@ -1,0 +1,4590 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Controls use of Shadows
+//===== Comments: =========================================
+//====================================================
+
+//===============================TEMPORARY NPCS=====================
+
+-	script	Shadows#moc_pryd05	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd05"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  specialeffect2 1609;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#moc_pryd05::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_pryd06	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd06"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#moc_pryd06::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_pryd01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#moc_pryd01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_pryd02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#moc_pryd02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_pryd03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#moc_pryd03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_pryd04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#moc_pryd04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#in_sphinx1	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "in_sphinx1"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#in_sphinx1::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#in_sphinx2	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "in_sphinx2"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#in_sphinx2::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#in_sphinx4	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "in_sphinx4"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#in_sphinx4::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+
+-	script	Shadows#anthell01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "anthell01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#anthell01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#anthell02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "anthell02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#anthell02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#beach_dun	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "beach_dun"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#beach_dun::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#beach_dun2	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "beach_dun2"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#beach_dun2::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#vip_bath	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "vip_bath"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#vip_bath::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nest_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nest_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#nest_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nest_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nest_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#nest_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ygg_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ygg_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#ygg_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ygg_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ygg_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#ygg_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#skydun1	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "skydun1"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#skydun1::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#skydun2	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "skydun2"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#skydun2::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#skydun3	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "skydun3"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#skydun3::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nameless_n	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nameless_n"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#nameless_n::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#abbey01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abbey01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#abbey01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#abbey02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abbey02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#abbey02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#abbey03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abbey03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#abbey03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#thor_v01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "thor_v01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#thor_v01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#thor_v03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "thor_v03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#thor_v03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#dew_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "dew_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#dew_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_san01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_san01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#ra_san01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_san02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_san02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#ra_san02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_san03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_san03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#ra_san03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_san04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_san04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#ra_san04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_san05	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_san05"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#ra_san05::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#va_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "va_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#va_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#va_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "va_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#va_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#va_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "va_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#va_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#va_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "va_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#va_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#pay_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#pay_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#pay_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#pay_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#treasure01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "treasure01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#treasure01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#treasure02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "treasure02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#treasure02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#face_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "face_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#face_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#face_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "face_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#face_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#face_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "face_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#face_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tur_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tur_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#tur_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tur_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tur_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#tur_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tur_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tur_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#tur_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#wat_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "wat_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#wat_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#wat_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "wat_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#wat_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ama_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ama_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ama_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ama_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ama_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ama_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ama_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ama_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ama_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#cry_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "cry_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#cry_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#cry_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "cry_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#cry_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#cry_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "cry_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#cry_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#kaf_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "kaf_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#kaf_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#kaf_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "kaf_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#kaf_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#kh_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "kh_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#kh_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#kh_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "kh_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#kh_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#juperos_01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "juperos_01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#juperos_01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#juperos_02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "juperos_02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#juperos_02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#juperos_03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "juperos_03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#juperos_03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#jupe_core	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "jupe_core"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#jupe_core::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ver_eju	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ver_eju"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#ver_eju::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_t01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_t01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#tha_t01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_t02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_t02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#tha_t02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_t03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_t03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#tha_t03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_t04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_t04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#tha_t04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_t05	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_t05"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#tha_t05::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_t06	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_t06"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#tha_t06::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#thana_boss	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "thana_boss"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#thana_boss::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#orcsdun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "orcsdun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#orcsdun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#orcsdun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "orcsdun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#orcsdun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#prt_sewb1	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prt_sewb1"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#prt_sewb1::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#prt_sewb4	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prt_sewb4"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#prt_sewb4::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_dun00	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_dun00"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gef_dun00::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gef_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gef_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gefenia01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gefenia01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gefenia01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gefenia02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gefenia02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gefenia02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gefenia03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gefenia03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gefenia03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gefenia04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gefenia04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#gefenia04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#alch_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "alch_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#alch_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#alch_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "alch_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#alch_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#alch_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "alch_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#alch_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#alch_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "alch_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#alch_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_atow03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_atow03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#gef_atow03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_atow02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_atow02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#gef_atow02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_atow01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_atow01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#gef_atow01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gef_town	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gef_town"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#gef_town::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#moc_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_dun00	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_dun00"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#ra_dun00::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#ra_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ra_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ra_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#ra_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_cas01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_cas01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_cas01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_cas02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_cas02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_cas02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_knt01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_knt01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_knt01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_knt02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_knt02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_knt02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_prison	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_prison"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_prison::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_prison1	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_prison1"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_prison1::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_church	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_church"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_church::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_chyard	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_chyard"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#gl_chyard::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+
+-	script	Shadows#gl_knp01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_knp01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#gl_knp01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_knp02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_knp02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#gl_knp02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#gl_cas01_	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gl_cas01_"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#gl_cas01_::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nif_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nif_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#nif_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nif_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nif_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#nif_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#xmas_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "xmas_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#xmas_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#xmas_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "xmas_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#xmas_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_tem02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_tem02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#pay_tem02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_tem03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_tem03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#pay_tem03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#pay_tem04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "pay_tem04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#pay_tem04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ma_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ma_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ma_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#mal_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "mal_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#mal_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ice_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ice_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ice_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ice_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ice_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ice_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ice_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ice_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ice_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#loki_tomb01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "loki_tomb01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#loki_tomb01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#loki_tomb02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "loki_tomb02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#loki_tomb02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#mag_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "mag_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#mag_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#mag_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "mag_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#mag_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ein_dead01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ein_dead01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ein_dead01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ein_dead02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ein_dead02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ein_dead02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ein_dead03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ein_dead03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ein_dead03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#prt_maze02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prt_maze02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#prt_maze02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#prt_maze03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prt_maze03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2941,1,"Shadows#prt_maze03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#resc_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "resc_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#resc_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#resc_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "resc_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#resc_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#iz_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "iz_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#iz_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#iz_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "iz_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#iz_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#iz_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "iz_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#iz_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#mjo_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "mjo_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#mjo_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#mjo_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "mjo_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#mjo_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#mjo_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "mjo_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#mjo_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#abyss_01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abyss_01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#abyss_01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#abyss_02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abyss_02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#abyss_02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#abyss_03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abyss_03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#abyss_03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#c_tower1	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "c_tower1"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#c_tower1::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#c_tower2	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "c_tower2"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#c_tower2::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#c_tower3	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "c_tower3"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#c_tower3::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#c_tower4	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "c_tower4"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#c_tower4::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#alde_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "alde_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#alde_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#alde_dun04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "alde_dun04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#alde_dun04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ayo_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ayo_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#ayo_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ayo_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ayo_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#ayo_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ein_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ein_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#ein_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ein_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ein_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2940,1,"Shadows#ein_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#odin_tem01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "odin_tem01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#odin_tem01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#odin_tem02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "odin_tem02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#odin_tem02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#odin_tem03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "odin_tem03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#odin_tem03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#lhz_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "lhz_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#lhz_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#lhz_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "lhz_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#lhz_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#prt_q	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prt_q"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#prt_q::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#prt_prison	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prt_prison"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#prt_prison::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#guild_falld	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "guild_falld"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#guild_falld::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#1sunk1	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "1@sunk1"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#1sunk1::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#lost_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "lost_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#lost_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#lost_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "lost_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#lost_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#lost_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "lost_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#lost_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nif_cas01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nif_cas01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#nif_cas01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#nif_cas02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "nif_cas02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#nif_cas02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#rek_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "rek_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#rek_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#rek_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "rek_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#rek_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#rek_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "rek_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#rek_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#khu_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "khu_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#khu_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#khu_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "khu_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#khu_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#iz_dun05	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "iz_dun05"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#iz_dun05::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#xmas_fut01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "xmas_fut01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#xmas_fut01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#1mcd	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "1@mcd"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#1mcd::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#moc_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3488,1,"Shadows#moc_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_fild20	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_fild20"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  if (BaseLevel <150){
+  set BaseExp, 0;
+  }
+  announce strcharinfo(0) + " has fallen in battle and the EXP has been drained by Morroc's Minions!",bc_blue|bc_map;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#moc_fild20::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_fild21	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_fild21"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  if (BaseLevel <150){
+  set BaseExp, 0;
+  }
+  announce strcharinfo(0) + " has fallen in battle and the EXP has been drained by Morroc's Minions!",bc_blue|bc_map;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#moc_fild21::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#moc_fild22	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_fild22"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  if (BaseLevel <150){
+  set BaseExp, 0;
+  }
+  announce strcharinfo(0) + " has fallen in battle and the EXP has been drained by Morroc's Minions!",bc_blue|bc_map;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#moc_fild22::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para04"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para04::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para05	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para05"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para05::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para06	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para06"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para06::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#tha_para07	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "tha_para07"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#tha_para07::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#jor_nest01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "jor_nest01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#jor_nest01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#jor_nest02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "jor_nest02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#jor_nest02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#jor_core	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "jor_core"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#jor_core::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#rachelnm	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "rachelnm"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3489,1,"Shadows#rachelnm::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ast_dun01	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ast_dun01"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ast_dun01::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ast_dun02	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ast_dun02"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ast_dun02::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+-	script	Shadows#ast_dun03	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "ast_dun03"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",3487,1,"Shadows#ast_dun03::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}

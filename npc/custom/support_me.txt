@@ -1,0 +1,15 @@
+prontera,149,184,5	script	Helper	4_F_VALKYRIE,{
+
+mes "[v27.12.2021] (2022)";
+mes "<URL>Discord Support<INFO>https://discord.gg/p2kvabm</INFO></URL>";
+mes "";
+mes "I recommend you donate though:";
+mes "<URL>Donate Now<INFO>http://paypal.me/ragnarokpaidservice</INFO></URL>";
+mes "I usually did not ask for donations, but this time very rough to me, and i leave credentials if you wish you can donate";
+next;
+mes "";
+mes "Since 2022 we offer service (paid) for developing servers";
+mes "<URL>Create your own server<INFO>https://ragnarokservice.top</INFO></URL>";
+close;
+
+}

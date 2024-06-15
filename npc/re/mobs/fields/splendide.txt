@@ -15,20 +15,23 @@
 //==================================================
 // spl_fild01 - Splendide Field
 //==================================================
-spl_fild01,0,0	monster	Dark Pinguicula	2015,98,5000
-spl_fild01,0,0	monster	Naga	1993,68,5000
-spl_fild01,0,0	monster	Cornus	1992,49,5000
+spl_fild01,0,0	monster	Enchanted Mavka	1884,60,5000
+spl_fild01,0,0	monster	Enchanted Cornus	1992,50,5000
+spl_fild01,0,0	monster	Enchanted Serpent	2068,2,5000
 
 //==================================================
 // spl_fild02 - Splendide Field
 //==================================================
-spl_fild02,0,0	monster	Pinguicula	1995,135,5000
-spl_fild02,0,0	monster	Luciola Vespa	1994,27,5000
+spl_fild02,0,0	monster	Enchanted Mavka	1884,20,5000
+spl_fild02,0,0	monster	Enchanted Cornus	1992,20,5000
+spl_fild02,0,0	monster	Enchanted Fatum	2136,20,5000
+spl_fild02,0,0	monster	Enchanted Dragon	1885,20,5000
+spl_fild02,0,0	monster	Enchanted Serpent	2068,10,5000
+spl_fild02,0,0,0,0	boss_monster	Black Tendrillion	1991,1,2700000,5400000,0
 
 //==================================================
 // spl_fild03 - Splendide Field
 //==================================================
-spl_fild03,0,0	monster	Luciola Vespa	1994,74,5000
-spl_fild03,0,0	monster	Cornus	1992,52,5000
-spl_fild03,0,0	monster	Naga	1993,42,5000
-spl_fild03,0,0	monster	Tendrilion	1991,2,3600000
+spl_fild03,0,0	monster	Enchanted Fatum	2136,60,5000
+spl_fild03,0,0	monster	Enchanted Dragon	1885,50,5000
+spl_fild03,0,0	monster	Enchanted Serpent	2068,2,5000

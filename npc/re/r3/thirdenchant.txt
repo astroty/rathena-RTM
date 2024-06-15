@@ -1,0 +1,483 @@
+/// Enchant System v1.0
+/// Made by Kai'va for Project Return to Morroc
+/// This is a paid script, it belongs to Ornstein.
+
+rachelnm,1,1,3	script	#ConfEnchant	-1,{
+    OnInit:
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    // Array of possible enchants.                                                            //
+    // To manipulate the odds, add more "less valuable" enchants to the npc.                 //
+    // In this example, players have 8/10 chances of getting VIT, while the INT one is 3/10 //
+    /////////////////////////////////////////////////////////////////////////////////////////
+
+    setarray $RTMEnchant[0],7366,7367,7368,7369,7370,7371,7372,7373,7374,7375,7376,7377,7378,7379,7380,7381,7382,7383,7384,7385;
+
+    
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Base Success Rate of the enchant.                                               //
+    // Default: 10%                                                                   //
+    // If the random number gets > BELOW OR EQUAL < the value, it will be a success. //
+    // Note: It's best if the value stays between 0~100 range.                      //
+    /////////////////////////////////////////////////////////////////////////////////
+
+    set $RTMESuccess,10;
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // Multiplier based on Refine                                                    //
+    // Default: 10%                                                                 //
+    // The success rate is boosted by the refine of the item this number indicates //
+    // how much it will be boosted.                                               //
+    ///////////////////////////////////////////////////////////////////////////////
+
+    set $RTMBoost,10;
+
+    //////////////////////////////////////////////////
+    // Array of Enchantable items.                 //
+    // Add the items that can be enchanted here.  //
+    ///////////////////////////////////////////////
+
+    setarray $RTMEnEq[0],5930,5931,5932,5925,5926,5927,5928,5929,15154,22077,20783,22079,2383,2410,2541,2636,5484,1161,1418,1419,1530,1533,1592,2181,2182,2383,2410,2541,2636,5484,7898,13020,1169,1138,1224,13102,13103,13104,13108,13109,13110,13111,2629,2630,2631,2632,2633,3634,5483,2619,2621,2622,2664,2672,2671,31855,31874;
+
+    /////////////////////////////////
+    // Insert ID of the currency. //
+    ///////////////////////////////
+
+    set $RTMECurrency,7364;
+    
+    ///////////////////////////////
+    // Insert Quantity needed.  //
+    // Default: 100            //
+    ////////////////////////////
+
+    set $RTMEQuantE,100;
+
+    ///////////////////////////////////////////////////
+    //Insert Quantity needed to remove the enchant. //
+    // Default: 500                                //
+    ////////////////////////////////////////////////
+
+    set $RTMEQuantR,500;
+
+
+    ///////////////////////////////////////////////////
+    //Effects if enchant is successful/Fails/Remove //
+    // Default: 154 || 155 || 101                  //
+    ////////////////////////////////////////////////
+
+    set $RTMERSuc,154; // Success
+    set $RTMERFai,155; // Failure
+    set $RTMRemov,101; // Remove
+
+    //////////////////////////////////////////////////
+    // OPTIONAL FEATURES                           //
+    ////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Pity System?                                                                                                                                                                  //
+    // Enabled: 1  || Disabled: 0                                                                                                                                                   //
+    // Default: Disabled (0).                                                                                                                                                      //
+    // If its on: Players are 100% guaranteed to enchant the item if they fail the enchant X times in a row.                                                                      //
+    // To prevent exploits, this need to be in consecutive rolls, meaning they need to spend 1500 (If its on default) coins without leaving the npc to trigger the pity system.  //
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    set $RTMEPity,0;
+
+    ///////////////////////////////////////////////////////////
+    // Number of failures needed to activate pity           //
+    // Default: 3                                          //
+    ////////////////////////////////////////////////////////
+
+    set $RTMEPityN,3;
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////                       
+    // Enchant by Bulk?                                                                             //
+    // Enabled: 1 || Disabled: 0                                                                   //
+    // Default: Disabled (0)                                                                      //
+    // If its on: Players can select to enchant X times based on the amount of coins they have.  //
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    set $RTMEBulk,0;
+
+    /////////////////////////
+    // End of config menu //
+    // DO NOT MODIFY.    //
+    //////////////////////
+
+    disablenpc strnpcinfo(0);
+    end;
+}
+
+-	itemshop	dreamshop	-1,7361,7365:100,15154:50,20783:50,22077:50,22079:50.
+
+va_orpha,259,378,5	script	Dream Box#weaverenc	10249,{
+	mes "You can take items from the box by using Distortion Essence.";
+	close2;
+	callshop "dreamshop",1;
+	end;
+	}
+
+va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
+	cutin "enchanttalk.png",1;
+	if (getequipid(EQI_HEAD_LOW) == 31874){
+	mes "[Weaver]";
+	mes "What a familiar...Scarf...";
+	next;
+	}
+	if (getequipid(EQI_HEAD_LOW) == 31855){
+	mes "[Weaver]";
+	mes "What a familiar...Scarf...";
+	next;
+	}
+    mes "^6666CCThe Weaver reaches out with both hands. One hand asks for an item. Another wants to touch your equipment.^000000";
+	next;
+	mes "[Weaver]";
+    mes "<ITEM>Dreams <INFO>7364</INFO></ITEM> can paint a new path.";
+	mes "<ITEM>Distortions <INFO>7360</INFO></ITEM> can clean an undesirable path.";
+	next;
+    set .@Menu$,"Enchant Equipment (100 Dream Shards):Remove Enchant (500 Distortion Shards)";
+    if ($RTMEBulk == 1){
+        set .@Menu$,.@Menu$+"::Enchant by Bulk";
+    }
+    set .@SelectM,(select(.@Menu$));
+    if (.@SelectM == 1){
+        clear;
+        goto L_Select;
+        end;
+    }
+    if (.@SelectM == 2){
+        clear;
+        set .@Remove,1;
+        goto L_Select;
+        end;
+    }
+
+    if (.@SelectM == 4){
+        set .@Bulking,1;
+        goto L_Bulk;
+        end;
+    }
+    if (.@SelectM == 0){
+        end;
+    }
+    end;
+
+    L_Select:
+	cutin "enchanttry1.png",1;
+	mes "[Weaver]";
+    mes "What equipment you're wearing that you want to work with?";
+	next;
+    switch(select("Headgear:Armor:Weapon:Shoes:Garment:Accessory")){
+        case 1:
+        switch(select("Upper:Middle:Lower")){
+            case 1:
+            set .@Eq,6;
+            goto L_Validate;
+            end;
+
+            case 2:
+            set .@Eq,5;
+            goto L_Validate;
+            end;
+
+            case 3:
+            set .@Eq,4;
+            goto L_Validate;
+            end;
+        }
+
+        case 2:
+        set .@Eq,7;
+        goto L_Validate;
+        end;
+
+        case 3:
+        switch(select("Right Hand:Left Hand")){
+            case 1:
+            set .@Eq,9;
+            goto L_Validate;
+            end;
+
+            case 2:
+            set .@Eq,8;
+            goto L_Validate;
+            end;
+        }
+
+        case 4:
+        set .@Eq,2;
+        goto L_Validate;
+        end;
+
+        case 5:
+        set .@Eq,3;
+        goto L_Validate;
+        end;
+
+        case 6:
+        switch(select("Left Accessory:Right Accessory")){
+            case 1:
+            set .@Eq,0;
+            goto L_Validate;
+            end;
+
+            case 2:
+            set .@Eq,1;
+            goto L_Validate;
+            end;
+        }
+    }
+    end;
+
+    L_Validate:
+    set .@ArrayMax,((getarraysize($RTMEnEq[0])));
+    freeloop(1);
+    for (set .@i,0; .@i < .@ArrayMax; set .@i,.@i+1){
+        if ((getequipid(.@Eq)) == $RTMEnEq[.@i]){
+            if (.@Remove == 1){
+                goto L_Remove;
+            }
+            goto L_Enchant;
+            end;
+        }
+    }
+    freeloop(0);
+    clear;
+    mes "[Weaver]";
+    mes "Im sorry, this cannot be enchanted.";
+    close2;
+	cutin "",255;
+    end;
+
+
+    L_Enchant:
+    if (countitem($RTMECurrency) < $RTMEQuantE){
+        clear;
+        mes "[Weaver]";
+        mes "You dont have enough currency.";
+        close2;
+		cutin "",255;
+        end;
+    }
+    set .@ItemCard2,getequipcardid(.@Eq,2);
+    if (.@Itemcard2 != 0){
+        clear;
+        mes "[Weaver]";
+        mes "This item is already enchanted, try removing the enchant first.";
+        close2;
+		cutin "",255;
+        end;
+    }
+    delitem $RTMECurrency,$RTMEQuantE;
+    set .@Refine,getequiprefinerycnt(.@Eq);
+    set .@Math2,.@Refine*$RTMBoost;
+    set .@Success,$RTMESuccess+.@Math2;
+    set .@RNG,(rand(1,100));
+    if (.@RNG <= .@Success){
+    L_Pity:
+    set .@Item,getequipid(.@Eq);
+    set .@ItemCard0,getequipcardid(.@Eq,0);
+    set .@ItemCard1,getequipcardid(.@Eq,1);
+    set .@ItemCard3,getequipcardid(.@Eq,3);
+    setarray .@RandomOptID0[0],getequiprandomoption(.@Eq,0,ROA_ID);
+    setarray .@RandomOptVAL0[0],getequiprandomoption(.@Eq,0,ROA_VALUE);
+    setarray .@RandomOptPARAM0[0],getequiprandomoption(.@Eq,0,ROA_PARAM);
+
+    setarray .@RandomOptID1[0],getequiprandomoption(.@Eq,1,ROA_ID);
+    setarray .@RandomOptVAL1[0],getequiprandomoption(.@Eq,1,ROA_VALUE);
+    setarray .@RandomOptPARAM1[0],getequiprandomoption(.@Eq,1,ROA_PARAM);
+
+    setarray .@RandomOptID2[0],getequiprandomoption(.@Eq,2,ROA_ID);
+    setarray .@RandomOptVAL2[0],getequiprandomoption(.@Eq,2,ROA_VALUE);
+    setarray .@RandomOptPARAM2[0],getequiprandomoption(.@Eq,2,ROA_PARAM);
+
+    setarray .@RandomOptID3[0],getequiprandomoption(.@Eq,3,ROA_ID);
+    setarray .@RandomOptVAL3[0],getequiprandomoption(.@Eq,3,ROA_VALUE);
+    setarray .@RandomOptPARAM3[0],getequiprandomoption(.@Eq,3,ROA_PARAM);
+
+    setarray .@RandomOptID4[0],getequiprandomoption(.@Eq,4,ROA_ID);
+    setarray .@RandomOptVAL4[0],getequiprandomoption(.@Eq,4,ROA_VALUE);
+    setarray .@RandomOptPARAM4[0],getequiprandomoption(.@Eq,4,ROA_PARAM);
+    set .@ArraySize,(getarraysize($RTMEnchant[0])-1);
+    set .@RandoEnchant,rand(0,.@ArraySize);
+    set .@Enchant,$RTMEnchant[.@RandoEnchant];
+
+    delequip .@Eq;
+    getitem3 .@Item,1,1,.@Refine,0,.@ItemCard0,.@ItemCard1,.@Enchant,.@ItemCard3,.@RandomOptID0[0],.@RandomOptVAL0[0],.@RandomOptPARAM0[0];
+    equip .@Item;
+    if (.@RandomOptID1[0] != 0){
+        setrandomoption .@Eq,1,.@RandomOptID1[0],.@RandomOptVAL1[0],.@RandomOptPARAM1[0];
+    }
+    if (.@RandomOptID2[0] != 0){
+        setrandomoption .@Eq,2,.@RandomOptID2[0],.@RandomOptVAL2[0],.@RandomOptPARAM2[0];
+    }
+    if (.@RandomOptID3[0] != 0){
+        setrandomoption .@Eq,3,.@RandomOptID3[0],.@RandomOptVAL3[0],.@RandomOptPARAM3[0];
+    }
+    if (.@RandomOptID4[0] != 0){
+        setrandomoption .@Eq,4,.@RandomOptID4[0],.@RandomOptVAL4[0],.@RandomOptPARAM4[0];
+    }
+    specialeffect2 $RTMERSuc;
+    clear;
+	cutin "enchantwork.png",1;
+    mes "[Weaver]";
+    mes "The enchant is a success! Congratulations!";
+    close2;
+	cutin "",255;
+    end;
+    }
+
+    specialeffect2 $RTMERFai;
+    clear;
+	cutin "enchantfail.png",1;
+    mes "[Weaver]";
+    mes "Im so sorry, the enchant has failed.";
+	cutin "",255;
+    if ($RTMEPity == 1){
+        set .@Pity,.@Pity+1;
+        set .@Math,($RTMEPityN - .@Pity);
+        mes "";
+        mes "Pity System is activated.";
+        mes "Number of consecutive rolls needed to a 100% enchant is: "+.@Math;
+        mes "^FF0000Please dont exit the NPC or this progress will be reset.^000000";
+        if ($RTMEBulk == 1){
+            if (.@Bulking == 1){
+        set .@Times,.@Times-1;
+        if (.@Times == 0){
+            clear;
+            mes "[Weaver]";
+            mes "The enchant by bulk has ended.";
+            close2;
+			cutin "",255;
+            end;
+        }
+        if (.@Pity == $RTMEPityN){
+            next;
+            mes "[Weaver]";
+            mes "Pity system is active, your next roll will be a guaranteed success.";
+            next;
+            delitem $RTMECurrency,$RTMEQuantE;
+            goto L_Pity;
+        }
+        next;
+        goto L_Enchant;
+        }
+        next;
+        if (.@Pity == $RTMEPityN){
+            mes "[Weaver]";
+            mes "Pity system is active, your next roll will be a guaranteed success.";
+            next;
+            delitem $RTMECurrency,$RTMEQuantE;
+            goto L_Pity;
+        }
+        goto L_Select;
+        }
+    }
+
+    if ($RTMEBulk == 1){
+        if (.@Bulking == 1){
+        set .@Times,.@Times-1;
+        if (.@Times == 0){
+            clear;
+            mes "[Weaver]";
+            mes "The enchant by bulk has ended.";
+            close2;
+			cutin "",255;
+            end;
+        }
+        next; // This is mostly to protect the ears of those who roll.
+        goto L_Enchant;
+    }
+    }
+    next;
+    goto L_Select;
+    end;
+
+
+    L_Remove:
+    set .@Remove,0;
+    if (countitem(7360) < $RTMEQuantR){
+        clear;
+        mes "[Weaver]";
+        mes "You dont have enough currency.";
+        close2;
+		cutin "",255;
+        end;
+    }
+    delitem 7360,$RTMEQuantR;
+    set .@Item,getequipid(.@Eq);
+    set .@Refine,getequiprefinerycnt(.@Eq);
+    set .@ItemCard0,getequipcardid(.@Eq,0);
+    set .@ItemCard1,getequipcardid(.@Eq,1);
+    set .@ItemCard3,getequipcardid(.@Eq,3);
+    setarray .@RandomOptID0[0],getequiprandomoption(.@Eq,0,ROA_ID);
+    setarray .@RandomOptVAL0[0],getequiprandomoption(.@Eq,0,ROA_VALUE);
+    setarray .@RandomOptPARAM0[0],getequiprandomoption(.@Eq,0,ROA_PARAM);
+
+    setarray .@RandomOptID1[0],getequiprandomoption(.@Eq,1,ROA_ID);
+    setarray .@RandomOptVAL1[0],getequiprandomoption(.@Eq,1,ROA_VALUE);
+    setarray .@RandomOptPARAM1[0],getequiprandomoption(.@Eq,1,ROA_PARAM);
+
+    setarray .@RandomOptID2[0],getequiprandomoption(.@Eq,2,ROA_ID);
+    setarray .@RandomOptVAL2[0],getequiprandomoption(.@Eq,2,ROA_VALUE);
+    setarray .@RandomOptPARAM2[0],getequiprandomoption(.@Eq,2,ROA_PARAM);
+
+    setarray .@RandomOptID3[0],getequiprandomoption(.@Eq,3,ROA_ID);
+    setarray .@RandomOptVAL3[0],getequiprandomoption(.@Eq,3,ROA_VALUE);
+    setarray .@RandomOptPARAM3[0],getequiprandomoption(.@Eq,3,ROA_PARAM);
+
+    setarray .@RandomOptID4[0],getequiprandomoption(.@Eq,4,ROA_ID);
+    setarray .@RandomOptVAL4[0],getequiprandomoption(.@Eq,4,ROA_VALUE);
+    setarray .@RandomOptPARAM4[0],getequiprandomoption(.@Eq,4,ROA_PARAM);
+    set .@ArraySize,(getarraysize($RTMEnchant[0])-1);
+    set .@RandoEnchant,rand(0,.@ArraySize);
+    set .@Enchant,$RTMEnchant[.@RandoEnchant];
+    delequip .@Eq;
+    getitem3 .@Item,1,1,.@Refine,0,.@ItemCard0,.@ItemCard1,0,.@ItemCard3,.@RandomOptID0[0],.@RandomOptVAL0[0],.@RandomOptPARAM0[0];
+    equip .@Item;
+    if (.@RandomOptID1[0] != 0){
+        setrandomoption .@Eq,1,.@RandomOptID1[0],.@RandomOptVAL1[0],.@RandomOptPARAM1[0];
+    }
+    if (.@RandomOptID2[0] != 0){
+        setrandomoption .@Eq,2,.@RandomOptID2[0],.@RandomOptVAL2[0],.@RandomOptPARAM2[0];
+    }
+    if (.@RandomOptID3[0] != 0){
+        setrandomoption .@Eq,3,.@RandomOptID3[0],.@RandomOptVAL3[0],.@RandomOptPARAM3[0];
+    }
+    if (.@RandomOptID4[0] != 0){
+        setrandomoption .@Eq,4,.@RandomOptID4[0],.@RandomOptVAL4[0],.@RandomOptPARAM4[0];
+    }
+    clear;
+    specialeffect2 $RTMRemov;
+    mes "[Weaver]";
+    mes "The enchant has been removed";
+    close2;
+	cutin "",255;
+    end;
+
+
+    L_Bulk:
+    clear;
+    mes "[Weaver]";
+    mes "You have "+countitem($RTMECurrency)+" coins.";
+    set .@Times,countitem($RTMECurrency)/$RTMEQuantE;
+    mes "Use all coins to roll "+.@Times+" times?";
+    switch(select("Cancel:Go Ahead")){
+        case 1:
+        close2;
+        end;
+
+        case 2:
+        clear;
+        goto L_Select;
+        end;
+    }
+cutin "",255;
+}
+
+
+
+
+// For support contact Kaivty on discord.
+// Do not resell. Do not buy from resellers, as they cannot provide technical assistance.

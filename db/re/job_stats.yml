@@ -84,226 +84,57 @@ Body:
   - Jobs:
       Novice: true
     BaseASPD:
-      Fist: 40
-      Dagger: 55
-      1hSword: 57
-      1hAxe: 50
-      Mace: 50
-      2hMace: 55
+      Fist: 50
+      Dagger: 51
+      1hSword: 65
+      1hAxe: 65
+      Mace: 65
+      2hMace: 65
       Staff: 65
       2hStaff: 65
-      Shield: 10
+      Shield: 1
     BonusStats:
-      - Level: 2
+      - Level: 1
         Luk: 1
-      - Level: 3
-        Dex: 1
-      - Level: 5
-        Agi: 1
-      - Level: 6
-        Vit: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Int: 1
   - Jobs:
       Swordman: true
-    MaxWeight: 28000
-    HpFactor: 70
-    SpFactor: 200
+    MaxWeight: 27000
+    HpFactor: 110
+    SpFactor: 110
     BaseASPD:
-      Fist: 40
-      Dagger: 47
-      1hSword: 47
-      2hSword: 54
-      1hSpear: 57
-      2hSpear: 65
-      1hAxe: 55
-      2hAxe: 60
-      Mace: 50
-      2hMace: 55
-      Shield: 5
-    BonusStats:
-      - Level: 2
-        Str: 1
-      - Level: 6
-        Vit: 1
-      - Level: 10
-        Dex: 1
-      - Level: 14
-        Str: 1
-      - Level: 18
-        Vit: 1
-      - Level: 22
-        Dex: 1
-      - Level: 26
-        Luk: 1
-      - Level: 30
-        Agi: 1
-      - Level: 33
-        Str: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Vit: 1
-      - Level: 40
-        Str: 1
-      - Level: 42
-        Vit: 1
-      - Level: 44
-        Luk: 1
-      - Level: 46
-        Agi: 1
-      - Level: 47
-        Str: 1
-      - Level: 49
-        Str: 1
-      - Level: 50
-        Str: 1
+      Fist: 45
+      2hSpear: 60
+      1hSpear: 85
+      1hSword: 95
+      Shield: 0
   - Jobs:
       Mage: true
-    MaxWeight: 22000
-    HpFactor: 30
+    MaxWeight: 21000
+    HpFactor: 90
     SpFactor: 600
     BaseASPD:
       Fist: 50
-      Dagger: 50
-      Staff: 55
-      2hStaff: 55
-      Shield: 10
-    BonusStats:
-      - Level: 2
-        Int: 1
-      - Level: 6
-        Dex: 1
-      - Level: 10
-        Dex: 1
-      - Level: 14
-        Int: 1
-      - Level: 18
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 26
-        Agi: 1
-      - Level: 30
-        Luk: 1
-      - Level: 33
-        Int: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Agi: 1
-      - Level: 42
-        Luk: 1
-      - Level: 44
-        Int: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Int: 1
+      Knuckle: 50
+      Dagger: 90
+      Shield: 1
   - Jobs:
       Archer: true
     MaxWeight: 26000
     HpFactor: 50
     SpFactor: 200
     BaseASPD:
-      Fist: 40
-      Dagger: 55
-      Bow: 50
-      Shield: 9
-    BonusStats:
-      - Level: 2
-        Dex: 1
-      - Level: 6
-        Str: 1
-      - Level: 10
-        Int: 1
-      - Level: 14
-        Dex: 1
-      - Level: 18
-        Dex: 1
-      - Level: 22
-        Luk: 1
-      - Level: 26
-        Agi: 1
-      - Level: 30
-        Dex: 1
-      - Level: 33
-        Agi: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Str: 1
-      - Level: 40
-        Str: 1
-      - Level: 42
-        Dex: 1
-      - Level: 44
-        Luk: 1
-      - Level: 46
-        Vit: 1
-      - Level: 47
-        Int: 1
-      - Level: 49
-        Agi: 1
-      - Level: 50
-        Dex: 1
+      Fist: 53
+      Book: 53
   - Jobs:
       Acolyte: true
-    MaxWeight: 24000
-    HpFactor: 40
-    SpFactor: 500
+      Baby_Acolyte: true
+    MaxWeight: 27000
+    HpFactor: 110
+    SpFactor: 110
     BaseASPD:
-      Fist: 40
-      Mace: 45
-      2hMace: 50
-      Staff: 60
-      2hStaff: 60
-      Shield: 7
-    BonusStats:
-      - Level: 2
-        Luk: 1
-      - Level: 6
-        Vit: 1
-      - Level: 10
-        Int: 1
-      - Level: 14
-        Dex: 1
-      - Level: 18
-        Luk: 1
-      - Level: 22
-        Agi: 1
-      - Level: 26
-        Str: 1
-      - Level: 30
-        Vit: 1
-      - Level: 33
-        Int: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Luk: 1
-      - Level: 40
-        Agi: 1
-      - Level: 42
-        Str: 1
-      - Level: 44
-        Vit: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Dex: 1
-      - Level: 49
-        Str: 1
-      - Level: 50
-        Luk: 1
+      Fist: 50
+      1hSword: 60
+      Shield: 0
   - Jobs:
       Merchant: true
     MaxWeight: 28000
@@ -318,246 +149,49 @@ Body:
       Mace: 50
       2hMace: 55
       Shield: 5
-    BonusStats:
-      - Level: 2
-        Vit: 1
-      - Level: 6
-        Dex: 1
-      - Level: 10
-        Str: 1
-      - Level: 14
-        Dex: 1
-      - Level: 18
-        Vit: 1
-      - Level: 22
-        Str: 1
-      - Level: 26
-        Int: 1
-      - Level: 30
-        Vit: 1
-      - Level: 33
-        Agi: 1
-      - Level: 36
-        Luk: 1
-      - Level: 38
-        Dex: 1
-      - Level: 40
-        Str: 1
-      - Level: 42
-        Dex: 1
-      - Level: 44
-        Str: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Vit: 1
-      - Level: 49
-        Str: 1
-      - Level: 50
-        Dex: 1
   - Jobs:
       Thief: true
     MaxWeight: 24000
-    HpFactor: 50
-    SpFactor: 200
+    HpFactor: 110
+    SpFactor: 110
     BaseASPD:
-      Fist: 40
-      Dagger: 48
-      1hSword: 50
-      1hAxe: 60
-      Bow: 53
-      Shield: 6
-    BonusStats:
-      - Level: 2
-        Agi: 1
-      - Level: 6
-        Str: 1
-      - Level: 10
-        Dex: 1
-      - Level: 14
-        Vit: 1
-      - Level: 18
-        Int: 1
-      - Level: 22
-        Dex: 1
-      - Level: 26
-        Luk: 1
-      - Level: 30
-        Str: 1
-      - Level: 33
-        Agi: 1
-      - Level: 36
-        Agi: 1
-      - Level: 38
-        Str: 1
-      - Level: 40
-        Luk: 1
-      - Level: 42
-        Dex: 1
-      - Level: 44
-        Vit: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Str: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Agi: 1
+      Fist: 50
+      Dagger: 55
+      1hSword: 63
+      Bow: 68
+      Shield: 1
   - Jobs:
       Knight: true
       Knight2: true
-    MaxWeight: 28000
-    HpFactor: 150
-    SpFactor: 300
+    MaxWeight: 24000
+    HpFactor: 110
+    SpFactor: 400
     BaseASPD:
       Fist: 40
-      Dagger: 49
-      1hSword: 45
-      2hSword: 52
-      1hSpear: 55
-      2hSpear: 60
-      1hAxe: 50
-      2hAxe: 55
-      Mace: 45
-      2hMace: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Vit: 1
-      - Level: 3
-        Vit: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Luk: 1
-      - Level: 8
-        Vit: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Vit: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Str: 1
-      - Level: 17
-        Vit: 1
-      - Level: 18
-        Vit: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Luk: 1
-      - Level: 21
-        Str: 1
-      - Level: 23
-        Vit: 1
-      - Level: 27
-        Str: 1
-      - Level: 28
-        Luk: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Dex: 1
-      - Level: 33
-        Str: 1
-      - Level: 36
-        Vit: 1
-      - Level: 37
-        Luk: 1
-      - Level: 38
-        Agi: 1
-      - Level: 40
-        Dex: 1
-      - Level: 43
-        Vit: 1
-      - Level: 46
-        Str: 1
-      - Level: 47
-        Str: 1
-      - Level: 48
-        Dex: 1
-      - Level: 49
-        Dex: 1
+      2hSpear: 55
+      1hSpear: 80
+      1hSword: 93
+      Dagger: 93
+      Katar: 93
+      Shield: 0
   - Jobs:
       Priest: true
-    MaxWeight: 26000
-    HpFactor: 75
-    SpFactor: 800
+    MaxWeight: 20000
+    HpFactor: 110
+    SpFactor: 400
     BaseASPD:
       Fist: 40
+      Dagger: 30
+      1hSword: 30
+      1hAxe: 90
+      Katar: 90
       Mace: 43
       2hMace: 48
       Staff: 60
       Knuckle: 60
       Book: 44
       2hStaff: 60
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 3
-        Luk: 1
-      - Level: 4
-        Str: 1
-      - Level: 6
-        Agi: 1
-      - Level: 7
-        Vit: 1
-      - Level: 8
-        Int: 1
-      - Level: 9
-        Int: 1
-      - Level: 10
-        Luk: 1
-      - Level: 11
-        Str: 1
-      - Level: 14
-        Vit: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Luk: 1
-      - Level: 22
-        Int: 1
-      - Level: 25
-        Dex: 1
-      - Level: 27
-        Str: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Luk: 1
-      - Level: 32
-        Dex: 1
-      - Level: 34
-        Vit: 1
-      - Level: 35
-        Str: 1
-      - Level: 36
-        Vit: 1
-      - Level: 37
-        Agi: 1
-      - Level: 39
-        Luk: 1
-      - Level: 42
-        Int: 1
-      - Level: 43
-        Int: 1
-      - Level: 45
-        Vit: 1
-      - Level: 48
-        Agi: 1
-      - Level: 50
-        Luk: 1
+      Shield: 1
   - Jobs:
       Wizard: true
     MaxWeight: 24000
@@ -568,68 +202,7 @@ Body:
       Dagger: 54
       Staff: 53
       2hStaff: 53
-      Shield: 8
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Int: 1
-      - Level: 5
-        Dex: 1
-      - Level: 6
-        Agi: 1
-      - Level: 9
-        Int: 1
-      - Level: 10
-        Agi: 1
-      - Level: 12
-        Str: 1
-      - Level: 13
-        Dex: 1
-      - Level: 15
-        Luk: 1
-      - Level: 18
-        Int: 1
-      - Level: 22
-        Int: 1
-      - Level: 24
-        Agi: 1
-      - Level: 26
-        Dex: 1
-      - Level: 29
-        Int: 1
-      - Level: 31
-        Int: 1
-      - Level: 32
-        Dex: 1
-      - Level: 33
-        Int: 1
-      - Level: 34
-        Agi: 1
-      - Level: 36
-        Luk: 1
-      - Level: 38
-        Vit: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Agi: 1
-      - Level: 43
-        Agi: 1
-      - Level: 45
-        Int: 1
-      - Level: 46
-        Agi: 1
-      - Level: 47
-        Agi: 1
-      - Level: 48
-        Int: 1
-      - Level: 50
-        Int: 1
+      Shield: 1
   - Jobs:
       Blacksmith: true
     MaxWeight: 30000
@@ -643,68 +216,7 @@ Body:
       2hAxe: 53
       Mace: 48
       2hMace: 53
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 3
-        Str: 1
-      - Level: 4
-        Dex: 1
-      - Level: 5
-        Dex: 1
-      - Level: 7
-        Vit: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Dex: 1
-      - Level: 11
-        Luk: 1
-      - Level: 12
-        Dex: 1
-      - Level: 13
-        Vit: 1
-      - Level: 16
-        Str: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Int: 1
-      - Level: 23
-        Str: 1
-      - Level: 26
-        Dex: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Vit: 1
-      - Level: 34
-        Int: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Vit: 1
-      - Level: 38
-        Agi: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Dex: 1
-      - Level: 44
-        Str: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Dex: 1
-      - Level: 49
-        Vit: 1
+      Shield: 1
   - Jobs:
       Hunter: true
     MaxWeight: 27000
@@ -714,68 +226,7 @@ Body:
       Fist: 40
       Dagger: 53
       Bow: 48
-      Shield: 9
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Dex: 1
-      - Level: 5
-        Luk: 1
-      - Level: 6
-        Str: 1
-      - Level: 8
-        Dex: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Agi: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Luk: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Agi: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Dex: 1
-      - Level: 23
-        Vit: 1
-      - Level: 27
-        Dex: 1
-      - Level: 29
-        Luk: 1
-      - Level: 31
-        Agi: 1
-      - Level: 33
-        Dex: 1
-      - Level: 34
-        Int: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Agi: 1
-      - Level: 41
-        Int: 1
-      - Level: 42
-        Luk: 1
-      - Level: 43
-        Dex: 1
-      - Level: 44
-        Str: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 49
-        Dex: 1
+      Shield: 1
   - Jobs:
       Assassin: true
     MaxWeight: 24000
@@ -783,228 +234,33 @@ Body:
     SpFactor: 400
     BaseASPD:
       Fist: 40
-      Dagger: 42
-      1hSword: 50
-      1hAxe: 51
-      Katar: 42
+      Dagger: 60
+      1hSword: 60
+      1hAxe: 63
+      Katar: 55
       Huuma: 110
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Agi: 1
-      - Level: 3
-        Agi: 1
-      - Level: 4
-        Int: 1
-      - Level: 6
-        Vit: 1
-      - Level: 8
-        Vit: 1
-      - Level: 9
-        Dex: 1
-      - Level: 11
-        Str: 1
-      - Level: 14
-        Int: 1
-      - Level: 15
-        Agi: 1
-      - Level: 16
-        Agi: 1
-      - Level: 17
-        Agi: 1
-      - Level: 18
-        Agi: 1
-      - Level: 19
-        Agi: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 24
-        Dex: 1
-      - Level: 25
-        Str: 1
-      - Level: 27
-        Str: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Dex: 1
-      - Level: 32
-        Str: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Dex: 1
-      - Level: 42
-        Int: 1
-      - Level: 45
-        Str: 1
-      - Level: 46
-        Dex: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Dex: 1
+      Shield: 1
   - Jobs:
       Crusader: true
       Crusader2: true
     MaxWeight: 28000
-    HpFactor: 110
+    HpFactor: 80
     HpMultiplicator: 700
-    SpFactor: 470
+    SpFactor: 400
     BaseASPD:
       Fist: 40
-      Dagger: 48
-      1hSword: 43
-      2hSword: 55
-      1hSpear: 53
-      2hSpear: 52
-      1hAxe: 50
-      2hAxe: 55
-      Mace: 45
-      2hMace: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 2
-        Luk: 1
-      - Level: 3
-        Luk: 1
-      - Level: 4
-        Luk: 1
-      - Level: 5
-        Luk: 1
-      - Level: 7
-        Str: 1
-      - Level: 9
-        Int: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Vit: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Vit: 1
-      - Level: 17
-        Str: 1
-      - Level: 20
-        Int: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Str: 1
-      - Level: 25
-        Str: 1
-      - Level: 28
-        Dex: 1
-      - Level: 30
-        Agi: 1
-      - Level: 32
-        Str: 1
-      - Level: 34
-        Dex: 1
-      - Level: 35
-        Int: 1
-      - Level: 36
-        Agi: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Vit: 1
-      - Level: 41
-        Vit: 1
-      - Level: 44
-        Int: 1
-      - Level: 46
-        Vit: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Vit: 1
+      Dagger: 50
+      1hSword: 55
+      Bow: 60
+      Shield: 1
   - Jobs:
       Monk: true
-    MaxWeight: 26000
-    HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 470
+    MaxWeight: 24000
+    HpFactor: 85
+    SpFactor: 500
     BaseASPD:
       Fist: 40
-      Mace: 43
-      2hMace: 48
-      Staff: 60
-      Knuckle: 40
-      2hStaff: 58
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Str: 1
-      - Level: 4
-        Dex: 1
-      - Level: 5
-        Agi: 1
-      - Level: 7
-        Vit: 1
-      - Level: 10
-        Agi: 1
-      - Level: 12
-        Str: 1
-      - Level: 13
-        Str: 1
-      - Level: 15
-        Luk: 1
-      - Level: 16
-        Int: 1
-      - Level: 18
-        Agi: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Dex: 1
-      - Level: 23
-        Agi: 1
-      - Level: 25
-        Vit: 1
-      - Level: 26
-        Str: 1
-      - Level: 27
-        Str: 1
-      - Level: 30
-        Dex: 1
-      - Level: 32
-        Luk: 1
-      - Level: 33
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Luk: 1
-      - Level: 41
-        Vit: 1
-      - Level: 43
-        Dex: 1
-      - Level: 44
-        Agi: 1
-      - Level: 46
-        Vit: 1
-      - Level: 49
-        Str: 1
-      - Level: 50
-        Str: 1
+      Dagger: 55
   - Jobs:
       Sage: true
     MaxWeight: 24000
@@ -1017,68 +273,7 @@ Body:
       Staff: 55
       Book: 43
       2hStaff: 55
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 3
-        Agi: 1
-      - Level: 4
-        Vit: 1
-      - Level: 6
-        Agi: 1
-      - Level: 8
-        Int: 1
-      - Level: 11
-        Vit: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Int: 1
-      - Level: 17
-        Luk: 1
-      - Level: 18
-        Vit: 1
-      - Level: 20
-        Dex: 1
-      - Level: 22
-        Agi: 1
-      - Level: 24
-        Int: 1
-      - Level: 25
-        Dex: 1
-      - Level: 27
-        Dex: 1
-      - Level: 30
-        Int: 1
-      - Level: 32
-        Dex: 1
-      - Level: 33
-        Agi: 1
-      - Level: 35
-        Luk: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Luk: 1
-      - Level: 42
-        Str: 1
-      - Level: 44
-        Str: 1
-      - Level: 45
-        Int: 1
-      - Level: 46
-        Str: 1
-      - Level: 47
-        Str: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Int: 1
+      Shield: 1
   - Jobs:
       Rogue: true
     MaxWeight: 24000
@@ -1086,71 +281,10 @@ Body:
     SpFactor: 500
     BaseASPD:
       Fist: 40
-      Dagger: 45
-      1hSword: 50
-      Bow: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Vit: 1
-      - Level: 3
-        Dex: 1
-      - Level: 5
-        Str: 1
-      - Level: 6
-        Vit: 1
-      - Level: 7
-        Agi: 1
-      - Level: 9
-        Vit: 1
-      - Level: 11
-        Dex: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Agi: 1
-      - Level: 18
-        Dex: 1
-      - Level: 20
-        Dex: 1
-      - Level: 23
-        Agi: 1
-      - Level: 25
-        Str: 1
-      - Level: 26
-        Vit: 1
-      - Level: 27
-        Str: 1
-      - Level: 29
-        Agi: 1
-      - Level: 30
-        Str: 1
-      - Level: 33
-        Dex: 1
-      - Level: 34
-        Dex: 1
-      - Level: 36
-        Str: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Agi: 1
-      - Level: 42
-        Str: 1
-      - Level: 43
-        Int: 1
-      - Level: 45
-        Agi: 1
-      - Level: 47
-        Int: 1
-      - Level: 48
-        Int: 1
-      - Level: 50
-        Dex: 1
+      Dagger: 56
+      1hSword: 57
+      Bow: 58
+      Shield: 3
   - Jobs:
       Alchemist: true
     MaxWeight: 30000
@@ -1165,67 +299,6 @@ Body:
       Mace: 45
       2hMace: 50
       Shield: 4
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Dex: 1
-      - Level: 3
-        Dex: 1
-      - Level: 6
-        Str: 1
-      - Level: 8
-        Dex: 1
-      - Level: 9
-        Int: 1
-      - Level: 11
-        Agi: 1
-      - Level: 13
-        Dex: 1
-      - Level: 14
-        Agi: 1
-      - Level: 15
-        Str: 1
-      - Level: 17
-        Int: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Dex: 1
-      - Level: 23
-        Int: 1
-      - Level: 24
-        Int: 1
-      - Level: 25
-        Dex: 1
-      - Level: 26
-        Str: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Int: 1
-      - Level: 31
-        Vit: 1
-      - Level: 32
-        Dex: 1
-      - Level: 34
-        Str: 1
-      - Level: 36
-        Vit: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Agi: 1
-      - Level: 43
-        Str: 1
-      - Level: 45
-        Agi: 1
-      - Level: 49
-        Agi: 1
-      - Level: 50
-        Agi: 1
   - Jobs:
       Bard: true
     MaxWeight: 27000
@@ -1237,68 +310,7 @@ Body:
       Dagger: 53
       Bow: 48
       Musical: 45
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Agi: 1
-      - Level: 3
-        Str: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Luk: 1
-      - Level: 7
-        Dex: 1
-      - Level: 9
-        Luk: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Agi: 1
-      - Level: 13
-        Int: 1
-      - Level: 15
-        Dex: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Luk: 1
-      - Level: 21
-        Int: 1
-      - Level: 24
-        Agi: 1
-      - Level: 28
-        Str: 1
-      - Level: 30
-        Agi: 1
-      - Level: 32
-        Dex: 1
-      - Level: 33
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 38
-        Dex: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Luk: 1
-      - Level: 43
-        Vit: 1
-      - Level: 46
-        Dex: 1
-      - Level: 47
-        Int: 1
-      - Level: 48
-        Agi: 1
-      - Level: 50
-        Dex: 1
+      Shield: 1
   - Jobs:
       Dancer: true
     MaxWeight: 27000
@@ -1310,265 +322,29 @@ Body:
       Dagger: 53
       Bow: 48
       Whip: 45
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 2
-        Agi: 1
-      - Level: 3
-        Str: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Luk: 1
-      - Level: 9
-        Dex: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Agi: 1
-      - Level: 13
-        Int: 1
-      - Level: 15
-        Luk: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Luk: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Int: 1
-      - Level: 24
-        Agi: 1
-      - Level: 28
-        Str: 1
-      - Level: 30
-        Agi: 1
-      - Level: 32
-        Luk: 1
-      - Level: 33
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 38
-        Luk: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Dex: 1
-      - Level: 43
-        Vit: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Int: 1
-      - Level: 48
-        Agi: 1
-      - Level: 50
-        Luk: 1
+      Shield: 1
   - Jobs:
       Super_Novice: true
     BaseASPD:
       Fist: 40
-      Dagger: 55
-      1hSword: 57
-      1hAxe: 50
-      Mace: 50
-      2hMace: 55
-      Staff: 65
-      2hStaff: 65
-      Shield: 10
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 3
-        Agi: 1
-      - Level: 5
-        Vit: 1
-      - Level: 7
-        Int: 1
-      - Level: 9
-        Dex: 1
-      - Level: 11
-        Luk: 1
-      - Level: 13
-        Str: 1
-      - Level: 15
-        Agi: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Int: 1
-      - Level: 21
-        Dex: 1
-      - Level: 23
-        Luk: 1
-      - Level: 25
-        Str: 1
-      - Level: 27
-        Agi: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Int: 1
-      - Level: 33
-        Dex: 1
-      - Level: 35
-        Luk: 1
-      - Level: 37
-        Str: 1
-      - Level: 39
-        Agi: 1
-      - Level: 41
-        Vit: 1
-      - Level: 43
-        Int: 1
-      - Level: 45
-        Dex: 1
-      - Level: 47
-        Luk: 1
-      - Level: 49
-        Str: 1
-      - Level: 52
-        Agi: 1
-      - Level: 56
-        Vit: 1
-      - Level: 60
-        Int: 1
-      - Level: 64
-        Dex: 1
-      - Level: 68
-        Luk: 1
+      Revolver: 65
   - Jobs:
       Gunslinger: true
     MaxWeight: 28000
-    HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 469
-    BaseASPD:
-      Fist: 54
-      Revolver: 49
-      Rifle: 59
-      Gatling: 54
-      Shotgun: 94
-      Grenade: 104
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Luk: 1
-      - Level: 4
-        Luk: 1
-      - Level: 6
-        Dex: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Luk: 1
-      - Level: 17
-        Dex: 1
-      - Level: 21
-        Luk: 1
-      - Level: 25
-        Dex: 1
-      - Level: 31
-        Luk: 1
-      - Level: 32
-        Str: 1
-      - Level: 35
-        Dex: 1
-      - Level: 41
-        Str: 1
-      - Level: 45
-        Dex: 1
-      - Level: 50
-        Str: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Int: 1
-      - Level: 55
-        Dex: 1
-      - Level: 59
-        Agi: 1
-      - Level: 60
-        Vit: 1
-      - Level: 61
-        Int: 1
-      - Level: 62
-        Dex: 1
-      - Level: 63
-        Luk: 1
-      - Level: 64
-        Str: 1
-  - Jobs:
-      Ninja: true
-    MaxWeight: 26000
-    HpFactor: 75
-    SpFactor: 540
+    HpFactor: 100
+    SpFactor: 100
     BaseASPD:
       Fist: 40
-      Dagger: 43
-      Huuma: 55
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Agi: 1
-      - Level: 10
-        Dex: 1
-      - Level: 11
-        Agi: 1
-      - Level: 20
-        Int: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Dex: 1
-      - Level: 29
-        Int: 1
-      - Level: 30
-        Luk: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Dex: 1
-      - Level: 40
-        Luk: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Int: 1
-      - Level: 43
-        Dex: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Agi: 1
-      - Level: 52
-        Luk: 1
-      - Level: 53
-        Dex: 1
-      - Level: 59
-        Str: 1
-      - Level: 60
-        Vit: 1
-      - Level: 61
-        Agi: 1
-      - Level: 62
-        Int: 1
-      - Level: 63
-        Dex: 1
-      - Level: 64
-        Luk: 1
+      Mace: 60
+  - Jobs:
+      Ninja: true
+    MaxWeight: 15000
+    HpFactor: 100
+    SpFactor: 100
+    BaseASPD:
+      Fist: 48
+      Dagger: 55
+      Shield: 3
   - Jobs:
       Novice_High: true
     BaseASPD:
@@ -1580,20 +356,7 @@ Body:
       2hMace: 55
       Staff: 65
       2hStaff: 65
-      Shield: 10
-    BonusStats:
-      - Level: 2
-        Luk: 1
-      - Level: 3
-        Dex: 1
-      - Level: 5
-        Agi: 1
-      - Level: 6
-        Vit: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Int: 1
+      Shield: 1
   - Jobs:
       Swordman_High: true
     MaxWeight: 28000
@@ -1610,7 +373,7 @@ Body:
       2hAxe: 60
       Mace: 50
       2hMace: 55
-      Shield: 5
+      Shield: 1
     BonusStats:
       - Level: 2
         Str: 1
@@ -1658,7 +421,7 @@ Body:
       Dagger: 50
       Staff: 55
       2hStaff: 55
-      Shield: 10
+      Shield: 1
     BonusStats:
       - Level: 2
         Int: 1
@@ -1705,7 +468,7 @@ Body:
       Fist: 40
       Dagger: 55
       Bow: 50
-      Shield: 9
+      Shield: 1
     BonusStats:
       - Level: 2
         Dex: 1
@@ -1754,7 +517,7 @@ Body:
       2hMace: 50
       Staff: 60
       2hStaff: 60
-      Shield: 7
+      Shield: 1
     BonusStats:
       - Level: 2
         Luk: 1
@@ -1805,7 +568,7 @@ Body:
       2hAxe: 55
       Mace: 50
       2hMace: 55
-      Shield: 5
+      Shield: 1
     BonusStats:
       - Level: 2
         Vit: 1
@@ -1854,7 +617,7 @@ Body:
       1hSword: 50
       1hAxe: 60
       Bow: 53
-      Shield: 6
+      Shield: 1
     BonusStats:
       - Level: 2
         Agi: 1
@@ -1909,1141 +672,122 @@ Body:
       2hAxe: 55
       Mace: 45
       2hMace: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Agi: 1
-      - Level: 3
-        Luk: 1
-      - Level: 4
-        Dex: 1
-      - Level: 5
-        Vit: 1
-      - Level: 6
-        Str: 1
-      - Level: 7
-        Str: 1
-      - Level: 8
-        Str: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Vit: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Agi: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Agi: 1
-      - Level: 19
-        Str: 1
-      - Level: 22
-        Vit: 1
-      - Level: 25
-        Str: 1
-      - Level: 27
-        Luk: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Dex: 1
-      - Level: 33
-        Str: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Agi: 1
-      - Level: 38
-        Luk: 1
-      - Level: 40
-        Vit: 1
-      - Level: 41
-        Str: 1
-      - Level: 43
-        Vit: 1
-      - Level: 44
-        Dex: 1
-      - Level: 46
-        Str: 1
-      - Level: 47
-        Str: 1
-      - Level: 49
-        Dex: 1
-      - Level: 52
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 56
-        Str: 1
-      - Level: 57
-        Str: 1
-      - Level: 58
-        Vit: 1
-      - Level: 60
-        Agi: 1
-      - Level: 62
-        Dex: 1
-      - Level: 64
-        Str: 1
-      - Level: 65
-        Agi: 1
-      - Level: 67
-        Int: 1
-      - Level: 68
-        Vit: 1
-      - Level: 70
-        Str: 1
+      Shield: 1
   - Jobs:
       High_Priest: true
-    MaxWeight: 26000
-    HpFactor: 75
-    SpFactor: 800
+    MaxWeight: 20000
+    HpFactor: 110
+    SpFactor: 400
     BaseASPD:
       Fist: 40
-      Mace: 43
-      2hMace: 48
-      Staff: 60
-      Knuckle: 60
-      Book: 44
-      2hStaff: 60
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 3
-        Agi: 1
-      - Level: 4
-        Vit: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 11
-        Int: 1
-      - Level: 12
-        Str: 1
-      - Level: 13
-        Dex: 1
-      - Level: 16
-        Dex: 1
-      - Level: 19
-        Agi: 1
-      - Level: 20
-        Int: 1
-      - Level: 21
-        Str: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Int: 1
-      - Level: 24
-        Int: 1
-      - Level: 26
-        Dex: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 30
-        Vit: 1
-      - Level: 31
-        Str: 1
-      - Level: 34
-        Int: 1
-      - Level: 37
-        Dex: 1
-      - Level: 38
-        Str: 1
-      - Level: 40
-        Luk: 1
-      - Level: 42
-        Agi: 1
-      - Level: 43
-        Dex: 1
-      - Level: 45
-        Str: 1
-      - Level: 46
-        Dex: 1
-      - Level: 47
-        Int: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Vit: 1
-      - Level: 51
-        Vit: 1
-      - Level: 55
-        Agi: 1
-      - Level: 56
-        Dex: 1
-      - Level: 57
-        Int: 1
-      - Level: 58
-        Vit: 1
-      - Level: 60
-        Str: 1
-      - Level: 61
-        Int: 1
-      - Level: 62
-        Dex: 1
-      - Level: 65
-        Agi: 1
-      - Level: 66
-        Int: 1
-      - Level: 67
-        Vit: 1
-      - Level: 68
-        Agi: 1
-      - Level: 70
-        Int: 1
+      Dagger: 58
+      1hSword: 58
+      Katar: 49
+      Shield: 1
   - Jobs:
       High_Wizard: true
     MaxWeight: 24000
     HpFactor: 55
     SpFactor: 900
     BaseASPD:
-      Fist: 50
-      Dagger: 54
-      Staff: 53
-      2hStaff: 53
-      Shield: 8
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Dex: 1
-      - Level: 3
-        Vit: 1
-      - Level: 5
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 9
-        Dex: 1
-      - Level: 10
-        Int: 1
-      - Level: 12
-        Luk: 1
-      - Level: 14
-        Int: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Agi: 1
-      - Level: 19
-        Int: 1
-      - Level: 20
-        Str: 1
-      - Level: 22
-        Dex: 1
-      - Level: 23
-        Dex: 1
-      - Level: 24
-        Int: 1
-      - Level: 26
-        Agi: 1
-      - Level: 28
-        Int: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Dex: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Agi: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Int: 1
-      - Level: 40
-        Str: 1
-      - Level: 41
-        Luk: 1
-      - Level: 43
-        Dex: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Vit: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Agi: 1
-      - Level: 53
-        Vit: 1
-      - Level: 55
-        Int: 1
-      - Level: 56
-        Agi: 1
-      - Level: 57
-        Luk: 1
-      - Level: 59
-        Int: 1
-      - Level: 60
-        Str: 1
-      - Level: 61
-        Dex: 1
-      - Level: 62
-        Int: 1
-      - Level: 65
-        Agi: 1
-      - Level: 66
-        Vit: 1
-      - Level: 67
-        Dex: 1
-      - Level: 69
-        Agi: 1
-      - Level: 70
-        Int: 1
+      Fist: 60
+      Dagger: 63
+      Shield: 1
   - Jobs:
       Whitesmith: true
-    MaxWeight: 30000
+    MaxWeight: 34000
+    HpFactor: 130
+    SpFactor: 300
+    BaseASPD:
+      Fist: 40
+      Dagger: 64
+      1hSword: 64
+      1hAxe: 62
+      Katar: 57
+      Shield: 1
+  - Jobs:
+      Sniper: true
+    MaxWeight: 20500
     HpFactor: 90
     SpFactor: 400
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 50
-      1hAxe: 46
-      2hAxe: 53
-      Mace: 48
-      2hMace: 53
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Str: 1
-      - Level: 3
-        Str: 1
-      - Level: 4
-        Int: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Agi: 1
-      - Level: 8
-        Luk: 1
-      - Level: 9
-        Vit: 1
-      - Level: 12
-        Dex: 1
-      - Level: 13
-        Vit: 1
-      - Level: 15
-        Int: 1
-      - Level: 16
-        Luk: 1
-      - Level: 17
-        Str: 1
-      - Level: 19
-        Agi: 1
-      - Level: 20
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Dex: 1
-      - Level: 26
-        Str: 1
-      - Level: 28
-        Luk: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Dex: 1
-      - Level: 33
-        Str: 1
-      - Level: 34
-        Int: 1
-      - Level: 36
-        Agi: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Luk: 1
-      - Level: 41
-        Dex: 1
-      - Level: 44
-        Luk: 1
-      - Level: 45
-        Luk: 1
-      - Level: 47
-        Dex: 1
-      - Level: 48
-        Vit: 1
-      - Level: 50
-        Int: 1
-      - Level: 52
-        Str: 1
-      - Level: 55
-        Dex: 1
-      - Level: 56
-        Dex: 1
-      - Level: 58
-        Agi: 1
-      - Level: 60
-        Vit: 1
-      - Level: 61
-        Int: 1
-      - Level: 62
-        Dex: 1
-      - Level: 64
-        Agi: 1
-      - Level: 65
-        Vit: 1
-      - Level: 66
-        Luk: 1
-      - Level: 67
-        Luk: 1
-      - Level: 70
-        Dex: 1
-  - Jobs:
-      Sniper: true
-    MaxWeight: 27000
-    HpFactor: 85
-    SpFactor: 400
-    BaseASPD:
-      Fist: 40
-      Dagger: 53
-      Bow: 48
-      Shield: 9
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Agi: 1
-      - Level: 3
-        Dex: 1
-      - Level: 4
-        Dex: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Agi: 1
-      - Level: 8
-        Str: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Agi: 1
-      - Level: 12
-        Vit: 1
-      - Level: 14
-        Luk: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Dex: 1
-      - Level: 20
-        Int: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Dex: 1
-      - Level: 24
-        Str: 1
-      - Level: 25
-        Luk: 1
-      - Level: 26
-        Dex: 1
-      - Level: 28
-        Agi: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Luk: 1
-      - Level: 32
-        Vit: 1
-      - Level: 33
-        Agi: 1
-      - Level: 35
-        Dex: 1
-      - Level: 36
-        Luk: 1
-      - Level: 38
-        Agi: 1
-      - Level: 40
-        Dex: 1
-      - Level: 42
-        Int: 1
-      - Level: 43
-        Agi: 1
-      - Level: 45
-        Str: 1
-      - Level: 46
-        Dex: 1
-      - Level: 48
-        Agi: 1
-      - Level: 50
-        Luk: 1
-      - Level: 51
-        Dex: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Vit: 1
-      - Level: 57
-        Luk: 1
-      - Level: 58
-        Agi: 1
-      - Level: 60
-        Dex: 1
-      - Level: 61
-        Str: 1
-      - Level: 62
-        Luk: 1
-      - Level: 65
-        Int: 1
-      - Level: 69
-        Dex: 1
-      - Level: 70
-        Luk: 1
+      Fist: 50
+      Dagger: 70
+      Bow: 60
+      Shield: 1
   - Jobs:
       Assassin_Cross: true
     MaxWeight: 24000
-    HpFactor: 110
-    SpFactor: 400
+    HpFactor: 120
+    SpFactor: 300
     BaseASPD:
       Fist: 40
-      Dagger: 42
-      1hSword: 50
-      1hAxe: 51
-      Katar: 42
+      Dagger: 64
+      1hSword: 69
+      1hAxe: 71
+      Katar: 63
       Huuma: 110
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Str: 1
-      - Level: 3
-        Luk: 1
-      - Level: 4
-        Agi: 1
-      - Level: 5
-        Agi: 1
-      - Level: 7
-        Str: 1
-      - Level: 8
-        Luk: 1
-      - Level: 9
-        Vit: 1
-      - Level: 10
-        Dex: 1
-      - Level: 12
-        Str: 1
-      - Level: 15
-        Agi: 1
-      - Level: 16
-        Luk: 1
-      - Level: 18
-        Luk: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Str: 1
-      - Level: 23
-        Dex: 1
-      - Level: 24
-        Agi: 1
-      - Level: 25
-        Agi: 1
-      - Level: 26
-        Luk: 1
-      - Level: 29
-        Str: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Agi: 1
-      - Level: 33
-        Agi: 1
-      - Level: 34
-        Luk: 1
-      - Level: 37
-        Dex: 1
-      - Level: 38
-        Str: 1
-      - Level: 39
-        Dex: 1
-      - Level: 42
-        Agi: 1
-      - Level: 43
-        Dex: 1
-      - Level: 46
-        Agi: 1
-      - Level: 47
-        Vit: 1
-      - Level: 48
-        Luk: 1
-      - Level: 50
-        Str: 1
-      - Level: 51
-        Agi: 1
-      - Level: 53
-        Dex: 1
-      - Level: 54
-        Str: 1
-      - Level: 56
-        Agi: 1
-      - Level: 57
-        Dex: 1
-      - Level: 61
-        Dex: 1
-      - Level: 62
-        Agi: 1
-      - Level: 64
-        Dex: 1
-      - Level: 65
-        Luk: 1
-      - Level: 66
-        Str: 1
-      - Level: 69
-        Vit: 1
-      - Level: 70
-        Dex: 1
+      Shield: 1
   - Jobs:
-      Paladin: true
+      Royal_Guard: true
       Paladin2: true
     MaxWeight: 28000
     HpFactor: 110
     HpMultiplicator: 700
     SpFactor: 470
     BaseASPD:
-      Fist: 40
+      Fist: 41
       Dagger: 48
-      1hSword: 43
-      2hSword: 55
-      1hSpear: 53
-      2hSpear: 52
-      1hAxe: 50
-      2hAxe: 55
-      Mace: 45
+      1hSword: 44
+      2hSword: 56
+      1hSpear: 54
+      2hSpear: 53
+      1hAxe: 51
+      2hAxe: 56
+      Mace: 46
       2hMace: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Vit: 1
-      - Level: 2
-        Str: 1
-      - Level: 3
-        Agi: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 9
-        Vit: 1
-      - Level: 10
-        Str: 1
-      - Level: 12
-        Dex: 1
-      - Level: 14
-        Int: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Agi: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Str: 1
-      - Level: 21
-        Vit: 1
-      - Level: 23
-        Dex: 1
-      - Level: 24
-        Agi: 1
-      - Level: 26
-        Str: 1
-      - Level: 29
-        Int: 1
-      - Level: 30
-        Vit: 1
-      - Level: 33
-        Str: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Agi: 1
-      - Level: 39
-        Luk: 1
-      - Level: 40
-        Str: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Int: 1
-      - Level: 45
-        Dex: 1
-      - Level: 48
-        Str: 1
-      - Level: 49
-        Vit: 1
-      - Level: 52
-        Agi: 1
-      - Level: 53
-        Vit: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Str: 1
-      - Level: 57
-        Dex: 1
-      - Level: 59
-        Luk: 1
-      - Level: 60
-        Agi: 1
-      - Level: 61
-        Int: 1
-      - Level: 63
-        Vit: 1
-      - Level: 64
-        Str: 1
-      - Level: 65
-        Int: 1
-      - Level: 67
-        Luk: 1
-      - Level: 68
-        Dex: 1
-      - Level: 69
-        Vit: 1
-      - Level: 70
-        Agi: 1
+      Shield: 1
   - Jobs:
       Champion: true
-    MaxWeight: 26000
-    HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 470
-    BaseASPD:
-      Fist: 40
-      Mace: 43
-      2hMace: 48
-      Staff: 60
-      Knuckle: 40
-      2hStaff: 58
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Vit: 1
-      - Level: 4
-        Agi: 1
-      - Level: 6
-        Dex: 1
-      - Level: 9
-        Str: 1
-      - Level: 11
-        Int: 1
-      - Level: 12
-        Agi: 1
-      - Level: 13
-        Luk: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Str: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Dex: 1
-      - Level: 24
-        Vit: 1
-      - Level: 27
-        Str: 1
-      - Level: 29
-        Agi: 1
-      - Level: 30
-        Dex: 1
-      - Level: 33
-        Int: 1
-      - Level: 34
-        Luk: 1
-      - Level: 37
-        Str: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Vit: 1
-      - Level: 42
-        Vit: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Agi: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Int: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Dex: 1
-      - Level: 52
-        Agi: 1
-      - Level: 53
-        Dex: 1
-      - Level: 56
-        Int: 1
-      - Level: 58
-        Vit: 1
-      - Level: 59
-        Str: 1
-      - Level: 60
-        Dex: 1
-      - Level: 62
-        Agi: 1
-      - Level: 64
-        Int: 1
-      - Level: 65
-        Str: 1
-      - Level: 66
-        Str: 1
-      - Level: 67
-        Dex: 1
-      - Level: 68
-        Vit: 1
-      - Level: 69
-        Int: 1
-      - Level: 70
-        Agi: 1
-  - Jobs:
-      Professor: true
-    MaxWeight: 24000
-    HpFactor: 75
-    SpFactor: 700
-    BaseASPD:
-      Fist: 45
-      Dagger: 53
-      1hSword: 60
-      Staff: 55
-      Book: 43
-      2hStaff: 55
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Agi: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Vit: 1
-      - Level: 8
-        Dex: 1
-      - Level: 11
-        Int: 1
-      - Level: 12
-        Agi: 1
-      - Level: 14
-        Int: 1
-      - Level: 16
-        Dex: 1
-      - Level: 18
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Luk: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Vit: 1
-      - Level: 26
-        Dex: 1
-      - Level: 27
-        Str: 1
-      - Level: 29
-        Dex: 1
-      - Level: 30
-        Int: 1
-      - Level: 32
-        Agi: 1
-      - Level: 34
-        Dex: 1
-      - Level: 36
-        Str: 1
-      - Level: 37
-        Dex: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Vit: 1
-      - Level: 41
-        Int: 1
-      - Level: 43
-        Agi: 1
-      - Level: 45
-        Str: 1
-      - Level: 46
-        Dex: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Agi: 1
-      - Level: 52
-        Dex: 1
-      - Level: 54
-        Agi: 1
-      - Level: 55
-        Dex: 1
-      - Level: 56
-        Str: 1
-      - Level: 57
-        Int: 1
-      - Level: 60
-        Agi: 1
-      - Level: 62
-        Dex: 1
-      - Level: 63
-        Vit: 1
-      - Level: 64
-        Int: 1
-      - Level: 66
-        Luk: 1
-      - Level: 68
-        Int: 1
-      - Level: 69
-        Agi: 1
-      - Level: 70
-        Int: 1
-  - Jobs:
-      Stalker: true
     MaxWeight: 24000
     HpFactor: 85
     SpFactor: 500
     BaseASPD:
       Fist: 40
-      Dagger: 45
-      1hSword: 50
-      Bow: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Agi: 1
-      - Level: 4
-        Luk: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Vit: 1
-      - Level: 9
-        Agi: 1
-      - Level: 10
-        Dex: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Agi: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Dex: 1
-      - Level: 17
-        Dex: 1
-      - Level: 20
-        Luk: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Str: 1
-      - Level: 24
-        Luk: 1
-      - Level: 26
-        Dex: 1
-      - Level: 27
-        Agi: 1
-      - Level: 29
-        Dex: 1
-      - Level: 31
-        Luk: 1
-      - Level: 32
-        Str: 1
-      - Level: 34
-        Agi: 1
-      - Level: 37
-        Dex: 1
-      - Level: 38
-        Dex: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Str: 1
-      - Level: 44
-        Int: 1
-      - Level: 45
-        Agi: 1
-      - Level: 47
-        Str: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Luk: 1
-      - Level: 52
-        Dex: 1
-      - Level: 53
-        Str: 1
-      - Level: 56
-        Dex: 1
-      - Level: 57
-        Int: 1
-      - Level: 58
-        Agi: 1
-      - Level: 59
-        Luk: 1
-      - Level: 60
-        Dex: 1
-      - Level: 62
-        Str: 1
-      - Level: 63
-        Vit: 1
-      - Level: 64
-        Agi: 1
-      - Level: 66
-        Dex: 1
-      - Level: 67
-        Str: 1
-      - Level: 70
-        Agi: 1
+      Dagger: 53
+  - Jobs:
+      Professor: true
+    MaxWeight: 20000
+    HpFactor: 100
+    SpFactor: 800
+    BaseASPD:
+      Fist: 50
+      Dagger: 58
+      1hSword: 65
+      Bow: 80
+      Shield: 1
+  - Jobs:
+      Stalker: true
+    MaxWeight: 27000
+    HpFactor: 120
+    SpFactor: 300
+    BaseASPD:
+      Fist: 50
+      Dagger: 75
+      1hSword: 63
+      Bow: 80
+      Shield: 1
   - Jobs:
       Creator: true
     MaxWeight: 30000
-    HpFactor: 90
-    SpFactor: 400
+    HpFactor: 100
+    SpFactor: 500
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 45
-      1hAxe: 45
-      2hAxe: 52
-      Mace: 45
-      2hMace: 50
-      Shield: 4
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 3
-        Luk: 1
-      - Level: 5
-        Agi: 1
-      - Level: 6
-        Str: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Luk: 1
-      - Level: 9
-        Vit: 1
-      - Level: 10
-        Dex: 1
-      - Level: 13
-        Int: 1
-      - Level: 15
-        Dex: 1
-      - Level: 18
-        Agi: 1
-      - Level: 20
-        Luk: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Dex: 1
-      - Level: 25
-        Luk: 1
-      - Level: 27
-        Agi: 1
-      - Level: 30
-        Int: 1
-      - Level: 31
-        Str: 1
-      - Level: 33
-        Vit: 1
-      - Level: 34
-        Luk: 1
-      - Level: 35
-        Dex: 1
-      - Level: 38
-        Agi: 1
-      - Level: 41
-        Dex: 1
-      - Level: 42
-        Dex: 1
-      - Level: 43
-        Dex: 1
-      - Level: 45
-        Luk: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Dex: 1
-      - Level: 49
-        Dex: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Luk: 1
-      - Level: 53
-        Str: 1
-      - Level: 54
-        Agi: 1
-      - Level: 56
-        Dex: 1
-      - Level: 57
-        Dex: 1
-      - Level: 59
-        Int: 1
-      - Level: 60
-        Luk: 1
-      - Level: 61
-        Vit: 1
-      - Level: 63
-        Dex: 1
-      - Level: 64
-        Luk: 1
-      - Level: 66
-        Str: 1
-      - Level: 67
-        Agi: 1
-      - Level: 68
-        Int: 1
-      - Level: 69
-        Luk: 1
-      - Level: 70
-        Dex: 1
+      Fist: 50
+      Dagger: 75
+      1hSword: 60
+      1hAxe: 65
+      Shield: 1
   - Jobs:
       Clown: true
     MaxWeight: 27000
@@ -3055,98 +799,7 @@ Body:
       Dagger: 53
       Bow: 48
       Musical: 45
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Agi: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Dex: 1
-      - Level: 8
-        Int: 1
-      - Level: 9
-        Agi: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Luk: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Dex: 1
-      - Level: 16
-        Vit: 1
-      - Level: 18
-        Luk: 1
-      - Level: 19
-        Str: 1
-      - Level: 21
-        Int: 1
-      - Level: 23
-        Dex: 1
-      - Level: 24
-        Agi: 1
-      - Level: 26
-        Luk: 1
-      - Level: 28
-        Int: 1
-      - Level: 30
-        Dex: 1
-      - Level: 32
-        Agi: 1
-      - Level: 33
-        Str: 1
-      - Level: 36
-        Agi: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Int: 1
-      - Level: 43
-        Dex: 1
-      - Level: 45
-        Str: 1
-      - Level: 47
-        Luk: 1
-      - Level: 49
-        Agi: 1
-      - Level: 50
-        Dex: 1
-      - Level: 53
-        Agi: 1
-      - Level: 54
-        Str: 1
-      - Level: 56
-        Dex: 1
-      - Level: 57
-        Dex: 1
-      - Level: 58
-        Agi: 1
-      - Level: 59
-        Vit: 1
-      - Level: 61
-        Dex: 1
-      - Level: 62
-        Str: 1
-      - Level: 63
-        Dex: 1
-      - Level: 65
-        Agi: 1
-      - Level: 66
-        Dex: 1
-      - Level: 68
-        Agi: 1
-      - Level: 69
-        Int: 1
-      - Level: 70
-        Str: 1
+      Shield: 1
   - Jobs:
       Gypsy: true
     MaxWeight: 27000
@@ -3158,98 +811,7 @@ Body:
       Dagger: 53
       Bow: 48
       Whip: 45
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Str: 1
-      - Level: 4
-        Agi: 1
-      - Level: 6
-        Str: 1
-      - Level: 8
-        Int: 1
-      - Level: 9
-        Dex: 1
-      - Level: 11
-        Agi: 1
-      - Level: 12
-        Agi: 1
-      - Level: 13
-        Agi: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Dex: 1
-      - Level: 17
-        Vit: 1
-      - Level: 18
-        Dex: 1
-      - Level: 20
-        Str: 1
-      - Level: 22
-        Dex: 1
-      - Level: 23
-        Dex: 1
-      - Level: 25
-        Agi: 1
-      - Level: 26
-        Int: 1
-      - Level: 27
-        Luk: 1
-      - Level: 28
-        Dex: 1
-      - Level: 31
-        Agi: 1
-      - Level: 33
-        Dex: 1
-      - Level: 35
-        Str: 1
-      - Level: 38
-        Agi: 1
-      - Level: 39
-        Int: 1
-      - Level: 41
-        Dex: 1
-      - Level: 43
-        Dex: 1
-      - Level: 45
-        Dex: 1
-      - Level: 47
-        Agi: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Str: 1
-      - Level: 52
-        Agi: 1
-      - Level: 53
-        Int: 1
-      - Level: 54
-        Vit: 1
-      - Level: 57
-        Agi: 1
-      - Level: 58
-        Dex: 1
-      - Level: 60
-        Int: 1
-      - Level: 61
-        Agi: 1
-      - Level: 62
-        Agi: 1
-      - Level: 63
-        Luk: 1
-      - Level: 65
-        Dex: 1
-      - Level: 66
-        Str: 1
-      - Level: 67
-        Agi: 1
-      - Level: 69
-        Dex: 1
-      - Level: 70
-        Agi: 1
+      Shield: 1
   - Jobs:
       Baby: true
     BaseASPD:
@@ -3261,61 +823,15 @@ Body:
       2hMace: 55
       Staff: 65
       2hStaff: 65
-      Shield: 10
+      Shield: 1
   - Jobs:
       Baby_Swordman: true
-    MaxWeight: 28000
-    HpFactor: 70
+    MaxWeight: 26000
+    HpFactor: 50
     SpFactor: 200
     BaseASPD:
-      Fist: 40
-      Dagger: 47
-      1hSword: 47
-      2hSword: 54
-      1hSpear: 57
-      2hSpear: 65
-      1hAxe: 55
-      2hAxe: 60
-      Mace: 50
-      2hMace: 55
-      Shield: 5
-    BonusStats:
-      - Level: 2
-        Str: 1
-      - Level: 6
-        Vit: 1
-      - Level: 10
-        Dex: 1
-      - Level: 14
-        Str: 1
-      - Level: 18
-        Vit: 1
-      - Level: 22
-        Dex: 1
-      - Level: 26
-        Luk: 1
-      - Level: 30
-        Agi: 1
-      - Level: 33
-        Str: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Vit: 1
-      - Level: 40
-        Str: 1
-      - Level: 42
-        Vit: 1
-      - Level: 44
-        Luk: 1
-      - Level: 46
-        Agi: 1
-      - Level: 47
-        Str: 1
-      - Level: 49
-        Str: 1
-      - Level: 50
-        Str: 1
+      Fist: 50
+      Book: 50
   - Jobs:
       Baby_Mage: true
     MaxWeight: 22000
@@ -3327,43 +843,6 @@ Body:
       Staff: 55
       2hStaff: 55
       Shield: 10
-    BonusStats:
-      - Level: 2
-        Int: 1
-      - Level: 6
-        Dex: 1
-      - Level: 10
-        Dex: 1
-      - Level: 14
-        Int: 1
-      - Level: 18
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 26
-        Agi: 1
-      - Level: 30
-        Luk: 1
-      - Level: 33
-        Int: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Agi: 1
-      - Level: 42
-        Luk: 1
-      - Level: 44
-        Int: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Int: 1
   - Jobs:
       Baby_Archer: true
     MaxWeight: 26000
@@ -3411,55 +890,6 @@ Body:
         Agi: 1
       - Level: 50
         Dex: 1
-  - Jobs:
-      Baby_Acolyte: true
-    MaxWeight: 24000
-    HpFactor: 40
-    SpFactor: 500
-    BaseASPD:
-      Fist: 40
-      Mace: 45
-      2hMace: 50
-      Staff: 60
-      2hStaff: 60
-      Shield: 7
-    BonusStats:
-      - Level: 2
-        Luk: 1
-      - Level: 6
-        Vit: 1
-      - Level: 10
-        Int: 1
-      - Level: 14
-        Dex: 1
-      - Level: 18
-        Luk: 1
-      - Level: 22
-        Agi: 1
-      - Level: 26
-        Str: 1
-      - Level: 30
-        Vit: 1
-      - Level: 33
-        Int: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Luk: 1
-      - Level: 40
-        Agi: 1
-      - Level: 42
-        Str: 1
-      - Level: 44
-        Vit: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Dex: 1
-      - Level: 49
-        Str: 1
-      - Level: 50
-        Luk: 1
   - Jobs:
       Baby_Merchant: true
     MaxWeight: 28000
@@ -4015,14 +1445,15 @@ Body:
     SpFactor: 470
     BaseASPD:
       Fist: 40
-      Dagger: 48
-      1hSword: 43
+      Dagger: 35
+      1hSword: 40
       2hSword: 55
       1hSpear: 53
       2hSpear: 52
       1hAxe: 50
       2hAxe: 55
       Mace: 45
+      Bow: 45
       2hMace: 50
       Shield: 5
     BonusStats:
@@ -4466,7 +1897,7 @@ Body:
       Dagger: 53
       Bow: 48
       Whip: 45
-      Shield: 7
+      Shield: 1
     BonusStats:
       - Level: 1
         Luk: 1
@@ -4530,1567 +1961,234 @@ Body:
         Luk: 1
   - Jobs:
       Super_Baby: true
+    MaxWeight: 27000
+    HpFactor: 110
+    SpFactor: 110
     BaseASPD:
-      Fist: 40
-      Dagger: 55
-      1hSword: 57
-      1hAxe: 50
-      Mace: 50
-      2hMace: 55
-      Staff: 65
-      2hStaff: 65
-      Shield: 10
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 3
-        Agi: 1
-      - Level: 5
-        Vit: 1
-      - Level: 7
-        Int: 1
-      - Level: 9
-        Dex: 1
-      - Level: 11
-        Luk: 1
-      - Level: 13
-        Str: 1
-      - Level: 15
-        Agi: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Int: 1
-      - Level: 21
-        Dex: 1
-      - Level: 23
-        Luk: 1
-      - Level: 25
-        Str: 1
-      - Level: 27
-        Agi: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Int: 1
-      - Level: 33
-        Dex: 1
-      - Level: 35
-        Luk: 1
-      - Level: 37
-        Str: 1
-      - Level: 39
-        Agi: 1
-      - Level: 41
-        Vit: 1
-      - Level: 43
-        Int: 1
-      - Level: 45
-        Dex: 1
-      - Level: 47
-        Luk: 1
-      - Level: 49
-        Str: 1
-      - Level: 52
-        Agi: 1
-      - Level: 56
-        Vit: 1
-      - Level: 60
-        Int: 1
-      - Level: 64
-        Dex: 1
-      - Level: 68
-        Luk: 1
+      Fist: 54
+      Whip: 55
+      Shield: 1
   - Jobs:
       Taekwon: true
-    MaxWeight: 28000
-    HpFactor: 70
-    SpFactor: 200
+    MaxWeight: 27000
+    HpFactor: 110
+    SpFactor: 110
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 50
-      2hSword: 50
-      1hSpear: 50
-      2hSpear: 50
-      1hAxe: 50
-      2hAxe: 50
-      Mace: 50
-      2hMace: 50
-      Staff: 50
-      Bow: 50
-      Knuckle: 50
-      Musical: 50
-      Whip: 50
-      Book: 50
-      Katar: 50
-      Revolver: 50
-      Rifle: 50
-      Gatling: 50
-      Shotgun: 50
-      Grenade: 50
-      Huuma: 50
-      2hStaff: 50
-      Shield: 6
+      Fist: 45
+      2hSpear: 60
+      1hSpear: 95
+      1hSword: 95
+      Shield: 0
     BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Str: 1
-      - Level: 3
-        Str: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 6
-        Str: 1
-      - Level: 10
-        Dex: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Dex: 1
-      - Level: 13
-        Dex: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Agi: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Agi: 1
       - Level: 25
-        Agi: 1
+        Str: 3
+        Vit: 1
+        Int: 1
   - Jobs:
       Star_Gladiator: true
       Star_Gladiator2: true
-    MaxWeight: 28000
-    HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 470
-    BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 50
-      2hSword: 50
-      1hSpear: 50
-      2hSpear: 50
-      1hAxe: 50
-      2hAxe: 50
-      Mace: 50
-      2hMace: 50
-      Staff: 50
-      Bow: 50
-      Knuckle: 50
-      Musical: 50
-      Whip: 50
-      Book: 50
-      Katar: 50
-      Revolver: 50
-      Rifle: 50
-      Gatling: 50
-      Shotgun: 50
-      Grenade: 50
-      Huuma: 50
-      2hStaff: 50
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Str: 1
-      - Level: 3
-        Str: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 6
-        Str: 1
-      - Level: 7
-        Str: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Str: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Dex: 1
-      - Level: 22
-        Dex: 1
-      - Level: 23
-        Dex: 1
-      - Level: 24
-        Dex: 1
-      - Level: 25
-        Dex: 1
-      - Level: 39
-        Agi: 1
-      - Level: 40
-        Agi: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Agi: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Agi: 1
-      - Level: 45
-        Agi: 1
-      - Level: 46
-        Agi: 1
-      - Level: 47
-        Agi: 1
-      - Level: 48
-        Agi: 1
-      - Level: 49
-        Agi: 1
-      - Level: 50
-        Agi: 1
-  - Jobs:
-      Soul_Linker: true
     MaxWeight: 24000
-    HpFactor: 75
-    SpFactor: 900
-    BaseASPD:
-      Fist: 50
-      Dagger: 50
-      Staff: 53
-      2hStaff: 55
-      Shield: 8
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Int: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Int: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Int: 1
-      - Level: 9
-        Int: 1
-      - Level: 10
-        Int: 1
-      - Level: 11
-        Int: 1
-      - Level: 12
-        Int: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Vit: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Vit: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Vit: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Dex: 1
-      - Level: 42
-        Dex: 1
-      - Level: 43
-        Dex: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Dex: 1
-      - Level: 46
-        Dex: 1
-      - Level: 47
-        Dex: 1
-      - Level: 48
-        Dex: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Dex: 1
-  - Jobs:
-      Rune_Knight: true
-      Rune_Knight2: true
-    MaxWeight: 35000
-    HpFactor: 150
-    SpFactor: 300
-    BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 52
-      2hSword: 55
-      1hSpear: 60
-      2hSpear: 58
-      1hAxe: 48
-      2hAxe: 52
-      Mace: 45
-      2hMace: 52
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 4
-        Vit: 1
-      - Level: 5
-        Int: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Dex: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Vit: 1
-      - Level: 24
-        Dex: 1
-      - Level: 30
-        Int: 1
-      - Level: 31
-        Dex: 1
-      - Level: 32
-        Vit: 1
-      - Level: 33
-        Str: 1
-      - Level: 39
-        Int: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Luk: 1
-      - Level: 48
-        Luk: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 55
-        Dex: 1
-      - Level: 57
-        Luk: 1
-      - Level: 59
-        Vit: 1
-      - Level: 60
-        Str: 1
-  - Jobs:
-      Warlock: true
-    MaxWeight: 30000
-    HpFactor: 55
-    SpFactor: 900
-    BaseASPD:
-      Fist: 45
-      Dagger: 52
-      1hSword: 60
-      Staff: 50
-      2hStaff: 56
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Dex: 1
-      - Level: 15
-        Vit: 1
-      - Level: 18
-        Vit: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 23
-        Int: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Vit: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Luk: 1
-      - Level: 34
-        Str: 1
-      - Level: 35
-        Int: 1
-      - Level: 36
-        Int: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Agi: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Int: 1
-      - Level: 45
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Dex: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Luk: 1
-      - Level: 54
-        Agi: 1
-      - Level: 55
-        Int: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Agi: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
-  - Jobs:
-      Ranger: true
-      Ranger2: true
-    MaxWeight: 32000
-    HpFactor: 85
-    SpFactor: 400
-    BaseASPD:
-      Fist: 40
-      Dagger: 50
-      Bow: 49
-      Shield: 8
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Agi: 1
-      - Level: 7
-        Agi: 1
-      - Level: 8
-        Dex: 1
-      - Level: 9
-        Int: 1
-      - Level: 12
-        Vit: 1
-      - Level: 13
-        Vit: 1
-      - Level: 14
-        Vit: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Agi: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Dex: 1
-      - Level: 26
-        Str: 1
-      - Level: 27
-        Str: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Vit: 1
-      - Level: 36
-        Int: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Agi: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Agi: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Agi: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Dex: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Agi: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Luk: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Agi: 1
-  - Jobs:
-      Arch_Bishop: true
-    MaxWeight: 30000
-    HpFactor: 75
-    SpFactor: 800
-    BaseASPD:
-      Fist: 45
-      Mace: 45
-      2hMace: 45
-      Staff: 60
-      Knuckle: 50
-      Book: 44
-      2hStaff: 55
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 3
-        Vit: 1
-      - Level: 5
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Int: 1
-      - Level: 10
-        Vit: 1
-      - Level: 11
-        Vit: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Dex: 1
-      - Level: 18
-        Str: 1
-      - Level: 19
-        Str: 1
-      - Level: 22
-        Int: 1
-      - Level: 24
-        Str: 1
-      - Level: 26
-        Agi: 1
-      - Level: 27
-        Agi: 1
-      - Level: 28
-        Str: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Vit: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Agi: 1
-      - Level: 39
-        Agi: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Str: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Agi: 1
-      - Level: 53
-        Vit: 1
-      - Level: 54
-        Str: 1
-      - Level: 55
-        Int: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Luk: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
-  - Jobs:
-      Mechanic: true
-      Mechanic2: true
-    MaxWeight: 38000
-    HpFactor: 90
-    SpFactor: 400
-    BaseASPD:
-      Fist: 40
-      Dagger: 60
-      1hSword: 65
-      1hAxe: 45
-      2hAxe: 48
-      Mace: 48
-      2hMace: 50
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 2
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Luk: 1
-      - Level: 8
-        Agi: 1
-      - Level: 9
-        Dex: 1
-      - Level: 10
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Luk: 1
-      - Level: 17
-        Agi: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Dex: 1
-      - Level: 25
-        Vit: 1
-      - Level: 26
-        Luk: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Str: 1
-      - Level: 33
-        Vit: 1
-      - Level: 34
-        Luk: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Vit: 1
-      - Level: 44
-        Str: 1
-      - Level: 45
-        Str: 1
-      - Level: 48
-        Dex: 1
-      - Level: 49
-        Agi: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Str: 1
-      - Level: 53
-        Dex: 1
-      - Level: 55
-        Int: 1
-      - Level: 56
-        Vit: 1
-      - Level: 57
-        Agi: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Str: 1
-  - Jobs:
-      Guillotine_Cross: true
-    MaxWeight: 32000
     HpFactor: 110
     SpFactor: 400
     BaseASPD:
       Fist: 40
-      Dagger: 42
-      1hSword: 65
-      1hAxe: 80
-      Katar: 42
-      Rifle: 95
-      Gatling: 120
-      Shotgun: 90
-      Grenade: 100
-      Huuma: 110
-      Shield: 9
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 9
-        Str: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Dex: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Str: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Str: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Agi: 1
-      - Level: 25
-        Dex: 1
-      - Level: 28
-        Int: 1
-      - Level: 29
-        Int: 1
-      - Level: 30
-        Str: 1
-      - Level: 31
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Dex: 1
-      - Level: 41
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Agi: 1
-      - Level: 48
-        Int: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 54
-        Vit: 1
-      - Level: 56
-        Int: 1
-      - Level: 58
-        Str: 1
-      - Level: 59
-        Luk: 1
-      - Level: 60
-        Agi: 1
-  - Jobs:
-      Rune_Knight_T: true
-      Rune_Knight_T2: true
-    MaxWeight: 35000
-    HpFactor: 150
-    SpFactor: 300
-    BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 52
-      2hSword: 55
-      1hSpear: 60
       2hSpear: 58
-      1hAxe: 48
-      2hAxe: 52
-      Mace: 45
-      2hMace: 52
-      Shield: 5
+      1hSpear: 95
+      1hSword: 95
+      Shield: 0
     BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 4
-        Vit: 1
-      - Level: 5
-        Int: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Dex: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Vit: 1
-      - Level: 24
-        Dex: 1
-      - Level: 30
-        Int: 1
-      - Level: 31
-        Dex: 1
-      - Level: 32
-        Vit: 1
-      - Level: 33
-        Str: 1
-      - Level: 39
-        Int: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Luk: 1
-      - Level: 48
-        Luk: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 55
-        Dex: 1
-      - Level: 57
-        Luk: 1
-      - Level: 59
-        Vit: 1
-      - Level: 60
-        Str: 1
-  - Jobs:
-      Warlock_T: true
-    MaxWeight: 30000
-    HpFactor: 55
-    SpFactor: 900
-    BaseASPD:
-      Fist: 45
-      Dagger: 52
-      1hSword: 60
-      Staff: 50
-      2hStaff: 56
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Dex: 1
-      - Level: 15
-        Vit: 1
-      - Level: 18
-        Vit: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 23
-        Int: 1
-      - Level: 24
-        Vit: 1
       - Level: 25
+        Str: 3
         Vit: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Luk: 1
-      - Level: 34
-        Str: 1
-      - Level: 35
-        Int: 1
-      - Level: 36
-        Int: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Agi: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Int: 1
-      - Level: 45
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Dex: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Luk: 1
-      - Level: 54
-        Agi: 1
-      - Level: 55
-        Int: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Agi: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
+        Int: 2
   - Jobs:
-      Ranger_T: true
-      Ranger_T2: true
-    MaxWeight: 32000
-    HpFactor: 85
+      Soul_Linker: true
+    MaxWeight: 24000
+    HpFactor: 110
     SpFactor: 400
     BaseASPD:
       Fist: 40
+      Dagger: 58
+      1hSword: 60
+      Shield: 0
+  - Jobs:
+      Rune_Knight: true
+      Rune_Knight2: true
+    MaxWeight: 28000
+    HpFactor: 120
+    HpMultiplicator: 650
+    SpFactor: 500
+    BaseASPD:
+      Fist: 50
+      Dagger: 60
+      1hSword: 60
+      1hAxe: 60
+      Katar: 59
+      Shield: 1
+  - Jobs:
+      Warlock: true
+    MaxWeight: 24000
+    HpFactor: 55
+    SpFactor: 900
+    BaseASPD:
+      Fist: 60
+      Dagger: 60
+      Shield: 1
+  - Jobs:
+      Ranger: true
+      Ranger2: true
+    MaxWeight: 24000
+    HpFactor: 90
+    SpFactor: 400
+    BaseASPD:
+      Fist: 50
+      Dagger: 70
+      Bow: 60
+      Shield: 1
+  - Jobs:
+      Arch_Bishop: true
+    MaxWeight: 20000
+    HpFactor: 110
+    SpFactor: 400
+    BaseASPD:
+      Fist: 40
+      Dagger: 58
+      1hSword: 58
+      Katar: 49
+      Shield: 1
+  - Jobs:
+      Mechanic: true
+      Mechanic2: true
+    MaxWeight: 34000
+    HpFactor: 130
+    SpFactor: 300
+    BaseASPD:
+      Fist: 40
+      1hSword: 70
+      Dagger: 70
+      1hAxe: 70
+      Katar: 80
+      Shield: 1
+  - Jobs:
+      Guillotine_Cross: true
+    MaxWeight: 24000
+    HpFactor: 120
+    SpFactor: 300
+    BaseASPD:
+      Fist: 40
+      Dagger: 64
+      1hSword: 69
+      1hAxe: 71
+      Katar: 63
+      Huuma: 110
+  - Jobs:
+      Rune_Knight_T: true
+      Rune_Knight_T2: true
+    MaxWeight: 28000
+    HpFactor: 120
+    HpMultiplicator: 650
+    SpFactor: 500
+    BaseASPD:
+      Fist: 40
       Dagger: 50
-      Bow: 49
-      Shield: 8
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Agi: 1
-      - Level: 7
-        Agi: 1
-      - Level: 8
-        Dex: 1
-      - Level: 9
-        Int: 1
-      - Level: 12
-        Vit: 1
-      - Level: 13
-        Vit: 1
-      - Level: 14
-        Vit: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Agi: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Dex: 1
-      - Level: 26
-        Str: 1
-      - Level: 27
-        Str: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Vit: 1
-      - Level: 36
-        Int: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Agi: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Agi: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Agi: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Dex: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Agi: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Luk: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Agi: 1
+      1hSword: 50
+      1hAxe: 50
+      Katar: 49
+      Shield: 1
+  - Jobs:
+      Warlock_T: true
+    MaxWeight: 24000
+    HpFactor: 55
+    SpFactor: 900
+    BaseASPD:
+      Fist: 60
+      Dagger: 68
+      Shield: 1
+  - Jobs:
+      Ranger_T: true
+      Ranger_T2: true
+    MaxWeight: 21000
+    HpFactor: 90
+    SpFactor: 400
+    BaseASPD:
+      Fist: 50
+      Dagger: 70
+      Bow: 60
+      Shield: 1
   - Jobs:
       Arch_Bishop_T: true
-    MaxWeight: 30000
-    HpFactor: 75
-    SpFactor: 800
+    MaxWeight: 21000
+    HpFactor: 110
+    SpFactor: 400
     BaseASPD:
-      Fist: 45
-      Mace: 45
-      2hMace: 45
-      Staff: 60
-      Knuckle: 50
-      Book: 44
-      2hStaff: 55
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 3
-        Vit: 1
-      - Level: 5
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Int: 1
-      - Level: 10
-        Vit: 1
-      - Level: 11
-        Vit: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Dex: 1
-      - Level: 18
-        Str: 1
-      - Level: 19
-        Str: 1
-      - Level: 22
-        Int: 1
-      - Level: 24
-        Str: 1
-      - Level: 26
-        Agi: 1
-      - Level: 27
-        Agi: 1
-      - Level: 28
-        Str: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Vit: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Agi: 1
-      - Level: 39
-        Agi: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Str: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Agi: 1
-      - Level: 53
-        Vit: 1
-      - Level: 54
-        Str: 1
-      - Level: 55
-        Int: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Luk: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
+      Fist: 40
+      Dagger: 58
+      1hSword: 58
+      Katar: 49
+      Shield: 1
+  - Jobs:
+      Mechanic: true
+      Mechanic2: true
+    MaxWeight: 34000
+    HpFactor: 130
+    SpFactor: 300
+    BaseASPD:
+      Fist: 40
+      Dagger: 64
+      1hSword: 64
+      1hAxe: 64
+      Katar: 57
+      Shield: 1
   - Jobs:
       Mechanic_T: true
       Mechanic_T2: true
     MaxWeight: 38000
-    HpFactor: 90
-    SpFactor: 400
+    HpFactor: 140
+    SpFactor: 300
     BaseASPD:
       Fist: 40
-      Dagger: 60
-      1hSword: 65
-      1hAxe: 45
-      2hAxe: 48
-      Mace: 48
-      2hMace: 50
-      Shield: 6
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 2
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Luk: 1
-      - Level: 8
-        Agi: 1
-      - Level: 9
-        Dex: 1
-      - Level: 10
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Luk: 1
-      - Level: 17
-        Agi: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Dex: 1
-      - Level: 25
-        Vit: 1
-      - Level: 26
-        Luk: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Str: 1
-      - Level: 33
-        Vit: 1
-      - Level: 34
-        Luk: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Vit: 1
-      - Level: 44
-        Str: 1
-      - Level: 45
-        Str: 1
-      - Level: 48
-        Dex: 1
-      - Level: 49
-        Agi: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Str: 1
-      - Level: 53
-        Dex: 1
-      - Level: 55
-        Int: 1
-      - Level: 56
-        Vit: 1
-      - Level: 57
-        Agi: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Str: 1
+      Dagger: 64
+      1hSword: 64
+      1hAxe: 64
+      Katar: 57
+      Shield: 1
   - Jobs:
       Guillotine_Cross_T: true
-    MaxWeight: 32000
-    HpFactor: 110
-    SpFactor: 400
+    MaxWeight: 24000
+    HpFactor: 120
+    SpFactor: 300
     BaseASPD:
       Fist: 40
-      Dagger: 42
-      1hSword: 65
-      1hAxe: 80
-      Katar: 42
-      Rifle: 95
-      Gatling: 120
-      Shotgun: 90
-      Grenade: 100
+      Dagger: 63
+      1hSword: 68
+      1hAxe: 72
+      Katar: 62
       Huuma: 110
-      Shield: 9
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 9
-        Str: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Dex: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Str: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Str: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Agi: 1
-      - Level: 25
-        Dex: 1
-      - Level: 28
-        Int: 1
-      - Level: 29
-        Int: 1
-      - Level: 30
-        Str: 1
-      - Level: 31
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Dex: 1
-      - Level: 41
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Agi: 1
-      - Level: 48
-        Int: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Luk: 1
-      - Level: 52
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 54
-        Vit: 1
-      - Level: 56
-        Int: 1
-      - Level: 58
-        Str: 1
-      - Level: 59
-        Luk: 1
-      - Level: 60
-        Agi: 1
+      Shield: 1
   - Jobs:
-      Royal_Guard: true
+      Paladin: true
       Royal_Guard2: true
-    MaxWeight: 35000
+    MaxWeight: 30000
     HpFactor: 110
     HpMultiplicator: 700
     SpFactor: 400
     BaseASPD:
       Fist: 40
-      Dagger: 47
-      1hSword: 45
-      2hSword: 53
-      1hSpear: 50
-      2hSpear: 50
-      1hAxe: 48
-      2hAxe: 52
-      Mace: 44
-      2hMace: 50
-      Shield: 5
-    BonusStats:
-      - Level: 2
-        Vit: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Dex: 1
-      - Level: 9
-        Vit: 1
-      - Level: 11
-        Int: 1
-      - Level: 13
-        Str: 1
-      - Level: 14
-        Dex: 1
-      - Level: 16
-        Luk: 1
-      - Level: 19
-        Int: 1
-      - Level: 20
-        Dex: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Int: 1
-      - Level: 26
-        Int: 1
-      - Level: 27
-        Vit: 1
-      - Level: 30
-        Str: 1
-      - Level: 31
-        Dex: 1
-      - Level: 33
-        Luk: 1
-      - Level: 34
-        Agi: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Str: 1
-      - Level: 41
-        Vit: 1
-      - Level: 42
-        Vit: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Str: 1
-      - Level: 46
-        Int: 1
-      - Level: 48
-        Str: 1
-      - Level: 49
-        Dex: 1
-      - Level: 51
-        Agi: 1
-      - Level: 53
-        Vit: 1
-      - Level: 54
-        Luk: 1
-      - Level: 56
-        Dex: 1
-      - Level: 58
-        Str: 1
-      - Level: 59
-        Vit: 1
-      - Level: 60
-        Int: 1
+      Dagger: 50
+      1hSword: 55
+      Bow: 60
+      Shield: 1
   - Jobs:
       Sorcerer: true
-    MaxWeight: 30000
-    HpFactor: 75
-    SpFactor: 900
+    MaxWeight: 20000
+    HpFactor: 100
+    SpFactor: 800
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 50
-      Staff: 45
-      Book: 45
-      2hStaff: 55
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 4
-        Vit: 1
-      - Level: 5
-        Int: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Dex: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Vit: 1
-      - Level: 24
-        Dex: 1
-      - Level: 30
-        Int: 1
-      - Level: 31
-        Dex: 1
-      - Level: 32
-        Vit: 1
-      - Level: 33
-        Str: 1
-      - Level: 39
-        Int: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Luk: 1
-      - Level: 48
-        Luk: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Dex: 1
-      - Level: 53
-        Str: 1
-      - Level: 55
-        Agi: 1
-      - Level: 57
-        Vit: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
+      Fist: 50
+      Dagger: 58
+      1hSword: 65
+      Bow: 80
+      Shield: 1
   - Jobs:
       Minstrel: true
     MaxWeight: 32000
@@ -6102,82 +2200,7 @@ Body:
       Dagger: 52
       Bow: 49
       Musical: 44
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 3
-        Vit: 1
-      - Level: 5
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Int: 1
-      - Level: 10
-        Vit: 1
-      - Level: 11
-        Vit: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Dex: 1
-      - Level: 18
-        Str: 1
-      - Level: 19
-        Str: 1
-      - Level: 22
-        Int: 1
-      - Level: 24
-        Str: 1
-      - Level: 26
-        Agi: 1
-      - Level: 27
-        Agi: 1
-      - Level: 28
-        Str: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Vit: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Agi: 1
-      - Level: 39
-        Agi: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Str: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Agi: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Str: 1
-      - Level: 54
-        Luk: 1
-      - Level: 56
-        Dex: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Str: 1
-      - Level: 59
-        Int: 1
-      - Level: 60
-        Dex: 1
+      Shield: 1
   - Jobs:
       Wanderer: true
     MaxWeight: 32000
@@ -6189,346 +2212,40 @@ Body:
       Dagger: 52
       Bow: 49
       Whip: 44
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Agi: 1
-      - Level: 7
-        Agi: 1
-      - Level: 8
-        Dex: 1
-      - Level: 9
-        Int: 1
-      - Level: 12
-        Vit: 1
-      - Level: 13
-        Vit: 1
-      - Level: 14
-        Vit: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Agi: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Dex: 1
-      - Level: 26
-        Str: 1
-      - Level: 27
-        Str: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Vit: 1
-      - Level: 36
-        Int: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Agi: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Agi: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Agi: 1
-      - Level: 51
-        Str: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Dex: 1
-      - Level: 55
-        Luk: 1
-      - Level: 56
-        Int: 1
-      - Level: 58
-        Vit: 1
-      - Level: 59
-        Agi: 1
-      - Level: 60
-        Dex: 1
+      Shield: 1
   - Jobs:
       Sura: true
-    MaxWeight: 30000
-    HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 400
+    MaxWeight: 28000
+    HpFactor: 110
+    SpFactor: 600
     BaseASPD:
-      Fist: 38
-      Mace: 43
-      2hMace: 45
-      Staff: 48
-      Knuckle: 39
-      2hStaff: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 9
-        Str: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Dex: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Str: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Str: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Agi: 1
-      - Level: 25
-        Dex: 1
-      - Level: 28
-        Int: 1
-      - Level: 29
-        Int: 1
-      - Level: 30
-        Str: 1
-      - Level: 31
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Dex: 1
-      - Level: 41
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Agi: 1
-      - Level: 48
-        Int: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Luk: 1
-      - Level: 56
-        Vit: 1
-      - Level: 58
-        Dex: 1
-      - Level: 59
-        Str: 1
-      - Level: 60
-        Int: 1
+      Fist: 50
+      Dagger: 59
+      1hSword: 55
+      Bow: 61
+      Shield: 1
   - Jobs:
       Genetic: true
-    MaxWeight: 32000
-    HpFactor: 90
-    SpFactor: 900
+    MaxWeight: 30000
+    HpFactor: 100
+    SpFactor: 500
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 44
-      1hAxe: 48
-      2hAxe: 51
-      Mace: 44
-      2hMace: 48
-      Shield: 4
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Dex: 1
-      - Level: 15
-        Vit: 1
-      - Level: 18
-        Vit: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 23
-        Int: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Vit: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Luk: 1
-      - Level: 34
-        Str: 1
-      - Level: 35
-        Int: 1
-      - Level: 36
-        Int: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Agi: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Int: 1
-      - Level: 45
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Str: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Dex: 1
-      - Level: 55
-        Agi: 1
-      - Level: 56
-        Str: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Luk: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
+      Fist: 50
+      Dagger: 75
+      1hSword: 60
+      1hAxe: 65
+      Shield: 1
   - Jobs:
       Shadow_Chaser: true
-    MaxWeight: 28000
-    HpFactor: 85
-    SpFactor: 400
+    MaxWeight: 27000
+    HpFactor: 120
+    SpFactor: 300
     BaseASPD:
-      Fist: 40
-      Dagger: 43
-      1hSword: 47
-      Bow: 47
-      Shield: 4
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 2
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Luk: 1
-      - Level: 8
-        Agi: 1
-      - Level: 9
-        Dex: 1
-      - Level: 10
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Luk: 1
-      - Level: 17
-        Agi: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Dex: 1
-      - Level: 25
-        Vit: 1
-      - Level: 26
-        Luk: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Str: 1
-      - Level: 33
-        Vit: 1
-      - Level: 34
-        Luk: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Vit: 1
-      - Level: 44
-        Str: 1
-      - Level: 45
-        Str: 1
-      - Level: 48
-        Dex: 1
-      - Level: 49
-        Agi: 1
-      - Level: 51
-        Int: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Str: 1
-      - Level: 54
-        Agi: 1
-      - Level: 56
-        Luk: 1
-      - Level: 57
-        Dex: 1
-      - Level: 59
-        Str: 1
-      - Level: 60
-        Agi: 1
+      Fist: 50
+      Dagger: 75
+      1hSword: 63
+      Bow: 80
+      Shield: 1
   - Jobs:
       Royal_Guard_T: true
       Royal_Guard_T2: true
@@ -6547,170 +2264,18 @@ Body:
       2hAxe: 52
       Mace: 44
       2hMace: 50
-      Shield: 5
-    BonusStats:
-      - Level: 2
-        Vit: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Dex: 1
-      - Level: 9
-        Vit: 1
-      - Level: 11
-        Int: 1
-      - Level: 13
-        Str: 1
-      - Level: 14
-        Dex: 1
-      - Level: 16
-        Luk: 1
-      - Level: 19
-        Int: 1
-      - Level: 20
-        Dex: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Int: 1
-      - Level: 26
-        Int: 1
-      - Level: 27
-        Vit: 1
-      - Level: 30
-        Str: 1
-      - Level: 31
-        Dex: 1
-      - Level: 33
-        Luk: 1
-      - Level: 34
-        Agi: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 40
-        Str: 1
-      - Level: 41
-        Vit: 1
-      - Level: 42
-        Vit: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Str: 1
-      - Level: 46
-        Int: 1
-      - Level: 48
-        Str: 1
-      - Level: 49
-        Dex: 1
-      - Level: 51
-        Agi: 1
-      - Level: 53
-        Vit: 1
-      - Level: 54
-        Luk: 1
-      - Level: 56
-        Dex: 1
-      - Level: 58
-        Str: 1
-      - Level: 59
-        Vit: 1
-      - Level: 60
-        Int: 1
+      Shield: 1
   - Jobs:
       Sorcerer_T: true
-    MaxWeight: 30000
-    HpFactor: 75
-    SpFactor: 900
+    MaxWeight: 20000
+    HpFactor: 100
+    SpFactor: 800
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 50
-      Staff: 45
-      Book: 45
-      2hStaff: 55
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 4
-        Vit: 1
-      - Level: 5
-        Int: 1
-      - Level: 10
-        Str: 1
-      - Level: 11
-        Str: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Dex: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 21
-        Agi: 1
-      - Level: 22
-        Int: 1
-      - Level: 23
-        Vit: 1
-      - Level: 24
-        Dex: 1
-      - Level: 30
-        Int: 1
-      - Level: 31
-        Dex: 1
-      - Level: 32
-        Vit: 1
-      - Level: 33
-        Str: 1
-      - Level: 39
-        Int: 1
-      - Level: 40
-        Dex: 1
-      - Level: 41
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Int: 1
-      - Level: 47
-        Luk: 1
-      - Level: 48
-        Luk: 1
-      - Level: 49
-        Luk: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Dex: 1
-      - Level: 53
-        Str: 1
-      - Level: 55
-        Agi: 1
-      - Level: 57
-        Vit: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
+      Fist: 50
+      Dagger: 58
+      1hSword: 65
+      Bow: 80
+      Shield: 1
   - Jobs:
       Minstrel_T: true
     MaxWeight: 32000
@@ -6722,82 +2287,7 @@ Body:
       Dagger: 52
       Bow: 49
       Musical: 44
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 3
-        Vit: 1
-      - Level: 5
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Int: 1
-      - Level: 10
-        Vit: 1
-      - Level: 11
-        Vit: 1
-      - Level: 14
-        Dex: 1
-      - Level: 15
-        Dex: 1
-      - Level: 18
-        Str: 1
-      - Level: 19
-        Str: 1
-      - Level: 22
-        Int: 1
-      - Level: 24
-        Str: 1
-      - Level: 26
-        Agi: 1
-      - Level: 27
-        Agi: 1
-      - Level: 28
-        Str: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Vit: 1
-      - Level: 36
-        Dex: 1
-      - Level: 38
-        Agi: 1
-      - Level: 39
-        Agi: 1
-      - Level: 40
-        Int: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Vit: 1
-      - Level: 46
-        Str: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Agi: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Str: 1
-      - Level: 54
-        Luk: 1
-      - Level: 56
-        Dex: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Str: 1
-      - Level: 59
-        Int: 1
-      - Level: 60
-        Dex: 1
+      Shield: 1
   - Jobs:
       Wanderer_T: true
     MaxWeight: 32000
@@ -6809,346 +2299,40 @@ Body:
       Dagger: 52
       Bow: 49
       Whip: 44
-      Shield: 7
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Int: 1
-      - Level: 4
-        Agi: 1
-      - Level: 7
-        Agi: 1
-      - Level: 8
-        Dex: 1
-      - Level: 9
-        Int: 1
-      - Level: 12
-        Vit: 1
-      - Level: 13
-        Vit: 1
-      - Level: 14
-        Vit: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Agi: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Vit: 1
-      - Level: 23
-        Dex: 1
-      - Level: 26
-        Str: 1
-      - Level: 27
-        Str: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Agi: 1
-      - Level: 32
-        Vit: 1
-      - Level: 36
-        Int: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 39
-        Agi: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Dex: 1
-      - Level: 45
-        Agi: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Agi: 1
-      - Level: 51
-        Str: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Dex: 1
-      - Level: 55
-        Luk: 1
-      - Level: 56
-        Int: 1
-      - Level: 58
-        Vit: 1
-      - Level: 59
-        Agi: 1
-      - Level: 60
-        Dex: 1
+      Shield: 1
   - Jobs:
       Sura_T: true
-    MaxWeight: 30000
-    HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 400
+    MaxWeight: 28000
+    HpFactor: 110
+    SpFactor: 600
     BaseASPD:
-      Fist: 38
-      Mace: 43
-      2hMace: 45
-      Staff: 48
-      Knuckle: 39
-      2hStaff: 50
-      Shield: 5
-    BonusStats:
-      - Level: 1
-        Agi: 1
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 9
-        Str: 1
-      - Level: 10
-        Agi: 1
-      - Level: 11
-        Dex: 1
-      - Level: 14
-        Vit: 1
-      - Level: 15
-        Vit: 1
-      - Level: 16
-        Str: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Str: 1
-      - Level: 23
-        Agi: 1
-      - Level: 24
-        Agi: 1
-      - Level: 25
-        Dex: 1
-      - Level: 28
-        Int: 1
-      - Level: 29
-        Int: 1
-      - Level: 30
-        Str: 1
-      - Level: 31
-        Vit: 1
-      - Level: 35
-        Agi: 1
-      - Level: 36
-        Dex: 1
-      - Level: 37
-        Dex: 1
-      - Level: 41
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Agi: 1
-      - Level: 44
-        Agi: 1
-      - Level: 48
-        Int: 1
-      - Level: 49
-        Dex: 1
-      - Level: 50
-        Dex: 1
-      - Level: 51
-        Str: 1
-      - Level: 53
-        Agi: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Luk: 1
-      - Level: 56
-        Vit: 1
-      - Level: 58
-        Dex: 1
-      - Level: 59
-        Str: 1
-      - Level: 60
-        Int: 1
+      Fist: 50
+      Dagger: 49
+      1hSword: 45
+      Bow: 51
+      Shield: 1
   - Jobs:
       Genetic_T: true
-    MaxWeight: 32000
-    HpFactor: 90
-    SpFactor: 900
+    MaxWeight: 30000
+    HpFactor: 100
+    SpFactor: 500
     BaseASPD:
-      Fist: 40
-      Dagger: 50
-      1hSword: 44
-      1hAxe: 48
-      2hAxe: 51
-      Mace: 44
-      2hMace: 48
-      Shield: 4
-    BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Int: 1
-      - Level: 3
-        Dex: 1
-      - Level: 6
-        Dex: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Agi: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Dex: 1
-      - Level: 15
-        Vit: 1
-      - Level: 18
-        Vit: 1
-      - Level: 19
-        Dex: 1
-      - Level: 20
-        Agi: 1
-      - Level: 23
-        Int: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Vit: 1
-      - Level: 28
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Luk: 1
-      - Level: 34
-        Str: 1
-      - Level: 35
-        Int: 1
-      - Level: 36
-        Int: 1
-      - Level: 39
-        Dex: 1
-      - Level: 40
-        Agi: 1
-      - Level: 41
-        Int: 1
-      - Level: 44
-        Int: 1
-      - Level: 45
-        Int: 1
-      - Level: 47
-        Agi: 1
-      - Level: 50
-        Int: 1
-      - Level: 51
-        Str: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Dex: 1
-      - Level: 55
-        Agi: 1
-      - Level: 56
-        Str: 1
-      - Level: 57
-        Vit: 1
-      - Level: 58
-        Luk: 1
-      - Level: 59
-        Dex: 1
-      - Level: 60
-        Int: 1
+      Fist: 50
+      Dagger: 75
+      1hSword: 60
+      1hAxe: 65
+      Shield: 1
   - Jobs:
       Shadow_Chaser_T: true
-    MaxWeight: 28000
-    HpFactor: 85
-    SpFactor: 400
+    MaxWeight: 27000
+    HpFactor: 120
+    SpFactor: 300
     BaseASPD:
-      Fist: 40
-      Dagger: 43
-      1hSword: 47
-      Bow: 47
-      Shield: 4
-    BonusStats:
-      - Level: 1
-        Luk: 1
-      - Level: 2
-        Str: 1
-      - Level: 5
-        Str: 1
-      - Level: 7
-        Luk: 1
-      - Level: 8
-        Agi: 1
-      - Level: 9
-        Dex: 1
-      - Level: 10
-        Int: 1
-      - Level: 13
-        Int: 1
-      - Level: 14
-        Luk: 1
-      - Level: 17
-        Agi: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Vit: 1
-      - Level: 21
-        Int: 1
-      - Level: 22
-        Dex: 1
-      - Level: 25
-        Vit: 1
-      - Level: 26
-        Luk: 1
-      - Level: 29
-        Vit: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Str: 1
-      - Level: 33
-        Vit: 1
-      - Level: 34
-        Luk: 1
-      - Level: 37
-        Int: 1
-      - Level: 38
-        Int: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Vit: 1
-      - Level: 44
-        Str: 1
-      - Level: 45
-        Str: 1
-      - Level: 48
-        Dex: 1
-      - Level: 49
-        Agi: 1
-      - Level: 51
-        Int: 1
-      - Level: 52
-        Vit: 1
-      - Level: 53
-        Str: 1
-      - Level: 54
-        Agi: 1
-      - Level: 56
-        Luk: 1
-      - Level: 57
-        Dex: 1
-      - Level: 59
-        Str: 1
-      - Level: 60
-        Agi: 1
+      Fist: 50
+      Dagger: 75
+      1hSword: 62
+      Bow: 80
+      Shield: 1
   - Jobs:
       Baby_Rune_Knight: true
       Baby_Rune_Knight2: true
@@ -7166,7 +2350,7 @@ Body:
       2hAxe: 52
       Mace: 45
       2hMace: 52
-      Shield: 5
+      Shield: 1
     BonusStats:
       - Level: 1
         Int: 1
@@ -8230,7 +3414,7 @@ Body:
       Dagger: 43
       1hSword: 47
       Bow: 47
-      Shield: 4
+      Shield: 1
     BonusStats:
       - Level: 1
         Luk: 1
@@ -8319,7 +3503,7 @@ Body:
       2hMace: 55
       Staff: 65
       2hStaff: 65
-      Shield: 10
+      Shield: 1
     BonusStats:
       - Level: 1
         Str: 1
@@ -8392,7 +3576,7 @@ Body:
       2hMace: 55
       Staff: 65
       2hStaff: 65
-      Shield: 10
+      Shield: 1
     BonusStats:
       - Level: 1
         Str: 1
@@ -8456,253 +3640,33 @@ Body:
         Luk: 1
   - Jobs:
       Kagerou: true
-    MaxWeight: 26000
+    MaxWeight: 23000
     HpFactor: 75
     SpFactor: 540
     BaseASPD:
-      Fist: 40
-      Dagger: 45
+      Fist: 48
+      Dagger: 54
       Huuma: 50
-      Shield: 3
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 3
-        Int: 1
-      - Level: 5
-        Agi: 1
-      - Level: 6
-        Vit: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Luk: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Str: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Int: 1
-      - Level: 16
-        Luk: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Agi: 1
-      - Level: 23
-        Luk: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Int: 1
-      - Level: 27
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Dex: 1
-      - Level: 35
-        Int: 1
-      - Level: 37
-        Vit: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Str: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Int: 1
-      - Level: 43
-        Str: 1
-      - Level: 45
-        Dex: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Agi: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Dex: 1
+      Shield: 2
   - Jobs:
       Oboro: true
-    MaxWeight: 26000
+    MaxWeight: 23000
     HpFactor: 75
     SpFactor: 540
     BaseASPD:
-      Fist: 40
-      Dagger: 45
+      Fist: 48
+      Dagger: 54
       Huuma: 50
-      Shield: 3
-    BonusStats:
-      - Level: 1
-        Dex: 1
-      - Level: 3
-        Int: 1
-      - Level: 5
-        Agi: 1
-      - Level: 6
-        Vit: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Luk: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Str: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Int: 1
-      - Level: 16
-        Luk: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Agi: 1
-      - Level: 23
-        Luk: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Int: 1
-      - Level: 27
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 31
-        Str: 1
-      - Level: 32
-        Int: 1
-      - Level: 34
-        Dex: 1
-      - Level: 35
-        Int: 1
-      - Level: 37
-        Vit: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Str: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Int: 1
-      - Level: 43
-        Str: 1
-      - Level: 45
-        Dex: 1
-      - Level: 46
-        Luk: 1
-      - Level: 47
-        Agi: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Dex: 1
+      Shield: 2
   - Jobs:
       Rebellion: true
     MaxWeight: 28000
-    HpFactor: 90
+    HpFactor: 100
     HpMultiplicator: 650
     SpFactor: 469
     BaseASPD:
-      Fist: 54
-      Revolver: 49
-      Rifle: 59
-      Gatling: 54
-      Shotgun: 94
-      Grenade: 104
-      Shield: 6
-    BonusStats:
-      - Level: 2
-        Dex: 1
-      - Level: 4
-        Int: 1
-      - Level: 6
-        Vit: 1
-      - Level: 7
-        Dex: 1
-      - Level: 8
-        Int: 1
-      - Level: 9
-        Agi: 1
-      - Level: 10
-        Luk: 1
-      - Level: 13
-        Vit: 1
-      - Level: 14
-        Int: 1
-      - Level: 16
-        Agi: 1
-      - Level: 17
-        Dex: 1
-      - Level: 18
-        Int: 1
-      - Level: 19
-        Vit: 1
-      - Level: 20
-        Luk: 1
-      - Level: 23
-        Vit: 1
-      - Level: 24
-        Dex: 1
-      - Level: 25
-        Str: 1
-      - Level: 26
-        Int: 1
-      - Level: 27
-        Agi: 1
-      - Level: 30
-        Luk: 1
-      - Level: 31
-        Vit: 1
-      - Level: 33
-        Dex: 1
-      - Level: 34
-        Int: 1
-      - Level: 35
-        Str: 1
-      - Level: 38
-        Dex: 1
-      - Level: 40
-        Agi: 1
-      - Level: 41
-        Luk: 1
-      - Level: 43
-        Dex: 1
-      - Level: 44
-        Vit: 1
-      - Level: 45
-        Int: 1
-      - Level: 50
-        Str: 1
-      - Level: 51
-        Agi: 1
-      - Level: 52
-        Luk: 1
-      - Level: 54
-        Int: 1
-      - Level: 55
-        Dex: 1
-      - Level: 57
-        Agi: 1
+      Fist: 40
+      Mace: 58
   - Jobs:
       Summoner: true
     HpFactor: 70
@@ -9319,8 +4283,7 @@ Body:
       Baby_Gunslinger: true
     MaxWeight: 28000
     HpFactor: 90
-    HpMultiplicator: 650
-    SpFactor: 469
+    SpFactor: 90
     BaseASPD:
       Fist: 54
       Revolver: 49
@@ -9469,195 +4432,38 @@ Body:
       Star_Emperor: true
       Star_Emperor2: true
     MaxWeight: 28000
-    HpFactor: 90
+    HpFactor: 120
     HpMultiplicator: 650
-    SpFactor: 470
+    SpFactor: 500
     BaseASPD:
       Fist: 40
       Dagger: 50
       1hSword: 50
-      2hSword: 50
-      1hSpear: 50
-      2hSpear: 50
       1hAxe: 50
-      2hAxe: 50
-      Mace: 50
-      2hMace: 50
-      Staff: 50
-      Bow: 50
-      Knuckle: 50
-      Musical: 50
-      Whip: 50
-      Book: 50
-      Katar: 50
-      Revolver: 50
-      Rifle: 50
-      Gatling: 50
-      Shotgun: 50
-      Grenade: 50
-      Huuma: 50
-      2hStaff: 50
-      Shield: 6
+      Katar: 49
     BonusStats:
-      - Level: 1
-        Str: 1
-      - Level: 2
-        Dex: 1
-      - Level: 5
-        Agi: 1
-      - Level: 7
-        Int: 1
-      - Level: 8
-        Str: 1
-      - Level: 9
-        Luk: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Str: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Int: 1
-      - Level: 16
-        Luk: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Agi: 1
-      - Level: 23
-        Str: 1
-      - Level: 24
-        Vit: 1
-      - Level: 25
-        Int: 1
-      - Level: 27
-        Dex: 1
-      - Level: 29
-        Agi: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Str: 1
-      - Level: 34
-        Dex: 1
       - Level: 35
-        Agi: 1
-      - Level: 36
-        Luk: 1
-      - Level: 37
+        Str: 4
+        Agi: 5
         Vit: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Str: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Str: 1
-      - Level: 45
-        Dex: 1
-      - Level: 47
-        Agi: 1
-      - Level: 48
-        Str: 1
-      - Level: 50
-        Dex: 1
-      - Level: 56
-        Str: 1
-      - Level: 59
-        Agi: 1
+        Int: 3
+        Dex: 2
   - Jobs:
       Soul_Reaper: true
     MaxWeight: 24000
-    HpFactor: 75
-    SpFactor: 900
+    HpFactor: 110
+    SpFactor: 400
     BaseASPD:
-      Fist: 50
-      Dagger: 50
-      Staff: 53
-      2hStaff: 55
-      Shield: 8
+      Fist: 40
+      2hSpear: 58
+      1hSpear: 95
+      1hSword: 95
+      Dagger: 95
+      Shield: 0
     BonusStats:
-      - Level: 1
-        Int: 1
-      - Level: 2
-        Dex: 1
-      - Level: 5
-        Int: 1
-      - Level: 6
-        Vit: 1
-      - Level: 7
-        Dex: 1
-      - Level: 11
-        Dex: 1
-      - Level: 12
-        Int: 1
-      - Level: 13
-        Agi: 1
-      - Level: 15
-        Dex: 1
-      - Level: 16
-        Int: 1
-      - Level: 17
-        Vit: 1
-      - Level: 19
-        Str: 1
-      - Level: 20
-        Dex: 1
-      - Level: 21
-        Agi: 1
-      - Level: 24
-        Vit: 1
       - Level: 25
-        Int: 1
-      - Level: 26
-        Dex: 1
-      - Level: 28
-        Str: 1
-      - Level: 29
-        Agi: 1
-      - Level: 30
-        Dex: 1
-      - Level: 31
-        Int: 1
-      - Level: 34
-        Dex: 1
-      - Level: 35
-        Agi: 1
-      - Level: 37
-        Vit: 1
-      - Level: 38
-        Dex: 1
-      - Level: 39
-        Int: 1
-      - Level: 41
-        Agi: 1
-      - Level: 42
-        Vit: 1
-      - Level: 43
-        Str: 1
-      - Level: 44
-        Int: 1
-      - Level: 45
-        Dex: 1
-      - Level: 47
-        Agi: 1
-      - Level: 49
-        Int: 1
-      - Level: 50
-        Dex: 1
-      - Level: 52
-        Agi: 1
-      - Level: 54
-        Int: 1
-      - Level: 59
+        Str: 3
+        Vit: 2
         Int: 1
   - Jobs:
       Baby_Star_Emperor: true
@@ -9770,7 +4576,7 @@ Body:
   - Jobs:
       Baby_Soul_Reaper: true
     MaxWeight: 24000
-    HpFactor: 75
+    HpFactor: 100
     SpFactor: 900
     BaseASPD:
       Fist: 50

@@ -3108,17 +3108,12 @@ If <type> is false the command only returns the count of unidentified items.
 
 ---------------------------------------
 
-*getenchantgrade({<equipment slot>,<char_id>})
+*getenchantgrade()
 
 This function will return the enchantgrade of the equipment from which the
-function is called or the specified equipment slot. If nothing is
-equipped there, it returns -1.
+function is called.
 
-Valid equipment slots are:
-
-EQI_COMPOUND_ON      - Item slot that calls this script (In context of item script) (default)
-
-For a list of others equipment slots see 'getequipid'.
+This function is intended for use in item scripts.
 
 ---------------------------------------
 //
@@ -3568,6 +3563,45 @@ skills a character has.
 This command does not count skills which are set as flag 4 (permament granted) (ALL_BUYING_STORE/ALL_INCCARRY)
 
 ---------------------------------------
+
+*getskillname(<skill id>)
+*getskillname("<skill name>")
+
+This function returns the Skill Description (skill cast's name) provided in skill_db.yml.
+If the skill is invalid returns 'Unknown Skill'.
+
+Example 1:
+	mes "Skill Name: "+getskillname("SM_SWORD");
+	(print "Skill Name: Sword Mastery")
+
+Example 2:
+	if (getskilllv(225))
+		mes getskillname(225)+" is already learned!";
+	(print "Intimidate is already learned!")
+
+---------------------------------------
+*plagiarizeskill <skill_id>,<level>;
+
+Enable the player to plagiarize specific skills that are copyable.
+Return 1 on success, 0 otherwise.
+
+Note:
+ - Plagiarism only able to copy skill while SC_PRESERVE is not active and skill is copyable by Plagiarism.
+ - Reproduce can copy skill if SC__REPRODUCE is active and the skill is copyable by Reproduce.
+
+---------------------------------------
+
+plagiarizeskillreset <flag>;
+
+Remove a plagiarized skill from the player.
+Return 1 on success, 0 otherwise.
+
+Flag constants:
+	1 - Use for Plagiarism Skill
+	2 - Use for Reproduce Skill
+
+---------------------------------------
+
 
 *getmonsterinfo(<mob ID>,<type>)
 

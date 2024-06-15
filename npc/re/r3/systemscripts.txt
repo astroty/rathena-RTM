@@ -1,0 +1,706 @@
+//by Ornstein
+//1- When killing monster 1234, everyone on map gets atk bonus for 30 seconds.
+
+prontera,1,1,4	script	BuffMap#1	CLEAR_NPC,{
+OnNPCKillEvent:
+if( killedrid == 1234 ){
+	announce "A wave of power flows from the core!",bc_blue|bc_area;
+	addrid(1);
+	specialeffect2 1239;
+	specialeffect2 1144;
+	sc_start SC_ATKPOTION,30000,10,10000;
+	end;
+}
+}
+
+//2- When thanatos is killed, warped out.
+
+thana_boss,1,1,4	script	MVPManager#1	CLEAR_NPC,{
+OnNPCKillEvent:
+if( killedrid == 1708 )
+	announce "Thanatos morreu em combate e sua alma vai expulsar todo mundo do mapa em 15 segundos.",bc_blue|bc_map;
+	initnpctimer;
+    end;
+OnTimer15000:
+	addrid(1);
+	warp "tha_t01",149,100;
+	stopnpctimer
+	end;
+}
+
+//3- When dead on map, spawn back
+
+-	script	Respawn#prontera	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "prontera"){
+	warp "Save",0,0;
+	end;
+	}
+}
+
+
+//4- Odin's Past Reginleif Shadow
+
+-	script	ReginleifSh#odin_past	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "odin_past"){
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	soundeffect "randgris_die.wav", 0;
+	announce strcharinfo(0) + " has died and a Shadow of Reginleif has come to take it to Valhalla!",bc_blue|bc_map;
+	monster .@map$,.@x,.@y,"Shadow of Reginleif",1234,1,"ReginleifSh#odin_past::OnShadowFDeath";
+	initnpctimer;
+	end;
+OnTimer15000:
+	mapannounce "odin_past","The Shadow of Reginleif has returned to the skies. The Soul is unworthy.",bc_blue;
+	killmonster "odin_past", "ReginleifSh#odin_past::OnShadowFDeath";
+	stopnpctimer;
+	end;
+OnShadowFDeath:
+	announce "The Shadow of Reginleif has been vanquished.",bc_blue|bc_area;
+	stopnpctimer;
+	end;
+}
+}
+
+//5- Byalan Distortion Wave Mechanic
+
+iz_dun05,1,1,4	script	Flush#1	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "Flush#1::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer4250:
+    mapannounce "iz_dun05","The Shrine Tide pushes violently anyone not sitting and holding on!",bc_map;
+    end;
+OnTimer5000:
+	addrid(1);
+	if ( Sitting == 1 ){
+	specialeffect2 942;
+	end;
+	}else{
+	if (HP <10){
+	end;
+	}
+	warp "iz_dun05",0,0;
+	specialeffect2 942;
+	end;
+	}
+OnTimer60000:
+    initnpctimer;
+    mapannounce "iz_dun05","The Shrine Tide is growing once again!",bc_map;
+    end;
+}
+
+//6- Clock Tower Distortion Stuff
+
+alde_dun03,1,1,4	script	Clock#1	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "Clock#1::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer10000:
+    addrid(1);
+    if (rand(1,4) == 1){
+	sc_end SC_QUAGMIRE;
+	sc_end SC_SPEEDUP1;
+	sc_end SC_STOP;
+    sc_start SC_DECREASEAGI,20000,10,10000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,4) == 2){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_SPEEDUP1;
+	sc_end SC_STOP;
+    sc_start SC_QUAGMIRE,10000,5,10000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,4) == 3){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_QUAGMIRE;
+	sc_end SC_STOP;
+    sc_start SC_SPEEDUP1,20000,50,100000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,4) == 4){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_QUAGMIRE;
+	sc_end SC_SPEEDUP1;
+    sc_start SC_STOP,5000,1,10000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    end;
+OnTimer20000:
+    initnpctimer;
+    mapannounce "alde_dun03","The clock is ticking...",bc_map;
+    end;
+}
+
+//7- Safe zone for distortion orbs
+
+prontera,123,123,1	script	guardian#Protection1	-1,5,5,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"prontera",100,100;
+    end;
+}
+
+//8- Example HATred quest
+
+grey_ft02,50,108,4	script	HATred Dude#3greyforest	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (lushrose >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Lush Rose<INFO>18848</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000010^000000 Grey Fur from Coyote!"; //7589
+		mes "^FF000010^000000 Broken Blade from Orphan Hunter!"; //7591
+		mes "^FF000025^000000 Spooky Branch from Ghost Tree!"; //7595
+		mes "^FF00005^000000 Burning Mane from Flame Stallion!"; //7596
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7589) < 10) goto L_noitems;
+		if(countitem(7591) < 10) goto L_noitems;
+		if(countitem(7595) < 25) goto L_noitems;
+		if(countitem(7596) < 5) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7589,10;
+		delitem 7591,10;
+		delitem 7595,25;
+		delitem 7596,5;
+		getitem 18848,1;
+		set hatpoints, hatpoints+1;
+		set lushrose,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7589) < 10) mes "^FF0000"+(10 - countitem(7589)) +"^000000 Grey Fur";
+		if(countitem(7591) < 10) mes "^FF0000"+(10 - countitem(7591)) +"^000000 Broken Blade";
+		if(countitem(7595) < 25) mes "^FF0000"+(25 - countitem(7595)) +"^000000 Spooky Branch";
+		if(countitem(7596) < 5) mes "^FF0000"+(5 - countitem(7596)) +"^000000 Burning Mane";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+//9 - Generic Kafra + Elixir Refill
+
+einbroch,233,216,4	script	Kafra#einb	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Yuno:Aldebaran:Hugel:Lighthalzen:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "lighthalzen",158,92;
+				end;
+				break;
+			case 5:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+//10 - MVP Relic System, just add "callfunc" to the relic item when used
+
+function	script	Relic#1930	{
+	
+	if (strcharinfo(3) != "moc_pryd06"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@piamette ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_pryd06"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1930,1,"MVP#1930::OnMVPDeath";
+	set $@piamette,1;
+	end;
+	}
+}
+
+moc_pryd06,1,1,4	script	MVP#1930	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@piamette,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+	}
+	
+//11 - Summon Monster killed if all 4 items are equipped
+
+//Mesmerizing Look Set Script
+-	script	MesmerizingLook	,{
+	OnNPCKillEvent:
+	if(illusionistjob ==0){
+		end;
+}
+	if (getequipid(EQI_SHADOW_ARMOR) != 30077){
+		end;
+	}
+	if (getequipid(EQI_SHADOW_SHIELD) != 30078){
+		end;
+	}
+	if (getequipid(EQI_SHADOW_SHOES) != 30079){
+		end;
+	}
+	if (getequipid(EQI_SHADOW_ACC_L) != 30080){
+		end;
+	}
+	if( rand(1,4) <= 2){
+		summon "Mesmerizing Illusion",killedrid,10000;
+}
+	end;
+}
+
+//12 - Any Random Box, with equal odds
+
+function	script	MVPPrizeBox	{
+	setarray .BoxItems[0],984,985,6240,6241,6292,6291,25729,6224,14735,7615,607;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//13 - Entire Kiel Distortion Puzzle
+
+//Kiel University Distortion
+
+yuno_fild08,162,197,3	script	Sad Student#khu	748,{
+	
+	set .@npc$, "[Sad Student]";
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "We had made such nice discoveries! They shut down our project!";
+	close;
+}
+
+yuno_fild08,159,196,6	script	Angry Student#khu	750,{
+	
+	set .@npc$, "[Angry Student]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "They have closed down the entire University!";
+	mes "How can they expect us to make any progress???";
+	close;
+}
+
+yuno_fild08,157,192,4	script	Judge#khu	10181,{
+	
+	set .@npc$, "[Serious Judge]";
+	if (judgejob ==1){
+	mes .@npc$;
+	mes "Hello Magister, taking a walk around this area?";
+	next;
+	mes .@npc$;
+	mes "Kiel Academy has been permanently closed, did you know they had robots disguised as students? These people...";
+	close;
+	}
+	emotion ET_X;
+	mes .@npc$;
+	mes "The Kiel Hyre Academy is permanently closed due to their evil use of robotics. Please. Do not approach.";
+	close;
+}
+
+khu_dun01,181,187,5	script	Student Book#khu	CLEAR_NPC,{
+	mes "You check the notes on the workbook:";
+	next;
+	mes "I need to continue blending in this area to understand how they made these robots.";
+	next;
+	mes "I have heard some noise near one of the statues, but I don't understand how to move it.";
+	next;
+	if (khuunlocka ==0){
+	set khuunlocka, 1;
+	set khuunlock, khuunlock+1;
+	}
+	mes "The way these monsters took over New-Midgard... If I could find the source of it all...";
+	next;
+	mes "All I found was a strange string... EI8S or something like that...I wonder what it is.";
+	close;
+	}
+
+
+khu_dun01,176,187,5	script	Student Book#khu2	CLEAR_NPC,{
+	mes "You check the notes on the workbook:";
+	next;
+	mes "Master Kiel knows what is best. Master Kiel is the smartest.";
+	next;
+	mes "His power and influence changed the world and will soon change my life.";
+	next;
+	mes "For I will be fixed, and made whole.";
+	close;
+	}
+	
+khu_dun01,177,61,5	script	Blackboard Notes#khu3	CLEAR_NPC,{
+	mes "You check the notes written on the blackboard:";
+	next;
+	mes "The Factory is the heart of our operations. The old factory near the mansion was too much risk.";
+	next;
+	mes "Creating multiple guardians and sentries would draw  too much attention. We must be resourceful and hide our access.";
+	next;
+	mes "Keys can be stolen, but a code is pure knowledge and cannot be taken from us. Specially a code that can't be understood.";
+	next;
+	if (khuunlockb ==0){
+	set khuunlockb, 1;
+	set khuunlock, khuunlock+1;
+	}
+	mes "Protect the new, perfect factory. Watch over the secret underground entrance. This University is merely a front.";
+	close;
+	}
+
+khu_dun01,177,128,5	script	Old Book#khu3	CLEAR_NPC,{
+	mes "A very old book has a very interesting design, similar to one of the statues.";
+	next;
+	mes "The entire text on the book is written in a mirrored way. It's hard to understand what it says. There's a small message under one of the pages:";
+	next;
+	if (khuunlockc ==0){
+	set khuunlockc, 1;
+	set khuunlock, khuunlock+1;
+	}
+	mes "Do not ever make these codes public, it can be dangerous. Follow the idea shown here.";
+	close;
+	}
+	
+khu_dun01,173,46,5	script	Food#khu4	CLEAR_NPC,{
+	mes "The food is made of plastic and metal.";
+	next;
+	mes "It can't be eaten.";
+	close;
+	}
+	
+khu_dun01,156,36,3	script	Statue#khu_dun02	CLEAR_NPC,{
+
+	if (khuunlock <=2){
+	mes "A fancy statue holding a book.";
+	close;
+	}
+	input .@pass;
+	if (.@pass == 5813) {
+		mes "A small passage opens beneath the statue.";
+		close2;
+		warp "khu_dun02", 13, 150;
+	}
+	
+	else {
+		specialeffect2 257;
+		sc_start SC_STUN,10000,0,10000;
+		percentheal -50,-100;
+		mes "You hear a strange sound... and you are electrocuted shortly after.";
+		close2;
+	}
+	
+	end;
+}
+
+//14 - Baroness of Blood's Trigger which requires specific gear equipped
+
+ve_fild05,93,259,4	script	?#PassageBlood	clear_npc,2,2,{
+end;
+OnTouch_:	
+	soundeffect "chunithm_atk.wav",0;
+	 if (getequipid(EQI_GARMENT) == 20721){
+		 if (getequipid(EQI_SHOES) == 22033){
+			  if (getequipid(EQI_HEAD_TOP) == 18820){
+				  mes "You can hear your mother scream... and a strange light guides you home...";
+				  close2;
+				  warp "1@4sac",58,64;
+				  
+		}
+		}
+		}
+	end;
+	}
+	
+//15 - Basic BGM Changer, for use in events/call to arms
+
+va_orpha,1,2,4	script	BGM#eventprm	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "BGM#eventprm::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer500:
+    playbgmall "125","va_orpha";
+    end;
+OnTimer2000:
+    initnpctimer;
+    end;
+}
+
+//16 - Shadow System
+
+-	script	Shadows#moc_pryd05	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "moc_pryd05"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  set .autoress$,strcharinfo(0);
+  soundeffect "wraith_die.wav", 0;
+  announce strcharinfo(0) + " has died and spawned a Shadow!",bc_blue|bc_area;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Shadow",2939,1,"Shadows#moc_pryd05::OnShadowDeath";
+  set .shadowspawn,.shadowspawn+1;
+  end;
+}
+OnShadowDeath:
+	set .shadowspawn,.shadowspawn-1;
+	if(.shadowspawn < 1){
+	if(playerattached()==0) { end; }
+	atcommand "#alive "+.autoress$;
+	set .autoress$,0;
+	set .shadowclear,0;
+	set .shadowspawn,0;
+	}
+}
+}
+
+//17 - Founder's Monument
+
+va_orpha,272,324,4	script	Honored Founders#donation	CLEAR_NPC,{
+	mes "^FF0000You can see a long list of names and a small plaque on top:^000000";
+	next;
+	mes "^FF0000Varmundt the Sage and Amadeus Windsor, will always be thankful for the first Orphans to arrive and assist me in building the Orphanage.^000000";
+	next;
+	switch(select("Leave:Read the list of Founders")) {
+	case 1:
+	emotion ET_THANKS, playerattached();
+	mes "After a short smile acknowledging the Founders, you go back to your usual afairs.";
+	close;
+	case 2:
+	mes "The List is pretty long...and split in sections about who did what work:";
+	next;
+	mes "^FF0000The Orphans who arrived first and made the dream come true:^000000";
+	mes "Calamidade the Dearest,  Kadaj the Challenger, Kureyto the Smoke, Kuroikami the Ghost.";
+	next;
+	mes "^FF0000The Orphans who took the first steps into the foundation of the Orphanage:^000000";
+	mes "Alemi the First, Jururu the Creative, Shinryu the Caretaker, Ktak the Cat, Vadhadon the Informed, Silverthundr the Calculator, Chugs the Lost, Sehlyn the Fast, Sinistar the Doom, Khiet the Returner";
+	next;
+	mes "^FF0000The Orphans who negotiated with the Thieves Guild for a safe location:^000000";
+	mes "Speev the Slow, Gryph the Honorable, Venaire the Honest, Azureyume the Comunicator, Yasiru the Gentleman, Smug Kot the Depraved, ArtemisDream the Quiet, EntropyTwo the Tahitian.";
+	next;
+	mes "^FF0000The Orphans who helped stabilize the distortion to make it safe:^000000";
+	mes "Wuicel the Silent, Selassie the Ninja, Lorenor the Supporter, Bo the Forgotten, Neidschel the Raven, Mullciber the Magister, Saintreem the Arrow, Scamp the Abandoner,Riry the Abandoned, DonaldGHorn, the Creator.";
+	next;
+	mes "^FF0000The Orphans that protected the gates of the Orphanage and faced enemies:^000000";
+	mes "Tonat the Gentle, Calleil the Believer, MuneSiriou the Distracted, Teto the Watcher, Kiel the Foreigner, Everdream the Double, Posh the Badie, Identify the Busy, Woobz the Clumsy, Rpd the Player.";
+	next;
+	mes "^FF0000The Orphans that assisted with the decorations and welcoming organization:^000000";
+	mes "Gooey the Hopeful, Faexys the Angry, Kayle the Artist, Kheera the Achiever, Agudon the Buyer, VitorDelacroix the Tester, Brandonowitz the Noble, Metallia the Focused, Nix the Hunter, Paski the Informed.";
+	next;
+	mes "^FF0000The Orphans that assisted with the facilities and kitchen:^000000";
+	mes "Demafogotto the Grateful, Light the Pharos, Logan the Cheerful, Draguno the Booster, Kit the Visitor, Alutte the Informer, TwilightsCall the Analyst, Jellopy the Guide, Jinsain the Thankful, 99ozMilk the Gamer.";
+	next;
+	mes "^FF0000The Orphans that found Iris and assisted with her magic:^000000";
+	mes "Anti Climex the Smart ,Alphan Blitzen the Stuck, Yoshi of Yellow the Buddy,Ouroboros the Changed, Red the Wrong, Abyss the Shadow, Chemz the Away, Artheus the Bold, Ramonzudo the Friendly, Literally Who the Mr.";
+	next;
+	mes "^FF0000The Orphans who would search for others over the world:^000000";
+	mes "Isinore the Sniper, Elith the Humble, Alastor the Mute, Ayrton Kunuma the Showman, Mick the Sage, Panda the Panda, G0ose the Wanderer, Phillifer the Thanksgiver, Rejkjavik the Named, Kihri the Discreet.";
+	next;
+	mes "^FF0000The Orphans that would make good relations with the Morroc civilians:^000000";
+	mes "Happy the Sad, Foggy the Quick Caster, SnooP OrO the Gordito, Hubnoz the Good, Soap the Clean, ZetsBR the Assistant, Sebi the Animated, MrKen the Scholar, Pablim the Traitor, Send the Reporter.";
+	next;
+	mes "^FF0000The Orphans that would help the staff keep the Orphanage running:^000000";
+	mes "Rekaris the Professional, Desmond the Invoker, PedroHilfiger the Merchant, Bubble Romance the Wisher, Lexi the Distant, RiceCakez the Beginner, Knny the Direct, Rupilink the Spanyard, Will the Poor.";
+	next;
+	mes "^FF0000The Orphans who fell in combat protecting the weak:^000000";
+	mes "Plenair the Brave, Cryptid the Cryptic, Veigaz0rd the Bomber, Arthorien the Fair, Leifon the Random, Phear the Dick, Tellezman the Laugher, GodSthufer the Suspect, Waerok the Fallen.";
+	next;
+	mes "^FF0000The Orphans who helped clean it all:^000000";
+	mes "Nid Rich Sugar Mama the Collector, Rafcakes the Killer, Mamotromico the Efficient, Kevin the Bird, Adrianuk the Unseen, Biel Thor the Fighter, Nenfz the Joker, Noirua the Gargoyle, Pie Soreveign the Last.";
+	next;
+	mes "^FF0000The one who set the first and last stone:^000000";
+	mes "Ornstein, the Developer.";
+	close;	
+}
+}
+
+//18 - Orphanage Warp Portals
+
+moc_prydb1,36,121,0	warp	orphanageoutin	1,1,va_orpha,272,273
+va_orpha,271,266,0	warp	orphanageinout	1,1,moc_prydb1,39,122
+va_orpha,366,289,0	warp	orphanage0001	1,1,va_orpha,14,255
+va_orpha,11,255,0	warp	orphanage0002	1,1,va_orpha,362,289
+va_orpha,301,328,0	warp	orphanage0003	1,1,va_orpha,361,193
+va_orpha,357,193,0	warp	orphanage0004	1,1,va_orpha,298,328
+va_orpha,40,8,0	warp	orphanage0005	1,1,va_orpha,255,349
+va_orpha,255,353,0	warp	orphanage0006	1,1,va_orpha,40,12
+va_orpha,202,370,0	warp	orphanage0007	1,1,va_orpha,376,103
+va_orpha,376,99,0	warp	orphanage0008	1,1,va_orpha,202,366
+va_orpha,350,361,0	warp	orphanage0009	1,1,va_orpha,280,193
+va_orpha,277,193,0	warp	orphanage0010	1,1,va_orpha,347,361
+va_orpha,40,106,0	warp	orphanage0011	1,1,va_orpha,212,165
+va_orpha,212,162,0	warp	orphanage0012	1,1,va_orpha,40,102
+va_orpha,295,99,0	warp	orphanage0013	1,1,va_orpha,314,367
+va_orpha,24,308,0	warp	orphanage0014	1,1,va_orpha,295,348
+va_orpha,295,353,0	warp	orphanage0015	1,1,va_orpha,24,311

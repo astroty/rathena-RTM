@@ -1,0 +1,74 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Frontier Managers and such
+//===== Comments: =========================================
+//====================================================
+
+nomadvill,12,175,0	warp	frontw01	1,1,fro_fild01,182,59
+fro_fild01,185,59,0	warp	frontw02	1,1,nomadvill,20,173
+fro_fild01,66,191,0	warp	frontw03	1,1,fro_tower,131,181
+fro_tower,122,178,0	warp	frontw04	1,1,fro_fild01,66,185
+fro_fild01,8,13,0	warp	frontw05	1,1,fro_fild02,174,172
+fro_fild02,184,174,0	warp	frontw06	1,1,fro_fild01,16,15
+fro_fild02,37,149,0	warp	frontw07	1,1,fro_fild03,184,58
+fro_fild03,188,58,0	warp	frontw08	1,1,fro_fild02,43,149
+fro_fild03,7,135,0	warp	frontw09	1,1,front_out,382,210
+front_out,388,210,0	warp	frontw10	1,1,fro_fild03,12,135
+fro_fild02,8,23,0	warp	frontw11	1,1,fro_vill1,177,180
+fro_vill1,183,180,0	warp	frontw12	1,1,fro_fild02,13,23
+fro_vill1,23,96,0	warp	frontw13	1,1,fro_vill2,180,180
+fro_vill2,185,180,0	warp	frontw14	1,1,fro_vill1,28,96
+//Observatorium
+gef_fild05,296,67,0	warp	obsev01	1,1,ast_dun01,43,16
+ast_dun01,43,11,0	warp	obsev02	1,1,gef_fild05,292,67
+ast_dun01,72,106,0	warp	obsev03	1,1,ast_dun02,150,28
+ast_dun02,150,22,0	warp	obsev04	1,1,ast_dun01,72,101
+ast_dun02,70,165,0	warp	obsev05	1,1,ast_dun03,99,18
+ast_dun03,94,18,0	warp	obsev06	1,1,ast_dun01,72,101
+pk_in01,85,145,0	warp	pkhq	1,1,front_out,248,210
+
+ast_dun01	mapflag	nomemo
+ast_dun02	mapflag	nomemo
+ast_dun03	mapflag	nomemo
+ast_dun03	mapflag	noteleport
+pk_in01	mapflag	noteleport
+pk_in01	mapflag	nowarp
+pk_in01	mapflag	nomemo
+ast_dun01	mapflag	nowarp
+ast_dun02	mapflag	nowarp
+ast_dun03	mapflag	nowarp
+
+
+gef_fild05,289,64,1	script	Astrologian#frontier1	742,{
+
+	set .@npc$, "[Scared Astrologian]";
+	mes .@npc$;
+	mes "We...made a terrible mistake. Opening the Window to the Night Sky has brough many monsters here!";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Be careful if you head inside...Please help us clear them out!";
+	close;
+	end;
+}
+
+/////NPC LOCATIONS////
+//Blade Dancer 19-64
+//Saboteur 114-131
+//Scoundrel 29-33
+//Duelist 140-63
+//Shinobi 178-15
+//Deadeye 182- 124
+//Mystic 120-140
+//Executioner 179-136

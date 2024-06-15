@@ -19,85 +19,68 @@
 //==================================================
 // ra_fild01 - Audhumbla Grassland
 //==================================================
-ra_fild01,0,0	monster	Desert Wolf	1106,145,5000
-ra_fild01,0,0	monster	Roween	1782,33,5000
-ra_fild01,0,0	monster	Baby Desert Wolf	1107,22,5000
-ra_fild01,0,0	monster	Anopheles	1627,11,5000
-
-//==================================================
-// ra_fild02 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// ra_fild03 - The Plain of Ida
-//==================================================
-ra_fild03,0,0	monster	Hill Wind	1680,154,5000
-ra_fild03,0,0	monster	Roween	1782,35,5000
-ra_fild03,0,0	monster	Anacondaq	1030,23,5000
-ra_fild03,0,0	monster	Anopheles	1627,23,5000
-ra_fild03,0,0,0,0	boss_monster	Atroce	1785,1,10800000,600000,1
-
-//==================================================
-// ra_fild04 - Audhumbla Grassland
-//==================================================
-ra_fild04,0,0	monster	Hill Wind	1680,155,5000
-ra_fild04,0,0	monster	Roween	1782,35,5000
-ra_fild04,0,0	monster	Desert Wolf	1106,23,5000
-ra_fild04,0,0	monster	Anopheles	1627,23,5000
-ra_fild04,0,0,0,0	boss_monster	Atroce	1785,1,18000000,600000,1
-
-//==================================================
-// ra_fild05 - Audhumbla Grassland
-//==================================================
-ra_fild05,0,0	monster	Kobold	1133,81,5000
-ra_fild05,0,0	monster	Kobold	1134,81,5000
-ra_fild05,0,0	monster	Kobold	1135,81,5000
-ra_fild05,0,0	monster	Anopheles	1627,11,5000
-
-//==================================================
-// ra_fild06 - Portus Luna
-//==================================================
-ra_fild06,0,0	monster	Kobold Archer	1282,87,5000
-ra_fild06,0,0	monster	Kobold	1133,49,5000
-ra_fild06,0,0	monster	Kobold	1134,49,5000
-ra_fild06,0,0	monster	Kobold	1135,49,5000
-ra_fild06,0,0	monster	Anopheles	1627,12,5000
-ra_fild06,0,0	monster	Kobold Leader	1296,1,1800000,1200000
-
-//==================================================
-// ra_fild07 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// ra_fild08 - The Plain of Ida
-//==================================================
-ra_fild08,0,0	monster	Anacondaq	1030,159,5000
-ra_fild08,0,0	monster	Roween	1782,79,5000
-ra_fild08,0,0	monster	Hill Wind	1680,31,5000
-ra_fild08,0,0	monster	Baby Desert Wolf	1107,15,5000
-ra_fild08,0,0	monster	Anopheles	1627,15,5000
-
-//==================================================
-// ra_fild09 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// ra_fild10 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// ra_fild11 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// ra_fild12 - The Plain of Ida
-//==================================================
-ra_fild12,0,0	monster	Roween	1782,216,5000
-ra_fild12,0,0	monster	Anopheles	1627,49,5000
-ra_fild12,0,0	monster	Baby Desert Wolf	1107,24,5000
-ra_fild12,0,0	monster	Yellow Plant	1081,15,10000
-ra_fild12,0,0	monster	Red Plant	1078,5,10000
-
-//==================================================
-// ra_fild13 - Disabled on Renewal
-//==================================================
+ra_fild01,0,0	monster	Hill Wind Mage	1680,55,5000
+ra_fild01,0,0	monster	Hill Wind Fighter	1629,55,5000
+ra_fild01,0,0	monster	Drosera	1781,15,5000
+ra_fild01,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild04,0,0	monster	Hill Wind Mage	1680,75,5000
+ra_fild04,0,0	monster	Hill Wind Fighter	1629,45,5000
+ra_fild04,0,0	monster	Drosera	1781,10,5000
+ra_fild04,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild05,0,0	monster	Hill Wind Mage	1680,45,5000
+ra_fild05,0,0	monster	Hill Wind Fighter	1629,75,5000
+ra_fild05,0,0	monster	Drosera	1781,10,5000
+ra_fild05,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild06,0,0	monster	Hill Wind Mage	1680,75,5000
+ra_fild06,0,0	monster	Hill Wind Fighter	1629,75,5000
+ra_fild06,0,0	monster	Drosera	1781,5,5000
+ra_fild06,0,0	monster	Rachel Kidnapper	1474,1,5000
+////////
+ra_fild09,0,0	monster	Baby Leopard	1415,65,5000
+ra_fild09,0,0	monster	Roween	1782,45,5000
+ra_fild09,0,0	monster	Galion	1783,10,5000
+ra_fild09,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild08,0,0	monster	Baby Leopard	1415,45,5000
+ra_fild08,0,0	monster	Roween	1782,65,5000
+ra_fild08,0,0	monster	Galion	1783,10,5000
+ra_fild08,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild12,0,0	monster	Baby Leopard	1415,55,5000
+ra_fild12,0,0	monster	Roween	1782,55,5000
+ra_fild12,0,0	monster	Galion	1783,10,5000
+ra_fild12,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild13,0,0	monster	Baby Leopard	1415,35,5000
+ra_fild13,0,0	monster	Roween	1782,35,5000
+ra_fild13,0,0	monster	Galion	1783,15,5000
+ra_fild13,0,0	monster	Rachel Kidnapper	1474,1,5000
+ra_fild13,0,0,0,0	boss_monster	Miguel	1395,1,2700000,5400000,0
+////////
+ra_fild02,0,0	monster	Mi Gao	1516,55,5000
+ra_fild02,0,0	monster	Dustiness	1114,55,5000
+ra_fild02,0,0	monster	Buzzer	1524,10,5000
+ra_fild02,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild03,0,0	monster	Mi Gao	1516,45,5000
+ra_fild03,0,0	monster	Dustiness	1114,65,5000
+ra_fild03,0,0	monster	Buzzer	1524,10,5000
+ra_fild03,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild07,0,0	monster	Mi Gao	1516,65,5000
+ra_fild07,0,0	monster	Dustiness	1114,45,5000
+ra_fild07,0,0	monster	Buzzer	1524,10,5000
+ra_fild07,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild11,0,0	monster	Mi Gao	1516,75,5000
+ra_fild11,0,0	monster	Dustiness	1114,75,5000
+ra_fild11,0,0	monster	Buzzer	1524,5,5000
+ra_fild11,0,0	monster	Rachel Kidnapper	1474,1,5000
+//
+ra_fild10,0,0	monster	Mi Gao	1516,45,5000
+ra_fild10,0,0	monster	Dustiness	1114,45,5000
+ra_fild10,0,0	monster	Buzzer	1524,20,5000
+ra_fild10,0,0	monster	Rachel Kidnapper	1474,1,5000

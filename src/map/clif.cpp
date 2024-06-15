@@ -394,6 +394,8 @@ static bool clif_session_isValid(struct map_session_data *sd) {
 static int clif_send_sub(struct block_list *bl, va_list ap)
 {
 	struct block_list *src_bl;
+	struct block_list *tbl;
+	struct block_list *mbl;
 	struct map_session_data *sd;
 	unsigned char *buf;
 	int len, type, fd;
@@ -410,6 +412,101 @@ static int clif_send_sub(struct block_list *bl, va_list ap)
 	len = va_arg(ap,int);
 	nullpo_ret(src_bl = va_arg(ap,struct block_list*));
 	type = va_arg(ap,int);
+	
+	if (src_bl->type == BL_PET){ // target 3 == AREA_WOS
+		switch(RBUFW(buf, 0)) {
+			case spawn_unitType: // clif_spawn_unit
+			case unit_walkingType:
+				tbl = map_id2bl(RBUFL(buf,5));
+				if(sd->state.hideslave&1
+					&&((pet_data*)tbl)->master && ((pet_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+			case 0x86: // clif_move
+			case 0x1aa: // pet emotion
+				tbl = map_id2bl(RBUFL(buf,2));
+				if(sd->state.hideslave&1
+					&&((pet_data*)tbl)->master && ((pet_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+		}
+	} else if(src_bl->type == BL_HOM){
+		switch(RBUFW(buf, 0)) {
+			case spawn_unitType: // clif_spawn_unit
+			case unit_walkingType:
+				tbl = map_id2bl(RBUFL(buf,5));
+				if(sd->state.hideslave&2
+					&&((homun_data*)tbl)->master && ((homun_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+			case 0x86: // clif_move
+				tbl = map_id2bl(RBUFL(buf,2));
+				if(sd->state.hideslave&2
+					&&((homun_data*)tbl)->master && ((homun_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+		}
+	} else if(src_bl->type == BL_MER){
+		switch(RBUFW(buf, 0)) {
+			case spawn_unitType: // clif_spawn_unit
+			case unit_walkingType:
+				tbl = map_id2bl(RBUFL(buf,5));
+				if(sd->state.hideslave&8
+					&&((s_mercenary_data*)tbl)->master && ((s_mercenary_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+			case 0x86: // clif_move
+				tbl = map_id2bl(RBUFL(buf,2));
+				if(sd->state.hideslave&8
+					&&((s_mercenary_data*)tbl)->master && ((s_mercenary_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+		}
+	} else if(src_bl->type == BL_MOB){
+		switch(RBUFW(buf, 0)) {
+			case spawn_unitType: // clif_spawn_unit
+			case unit_walkingType:
+				tbl = map_id2bl(RBUFL(buf,5));
+				if(((mob_data*)tbl)->master_id > 0){
+					mbl = map_id2bl(((mob_data*)tbl)->master_id);
+					if(sd->state.hideslave&4
+						&&mbl->type == BL_PC && mbl->id != sd->bl.id)
+							return 0;
+				}
+					break;
+			case 0x86: // clif_move
+				tbl = map_id2bl(RBUFL(buf,2));
+				if(((mob_data*)tbl)->master_id > 0){
+					mbl = map_id2bl(((mob_data*)tbl)->master_id);
+					if(sd->state.hideslave&4
+						&&mbl->type == BL_PC && mbl->id != sd->bl.id)
+							return 0;
+				}
+					break;
+		}
+	} else {
+		switch(RBUFW(buf, 0)) {
+			case 0x86: // clif_move
+				tbl = map_id2bl(RBUFL(buf,2));
+				if(tbl->type == BL_PET && sd->state.hideslave&1
+					&&((pet_data*)tbl)->master && ((pet_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+				else if(tbl->type == BL_HOM && sd->state.hideslave&2
+					&&((homun_data*)tbl)->master && ((homun_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+				else if(tbl->type == BL_MER && sd->state.hideslave&2
+					&&((s_mercenary_data*)tbl)->master && ((s_mercenary_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+				else if(tbl->type == BL_MOB && ((mob_data*)tbl)->master_id > 0){
+						mbl = map_id2bl(((mob_data*)tbl)->master_id);
+						if (sd->state.hideslave&4
+						&&mbl->type == BL_PC && mbl->id != sd->bl.id)
+							return 0;
+				}
+					break;
+		}
+	}
+
 
 	switch(type) {
 	case AREA_WOS:
@@ -465,6 +562,8 @@ static int clif_send_sub(struct block_list *bl, va_list ap)
 int clif_send(const void* buf, int len, struct block_list* bl, enum send_target type)
 {
 	int i;
+	struct block_list* tbl;
+	struct block_list* mbl;
 	struct map_session_data *sd, *tsd;
 	struct party_data *p = NULL;
 	struct guild *g = NULL;
@@ -607,6 +706,74 @@ int clif_send(const void* buf, int len, struct block_list* bl, enum send_target 
 		break;
 
 	case SELF:
+		if (bl->type== BL_PET){ // target 3 == AREA_WOS
+			switch(RBUFW(buf, 0)) {
+				case unit_walkingType: // clif_spawn_unit
+					tbl = map_id2bl(RBUFL(buf,5));
+					if(tbl && sd->state.hideslave&1
+						&&((pet_data*)tbl)->master && ((pet_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+			}
+		} else if (bl->type== BL_HOM){
+			switch(RBUFW(buf, 0)) {
+				case unit_walkingType: // clif_spawn_unit
+					tbl = map_id2bl(RBUFL(buf,5));
+					if(tbl && sd->state.hideslave&2
+						&&((homun_data*)tbl)->master && ((homun_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+			}
+		} else if (bl->type== BL_MER){
+			switch(RBUFW(buf, 0)) {
+				case unit_walkingType: // clif_spawn_unit
+					tbl = map_id2bl(RBUFL(buf,5));
+					if(tbl && sd->state.hideslave&8
+						&&((s_mercenary_data*)tbl)->master && ((s_mercenary_data*)tbl)->master->bl.id != sd->bl.id)
+						return 0;
+					break;
+			}
+		} else if (bl->type== BL_MOB){
+			switch(RBUFW(buf, 0)) {
+				case unit_walkingType: // clif_spawn_unit
+					tbl = map_id2bl(RBUFL(buf,5));
+					if(tbl && ((mob_data*)tbl)->master_id > 0){
+						mbl = map_id2bl(((mob_data*)tbl)->master_id);
+						if(sd->state.hideslave&4
+							&&mbl->type == BL_PC && mbl->id != sd->bl.id)
+								return 0;
+					}
+					break;
+			}
+		} else {
+			switch(RBUFW(buf, 0)) {
+				case unit_walkingType: // clif move
+				case idle_unitType:
+                   if(disguised(bl))
+                         break;
+					tbl = map_id2bl(RBUFL(buf,5));
+ 					if(tbl){
+						if(tbl->type== BL_PET && sd->state.hideslave&1
+							&&((pet_data*)tbl)->master && ((pet_data*)tbl)->master->bl.id != sd->bl.id)
+							return 0;
+						else if(tbl->type== BL_HOM && sd->state.hideslave&2
+							&&((homun_data*)tbl)->master && ((homun_data*)tbl)->master->bl.id != sd->bl.id)
+							return 0;
+						else if(tbl->type== BL_MER && sd->state.hideslave&8
+							&&((s_mercenary_data*)tbl)->master && ((s_mercenary_data*)tbl)->master->bl.id != sd->bl.id)
+							return 0;
+						else if(tbl->type== BL_MOB){
+							if(((mob_data*)tbl)->master_id > 0){
+								mbl = map_id2bl(((mob_data*)tbl)->master_id);
+								if(sd->state.hideslave&4
+									&&mbl->type == BL_PC && mbl->id != sd->bl.id)
+										return 0;
+							}
+ 						}
+					}
+					break;
+			}
+		}
 		if( clif_session_isValid(sd) ){
 			fd = sd->fd;
 			WFIFOHEAD(fd,len);
@@ -6803,7 +6970,7 @@ void clif_use_card(struct map_session_data *sd,int idx)
 
 		if(sd->inventory_data[i] == NULL)
 			continue;
-		if(sd->inventory_data[i]->type!=IT_WEAPON && sd->inventory_data[i]->type!=IT_ARMOR)
+		if (sd->inventory_data[i]->type != IT_WEAPON && sd->inventory_data[i]->type != IT_ARMOR && sd->inventory_data[i]->type != IT_SHADOWGEAR)
 			continue;
 		if(itemdb_isspecial(sd->inventory.u.items_inventory[i].card[0])) //Can't slot it
 			continue;
@@ -8246,10 +8413,11 @@ void clif_autospell(struct map_session_data *sd,uint16 skill_lv)
 
 #ifdef RENEWAL
 	uint16 autospell_skill[][2] = { 
-		{ MG_FIREBOLT, 0 }, { MG_COLDBOLT, 0 }, { MG_LIGHTNINGBOLT, 0 },
+		{ NJ_KOUENKA, 0 }, { NJ_HYOUSENSOU, 0 }, { NJ_HUUJIN, 0 },
 		{ MG_SOULSTRIKE, 3 }, { MG_FIREBALL, 3 },
-		{ WZ_EARTHSPIKE, 6 }, { MG_FROSTDIVER, 6 },
-		{ MG_THUNDERSTORM, 9 }, { WZ_HEAVENDRIVE, 9 }
+		{ MG_FROSTDIVER, 6 },
+		{ NJ_BAKUENRYU, 9 }, { WZ_HEAVENDRIVE, 9 },
+		{ AB_JUDEX, 9 }, { NJ_RAIGEKISAI, 9 }, { NJ_HYOUSYOURAKU, 9 }
 	};
 	int count = 0;
 
@@ -8271,32 +8439,32 @@ void clif_autospell(struct map_session_data *sd,uint16 skill_lv)
 	WFIFOHEAD(fd,packet_len(0x1cd));
 	WFIFOW(fd, 0)=0x1cd;
 
-	if(skill_lv>0 && pc_checkskill(sd,MG_NAPALMBEAT)>0)
-		WFIFOL(fd,2)= MG_NAPALMBEAT;
+	if(skill_lv>0 && pc_checkskill(sd,MG_SOULSTRIKE)>0)
+		WFIFOL(fd,2)= MG_SOULSTRIKE;
 	else
 		WFIFOL(fd,2)= 0x00000000;
-	if(skill_lv>1 && pc_checkskill(sd,MG_COLDBOLT)>0)
-		WFIFOL(fd,6)= MG_COLDBOLT;
+	if(skill_lv>1 && pc_checkskill(sd,AB_JUDEX)>0)
+		WFIFOL(fd,6)= AB_JUDEX;
 	else
 		WFIFOL(fd,6)= 0x00000000;
-	if(skill_lv>1 && pc_checkskill(sd,MG_FIREBOLT)>0)
-		WFIFOL(fd,10)= MG_FIREBOLT;
+	if(skill_lv>1 && pc_checkskill(sd,NJ_KOUENKA)>0)
+		WFIFOL(fd,10)= NJ_KOUENKA;
 	else
 		WFIFOL(fd,10)= 0x00000000;
-	if(skill_lv>1 && pc_checkskill(sd,MG_LIGHTNINGBOLT)>0)
-		WFIFOL(fd,14)= MG_LIGHTNINGBOLT;
+	if(skill_lv>1 && pc_checkskill(sd,NJ_HUUJIN)>0)
+		WFIFOL(fd,14)= NJ_HUUJIN;
 	else
 		WFIFOL(fd,14)= 0x00000000;
-	if(skill_lv>4 && pc_checkskill(sd,MG_SOULSTRIKE)>0)
-		WFIFOL(fd,18)= MG_SOULSTRIKE;
+	if(skill_lv>4 && pc_checkskill(sd,MG_FIREBALL)>0)
+		WFIFOL(fd,18)= MG_FIREBALL;
 	else
 		WFIFOL(fd,18)= 0x00000000;
-	if(skill_lv>7 && pc_checkskill(sd,MG_FIREBALL)>0)
-		WFIFOL(fd,22)= MG_FIREBALL;
+	if(skill_lv>7 && pc_checkskill(sd,MG_FROSTDIVER)>0)
+		WFIFOL(fd,22)= MG_FROSTDIVER;
 	else
 		WFIFOL(fd,22)= 0x00000000;
-	if(skill_lv>9 && pc_checkskill(sd,MG_FROSTDIVER)>0)
-		WFIFOL(fd,26)= MG_FROSTDIVER;
+	if(skill_lv>8 && pc_checkskill(sd,WZ_WATERBALL)>0)
+		WFIFOL(fd,26)= WZ_WATERBALL;
 	else
 		WFIFOL(fd,26)= 0x00000000;
 
@@ -11207,7 +11375,6 @@ void clif_parse_WalkToXY(int fd, struct map_session_data *sd)
 	// not when you move each cell.  This is official behaviour.
 	if (sd->sc.data[SC_CLOAKING])
 		skill_check_cloaking(&sd->bl, sd->sc.data[SC_CLOAKING]);
-	status_change_end(&sd->bl, SC_ROLLINGCUTTER, INVALID_TIMER); // If you move, you lose your counters. [malufett]
 
 	pc_delinvincibletimer(sd);
 
@@ -12771,6 +12938,18 @@ static void clif_parse_UseSkillToPosSub(int fd, struct map_session_data *sd, uin
 		sd->idletime_hom = last_tick;
 	if (battle_config.mer_idle_no_share && sd->md && battle_config.idletime_mer_option&IDLE_USESKILLTOPOS)
 		sd->idletime_mer = last_tick;
+	if( skill_id == AL_WARP && battle_config.min_npc_warp_distance > 0){
+		struct block_list pos;
+		pos.m = sd->bl.m;
+		pos.x = x;
+		pos.y = y;
+	if(map_foreachinallrange(npc_warp_isnear_sub, &pos, battle_config.min_npc_warp_distance, BL_NPC, 0) ){
+			char output[70];
+			clif_displaymessage(sd->fd, "Warp Portal Skill can't be used near Map Portals.");
+			clif_skill_fail(sd,skill_id,USESKILL_FAIL_THERE_ARE_NPC_AROUND,0);
+			return;
+		}
+	}
 
 	if( skill_isNotOk(skill_id, sd) )
 		return;
@@ -12806,7 +12985,7 @@ static void clif_parse_UseSkillToPosSub(int fd, struct map_session_data *sd, uin
 			clif_menuskill_clear(sd); //Cancel pet capture.
 		}else if( sd->menuskill_id == SG_FEEL ){
 			clif_menuskill_clear( sd ); // Cancel selection
-		} else if( sd->menuskill_id != SA_AUTOSPELL )
+		}else if( sd->menuskill_id != SA_AUTOSPELL )
 			return; //Can't use skills while a menu is open.
 	}
 
@@ -14862,7 +15041,6 @@ void clif_parse_NoviceDoriDori(int fd, struct map_session_data *sd)
 	if (sd->state.doridori) return;
 
 	switch (sd->class_&MAPID_UPPERMASK) {
-		case MAPID_SOUL_LINKER:
 		case MAPID_STAR_GLADIATOR:
 		case MAPID_TAEKWON:
 			if (!sd->state.rest)
@@ -14893,9 +15071,9 @@ void clif_parse_NoviceExplosionSpirits(int fd, struct map_session_data *sd)
 		if( next ) {
 			int percent = (int)( ( (double)sd->status.base_exp/(double)next )*1000. );
 
-			if( percent && ( percent%100 ) == 0 ) {// 10.0%, 20.0%, ..., 90.0%
-				sc_start(&sd->bl,&sd->bl, status_skill2sc(MO_EXPLOSIONSPIRITS), 100, 17, skill_get_time(MO_EXPLOSIONSPIRITS, 5)); //Lv17-> +50 critical (noted by Poki) [Skotlex]
-				clif_skill_nodamage(&sd->bl, &sd->bl, MO_EXPLOSIONSPIRITS, 5, 1);  // prayer always shows successful Lv5 cast and disregards noskill restrictions
+			if( percent && ( percent%100 ) == 0 || sd->status.base_level >= 150) {// 10.0%, 20.0%, ..., 90.0%
+				sc_start(&sd->bl,&sd->bl, status_skill2sc(WS_OVERTHRUSTMAX), 100, 5, skill_get_time(WS_OVERTHRUSTMAX, 5)); //Lv17-> +50 critical (noted by Poki) [Skotlex]
+				clif_skill_nodamage(&sd->bl, &sd->bl, WS_OVERTHRUSTMAX, 5, 1);  // prayer always shows successful Lv5 cast and disregards noskill restrictions
 			}
 		}
 	}
@@ -19221,7 +19399,7 @@ void clif_poison_list( struct map_session_data *sd, uint16 skill_lv ){
 		}
 	}
 
-	if( count > 0 ){
+	if( count >= 0 ){
 		p->packetLength = sizeof( struct PACKET_ZC_MAKINGARROW_LIST ) + count * sizeof( struct PACKET_ZC_MAKINGARROW_LIST_sub );
 		WFIFOSET( fd, p->packetLength );
 		sd->menuskill_id = GC_POISONINGWEAPON;

@@ -1,0 +1,2486 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Job Quests for all Classes.
+//===== Comments: =========================================
+//====================================================
+
+//MERCHANT JOB CHANGE------------------------------------
+
+va_orpha,196,300,4	script	Merchant Representative#jobquest	893,{
+	set .@npc$, "[Merchant Representative]";
+	cutin "jpn_ellen01",2;
+	if (merchantjob >0){
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "! How are sales going? Good luck on your endeavours!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Ever considered being a merchant? A life with no risk, great opportunities...what do you say?";
+	next;
+		switch(select("What are the restrictions?:I want to be a Merchant:Nevermind")) {
+		case 1:
+		cutin "jpn_ellen02",2;
+		mes .@npc$;
+		mes "It's no big deal really! You'll receive full access to warping between the Orphanage and Alberta for free! You also will have access to vending shops, your own cart, and much more!";
+		next;
+		mes .@npc$;
+		mes "But you won't be able to increase your power past Lv1, of course. Let me know if you like it!";
+		close2;
+		cutin "",255;
+		break;
+		case 2:
+		if (BaseLevel >1){
+		mes .@npc$;
+		mes "Sorry, I can't help you! You're already above Level 1!";
+		close2;
+		cutin "",255;
+		break;
+		}
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Oh! Great! Let me give you your Merchant License and change your title...please give me a second...";
+		next;
+		setlook LOOK_CLOTHES_COLOR, 0;
+		atcommand "@job 5";
+		atcommand "@allskill";
+		set merchantjob,1;
+		set firstjob,1;
+		getitem 25791,1;
+		mes .@npc$;
+		mes "Take care!";
+		close2;
+		cutin "",255;
+		break;
+		case 3:
+		mes .@npc$;
+		mes "See you around!";
+		close2;
+		cutin "",255;
+		break;
+		}
+}
+
+// THIEF JOB QUEST----------------------------------------------------------------------------------
+
+va_orpha,64,41,4	script	Lydia the Thief#jobquest	10010,{
+	emotion ET_SCISSOR;
+	cutin "lydia_a",2;
+	set .@npc$, "[Lydia the Thief]";
+	if (BaseLevel >=160 && thiefjob ==1 && expertring ==0 ){
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "! You look pretty strong. I'm impressed.";
+	next;
+	mes .@npc$;
+	mes "I could use your help. Hear me out on this...";
+	next;
+	mes .@npc$;
+	mes "Some Orphans are very skilled fighters. They have imense potential. So they can learn things very fast.";
+	next;
+	mes .@npc$;
+	emotion ET_THANKS;
+	mes "Since you are one of our best, I want to give you this gift. If you find a skilled Thief, give it to them ok?";
+	next;
+	getitem 13737,1;
+	set expertring,1;
+	mes "This ring allows them to train faster and learn the basics at double the usual speed! Quite some help eh?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Wonderful day huh?";
+	mes "What brings you here?";
+	next;
+		switch(select("Tell me about yourself:I want to be a Thief:Nevermind")) {
+		case 1:
+			mes .@npc$;
+			mes "I was part of the group that fought Satan Morroc... In fact, I was one of the key members who cut off his retreat path.";
+			next;
+			mes .@npc$;
+			mes "When he was cornered and attempted to open a portal at the Dimensional Gorge, we made sure to finish him off for good!";
+			next;
+			mes .@npc$;
+			mes "Yeah, I know things didn't completely go well, lots of death, The Mark, The Shadows... but we did it, that's what matters.";
+			next;
+			emotion ET_DELIGHT;
+			mes .@npc$;
+			mes "And since the old Guildmaster was retiring...he appointed ME as the new leader! Isn't it fun?";
+			close2;
+			cutin "",255;
+			break;
+		case 2:
+		if (thiefjob == 1){
+		mes .@npc$;
+		mes "You already passed our test! Did you forget it?";
+		close2;
+		cutin "",255;
+		break;
+		}
+		if (SkillPoint) {
+		mes "[Lydia the Thief]";
+		mes "You need to use your skill points if you want to be a Thief!";
+		close2;
+		cutin "",255;
+		break;
+	}
+		if (thiefquest == 1){
+		if (zeny >=500) {
+		emotion ET_CONGRATULATION;
+		mes .@npc$;
+		mes "You have passed the official Thief Test! You are now one of us!";
+		next;
+		atcommand "@job 6";
+		set jewels,4;
+		set thiefjob,1;
+		set thiefquest,2;
+		set firstjob,1;
+		mes "If you bring disgrace to our guild, you will be kille-. OH I mean-, Will be re-evaluated!";
+		close2;
+		cutin "",255;
+		break;
+			}
+			mes .@npc$;
+			mes "I believe you don't have 500z...why waste my time?";
+			close2;
+			cutin "",255;
+			end;
+		emotion ET_CONGRATULATION;
+		mes .@npc$;
+		mes "You have passed the official Thief Test! You are now one of us!";
+		next;
+		atcommand "@job 6";
+		set jewels,4;
+		set thiefjob,1;
+		set thiefquest,2;
+		set firstjob,1;
+		mes "If you bring disgrace to our guild, you will be kille-. OH I mean-, Will be re-evaluated!";
+		close2;
+		cutin "",255;
+		break;
+		}
+		if (Class != Job_Novice) {
+			mes .@npc$;
+			mes "Well, " + strcharinfo(0) + ", I can't help you with it. You already have a class!";
+			close2;
+			cutin "",255;
+			break;
+		}
+		if (thiefquest == 1) {
+			mes .@npc$;
+			mes "Bring me the Yellow Jewel, Blue Jewel, Red Jewel, and i'll allow you to join us. Seems fair? Good.";
+			close2;
+			cutin "",255;
+			break;
+		}
+		if (Class == Job_Novice) {
+		if (JobLevel < 10) {
+			mes .@npc$;
+			mes "Uh... " + strcharinfo(0) + ", You gotta train a little more! Come back when you're Job Level 10!";
+			close2;
+			cutin "",255;
+			break;
+		}
+			emotion ET_THROB;
+			mes .@npc$;
+			mes "Wonderful, " + strcharinfo(0) + "!";
+			mes "I have the perfect test for you! Thieves can't just go around stealing stuff, you need a purpose, a target! And stick to that target with precision!";
+			next;
+			mes .@npc$;
+			mes "If you show me 500z I'll allow you to change into a Thief!.";
+			set thiefquest,1;
+			close2;
+			cutin "",255;
+			break;
+			}
+		case 3:
+		cutin "",255;
+		mes .@npc$;
+		mes "Feel free to come back!";
+		close;
+		}
+	}
+	
+moc_pryd05,9,223,4	script	Wooden Box#jobquestA	10250,{
+		mes "It's a wooden box, but it's contents have long since been pilfered.";
+		close;
+}
+
+moc_pryd05,125,12,4	script	Wooden Box#jobquestB	10250,{
+		mes "It's a wooden box, but it's contents have long since been pilfered.";
+		close;
+}
+
+moc_pryd05,173,135,4	script	Wooden Box#jobquestC	10250,{
+		mes "It's a wooden box, but it's contents have long since been pilfered.";
+		close;
+}
+
+// TRICKSTER JOB QUEST--------------------------------------------------------------------------------------------------
+
+va_orpha,376,129,4	script	Lorelei Sorin#orphanage	10185,{
+	cutin "ep162_dn01",2;
+	set .@npc$, "[Lorelei Sorin]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". It's good to see you around.";
+	mes "What brings you to me?";
+	next;
+		switch(select("How is the Orphanage going?:Why is this room so cold?:Tell me about yourself:Nevermind")) {
+		case 1:
+			mes .@npc$;
+			mes "Everything is going smoothly. You dont need to worry about anything.";
+			close2;
+			cutin "",255;
+			break;
+		case 2:
+			if (tricksterquest >1) {
+				emotion ET_BEST;
+				mes .@npc$;
+				mes "Lady Hel asked for help bringing Orphans to Serin. She's actually pretty nice. So I'm glad you found it. Orphans should have choices for life.";
+				close2;
+				cutin "",255;
+				break;
+				}
+			if (tricksterquest >=1) {
+				emotion ET_BEST;
+				mes .@npc$;
+				mes "You already know why. I'm sure of it.";
+				close2;
+				cutin "",255;
+				break;
+				}
+			mes .@npc$;
+			mes "I prefer cold places. This place is perfect for me...As cold as death.";
+			next;
+			mes .@npc$;
+			mes "Do you like to feel the cold of death?";
+			next;
+			switch(select("What kind of question is that?:I really like cold weather.:I prefer hot climate.:As cold as my soul is.")) {
+				case 1:
+				emotion ET_SMILE;
+				cutin "",255;
+				mes .@npc$;
+				mes "HAHAHAHAHA! You should have seen your face! Old people can joke a bit as well, can't we?";
+				close;
+				case 2:
+				emotion ET_DELIGHT;
+				cutin "",255;
+				mes .@npc$;
+				mes "See? you understand. I love cold weather too.";
+				close;
+				case 3:
+				emotion ET_SWEAT;
+				cutin "",255;
+				mes .@npc$;
+				mes "I can understand that, I just disagree.";
+				close;
+				case 4:
+				if (firstjob == 1){
+				cutin "",255;
+				mes .@npc$;
+				mes "You're kinda creepy you know?";
+				close;
+				}
+				cutin "",255;
+				emotion ET_LOVE;
+				set tricksterquest,1;
+				mes .@npc$;
+				mes "Wonderful. You should check around the room if you wish.";
+				close;
+			}
+		case 3:
+			mes .@npc$;
+			mes "My daughter was called Margaretha, she was one of the heroes who uncovered what the Rekenber company was doing. The main staff of the Orphanage are all related to those people.";
+			next;
+			mes .@npc$;
+			mes "When the Heroes were fighting Satan Morroc, we noticed a lot of cases of mysterious murders of entire families, where one person always was left alone, usually the first son or daughter.";
+			next;
+			mes .@npc$;
+			mes "We started investigating and preparing to take those Orphans in, like you for example, I was sure there was something weird going on, and judging by The Marks, I was right.";
+			next;
+			mes .@npc$;
+			mes "We vow to carry the legacy of our fallen family so that all of you can also carry the legacy of yours. And have a place to call home in this new world.";
+			close2;
+			cutin "",255;
+			break;
+		case 4:
+			cutin "",255;
+			mes .@npc$;
+			mes "Feel free to come back anytime.";
+			close;
+		}
+	}
+	
+va_orpha,391,133,4	script	Wisp#orphanage	802,{
+	if (tricksterquest >=1) {
+				mes "You feel a cold breath on your neck.";
+				close2;
+				warp "que_trck01",197,184;
+				end;
+				}
+				mes "You feel sad for a moment. But the feeling passes shortly after.";
+				close;
+}
+
+que_trck01,197,178,4	script	Return Wisp#trickster	802,{
+				warp "va_orpha",390,129;
+				end;
+				}
+				
+que_trck01,197,198,4	script	Trickster Serin#trickster	940,{
+		cutin "3rd_gc_daora02",2;
+		set .@npc$, "[Trickster Serin]";
+		if ( getpetinfo(PET_CLASS) ) {
+		mes .@npc$;
+		mes "please return your pet into egg state. It might not like what we discuss here.";
+		close2;
+		cutin "",255;
+		end;
+	}
+		if (revenantjob ==1) {
+		mes .@npc$;
+		mes "Oh look. It's mr OH NO MY REAPER IS BURNING ME. Want me to take care of it or what?";
+		next;
+		switch(select("Take the Egg, give me the Card:Take the Card, give me the Egg:Nevermind")) {
+		case 1:
+		if(countitem(9057) < 1) goto L_noitems;
+		delitem 9057,1;
+		getitem 27151,1;
+		mes .@npc$;
+		mes "Very well...I'll play nanny with the Reaper. Enjoy the card. It can't be separated from you ok?";
+		cutin "",255;
+		end;
+		L_noitems:
+		mes .@npc$;
+		mes "So...where's the egg? Did you eat it? Does it taste like Burnt Wood? I heard it does.";
+		cutin "",255;
+		end;
+		case 2:
+		if(countitem(27151) < 1) goto L_noitems2;
+		delitem 27151,1;
+		getitem 9057,1;
+		mes .@npc$;
+		mes "Ok there you go...now feed it souls correctly so it grows strong and isn't bullied in Niflgarten.";
+		cutin "",255;
+		end;
+		L_noitems2:
+		mes .@npc$;
+		mes "You don't expect me to also unslot the card for you, right? Good luck with it.";
+		cutin "",255;
+		end;
+		case 3:
+		mes .@npc$;
+		mes "Take care. Or don't. Nobody really cares.";
+		cutin "",255;
+		end;
+		}
+		}
+		if (BaseJob == Job_Novice && JobLevel < 10) {
+		mes .@npc$;
+		mes "Weird...I could swear I saw someone coming in but the JOB LEVEL MIGHT BE TOO LOW, so I can't see anyone...";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (tricksterquest ==3) {
+		mes .@npc$;
+		mes "Congratulations on your test, again, now FUCK. OFF.";
+		close2;
+		set tricksterquest,4;
+		cutin "",255;
+		end;
+		}
+		if (tricksterquest ==2){
+		if (Class != Job_Novice) {
+		cutin "3rd_gc_daora01",2;
+		emotion ET_SCISSOR;
+		mes .@npc$;
+		mes "Oh wait... you already have a job. Nevermind, bye!";
+		close2;
+		cutin "",255;
+		set tricksterquest,4;
+		end;
+		}
+		if (SkillPoint) {
+		mes .@npc$;
+		mes "Well... this is awkward... Why don't you spend your skill points first?";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (BaseJob == Job_Novice && JobLevel > 9) {
+		mes .@npc$;
+		mes "There. I hereby now promote you to a Trickster!";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "No tests?";
+		next;
+		mes .@npc$;
+		mes "No.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Really? that seems very underwhelming.";
+		next;
+		mes .@npc$;
+		mes "We don't really care.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I feel like you're doing worse than other guilds.";
+		next;
+		mes .@npc$;
+		mes "Ok ok... let's see... Can you figure out what number I'm thinking about?";
+		next;
+		input .@guesstrick;
+		emotion ET_CONGRATULATION;
+		mes .@npc$;
+		mes "Congratulations or whatever, I was thinking of " + .@guesstrick + " indeed, you passed the test. You must be a psychic.";
+		next;
+		specialeffect2 234;
+		specialeffect2 834;
+		atcommand "@job 24";
+		set tricksterjob,1;
+		set firstjob,1;
+		set tricksterquest,3;
+		getitem 1501,1;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I feel personally attacked.";
+		next;
+		emotion ET_SCISSOR;
+		mes .@npc$;
+		mes "Really? Oh I'm so sorry about that... now get your Scythe and fuck off.";
+		close2;
+		cutin "",255;
+		end;
+	}
+		}
+		if (tricksterquest ==4) {
+		emotion ET_SWEAT;
+		mes .@npc$;
+		mes "^6666CCYou are absolutely sure she can see and hear you, she still pretends she does not.^000000";
+		close2;
+		cutin "",255;
+		end;
+				}
+		set .@npc$, "[Trickster Serin]";
+		mes .@npc$;
+		mes "Hmmm... So the amount of Alchemists to change a light bulb is-";
+		next;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Oh! We have a new recruit with a cold soul! Today is a nice day!";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "Wait, recruit? For What? What is this place?";
+		next;
+		mes .@npc$;
+		mes "Oh you know, playing tricks, having fun, reaping the living. usual stuff.";
+		next;
+		if (Class != Job_Novice) {
+		cutin "3rd_gc_daora01",2;
+		emotion ET_SCISSOR;
+		mes .@npc$;
+		mes "Oh wait... you already have a job. Nevermind, bye!";
+		close2;
+		cutin "",255;
+		set tricksterquest,4;
+		end;
+		}
+		mes "[" + strcharinfo(0) + "]";
+		mes "I'm not sure I get it...";
+		next;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Ok, ok... I'm Serin, I used to serve the Dark Lord, yeah, THAT Dark Lord, but I changed my ways. Not due to a beating or anything. really.";
+		next;
+		mes .@npc$;
+		mes "Since I was going to be stuck here forever, I might as well start doing something interesting, that's why I'm working for Lady Hel.";
+		next;
+		mes .@npc$;
+		mes "So... Lady Hel, the Queen of Niflheim, saw The Marks and noticed how the Orphans can bring shadows to them when they die. Shadows that shouldn't be spawning in Midgard.";
+		next;
+		mes .@npc$;
+		mes "So a good idea we had is to actually use the power of the Orphans for something, ahem, -good-, since the Shadows are a big problem to Niflheim due to all the deaths and the like.";
+		next;
+		emotion ET_SWEAT;
+		mes .@npc$;
+		mes "It's MORE WORK FOR US you know?";
+		next;
+		mes .@npc$;
+		mes "So... We're allowing Orphans to use the powers of Niflheim in combat. So they can avoid dying a little more AND keep others from dying. Not to mention actually have a chance to live.";
+		next;
+		mes .@npc$;
+		mes "Everybody can die with no issues and just get back up with an Yggdrasil Leaf, a spell or something, but either due to a weak spirit or old age, that doesn't really happen to some people.";
+		next;
+		mes .@npc$;
+		mes "And people who are not Orphans who die to Shadows... which makes it quite an issue in big cities, and for us.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "So... what do I need to do?";
+		next;
+		mes .@npc$;
+		mes "Nothing really. Give me a second to Grab your new Weapon.";
+		close2;
+		cutin "",255;
+		set tricksterquest,2;
+		end;
+				}
+	
+// JUDGE JOB QUEST-------------------------------------------------------------------------
+
+va_orpha,310,326,3	script	Leon Damon#orphanage	10180,{
+	cutin "16go_01",2;
+	set .@npc$, "[Leon Damon]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "...?";
+	mes "Yes?";
+	next;
+		switch(select("Who are you?:Do you think I'm strong enough?:Nevermind")) {
+		case 1:
+			if (BaseJob == Job_Super_Novice) {
+			mes .@npc$;
+			mes "You know who I am, a Royal Judge, like you.";
+			close2;
+			cutin "",255;
+			break;
+			}
+			mes .@npc$;
+			mes "I'm Leon Damon...I'm... on a special assignment by King Nihil.";
+			next;
+			mes .@npc$;
+			mes "I represent the Royalty around the Orphans issues. So I stay mostly around here, watching their development and potential.";
+			next;
+			mes .@npc$;
+			mes "I took this assignment as a personal challenge, I couldn't protect my sister Cecil, so I'll protect those who were abandoned.";
+			close2;
+			cutin "",255;
+			break;
+		case 2:
+			if (BaseJob == Job_Super_Novice) {
+			mes .@npc$;
+			mes "Well, " + strcharinfo(0) + ", You are a Judge, I expect you to be strong.";
+			close2;
+			cutin "",255;
+			break;
+			}
+			if (Class != Job_Novice) {
+			mes .@npc$;
+			mes "Well, " + strcharinfo(0) + ", You sure are. Look at yourself!";
+			close2;
+			cutin "",255;
+			break;
+			}
+			if (judgequest > 0) {
+			mes .@npc$;
+			mes "Well, " + strcharinfo(0) + ", we can talk at Prontera Castle, Remember?";
+			close2;
+			cutin "",255;
+			break;
+			}
+			if (Class == Job_Novice) {
+			mes .@npc$;
+			mes "I see that you still didn't decide your future...";
+			next;
+			if (BaseLevel > 14) {
+			mes .@npc$;
+			mes "You might consider going to Prontera Castle and meeting me there. I have a proposal for you.";
+			close2;
+			cutin "",255;
+			set judgequest,1;
+			break;
+			}
+			mes .@npc$;
+			mes "You should continue working for it.";
+			close2;
+			cutin "",255;
+			break;
+			}
+		case 3:
+			cutin "",255;
+			mes .@npc$;
+			mes "Take care. I'm here if you need me.";
+			close;
+		}
+	}
+	
+prt_cas,94,254,4	script	Leon Damon#castle	10180,{
+	set .@npc$, "[Leon Damon]";
+	if (judgequest ==2){
+	cutin "16go_01",2;
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "...?";
+	mes "Good luck with your tests. If you are the right person, you can pass them.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==0){
+	cutin "16go_01",2;
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "...?";
+	mes "Enjoy your visit of the castle.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (BaseJob == Job_Super_Novice){
+	cutin "16go_01",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "!";
+	mes "Taking some time to visit HQ? Let me know if you need assistance.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==1){
+	cutin "16go_01",2;
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "! Thanks for coming.";
+	mes "Yes?";
+	next;
+		switch(select("You wanted to talk to me here:Nevermind")) {
+		case 1:
+			if (Class != Job_Novice) {
+			mes .@npc$;
+			mes "Oh, sorry. It seems you already decided your path in life. I can't really do anything else for you.";
+			close2;
+			cutin "",255;
+			end;
+			}
+			mes .@npc$;
+			mes "Ah, I see you've come! Well...I'm a Judge. We are protection for the king of prontera, Nihil Heine. The Royal Guards are also part of the same force as us.";
+			next;
+			mes .@npc$;
+			mes "But you see, where they stay here and make sure the king is protected and safe at all times, we go out and make sure the danger never comes. Not only to the king, but the whole kingdom.";
+			next;
+			mes .@npc$;
+			mes "To fulfill this matter, we don't just wield swords or shields, we make use of revolvers, much like the gunslingers, except we have our own way of using royalty arms, way stronger than usual guns.";
+			next;
+			mes .@npc$;
+			mes "It's not like these weapons can be simply found in any dungeon or random place, they are handcrafted for each Judge, Unique. It helps you fully maximize our potential after all.";
+			next;
+			mes .@npc$;
+			mes "So... the Judges don't honestly have any issue with Orphans. Since we are always in dangerous situations we need every hand we can get, specially from people looking for a special meaning. What do you think about it?";
+			next;
+			switch(select("When can I start my training?:I don't think its a good idea")) {
+			case 1:
+			mes .@npc$;
+			mes "I'm glad to hear this. But you still need approval from the royal families and the king himself. Talk to him about it.";
+			close2;
+			set judgequest,2;
+			cutin "",255;
+			end;
+			case 2:
+			mes .@npc$;
+			mes "I'll be here anyway.";
+			close2;
+			cutin "",255;
+			end;
+			}
+		case 2:
+		mes .@npc$;
+		mes "I'll be here anyway.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	cutin "16go_01",2;
+	set .@npc$, "[Leon Damon]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "...?";
+	mes "Enjoy your visit of the castle.";
+	close2;
+	cutin "",255;
+	end;
+}
+prt_cas,94,297,4	script	King Nihil#castle	10304,{
+	set .@npc$, "[King Nihil Heine]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "ep171_nihil01",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "?";
+	mes "I hope you are doing well and working hard. I have great expectations on you.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (Class != Job_Novice){
+	cutin "ep171_nihil01",2;
+	mes .@npc$;
+	mes "Welcome to Prontera.";
+	mes "Take care and try not to cause trouble.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgepromote ==1){
+	cutin "ep171_nihil01",2;
+	mes .@npc$;
+	mes "What are you waiting for? Go and take your place among the honored, Magister!";
+	close2;
+	cutin "",255;
+	end;	
+	}
+	if (judgeroyal ==8){
+	cutin "ep171_nihil01",2;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Impressive... It seems you actually managed to get commendations from every family. That's actually not very usual.";
+	next;
+	mes .@npc$;
+	mes "I'm happy to say you have concluded your tests, " +strcharinfo(0)+ ", and you are ready to be named a Magister, one of our Judges." ;
+	next;
+	mes .@npc$;
+	mes "The guards will let you go across the doors beside me. Feel free to go there now and meet Former Queen Catherine Gaebolg. She usually is in the Garden." ;
+	next;
+	mes .@npc$;
+	mes "She is the one that will finish your preparations and promote you to one of our Judges. Congratulations!" ;
+	close2;
+	set judgepromote,1;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==3){
+	cutin "ep171_nihil01",2;
+	mes .@npc$;
+	mes "Talk to the Royal Families in this hall to be judged. If they approve you, I'll promote you to a Judge.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest <2){
+	cutin "ep171_nihil01",2;
+	mes .@npc$;
+	mes "Welcome to Prontera.";
+	mes "Take care and try not to cause trouble.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==2){
+	cutin "ep171_nihil01",2;
+	mes .@npc$;
+	mes "Oh, It's the Orphan " + strcharinfo(0) + ".";
+	mes "Leon mentioned you'd come And that you wanted to join the Judges.";
+	next;
+	mes .@npc$;
+	mes "The judges aren't only a fighting division from Prontera, they are a symbol of honor and hope among the people. For this reason, Orphans in special are considered for the position.";
+	next;
+	mes .@npc$;
+	mes "A few years ago, the Rebellions helped me with some...issues regarding conspirations against Prontera, It's only natural that such a strong group are honored as Judges.";
+	next;
+	mes .@npc$;
+	mes "Swords and shields have their strenght. But a well placed bullet also can do wonders and reach targets that deem themselves invencible. It's a perfect weapon but only with a perfect user.";
+	next;
+	mes .@npc$;
+	mes "I require approval from the other 6 Royal Families to accept you as a Judge. You can talk to them around this hall. If all of them agree, I'll allow your promotion.";
+	next;
+	mes .@npc$;
+	mes "Only a person willing to be judged can wield the power to decide, and enforce, the fate of others.";
+	close2;
+	cutin "",255;
+	set judgequest,3;
+	set judgeroyal,judgeroyal+1;
+	end;
+	}
+}
+prt_cas,88,292,4	script	Spica Nerius#castle	10115,{
+	set .@npc$, "[Spica Nerius]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "ep16_spica_nerius01",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "!";
+	mes "Keep up the good work. Bring glory to Prontera.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (spicajob ==1){
+	cutin "ep16_spica_nerius01",2;
+	mes .@npc$;
+	mes "I can't help you with anything else.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest <3){
+	cutin "ep16_spica_nerius01",2;
+	mes .@npc$;
+	mes "Anything you need, you can ask the guards.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==3){
+	cutin "ep16_spica_nerius01",2;
+	mes .@npc$;
+	mes "So you are the new Orphan who wants to be a judge hmm? I'm Spica, of the Nerius House. I'm responsible for one of the tests for new Judges.";
+	next;
+	mes .@npc$;
+	mes "Part of being a Judge is knowing that you can handle yourself. And it includes financially...You must prove that you can afford a fair living and still contribute to the kingdom.";
+	next;
+	mes .@npc$;
+	mes "For this reason I need to make sure you have at least 1000z with you, I won't take it, but if you can't afford this amount, it would be impossible for me to accept you.";
+	next;
+	switch(select("Show her 1000z:Give her 10.000z:Nevermind")) {
+		case 1:
+			if (zeny >=1000) {
+			mes .@npc$;
+			mes "Very well. You proved that you can afford a decent living. That means you won't take advantage of people for gains. I hope. You passed.";
+			next;
+			mes .@npc$;
+			mes "Go talk to the other families you might need to. And good luck!";
+			close2;
+			set judgeroyal,judgeroyal+1;
+			set spicajob,1;
+			cutin "",255;
+			end;
+			}
+			mes .@npc$;
+			mes "I believe you don't have 1000z...why waste my time?";
+			close2;
+			cutin "",255;
+			end;
+		case 2:
+			if (zeny >=10000) {
+			emotion ET_THANKS;
+			mes .@npc$;
+			mes "Wow, not only you have it but you can afford to give it away like this? I'm impressed. Orphans can't usually do this. I'll make sure this value is donated back to the Orphanage.";
+			next;
+			mes .@npc$;
+			mes "Go talk to the other families you might need to. And good luck!";
+			close2;
+			set zeny,zeny-10000;
+			set judgeroyal,judgeroyal+1;
+			set $orphanfunds,$orphanfunds+10;
+			set spicajob,1;
+			cutin "",255;
+			end;
+			}
+			mes .@npc$;
+			mes "I believe you don't have 10.000z...why waste my time?";
+			close2;
+			cutin "",255;
+			end;
+		case 3:
+			mes .@npc$;
+			mes "Come back if you change your mind.";
+			close2;
+			cutin "",255;
+			end;
+	}
+	}
+}
+prt_cas,79,271,6	script	Helmut Lugenburg#castle	10127,{
+	set .@npc$, "[Helmut Lugenburg]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + ".";
+	mes "Make us proud.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (helmutjob ==3){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "I can't help you with anything else.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (helmutjob ==2){
+	cutin "16hel",2;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Good job. I'm sure that guy will enjoy his time in Yuno. You managed to help your kingdom in a diplomatic situation, and me personally, so I'll commend you for Judge. Thanks.";
+	close2;
+	set judgeroyal,judgeroyal+1;
+	set helmutjob,3;
+	cutin "",255;
+	end;
+	}
+	if (helmutjob ==1){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "Your test is to find my body double in Yuno. Deliver him a message saying he must agree to assist the city with the civil issues. He will know what to do.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest <3){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "Anything you need, you can ask the guards.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==3){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "I'm Helmut. A Lugenburg. I believe you are the new Judge candidate, yes?";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "A judge isn't only a strong opponent in battle. A judge must know how to handle diplomatic situations. It's important to know how to speak with the right people.";
+	next;
+	mes .@npc$;
+	mes "Your test is to find my body double in Yuno. Deliver him a message saying he must agree to assist the city with the civil issues. He will know what to do.";
+	close2;
+	set helmutjob,1;
+	cutin "",255;
+	end;
+	}
+}
+	
+yuno,162,315,3	script	Helmut Lugenburg#yuno	10127,{
+	set .@npc$, "[Helmut Lugenburg]";
+	if (helmutjob ==2){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "I don't have anything else to say. Allow me to continue my work, will you?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (helmutjob ==1){
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "Hello. Im Helmut Lugenburg. I represent Prontera in the Schwarzwald Republic, do you need anything?";
+	next;
+	mes "^6666CCYou explain the message and the situation to the body double as requested.^000000";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh! Pardon me! I sometimes just get anxious when I'm working! Thanks for the message, I'll prepare to work on it right away!";
+	close2;
+	set helmutjob,2;
+	cutin "",255;
+	end;
+	}
+	cutin "16hel",2;
+	mes .@npc$;
+	mes "Hello! I'm Helmut Lugenburg, representative of Prontera in the Schwarzwald Republic. As you might guess, my work is very busy, so please don't bother me.";
+	close2;
+	cutin "",255;
+	end;
+}
+
+prt_cas,108,281,3	script	Poe Richard#castle	993,{
+	set .@npc$, "[Poe Richard]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "richard_po01",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + ". One of our best!";
+	mes "Keep up the good work. I'm sure of your success.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (richardjob ==2){
+	cutin "richard_po01",2;
+	mes .@npc$;
+	mes "I can't help with your test in anything else. Good Luck.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (richardjob ==1){
+	if (countitem(1202) > 0) {
+	cutin "richard_po01",2;
+	mes .@npc$;
+	mes "Would you look at that... The Orphan really brought me a cool Knife! Well done rookie! I'll commend you for a Judge, you sure know what to look for!";
+	close2;
+	set richardjob,2;
+	set judgeroyal,judgeroyal+1;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "So... where's the knife? You can get it from Porings! I'm pretty sure of it! Bring me it on your inventory!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest <3){
+	cutin "richard_po01",2;
+	mes .@npc$;
+	mes "Don't bother me please. Thank you.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==3){
+	cutin "richard_po01",2;
+	mes .@npc$;
+	mes "I'm Poe Richard, one of the members of the Royal Families. You're an Orphan, not that I care.";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "So you want to be a Judge? Very well. Special items with options can be obtained from enemies during combat. Why don't you bring me a ^6666CCKnife with options^000000?";
+	next;
+	mes .@npc$;
+	mes "A good Judge must be always hunting not only for enemies of the kingdom, but any special artifacts they may have.";
+	next;
+	mes "The Knife can be obtained from Porings, it's good practice so you learn how to look for it. Show me it and I'll commend your promotion.";
+	close2;
+	set richardjob,1;
+	cutin "",255;
+	end;
+	}
+}
+
+prt_cas,80,275,7	script	Isenhardt Walter#castle	983,{
+	set .@npc$, "[Isenhardt Walter]";
+	if (BaseJob == Job_Super_Novice){
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "! Quite a Judge huh?";
+	mes "Any cool pirate treasures recently?";
+	close2;
+	end;
+	}
+	if (isenhardtjob ==1){
+	mes .@npc$;
+	mes "I can't make it any easier than I did, so just go now.";
+	close2;
+	end;
+	}
+	if (judgequest <3){
+	mes .@npc$;
+	mes "I can't do anything for you. Sorry.";
+	close2;
+	end;
+	}
+	if (judgequest ==3){
+	emotion ET_SLEEPY;
+	mes .@npc$;
+	mes "I'm Isenhardt, of the Walter family. Yeah, not the best family but I can sail the seas as much as I want at least!";
+	next;
+	mes .@npc$;
+	mes "An Orphan...who wants to be a Judge? Ok, whatever, I'll give you my commendation. You already get tests from everyone else, so I don't care.";
+	close2;
+	set isenhardtjob,1;
+	set judgeroyal,judgeroyal+1;
+	end;
+	}
+}
+
+prt_cas,79,279,7	script	Ernst Gaebolg#castle	985,{
+	set .@npc$, "[Ernst Gaebolg]";
+	if (BaseJob == Job_Super_Novice){
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "!";
+	mes "If you need anything, feel free to ask... anybody else.";
+	close2;
+	end;
+	}
+	if (ernstjob ==2){
+	mes .@npc$;
+	mes "Good job with the answers. keep it up.";
+	close2;
+	end;
+	}
+	if (ernstjob ==1){
+		set judgedscore,0;
+	mes .@npc$;
+	mes "So... wanna give the questions a try? You need to answer all 5 correctly!";
+	next;
+	switch(select("Lets do this!:Nevermind")) {
+		case 1:
+		switch(rand(1,3)) {
+		case 1:
+			mes .@npc$;
+			mes "1. What is of utmost importance to a Judge?";
+			next;
+			if (select("Always be right:Always be fair:Always protect the King:Always be honorable") == 2)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "2. What group originated the Judges?";
+			next;
+			if (select("Gunslingers:Royal Guards:Rebellion:Prontera Knights") == 3)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "3. What is the main weapon of a Judge?";
+			next;
+			if (select("Pair of Pistols:Pair of Revolvers:Pair of Blades:a Scythe") == 2)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "4. What should a Judge do if they are cornered and have no way out?";
+			next;
+			if (select("Kill anything on the way:try to vault over obstacles and avoid them:Reasonably assert his royal authority:Talk his way out") == 1)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "5. What shall a Judge never be?";
+			next;
+			if (select("Killed:a Coward:Dishonored:Unfair") == 4)
+				set judgedscore,judgedscore+1;
+			break;
+		case 2:
+			mes .@npc$;
+			mes "1. What is the main resource of a Judge in combat?";
+			next;
+			if (select("SP:Bullets:Shadow Orbs:Monarch Seals") == 4)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "2. Where can a Judge find weapons?";
+			next;
+			if (select("From Town Shops:Killing monsters:From the royalty:All of the above") == 3)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "3. What is the main strenght of a Judge in combat?";
+			next;
+			if (select("Range:Raw Power:Versatility:Mobility") == 3)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "4. What is the main weakness of a Judge in combat?";
+			next;
+			if (select("Lack of Magic Casting:High Resources Cost:Low Party Contribution:Low Attack Power") == 1)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "5. What is the most important thing for a judge's power?";
+			next;
+			if (select("Hit Rate:Job Level:Attack Speed:Attack Power") == 2)
+				set judgedscore,judgedscore+1;
+			break;
+		case 3:
+			mes .@npc$;
+			mes "1. What family handles the Economy of the Kingdom";
+			next;
+			if (select("Nerius:Gaebolg:Heine:Richard") == 1)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "2. What family handles the Military of the Kingdom?";
+			next;
+			if (select("Gaebolg:Lugenburg:Richard:Wigner") == 3)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "3. What family handles the Diplomacy of the Kingdom?";
+			next;
+			if (select("Wigner:Lugenburg:Richard:Walter") == 2)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "4. What family handles the Civil Development of the Kingdom?";
+			next;
+			if (select("Heine:Nerius:Wigner:Lugenburg") == 1)
+				set judgedscore,judgedscore+1;
+			mes .@npc$;
+			mes "5. What family handles the Sea Exploration of the Kingdom? ";
+			next;
+			if (select("Wigner:Gaebolg:Richard:Walter") == 4)
+				set judgedscore,judgedscore+1;
+			break;
+			}
+			next;
+			mes .@npc$;
+			mes "Let's see..."+ judgedscore +"/5 Question Correct.";
+			next;
+			if (judgedscore ==5){
+			emotion ET_SURPRISE;
+			mes .@npc$;
+			mes "Good job. You pass the test. I'm surprised an Orphan could do so well with so little time. I'll commend you for approval. Good Luck!";
+			close2;
+			set ernstjob,2;
+			set judgeroyal,judgeroyal+1;
+			set judgedscore,0;
+			end;
+				}
+			set judgedscore,0;
+			mes .@npc$;
+			mes "Looks like you failed. As expected, honestly. Try to study a little more and come back to try again.";
+			close2;
+			end;			
+		case 2:
+		mes .@npc$;
+		mes "You can take your time, I'll be here anyway.";
+		close;
+		}
+	}
+	if (judgequest !=3){
+	mes .@npc$;
+	mes "If you need anything, feel free to ask... anybody else.";
+	close2;
+	end;
+	}
+	if (judgequest ==3){
+		mes .@npc$;
+		mes "I'm Ernst Gaebolg, our family was in the throne until the late Tristram III was found dead. I'm responsible for checking your knowledge about the Judges and Royalty.";
+		next;
+		mes .@npc$;
+		mes "I will ask you questions about a random assortment of themes regarding these instances... If you can answer all of these correctly, I'll commend you to be a Judge.";
+		next;
+		mes .@npc$;
+		mes "I'm sure you can find this information speaking with people around the castle or even the library. Come back to me when you are ready.";
+		close2;
+		set ernstjob,1;
+		end;
+	}
+
+}
+prt_cas,109,270,3	script	Katrin Wigner#castle	10125,{
+	set .@npc$, "[Katrin Wigner]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "16kat_nor",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "! Good to see you in those garments. They suit you.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (katrinjob ==2){
+	cutin "16kat_nor",2;
+	mes .@npc$;
+	mes "I believe you are ready. good luck.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (katrinjob ==1){
+	cutin "16kat_nor",2;
+	set judgedscoreb,0;
+	mes .@npc$;
+	mes "So... Are you ready for the questions? You need to get at least 9 of the 10 correctly.";
+	next;
+	switch(select("Lets go!:Nevermind")) {
+		case 1:
+			mes .@npc$;
+			mes "1. Who defeated Satan Morroc?";
+			next;
+			if (select("King Nihil's Army:A group of Judges:A group of guilds:The Royal Guards") == 3)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "2. What causes the people to become Orphans?";
+			next;
+			if (select("Morroc's Mark:Bad Omen:Loki's Mark:A blood curse") == 1)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "3. Why arrows and bullets aren't spent when attacking?";
+			next;
+			if (select("They are magic:They draw from the user's energy:They are infinite:They are a concept") == 2)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "4. Why are Orphans refused from job guilds?";
+			next;
+			if (select("They are hated:They are poor:They are risky:They are weak") == 3)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "5. What happens when an Orphan dies?";
+			next;
+			if (select("They die permanently:A Shadow appears:People around them die:They explode") == 2)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "6. What happens if you kill a Shadow quickly?";
+			next;
+			if (select("You receive extra experience:You get a buff:The last Orphan killed resurrects:Deals heavy area damage") == 3)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "7. What happened to Rekember in the past few years?";
+			next;
+			if (select("It has grown exponentially:It's bankrupt:It has a clean name:Nothing changed") == 2)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "8. Where is the Nomad Village located?";
+			next;
+			if (select("Nobody knows:Near Rachel:Near Prontera:Near Einbroch") == 2)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "9. What happened to Gonryun?";
+			next;
+			if (select("It fell from the sky:It's lost in a mist:They have isolated themselves:It's a mistery") == 1)
+				set judgedscoreb,judgedscoreb+1;
+			mes .@npc$;
+			mes "10. What's the King's family name?";
+			next;
+			if (select("Reins:Lenne:Gaebolg:Heine") == 4)
+				set judgedscoreb,judgedscoreb+1;
+			next;
+			mes .@npc$;
+			mes "Let's see..."+ judgedscoreb +"/10 Question Correct.";
+			next;
+			if (judgedscoreb >=9){
+			emotion ET_SURPRISE;
+			mes .@npc$;
+			mes "Good job. You pass the test. I'm surprised an Orphan could do so well with so little time. I'll commend you for approval. Good Luck!";
+			close2;
+			set katrinjob,2;
+			set judgeroyal,judgeroyal+1;
+			set judgedscoreb,0;
+			cutin "",255;
+			end;
+			}
+			set judgedscoreb,0;
+			mes .@npc$;
+			mes "Looks like you failed. Im sorry. Try to study a little more and come back again.";
+			close2;
+			cutin "",255;
+			end;	
+		case 2:
+		mes .@npc$;
+		mes "Return here once you're ready.";
+		close2;
+		cutin "",255;
+		end;
+	}
+	}
+	if (judgequest !=3){
+	cutin "16kat_nor",2;
+	mes .@npc$;
+	mes "Please don't waste my time. I'm busy.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==3){
+		cutin "16kat_nor",2;
+		mes .@npc$;
+		mes "I'm Katrin Wigner, our family helps with the social relations and world history. I'm responsible for checking your knowledge about the world.";
+		next;
+		mes .@npc$;
+		mes "Since you're an Orphan, you likely were absent for 5 years... so my duty is to make sure you're ready for the tasks of a Judge relating to the world.";
+		next;
+		mes .@npc$;
+		mes "I'll ask you about what happened in the world these last 5 years. We can't expect you to be fair and strong if you don't understand. Come back to me when you are ready.";
+		close2;
+		set katrinjob,1;
+		cutin "",255;
+		end;
+	}
+}
+
+prt_cas,108,276,3	script	Peter Heine#castle	987,{
+	set .@npc$, "[Peter Heine]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "ep16_petter_heine01",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "! Hey!";
+	mes "Im happy to have you with us.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (heinejob ==3){
+	cutin "ep16_petter_heine01",2;
+	mes .@npc$;
+	mes "I wish you luck!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (heinejob ==2){
+	cutin "ep16_petter_heine01",2;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "I believe you took care of the situation correctly? The people of Prontera, and everywhere else really, are important to us, and also for you now. I'll give my commendation.";
+	close2;
+	set judgeroyal,judgeroyal+1;
+	set heinejob,3;
+	cutin "",255;
+	end;
+	}
+	if (heinejob ==1){
+	cutin "ep16_petter_heine01",2;
+	mes .@npc$;
+	mes "Your test is to find the girl who lost her grandmother and help her cheer up in our name. I believe her grandma was buried near the church, as usual.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest <3){
+	cutin "ep16_petter_heine01",2;
+	mes .@npc$;
+	mes "Hello...Do you have an appointment with me? I guess not.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgequest ==3){
+	cutin "ep16_petter_heine01",2;
+	mes .@npc$;
+	mes "Hello young one. I'm Peter Heine, older brother of King Nihil. It's an honor to be part of our monarchy under his reign.";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "People might think I would be jealous or sad to be ruled by my younger brother...but honestly I like the way he does things, and I prefer to work with the people directly.";
+	next;
+	mes .@npc$;
+	mes "And that's what you'll do today for your test. Recently a very dear old lady has passed away in Prontera, I wish you to find her granddaughter and wish her our best.";
+	next;
+	mes .@npc$;
+	mes "Judges might be very capable fighters, but it's also important to take care of our people, they deserve our best. Good Luck!";
+	close2;
+	set heinejob,1;
+	cutin "",255;
+	end;
+	}
+}
+	
+prontera,275,340,3	script	Sad Girl#prontera	958,{
+	set .@npc$, "[Sad Girl]";
+	if (BaseJob == Job_Super_Novice){
+	emotion ET_THANKS;
+	mes .@npc$;
+	mes " Wait! Magister " + strcharinfo(0) + "!!??";
+	mes "Whoa you're so cool now! Thanks for taking care of us!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (heinejob ==2){
+	emotion ET_THANKS;
+	mes .@npc$;
+	mes "Thank you for the kind words...I'm sure the pain eventually will go away. I just need time.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (heinejob ==1){
+	mes .@npc$;
+	mes "...Leave me alone, please.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Hey...I'm... sorry for your loss.";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "She was my grandma, I miss her so much. I don't know what i'm gonna do now...";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I lost people I loved too... trust me, it gets better. You need time and patience. I'm sure she wouldn't like to see you so sad.";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Yeah she always took care of me... did you know she took me to Mjolnir for a picnic once? A Hornet was very angry and chased us for hours! HAHAHA!";
+	next;
+	mes "^6666CCYou sit down and talk to the girl. The hours seem to go by...^000000";
+	next;
+	emotion ET_LOVE;
+	mes .@npc$;
+	mes "Uh... thanks for taking some time to talk to me, it was nice and I'm happy to remember good memories.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "It's ok. The people in the castle sent me and asked me to check on you. I'm glad I did anyway, you really needed someone to talk a little huh?";
+	next;
+	mes .@npc$;
+	mes "Wait so they knew what happened and took time to send you? Wow... so they really care... I hope I too can be a Judge someday and do good stuff like you! Take care on the way back!";
+	close2;
+	set heinejob,2;
+	end;
+	}
+	mes .@npc$;
+	mes "...Leave me alone, please.";
+	close;
+}
+
+prt_cas,110,310,4	script	Guardian Judge#castleA	10193,{
+	if (BaseJob == Job_Super_Novice){
+	mes "[Guard Judge]";
+	mes "Magister " + strcharinfo(0) + ".";
+	mes "You may pass.";
+	close2;
+	warp "prt_cas",110,320;
+	cutin "",255;
+	end;
+	}
+	if (judgepromote ==1){
+	mes "[Guard Judge]";
+	mes "You have authorization to pass. take the hallway to your left all the way to the garden.";
+	close2;
+	warp "prt_cas",110,325;
+	end;
+	}
+	mes "[Guard Judge]";
+	mes "This area of the castle is off limits.";
+	close;
+	}
+
+prt_cas,78,310,4	script	Guardian Judge#castleB	10198,{
+	if (BaseJob == Job_Super_Novice){
+	mes "[Guard Judge]";
+	mes "Magister " + strcharinfo(0) + ".";
+	mes "You may pass.";
+	close2;
+	warp "prt_cas",78,325;
+	cutin "",255;
+	end;
+	}
+	if (judgepromote ==1){
+	mes "[Guard Judge]";
+	mes "You have authorization to pass. take the hallway to your left all the way to the garden.";
+	close2;
+	warp "prt_cas",110,320;
+	end;
+	}
+	mes "[Guard Judge]";
+	mes "This area of the castle is off limits.";
+	close;
+	}
+
+prt_cas,105,80,4	script	Catherine Gaebolg#castle	10121,{
+	set .@npc$, "[Catherine Gaebolg]";
+	if (BaseJob == Job_Super_Novice){
+	cutin "ep16gao_1",2;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + ".";
+	mes "Please, remember to get enough rest.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (SkillPoint) {
+		mes "[Catherine Gaebolg]";
+		mes "You need to use your skill points before I can help you.";
+		close;
+	}
+	if (judgepromote ==1){
+	cutin "ep16gao_1",2;
+	mes .@npc$;
+	mes "Oh... welcome to the castle's garden...I'm former queen Catherine Gaebolg, I'm the ceremonial captain of the Judges.";
+	next;
+	mes .@npc$;
+	mes "You're an Orphan, aren't you? My, my... I wonder the struggles you faced. The sadness... I'm so sorry.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "It's time you get the respect you deserve. Some people may find it unusual, but I believe you have infinite potential.";
+	next;
+	mes .@npc$;
+	mes "In honor of the Kingdom of Prontera, I hereby name you...";
+	next;
+	specialeffect2 234;
+	specialeffect2 834;
+	atcommand "@job 23";
+	set judgejob,1;
+	set firstjob,1;
+	set secondjob,1;
+	getitem 22848,1;
+	getitem 13100,1;
+	getitem 13200,5;
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + ". You may use this title from now on if you wish.You also will be granted your first weapons and bullets for basic use. Remember to take care of them. Use the Badge if you ever are in trouble and need to come back quickly.";
+	close2;
+	cutin "",255;
+	end;
+	}
+}
+prt_cas,78,317,0	warp	judgewarp1	1,1,prt_cas,78,307,0
+prt_cas,110,317,0	warp	judgewarp2	1,1,prt_cas,110,307,0
+// ILLUSIONIST JOB QUEST
+
+va_orpha,272,379,4	script	Clock#Illusionist	CLEAR_NPC,{
+		if (brokenclock ==1){
+		mes "^6666CCThe clock now correctly shows the time.^000000";
+		next;
+		if (BaseJob == Job_Novice && BaseLevel > 14 && JobLevel > 9) {
+		mes "^6666CCYou think about the choices you made in the past. Even for simple things, your family is present in unexpected ways.^000000";
+		next;
+		mes "^6666CCFrom behind the wall, you hear a familiar voice.^000000";
+		switch(select("Check behind the clock:I must be hearing things...")) {
+		case 1:
+		mes "^6666CCYou can see a small light...It sucks you in.^000000";
+		close2;
+		if (illusionistquest ==0){
+		set illusionistquest,1;
+		}
+		warp "xmas_in",105,109;
+		end;
+		break;
+		case 2:
+		end;
+		}
+		}mes "^6666CCYou did a good job! Your grandpa would be proud!^000000";
+		close;
+		}
+		if (brokenclock ==0){
+		mes "^6666CCThe clock is clearly broken and shows a wrong time.^000000";
+		next;
+		switch(select("Try to fix the clock:Nevermind")) {
+		case 1:
+		mes "^6666CCYou open the main part of the clock. What do you want to do?^000000";
+		next;
+		switch(select("Move Large Needle:Move Small Needle:Adjust First Gear:Adjust Second Gear:Adjust Third Gear")) {
+		case 1:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 2:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 3:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 4:
+		mes "^6666CCYou carefully rotate the second gear until it clicks.^000000";
+		next;
+		switch(select("Move Large Needle:Move Small Needle:Adjust First Gear:Adjust Second Gear:Adjust Third Gear")) {
+		case 1:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 2:
+		mes "^6666CCThe needle starts ticking correctly. It seems fixed.^000000";
+		next;
+		switch(select("Move Large Needle:Move Small Needle:Adjust First Gear:Adjust Second Gear:Adjust Third Gear")) {
+		case 1:
+		mes "^6666CCThe larger needle is now working and ticking.^000000";
+		next;
+		mes "^6666CCAfter a short while. You see that the clock is correctly fixed and working!^000000";
+		close2;
+		set brokenclock,1;
+		end;
+		case 2:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 3:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 4:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 5:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		}
+		case 3:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 4:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		case 5:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		}
+		case 5:
+		mes "^6666CCThe clock makes a weird noise and continues broken.^000000";
+		close;
+		end;
+		}
+		case 2:
+		end;
+		}
+}
+}
+
+xmas_in,111,107,3	script	Familiar Girl#Illusionist	668,{
+	set .@npc$, "[Familiar Girl]";
+	if (BaseJob == Job_Mage) {
+			mes .@npc$;
+			mes "Hey there. Glad to see you're well. Do you have any questions?";
+			next;
+			switch(select("How can I use Kimi?:What weapons can I use?:How can I get condensed Souls?:Nothing, Thanks")) {
+			case 1:
+			mes .@npc$;
+			mes "Kimi needs to be summoned to be used. Your skills can help you with it.";
+			next;
+			mes .@npc$;
+			mes "She will be an avatar of destruction, created to instill fear into your enemies. Her skills are only as strong as your will.";
+			next;
+			mes .@npc$;
+			mes "Her power grows with you. It's important to keep it in mind and feed her Condensed Souls so she can unlock her potential.";
+			close;
+			case 2:
+			mes .@npc$;
+			mes "Well...Your Illusion Glove is more than enough isn't it? You can channel real magic through it.";
+			next;
+			mes .@npc$;
+			mes "An Illusionist's true weapon is their mind and magic. Your enemies don't need to feel your power, only BELIEVE it.";
+			next;
+			mes .@npc$;
+			mes "Make sure to take care of your glove. It's one of a kind, and made from your memories, to you.";
+			close;
+			case 3:
+			mes .@npc$;
+			mes "Whenever you defeat enemies with your glove, there's a chance you will extract their soul and channel your memories.";
+			next;
+			mes .@npc$;
+			mes "These Condensed Souls can be used to feed your Puppet, Kimi, bringing it closer to you.";
+			next;
+			mes .@npc$;
+			mes "The unique properties of Condensed Souls can also be used for higher magic. But you'll know it when the time comes.";
+			close;
+			case 4:
+			mes .@npc$;
+			mes "Come back when you decide.";
+			close;
+			}
+	}
+	if (BaseJob != Job_Novice) {
+			mes .@npc$;
+			mes "Anything I can do for you?";
+			close;
+	}
+	if (illusionistquest ==4) {
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "Are you ready to become an Illusionist? You will be able to use Kimi as an avatar of memories for combat, as well as strong illusion magic.";
+	next;
+	switch(select("I'm Ready:I need to think about it.")) {
+	case 1:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "Great, now use those skill points so we can proceed.";
+		close;
+	}
+	mes .@npc$;
+	mes "Close your eyes...think about that makes you feel better.";
+	next;
+	specialeffect2 588;
+	mes .@npc$;
+	mes "Take a moment to think about your family. About your sister.";
+	next;
+	specialeffect2 687;
+	mes "^6666CCYou can feel the liquid shining in your hands...You feel the Mark in your eyes burning.^000000";
+	next;
+	mes .@npc$;
+	mes "Your enemies may feel the pain of your memories. For Kimi shall be the last they see before death.";
+	next;
+	mes "^6666CCThe Condensed Soul surrounds you and focuses on your hand. It solidifies as a Glove.^000000";
+	next;
+	specialeffect2 234;
+	specialeffect2 834;
+	emotion ET_CONGRATULATION;
+	atcommand "@job 2";
+	getitem 1807,1;
+	set illusionistjob,1;
+	set firstjob,1;
+	set secondjob,1;
+	mes .@npc$;
+	mes "I hereby promote you to Illusionist. The art of magic for wizards is nothing compared to your tricks.Use your power wisely!";
+	close2;
+	warp "va_orpha",271,375;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Come back when you decide.";
+	close;
+	}
+	}
+	if (illusionistquest ==3) {
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh, I see you found...something. Impressive, it already condensed itself!";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "What is this liquid?";
+	next;
+	mes .@npc$;
+	mes "It's a Condensed Soul. It's the permanent part of your memories, how you feel about them.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I feel bad when I think about that...I've no idea how this is useful.";
+	next;
+	mes .@npc$;
+	mes "It's perfect. That's why Orphans can be master Illusionists. They can channel their sadness into power.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "So with this liquid...I can change my path...";
+	next;
+	mes .@npc$;
+	mes "...And use your powers to change what people believe is real. Your Condensed Soul will be used to create an avatar of your memories.";
+	next;
+	mes .@npc$;
+	mes "This avatar will fight for you. Grow with you. You also will be able to make it closer with more Condensed Souls.";
+	next;
+	mes .@npc$;
+	mes "It's like an homunculus, from the alchemists... except it's powered by your memories and magic power. Not engineering.";
+	next;
+	mes .@npc$;
+	mes "If you are ready to become an Illusionist, and harness magic and your memories, let me know.";
+	close2;
+	set illusionistquest,4;
+	end;
+	}
+	if (illusionistquest ==2) {
+	mes .@npc$;
+	emotion ET_SCRATCH;
+	mes "Go find the doll. I'm sure there's some around here somewhere. Maybe the toy store?";
+	close;
+	}
+	if (BaseJob == Job_Novice && BaseLevel > 14 && JobLevel > 9) {
+	mes .@npc$;
+	emotion ET_SCISSOR;
+	mes "Hello there. It seems like you're in a difficult situation huh?";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "You... look just like my sister.";
+	next;
+	mes .@npc$;
+	mes "I usually take the form of someone related to you for this place. Since We're in Lutie. It might be this sister of yours.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Who are you?";
+	next;
+	mes .@npc$;
+	mes "I'm an orphan like you. However I have mastered the use of my Mark, so I can create illusions.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "How did you do that? Why?";
+	next;
+	mes .@npc$;
+	mes "I have fully attuned to my memories. So no matter for how long I was gone, I know exactly who I am.";
+	next;
+	mes .@npc$;
+	mes "My illusions can attune to the memories of people, so it can change who I am for them.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "How can I learn this power? Seems useful.";
+	next;
+	mes .@npc$;
+	mes "I can help you with it... You just need to find a strong emotion that links you to Lutie.It's gonna be your anchor.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "My little sister... Since you look just like her, and she loved this city.";
+	next;
+	mes .@npc$;
+	mes "So that's your anchor. Think about important things for her, a good memory, some details...anything.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "There was a weird doll she took home from here. We used to play with it sometimes.";
+	next;
+	mes .@npc$;
+	mes "You might want to start finding that doll. Maybe at the toy store? I'll be here anyway.";
+	close2;
+	set illusionistquest,2;
+	end;
+	}
+}
+
+xmas_in,169,22,3	script	Doll Machine#Illusionist	562,{
+	if (illusionistquest ==2) {
+	mes "^6666CCYou see a machine filled with dolls. You can insert 1.000z to get a doll.^000000";
+	next;
+	switch(select("Pay 1000z:Nevermind")) {
+		case 1:
+			if (zeny >=1000 && BaseJob == Job_Novice) {
+			emotion ET_THANKS;
+			mes "^6666CCYou chose the Kimi doll. When you hold it you feel a surge of emotions.^000000";
+			next;
+			mes "^6666CCThe doll transforms into a bottle with a bright liquid. You remember your family when holding the bottle.^000000";
+			close2;
+			getitem 537,1;
+			set illusionistquest,3;
+			set zeny,zeny-1000;
+			end;
+			}
+			mes "The Machine doesn't work.";
+			close;
+			end;
+		case 2:
+		end;
+	}
+	}
+	if (illusionistquest !=2) {
+	mes .@npc$;
+	mes "^6666CCIt's a machine filled with dolls! They look really cute!^000000";
+	close;
+}
+}
+// VAGABOND JOB QUEST
+
+va_orpha,17,18,4	script	Vagabond Orphan#Vagabond	479,{
+	set .@npc$, "[Jobless Orphan]";
+	if (vagabondquest ==2){
+	mes .@npc$;
+	mes "My friend. It's good to see you creating a new path. Walk Free.";
+	close;
+	end;
+	}
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "I don't talk to people with skill points. Unless you're one of us. It's against my nature.";
+		close;
+	}
+	if (BaseJob != Job_Novice) {
+			mes .@npc$;
+			mes "Hello there fellow Orphan, don't forget to visit the Nomad Village.";
+			close;
+	}
+	if (BaseJob == Job_Novice && vagabondquest ==1){
+	if (BaseLevel < 15){
+	mes .@npc$;
+	mes "You are not ready. Come back when you're level 15 or higher. You might regret not having a job otherwise.";
+	close;
+	}
+	mes .@npc$;
+	mes "The village welcomes anyone who is strong enough to take care of themselves.It's needed since we abstain from most skills even.";
+	next;
+	mes .@npc$;
+	mes "The Mark draws from your soul. Feed your body as to strenghten your soul. Only this way you can rid yourself of darkness.";
+	next;
+	mes .@npc$;
+	mes "Now allow me to break you free from the chains of jobs and paths. Walk Free.";
+	close2;
+	atcommand "@job 25";
+	specialeffect2 234;
+	specialeffect2 834;
+	set firstjob,1;
+	set secondjob,1;
+	set vagabondquest,2;
+	set vagabondjob,1;
+	mes .@npc$;
+	mes "Visit the Nomad Village when you can. It's a good thing to know the land of the free.";
+	close;
+	}
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Have you lost your way?";
+	mes "What are you doing here?";
+	next;
+	switch(select("I decided to exile myself:Just passing by")) {
+		case 1:
+			if (zeny >=1){
+			mes .@npc$;
+			mes "Are you sure?";
+			mes "You seem to be pretty attached to your belongings and path. Why carry money around?";
+			close;
+			end;
+			}
+			mes .@npc$;
+			mes "Very well... I believe you have what it takes.";
+			mes "The Nomad Tribe welcomes anyone who is ready to commit to their peace and walk a singular path.";
+			next;
+			mes .@npc$;
+			mes "If you are absolutely sure you wish to give up on every path and walk a new one...Let me know.";
+			close2;
+			set vagabondquest,1;
+			end;
+		case 2:
+			mes .@npc$;
+			mes "Take your time to speak with the people here. Many stories start and end around these parts.";
+			close;
+			end;
+	}
+}
+
+//RAIDER job Quest
+
+pay_fild09,334,264,5	script	Wandering Raider#questchange	966,{
+	set .@npc$, "[Wandering Knight]";
+	if (dracomancerjob ==1 && orbget ==0){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "It's good to see you growing this strong.";
+	next;
+	mes .@npc$;
+	mes "I'll give you the soul of one of our Ancient Dragons to take care of. It shall be the first step in your new path.";
+	next;
+	mes .@npc$;
+	mes "Please choose wisely. You can find other Orbs around the world. If you have persistence.";
+	next;
+	switch(select("I want the Draco Orb(A Warrior).:I want the Petite Orb(A Support).")) {
+	case 1:
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Great choice. Draco can help you grow strong and fight enemies.";
+	next;
+	getitem 1453,1;
+	set orbget,1;
+	mes .@npc$;
+	mes "Take care, Dracomancer.";
+	close;
+	case 2:
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Excelent choice. petite can help keep you safe and sound.";
+	next;
+	getitem 1454,1;
+	set orbget,1;
+	mes .@npc$;
+	mes "Take care, Dracomancer.";
+	close;
+	}
+	}
+	if (raiderquest ==2){
+	mes .@npc$;
+	mes "The Dragons look only for the best. Some will only appear when a hurt one needs it. Cards are not only to increase your power, but the symbol of patience and control. Remember this.";
+	next;
+	mes .@npc$;
+	mes "A man in the abyss, who stares at the prison of a hero... may forever watch over us.";
+	next;
+	close;
+	end;
+	}
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "You need to know the basics before learning anything else.";
+		close;
+	}
+	if (BaseJob != Job_Novice) {
+			mes .@npc$;
+			mes "Hello there. Can you see dragons flying far into the skies over there? Cool isn't it?";
+			close;
+	}
+	if (BaseJob == Job_Novice && raiderquest ==1){
+	if (JobLevel < 10){
+	mes .@npc$;
+	mes "You need to train first. Why not get to job level 10?";
+	close;
+	}
+		switch(select("I really want to be a Raider.:Nevermind.")) {
+		case 1:
+		mes .@npc$;
+		mes "Anyone can wield a spear. It's a simple weapon.";
+		next;
+		mes .@npc$;
+		mes "You can choose to be just another one, or to do your best and fight the toughest fights. Fights that anyone else would flee from.";
+		next;
+		mes .@npc$;
+		mes "You may be a Raider, but you're just another warrior. Will you be the best I wonder?";
+		close2;
+		atcommand "@job 1";
+		specialeffect2 234;
+		specialeffect2 834;
+		getitem 1410,1;
+		set firstjob,1;
+		set raiderquest,2;
+		set raiderjob,1;
+		end;
+	case 2:
+	mes .@npc$;
+	mes "Very well. I don't judge you. I only pity the weak.";
+	close;
+	end;
+	
+		}
+	}
+	if (BaseJob == Job_Novice) {
+	mes .@npc$;
+	mes "Hello there. Can you see dragons flying far into the skies over there? Cool isn't it?";
+	next;
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Yes. I know you. I know all orphans.";
+	mes "What are you doing here?";
+	next;
+	switch(select("I want to fight with courage.:Just passing by")) {
+		case 1:
+			mes .@npc$;
+			mes "So... fight like me? Are you sure?";
+			mes "I can teach you... but I won't. I'll give you a spear and you'll have to carve your own path.";
+			next;
+			mes .@npc$;
+			mes "I can't just teach anyone who comes here and thinks they are ready for training. I'll give you a spear and you figure it out yourself. What do you say?";
+			close2;
+			set raiderquest,1;
+			end;
+		case 2:
+			mes .@npc$;
+			mes "Take a minute to contemplate the ocean.";
+			close;
+			end;
+	}
+	}
+}
+//Raider Orb
+
+pay_fild09,329,267,4	script	Raider Assistant#joborb	413,{
+	emotion ET_SURPRISE;
+	set .@npc$, "[Raider Assistant]";
+	if (ascendedraider == 1) {
+	mes .@npc$;
+	mes "How's your training going? Never stop training!";
+	close;
+	}
+	mes .@npc$;
+	mes "Hey there!";
+	mes "I'm learning how to be a better Raider!";
+	next;
+	if (raiderjob == 0) {
+	mes .@npc$;
+	mes "If you see any Raiders around...";
+	mes "Send them here so I can train with them ok?";
+	close;
+	}
+	mes .@npc$;
+	mes "I am crafting some orbs to assist in combat";
+	mes "Maybe they can help you use Dragon Soul!";
+	mes "I'll give you a <ITEM>Ascended Thurst Orb<INFO>1466</INFO></ITEM>!";
+	mes "If you bring me some items, what do you say?";
+	next;
+	switch(select("What do you need?:I have your requirements:Nope")) {
+	case 1:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "^FF0000100^000000 Bear's Footskin should be enough!"; //948
+		mes "You need to be stronger than a bear to fight like a dragon!";
+		close;
+	case 2:
+		if(countitem(948) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Great Work!";
+		mes "Here, you can have this Orb I made earlier today!";
+		mes "Keep working to become the best!";
+		delitem 948,100;
+		getitem 1466,1;
+		set ascendedraider,1;
+		close;
+	L_noitems:
+		emotion ET_OTL;
+		mes .@npc$;
+		mes "Uh... Do you need any help?";
+		mes "You're missing...";
+		if(countitem(948) < 100) mes "^FF0000"+(100 - countitem(948)) +"^000000 Bear's Footskin!";
+		close;
+	case 3:
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Take Care!";
+		close;
+	}
+}
+//Prowler Quest
+
+lighthalzen,308,250,5	script	Edmond#Prowler	4_m_dstman,{
+	set .@npc$, "[Edmond]";
+	if(countitem(6933) >= 1) {
+	mes .@npc$;
+	mes "Well done Orphan! I see you brought me some good information...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Are we going to attack them?";
+	next;
+	mes .@npc$;
+	mes "Oh, no, of course not. I'll sell this information to the guilds.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What!? Hey! I feel used.";
+	next;
+	mes .@npc$;
+	mes "Come on! The money will be put to good use... Regardless, you've shown good promise.";
+	next;
+	mes .@npc$;
+	mes "I'll give you some special stuff...I'm sure you'll do great stuff with it!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Ok I'm listening.";
+	next;
+	set .orders, countitem(6933);
+	delitem 6933,.orders;
+	delitem 2185,1;
+	atcommand "@job 4016";
+	specialeffect2 234;
+	specialeffect2 834;
+	set firstjob,1;
+	set secondjob,1;
+	set finaljob,1;
+	set prowlerjob,1;
+	getitem 2186,1;
+	getitem 13293,1;
+	mes .@npc$;
+	mes "This Armguard is the key to become the best evasive fighter ever! That Rope Kunai can also always keep enemies near you!";
+	next;
+	mes .@npc$;
+	mes "I look forward to hearing great things from you soon! Or not. Try not to get caught!";
+	close;
+}
+
+	if (prowlerjob >=1){
+	mes .@npc$;
+	mes "Where have you been? Oh, who am I kidding! You're SUPPOSED to not be seen much! Haha!";
+	close;
+	}
+	if (secondjob >=1){
+	mes .@npc$;
+	mes "Please don't waste my time. Thanks.";
+	close;
+	}
+	if (prowlerfail >=1){
+	mes .@npc$;
+	mes "...Look at Mr -I'm so strong- over there...dummy....";
+	close;
+	}
+	if (prowlertest >=1){
+	if (BaseLevel >=81){
+	delitem 2185,1;
+	set prowlerfail,1;
+	set finaljob,0;
+	mes .@npc$;
+	mes "You are Over Base Level 80! You can't use my armguard anymore! Please go away! Dummy!";
+	close;
+	}
+	if (prowlertest ==1 && countitem(2185) == 0){
+	getitem 2185,1;
+	mes .@npc$;
+	mes "I think you may have lost this...I found it...dang! You're slow!";
+	close;
+	}
+	mes .@npc$;
+	mes "Do you know the Orphan Hunters? They are those mercenaries working for Sessrumir, Rachel's Temple... They take Orphans around Rachel.";
+	next;
+	mes .@npc$;
+	mes "So...? Any news? Did you get one?";
+	close;
+	}
+	if (finaljob >=1){
+	mes .@npc$;
+	mes "...? The Desert Guild is here...? Well, enjoy the city, or whatever it is you've come for.";
+	close;
+	}
+	if (thiefjob ==0){
+	mes .@npc$;
+	mes "This city is on its last legs... look at these people. They are in a terrible state.";
+	close;	
+	}
+	if (thiefjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Look at this... a person with skill points to spare. What a waste.";
+	close;
+	}
+	if (BaseLevel >=81){
+	mes .@npc$;
+	mes "Look at your Base Level...You're too strong for whatever I need help with! You'll break my invention!";
+	close;
+	}
+	mes .@npc$;
+    mes "Hey there, Orphan. You look like you have it all together. Me, not so much.";
+    mes "But don't let my ragged clothes fool you. I've been living on the streets for years now, and I can take care of myself.";
+    next;
+	emotion ET_THINK;
+	mes .@npc$;
+    mes "I've learned that being smart is the key to survival.";
+    mes "Knowing where to find food and shelter, and who to avoid.";
+    next;
+	mes .@npc$;
+    mes "We all make mistakes along the way, but I've learned from them.";
+    mes "And I'm not afraid to ask for help when I need it.";
+    next;
+	mes .@npc$;
+    mes "So don't underestimate me just because of my appearance.";
+    mes "I may not have a lot, but I have my wits about me, and that's more valuable than anything else out here.";
+    next;
+	switch(select("Stop listening and walk away.:Listen to the man")) {
+	case 1:
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "H-Hey! Don't just ignore me! Get back here...dang.";
+	close;
+	case 2:
+	if (JobLevel < 50){
+	mes .@npc$;
+	mes "If you see any skilled thieves with max Job Level...direct them here. They may have what it takes to help me.";
+	close;
+	}
+	mes .@npc$;
+	mes "So...you look capable. Are you interested in helping a friend?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "We are not friends...";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Not yet! We shall found a friendship around an achievement. One where I shall provide the tool and you, the means.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What's the idea?";
+	next;
+	mes .@npc$;
+	mes "Do you know the Orphan Hunters? They are those mercenaries working for Sessrumir, Rachel's Temple... They take Orphans and...do something.";
+	next;
+	mes .@npc$;
+	mes "The key part is that we have no idea where they are. Nobody ever sees them again after they are kidnapped. That's where We come in.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait, they are pretty strong! You can't expect me to fight them right?";
+	next;
+	mes .@npc$;
+	mes "You'll find a way. I know you can do it.";
+	next;	
+	switch(select("No Thanks.:Yes, I'm listening.")) {
+	case 1:
+	mes .@npc$;
+	mes "Come back if you change your mind.";
+	close;
+	case 2:
+	mes .@npc$;
+	mes "That's the spirit! Let me give you the details...";
+	next;
+	mes .@npc$;
+	mes "I'll provide you with my ^6666CCPrototype Armguard^000000. This puts incredible force into your backstabs to be VERY strong, but with a very limited use.";
+	next;
+	mes .@npc$;
+	mes "To be precise...It can't handle the power of anyone over Base Level 80.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So...you want me to use that to stab them?";
+	next;
+	mes .@npc$;
+	mes "Correct. With the extra power from the Armguard, you can totally murder those bastards and hopefully you'll get some information on how they work.";
+	next;
+	mes .@npc$;
+	mes "The Armguard has a special...tracker... for information. Haha.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Ok then...give me the Armguard, I'll do my best.";
+	next;
+	set .orders, countitem(6933);
+	delitem 6933,.orders;
+	getitem 2185,1;
+	set prowlertest,1;
+	set finaljob,1;
+	set specjob,1;
+	mes .@npc$;
+	mes "You probably can find them somewhere near the Nomad Village... be careful out there. And keep your Base Level under 80!";
+	close;
+	}
+}
+	}
+}
+
+//Shadowseer Side-Quest
+
+niflheim,327,70,5	script	Lost Spirit#Shadowseer	4_m_soulreaper,{
+	set .@npc$, "[Strange Spirit]";
+	cutin "soul_van01",2;
+	if (shadowseerjob ==1){
+	mes .@npc$;
+	mes "Day and Night are nothing but a weapon to you.";
+	close2;
+	cutin "",255;
+	end;	
+	}
+	if (secondjob >=1){
+	mes .@npc$;
+	mes "The universe is always watching.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (finaljob >=1){
+	mes .@npc$;
+	mes "The universe is always watching.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (thiefjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Why would you not fulfill your potential and skills...?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "What is that thing you have in you...?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What?";
+	next;
+	mes .@npc$;
+	mes "I can hear the scream of hundreds of souls...inside your eyes.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Are you talking about Morroc's Mark?";
+	next;
+	mes .@npc$;
+	mes "...Morroc's Mark? Is that what you call it?";
+	next;
+	mes .@npc$;
+	mes "Regardless... the universe watches over people like you...and yet I meet you here. in this...city.";
+	next;
+	mes .@npc$;
+	mes "Perhaps it's time you take the universe in hands. And actually do something about it.";
+	next;
+	mes .@npc$;
+	mes "The Night and the Day...light and darkness...the duality of life. Do you want to understand it? There's no turning back.";
+	next;
+	switch(select("Move Away.:Pay Attention.")) {
+	case 1:
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "I don't care. The universe does. A little.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (JobLevel < 50){
+	mes .@npc$;
+	mes "You must be stronger before I can help you.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	cutin "soul_van04",2;
+	atcommand "@job 4049";
+	specialeffect2 234;
+	specialeffect2 834;
+	set firstjob,1;
+	set secondjob,1;
+	set finaljob,1;
+	set shadowseerjob,1;
+	getitem 2191,1;
+	mes .@npc$;
+	mes "For you must see the darkness and the light...and what's invisible to the others. You must see the world around you.";
+	next;
+	mes .@npc$;
+	mes "The Specter Dagger, your instrument to walk between reality and dreams, day and night, life and...death.";
+	next;
+	cutin "soul_van01",2;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "No tests? No missions?";
+	next;
+	mes .@npc$;
+	mes "The universe will test you. For your path is the hardest to walk on this land.";
+	close2;
+	cutin "",255;
+	end;
+}
+	}
+	mes .@npc$;
+	mes "The universe is always watching.";
+	close2;
+	cutin "",255;
+	end;
+}
+
+va_orpha,390,193,4	script	#mimicmirror	CLEAR_NPC,{
+	if (firstjob >0){
+	end;
+	}
+	if (BaseLevel <25){
+	end;
+	}
+	if (SkillPoint) {
+	end;
+	}
+	mes "The universe is always watching...";
+	next;
+	switch(select("Look at your reflection:Leave")) {
+	case 1:
+	atcommand "@job 4024";
+	specialeffect2 234;
+	set firstjob,1;
+	set secondjob,1;
+	set finaljob,1;
+	set mimicjob,1;
+	getitem 28600,1;
+	mes "You see a strange book given to you by... your reflection? You grab the book...?";
+	close2;
+	end;
+	case 2:
+	end;
+	}
+}

@@ -1,0 +1,323 @@
+prontera,225,218,3	script	Configuration#PRTMBG	-1,{
+    //  GvG v1.0
+    //  Made by Ka'iva for | Project Return to Morroc |
+    //  Below is the configuration file for the script.
+    OnInit:
+    //////
+    setarray $BGFMvP[0],1540;    // - > List of possible MvPs that can spawn in the event, change the ID to the desired MvP ID.
+    set $BGFSpawnX,273;     // -> X Point in the map where the MvP will spawn.
+    set $BGFSpawnY,203;     // -> Y Point in the map where the MvP will spawn.
+    set $BGFSpawnMap$,"gvg_prm"; // -> Mapname where the MvP will spawn.
+    set $BGFPreparationMap$,"gvg_prep"; // -> Mapname where the players wil prepare.
+    set $BGFPrepX,173; // -> X Coordinate where the players will be warped to the preparation room.
+    set $BGFPrepY,23; // -> Y Coordinate where the players will be warped to the preparation room.
+    set $BGFRewardID,31659; // -> Item ID of the reward.
+    set $BGFRewardTim,604800; // -> Duration (Seconds) of the reward Default: 7 days (604800)
+    set $BGFProtection,1;   // -> Protection System for the MvPs 1: YES  0: NO, if the NPC is dragged too far away from the safezone it will be teleported back to its original coordinate and be healed by the ammount below. Default: Yes 
+    set $BGFHeal,25;        // -> Ammount of HP healed by the MvP once it steps out of the safezone, number defined in %. Default: 25% MHP.
+    set $BGFHighscore,0;    // -> SCOREBOARD? 1: YES  0: NO. Winners of the match will a point and this point will be saved in the MySQL, the table will be automatically created. Default: YES
+    set $BGFCommandName$,"StartGvG";    // Name of the @command used to start flavious, the GM will have to type "@StartFlavius" to start the event, this can be changed to any desired @command, the @ is not needed here.
+    //////
+    //RESTRICTIONS
+    //////
+    setmapflag $BGFSpawnMap$,mf_noteleport; // Teleport and Fly wings disabled.
+    setmapflag $BGFSpawnMap$,mf_nomemo; // Memo Disabled.
+    setmapflag $BGFSpawnMap$,mf_nodrop; // Droping items on the map is disabled.
+    setmapflag $BGFSpawnMap$,mf_notrade; // Trading is disabled.
+    setmapflag $BGFSpawnMap$,mf_nopenalty; // Penalty from dying is disabled.
+    setmapflag $BGFSpawnMap$,mf_norodex; // Rodex is disabled.
+    setmapflag $BGFSpawnMap$,mf_nobranch; // Branches disabled.
+    setmapflag $BGFSpawnMap$,mf_gvg; // GvG
+    setmapflag $BGFSpawnMap$,mf_allowks; //Disables @noks
+
+    //BEGGINING OF THE SCRIPT//
+    //////
+    /////
+    disablenpc  strnpcinfo(0);
+    end;
+}
+
+pvp_orphans	mapflag	pvp
+pvp_orphans	mapflag	noitemconsumption
+pvp_orphans	mapflag	nomemo
+pvp_orphans	mapflag	noexppenalty
+pvp_orphans	mapflag	nomobloot
+pvp_orphans	mapflag	nosave	SavePoint
+gvg_prep	mapflag	nosave	SavePoint
+gvg_prm	mapflag	nosave	SavePoint
+gvg_prep	mapflag	nomemo
+gvg_prm	mapflag	noexppenalty
+gvg_prep	mapflag	nomemo
+gvg_prm	mapflag	noexppenalty
+
+moc_orpha,38,178,3	script	Command#PRTMBG	-1,{
+    OnInit:
+    bindatcmd $BGFCommandName$,strnpcinfo(3) + "::OnAtcommand";
+	end;
+
+    OnAtcommand:
+    if ((getgmlevel(getcharid(0))) == 0){
+        end;
+    }
+    ////
+    L_MENU:
+    switch(select("Start Event:Cancel")){
+        case 1:
+		playbgmall "218","va_orpha";
+        donpcevent "Event#PRTMBG::OnStartingGvG";
+		hideonnpc "Gatekeeper#BGFWarp";
+		end;
+        case 2:
+		end; 
+}
+}
+
+moc_orpha,1,1,3	script	Event#PRTMBG	-1,{
+    OnStartingGvG:
+    set $BGFInProg,1;
+    announce "Conquest Grandmaster: Hear ye! Hear ye! Heroes and Orphans! From the strongest to the weakest! Everyone is invited to the Flavius Conquest!",bc_all;
+    sleep 4500;
+    announce "Conquest Grandmaster: If you have a Guild you need to talk with me at the Orphanage, Conquest will begin in 3 minutes.",bc_all;
+    initnpctimer "Event#PRTMBG";
+    end;
+
+    OnTimer120000:
+    mapannounce $BGFPreparationMap$,"1 minute remaining until the Gatekeeper allows access to Flavius Conquest.",bc_map;
+    end;
+
+    
+    OnTimer180000:
+    mapwarp $BGFPreparationMap$,$BGFSpawnMap$,0,0,0;
+    hideoffnpc "Gatekeeper#BGFWarp";
+    sleep 1000;
+    mapannounce $BGFSpawnMap$,"Let the battle begin!",bc_map;
+    sleep 1000;
+    mapannounce $BGFSpawnMap$,"A boss will spawn in one of the 3 forts in 5 minutes, the guild who achieves the killing blow on the MvP wins the match!",bc_map;
+    end;
+
+    OnTimer420000:
+    mapannounce $BGFSpawnMap$,"1 Minute until boss arrives.",bc_map;
+    end;
+
+    OnTimer480000:
+    mapannounce $BGFSpawnMap$,"Emperium Golem has arrived at the Central Fort! The guild who does the killing blow will be the winner of the Conquest!",bc_map;
+    set .ArraySize,(getarraysize($BGFMvP)-1);
+    set .RandomArray,rand(1,.ArraySize);
+    monster $BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY,"Emperium Golem",1540,1,"Event#PRTMBG"+"::OnClear";
+    stopnpctimer;
+    detachnpctimer;
+    end;
+
+
+    OnClear:
+    set .PlayerName$,strcharinfo(0);
+    set .GuildName$,strcharinfo(2);
+    set .GuildID,getcharid(2);
+    announce "[Conquest] "+.PlayerName$+ " from the guild "+.GuildName$+" has scored the killing blow won the match!",bc_all;
+    hideonnpc "Gatekeeper#BGFWarp";
+    initnpctimer "Event#PRTMBG";
+    set $BGFInProg,0;
+    mapannounce $BGFSpawnMap$,"The combat has ended, players will be warped outside in 10 seconds, rewards will be delivered.",bc_map;
+    addrid(1);
+    if (getcharid(2) == .GuildID){
+        rentitem $BGFRewardID,$BGFRewardTim;
+		getitem 6444,1;
+    }
+    end;
+
+    OnTimer10000:
+    mapwarp "gvg_prm","va_orpha",271,331,0;
+	end;
+}
+
+
+
+//ORNSTEIN, ADJUST NPC LOCATIONS.//
+
+gvg_prep,162,28,5	script	Healer#BGFHealer	420,{
+    percentheal 100,100;
+    repairall getcharid(0);
+    specialeffect2 101;
+    specialeffect2 9;
+}
+gvg_prep,162,24,5	script	Storage#BGFStorage	416,{
+    openstorage;
+}
+
+gvg_prep,174,37,4	script	Gatekeeper#BGFWarp	806,{
+    warp $BGFSpawnMap$,0,0;
+    end;
+}
+
+gvg_prm,262,244,1	script	Flavius#Protection	-1,5,5,{
+    end;
+    OnTouchNPC:
+    if ($BGFProtection == 1){
+    unitwarp 0,$BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY;
+    }
+    end;
+}
+
+gvg_prm,276,252,1	script	Flavius#Protection2	-1,5,5,{
+    end;
+    OnTouchNPC:
+    if ($BGFProtection == 1){
+    unitwarp 0,$BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY;
+    }
+    end;
+}
+
+gvg_prm,293,246,1	script	Flavius#Protection3	-1,5,5,{
+    end;
+    OnTouchNPC:
+    if ($BGFProtection == 1){
+    unitwarp 0,$BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY;
+    }
+    end;
+}
+
+gvg_prm,252,169,1	script	Flavius#Protection4	-1,5,5,{
+    end;
+    OnTouchNPC:
+    if ($BGFProtection == 1){
+    unitwarp 0,$BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY;
+    }
+    end;
+}
+
+gvg_prm,281,161,1	script	Flavius#Protection5	-1,5,5,{
+    end;
+    OnTouchNPC:
+    if ($BGFProtection == 1){
+    unitwarp 0,$BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY;
+    }
+    end;
+}
+
+gvg_prm,268,158,1	script	Flavius#Protection6	-1,5,5,{
+    end;
+    OnTouchNPC:
+    if ($BGFProtection == 1){
+    unitwarp 0,$BGFSpawnMap$,$BGFSpawnX,$BGFSpawnY;
+    }
+    end;
+}
+
+
+//Manager NPC//
+va_orpha,267,342,4	script	Conquest Battlemaster#BGEvent	10182,{
+	cutin "ep16_tes01",2;
+    if (admincheck == 0){
+        mes "[Conquest Battlemaster Philofontes]";
+        mes "A great day for war, dont you agree with me Orphan? Do you want to test your limits?";
+        switch(select("Enter Free for All (PvP):Enter Conquest (GvG):Leave")){
+            case 3:
+            close2;
+			cutin "",255;
+            end;
+			case 1:
+            close2;
+			warp "pvp_orphans",0,0;
+			cutin "",255;
+            end;
+            case 2:
+            clear;
+            if ($BGFInProg == 1){
+                set .@GuildID,getcharid(2);
+                if (.@GuildID == 0){
+                    mes "[Conquest Battlemaster Philofontes]";
+                    mes "Im sorry, you must belong to a guild if you want to partake in the combat.";
+                    close2;
+					cutin "",255;
+                    end;
+                }
+                warp "gvg_prep",$BGFPrepX,$BGFPrepY;
+            }
+            if ($BGFInProg == 0){
+                mes "[Conquest Battlemaster Philofontes]";
+                mes "The Guild Conquest is closed at the moment, when a combat is about to start I will announce it.";
+                close2;
+				cutin "",255;
+                end;
+            }
+        }
+    }
+    if (admincheck > 0){
+        mes "[Conquest Battlemaster Philofontes]";
+        mes "My lord?";
+        switch(select("Start Combat:Open Settings")){
+            case 2:
+            close2;
+			cutin "",255;
+            atcommand $BGFCommandName$;
+
+            case 1:
+            donpcevent "Event#PRTMBG::OnStartingGvG";
+            close2;
+			cutin "",255;
+            end;
+        }
+    }
+}
+
+-	itemshop	gvgshop	-1,6444,658:1,12298:1,12439:2,12429:3,12430:3,12431:3,12432:3,12433:3,12434:3,12698:5,31886:25.
+
+va_orpha,265,342,4	script	War Helper#gvgconquest	10126,{
+	
+	cutin "16isa",2;
+	set .@npc$, "[War Helper]";
+	mes .@npc$;
+	mes "Hey there! I'm here to help master Philofontes!";
+	next;
+	mes .@npc$;
+	mes "If you bring me 25 <ITEM>Crumb of Sobbing Starlight<INFO>7177</INFO></ITEM>";
+	next;
+	mes .@npc$;
+	mes "I will give you an <ITEM>Emperium<INFO>6444</INFO></ITEM>. ";
+	next;
+	switch(select("I want to create an Emperium.:Show me the items.:Nevermind.")) {
+	case 1:
+	if(countitem(7177) < 25) goto L_noitems;
+	mes .@npc$;
+	mes "Thank you for your efforts.";
+	delitem 7177,25;
+	getitem 6444,1;
+	specialeffect2 1550;
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+		mes .@npc$;
+		mes "You don't have enough <ITEM>Crumb of Sobbing Starlight<INFO>7177</INFO></ITEM>.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+	mes .@npc$;
+	mes "No Refunds! Do you understand?";
+	close2;
+	cutin "",255;
+	callshop "gvgshop",1;
+	break;
+	case 3:
+	mes .@npc$;
+	mes "Come back anytime!";
+	close2;
+	cutin "",255;
+	break;
+}
+}
+
+-	script	Shadows#gvg_prm	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "gvg_prm"){
+if (.shadowclear ==0) {
+	 getmapxy(.@map$,.@x,.@y,BL_PC);
+  soundeffect "tha_odium_die.wav", 0;
+  monster .@map$,.@x,.@y,strcharinfo(0)+"'s Treasure",1324,1,"Shadows#gvg_prm::OnShadowDeath";
+  end;
+}
+OnShadowDeath:
+	set .shadowclear,0;
+	}
+}

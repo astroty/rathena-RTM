@@ -17,6 +17,8 @@
 //============================================================
 
 // Towns ====================
+moc_orpha	mapflag	nopenalty
+nomadvill	mapflag	nopenalty
 ayo_in01	mapflag	nopenalty
 ayo_in02	mapflag	nopenalty
 alb_ship	mapflag	nopenalty
@@ -128,7 +130,6 @@ kh_vila	mapflag	nopenalty
 kh_kiehl01	mapflag	nopenalty
 kh_kiehl02	mapflag	nopenalty
 ayothaya	mapflag	nopenalty
-veins	mapflag	nopenalty
 ve_in	mapflag	nopenalty
 ve_in02	mapflag	nopenalty
 thor_camp	mapflag	nopenalty
@@ -288,5 +289,6 @@ bat_a02	mapflag	nopenalty
 2012rwc_06	mapflag	nopenalty
 2012rwc_07	mapflag	nopenalty
 2012rwc_08	mapflag	nopenalty
+va_orpha	mapflag	nopenalty
 
 //evt_zombie	mapflag	nopenalty

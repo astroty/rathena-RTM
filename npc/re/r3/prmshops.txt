@@ -1,0 +1,914 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= All NPC Shops
+//===== Comments: =========================================
+//====================================================
+
+////////////////
+//////Shops
+////////////////
+-	shop	npcmanuals	-1,24018:5000,24035:5000,24049:5000,24051:7000,24079:7000,24102:10000,24109:10000,24124:10000,24020:10000.
+
+
+///////////////
+/////Manuals
+///////////////
+
+
+man_stores,136,67,3	script	Manual Store#rachel	735,{
+		mes "[Manual Dealer]";
+		mes "You can buy many different manuals here! Welcome!";
+		Close2;
+		callshop "npcmanuals",0;
+		end;
+}
+
+man_stores,28,123,3	script	Manual Store#prontera	735,{
+		mes "[Manual Dealer]";
+		mes "You can buy many different manuals here! Welcome!";
+		Close2;
+		callshop "npcmanuals",0;
+		end;
+}
+
+man_stores,125,128,3	script	Manual Store#yuno	735,{
+		mes "[Manual Dealer]";
+		mes "You can buy many different manuals here! Welcome!";
+		Close2;
+		callshop "npcmanuals",0;
+		end;
+}
+///////////////
+/////Tool Dealers
+///////////////
+
+prt_in,126,76,4	script	Tool Dealer#prontera	75,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+izlude_in,57,110,4	script	Tool Dealer#izlude	75,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+ein_in01,190,14,8	script	Tool Dealer#einbech	89,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+morocc,147,102,5	script	Tool Dealer#morroc	73,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+geffen_in,74,145,5	script	Tool Dealer#geffen	75,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+ma_in01,23,21,5	script	Tool Dealer#malaya	75,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+payon,151,91,5	script	Tool Dealer#payon	75,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+payon_in02,88,34,3	script	Tool Dealer#payon2	75,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+alberta_in,182,96,5	script	Tool Dealer#alberta	71,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+mosk_in,22,254,5	script	Tool Dealer#moscovia	71,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+aldeba_in,83,47,6	script	Tool Dealer#aldebaran	89,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+xmas_in,40,38,4	script	Tool Dealer#lutie	86,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+cmd_in01,78,183,4	script	Tool Dealer#comodo	92,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+nomadvill,203,165,3	script	Tool Dealer#nomadvill	102,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+yuno_in01,25,34,4	script	Tool Dealer#yuno	102,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+hu_in01,253,368,2	script	Tool Dealer#hugel	102,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+ra_in01,257,269,2	script	Tool Dealer#rachel	102,{
+		mes "[Tool Dealer]";
+		mes "You're only welcome with money!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+ama_in01,24,30,4	script	Tool Dealer#amatsu	77,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+um_in,103,125,3	script	Tool Dealer#umbala	103,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+nif_in,155,22,3	script	Tool Dealer#niflheim	88,{
+		mes "[Tool Dealer]";
+		mes "...Tool Shop.. of the dead.";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+ayo_in01,18,182,7	script	Tool Dealer#ayothaya	88,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+dewata,180,164,5	script	Tool Dealer#dewata	88,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+dicast_in,246,119,5	script	Tool Dealer#dicastes	109,{
+		mes "[Tool Dealer]";
+		mes "Welcome to our tool shop. We have everything you may need.";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+-	shop	toollhzshop	-1,501:10000,502:30000,505:300000,601:10000,602:50000,611:10000,645:100000.
+
+lighthalzen,200,163,5	script	Tool Dealer#lhz	102,{
+		mes "[Tool Dealer]";
+		mes "Welcome to the Tool Shop! We have everything at good prices!";
+		Close2;
+		callshop "toollhzshop",0;
+		end;
+}
+
+ve_in,241,135,5	script	Tool Dealer#veins	92,{
+		mes "[Tool Dealer]";
+		mes "Welcome to our tool shop. We make sure to keep our stock full!";
+		Close2;
+		callshop "toolorphanshop",0;
+		end;
+}
+
+//Refine, Weapon and Armor Shops
+
+prt_in,173,131,3	script	Weapon Dealer#prontera	405,{
+		mes "[Weapon Dealer]";
+		mes "Feel free to browse our weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+prt_in,171,137,3	script	Armor Dealer#prontera	404,{
+		mes "[Armor Dealer]";
+		mes "Looking for armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+prt_in,165,141,4	script	Blacksmith#prontera	63,{
+		mes "[Blacksmith]";
+		repairall;
+		mes "Hollgrehem is gone...he used to break equipment. I can refine it all!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+izlude_in,68,127,4	script	Weapon Dealer#izlude	404,{
+		mes "[Weapon Dealer]";
+		mes "Come and browse our weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+izlude_in,59,127,4	script	Armor Dealer#izlude	405,{
+		mes "[Armor Dealer]";
+		mes "We have amazing armors here!";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+izlude,157,125,2	script	Blacksmith#izlude	63,{
+		mes "[Blacksmith]";
+		repairall;
+		mes "I can work with any equipment, as long as you have the ores!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+morocc_in,138,70,3	script	Weapon Dealer#moc	404,{
+		mes "[Weapon Dealer]";
+		mes "I can sell you some weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+morocc_in,139,63,3	script	Armor Dealer#moc	405,{
+		mes "[Armor Dealer]";
+		mes "Need armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+morocc_in,72,35,2	script	Blacksmith#moc	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "I can work with any equipment, as long as you have the ores!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+geffen_in,29,178,5	script	Weapon Dealer#gef	404,{
+		mes "[Weapon Dealer]";
+		mes "I can sell you some weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+geffen_in,26,178,5	script	Armor Dealer#gef	405,{
+		mes "[Armor Dealer]";
+		mes "Need armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+geffen_in,102,167,2	script	Blacksmith#gef	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "No magic is involved when refining equipment! Only skill!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+payon_in01,6,118,8	script	Weapon Dealer#pay	404,{
+		mes "[Weapon Dealer]";
+		mes "I can sell you some weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+payon_in01,15,119,8	script	Armor Dealer#pay	405,{
+		mes "[Armor Dealer]";
+		mes "Need armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+payon,141,177,2	script	Blacksmith#pay	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "No magic is involved when refining equipment! Only skill!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+alberta_in,174,17,8	script	Weapon Dealer#alb	404,{
+		mes "[Weapon Dealer]";
+		mes "I can sell you some weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+alberta_in,184,20,3	script	Armor Dealer#alb	405,{
+		mes "[Armor Dealer]";
+		mes "Need armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+alberta_in,16,63,2	script	Blacksmith#alb	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "So many merchants come here to refine stuff!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+aldeba_in,29,54,6	script	Weapon Dealer#ald	404,{
+		mes "[Weapon Dealer]";
+		mes "Check out our weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+aldeba_in,26,54,3	script	Armor Dealer#ald	405,{
+		mes "[Armor Dealer]";
+		mes "Need armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+aldeba_in,36,46,2	script	Blacksmith#ald	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Let's see what you got there!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+xmas_in,168,104,6	script	Weapon Dealer#xma	404,{
+		mes "[Weapon Dealer]";
+		mes "Check out our weapons!";
+		Close2;
+		callshop "schwarzweaps",0;
+		end;
+}
+
+xmas_in,174,98,3	script	Armor Dealer#xma	405,{
+		mes "[Armor Dealer]";
+		mes "Need armors?";
+		Close2;
+		callshop "schwarzarmor",0;
+		end;
+}
+
+
+xmas_in,24,27,2	script	Blacksmith#xma	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Let's see what you got there!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+cmd_in01,116,165,8	script	Weapon Dealer#cmd	404,{
+		mes "[Weapon Dealer]";
+		mes "Wooo!!! Check out our weapons!";
+		Close2;
+		callshop "midgardweaps",0;
+		end;
+}
+
+cmd_in01,130,165,8	script	Armor Dealer#cmd	405,{
+		mes "[Armor Dealer]";
+		mes "YOOO! Need armors?";
+		Close2;
+		callshop "midgardarmor",0;
+		end;
+}
+
+
+cmd_in01,123,165,2	script	Blacksmith#cmd	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Let's see what you got there! Let's REFINEEEE it!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+yuno_in01,103,34,4	script	Weapon Dealer#yun	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons in Schwarzwald!";
+		Close2;
+		callshop "schwarzweaps",0;
+		end;
+}
+
+yuno_in01,105,21,1	script	Armor Dealer#yun	405,{
+		mes "[Armor Dealer]";
+		mes "Yuno has great armor choices for you!";
+		Close2;
+		callshop "schwarzarmor",0;
+		end;
+}
+
+
+yuno_in01,172,24,2	script	Blacksmith#yun	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Looking to refine some equipment? I can do it for you.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+ama_in01,101,23,3	script	Weapon Dealer#ama	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons for improving!";
+		Close2;
+		callshop "isleweaps",0;
+		end;
+}
+
+ama_in01,96,27,5	script	Armor Dealer#ama	405,{
+		mes "[Armor Dealer]";
+		mes "Amatsu has great armor choices for you!";
+		Close2;
+		callshop "islearmor",0;
+		end;
+}
+
+
+ama_in01,21,19,2	script	Blacksmith#ama	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "I can refine essential items here.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+um_in,160,124,4	script	Weapon Dealer#umb	404,{
+		mes "[Weapon Dealer]";
+		mes "Feel free to check our weapons!";
+		Close2;
+		callshop "tribeweaps",0;
+		end;
+}
+
+um_in,152,123,5	script	Armor Dealer#umb	405,{
+		mes "[Armor Dealer]";
+		mes "The Black Company is here in Umbala too!";
+		Close2;
+		callshop "tribearmor",0;
+		end;
+}
+
+
+//
+
+nif_in,36,92,2	script	Weapon Dealer#nif	404,{
+		mes "[Weapon Dealer]";
+		mes "Weapons...of the dead.";
+		Close2;
+		callshop "nifweaps",0;
+		end;
+}
+
+nif_in,36,83,2	script	Armor Dealer#nif	405,{
+		mes "[Armor Dealer]";
+		mes "Armors...of the dead.";
+		Close2;
+		callshop "nifarmor",0;
+		end;
+}
+
+
+nif_in,27,100,2	script	Blacksmith#nif	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Refining...of the dead.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+ayo_in01,90,192,2	script	Weapon Dealer#ayo	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons!";
+		Close2;
+		callshop "isleweaps",0;
+		end;
+}
+
+ayo_in01,91,159,5	script	Armor Dealer#ayo	405,{
+		mes "[Armor Dealer]";
+		mes "The best armors, here for you!";
+		Close2;
+		callshop "islearmor",0;
+		end;
+}
+
+
+ayo_in01,77,189,2	script	Blacksmith#ayo	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Bring me gear and I'll refine it all!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+ein_in01,107,27,4	script	Weapon Dealer#ein	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons in Schwarzwald!";
+		Close2;
+		callshop "schwarzweaps",0;
+		end;
+}
+
+ein_in01,97,22,7	script	Armor Dealer#ein	405,{
+		mes "[Armor Dealer]";
+		mes "Yuno has great armor choices for you!";
+		Close2;
+		callshop "schwarzarmor",0;
+		end;
+}
+
+
+ein_in01,19,84,2	script	Blacksmith#ein	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Looking to refine some equipment? I can do it for you.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+
+ein_in01,200,15,2	script	Blacksmith#eib	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "You can buy weapons in einbech, but you can refine them here.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+hu_in01,94,383,4	script	Weapon Dealer#hug	404,{
+		mes "[Weapon Dealer]";
+		mes "We have great weapons!";
+		Close2;
+		callshop "schwarzweaps",0;
+		end;
+}
+
+hu_in01,99,383,4	script	Armor Dealer#hug	405,{
+		mes "[Armor Dealer]";
+		mes "Hugel has great armor choices for you!";
+		Close2;
+		callshop "schwarzarmor",0;
+		end;
+}
+
+
+hu_in01,96,318,2	script	Blacksmith#hug	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "Looking to refine some equipment? I can do it for you.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+ra_in01,176,382,4	script	Weapon Dealer#rac	404,{
+		mes "[Weapon Dealer]";
+		mes "Buy and leave, Orphan.";
+		Close2;
+		callshop "arunaweaps",0;
+		end;
+}
+
+ra_in01,175,362,4	script	Armor Dealer#rac	405,{
+		mes "[Armor Dealer]";
+		mes "Buy and leave, Orphan.";
+		Close2;
+		callshop "arunaarmor",0;
+		end;
+}
+
+
+ra_in01,115,385,2	script	Blacksmith#rac	63,{
+		mes "[Blacksmith]";
+		repairall;
+		mes "Ok, fine, i'll refine for you. Don't tell anyone!";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+
+veins,149,179,2	script	Fighter Blacksmith#rac	63,{
+		mes "[Fighter Blacksmith]";
+		mes "We are not working on equipment here...it's dangerous.";
+		close;
+		end;
+}
+
+//
+
+mosk_in,30,180,2	script	Weapon Dealer#msk	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons for improving!";
+		Close2;
+		callshop "isleweaps",0;
+		end;
+}
+
+mosk_in,84,183,5	script	Armor Dealer#msk	405,{
+		mes "[Armor Dealer]";
+		mes "Moscovia has great armor choices for you!";
+		Close2;
+		callshop "islearmor",0;
+		end;
+}
+
+
+mosk_in,78,176,7	script	Blacksmith#msk	63,{
+mes "[Blacksmith]";
+		repairall;
+		mes "I can refine essential items here.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+dewata,220,166,4	script	Weapon Dealer#dew	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons for improving!";
+		Close2;
+		callshop "isleweaps",0;
+		end;
+}
+
+dewata,223,171,4	script	Armor Dealer#dew	405,{
+		mes "[Armor Dealer]";
+		mes "Dewata has great armor choices for you!";
+		Close2;
+		callshop "islearmor",0;
+		end;
+}
+
+//
+
+ma_in01,74,16,8	script	Weapon Dealer#mal	404,{
+		mes "[Weapon Dealer]";
+		mes "We have the best weapons for improving!";
+		Close2;
+		callshop "isleweaps",0;
+		end;
+}
+
+ma_in01,79,16,8	script	Armor Dealer#mal	405,{
+		mes "[Armor Dealer]";
+		mes "Malaya has great armor choices for you!";
+		Close2;
+		callshop "islearmor",0;
+		end;
+}
+
+ma_in01,70,16,7	script	Blacksmith#mal	63,{
+		mes "[Blacksmith]";
+		repairall;
+		mes "I can refine essential items here.";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+}
+
+//
+
+//
+
+nomadvill,104,137,8	script	Weapon Dealer#nom	404,{
+		mes "[Weapon Dealer]";
+		mes "Feel free to check our weapons!";
+		Close2;
+		callshop "tribeweaps",0;
+		end;
+}
+
+nomadvill,109,132,8	script	Armor Dealer#nom	405,{
+		mes "[Armor Dealer]";
+		mes "The Black Company is here assisting the Nomads too!";
+		Close2;
+		callshop "tribearmor",0;
+		end;
+}
+
+//Food Shops
+
+-	shop	shopfood2	-1,12042:4000,12047:4000,12052:4000,12057:4000,12062:4000,12067:4000.
+-	shop	shopfood3	-1,12043:6000,12048:6000,12053:6000,12058:6000,12063:6000,12068:6000.
+-	shop	shopfood4	-1,12044:8000,12049:8000,12054:8000,12059:8000,12064:8000,12069:8000.
+-	shop	shopfood5	-1,12045:10000,12050:10000,12055:10000,12060:10000,12065:10000,12070:10000.
+-	shop	shopfood6	-1,12071:12000,12076:12000,12081:12000,12086:12000,12091:12000,12096:12000.
+-	shop	shopfood7	-1,12072:14000,12077:14000,12082:14000,12087:14000,12092:14000,12097:14000.
+
+morocc_in,169,76,4	script	Cook#moc	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood2",0;
+		end;
+}
+
+prt_in,42,36,4	script	Cook#prt	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood3",0;
+		end;
+}
+
+aldeba_in,170,187,2	script	Cook#adb	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood4",0;
+		end;
+}
+
+hu_in01,377,107,2	script	Cook#hug	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood5",0;
+		end;
+}
+
+ama_in01,182,26,2	script	Cook#ama	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood6",0;
+		end;
+}
+
+ra_in01,301,385,2	script	Cook#rac	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood7",0;
+		end;
+}

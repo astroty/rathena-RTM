@@ -183,19 +183,19 @@ einbroch,232,272,3	script	Train Station Staff#ein1::EinbrochTrain	852,{
 	mes "[Staff]";
 	mes "The fare to board the";
 	mes "train that runs the Einbroch";
-	mes "to Einbech line is 200 zeny.";
+	mes "to Einbech line is 500 zeny.";
 	mes "Would you like to buy a ticket?";
 	next;
 	switch(select("Yes.:No.:About the Environment...")) {
 	case 1:
-		if (Zeny > 199) {
+		if (Zeny > 499) {
 			mes "[Staff]";
 			mes "Thank you";
 			mes "very much.";
 			mes "Have a safe trip.";
 			mes "^333333*Ahem*^000000 All aboard!";
 			close2;
-			set Zeny, Zeny-200;
+			set Zeny, Zeny-500;
 			warp "einbech",43,215;
 			end;
 		}
@@ -808,7 +808,7 @@ ein_in01,206,224,3	script	Hotel Employee#ein	855,{
 		next;
 	}
 	else {
-		switch(select("Save:Take Rest - 5,000 zeny:Cancel")) {
+		switch(select("Save:Take Rest - 1,000 zeny:Cancel")) {
 		case 1:
 			mes "[Hotel Employee]";
 			mes "Your Respawn Point";
@@ -820,13 +820,13 @@ ein_in01,206,224,3	script	Hotel Employee#ein	855,{
 			savepoint "ein_in01",200,224,1,1;
 			end;
 		case 2:
-			if (Zeny > 4999) {
+			if (Zeny > 999) {
 				mes "[Hotel Employee]";
 				mes "Thank you.";
 				mes "Please enjoy";
 				mes "your rest~";
 				close2;
-				set Zeny, Zeny-5000;
+				set Zeny, Zeny-1000;
 				percentheal 100,100;
 				warp "ein_in01",272,167;
 				end;
@@ -835,7 +835,7 @@ ein_in01,206,224,3	script	Hotel Employee#ein	855,{
 				mes "[Hotel Employee]";
 				mes "I'm sorry, but the";
 				mes "accommodation fee is";
-				mes "5,000 zeny. Next time,";
+				mes "1,000 zeny. Next time,";
 				mes "please make sure that you";
 				mes "bring enough zeny, okay?";
 				close;

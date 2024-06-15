@@ -100,3 +100,8 @@ poring_w02	mapflag	nowarp
 2012rwc_06	mapflag	nowarp
 2012rwc_07	mapflag	nowarp
 2012rwc_08	mapflag	nowarp
+
+//
+
+loki_tomb01	mapflag	nowarp
+loki_tomb02	mapflag	nowarp

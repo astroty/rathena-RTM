@@ -1,0 +1,100 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Opens the secret entrance
+//= to thief guild
+//===== Comments: =========================================
+//====================================================
+
+//Kafra Express
+-	shop	expressshop	-1,506:500,602:1000,601:200,611:200,645:1500,656:4000,657:6000.
+
+-	script	::kfexpress	HIDDEN_NPC,{
+	cutin "kafra_09",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Eve]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "Welcome to the Kafra Express!";
+	mes "Do you need any specific help? We also some some basic items at a higher price, of course!";
+	next;
+	switch(select("Use Storage - 200z:Refill Elixir:Quick Shop:Nothing")) {
+	case 1:
+		cutin "",255;
+		close2;
+		if (Zeny < 200) break;
+		set Zeny, Zeny-200;
+		openstorage;
+		cutin "",255;
+		break;
+	case 2:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	mes "[Kafra Express]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	close2;
+    cutin "",255;
+    break; 
+	case 3:
+		cutin "",255;
+		close2;
+		callshop "expressshop",0;
+		break;	
+	case 4:
+		cutin "",255;
+		close2;
+		break;	
+	}
+}
+
+tur_dun01,156,43,4	duplicate(kfexpress)	Kafra Express#turtle	861
+glast_01,368,309,4	duplicate(kfexpress)	Kafra Express#gh	861
+um_fild03,327,359,4	duplicate(kfexpress)	Kafra Express#nest	861
+ve_fild07,103,143,4	duplicate(kfexpress)	Kafra Express#beach	861
+ra_fild01,241,328,4	duplicate(kfexpress)	Kafra Express#ice	861
+yuno_fild03,38,145,4	duplicate(kfexpress)	Kafra Express#magma	861
+snow_fild04,243,74,4	duplicate(kfexpress)	Kafra Express#crystal	861
+mjolnir_09,273,350,4	duplicate(kfexpress)	Kafra Express#alche	861
+skyent,27,53,4	duplicate(kfexpress)	Kafra Express#sky	861
+yuno_fild01,205,152,4	duplicate(kfexpress)	Kafra Express#warehouse	861
+gef_fild10,70,342,4	duplicate(kfexpress)	Kafra Express#orcs	861
+moc_fild16,124,186,4	duplicate(kfexpress)	Kafra Express#desert	861
+va_mansion,258,86,4	duplicate(kfexpress)	Kafra Express#varmundt	861

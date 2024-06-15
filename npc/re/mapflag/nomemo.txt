@@ -16,6 +16,10 @@
 paramk	mapflag	nomemo
 
 // Episode 13 ====================
+skydun1	mapflag	nomemo
+skydun2	mapflag	nomemo
+skydun3	mapflag	nomemo
+resc_dun01	mapflag	nomemo
 job3_arch01	mapflag	nomemo
 job3_arch02	mapflag	nomemo
 job3_arch03	mapflag	nomemo
@@ -48,7 +52,6 @@ dic_dun02	mapflag	nomemo
 bif_fild01	mapflag	nomemo
 bif_fild02	mapflag	nomemo
 1@mist	mapflag	nomemo
-mora	mapflag	nomemo
 dew_dun01	mapflag	nomemo
 dew_dun02	mapflag	nomemo
 dew_in01	mapflag	nomemo

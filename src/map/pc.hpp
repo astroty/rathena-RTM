@@ -175,6 +175,24 @@ struct s_item_bonus {
 	int val;
 };
 
+struct s_reduce_cooldown {
+	uint16 skill1, skill2;
+	int val;
+};
+
+struct s_bounce {
+	uint16 skill;
+	int val, num, radius, bounces;
+};
+struct s_splash_skill {
+	uint16 skill;
+	int area, chance;
+	bool lock;
+};
+struct s_skill_hpsp {
+	uint16 skill;
+	int dmg, val;
+};
 /// AddEle bonus struct
 struct s_addele2 {
 	short flag, rate;
@@ -366,6 +384,7 @@ struct map_session_data {
 		unsigned int prevend : 1;//used to flag wheather you've spent 40sp to open the vending or not.
 		unsigned int warping : 1;//states whether you're in the middle of a warp processing
 		unsigned int permanent_speed : 1; // When 1, speed cannot be changed through status_calc_pc().
+		unsigned int hideslave;
 		bool hold_recalc;
 		unsigned int banking : 1; //1 when we using the banking system 0 when closed
 		unsigned int hpmeter_visible : 1;
@@ -525,6 +544,10 @@ struct map_session_data {
 	std::vector<s_addeffectonskill> addeff_onskill;
 	std::vector<s_item_bonus> skillatk, skillusesprate, skillusesp, skillheal, skillheal2, skillblown, skillcastrate, skillfixcastrate, subskill, skillcooldown, skillfixcast,
 		skillvarcast, skilldelay, itemhealrate, add_def, add_mdef, add_mdmg, reseff, itemgrouphealrate, itemsphealrate, itemgroupsphealrate;
+	std::vector<s_reduce_cooldown> reduce_cooldown;
+	std::vector<s_bounce> skillbounce;
+	std::vector<s_splash_skill> splash_skill;
+	std::vector<s_skill_hpsp> skillhpflat, skillhprate, skillspflat, skillsprate;
 	std::vector<s_add_drop> add_drop;
 	std::vector<s_addele2> subele2;
 	std::vector<s_vanish_bonus> sp_vanish, hp_vanish;
@@ -576,7 +599,8 @@ struct map_session_data {
 		int itemsphealrate2;
 		int shieldmdef;//royal guard's
 		unsigned int setitem_hash, setitem_hash2; //Split in 2 because shift operations only work on int ranges. [Skotlex]
-
+		int autoatk_cap;
+		int aspd_cap;
 		short splash_range, splash_add_range;
 		short add_steal_rate;
 		int add_heal_rate, add_heal2_rate;
@@ -1308,6 +1332,8 @@ enum e_addskill_type {
 };
 
 bool pc_skill(struct map_session_data *sd, uint16 skill_id, int level, enum e_addskill_type type);
+bool pc_skill_plagiarism(map_session_data & sd, uint16 skill_id, uint16 skill_lv);
+bool pc_skill_plagiarism_reset(map_session_data & sd, uint8 type);
 
 int pc_insert_card(struct map_session_data *sd,int idx_card,int idx_equip);
 

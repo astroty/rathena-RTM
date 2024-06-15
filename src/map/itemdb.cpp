@@ -5,6 +5,8 @@
 
 #include <map>
 #include <stdlib.h>
+#include <math.h>
+#include <unordered_map>
 
 #include "../common/nullpo.hpp"
 #include "../common/random.hpp"
@@ -439,7 +441,7 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 				return 0;
 
 			if (active) {
-				if (constant & EQP_SHADOW_GEAR && item->type != IT_SHADOWGEAR) {
+				if (constant & EQP_SHADOW_GEAR && (item->type != IT_SHADOWGEAR && item->type != IT_CARD)) {
 					this->invalidWarning(node, "Invalid item equip location %s as it's not a Shadow Gear item type, defaulting to IT_ETC.\n", equipName.c_str());
 					item->type = IT_ETC;
 				}
@@ -1160,21 +1162,6 @@ e_sex ItemDatabase::defaultGender( const YAML::Node &node, std::shared_ptr<item_
 	if (id->nameid == WEDDING_RING_F) //Bride Ring
 		return SEX_FEMALE;
 	if( id->type == IT_WEAPON ){
-		if( id->subtype == W_MUSICAL ){
-			if( id->sex != SEX_MALE ){
-				this->invalidWarning( node, "Musical instruments are always male-only, defaulting to SEX_MALE.\n" );
-			}
-
-			return SEX_MALE;
-		}
-
-		if( id->subtype == W_WHIP ){
-			if( id->sex != SEX_FEMALE ){
-				this->invalidWarning( node, "Whips are always female-only, defaulting to SEX_FEMALE.\n" );
-			}
-
-			return SEX_FEMALE;
-		}
 	}
 
 	return static_cast<e_sex>( id->sex );
@@ -2865,6 +2852,108 @@ bool RandomOptionGroupDatabase::option_get_id(std::string name, uint16 &id) {
 	}
 
 	return false;
+}
+char base62_dictionary[] = {
+	'0', '1', '2', '3', '4', '5', '6', '7',
+	'8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
+	'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+	'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+	'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
+	'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+	'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+	'U', 'V', 'W', 'X', 'Y', 'Z'
+};
+
+/**
+* Encode base10 number to base62. Originally by lututui
+* @param val Base10 Number
+* @return Base62 string
+**/
+std::string base62_encode(unsigned int val)
+{
+	if (!val) {
+		return "0";
+	}
+	std::string result = "";
+	while (val != 0) {
+		result = base62_dictionary[(val % 62)] + result;
+		val /= 62;
+	}
+	return result;
+}
+
+/**
+* Generate <ITEML> string
+* @param data Item info
+* @return <ITEML> string for the item
+* @author [Cydh]
+**/
+std::string createItemLink(struct s_item_link* data)
+{
+	struct item_data* id = itemdb_exists(data->item.nameid);
+	std::string itemstr = "<ITEML>";
+	std::string locdef = "00000";
+	std::string locval = (id && itemdb_isequip2(id)) ? base62_encode(id->equip) : "";
+	itemstr += (std::string(locdef, 0, locdef.size() - locval.size())) + locval;
+	itemstr += (id && itemdb_isequip2(id)) ? "1" : "0";
+	itemstr += base62_encode(data->item.nameid);
+	if (data->item.refine > 0) {
+		itemstr += "%0" + base62_encode(data->item.refine);
+	}
+	if (id && itemdb_isequip2(id)) {
+		itemstr += "&" + base62_encode(id->look);
+	}
+
+#if PACKETVER < 20200101
+	std::string card_sep = "(";
+	std::string optid_sep = "*";
+	std::string optpar_sep = "+";
+	std::string optval_sep = ",";
+#else
+	// I don't know since when the client change the separators
+	std::string card_sep = ")";
+	std::string optid_sep = "+";
+	std::string optpar_sep = ",";
+	std::string optval_sep = "-";
+#endif
+
+	if (data->flag.cards) {
+		for (uint8 i = 0; i < MAX_SLOTS; ++i) {
+			itemstr += card_sep + "0" + ((data->item.card[i] != 0) ? base62_encode(data->item.card[i]) : "0");
+		}
+	}
+
+#if PACKETVER >= 20150225
+	if (data->flag.options) {
+		for (uint8 i = 0; i < MAX_ITEM_RDM_OPT; ++i) {
+			// Option ID
+			itemstr += optid_sep + "0" + ((data->item.option[i].id != 0) ? base62_encode(data->item.option[i].id) : "0");
+			// Param
+			itemstr += optpar_sep + "0" + ((data->item.option[i].param != 0) ? base62_encode(data->item.option[i].param) : "0");
+			// Value
+			itemstr += optval_sep + "0" + ((data->item.option[i].value != 0) ? base62_encode(data->item.option[i].value) : "0");
+		}
+	}
+#endif
+
+	itemstr += "</ITEML>";
+	return itemstr;
+}
+
+/*
+* Generate <ITEML> string from item data
+* @param item
+* @return <ITEML> string
+*/
+std::string itemdb_getItemLink(struct item* item)
+{
+	struct s_item_link itemldata;
+	memcpy(&itemldata.item, item, sizeof(struct item));
+
+	itemldata.flag.cards = 0;
+	itemldata.flag.options = 0;
+
+	return createItemLink(&itemldata);
 }
 
 /**

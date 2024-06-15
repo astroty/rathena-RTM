@@ -1,0 +1,89 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Opens the secret entrance
+//= to thief guild
+//===== Comments: =========================================
+//====================================================
+moc_ruins,37,132,1	script	Thief Torch	CLEAR_NPC,{
+
+	set .@npc$, "[Strange Torch]";
+	
+	mes .@npc$;
+	mes "This torch can't be lit.";
+	next;
+	
+	mes .@npc$;
+	mes "You notice 10 small slots on the";
+	mes "pedestal. It seems a zeny coin";
+	mes "would be a perfect fit.";
+	next;
+	switch(select("Insert 10 Zeny:Do Nothing")) {
+	case 1:
+		if (Zeny >= 10) {
+			specialeffect 18;
+			specialeffect 25;
+			mes .@npc$;
+			mes "The torch lights up briefly! A small passage opens beside the torch, you head in...";
+			close2;
+			set Zeny, Zeny - 10;
+			warp "moc_prydb1",160,118;
+			end;
+			break;
+		} else {
+			mes .@npc$;
+			mes "You don't have enough zeny to fill the slots.";
+			close;
+			break;
+		}
+	case 2:
+		mes .@npc$;
+		mes "Nothing happens, as expected.";
+		end;
+		break;
+		}
+	}
+		
+va_orpha,19,103,3	script	Ornstein#intro	904,{
+	
+	set .@npc$, "[Ornstein]";
+	mes .@npc$;
+	mes "Welcome to Return to Morroc! I'm Ornstein, the Admin for the server.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Thank you for joining us and I hope you have a great time.";
+	next;
+	mes .@npc$;
+	mes "Please understand that the Server is run and mantained by a common guy. Not a full-on developer, and we don't have a team.";
+	next;
+	mes .@npc$;
+	mes "This is my dream project, and after 18 months of development, it's finished. And youre now part of this dream :)";
+	next;
+	mes .@npc$;
+	mes "So please understand I may not be available sometimes instantly due to my real job, wife, and overall life ok?";
+	next;
+	mes .@npc$;
+	mes "I also will do my best to keep up pumping content for years to come. PRM is not going anywhere!";
+	next;
+	if (thanksadm ==0)
+	{
+	getitem 19804,1;
+	set thanksadm,1;
+	}
+	emotion ET_THANKS;
+	mes .@npc$;
+	mes "Enjoy the game!";
+	close;
+}
+

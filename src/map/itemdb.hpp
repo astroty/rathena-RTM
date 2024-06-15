@@ -5,6 +5,7 @@
 #define ITEMDB_HPP
 
 #include <map>
+#include <string>
 #include <vector>
 
 #include "../common/database.hpp"
@@ -115,6 +116,7 @@ enum item_itemid : t_itemid
 	ITEMID_SILVER_BULLET				= 13201,
 	ITEMID_PURIFICATION_BULLET			= 13220,
 	ITEMID_SILVER_BULLET_				= 13221,
+	ITEMID_FROST_SPINNER				= 13250,
 	ITEMID_DUN_TELE_SCROLL1				= 14527,
 	ITEMID_DUN_TELE_SCROLL2				= 14581,
 	ITEMID_WOB_RUNE						= 14582,
@@ -1075,6 +1077,18 @@ public:
 };
 
 extern ItemGroupDatabase itemdb_group;
+
+std::string base62_encode(unsigned int val);
+// Additional data for itemlink
+struct s_item_link {
+	struct item item;
+	struct {
+		uint8 cards;
+		uint8 options;
+	} flag;
+};
+std::string createItemLink(struct s_item_link* data);
+std::string itemdb_getItemLink(struct item* item);
 
 int itemdb_searchname_array(struct item_data** data, int size, const char *str);
 struct item_data* itemdb_search(t_itemid nameid);

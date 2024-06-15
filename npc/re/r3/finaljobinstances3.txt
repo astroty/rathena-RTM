@@ -1,0 +1,1453 @@
+//////////Satsujin Quest - Disarming Mission
+//yuno 64,87
+//Priest 13,28 - Spawn Ninjas
+////Invisible Ninja Locations - Touch -Die
+////14,15//9,20//19,10//8,15// 20,31//5,33
+// Priest move to 20,30 - Warp to 89,11
+////Navigate without touching explosives:
+//104,13//103,15//100,8//113,9//110,17//103,23//96,19//91,20//94,26//90,32
+// Priest facing back 102,42
+//Transforms into monster
+// Talk to Satsujin at 113,54 - Job Change - Warp Out
+//Warp npc opens in 99,118 (Checkpoint) - warps to 47,128 - Kill Big Demon in 47,136
+//Pope dies in 47,128 -Absolves you - Job Change
+
+
+yuno,64,87,5	script	Master Saito#quest1	588,{
+	set .@npc$, "[Master Saito]";
+	cutin "job_ko01",2;
+	if (satsujinjob >=1){
+	mes .@npc$;
+	mes "...Good Work.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (shinobijob ==0){
+	mes .@npc$;
+	mes "...";
+	next;
+	mes .@npc$;
+	mes "Leave.";
+	close2;
+	cutin "",255;
+	end;	
+	}
+	if (shinobijob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "...Skill Points. Use them. Fool.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "You are a shinobi. You need to do your work. Protect people.";
+	next;
+	mes .@npc$;
+	mes "The darkness is inside. You kill them. You become Satsujin.";
+	next;
+	switch(select("No.:Yes.")) {
+	case 1:
+	mes .@npc$;
+	mes "Your choice.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "Not Job Level 70. Weak.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Shinobi must focus. Pay attention. Not trust eyes. Not trust words.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Faceless Shadow";
+	mes .@npc$;
+	mes "Fight enemies. Faceless Shadows. Dark Corners. Silent Death.";
+	next;
+	specialeffect2 834;
+	.@name$ = "Satsujin" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Don't die like a fool.";
+	next;
+	cutin "",255;
+	savepoint "yuno",66,85,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Faceless Shadow]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Master Saito]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Faceless Shadow...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}
+//Faceless Shadow Instance
+
+que_blp01,1,1,4	script	Controller#FacelessShadows	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Strange Priest#quests2");
+	end;
+}
+
+que_blp01,13,28,5	script	Strange Priest#quests1	10097,{
+	if ( satsujinchk ==1){
+	set .@npc$, "[Strange Priest]";
+	mes .@npc$;
+	mes "You will never catch me!";
+	close2;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+	}
+	set .@npc$, "[Strange Priest]";
+	mes .@npc$;
+	mes "So the Desert Guild has come for me...";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "You have one chance to come out in peace.";
+	next;
+	mes .@npc$;
+	mes "Of course...let's walk outside. I won't move.";
+	close2;
+	mapannounce instance_mapname("que_blp01"), "Survive the Ambush!",bc_map,"0xffff00";
+	disablenpc instance_npcname("Strange Priest#quests1");
+	donpcevent instance_npcname("#satsujinspawns", instance_id())+"::OnEnable";
+	end;
+}
+
+que_blp01,1,1,4	script	#satsujinspawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#satsujinspawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#satsujinspawns", instance_id());
+	set .@map$, instance_mapname("que_blp01");
+	.@event$ = instance_npcname("#satsujinspawns")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,14,15,"Cult Guard",1088,1, .@event$;
+	monster .@map$,9,20,"Cult Guard",1088,1, .@event$;
+	monster .@map$,19,10,"Cult Guard",1089,1, .@event$;
+	monster .@map$,8,15,"Cult Guard",1089,1, .@event$;
+	set 'Cult_Mobs,4;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_blp01"), "Defend youself from the cult guards!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Cult_Mobs,'Cult_Mobs-1;
+	if ('Cult_Mobs < 1) {
+		set 'Cult_Mobs,0;
+		mapannounce instance_mapname("que_blp01"), "Strange Priest: These guards are useless...",bc_map,"0xffff00";
+		enablenpc instance_npcname("Strange Priest#quests2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_blp01,20,36,5	script	Strange Priest#quests2	10097,{
+	set .@npc$, "[Strange Priest]";
+	mes .@npc$;
+	mes "You will never catch me!";
+	close2;
+	set satsujinchk,1;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+//104,13//103,15//100,8//113,9//110,17//103,23//96,19//91,20//94,26//90,32
+que_blp01,105,13,5	script	???#quests0	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+que_blp01,103,15,5	script	???#quests1	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+que_blp01,100,8,5	script	???#quests2	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+que_blp01,113,9,5	script	???#quests3	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+que_blp01,110,18,5	script	???#quests4	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+que_blp01,103,23,5	script	???#quests5	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+que_blp01,96,19,5	script	???#quests6	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+que_blp01,91,20,5	script	???#quests7	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+que_blp01,94,26,5	script	???#quests8	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+que_blp01,90,32,5	script	???#quests9	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_blp01"), 89, 11;
+	end;
+}
+
+que_blp01,102,42,5	script	Strange Priest#quests3	10097,{
+	set .@npc$, "[Strange Priest]";
+	playbgm "98";
+	mes .@npc$;
+	mes "You avoided all my traps?";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Yes. Die.";
+	close2;
+	mapannounce instance_mapname("que_blp01"), "Survive the Ambush!",bc_map,"0xffff00";
+	disablenpc instance_npcname("Strange Priest#quests3");
+	donpcevent instance_npcname("#satsujinspawns2", instance_id())+"::OnEnable";
+	end;
+}
+
+que_blp01,1,1,4	script	#satsujinspawns2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#satsujinspawns2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#satsujinspawns2", instance_id());
+	set .@map$, instance_mapname("que_blp01");
+	.@event$ = instance_npcname("#satsujinspawns2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,102,42,"Strange Priest",2283,1, .@event$;
+	set 'Cult_Mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_blp01"), "Defeat the Priest!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Cult_Mobs,'Cult_Mobs-1;
+	if ('Cult_Mobs < 1) {
+		set 'Cult_Mobs,0;
+		mapannounce instance_mapname("que_blp01"), "Master Saito: Good job.",bc_map,"0xffff00";
+		enablenpc instance_npcname("Master Saito#quests2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_blp01,113,54,5	script	Master Saito#quests2	588 ,{
+	set .@npc$, "[Master Saito]";
+	cutin "job_ko01",2;
+	mes .@npc$;
+	mes "Excelent.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Were you there all along?";
+	next;
+	mes .@npc$;
+	mes "Yes. You passed the test, Satsujin.";
+	next;
+	specialeffect 722;
+	specialeffect2 234;
+	callfunc "Job_Change",Job_Warlock_T;
+	set finaljob,1;
+	set satsujinjob,1;
+	mes .@npc$;
+	mes "You shall control all arts of combat.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Thank you. Master.";
+	next;
+	mes .@npc$;
+	mes "Make us proud. " + strcharinfo(0) + ".";
+	close2;
+	cutin "",255;
+	warp "yuno",66,85;
+	end;
+}
+//////////////////////////////
+////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////////
+
+ra_temple,166,56,5	script	Follower Zhed#quest1	932,{
+	set .@npc$, "[Follower Zhed]";
+	cutin "ra_gman",2;
+	if (sinnerjob >=1){
+	mes .@npc$;
+	mes "I wonder where the real pope is...that aberration...that's not normal. Thanks for your help again.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (deadeyejob ==0){
+	mes .@npc$;
+	mes "Hello there Orphan, please be careful around this temple.";
+	next;
+	mes .@npc$;
+	mes "You might not see it clearly, but these people are horrible murderers...I'm just keeping an eye on them. Waiting for the best opportunity.";
+	close2;
+	cutin "",255;
+	end;	
+	}
+	if (deadeyejob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "A deadeye with skill points? What for? use them to improve your skills!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Hello Deadeye. I believe you're familiar with the issues in this damned city aren't you? Well, I plan to change that. I'm Zhed, one of the older priests.";
+	next;
+	mes .@npc$;
+	mes "I have a plan to talk to the pope about the problems, and I believe you're perfect for it, since you're an orphan. Want to help me?";
+	next;
+	switch(select("No thanks.:Yes, of course!")) {
+	case 1:
+	mes .@npc$;
+	mes "If you change your mind, come back. I could use your help.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "I need you to be prepared. So please come back when you're job level 70. So we can start our plan.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Great! Now what we're going to do is that I'm gonna take you with me to the temple as a new follower. I hope the pope is ready to give her Final Blessing.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "The Final Blessing";
+	mes .@npc$;
+	mes "It's important that we take her to safety, far away from those people. There must be a reason they hide so much from her.";
+	next;
+	specialeffect2 834;
+	.@name$ = "Sinner" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Well, what are you waiting for? Step into the gazebo! It's a secret entrance for high priests!";
+	next;
+	cutin "",255;
+	savepoint "ra_temple",166,65,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Final Blessing]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Follower Zhed]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Final Blessing...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}	
+//////////Sinner Quest - Rescue Mission
+////Job Quest for Deadeye - > Sinner
+////Entrance at 166,60 - ra_temple
+////Arrive - 152,139 NPC at 141,139 - Warp to 99,8 - Go up Stairs
+// OnTouch for 100,64 - Talks about behaving near pope.
+//100,99 - Pope asks for help - Guards turn into mobs -> 94,97 // 105,97 // Pope Spawns as Mercenary to help
+// Go to 67,96 and 131,96 - Kills monsters that spawn
+//Warp npc opens in 99,118 (Checkpoint) - warps to 47,128 - Kill Big Demon in 47,136
+//Pope dies in 47,128 -Absolves you - Job Change
+
+
+que_sin01,141,139,5	script	Follower Zhed#quest2	932,{
+	set .@npc$, "[Follower Zhed]";
+	cutin "ra_gman",2;
+	if ( sinnerchk ==1){
+	mes .@npc$;
+	mes "Let's hurry after that weird girl! We must know what happened to the real pope!";
+	close2;
+	cutin "",255;	
+	disablenpc instance_npcname("Fake Pope#questsn4");
+	disablenpc instance_npcname("Follower Zhed#questsn3");
+	warp instance_mapname("que_sin01"), 47, 128;
+	end;
+	}
+	mes .@npc$;
+	mes "Well, here we are... get ready to meet fierce resistance. People here can be pretty...volatile.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Don't worry, I know how to handle myself in combat.";
+	next;
+	mes .@npc$;
+	mes "You might be skilled, but the Pope is only a child. They will do anything they need if they believe she is in danger.";
+	next;
+	mes .@npc$;
+	mes "Our first priority should be to take her to safety, by any means necessary. It's been a few years since I last came here... this place seems darker than usual.";
+	next;
+	mes .@npc$;
+	mes "There's quite a bit of movement from some different guards...Let's go now!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Fake Pope#questsn4");
+	disablenpc instance_npcname("Follower Zhed#questsn3");
+	disablenpc instance_npcname("Follower Zhed#quest2");
+	warp instance_mapname("que_sin01"), 99, 8;
+	enablenpc instance_npcname("Devoted Guard#questsn");
+	end;
+}
+
+que_sin01,100,64,5	script	Devoted Guard#questsn	926,2,2,{
+	end;
+	OnTouch_:
+	cutin "ra_usti1",2;
+	set .@npc$, "[Devoted Guard]";
+	mes .@npc$;
+	mes "Halt! Who are you??";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I'm a new Follower. Zhed is mentoring me.";
+	next;
+	cutin "ra_gman",2;
+	mes "[Zhed]";
+	mes "We need to take this person to the Pope so we can begin the...preparations.";
+	next;
+	emotion ET_SURPRISE;
+	cutin "ra_usti1",2;
+	mes .@npc$;
+	mes "Oh...sure... Welcome to the order. Please don't do anything suspicious near the Pope.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I understand. Thanks. May Freya be with you.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Devoted Guard#questsn");
+	disablenpc instance_npcname("Follower Zhed#questsn2");
+	end;
+}
+
+que_sin01,94,97,5	script	Devoted Guard#questsn1	916,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,105,97,5	script	Devoted Guard#questsn2	926,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,67,95,5	script	Devoted Guard#questsn3	926,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,64,98,5	script	Devoted Guard#questsn4	916,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,67,101,5	script	Devoted Guard#questsn5	926,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,131,95,5	script	Devoted Guard#questsn6	926,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,131,101,5	script	Devoted Guard#questsn7	916,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,134,98,5	script	Devoted Guard#questsn8	926,{
+	mes "[Devoted Guard]";
+	mes "Do not make a mess in the presence of our pope.";
+	close;
+}
+
+que_sin01,97,92,8	script	Follower Zhed#questsn1	932,{
+	cutin "ra_gman",2;
+	mes "[Follower Zhed]";
+	mes "...Something seems off...";
+	close2;
+	cutin "",255;
+	end;
+}
+
+que_sin01,100,99,5	script	Rachel Pope#questsn	936,{
+	set .@npc$, "[Rachel Pope]";	
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "Zhed...and you are?";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I'm " + strcharinfo(0) + ". An Orphan.";
+	next;
+	cutin "ra_gman",2;
+	mes "[Zhed]";
+	mes "Your holiness, it's about time you learn the truth of the current state of the world! I have no idea why won't the high priests allow you to know, but I must!";
+	next;
+	emotion ET_SURPRISE;
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "What do you mean? What's an Orphan? Did you lose your fam-...wait, that glow in your eyes...";
+	next;
+	cutin "",255;
+	mes "[Devoted Guard]";
+	mes "Did you bring an Orphan here? What absurdity is this Zhed? Do you ev-";
+	next;
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "Silence please! Let the Orphan speak.";
+	next;
+	cutin "ra_gman",2;
+	mes "[Zhed]";
+	mes "Your holiness, the people in the temple... they are making human experiments , they are hurting the people! You must do something!";
+	next;
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "I heard enough... guards, please. Kill them both.";
+	next;
+	cutin "ra_gman",2;
+	mes "[Zhed]";
+	mes "Wait! What? No!";
+	next;
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "I'll be praying in the backroom. Please don't let them disturb me.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Devoted Guard#questsn1");
+	disablenpc instance_npcname("Devoted Guard#questsn2");
+	disablenpc instance_npcname("Devoted Guard#questsn3");
+	disablenpc instance_npcname("Devoted Guard#questsn4");
+	disablenpc instance_npcname("Devoted Guard#questsn5");
+	disablenpc instance_npcname("Devoted Guard#questsn6");
+	disablenpc instance_npcname("Devoted Guard#questsn7");
+	disablenpc instance_npcname("Devoted Guard#questsn8");
+	disablenpc instance_npcname("Follower Zhed#questsn1");
+	disablenpc instance_npcname("Rachel Pope#questsn");
+	donpcevent instance_npcname("#popespawns", instance_id())+"::OnEnable";
+	end;
+}
+
+que_sin01,1,1,4	script	#popespawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#popespawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#popespawns", instance_id());
+	set .@map$, instance_mapname("que_sin01");
+	.@event$ = instance_npcname("#popespawns")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,94,97,"Pope Guard",1088,1, .@event$;
+	monster .@map$,105,97,"Pope Guard",1089,1, .@event$;
+	monster .@map$,67,95,"Pope Guard",1088,1, .@event$;
+	monster .@map$,64,98,"Pope Guard",1089,1, .@event$;
+	monster .@map$,67,101,"Pope Guard",1089,1, .@event$;
+	monster .@map$,131,95,"Pope Guard",1088,1, .@event$;
+	monster .@map$,131,101,"Pope Guard",1088,1, .@event$;
+	monster .@map$,134,98,"Pope Guard",1088,1, .@event$;
+	set 'Pope_Mobs,8;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_sin01"), "Zhed: Rekember Guards disguised! I'll find a way to get to the Pope!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Pope_Mobs,'Pope_Mobs-1;
+	if ('Pope_Mobs < 1) {
+		set 'Pope_Mobs,0;
+		mapannounce instance_mapname("que_sin01"), "Zhed: Good job Deadeye! Let's go after that girl!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Follower Zhed#questsn2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_sin01,99,118,8	script	Follower Zhed#questsn2	932,{
+	cutin "ra_gman",2;
+	mes "[Follower Zhed]";
+	mes "...That thing... that's not the pope. The pope would never order them to kill anyone.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Zhed...Why are the guards of the Pope not from Rachel...but Lighthalzen guards?";
+	next;
+	mes "[Follower Zhed]";
+	mes "I don't know...I have no idea what's happening! Let's go after her! Maybe we'll have answers!";
+	close2;
+	cutin "",255;
+	set sinnerchk,1;
+	warp instance_mapname("que_sin01"), 47, 128;
+	end;
+}
+
+que_sin01,47,136,4	script	Fake Pope#questsn3	936,{
+	set .@npc$, "[Fake Pope?]";
+	cutin "pop_nor",2;
+	playbgm "98";
+	mes .@npc$;
+	mes "Ugh. I hated those weaklings... but now I'll need new guards!";
+	next;
+	cutin "ra_gman",2;
+	mes "[Follower Zhed]";
+	mes "Who are you? Why are you pretending to be our pope?";
+	next;
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "Does it matter? You're gonna die here anyway. Prepare yourself!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Fake Pope#questsn3");
+	donpcevent instance_npcname("#popespawns2", instance_id())+"::OnEnable";
+	end;
+}
+
+que_sin01,1,1,4	script	#popespawns2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#popespawns2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#popespawns2", instance_id());
+	set .@map$, instance_mapname("que_sin01");
+	.@event$ = instance_npcname("#popespawns2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,47,136,"Demon of Lies",2283,1, .@event$;
+	set 'Pope_Mobs2,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_sin01"), "Zhed: I knew it! That's not our pope! Attack it!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Pope_Mobs2,'Pope_Mobs2-1;
+	if ('Pope_Mobs2 < 1) {
+		set 'Pope_Mobs2,0;
+		mapannounce instance_mapname("que_sin01"), "Fake Pope: How could you attack such a little girl!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Fake Pope#questsn4");
+		enablenpc instance_npcname("Follower Zhed#questsn3");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_sin01,45,131,8	script	Follower Zhed#questsn3	932,{
+	cutin "ra_gman",2;
+	mes "[Follower Zhed]";
+	mes "You got it! Good job!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+que_sin01,47,137,4	script	Fake Pope#questsn4	936,{
+	set .@npc$, "[Fake Pope?]";
+	cutin "pop_nor",2;
+	mes .@npc$;
+	mes "Wait...think about the chaos killing me would bring...the people would go crazy!";
+	next;
+	cutin "ra_gman",2;
+	mes "[Follower Zhed]";
+	mes "The people are already crazy.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Your time is up.";
+	next;
+	specialeffect 722;
+	specialeffect2 234;
+	callfunc "Job_Change",Job_Ranger_T;
+	set finaljob,1;
+	set sinnerjob,1;
+	disablenpc instance_npcname("Fake Pope#questsn4");
+	mes "[Follower Zhed]";
+	mes "Even as a fake divine...that demon still carried godly energy...Impressive!";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Doesn't matter, I will hunt every last one of them.";
+	next;
+	mes "[Follower Zhed]";
+	mes "A true Deadeye... I believe you have achieved your potential. You should focus on improving your skills even further now, as a Sinner.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "If it bleeds, it can be killed. God or not.";
+	next;
+	mes "[Follower Zhed]";
+	mes "Thanks for your help...I have no idea how the people of the city will react to the news...but I'm sure another fake will soon return.";
+	next;
+	mes "[Follower Zhed]";
+	mes "Let's hurry back to the temple before more people find out what happened here!";
+	close2;
+	cutin "",255;
+	warp "ra_temple",166,65;
+	end;
+}
+
+//////////Arcane Master Quest - Control 4 elements.
+////Entrance at 244,172 - gef_fild12
+////Arrive - 26,41 NPC at 31,38 - Fenrir
+// Check 1st Book 41,31 - Spawn mob at 26,26 - Fire
+// Check 2nd Book 36,18 - Spawn mob at 26,26 - Water
+// Check 3rd Book 11,25 - Spawn mob at 26,26 - Wind
+// Check 4th Book 19,38 - Spawn mob at 26,26 - Earth
+//Talk to fenrir, finish spells - Npc activate at 26,26
+// Use Arena to dodge magic, defeat fenrir
+//Defeat Fenrir, pass test, fenrir respawn at 26,26, promotion to Arcane Master
+
+gef_fild12,246,179,5	script	Mystic#quest1	573,{
+	set .@npc$, "[Mystic]";
+	if (arcanemasterjob >=1){
+	mes .@npc$;
+	mes "Good job dealing with Fenrir, she is the best with magic, and now you too know how to handle it!";
+	close;
+	}
+	if (mysticjob ==0){
+	mes .@npc$;
+	mes "Hey Orphan, Are you lost or something?";
+	next;
+	mes .@npc$;
+	mes "Mystics usually come here to train and improve their skills, for no particular reason...";
+	close;	
+	}
+	if (mysticjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "You can't finish your training if you still have skill points. You need to improve your skills!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Hello there Mystic. I believe you're here to train and become an Arcane Master right?";
+	next;
+	mes .@npc$;
+	mes "The secret hut where the Grandmaster handles the testing and preparation is near here. I can take you there, what do you say?";
+	next;
+	switch(select("No thanks.:Yes, sure!")) {
+	case 1:
+	mes .@npc$;
+	mes "Come back when you feel you are ready. It's the next step in your training!";
+	close;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "You're not job level 70 yet, how do you expect to learn how to control stronger magic with your current power?";
+	close;
+	}
+	mes .@npc$;
+	mes "Very well! Meeting a Grandmaster is the best way to improve your skills to new limits.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Meeting a Grandmaster";
+	mes .@npc$;
+	mes "Wizards and Sages can only dream of the variety of spells a true Arcane Master can use.";
+	next;
+	specialeffect2 834;
+	.@name$ = "ArcaneM" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Ok, I'll open a portal to master Fenrir's hidden room...good luck!";
+	next;
+	cutin "",255;
+	savepoint "gef_fild12",241,176,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Meeting a Grandmaster]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Mystic]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Meeting Grandmaster...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}
+
+//Instance Meeting a Grandmaster
+
+que_arc01,1,1,4	script	Controller#Meeting a Grandmaster	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Fenris Fenrir#quest2");
+	disablenpc instance_npcname("Fenris Fenrir#quest3");
+	disablenpc instance_npcname("Scroll of Flames#quest1");
+	disablenpc instance_npcname("Scroll of Seas#quest1");
+	disablenpc instance_npcname("Scroll of Land#quest1");
+	disablenpc instance_npcname("Scroll of Winds#quest1");
+	end;
+}
+
+que_arc01,31,38,5	script	Fenris Fenrir#quest1	664,{
+	set .@npc$, "[Fenris Fenrir]";
+	cutin "fenrir_a",2;
+	if ( arcanechk ==1){
+	mes .@npc$;
+	mes "Let's see if you can control all elements and defend yourself!";
+	close2;
+	cutin "",255;	
+	disablenpc instance_npcname("Fenris Fenrir#quest1");
+	enablenpc instance_npcname("Fenris Fenrir#quest2");
+	end;
+	}
+	mes .@npc$;
+	mes "Oh a Mystic...What's your name?";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I'm " + strcharinfo(0) + ", I'm here to complete my training.";
+	next;
+	mes .@npc$;
+	mes "That's what all Mystics say, " + strcharinfo(0) + ", but do you have what it takes to control the elements?";
+	next;
+	mes .@npc$;
+	mes "I'm Fenris Fenrir. I can control every nature element at the tip of my fingers. If you're willing to become an Arcane Master, you'll need to do the same.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "What do I need to do?";
+	next;
+	mes .@npc$;
+	mes "First, check the scrolls around the area. If you're skilled enough, you'll know how to handle the monsters contained into them in combat. And don't try to use Hiding. It won't work against them.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Fenris Fenrir#quest1");
+	enablenpc instance_npcname("Scroll of Flames#quest1");
+	end;
+}
+
+que_arc01,41,31,5	script	Scroll of Flames#quest1	10042,{
+	mes "You touch the scroll, it begins burning around your hand. A burning entity manifests near the center of the room.";
+	close2;
+	disablenpc instance_npcname("Scroll of Flames#quest1");
+	donpcevent instance_npcname("#amfirespawn", instance_id())+"::OnEnable";
+}
+
+que_arc01,1,1,4	script	#amfirespawn	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#amfirespawn", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#amfirespawn", instance_id());
+	set .@map$, instance_mapname("que_arc01");
+	.@event$ = instance_npcname("#amfirespawn")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,26,26,"Fire Spirit",2369,1, .@event$;
+	set 'am_mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_arc01"), "Fenrir: Can you handle the fire element?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'am_mobs,'am_mobs-1;
+	if ('am_mobs < 1) {
+		set 'am_mobs,0;
+		mapannounce instance_mapname("que_arc01"), "Fenrir: Well done, that's some good reaction!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Scroll of Seas#quest1");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_arc01,36,18,5	script	Scroll of Seas#quest1	10042,{
+	mes "You touch the scroll, it makes your hand very wet. A cold entity manifests near the center of the room.";
+	close2;
+	disablenpc instance_npcname("Scroll of Seas#quest1");
+	donpcevent instance_npcname("#amwaterspawn", instance_id())+"::OnEnable";
+}
+
+que_arc01,1,1,4	script	#amwaterspawn	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#amwaterspawn", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#amwaterspawn", instance_id());
+	set .@map$, instance_mapname("que_arc01");
+	.@event$ = instance_npcname("#amwaterspawn")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,26,26,"Water Spirit",2367,1, .@event$;
+	set 'am_mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_arc01"), "Fenrir: Can you handle the water element too?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'am_mobs,'am_mobs-1;
+	if ('am_mobs < 1) {
+		set 'am_mobs,0;
+		mapannounce instance_mapname("que_arc01"), "Fenrir: Well done, that's some good management of dodging!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Scroll of Land#quest1");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_arc01,11,25,5	script	Scroll of Land#quest1	10042,{
+	mes "You touch the scroll, it begins pulling your hand down. A rock entity manifests near the center of the room.";
+	close2;
+	disablenpc instance_npcname("Scroll of Land#quest1");
+	donpcevent instance_npcname("#amearthspawn", instance_id())+"::OnEnable";
+}
+
+que_arc01,1,1,4	script	#amearthspawn	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#amearthspawn", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#amearthspawn", instance_id());
+	set .@map$, instance_mapname("que_arc01");
+	.@event$ = instance_npcname("#amearthspawn")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,26,26,"Earth Spirit",2370,1, .@event$;
+	set 'am_mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_arc01"), "Fenrir: How about the mighty earth element?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'am_mobs,'am_mobs-1;
+	if ('am_mobs < 1) {
+		set 'am_mobs,0;
+		mapannounce instance_mapname("que_arc01"), "Fenrir: Well done, that's very impressive positioning!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Scroll of Winds#quest1");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_arc01,19,38,5	script	Scroll of Winds#quest1	10042,{
+	mes "You touch the scroll, it begins burning around your hand. A burning entity manifests near the center of the room.";
+	close2;
+	disablenpc instance_npcname("Scroll of Winds#quest1");
+	donpcevent instance_npcname("#amwindspawn", instance_id())+"::OnEnable";
+}
+
+que_arc01,1,1,4	script	#amwindspawn	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#amwindspawn", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#amwindspawn", instance_id());
+	set .@map$, instance_mapname("que_arc01");
+	.@event$ = instance_npcname("#amwindspawn")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,26,26,"Wind Spirit",2368,1, .@event$;
+	set 'am_mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_arc01"), "Fenrir: Facing the wind element! Have you learned any new tricks? Haha!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'am_mobs,'am_mobs-1;
+	if ('am_mobs < 1) {
+		set 'am_mobs,0;
+		mapannounce instance_mapname("que_arc01"), "Fenrir: It seems you always have something ready to deal with enemies! Great work!",bc_map,"0xffff00";
+		set arcanechk, 1;
+		enablenpc instance_npcname("Fenris Fenrir#quest2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_arc01,26,26,5	script	Fenris Fenrir#quest2	664,{
+	set .@npc$, "[Fenris Fenrir]";
+	cutin "fenrir_b",2;
+	playbgm "98";
+	mes .@npc$;
+	mes "Good job handling the spirits. But that's not enough to be a master.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "I thought as much. So what else do I need to do?";
+	next;
+	mes .@npc$;
+	mes "Face me in combat. Take me down and maybe...just maybe...you'll have the power needed.";
+	next;
+	mes .@npc$;
+	mes "I'm Fenris Fenrir. The Arcane Grandmaster. Come at me!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Fenris Fenrir#quest2");
+	donpcevent instance_npcname("#fenrirspawn", instance_id())+"::OnEnable";
+	end;
+}
+
+que_arc01,1,1,4	script	#fenrirspawn	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#fenrirspawn", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#fenrirspawn", instance_id());
+	set .@map$, instance_mapname("que_arc01");
+	.@event$ = instance_npcname("#fenrirspawn")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,26,26,"Calm Fenrir",2564,1, .@event$;
+	set 'am_mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_arc01"), "Defeat Fenrir in combat!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'am_mobs,'am_mobs-1;
+	if ('am_mobs < 1) {
+		set 'am_mobs,0;
+		mapannounce instance_mapname("que_arc01"), "Fenrir: Well done...you are... argh... skilled!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Fenris Fenrir#quest3");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_arc01,26,26,5	script	Fenris Fenrir#quest3	664,{
+	set .@npc$, "[Fenris Fenrir]";
+	cutin "fenrir_a",2;
+	mes .@npc$;
+	mes "Excelent. You have all the skills needed to be a great Arcane Master.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Is that all you got?!";
+	next;
+	mes .@npc$;
+	mes "Don't be stupid. I wasn't even trying. Maybe someday we can fight again. At my full power.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Of course...so, what now?";
+	next;
+	specialeffect 722;
+	specialeffect2 234;
+	callfunc "Job_Change",Job_Sorcerer_T;
+	set finaljob,1;
+	set arcanemasterjob,1;
+	getitem 4557,1;
+	mes .@npc$;
+	mes "Now you make sure to keep training and improving yourself. And not bringing shame to the Arcane Masters. You hear me?";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Thank you. Master Fenrir.";
+	next;
+	cutin "fenrir_b",2;
+	mes .@npc$;
+	mes "Grandmaster. Grandmaster Fenrir.";
+	close2;
+	cutin "",255;
+	warp "gef_fild12",241,176;
+	end;
+}
+
+
+//Dark Knight Job Quest
+
+prt_in,78,87,5	script	Strange Glass#questdk	CLEAR_NPC,{
+	set .@npc$, "[Strange Glass]";
+	if (skillpoint){
+	mes "^6666CCYou must spend your skill points.^000000";
+	close;
+	}
+	if (firstjob ==1){
+	mes "^6666CCA strange glass with a strange reflection, makes you feel uneasy as if you could see a piece of your soul.^000000";
+	close;
+	}
+	if (firstjob <1){
+	mes .@npc$;
+	mes "^6666CCA strange glass with a strange reflection you feel uneasy as if you could see a piece of your soul.^000000";
+	next;
+	mes .@npc$;
+	mes "^6666CCYou can see a strange mist inside its reflection.^000000";
+	next;	
+	switch(select("Look Away:Touch the mirror")) {
+	case 1:
+	mes .@npc$;
+	mes "^6666CC You stop paying attention to the mirror.^000000";
+	close;
+	case 2:
+	if (JobLevel <= 9){
+	mes .@npc$;
+	mes "^6666CCThe mirror violently pushes you back. You feel you're not ready for it.^000000";
+	close;
+	}
+	if (BaseLevel <= 14){
+	mes .@npc$;
+	mes "^6666CCThe mirror violently pushes you back. You feel you're not ready for it.^000000";
+	close;
+	}
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Look into the Abyss";
+	mes .@npc$;
+	mes "^6666CCAs you look into the abyss of your life reflected on the mirror...^000000";
+	next;
+	specialeffect2 834;
+	.@name$ = "dknight" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "^6666CCThe abyss stares back at you and screams your name.^000000";
+	next;
+	savepoint "prt_in",76,87,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Look into the Abyss]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Strange Glass]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Look into the Abyss...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}
+
+job4_tro,41,59,5	script	Spectre#questdk1	10029,{
+	set .@npc$, "[Spectre]";
+	mes .@npc$;
+	mes "You heard my call. Finally.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "A spectre...? Who are you?";
+	next;
+	mes .@npc$;
+	mes "We Shadows are nothing but a cry for help...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "A cry for help?";
+	next;
+	mes .@npc$;
+	mes "...The existence of a Shadow is to die again and again, bringing sadness and grief.";
+	next;
+	mes .@npc$;
+	mes "...That's not what I want. I need your help, Orphan.";
+	next;
+	mes .@npc$;
+	mes "...And I can help you too.";
+	next;
+	emotion ET_SURPRISE;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What do you need and how can it help me?";
+	next;
+	mes .@npc$;
+	mes "I want my existence to be changed from a force of sadness to a force of vengeance. We shall strike down whoever wishes to bring us back.";
+	next;
+	mes .@npc$;
+	mes "No matter the price, no matter the cost...we can literally become one.";
+	next;
+	mes .@npc$;
+	mes "The potential of an Orphan and the darkness of a Shadow...as one. As a Dark Knight.";
+	next;
+	mes .@npc$;
+	mes "So, what do you say? Do you want to become a Dark Knight?";
+	next;
+	switch(select("Not yet.:Yes, I accept.")) {
+	case 1:
+	mes .@npc$;
+	mes "Very well... Leave this place. It's not safe for long.";
+	close2;
+	warp "prt_in",76,87;
+	end;
+	case 2:
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Amazing! Here's how it'll be done... You have to open your mind and clear it of any feelings.";
+	next;
+	mes .@npc$;
+	mes "This is the only way and it won't be pleasant... and everytime you think about something, a Shadow will try to take you over.";
+	next;
+	mes .@npc$;
+	mes "The Shadows will whisper lies to your ears. They will bend your memories against you. Don't fall for it. It's a trap.";
+	next;
+	mes .@npc$;
+	mes "I will help you protect us from them... After we survive 13 Shadows... we will absorb all their energy at once.";
+	next;
+	mes .@npc$;
+	mes "Well... let's begin.";
+	close2;
+	disablenpc instance_npcname("Spectre#questdk1");
+	donpcevent instance_npcname("#dkspawns", instance_id())+"::OnEnable";
+	end;
+	}
+}
+
+job4_tro,1,1,4	script	Controller#DKTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("#dkspawns");
+	disablenpc instance_npcname("Spectre#questdk2");
+	end;
+}
+
+job4_tro,1,1,4	script	#dkspawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#dkspawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#dkspawns", instance_id());
+	set .@map$, instance_mapname("job4_tro");
+	monster .@map$,41,52,"Shadow",2027,1, .@event$;
+	monster .@map$,29,65,"Shadow",2027,1, .@event$;
+	monster .@map$,35,75,"Shadow",2027,1, .@event$;
+	monster .@map$,48,78,"Shadow",2027,1, .@event$;
+	monster .@map$,62,74,"Shadow",2027,1, .@event$;
+	monster .@map$,71,64,"Shadow",2027,1, .@event$;
+	monster .@map$,74,51,"Shadow",2027,1, .@event$;
+	monster .@map$,71,38,"Shadow",2027,1, .@event$;
+	monster .@map$,62,29,"Shadow",2027,1, .@event$;
+	monster .@map$,48,26,"Shadow",2027,1, .@event$;
+	monster .@map$,36,29,"Shadow",2027,1, .@event$;
+	monster .@map$,25,39,"Shadow",2027,1, .@event$;
+	monster .@map$,22,52,"Shadow",2027,1, .@event$;
+	.@event$ = instance_npcname("#dkspawns")+"::OnMyMobDead";
+	initnpctimer;
+	end;
+
+OnTimer6000:
+	mapannounce instance_mapname("job4_tro"), "This is a reflection of your being...",bc_map,"0xffff00";
+	end;
+OnTimer12000:
+	mapannounce instance_mapname("job4_tro"), "I've been working hard! I do have... to grow up fast for our mother!",bc_map,"0xffff00";
+	end;
+OnTimer18000:
+	mapannounce instance_mapname("job4_tro"), "I'm playing pretend with Kimi...I'm lonely.",bc_map,"0xffff00";
+	end;
+OnTimer24000:
+	mapannounce instance_mapname("job4_tro"), "I'm trying to fix this old clock...you always break everything.",bc_map,"0xffff00";
+	end;
+OnTimer30000:
+	mapannounce instance_mapname("job4_tro"), "Maybe if you spent more time training...they would have survived.",bc_map,"0xffff00";
+	end;
+OnTimer36000:
+	mapannounce instance_mapname("job4_tro"), "I'm almost finishing it...someone has to at least try for you.",bc_map,"0xffff00";
+	end;
+OnTimer42000:
+	mapannounce instance_mapname("job4_tro"), "Maybe it's time to take responsability...for being useless.",bc_map,"0xffff00";
+	end;
+OnTimer48000:
+	mapannounce instance_mapname("job4_tro"), "I don't love you...you waste my time.",bc_map,"0xffff00";
+	end;
+OnTimer54000:
+	mapannounce instance_mapname("job4_tro"), "Come on! It's a gift... wait for it quietly.",bc_map,"0xffff00";
+	end;
+OnTimer60000:
+	mapannounce instance_mapname("job4_tro"), "I got us something...something lovely...take a look...",bc_map,"0xffff00";
+	end;
+OnTimer66000:
+	mapannounce instance_mapname("job4_tro"), "The sound of the words pierce your heart.",bc_map,"0xffff00";
+	end;
+OnTimer72000:
+	mapannounce instance_mapname("job4_tro"), "But the truth can bring the Shadows into submission.",bc_map,"0xffff00";
+	end;
+OnTimer78000:
+	atcommand "@killmonster";
+	mapannounce instance_mapname("job4_tro"), "You feel your heart burn with vengeance. Vengeance against everyone who hurt you.",bc_map,"0xffff00";
+	end;
+OnTimer84000:
+	enablenpc instance_npcname("Spectre#questdk2");
+	stopnpctimer;
+	mapannounce instance_mapname("job4_tro"), "Spectre: Hey! Are you still there? Come talk to me! HEEY!?!?!",bc_map,"0xffff00";
+	end;
+	
+
+OnMyMobDead:
+	end;
+}
+
+job4_tro,41,59,5	script	Spectre#questdk2	10029,{
+	set .@npc$, "[Spectre]";
+	mes .@npc$;
+	mes "Your Mark is now under your control. With my help.";
+	next;
+	mes .@npc$;
+	mes "This place...it's your Mark. Your curse that draws the Shadows to you.";
+	next;
+	mes .@npc$;
+	mes "They may come and try to hurt you...but what hurts you can only make you stronger.";
+	next;
+	specialeffect2 234;
+	atcommand "@job 4";
+	set finaljob,1;
+	set firstjob,1;
+	set secondjob,1;
+	set darkknightjob,1;
+	mes .@npc$;
+	mes "Go and burn those demons with Vengeance.";
+	close2;
+	warp "prt_in",76,87;
+	end;
+	}
+
+
+
+

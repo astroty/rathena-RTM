@@ -7,6 +7,7 @@
 //============================================================
 
 // Prontera Underground Prison
-prt_prison,0,0	monster	Frozen Wolf	3442,20
-prt_prison,0,0	monster	Taffy	3443,50
-prt_prison,0,0	monster	Watcher 	3444,30
+prt_prison,0,0	monster	Mysteltainn	1203,15,5000
+prt_prison,0,0	monster	Executioner	1205,15,5000
+prt_prison,0,0	monster	Ogretooth	1204,15,5000
+prt_prison,0,0,0,0	boss_monster	Knight Sakray	1245,1,2700000,5400000,0

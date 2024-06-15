@@ -62,9 +62,9 @@ Header:
 Body:
   - Id: 2114
     AegisName: EL_AGNI_S
-    Name: Agni
-    Level: 100
-    Size: Small
+    Name: Reaper
+    Level: 125
+    Size: Large
     Element: Fire
     ElementLevel: 4
     Mode:
@@ -73,7 +73,7 @@ Body:
       Assist:
         Skill: EL_CIRCLE_OF_FIRE
       Aggressive:
-        Skill: EL_FIRE_ARROW
+        Skill: EL_FIRE_BOMB
   - Id: 2115
     AegisName: EL_AGNI_M
     Name: Agni

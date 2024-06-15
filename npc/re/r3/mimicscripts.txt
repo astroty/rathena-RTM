@@ -1,0 +1,347 @@
+//=================== Loki Scripts ========================================
+//=     _           _    _     _____           _       _       
+//=    | |         | |  (_)   / ____|         (_)     | |      
+//=    | |     ___ | | ___   | (___   ___ _ __ _ _ __ | |_ ___ 
+//=    | |    / _ \| |/ / |   \___ \ / __| '__| | '_ \| __/ __|
+//=    | |___| (_) |   <| |   ____) | (__| |  | | |_) | |_\__ \
+//=    |______\___/|_|\_\_|  |_____/ \___|_|  |_| .__/ \__|___/
+//=                                             | |            
+//=                                             |_|            
+//================= Licenþa ===============================================
+//= NÒo venda ou repasse esse arquivo sem autorizaþÒo.
+//=========================================================================
+// Plagiarize
+//=========================================================================
+
+// -- callfunc "F_Plagiarize"
+function	script	F_Plagiarize	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],2602,2593,212,13;
+	
+	specialeffect2 1232;
+	specialeffect2 1861;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1861;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeFire	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],534,2259,2443;
+	
+	specialeffect2 1232;
+	specialeffect2 2262;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 5) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 2262;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeWater	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],537,2447,2203;
+	
+	specialeffect2 1232;
+	specialeffect2 2260;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 5) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 2260;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeWind	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],540,542,2321;
+	
+	specialeffect2 1232;
+	specialeffect2 2264;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 5) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 2264;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeHeal	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],70,2050,2345;
+	
+	specialeffect2 1232;
+	specialeffect2 1585;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 3) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1585;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeThief	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],46,2036,52;
+	
+	specialeffect2 1232;
+	specialeffect2 1632;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 1) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1632;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeSlash	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],56,530,2002;
+	
+	specialeffect2 1232;
+	specialeffect2 1640;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 4) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1640;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizePower	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],136,62,2336;
+	
+	specialeffect2 1232;
+	specialeffect2 1573;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 6) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1573;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeArrow	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],47,2258,394;
+	
+	specialeffect2 1232;
+	specialeffect2 1652;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 5) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1652;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeSpecial	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],379,2307,2448,2327,2038,2288,2485,2236;
+	
+	specialeffect2 1232;
+	specialeffect2 2176;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 7) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 2176;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeExpert	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],2008,2481,3009,480;
+	
+	specialeffect2 1232;
+	specialeffect2 1765;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 8) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1765;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}
+
+function	script	F_PlagiarizeMaster	{
+    //Configuration
+    //Must Plagiarism skil be learned? (1. Yes | 0. No)
+    .plag_skill = 1;
+    //Skill ID Array
+    setarray .SkillID[0],2454,2004,2216,2213,2418;
+	
+	specialeffect2 1232;
+	specialeffect2 1824;
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "You must have Plagiarism learned.";
+		close;
+	}
+	if (getskilllv("SG_KNOWLEDGE") < 10) {
+		mes "You can't properly read the Cantrips Book.";
+		close;
+	}
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	 specialeffect2 1231;
+	 specialeffect2 1824;
+	plagiarizeskill .SkillID[.@s],getskilllv("RG_PLAGIARISM");
+	end;
+}

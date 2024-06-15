@@ -1,0 +1,259 @@
+//Abandoned Castle Scripts
+//Distortion Orbs
+prt_gld,160,97,4	script	War Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the End Times.";
+	next;
+	mes "he War of Emperium is no more. An incredible guild with no code of honor has permanently taken over the kingdom and fused their souls into an abominable Emperium.";
+	next;
+	mes "No more hapiness on the Kingdom remains, what once was considered a celebration of union now only brings sadness and despair.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder Shines Brightly...And sends you 50 Years in the Future.";
+	close2;
+	warp "guild_falld",174,15;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+guild_falld,174,10,4	script	War Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder Shines Brightly...And returns you to your timeline.";
+	close2;
+	warp "prt_gld",160,93;
+	break;
+	case 2:
+	end;
+	}
+}
+
+//Lore NPCS
+
+guild_falld,172,35,4	script	Lost Knight #castledist	628,{
+	set .@npc$, "[Lost Knight]";
+	mes .@npc$;
+	mes "Look at the time! It's War of Emperium time! It's...War...";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "Fight them...Fight enemies, FIGHT FIGHT FIGHT!";
+	close;
+}
+
+guild_falld,168,23,6	script	War Master #castledist	415,{
+	set .@npc$, "[War Master]";
+	mes .@npc$;
+	mes "According to Order of our Guildmaster and King...";
+	next;
+	mes .@npc$;
+	mes "We are in permanent War of Emperium state.";
+	next;
+	mes .@npc$;
+	mes "We have been like this for years now. There's no end.";
+	close;
+}
+
+guild_falld,182,23,4	script	Kafra #castledist	791,{
+	set .@npc$, "[Kafra]";
+	mes .@npc$;
+	mes "Welcome to the Kafra Corporation...Welcome to the Kafra Corporation...";
+	next;
+	mes .@npc$;
+	mes "The Kafra has no authority and cannot save for you, or anyone.";
+	next;
+	mes .@npc$;
+	mes "You won't be saved if you die. Welcome to the Kaf...";
+	close;
+}
+
+guild_falld,193,39,4	script	Rune Knight #castledist	691,{
+	set .@npc$, "[Rune Knight]";
+	mes .@npc$;
+	mes "Past this point its territory of the Black Maiden Guild.";
+	next;
+	mes .@npc$;
+	mes "The Black Maiden Guild carries too much power, they are one with their Emperium.";
+	next;
+	mes .@npc$;
+	mes "You may take one down, but they will return after 2 minutes...and kill you.";
+	next;
+	mes .@npc$;
+	mes "If you somehow manage to get past the Pre-Cast...they may take a while longer to reorganize...";
+	next;
+	mes .@npc$;
+	mes "Don't be stupid and don't approach...They will kill everyone. Their Detectors will find you anywhere you go!";
+	close;
+}
+
+guild_falld,46,105,4	script	Emperium Pile#castledist	CLEAR_NPC,{
+	mes "A Pile with 19 Emperium crystals, completely abandoned.";
+	next;
+	mes .@npc$;
+	mes "They are the Emperium from the other castles...completely worthless rocks.";
+	close;
+}
+
+guild_falld,45,124,4	script	War Adjudicator#castledist	CLEAR_NPC,{
+	mes "The War Adjudicator warns any fools to not approach.";
+	next;
+	mes .@npc$;
+	mes "For the masters of the Pre-Cast are ready for any challenge.";
+	next;
+	switch(select("Get Inside:Leave")){
+		case 1:
+		mes "You press on filled with determination.";
+		close2;
+		warp "guild_falld",13,200;
+		end;
+		case 2:
+		mes "You can hear constant sounds of war inside.";
+		close;
+}
+}
+
+//Warps
+guild_falld,165,60,0	warp	castlewarp1	1,1,guild_falld,163,177
+guild_falld,163,173,0	warp	castlewarp2	1,1,guild_falld,165,56
+guild_falld,169,236,0	warp	castlewarp3	1,1,guild_falld,45,48
+guild_falld,45,44,0	warp	castlewarp4	1,1,guild_falld,169,232
+guild_falld,7,200,0	warp	castlewarp5	1,1,guild_falld,45,120
+
+
+guild_falld,35,228	monster	Detector	2791,1,120000
+guild_falld,32,206	monster	Detector	2791,1,120000
+guild_falld,84,118	monster	Detector	2791,1,120000
+guild_falld,7,118	monster	Detector	2791,1,120000
+guild_falld,22,79	monster	Detector	2791,1,120000
+guild_falld,71,57	monster	Detector	2791,1,120000
+guild_falld,139,232	monster	Detector	2791,1,120000
+guild_falld,143,201	monster	Detector	2791,1,120000
+guild_falld,185,80	monster	Detector	2791,1,360000
+guild_falld,163,190	monster	Detector	2791,1,360000
+//
+guild_falld,164,208,25,25	monster	Guild Warrior	2784,3,120000
+guild_falld,164,208,25,25	monster	Guild Support	2785,3,120000
+guild_falld,164,208,25,25	monster	Guild Defender	2786,3,120000
+guild_falld,164,208,25,25	monster	Guild Magician	2787,3,120000
+guild_falld,164,208,25,25	monster	Guild Chamberlain	2788,1,240000
+//
+guild_falld,45,64,10,10	monster	Guild Warrior	2784,1,120000
+guild_falld,45,64,10,10	monster	Guild Support	2785,1,120000
+guild_falld,45,64,10,10	monster	Guild Defender	2786,1,120000
+guild_falld,45,64,10,10	monster	Guild Magician	2787,1,120000
+//
+guild_falld,80,72,10,10	monster	Guild Warrior	2784,1,120000
+guild_falld,80,72,10,10	monster	Guild Support	2785,1,120000
+guild_falld,80,72,10,10	monster	Guild Defender	2786,1,120000
+guild_falld,80,72,10,10	monster	Guild Magician	2787,1,120000
+//
+guild_falld,19,55,10,10	monster	Guild Warrior	2784,1,120000
+guild_falld,19,55,10,10	monster	Guild Support	2785,1,120000
+guild_falld,19,55,10,10	monster	Guild Defender	2786,1,120000
+guild_falld,19,55,10,10	monster	Guild Magician	2787,1,120000
+//
+guild_falld,45,102,15,15	monster	Guild Warrior	2784,3,120000
+guild_falld,45,102,15,15	monster	Guild Support	2785,3,120000
+guild_falld,45,102,15,15	monster	Guild Defender	2786,3,120000
+guild_falld,45,102,15,15	monster	Guild Magician	2787,3,120000
+guild_falld,45,102,15,15	monster	Guild Chamberlain	2788,1,240000
+//
+guild_falld,84,116,10,10	monster	Guild Warrior	2784,1,120000
+guild_falld,84,116,10,10	monster	Guild Support	2785,1,120000
+guild_falld,84,116,10,10	monster	Guild Defender	2786,1,120000
+guild_falld,84,116,10,10	monster	Guild Magician	2787,1,120000
+//
+guild_falld,7,116,10,10	monster	Guild Warrior	2784,1,120000
+guild_falld,7,116,10,10	monster	Guild Support	2785,1,120000
+guild_falld,7,116,10,10	monster	Guild Defender	2786,1,120000
+guild_falld,7,116,10,10	monster	Guild Magician	2787,1,120000
+//
+//Pre-Cast
+//
+guild_falld,8,221,2,2	monster	Guild Warrior	2784,1,360000
+guild_falld,21,200,2,2	monster	Guild Warrior	2784,1,360000
+guild_falld,26,200,2,2	monster	Guild Warrior	2784,1,360000
+guild_falld,10,208,2,2	monster	Guild Warrior	2784,1,360000
+guild_falld,12,208,2,2	monster	Guild Warrior	2784,1,360000
+guild_falld,36,225,2,2	monster	Guild Warrior	2784,1,360000
+guild_falld,22,208,1,1	monster	Guild Magician	2787,1,360000
+guild_falld,24,208,1,1	monster	Guild Magician	2787,1,360000
+guild_falld,27,208,1,1	monster	Guild Magician	2787,1,360000
+guild_falld,28,208,1,1	monster	Guild Support	2785,1,360000
+guild_falld,18,204,1,1	monster	Guild Support	2785,1,360000
+guild_falld,24,204,1,1	monster	Guild Defender	2786,1,360000
+guild_falld,27,204,1,1	monster	Guild Defender	2786,1,360000
+guild_falld,21,204,1,1	monster	Guild Defender	2786,1,360000
+guild_falld,24,208,1,1	monster	Guild Defender	2786,1,360000
+guild_falld,31,218,1,1	monster	Guild Defender	2786,1,360000
+
+guild_falld,10,220,2,2	monster	Guild Warrior	2784,1,120000
+guild_falld,10,230,1,1	monster	Guild Magician	2787,1,120000
+guild_falld,30,220,1,1	monster	Guild Support	2785,1,120000
+guild_falld,30,230,1,1	monster	Guild Defender	2786,1,120000
+
+guild_falld,15,220,1,1	monster	Guild Master	2789,1,60000
+
+guild_falld,1,1,4	script	#WoEYmirManagerMobs	-1,{
+	end;
+OnInit:
+	set $soulofymir,0;
+	monster "guild_falld",15,220,"Ymir Emperium",2790,1,"#WoEYmirManager::OnWoEBreak";
+	end;
+OnSoulslain:
+	stopnpctimer "#WoEYmirManager";
+	initnpctimer;
+	end;
+OnTimer5000:
+	mapannounce "guild_falld", "The Soul of Ymir has left the castle. The castle shall have no master for 2 hours.",bc_map,"0xffff00";
+	end;
+OnTimer20000:
+	mapannounce "guild_falld", "The castle is being evacuated in 10 seconds.",bc_map,"0xffff00";
+	end;
+OnTimer30000:
+	areawarp "guild_falld",1,1,200,240,"guild_falld",174,20;
+	end;
+OnTimer7200000:
+	mapannounce "guild_falld", "The Black Maiden Guild has retaken the Castle and rebuilt the Ymir Emperium.",bc_map,"0xffff00";
+	set $soulofymir,0;
+	monster "guild_falld",15,220,"Ymir Emperium",2790,1,"#WoEYmirManager::OnWoEBreak";
+	stopnpctimer;
+	end;
+}
+
+guild_falld,1,1,4	script	#WoEYmirManager	-1,{
+OnWoEBreak:
+	set $soulofymir,0;
+	killmonsterall "guild_falld";
+	initnpctimer;
+	mapannounce "guild_falld", "The Emperium has been Shattered! The Black Maiden Guild is rallying to retake the castle!",bc_map,"0xffff00";
+	end;
+OnTimer3000:
+	playbgmall "141","guild_falld";
+	end;
+OnTimer5000:
+	mapannounce "guild_falld", "Soul of Ymir: A Worthy challenge. Come and face me, if you dare.",bc_map,"0xffff00";
+	monster "guild_falld",17,217,"Soul of Ymir",2792,1,"#WoEYmirManagerMobs::OnSoulslain";
+	end;
+OnTimer10000:
+	mapannounce "guild_falld", "The Emperium Room will be locked soon...",bc_map,"0xffff00";
+	end;
+OnTimer60000:
+	set $soulofymir,1;
+	mapannounce "guild_falld", "The Emperium Room has been locked! It will open in 9 minutes!",bc_map,"0xffff00";
+	end;
+OnTimer540000:
+	mapannounce "guild_falld", "Soul of Ymir: You are not worthy of my time...You may call yourself the MVP for surviving...but you get nothing of value.",bc_map,"0xffff00";
+	killmonster "guild_falld","#WoEYmirManagerMobs"+"::OnSoulslain",1;
+	stopnpctimer;
+	end;
+}

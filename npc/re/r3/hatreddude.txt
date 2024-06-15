@@ -1,0 +1,6257 @@
+moc_prydb1,107,61,4	script	HATred Dude#1mocbasement	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (sparecard >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Spare Card<INFO>5536</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Why so mad?:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000010^000000 Snake Scale from Snake!"; //926
+		mes "^FF000010^000000 Tooth of Bat from Familiar!"; //913
+		mes "^FF000010^000000 Rotten Bandage from Verit!"; //930
+		mes "^FF000010^000000 Skel-Bone from Tomb Skeleton!"; //932
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(926) < 10) goto L_noitems;
+		if(countitem(913) < 10) goto L_noitems;
+		if(countitem(930) < 10) goto L_noitems;
+		if(countitem(932) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		if (achiev21 ==0 ){
+		achievementcomplete(200083);
+		set achiev21,1;
+		}
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 926,10;
+		delitem 913,10;
+		delitem 930,10;
+		delitem 932,10;
+		getitem 5536,1;
+		set hatpoints, hatpoints+1;
+		set sparecard,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(926) < 10) mes "^FF0000"+(10 - countitem(926)) +"^000000 Snake Scale";
+		if(countitem(913) < 10) mes "^FF0000"+(10 - countitem(913)) +"^000000 Tooth of Bat";
+		if(countitem(930) < 10) mes "^FF0000"+(10 - countitem(930)) +"^000000 Rotten Bandage";
+		if(countitem(932) < 10) mes "^FF0000"+(10 - countitem(932)) +"^000000 Skel-Bone";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "Because I'm angry!";
+		mes "So I carry a lot of hats!";
+		mes "Hats make me feel better!";
+		close2;
+		cutin "",255;
+		break;
+	case 4:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+kaf_dun01,119,74,4	script	HATred Dude#2warehouse	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (kafraband >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Kafra Band<INFO>5020</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000010^000000 Black Dust from Ashring!"; //1073
+		mes "^FF000040^000000 Kafra Apron from Assistants!"; //1074
+		mes "^FF000010^000000 Dark Mind from Mutated Kafra!"; //1075
+		mes "^FF00005^000000 Clotted Blood from Consumed Kafra!"; //1076
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1073) < 10) goto L_noitems;
+		if(countitem(1074) < 40) goto L_noitems;
+		if(countitem(1075) < 10) goto L_noitems;
+		if(countitem(1076) < 5) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1073,10;
+		delitem 1074,40;
+		delitem 1075,10;
+		delitem 1076,5;
+		getitem 5020,1;
+		set hatpoints, hatpoints+1;
+		set kafraband,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1073) < 10) mes "^FF0000"+(10 - countitem(1073)) +"^000000 Black Dust";
+		if(countitem(1074) < 40) mes "^FF0000"+(40 - countitem(1074)) +"^000000 Kafra Apron";
+		if(countitem(1075) < 10) mes "^FF0000"+(10 - countitem(1075)) +"^000000 Dark Mind";
+		if(countitem(1076) < 5) mes "^FF0000"+(5 - countitem(1076)) +"^000000 Clotted Blood";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+grey_ft02,50,108,4	script	HATred Dude#3greyforest	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (lushrose >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Lush Rose<INFO>18848</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000010^000000 Grey Fur from Coyote!"; //7589
+		mes "^FF000010^000000 Broken Blade from Orphan Hunter!"; //7591
+		mes "^FF000025^000000 Spooky Branch from Ghost Tree!"; //7595
+		mes "^FF00005^000000 Burning Mane from Flame Stallion!"; //7596
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7589) < 10) goto L_noitems;
+		if(countitem(7591) < 10) goto L_noitems;
+		if(countitem(7595) < 25) goto L_noitems;
+		if(countitem(7596) < 5) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7589,10;
+		delitem 7591,10;
+		delitem 7595,25;
+		delitem 7596,5;
+		getitem 18848,1;
+		set hatpoints, hatpoints+1;
+		set lushrose,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7589) < 10) mes "^FF0000"+(10 - countitem(7589)) +"^000000 Grey Fur";
+		if(countitem(7591) < 10) mes "^FF0000"+(10 - countitem(7591)) +"^000000 Broken Blade";
+		if(countitem(7595) < 25) mes "^FF0000"+(25 - countitem(7595)) +"^000000 Spooky Branch";
+		if(countitem(7596) < 5) mes "^FF0000"+(5 - countitem(7596)) +"^000000 Burning Mane";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+cry_dun02,27,135,4	script	HATred Dude#4crystalcaves	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (iceears >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you an <ITEM>Ice Wing Ears<INFO>5610</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Frozen Shell from Insects!"; //7592
+		mes "^FF0000100^000000 Crystal Seal from Stones!"; //7593
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7592) < 100) goto L_noitems;
+		if(countitem(7593) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7592,100;
+		delitem 7593,100;
+		getitem 5610,1;
+		set hatpoints, hatpoints+1;
+		set iceears,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7592) < 100) mes "^FF0000"+(100 - countitem(7592)) +"^000000 Frozen Shell";
+		if(countitem(7593) < 100) mes "^FF0000"+(100 - countitem(7593)) +"^000000 Crystal Seal";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ra_san02,13,110,4	script	HATred Dude#5rachelsanct	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (skullhood >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Skull Hood<INFO>5667</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000020^000000 Will of Red Darkness from Monsters!"; //7566
+		mes "^FF000030^000000 Suspicious Hat from Hooded Guys!"; //7567
+		mes "^FF000030^000000 White Mask from Masked Guys!"; //7568
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7566) < 20) goto L_noitems;
+		if(countitem(7567) < 30) goto L_noitems;
+		if(countitem(7568) < 30) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7566,20;
+		delitem 7567,30;
+		delitem 7568,30;
+		getitem 5667,1;
+		set hatpoints, hatpoints+1;
+		set skullhood,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7566) < 20) mes "^FF0000"+(20 - countitem(7566)) +"^000000 Will Red of Darkness";
+		if(countitem(7567) < 30) mes "^FF0000"+(30 - countitem(7567)) +"^000000 Suspicious Hat";
+		if(countitem(7568) < 30) mes "^FF0000"+(30 - countitem(7568)) +"^000000 White Mask";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+treasure01,175,68,4	script	HATred Dude#6sunken	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (royalpirate >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Royal Pirate Hat<INFO>5969</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Pirate Treasure from Anyone here!"; //7875
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7875) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7875,100;
+		getitem 5969,1;
+		set hatpoints, hatpoints+1;
+		set royalpirate,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7875) < 100) mes "^FF0000"+(100 - countitem(7875)) +"^000000 Pirate Treasure!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+kh_dun02,22,95,4	script	HATred Dude#7kieldun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (mechhead >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Mechanical Headband<INFO>20380</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000040^000000 Red Fabric from Aliza!"; //6535
+		mes "^FF000040^000000 Rusty Screw from Alicel and Aliot!"; //7317
+		mes "^FF000015^000000 Old Fuel from Junkman!"; //6962
+		mes "^FF000010^000000 Flexible Tube from Perfect Sentinel!"; //7325
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6535) < 40) goto L_noitems;
+		if(countitem(7317) < 40) goto L_noitems;
+		if(countitem(6962) < 15) goto L_noitems;
+		if(countitem(7325) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6535,40;
+		delitem 7317,40;
+		delitem 6962,15;
+		delitem 7325,10;
+		getitem 20380,1;
+		set hatpoints, hatpoints+1;
+		set mechhead,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6535) < 40) mes "^FF0000"+(40 - countitem(6535)) +"^000000 Red Fabric ";
+		if(countitem(7317) < 40) mes "^FF0000"+(40 - countitem(7317)) +"^000000 Rusty Screw";
+		if(countitem(6962) < 15) mes "^FF0000"+(15 - countitem(6962)) +"^000000 Old Fuel";
+		if(countitem(7325) < 10) mes "^FF0000"+(10 - countitem(7325)) +"^000000 Flexible Tube";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gef_dun01,124,267,4	script	HATred Dude#8gefdun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (maghead >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Magician Hat<INFO>5045</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000025^000000 Wing of Red Bat from Drainliar!"; //7006
+		mes "^FF000025^000000 Little Evil Wing from Deviruchi!"; //1039
+		mes "^FF000025^000000 Horseshoe from Nightmare!"; //944
+		mes "^FF000025^000000 Jack O' Pumpkin from Jakk!"; //1062
+		mes "^FF000010^000000 Red Blood from Blood Mage!"; //990
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7006) < 25) goto L_noitems;
+		if(countitem(1039) < 25) goto L_noitems;
+		if(countitem(944) < 25) goto L_noitems;
+		if(countitem(1062) < 25) goto L_noitems;
+		if(countitem(990) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7006,25;
+		delitem 1039,25;
+		delitem 944,25;
+		delitem 1062,25;
+		delitem 990,10;
+		getitem 5045,1;
+		set hatpoints, hatpoints+1;
+		set maghead,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7006) < 25) mes "^FF0000"+(25 - countitem(7006)) +"^000000 Wing of Red Bat";
+		if(countitem(1039) < 25) mes "^FF0000"+(25 - countitem(1039)) +"^000000 Little Evil Wing";
+		if(countitem(944) < 25) mes "^FF0000"+(25 - countitem(944)) +"^000000 Horseshoe";
+		if(countitem(1062) < 25) mes "^FF0000"+(25 - countitem(1062)) +"^000000 Jack O' Pumpkin";
+		if(countitem(990) < 10) mes "^FF0000"+(10 - countitem(990)) +"^000000 Red Blood";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gefenia02,117,116,4	script	HATred Dude#9geffenia	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (foresthead >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Forest Guide<INFO>31598</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Shattered Magic Stone from Demons!"; //6905
+		mes "^FF000050^000000 Dried Leaf from Forest Entities!"; //25266
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6905) < 50) goto L_noitems;
+		if(countitem(25266) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6905,50;
+		delitem 25266,50;
+		getitem 31598,1;
+		set hatpoints, hatpoints+1;
+		set foresthead,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6905) < 50) mes "^FF0000"+(50 - countitem(6905)) +"^000000 Shattered Magic Stone";
+		if(countitem(25266) < 50) mes "^FF0000"+(50 - countitem(25266)) +"^000000 Dried Leaf";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+alch_dun03,264,141,4	script	HATred Dude#10alchdun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (filirwing >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Filir Wings<INFO>5664</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Unknown Test Tube A from Small Homunculus!"; //1071
+		mes "^FF000050^000000 Unknown Test Tube B from Grown Homunculus!"; //1085
+		mes "^FF000025^000000 Unknown Test Tube Z from Strange Homunculus!"; //1086
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1071) < 50) goto L_noitems;
+		if(countitem(1085) < 50) goto L_noitems;
+		if(countitem(1086) < 25) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1071,50;
+		delitem 1085,50;
+		delitem 1086,25;
+		getitem 5664,1;
+		set hatpoints, hatpoints+1;
+		set filirwing,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1071) < 50) mes "^FF0000"+(50 - countitem(1071)) +"^000000 Unknown Test Tube A";
+		if(countitem(1085) < 50) mes "^FF0000"+(50 - countitem(1085)) +"^000000 Unknown Test Tube B";
+		if(countitem(1086) < 25) mes "^FF0000"+(25 - countitem(1086)) +"^000000 Unknown Test Tube Z";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+moc_fild05,213,239,4	script	HATred Dude#11mocfild1	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (desertprince >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Desert Prince<INFO>5591</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000030^000000 Feather of Birds!"; //916
+		mes "^FF000015^000000 Claw of Desert Wolf!"; //7030
+		mes "^FF000015^000000 Piece of Eggshell!"; //7032
+		mes "^FF000010^000000 Dry Sand!"; //7264
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(916) < 30) goto L_noitems;
+		if(countitem(7030) < 15) goto L_noitems;
+		if(countitem(7032) < 15) goto L_noitems;
+		if(countitem(7264) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 916,30;
+		delitem 7030,15;
+		delitem 7032,15;
+		delitem 7264,10;
+		getitem 5591,1;
+		set hatpoints, hatpoints+1;
+		set desertprince,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(916) < 30) mes "^FF0000"+(30 - countitem(916)) +"^000000 Feather of Birds";
+		if(countitem(7030) < 15) mes "^FF0000"+(15 - countitem(7030)) +"^000000 Claw of Desert Wolf";
+		if(countitem(7032) < 15) mes "^FF0000"+(15 - countitem(7032)) +"^000000 Piece of Eggshell";
+		if(countitem(7264) < 10) mes "^FF0000"+(10 - countitem(7264)) +"^000000 Dry Sand";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+moc_fild15,50,297,4	script	HATred Dude#12mocfild2	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (assassinmask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you an <ITEM>Assassin Mask<INFO>5054</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000040^000000 Stone Heart!"; //953
+		mes "^FF000035^000000 Sandworm Peeling!"; //1055
+		mes "^FF000015^000000 Bill of Birds!"; //925
+		mes "^FF000010^000000 Broken Dagger!"; //7110
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(953) < 40) goto L_noitems;
+		if(countitem(1055) < 35) goto L_noitems;
+		if(countitem(925) < 15) goto L_noitems;
+		if(countitem(7110) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 953,40;
+		delitem 1055,35;
+		delitem 925,15;
+		delitem 7110,10;
+		getitem 5054,1;
+		set hatpoints, hatpoints+1;
+		set assassinmask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(953) < 40) mes "^FF0000"+(40 - countitem(953)) +"^000000 Stone Heart";
+		if(countitem(1055) < 35) mes "^FF0000"+(35 - countitem(1055)) +"^000000 Sandworm Peeling";
+		if(countitem(925) < 15) mes "^FF0000"+(15 - countitem(925)) +"^000000 Bill of Birds";
+		if(countitem(7110) < 10) mes "^FF0000"+(10 - countitem(7110)) +"^000000 Broken Dagger";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+prt_fild08,355,333,4	script	HATred Dude#13prtfild01	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (angelwing >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you an <ITEM>Angel Wings<INFO>2254</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000030^000000 Fluff!"; //914
+		mes "^FF000030^000000 Shell!"; //935
+		mes "^FF000030^000000 Feather!"; //949
+		mes "^FF000010^000000 Sticky Webfoot!"; //918
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(914) < 30) goto L_noitems;
+		if(countitem(935) < 30) goto L_noitems;
+		if(countitem(949) < 30) goto L_noitems;
+		if(countitem(918) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 914,30;
+		delitem 935,30;
+		delitem 949,30;
+		delitem 918,10;
+		getitem 2254,1;
+		set hatpoints, hatpoints+1;
+		set angelwing,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(914) < 30) mes "^FF0000"+(30 - countitem(914)) +"^000000 Fluff";
+		if(countitem(935) < 30) mes "^FF0000"+(30 - countitem(935)) +"^000000 Shell";
+		if(countitem(949) < 30) mes "^FF0000"+(30 - countitem(949)) +"^000000 Feather";
+		if(countitem(918) < 10) mes "^FF0000"+(10 - countitem(918)) +"^000000 Sticky Webfoot";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+prt_fild00,95,264,4	script	HATred Dude#14prtfild02	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (evilwing >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you an <ITEM>Evil Wings<INFO>2255</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000020^000000 Mane!"; //1028
+		mes "^FF000040^000000 Powder of Butterfly!"; //924
+		mes "^FF000020^000000 Blade of Grass!"; //7194
+		mes "^FF000010^000000 Crystal Mirror!"; //747
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1028) < 20) goto L_noitems;
+		if(countitem(924) < 40) goto L_noitems;
+		if(countitem(7194) < 20) goto L_noitems;
+		if(countitem(747) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1028,20;
+		delitem 924,40;
+		delitem 7194,20;
+		delitem 747,10;
+		getitem 2255,1;
+		set hatpoints, hatpoints+1;
+		set evilwing,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1028) < 20) mes "^FF0000"+(20 - countitem(1028)) +"^000000 Mane";
+		if(countitem(924) < 40) mes "^FF0000"+(40 - countitem(924)) +"^000000 Powder of Butterfly";
+		if(countitem(7194) < 20) mes "^FF0000"+(20 - countitem(7194)) +"^000000 Blade of Grass";
+		if(countitem(747) < 10) mes "^FF0000"+(10 - countitem(747)) +"^000000 Crystal Mirror";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+anthell02,259,145,4	script	HATred Dude#15anthell	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (legionairehelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Legionaire Helm<INFO>5782</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000120^000000 Insect Peeling from Anyone here!"; //955
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(955) < 120) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 955,120;
+		getitem 5782,1;
+		set hatpoints, hatpoints+1;
+		set legionairehelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(955) < 120) mes "^FF0000"+(120 - countitem(955)) +"^000000 Insect Peeling!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+dew_dun01,151,196,4	script	HATred Dude#16dewata	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (burningbreath >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Burning Breath<INFO>19268</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Lava Rock from the Volcano!"; //7096
+		mes "^FF000030^000000 Withered Flower from Alnoldi!"; //6086
+		mes "^FF000030^000000 Ash Feather from Cendrawasih!"; //6393
+		mes "^FF000010^000000 Comodo Leather from Comodo Lizards!"; //6403
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7096) < 100) goto L_noitems;
+		if(countitem(6086) < 30) goto L_noitems;
+		if(countitem(6393) < 30) goto L_noitems;
+		if(countitem(6403) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7096,100;
+		delitem 6086,30;
+		delitem 6393,30;
+		delitem 6403,10;
+		getitem 19268,1;
+		set hatpoints, hatpoints+1;
+		set burningbreath,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7096) < 100) mes "^FF0000"+(100 - countitem(7096)) +"^000000 Lava Rock!";
+		if(countitem(6086) < 30) mes "^FF0000"+(30 - countitem(6086)) +"^000000 Withered Flower!";
+		if(countitem(6393) < 30) mes "^FF0000"+(30 - countitem(6393)) +"^000000 Ash Feather!";
+		if(countitem(6403) < 10) mes "^FF0000"+(10 - countitem(6403)) +"^000000 Comodo Leather!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+pay_fild07,31,303,4	script	HATred Dude#17payfild1	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (sakkat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you an <ITEM>Sakkat<INFO>2280</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Mushroom Spore!"; //921
+		mes "^FF000015^000000 Poison Spore!"; //7033
+		mes "^FF000035^000000 Dragonfly Wing!"; //7064
+		mes "^FF000030^000000 Wolf Claw!"; //920
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(921) < 50) goto L_noitems;
+		if(countitem(7033) < 15) goto L_noitems;
+		if(countitem(7064) < 35) goto L_noitems;
+		if(countitem(920) < 30) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 921,50;
+		delitem 7033,15;
+		delitem 7064,35;
+		delitem 920,30;
+		getitem 2280,1;
+		set hatpoints, hatpoints+1;
+		set sakkat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(921) < 50) mes "^FF0000"+(50 - countitem(921)) +"^000000 Mushroom Spores";
+		if(countitem(7033) < 15) mes "^FF0000"+(15 - countitem(7033)) +"^000000 Poison Spore";
+		if(countitem(7064) < 35) mes "^FF0000"+(35 - countitem(7064)) +"^000000 Dragonfly Wing";
+		if(countitem(920) < 30) mes "^FF0000"+(30 - countitem(920)) +"^000000 Wolf Claw";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+pay_fild06,301,174,4	script	HATred Dude#18payfild2	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (hahoemask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you an <ITEM>Hahoe Mask<INFO>5176</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000040^000000 Tree Root!"; //902
+		mes "^FF000040^000000 Pointed Scale!"; //906
+		mes "^FF000040^000000 Bear's Footskin!"; //948
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(902) < 40) goto L_noitems;
+		if(countitem(906) < 40) goto L_noitems;
+		if(countitem(948) < 40) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 902,40;
+		delitem 906,40;
+		delitem 948,40;
+		getitem 5176,1;
+		set hatpoints, hatpoints+1;
+		set hahoemask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(902) < 40) mes "^FF0000"+(40 - countitem(902)) +"^000000 Tree Root";
+		if(countitem(906) < 40) mes "^FF0000"+(40 - countitem(906)) +"^000000 Pointed Scale";
+		if(countitem(948) < 20) mes "^FF0000"+(20 - countitem(948)) +"^000000 Bear's Footskin";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+orcsdun02,110,33,4	script	HATred Dude#19orcdun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (orcherohelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Orc Hero Helm<INFO>5094</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Orc Fang from Anyone here!"; //922
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(922) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 922,200;
+		getitem 5094,1;
+		set hatpoints, hatpoints+1;
+		set orcherohelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(922) < 200) mes "^FF0000"+(200 - countitem(922)) +"^000000 Orc Fang!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ama_fild01,322,332,4	script	HATred Dude#20amafild	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (majestichelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Majestic Helm<INFO>19807</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Piece of Bamboo from Anyone here!"; //7150
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7150) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7150,150;
+		getitem 19807,1;
+		set hatpoints, hatpoints+1;
+		set majestichelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7150) < 150) mes "^FF0000"+(150 - countitem(7150)) +"^000000 Piece of Bamboo!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ama_dun01,73,196,4	script	HATred Dude#21amadun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (samuraimask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Samurai Mask<INFO>5767</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Worn-out Kimono  from Humanoids here!"; //7153
+		mes "^FF0000100^000000 Tengu Nose  from Weirdos here!"; //7159
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7153) < 100) goto L_noitems;
+		if(countitem(7159) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7153,100;
+		delitem 7159,100;
+		getitem 5767,1;
+		set hatpoints, hatpoints+1;
+		set samuraimask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7153) < 100) mes "^FF0000"+(100 - countitem(7153)) +"^000000 Worn-out Kimono!";
+		if(countitem(7159) < 100) mes "^FF0000"+(100 - countitem(7159)) +"^000000 Tengu Nose!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+abbey03,192,230,4	script	HATred Dude#22abbey	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (necrohood >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Necromancer Hood<INFO>5502</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Clattering Skull  from anyone here!"; //7752
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7752) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7752,200;
+		getitem 5502,1;
+		set hatpoints, hatpoints+1;
+		set necrohood,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7752) < 200) mes "^FF0000"+(200 - countitem(7752)) +"^000000 Clattering Skull!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+spl_fild01,318,238,4	script	HATred Dude#23splfil	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (wanderingmins >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Wandering Minstrel Hat<INFO>5188</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000060^000000 Singing Flower from North Monsters!"; //629
+		mes "^FF000060^000000 Magic Powder  from South Monsters!"; //6395
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(629) < 60) goto L_noitems;
+		if(countitem(6395) < 60) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 629,60;
+		delitem 6395,60;
+		getitem 5188,1;
+		set hatpoints, hatpoints+1;
+		set wanderingmins,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(629) < 60) mes "^FF0000"+(60 - countitem(629)) +"^000000 Singing Flower!";
+		if(countitem(6395) < 60) mes "^FF0000"+(60 - countitem(6395)) +"^000000 Magic Powder!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+cmd_fild07,84,274,4	script	HATred Dude#24stdarmain	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (boyscap >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Boy's Cap<INFO>5016</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000130^000000 Blue Hair from Kobolds!"; //1034
+		mes "^FF000020^000000 Cyfar  from Raggler!"; //7053
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1034) < 130) goto L_noitems;
+		if(countitem(7053) < 20) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1034,130;
+		delitem 7053,20;
+		getitem 5016,1;
+		set hatpoints, hatpoints+1;
+		set boyscap,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1034) < 130) mes "^FF0000"+(130 - countitem(1034)) +"^000000 Blue Hair!";
+		if(countitem(7053) < 20) mes "^FF0000"+(20 - countitem(7053)) +"^000000 Cyfar!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+cmd_fild02,78,87,4	script	HATred Dude#25comodo	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (strawhat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Straw Hat<INFO>5062</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Worn-out Uniform from Alligators!"; //1099
+		mes "^FF000050^000000 Reptile Tongue  from Grove!"; //903
+		mes "^FF000050^000000 Sea-Otter Fur  from Seals and Sea Otters!"; //7065
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1099) < 50) goto L_noitems;
+		if(countitem(903) < 50) goto L_noitems;
+		if(countitem(7065) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1099,50;
+		delitem 903,50;
+		delitem 7065,50;
+		getitem 5062,1;
+		set hatpoints, hatpoints+1;
+		set strawhat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1099) < 50) mes "^FF0000"+(50 - countitem(1099)) +"^000000 Worn-out Uniform!";
+		if(countitem(903) < 50) mes "^FF0000"+(50 - countitem(903)) +"^000000 Reptile Tongue!";
+		if(countitem(7065) < 50) mes "^FF0000"+(50 - countitem(7065)) +"^000000 Sea-Otter Fur!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+um_fild04,49,165,4	script	HATred Dude#26umbala	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (snakehead >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Snake Head<INFO>5388</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000080^000000 Shoulder Protectors from Wootan Warriors!"; //7196
+		mes "^FF000080^000000 Elastic Band  from Wootan Shooters!"; //7200
+		mes "^FF000020^000000 Wood Heart  from Wooden Golems!"; //7189
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7196) < 80) goto L_noitems;
+		if(countitem(7200) < 80) goto L_noitems;
+		if(countitem(7189) < 20) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7196,80;
+		delitem 7200,80;
+		delitem 7189,20;
+		getitem 5388,1;
+		set hatpoints, hatpoints+1;
+		set snakehead,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7196) < 80) mes "^FF0000"+(80 - countitem(7196)) +"^000000 Shoulder Protectors!";
+		if(countitem(7200) < 80) mes "^FF0000"+(80 - countitem(7200)) +"^000000 Elastic Band!";
+		if(countitem(7189) < 20) mes "^FF0000"+(20 - countitem(7189)) +"^000000 Wood Heart!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+beach_dun2,54,165,4	script	HATred Dude#27beachdun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (gamblerseal >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Gambler's Seal<INFO>5918</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Stinky Scale from Megalodon!"; //959
+		mes "^FF000050^000000 Spawn from Thara Frog!"; //908
+		mes "^FF000050^000000 Horrendous Hair from Medusa!"; //1048
+		mes "^FF000020^000000 Mud Lump from Stalactic Golem!"; //7004
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(959) < 50) goto L_noitems;
+		if(countitem(908) < 50) goto L_noitems;
+		if(countitem(1048) < 50) goto L_noitems;
+		if(countitem(7004) < 20) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 959,50;
+		delitem 908,50;
+		delitem 1048,50;
+		delitem 7004,20;
+		getitem 5918,1;
+		set hatpoints, hatpoints+1;
+		set gamblerseal,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(959) < 50) mes "^FF0000"+(50 - countitem(959)) +"^000000 Stinky Scale!";
+		if(countitem(908) < 50) mes "^FF0000"+(50 - countitem(908)) +"^000000 Spawn!";
+		if(countitem(1048) < 50) mes "^FF0000"+(50 - countitem(1048)) +"^000000 Horrendous Hair!";
+		if(countitem(7004) < 20) mes "^FF0000"+(20 - countitem(7004)) +"^000000 Mud Lump!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+wat_dun02,336,142,4	script	HATred Dude#28waterfall	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (darknesscrown >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Darkness Crown<INFO>18820</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000130^000000 Dark Crystal from Dark beings!"; //7799
+		mes "^FF000030^000000 Light Crystal  from Shiny beings!"; //25817
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7799) < 130) goto L_noitems;
+		if(countitem(25817) < 30) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7799,130;
+		delitem 25817,30;
+		getitem 18820,1;
+		set hatpoints, hatpoints+1;
+		set darknesscrown,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7799) < 130) mes "^FF0000"+(130 - countitem(7799)) +"^000000 Dark Crystal!";
+		if(countitem(25817) < 30) mes "^FF0000"+(30 - countitem(25817)) +"^000000 Light Crystal!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ygg_dun02,88,148,4	script	HATred Dude#29yggdun	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (sprouthat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Sprout Hat<INFO>18596</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000500^000000 Stem from any plant here!"; //905
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(905) < 500) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 905,500;
+		getitem 18596,1;
+		set hatpoints, hatpoints+1;
+		set sprouthat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(905) < 500) mes "^FF0000"+(500 - countitem(905)) +"^000000 Stem!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+nest_dun02,30,92,4	script	HATred Dude#30drgnest	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (crimsonwhelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Crimson Wings Helm<INFO>5873</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Dragon Mane from any dragon here!"; //6073
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6073) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6073,200;
+		getitem 5873,1;
+		set hatpoints, hatpoints+1;
+		set crimsonwhelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6073) < 200) mes "^FF0000"+(200 - countitem(6073)) +"^000000 Dragon Mane!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ygg_fild01,44,75,4	script	HATred Dude#31yggfild	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (hermodcap >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Hermod's Cap<INFO>5481</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Golden Feather from anyone here!"; //6394
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6394) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6394,150;
+		getitem 5481,1;
+		set hatpoints, hatpoints+1;
+		set hermodcap,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6394) < 150) mes "^FF0000"+(150 - countitem(6394)) +"^000000 Golden Feather!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+tur_dun03,61,40,4	script	HATred Dude#32turtle	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (bittingturtle >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Snapping Turtle<INFO>5611</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Turtle Shell from anyone here!"; //967
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(967) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 967,150;
+		getitem 5611,1;
+		set hatpoints, hatpoints+1;
+		set bittingturtle,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(967) < 150) mes "^FF0000"+(150 - countitem(967)) +"^000000 Turtle Shell!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+pay_dun03,150,265,4	script	HATred Dude#33paycave	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (foxribbons >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Fox Ears Bell Ribbon<INFO>18934</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000025^000000 Evil Bone from skeletons!"; //6507
+		mes "^FF000025^000000 Amulet from spirits!"; //609
+		mes "^FF000025^000000 Nine Tails from foxes!"; //1022
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6507) < 25) goto L_noitems;
+		if(countitem(609) < 25) goto L_noitems;
+		if(countitem(1022) < 25) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6507,25;
+		delitem 609,25;
+		delitem 1022,25;
+		getitem 18934,1;
+		set hatpoints, hatpoints+1;
+		set foxribbons,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6507) < 25) mes "^FF0000"+(25 - countitem(6507)) +"^000000 Evil Bone!";
+		if(countitem(609) < 25) mes "^FF0000"+(25 - countitem(609)) +"^000000 Amulet!";
+		if(countitem(1022) < 25) mes "^FF0000"+(25 - countitem(1022)) +"^000000 Nine Tails!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+mjolnir_08,288,79,4	script	HATred Dude#34mjolow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (romwhiteflower >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Romantic White Flower<INFO>5206</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Flowers from anyone here!"; //712
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(712) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 712,100;
+		getitem 5206,1;
+		set hatpoints, hatpoints+1;
+		set romwhiteflower,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(712) < 100) mes "^FF0000"+(100 - countitem(712)) +"^000000 Flowers!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+mjolnir_12,101,93,4	script	HATred Dude#35mjomid	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (butterflyear >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Butterfly Wing Ear<INFO>18782</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000120^000000 Bug Leg from Bugs!"; //1042
+		mes "^FF000080^000000 Mantis Scythe  from Mantises!"; //1031
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1042) < 120) goto L_noitems;
+		if(countitem(1031) < 80) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1042,120;
+		delitem 1031,80;
+		getitem 18782,1;
+		set hatpoints, hatpoints+1;
+		set butterflyear,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1042) < 120) mes "^FF0000"+(120 - countitem(1042)) +"^000000 Bug Leg!";
+		if(countitem(1031) < 80) mes "^FF0000"+(80 - countitem(1031)) +"^000000 Mantis Scythe!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+mjolnir_01,296,354,4	script	HATred Dude#36mjoup	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (honeybeehat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Honey Bee Hat<INFO>18533</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Bee Sting from Flying Monsters!"; //939
+		mes "^FF000050^000000 Venom Canine  from Ground Monsters!"; //937
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(939) < 50) goto L_noitems;
+		if(countitem(937) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 939,50;
+		delitem 937,50;
+		getitem 18533,1;
+		set hatpoints, hatpoints+1;
+		set honeybeehat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(939) < 50) mes "^FF0000"+(50 - countitem(939)) +"^000000 Bee Sting!";
+		if(countitem(937) < 50) mes "^FF0000"+(50 - countitem(937)) +"^000000 Venom Canine!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+snow_fild03,161,273,4	script	HATred Dude#37snowlow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (snowmanhat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Snowman Hat<INFO>5738</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000090^000000 Fur from animal beings!"; //6020
+		mes "^FF000030^000000 Ice Stone from ice beings!"; //7522
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6020) < 90) goto L_noitems;
+		if(countitem(7522) < 30) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6020,90;
+		delitem 7522,30;
+		getitem 5738,1;
+		set hatpoints, hatpoints+1;
+		set snowmanhat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6020) < 90) mes "^FF0000"+(90 - countitem(6020)) +"^000000 Fur!";
+		if(countitem(7522) < 30) mes "^FF0000"+(30 - countitem(7522)) +"^000000 Ice Stone!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+snow_fild02,250,147,4	script	HATred Dude#38snowtop	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (beaniehat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Beanie<INFO>5076</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000030^000000 Fur from animal beings!"; //6020
+		mes "^FF000090^000000 Ice Stones  from ice beings!"; //6257
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6020) < 30) goto L_noitems;
+		if(countitem(7522) < 90) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6020,30;
+		delitem 7522,90;
+		getitem 5076,1;
+		set hatpoints, hatpoints+1;
+		set beaniehat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6020) < 30) mes "^FF0000"+(30 - countitem(6020)) +"^000000 Fur!";
+		if(countitem(6257) < 90) mes "^FF0000"+(90 - countitem(6257)) +"^000000 Ice Stones!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+hu_fild02,143,244,4	script	HATred Dude#39hutop	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (gryphonhead >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Gryphon Headband<INFO>20069</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000120^000000 Dragon Canine from anyone here!"; //1035
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1035) < 120) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1035,120;
+		getitem 20069,1;
+		set hatpoints, hatpoints+1;
+		set gryphonhead,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1035) < 120) mes "^FF0000"+(120 - countitem(1035)) +"^000000 Dragon Canine!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+hu_fild06,336,233,4	script	HATred Dude#40hugellow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (vanehairpin >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Vane Hairpin<INFO>5285</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000030^000000 Maneater Blossom  from land monsters!"; //1032
+		mes "^FF000090^000000 Clam Shell  from sea monsters!"; //965
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1032) < 30) goto L_noitems;
+		if(countitem(965) < 90) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1032,30;
+		delitem 965,90;
+		getitem 5285,1;
+		set hatpoints, hatpoints+1;
+		set vanehairpin,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1032) < 30) mes "^FF0000"+(30 - countitem(1032)) +"^000000 Maneater Blossom!";
+		if(countitem(965) < 90) mes "^FF0000"+(90 - countitem(965)) +"^000000 Clam Shell!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+vip_bath,154,302,4	script	HATred Dude#41bathhouse	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (sungod >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Hat of the Sun God<INFO>5353</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Small Towel from anyone here!"; //6025
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6025) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6025,200;
+		getitem 5353,1;
+		set hatpoints, hatpoints+1;
+		set sungod,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6025) < 200) mes "^FF0000"+(200 - countitem(6025)) +"^000000 Small Towels!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+lhz_fild02,235,243,4	script	HATred Dude#42lhzfild	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (agoldornament >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Ancient Gold Ornament<INFO>18570</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000300^000000 Handcuffs from anyone here!"; //7345
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7345) < 300) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7345,300;
+		getitem 18570,1;
+		set hatpoints, hatpoints+1;
+		set agoldornament,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7345) < 300) mes "^FF0000"+(300 - countitem(7345)) +"^000000 Handcuffs!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+yuno_fild05,366,159,4	script	HATred Dude#43yunolow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (pecopecohair >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Peco Peco Hairband<INFO>5286</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Broken Horn  from horned monsters!"; //6649
+		mes "^FF000050^000000 Grand Feather  from winged monsters!"; //7101
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6649) < 50) goto L_noitems;
+		if(countitem(7101) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6649,50;
+		delitem 7101,50;
+		getitem 5286,1;
+		set hatpoints, hatpoints+1;
+		set pecopecohair,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6649) < 50) mes "^FF0000"+(50 - countitem(6649)) +"^000000 Broken Horn!";
+		if(countitem(7101) < 50) mes "^FF0000"+(50 - countitem(7101)) +"^000000 Grand Feather!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+yuno_fild10,301,238,4	script	HATred Dude#44yunohigh	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (pagdayaw >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Pagdayaw<INFO>5263</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000120^000000 Zargon from anyone here!"; //912
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(912) < 120) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 912,120;
+		getitem 5263,1;
+		set hatpoints, hatpoints+1;
+		set pagdayaw,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(912) < 120) mes "^FF0000"+(120 - countitem(912)) +"^000000 Zargon!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ein_fild04,141,264,4	script	HATred Dude#45einbrochlow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (noblehigh >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Noble High Cap<INFO>18684</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000090^000000 Used Iron Plate from anyone here!"; //7319
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7319) < 90) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7319,90;
+		getitem 18684,1;
+		set hatpoints, hatpoints+1;
+		set noblehigh,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7319) < 90) mes "^FF0000"+(90 - countitem(7319)) +"^000000 Used Iron Plate!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ein_fild09,208,169,4	script	HATred Dude#46einbrochhigh	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (igniscap >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Ignis Cap<INFO>18651</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000020^000000 Frill from Driller here!"; //1012
+		mes "^FF000070^000000 Tear Gas from Gases here!"; //6215
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1012) < 20) goto L_noitems;
+		if(countitem(6215) < 70) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1012,20;
+		delitem 6215,70;
+		getitem 18651,1;
+		set hatpoints, hatpoints+1;
+		set igniscap,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1012) < 20) mes "^FF0000"+(20 - countitem(1012)) +"^000000 Frill!";
+		if(countitem(6215) < 70) mes "^FF0000"+(70 - countitem(6215)) +"^000000 Tear Gas!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ra_fild05,105,182,4	script	HATred Dude#47rachellow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (darkblinker >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Dark Blindfold<INFO>5104</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000060^000000 Sharp Talon from Hill Winds here!"; //7116
+		mes "^FF000015^000000 Maneater Root from Droseras here!"; //1033
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7116) < 60) goto L_noitems;
+		if(countitem(1033) < 15) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7116,60;
+		delitem 1033,15;
+		getitem 5104,1;
+		set hatpoints, hatpoints+1;
+		set darkblinker,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7116) < 60) mes "^FF0000"+(60 - countitem(7116)) +"^000000 Sharp Talon!";
+		if(countitem(1033) < 15) mes "^FF0000"+(15 - countitem(1033)) +"^000000 Maneater Root!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ra_fild12,305,197,4	script	HATred Dude#48rachelmid	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (shrinemaiden >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Shrine Maiden Hat<INFO>18791</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Rotten Meat from anyone here!"; //7564
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7564) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7564,150;
+		getitem 18791,1;
+		set hatpoints, hatpoints+1;
+		set shrinemaiden,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7564) < 150) mes "^FF0000"+(150 - countitem(7564)) +"^000000 Rotten Meat!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ra_fild11,221,206,4	script	HATred Dude#49rachelhigh	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (featherberet >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Feather Beret<INFO>5170</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000080^000000 Sand Lump from Mi Gaos!"; //7124
+		mes "^FF000080^000000 Moth Dust from Dustiness!"; //1057
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7124) < 80) goto L_noitems;
+		if(countitem(1057) < 80) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7124,80;
+		delitem 1057,80;
+		getitem 5170,1;
+		set hatpoints, hatpoints+1;
+		set featherberet,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7124) < 80) mes "^FF0000"+(80 - countitem(7124)) +"^000000 Sand Lump!";
+		if(countitem(1057) < 80) mes "^FF0000"+(80 - countitem(1057)) +"^000000 Moth Dust!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ve_fild02,56,191,4	script	HATred Dude#50veinslow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (ullescap >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Ulle's Cap<INFO>5123</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Tattered Clothes from anyone here!"; //7071
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7071) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7071,150;
+		getitem 5123,1;
+		set hatpoints, hatpoints+1;
+		set ullescap,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7071) < 150) mes "^FF0000"+(150 - countitem(7071)) +"^000000 Tattered Clothes!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ve_fild04,206,225,4	script	HATred Dude#51veinshigh	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (birdnest >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Bird's Nest<INFO>5129</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Topaz from anyone here!"; //728
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(728) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 728,150;
+		getitem 5129,1;
+		set hatpoints, hatpoints+1;
+		set birdnest,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(728) < 150) mes "^FF0000"+(150 - countitem(728)) +"^000000 Topaz!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+verus02,76,148,4	script	HATred Dude#52veruslow	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (magicbooster >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Magical Booster<INFO>5864</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Large Metal Scrap from anyone here!"; //6961
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6961) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6961,100;
+		getitem 5864,1;
+		set hatpoints, hatpoints+1;
+		set magicbooster,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6961) < 100) mes "^FF0000"+(100 - countitem(6961)) +"^000000 Large Metal Scrap!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+verus01,143,276,4	script	HATred Dude#53verushigh	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (powerbooster >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Power Booster<INFO>19245</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Broken Engine from anyone here!"; //6750
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6750) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6750,100;
+		getitem 19245,1;
+		set hatpoints, hatpoints+1;
+		set powerbooster,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6750) < 100) mes "^FF0000"+(100 - countitem(6750)) +"^000000 Broken Engine!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+thor_v03,280,74,4	script	HATred Dude#54thorvolcano	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (ifritmask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Ifrit Mask<INFO>5420</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Rebirth Egg from anyone here!"; //12828
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(12828) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 12828,150;
+		getitem 5420,1;
+		set hatpoints, hatpoints+1;
+		set ifritmask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(12828) < 150) mes "^FF0000"+(150 - countitem(12828)) +"^000000 Rebirth Egg!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+va_dun03,262,131,4	script	HATred Dude#55varmundtmansion	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (bluerose >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Miracle Blue Rose<INFO>5878</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Rose Quartz from Weird Monsters!"; //7293
+		mes "^FF0000100^000000 Dry Twig from Maidens!"; //25309
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7293) < 100) goto L_noitems;
+		if(countitem(25309) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7293,100;
+		delitem 25309,100;
+		getitem 5878,1;
+		set hatpoints, hatpoints+1;
+		set bluerose,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7293) < 100) mes "^FF0000"+(100 - countitem(7293)) +"^000000 Rose Quartz!";
+		if(countitem(25309) < 100) mes "^FF0000"+(100 - countitem(25309)) +"^000000 Dry Twig!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+tha_t05,62,63,4	script	HATred Dude#56thanatostower	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (darknesshelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Darkness Helm<INFO>5653</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000025^000000 Cursed Seal from the 4 Shards!"; //7442
+		mes "^FF000010^000000 Golden Ornament from 4 Angels!"; //7435
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7442) < 25) goto L_noitems;
+		if(countitem(7435) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7442,25;
+		delitem 7435,10;
+		getitem 5653,1;
+		set hatpoints, hatpoints+1;
+		set darknesshelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7442) < 25) mes "^FF0000"+(25 - countitem(7442)) +"^000000 Cursed Seal!";
+		if(countitem(7435) < 10) mes "^FF0000"+(10 - countitem(7435)) +"^000000 Golden Ornament!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+prt_sewb1,298,51,4	script	HATred Dude#57Culvert	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (yellowbandana >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Yellow Bandana<INFO>5277</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Ora Ora from anyone here!"; //701
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(701) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 701,100;
+		getitem 5277,1;
+		set hatpoints, hatpoints+1;
+		set yellowbandana,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(701) < 100) mes "^FF0000"+(100 - countitem(701)) +"^000000 Ora Ora!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+juperos_04,42,50,4	script	HATred Dude#58Juperos	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (riotchip >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Riot Chip<INFO>5965</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Crest Pieces of each type from everyone here!!"; //7356-7359
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7356) < 50) goto L_noitems;
+		if(countitem(7357) < 50) goto L_noitems;
+		if(countitem(7358) < 50) goto L_noitems;
+		if(countitem(7359) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7356,50;
+		delitem 7357,50;
+		delitem 7358,50;
+		delitem 7359,50;
+		getitem 5965,1;
+		set hatpoints, hatpoints+1;
+		set riotchip,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7356) < 50) mes "^FF0000"+(50 - countitem(7356)) +"^000000 Crest Piece 1";
+		if(countitem(7357) < 50) mes "^FF0000"+(50 - countitem(7357)) +"^000000 Crest Piece 2";
+		if(countitem(7358) < 50) mes "^FF0000"+(50 - countitem(7358)) +"^000000 Crest Piece 3";
+		if(countitem(7359) < 50) mes "^FF0000"+(50 - countitem(7359)) +"^000000 Crest Piece 4";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+moc_pryd01,180,49,4	script	HATred Dude#59pyramid2	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (angelears >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Angel Wing Ears<INFO>5074</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Clean Bandage from Mummies here!"; //7668
+		mes "^FF000050^000000 Nose Ring from Beasts here!"; //941
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7668) < 50) goto L_noitems;
+		if(countitem(941) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7668,50;
+		delitem 941,50;
+		getitem 5074,1;
+		set hatpoints, hatpoints+1;
+		set angelears,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7668) < 50) mes "^FF0000"+(50 - countitem(7668)) +"^000000 Clean Bandage!";
+		if(countitem(941) < 50) mes "^FF0000"+(50 - countitem(941)) +"^000000 Nose Ring!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+in_sphinx2,43,202,4	script	HATred Dude#60sphinx	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (evilears >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Devil Wing Ears<INFO>5068</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Memento from Servants here!"; //934
+		mes "^FF000050^000000 Cultish Mask from Nobles here!"; //1045
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(934) < 50) goto L_noitems;
+		if(countitem(1045) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 934,50;
+		delitem 1045,50;
+		getitem 5068,1;
+		set hatpoints, hatpoints+1;
+		set evilears,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(934) < 50) mes "^FF0000"+(50 - countitem(934)) +"^000000 Memento!";
+		if(countitem(1045) < 50) mes "^FF0000"+(50 - countitem(1045)) +"^000000 Cultish Mask!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gl_knt02,141,16,4	script	HATred Dude#61glknt	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (bonehelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Bone Helm<INFO>5017</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Chivalry Emblem from anyone here!"; //1004
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1004) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1004,100;
+		getitem 5017,1;
+		set hatpoints, hatpoints+1;
+		set bonehelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1004) < 100) mes "^FF0000"+(100 - countitem(1004)) +"^000000 Chivalry Emblem!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gl_cas02,12,191,4	script	HATred Dude#62glcas	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (crowndeceit >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Crown of Deceit<INFO>5564</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Old Magic Book from anyone here!"; //1006
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1006) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1006,100;
+		getitem 5564,1;
+		set hatpoints, hatpoints+1;
+		set crowndeceit,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1006) < 100) mes "^FF0000"+(100 - countitem(1006)) +"^000000 Old Magic Book!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gl_church,256,276,4	script	HATred Dude#63glchu	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (coif >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Coif<INFO>5092</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Garnet from anyone here!"; //718
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(718) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 718,100;
+		getitem 5092,1;
+		set hatpoints, hatpoints+1;
+		set coif,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(718) < 100) mes "^FF0000"+(100 - countitem(718)) +"^000000 Garnet!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gl_prison1,132,133,4	script	HATred Dude#64glpri	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (cigarette >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Cigarette<INFO>2267</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Broken Armor from anyone here!"; //7069
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7069) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7069,100;
+		getitem 2267,1;
+		set hatpoints, hatpoints+1;
+		set cigarette,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7069) < 100) mes "^FF0000"+(100 - countitem(7069)) +"^000000 Broken Armor!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gef_fild09,240,224,4	script	HATred Dude#65gef1	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (wizardhat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Wizard Hat<INFO>2252</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Acorn from animals here!"; //1026
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1026) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1026,100;
+		getitem 2252,1;
+		set hatpoints, hatpoints+1;
+		set wizardhat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1026) < 100) mes "^FF0000"+(100 - countitem(1026)) +"^000000 Acorn!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+gef_fild05,253,163,4	script	HATred Dude#66gef2	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (elvenears >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Elven Ears<INFO>2286</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000050^000000 Dragon Tail from Petites!"; //1037
+		mes "^FF000020^000000 Witherless Roses from Wild Roses!"; //748
+		mes "^FF000070^000000 Orcish Voucher from Orcs!"; //931
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1037) < 50) goto L_noitems;
+		if(countitem(748) < 20) goto L_noitems;
+		if(countitem(931) < 70) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1037,50;
+		delitem 748,20;
+		delitem 931,70;
+		getitem 2286,1;
+		set hatpoints, hatpoints+1;
+		set elvenears,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1037) < 50) mes "^FF0000"+(50 - countitem(1037)) +"^000000 Dragon Tail!";
+		if(countitem(748) < 20) mes "^FF0000"+(20 - countitem(748)) +"^000000 Witherless Roses!";
+		if(countitem(931) < 70) mes "^FF0000"+(70 - countitem(931)) +"^000000 Orcish Vouchers!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+prt_fild03,198,272,4	script	HATred Dude#67banana	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (bananahat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Banana Hat<INFO>5116</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Solid Peach from monkeys here!"; //7164
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7164) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7164,200;
+		getitem 5116,1;
+		set hatpoints, hatpoints+1;
+		set bananahat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7164) < 200) mes "^FF0000"+(200 - countitem(7164)) +"^000000 Solid Peach!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+skydun2,156,166,4	script	HATred Dude#68valkcyrclet	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (valkcyrclet >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Valkyrie Circlet<INFO>18827</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000500^000000 Einherjar Soul from anyone here!"; //7362
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7362) < 500) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7362,500;
+		getitem 18827,1;
+		set hatpoints, hatpoints+1;
+		set valkcyrclet,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7362) < 500) mes "^FF0000"+(500 - countitem(7362)) +"^000000 Einherjar Soul!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+//Post Beta HATred
+
+face_dun03,141,235,4	script	HATred Dude#69FafnirMask	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (fafmask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Fafnir Mask<INFO>18560</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Fluorescent Liquid from anyone here!"; //7326
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7326) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7326,200;
+		getitem 18560,1;
+		set hatpoints, hatpoints+1;
+		set fafmask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7326) < 200) mes "^FF0000"+(200 - countitem(7326)) +"^000000 Fluorescent Liquid!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+nif_dun01,146,274,4	script	HATred Dude#70OperaMask	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (operamask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Opera Mask<INFO>2281</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Black Cloth from anyone here!"; //7205
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7205) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7205,200;
+		getitem 2281,1;
+		set hatpoints, hatpoints+1;
+		set operamask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7205) < 200) mes "^FF0000"+(200 - countitem(7205)) +"^000000 Black Cloth!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+xmas_dun01,106,36,4	script	HATred Dude#71ToyHat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (toyhat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Toy Soldier Hat<INFO>5418</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000250^000000 Wrapping Lace from anyone here!"; //7174
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7174) < 250) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7174,250;
+		getitem 5418,1;
+		set hatpoints, hatpoints+1;
+		set toyhat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7174) < 250) mes "^FF0000"+(250 - countitem(7174)) +"^000000 Wrapping Lace!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+pay_tem03,28,144,4	script	HATred Dude#72ghostband	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (ghostband >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Ghost Bandana<INFO>2274</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000250^000000 Ectoplasm from anyone here!"; //7220
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7220) < 250) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7220,250;
+		getitem 2274,1;
+		set hatpoints, hatpoints+1;
+		set ghostband,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7220) < 250) mes "^FF0000"+(250 - countitem(7220)) +"^000000 Ectoplasm!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+mal_dun02,100,178,4	script	HATred Dude#73doctorband	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (docband >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Doctor Band<INFO>2273</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Ancient Grudge from anyone here!"; //6499
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6499) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6499,150;
+		getitem 2273,1;
+		set hatpoints, hatpoints+1;
+		set docband,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6499) < 150) mes "^FF0000"+(150 - countitem(6499)) +"^000000 Ancient Grudge!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ice_dun02,206,218,4	script	HATred Dude#74icecream	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (icecream >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Ice Cream Hat<INFO>5500</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Ice Cubic from anyone here!"; //7066
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7066) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7066,100;
+		getitem 5500,1;
+		set hatpoints, hatpoints+1;
+		set icecream,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7066) < 100) mes "^FF0000"+(100 - countitem(7066)) +"^000000 Ice Cubic!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+mag_dun01,44,48,4	script	HATred Dude#75devilbone	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (devilbone >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Devil Bone Helm<INFO>5529</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000120^000000 Burning Heart from anyone here!"; //7097
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7097) < 120) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7097,120;
+		getitem 5529,1;
+		set hatpoints, hatpoints+1;
+		set devilbone,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7097) < 100) mes "^FF0000"+(100 - countitem(7097)) +"^000000 Burning Heart!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+prt_maze02,158,114,4	script	HATred Dude#76sheephat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (sheephat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Sheep Hat<INFO>5133</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000070^000000 Evil Horn from Baphomet monsters here!"; //923
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(923) < 70) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 923,70;
+		getitem 5133,1;
+		set hatpoints, hatpoints+1;
+		set sheephat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(923) < 70) mes "^FF0000"+(70 - countitem(923)) +"^000000 Evil Horn!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+resc_dun02,26,381,4	script	HATred Dude#77aircaphat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (aircaphat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Airship Captain Hat<INFO>5359</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000250^000000 Flight Report from Anyone here!"; //6038
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6038) < 250) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6038,250;
+		getitem 5359,1;
+		set hatpoints, hatpoints+1;
+		set aircaphat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6038) < 250) mes "^FF0000"+(250 - countitem(6038)) +"^000000 Flight Report!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+iz_dun04,250,39,4	script	HATred Dude#78drownqueen	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (drownqueen >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Drowned Queen Hat<INFO>18728</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Crystal Blue from weaker monsters!"; //991
+		mes "^FF0000150^000000 Mystic Frozen from stronger monsters!"; //995
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(991) < 150) goto L_noitems;
+		if(countitem(995) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 991,150;
+		delitem 995,150;
+		getitem 18728,1;
+		set hatpoints, hatpoints+1;
+		set drownqueen,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(991) < 150) mes "^FF0000"+(150 - countitem(991)) +"^000000 Crystal Blue!";
+		if(countitem(995) < 150) mes "^FF0000"+(150 - countitem(995)) +"^000000 Mystic Frozen!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+mjo_dun01,33,178,4	script	HATred Dude#79gasmask	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (gasmask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Gas Mask<INFO>5005</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000150^000000 Lantern from anyone here!"; //1041
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1041) < 150) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1041,150;
+		getitem 5005,1;
+		set hatpoints, hatpoints+1;
+		set gasmask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1041) < 150) mes "^FF0000"+(150 - countitem(1041)) +"^000000 Lantern!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+abyss_01,266,35,4	script	HATred Dude#80wingdrahat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (wingdrahat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Winged Dragon Hat<INFO>5869</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Dragon Horn from lower Dragons!"; //7265
+		mes "^FF000025^000000 Red Bijou from Mimics!"; //7447
+		mes "^FF0000100^000000 Dragon Head from higher Dragons!"; //7443
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7265) < 100) goto L_noitems;
+		if(countitem(7447) < 25) goto L_noitems;
+		if(countitem(7443) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7265,100;
+		delitem 7447,25;
+		delitem 7443,100;
+		getitem 5869,1;
+		set hatpoints, hatpoints+1;
+		set wingdrahat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7265) < 100) mes "^FF0000"+(100 - countitem(7265)) +"^000000 Dragon Horn!";
+		if(countitem(7447) < 25) mes "^FF0000"+(25 - countitem(7447)) +"^000000 Red Bijou!";
+		if(countitem(7443) < 100) mes "^FF0000"+(100 - countitem(7443)) +"^000000 Dragon Head!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+c_tower3,178,56,4	script	HATred Dude#81slothhat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (slothhat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Sloth Hat<INFO>5761</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Needle of Alarm from Clocks and Alarms!"; //1095
+		mes "^FF0000100^000000 Clock Key from stronger monsters!"; //7026
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(1095) < 100) goto L_noitems;
+		if(countitem(7026) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 1095,100;
+		delitem 7026,100;
+		getitem 5761,1;
+		set hatpoints, hatpoints+1;
+		set slothhat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(1095) < 100) mes "^FF0000"+(100 - countitem(1095)) +"^000000 Needle of Alarm!";
+		if(countitem(7026) < 100) mes "^FF0000"+(100 - countitem(7026)) +"^000000 Clock Key!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ayo_dun02,44,172,4	script	HATred Dude#82magicstonehat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (magicstonehat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Magic Stone Hat<INFO>5753</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000300^000000 Tassel from anyone here!"; //7301
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7301) < 300) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7301,300;
+		getitem 5753,1;
+		set hatpoints, hatpoints+1;
+		set magicstonehat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7301) < 300) mes "^FF0000"+(300 - countitem(7301)) +"^000000 Tassel!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+ein_dun01,79,141,4	script	HATred Dude#83weldmask	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (weldmask >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Welding Mask<INFO>2292</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000300^000000 Glittering Crystal from anyone here!"; //6152
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6152) < 300) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6152,300;
+		getitem 2292,1;
+		set hatpoints, hatpoints+1;
+		set weldmask,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6152) < 300) mes "^FF0000"+(300 - countitem(6152)) +"^000000 Glittering Crystal!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+lhz_dun02,224,6,4	script	HATred Dude#84geminieyes	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (geminieyes >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Gemini Eyes<INFO>19113</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000500^000000 Research Report from anyone here!"; //7347
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7347) < 500) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7347,500;
+		getitem 19113,1;
+		set hatpoints, hatpoints+1;
+		set geminieyes,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7347) < 500) mes "^FF0000"+(500 - countitem(7347)) +"^000000 Research Report!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+nif_fild02,251,201,4	script	HATred Dude#85dropcat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (dropcat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Drooping Cat<INFO>5058</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000090^000000 Black Cat Doll from Loli Ruris and weird monsters!"; //7206
+		mes "^FF0000110^000000 Old Manteau from Dullahans and Bloody Murderers!"; //7207
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7206) < 90) goto L_noitems;
+		if(countitem(7207) < 110) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7206,90;
+		delitem 7207,110;
+		getitem 5058,1;
+		set hatpoints, hatpoints+1;
+		set dropcat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7206) < 90) mes "^FF0000"+(90 - countitem(7206)) +"^000000 Black Cat Doll!";
+		if(countitem(7207) < 110) mes "^FF0000"+(110 - countitem(7207)) +"^000000 Old Manteau!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+odin_tem01,321,71,4	script	HATred Dude#86valkhelm	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (valkhelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Valkyrie Helm<INFO>5171</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF00001000^000000 Runes of Darkness from anyone here!"; //7511
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7511) < 1000) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7511,1000;
+		getitem 5171,1;
+		set hatpoints, hatpoints+1;
+		set valkhelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7511) < 1000) mes "^FF0000"+(1000 - countitem(7511)) +"^000000 Rune of Darkness!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+lost_dun01,162,164,4	script	HATred Dude#87crownking	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (crownking >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Crown<INFO>5165</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Tower Piece from tower and cave monsters!"; //7082
+		mes "^FF000050^000000 Disg Emblem???? from elemental knights!"; //7102
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7082) < 100) goto L_noitems;
+		if(countitem(7102) < 50) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7082,100;
+		delitem 7102,50;
+		getitem 5165,1;
+		set hatpoints, hatpoints+1;
+		set crownking,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7082) < 100) mes "^FF0000"+(100 - countitem(7082)) +"^000000 Tower Piece!";
+		if(countitem(7102) < 50) mes "^FF0000"+(50 - countitem(7102)) +"^000000 Disg Emblem???";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+nif_cas02,26,26,4	script	HATred Dude#88darkbacilium	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (darkbacilium >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Dark Bacilium<INFO>5808</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000200^000000 Soul Cages from regular monsters!"; //7214
+		mes "^FF000020^000000 Tangled Chain from the Great Shadow!"; //7221
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(7214) < 200) goto L_noitems;
+		if(countitem(7221) < 20) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 7214,200;
+		delitem 7221,20;
+		getitem 5808,1;
+		set hatpoints, hatpoints+1;
+		set darkbacilium,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(7214) < 200) mes "^FF0000"+(200 - countitem(7214)) +"^000000 Soul Cage!";
+		if(countitem(7221) < 20) mes "^FF0000"+(20 - countitem(7221)) +"^000000 Tangled Chains!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+rek_dun01,233,79,4	script	HATred Dude#89angelhelm	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (angelhelm >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Angel Helm<INFO>5025</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF000025^000000 Chill of Death from the Cores!"; //6471
+		mes "^FF0000200^000000 Will of Warrior from the Clones!"; //6469
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(6471) < 25) goto L_noitems;
+		if(countitem(6469) < 200) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 6471,25;
+		delitem 6469,200;
+		getitem 5025,1;
+		set hatpoints, hatpoints+1;
+		set angelhelm,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(6471) < 25) mes "^FF0000"+(25 - countitem(6471)) +"^000000 Chill of Death!";
+		if(countitem(6469) < 200) mes "^FF0000"+(200 - countitem(6469)) +"^000000 Will of Warrior!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+moc_fild01,194,31,4	script	HATred Dude#90cactushat	899,{
+	cutin "sc_vicente01",2;
+	emotion ET_STARE;
+	mes "[HATred Dude]";
+	mes "I'm so full of hate!";
+	mes "I'm also so full of hats!";
+	mes "I hate the monsters here!";
+	next;
+	if (cactushat >= 1) {
+	mes "[HATred Dude]";
+	mes "You already got my hat!";
+	mes "What else do you want? A HUG?!";
+	mes "So far you got "+hatpoints+" hats from me!";
+	cutin "",255;
+	close;
+	}
+	mes "[HATred Dude]";
+	mes "If you kill them for me, and bring me";
+	mes "proof, of course!";
+	mes "I'll give you a <ITEM>Cactus Hat<INFO>5737</INFO></ITEM>!";
+	mes "What do you say?";
+	next;
+	switch(select("What do you need?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_STARE;
+		mes "[HATred Dude]";
+		mes "^FF0000100^000000 Cactus Needle from Mukas!"; //952
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(952) < 100) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[HATred Dude]";
+		mes "GOOD DAMN JOB!";
+		mes "Here, you can have this Hat!";
+		mes "I don't need it as I'm a LITTLE";
+		mes "CALMER NOW.";
+		delitem 952,100;
+		getitem 5737,1;
+		set hatpoints, hatpoints+1;
+		set cactushat,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_OTL;
+		mes "[HATred Dude]";
+		mes "Don't you know how to count?";
+		mes "You're missing...";
+		if(countitem(952) < 100) mes "^FF0000"+(100 - countitem(952)) +"^000000 Cactus Needle!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_HNG;
+		mes "[HATred Dude]";
+		mes "Dont waste my time!";
+		cutin "",255;
+		close;
+	}
+}
+
+balder_cell,107,101,3	script	Balder#Cell	683,{ 
+	set .@npc$, "[Balder]";
+	cutin "h_chaos02",2;
+	if (balderunlock ==1){
+	mes .@npc$;
+	mes "Oh, it's the determinated Orphan, what is it?";
+	next;
+	switch(select("Do you know Iris?:How did you get the hats?:How did you die?:What can you do for me?:Nothing")) {
+	case 1:
+	mes .@npc$;
+	mes "Iris? Is she still alive?";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Yes, why?";
+	next;
+	mes .@npc$;
+	mes "I... Chaos always loved her. I'm happy to know she is fine.";
+	next;
+	mes .@npc$;
+	mes "Chaos was a piece of my soul that walked the land after I died. He was part of my eyes, he slayed a lot of monsters to protect the world. Much like you do now.";
+	next;
+	mes .@npc$;
+	mes "Then I needed all my power to keep Surt here. And Chaos had to come and serve as my vessel. He didn't have time to say goodbye to Iris.";
+	next;
+	mes .@npc$;
+	mes "Tell Iris that chaos is fine. He won't come back, but she needs to be strong.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "And he... We... miss her.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Leave it to me.";
+	close2;
+	if (irisunlock ==0){
+	set irisunlock,1;
+	}
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Have you met Sarah in Payon? Maybe in a distortion?";
+	next;
+	if (achiev20 ==0){
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "No, Who is she? What about it?";
+	next;
+	mes .@npc$;
+	mes "Well...nevermind. I'd rather not discuss it now. Sorry.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Oh yeah, cute little girl. What about her?";
+	next;
+	mes .@npc$;
+	mes "When Chaos walked the lands, he would slay all sorts of enemies. He would craft special Hats for Sarah.";
+	next;
+	mes .@npc$;
+	mes "These hats were the inspiration for my HATred rewards. For the same way Sarah would receive a gift from Chaos, you receive something that reminds him of his story.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Oh...that's...cool. And pretty nice.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Sarah was chosen to be one of the Valkyries. Quite a sad outcome. But this doesn't change who she was for us.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "Curious aren't you?";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Well, yes.";
+	next;
+	mes .@npc$;
+	mes "Loki was a friend of mine. I asked him to do it.";
+	next;
+	mes .@npc$;
+	mes "He used a Mistletoe Arrow as I requested. He knew this would forever taint his image. But he knew it was necessary.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "To keep Surt here right?";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Exactly. It was a difficult moment for both of us. But the mortals don't care about the truth. They'd rather have a drama.";
+	close2;
+	cutin "",255;
+	end;
+	case 4:
+	mes .@npc$;
+	mes "Well, I actually can do some stuff for you. But I doubt you'll have what it takes to get it.";
+	next;
+	mes .@npc$;
+	mes "I do need some materials, but I can't actually leave this place to get them myself you know?";
+	next;
+	mes .@npc$;
+	mes "If you bring me some items and the materials needed, I'll make you a <ITEM>Celestial Tome<INFO>24236</INFO></ITEM> ";
+	mes "It's extremely heavy, but I'm sure it'll be amazing for you.";
+	next;
+	switch(select("I have everything needed.:What do you need?:Nevermind.")) {
+	case 1:
+		if(countitem(7361) < 500) goto L_noitems2;
+		if(countitem(23080) < 25) goto L_noitems2;
+		if(countitem(24107) < 1) goto L_noitems2;
+		if(countitem(24148) < 1) goto L_noitems2;
+		if(countitem(24225) < 1) goto L_noitems2;
+		if(countitem(14735) < 25) goto L_noitems2;
+		if(countitem(7615) < 10) goto L_noitems2;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Amazing! You actually have everything needed!";
+		next;
+		mes .@npc$;
+		mes "This is a massive tome! It has so many enchantments in it that I would carry it everywhere you go.";
+		next;
+		mes .@npc$;
+		mes "It's literally crafted by a god, for you. So, take care of it.";
+		if (achievchaos ==0 ){
+		achievementcomplete(200029);
+		set achievchaos,1;
+		}
+		specialeffect2 96;
+		delitem 7361,500;
+		delitem 23080,25;
+		delitem 24107,1;
+		delitem 24148,1;
+		delitem 24225,1;
+		delitem 14735,25;
+		delitem 7615,10;
+		getitem 24236,1;
+		close2;
+		cutin "",255;
+		end;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please, double check to make sure you have all items needed. I can't even try to make it without those.";
+		close2;
+		cutin "",255;
+		end;
+	case 2:
+		mes .@npc$;
+		mes "Well, I'll need a few materials to help strenghten my seal here, they are:";
+		mes "^FF0000500^000000 Distortion Essences";//7361
+		mes "^FF000025^000000 Jewel Shadowdecons";//23080
+		next;
+		mes .@npc$;
+		mes "And to actually create your Celestial Tome, I'll need:";
+		mes "^FF00001^000000 Paradiso Tome";//24107
+		mes "^FF00001^000000 Purgatorio Tome";//24148
+		mes "^FF00001^000000 Inferno Tome";//24225
+		mes "^FF000025^000000 Growth Shadow Coffers";//14735
+		mes "^FF000010^000000 MVP Shards";//7615
+		next;
+		mes .@npc$;
+		mes "I know that's a very extensive list, and I don't really expect you to get it. But if you wish to try... It's gonna be a LOT of weight ok?";
+		close2;
+		cutin "",255;
+		end;
+	case 3:
+		mes .@npc$;
+		mes "I did tell you it was complicated didnt I? Exactly.";
+		close2;
+		cutin "",255;
+		end;
+	}
+	}
+	}
+	mes .@npc$;
+	mes "An...Orphan...? I know you from somewhere.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Chaos?";
+	next;
+	mes .@npc$;
+	mes "They used to call me that, true.";
+	next;
+	mes .@npc$;
+	mes "I'm Balder. Nice to meet you.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Balder? THE Balder? You died years ago!";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "Yes, you're in the land of the dead. You are seeing a dead guy.";
+	next;
+	mes .@npc$;
+	mes "Chaos was my mortal name. I had a good life full of adventures. But duty calls and I must take responsability for the world. That's why I'm here.";
+	next;
+	mes .@npc$;
+	mes "This door binds the soul of Surt, or as you call him, Satan Morroc.";
+	next;
+	emotion ET_PANIC, playerattached();
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "And why are you here?!";
+	next;
+	mes .@npc$;
+	mes "Surt shall never return. I'm here to make sure he stays here. Forever.";
+	next;
+	mes .@npc$;
+	mes "The HATred Dude is essential in this mission. That's why I allowed you to come here.";
+	next;
+	mes .@npc$;
+	mes "You helped all 90 of my requests. I'm impressed. Honest.";
+	next;
+	emotion ET_SCRATCH;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "You are the HATred Dude?!";
+	next;
+	emotion ET_HUM;
+	mes .@npc$;
+	mes "Red Spiky hair, an attitude, strange focus on killing monsters...doesn't it ring a bell?";
+	next;
+	mes .@npc$;
+	mes "They are pieces of my soul that I scatered through the land. I don't care that you brought the items for the hats. By killing the monsters for me, I was able to channel more power to keep the door closed.";
+	next;
+	mes .@npc$;
+	mes "The HATred Dude is merely a way for you Orphans to help me here in Niflheim.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "That's... quite a lot to take in. I'm glad I got something out of it. And could help.";
+	next;
+	mes .@npc$;
+	mes "Thanks. Really. It's exhausting to keep watch over a demon that can destroy the world.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "...Can you do me a favor?";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Of Course.";
+	next;
+	mes .@npc$;
+	mes "Don't let those cultists bring me back. A single moment and Morroc will break free. We won't have a chance.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "You have my word.";
+	next;
+	mes .@npc$;
+	mes "Well, feel free to ask me anything you may need to know. It's good to have someone to talk.";
+	close2;
+	set balderunlock,1;
+	cutin "",255;
+	end;
+}

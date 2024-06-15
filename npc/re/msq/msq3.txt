@@ -1,0 +1,716 @@
+//Quest 3
+
+
+payon,228,181,4	script	Serious Guard#MSQ3	708,{
+	set .@npc$, "[Serious Guard]";	
+	if (BaseLevel <=29){
+	mes .@npc$;
+	mes "I can't tell you much about the collapsed floor of Payon Cave...the place is pretty dangerous compared to the rest of the caves due to the strange monsters... maybe if you were Base Level 30...";
+	next;
+	mes .@npc$;
+	mes "You might want to consider training inside the cave, the first floor may not be accessible, but the other floors could use your help against the monsters.";
+	close;
+	}
+	if (MSQProg !=2){
+	mes .@npc$;
+	mes "Welcome to Payon. I'm always watching people around here. And I personally assist people who need help with information.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "If you ever need help with the area. I'll be here.";
+	close;
+	}
+	if (hinotracking ==1){
+	mes .@npc$;
+	mes "Have you found your friend yet? Try talking to the guard in the Archer Village.";
+	close;
+	}
+	if (MSQProg == 2){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Excuse me?";
+	next;
+	mes .@npc$;
+	mes "Hello there! Do you need any help?";
+	next;
+	if (jesterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm looking for a dude with very long hair, likely to trip on it or use it as a blanket due to how long that mess is, seen any?";
+	next;
+	mes .@npc$;
+	mes "Can you be little more specific and a little less stupid?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Geez... let's see...";
+	next;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "A guy with very long black hair. About my age. Probably very serious. Have you seen him? It's a friend of mine...";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh! That's a very distinct look! Yes! He went northeast, to the Archer Village. Try talking to one of the guards there!";
+	next;
+	set hinotracking,1;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Thank you sir. I'll go take a look!";
+	close;
+	}
+}
+	
+pay_arche,42,140,5	script	Cave Guard#MSQ3	708,{
+	set .@npc$, "[Cave Guard]";
+	if (MSQProg !=2){
+	mes .@npc$;
+	mes "The first area of the Payon Caves has been sealed off from the usual visitors.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "There were... way too many zombies there. We used to allow adventurers to take care of those but...they are... different.";
+	next;
+	mes .@npc$;
+	mes "Some people get authorization to go there, but I've no idea why they would want to.";
+	close;
+	}
+	if (hinotracking ==0){
+	mes .@npc$;
+	mes "The first area of the Payon Caves has been sealed off for the usual visitors.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "There were... way too many zombies there. We used to allow adventurers to take care of those but...they are... different.";
+	next;
+	mes .@npc$;
+	mes "Some people get authorization to go there, but I've no idea why they would want to.";
+	close;
+	}
+	mes .@npc$;
+	mes "Hey there! Do you need something?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm looking for Hino, a friend. Long black hair, around my age, seen him?";
+	next;
+	mes .@npc$;
+	mes "Ah! Yes! He actually is doing some research inside the old first area of the caves near here. Weird how he got that permit...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Oh, great! I'm  " + strcharinfo(0) + ", maybe he said something?" ;
+	next;
+	mes .@npc$;
+	mes strcharinfo(0) + ", He did leave a letter for you, do you want to enter the cave and check the letter now?";
+	next;
+	switch(select("I'm not really interested:Sure! Of course!")) {
+	case 1:
+	mes .@npc$;
+	mes "Really? Weird...let me know if you change your mind.";
+	close;
+	case 2:
+	emotion ET_BEST, playerattached();
+	mes .@npc$;
+	mes "Here, take this! If you want to go inside i'll guide you around the usual entrance.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Regards from Hino";
+	mes "^6666CCYou start reading the letter...^000000";
+	next;
+	mes "^6666CCHello there friend. I've been looking for you since I woke up. I was afraid something had happened to you too, but i'm so glad I found you safe!^000000";
+	next;
+	mes "^6666CCDon't trust anybody, the world is kind of chaotic, but I hope we can help each other. Sorry for the hurry, but there's much to be done.^000000";
+	next;
+	.@name$ = "MSQ3" + rand(10000);
+	party_create (.@name$);
+	mes "^6666CCI hope to see you soon, please, come inside the cave. I might be getting close to understanding what's happening to us.^000000";
+	next;
+	mes "^6666CCPS:Don't tell the guard the permit I used to enter was fake. Hihi.^000000";
+	next;
+	mes "^6666CCRegards from Hino. Your Friend.^000000";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Let's go there." ;
+	next;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Regards from Hino]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Calm Guard]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Regards from Hino...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Regards from Hino]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+}
+
+pay_dun00,1,1,4	script	Controller#MSQ3	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Hino Tres#2MSQ3");
+	disablenpc instance_npcname("Hino Tres#3MSQ3");
+	disablenpc instance_npcname("Hino Tres#4MSQ3");
+	disablenpc instance_npcname("Hino Tres#5MSQ3");
+	disablenpc instance_npcname("Anabelle#MSQ3");
+	disablenpc instance_npcname("Anabelle#2MSQ3");
+	disablenpc instance_npcname("Weird Man#MSQ3");
+	disablenpc instance_npcname("Orphan#MSQ3");
+	disablenpc instance_npcname("???#msq3i");
+	end;
+}
+
+pay_dun00,25,165,5	script	???#msq3a	723,4,4,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 20, 174;
+	end;
+}
+
+pay_dun00,29,133,5	script	???#msq3b	723,6,6,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 29, 143;
+	end;
+}
+
+pay_dun00,105,148,5	script	???#msq3c	723,6,6,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 93, 158;
+	end;
+}
+
+pay_dun00,95,129,5	script	???#msq3d	723,6,6,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 105, 129;
+	end;
+}
+pay_dun00,116,84,5	script	???#msq3e	723,6,6,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 129, 83;
+	end;
+}
+pay_dun00,109,39,5	script	???#msq3f	723,6,6,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 101, 47;
+	end;
+}
+
+pay_dun00,100,24,5	script	???#msq3g	723,6,6,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 110, 24;
+	end;
+}
+
+pay_dun00,157,46,5	script	???#msq3h	723,3,3,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 110, 24;
+	end;
+}
+
+pay_dun00,135,22,5	script	???#msq3i	723,3,3,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("pay_dun00"), 139, 25;
+	end;
+}
+
+pay_dun00,20,169,6	script	Hino Tres#MSQ3	638,{
+	set .@npc$, "[Hino Tres]";
+	cutin "thf_lumin01",2;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Hino...?";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes strcharinfo(0) + "! Damn, It's good to see you're fine!";
+	next;
+	mes .@npc$;
+	mes "So it seems both of us had the same fate eh?";
+	next;
+	if (jesterjob ==1){
+	emotion ET_HUM, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Except one of us is funny. And surprise: It's not you.";
+	next;
+	mes .@npc$;
+	mes "Look at that...you finally realized how dumb you were and took clown classes eh? Makes sense. Haha!";
+	next;
+	}
+	if (thiefjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "And even the jobs! Both of us...thieves!";
+	next;
+	mes .@npc$;
+	mes "...Not like I had much choice... But I'm satisfied with my path.";
+	next;
+	}
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yeah... but I plan to change mine. You'd do well to do the same.";
+	next;
+	}
+	if (judgejob ==1){
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "And seeing you as a Judge? That was VERY unexpected!";
+	next;
+	}
+	if (raiderjob ==1){
+	mes .@npc$;
+	mes "And here you are, a Raider! Quite impressive!";
+	next;
+	}
+	if (vagabondjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I don't really care about destiny...it's...no big deal.";
+	next;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Anyway... what's the plan? Why would you want to come to this cave?";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Payon cave used to always have monsters... don't you find it to be a little strange that suddenly they closed it off?";
+	next;
+	emotion ET_THINK, playerattached();
+	mes .@npc$;
+	mes "Well the guard did mention that more zombies were appearing but...I don't know about that. Seems pretty empty around here.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So what? Why do you care?";
+	next;
+	mes .@npc$;
+	mes "I saw a man... the day my family vanished. A strange man with a massive red eye around its hair.";
+	next;
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait, what? Really? I saw that man too!";
+	next;
+	mes .@npc$;
+	mes "And I saw that same man around the crowd here. On the day the cave was sealed. There were a lot of confused people wondering what's going on, but he was there.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Ok, lets try to find him!";
+	next;
+	mes .@npc$;
+	mes "Lets meet east of here, on the large open room, You take the south path and i'll take the direct path and investigate. Watch out for zombies, kill them all to be sure you're safe!";
+	close2;
+	cutin "",255;
+	emotion ET_BEST, playerattached();
+	mapannounce instance_mapname("pay_dun00"), "Investigate the Sealed-off cave!",bc_map,"0xffff00";
+	disablenpc instance_npcname("Hino Tres#MSQ3");
+	disablenpc instance_npcname("???#msq3a");
+	donpcevent instance_npcname("#MSQ3Z1", instance_id())+"::OnEnable";
+	end;
+}
+
+pay_dun00,1,2,4	script	#MSQ3Z1	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#MSQ3Z1", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#MSQ3Z1", instance_id());
+	set .@map$, instance_mapname("pay_dun00");
+	.@event$ = instance_npcname("#MSQ3Z1")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,52,165,"Strange Zombie",1015,1, .@event$;
+	monster .@map$,90,158,"Strange Zombie",1015,1, .@event$;
+	set 'Zombies_MSQ,2;
+	end;
+
+OnMyMobDead:
+	set 'Zombies_MSQ,'Zombies_MSQ-1;
+	mapannounce instance_mapname("pay_dun00"), "...Thank you...E...v...",bc_map,"0xffff00";
+	if ('Zombies_MSQ < 1) {
+		set 'Zombies_MSQ, 0;
+		mapannounce instance_mapname("pay_dun00"), "Hino: Hurry! Come here! I'm waiting!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Hino Tres#2MSQ3");
+		disablenpc instance_npcname("???#msq3c");
+	}
+	end;
+}
+
+pay_dun00,142,154,4	script	Hino Tres#2MSQ3	638,{
+	cutin "thf_lumin01",2;
+	set .@npc$, "[Hino Tres]";
+	emotion ET_QUESTION, playerattached();
+	mes .@npc$;
+	mes "The zombies! They talk!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I heard them! What is going on?!";
+	next;
+	mes .@npc$;
+	mes "I have no clue... but that's absolutely not normal.";
+	next;
+	mes .@npc$;
+	mes "We should continue investigating.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Let's see what's near the old access to the 2nd floor, to the south!";
+	next;
+	mes .@npc$;
+	mes "Right, Let's go!";
+	close2;
+	cutin "",255;
+	emotion ET_BEST, playerattached();
+	mapannounce instance_mapname("pay_dun00"), "Investigate the Sealed-off cave a little more and defeat any zombies!",bc_map,"0xffff00";
+	disablenpc instance_npcname("Hino Tres#2MSQ3");
+	donpcevent instance_npcname("#MSQ3Z2", instance_id())+"::OnEnable";
+	end;
+}
+
+pay_dun00,1,2,4	script	#MSQ3Z2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#MSQ3Z2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#MSQ3Z2", instance_id());
+	set .@map$, instance_mapname("pay_dun00");
+	.@event$ = instance_npcname("#MSQ3Z2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,150,141,"Strange Zombie",1015,1, .@event$;
+	monster .@map$,135,107,"Strange Zombie",1015,1, .@event$;
+	monster .@map$,127,80,"Strange Zombie",1015,1, .@event$;
+	monster .@map$,103,62,"Strange Zombie",1015,1, .@event$;
+	monster .@map$,123,131,"Strange Zombie",1015,1, .@event$;
+	set 'Zombies2_MSQ,5;
+	end;
+
+OnMyMobDead:
+	set 'Zombies2_MSQ,'Zombies2_MSQ-1;
+	mapannounce instance_mapname("pay_dun00"), "I'm free... I fa... He...",bc_map,"0xffff00";
+	if ('Zombies2_MSQ < 1) {
+		set 'Zombies2_MSQ, 0;
+		mapannounce instance_mapname("pay_dun00"), "Hino: Hey! Come check this out!",bc_map,"0xffff00";
+		disablenpc instance_npcname("???#msq3f");
+		enablenpc instance_npcname("Hino Tres#3MSQ3");
+		enablenpc instance_npcname("Weird Man#MSQ3");
+		enablenpc instance_npcname("Orphan#MSQ3");
+	}
+	end;
+}
+
+pay_dun00,166,39,4	script	Weird Man#MSQ3	10386,{
+	mes "^6666CC Is that the man I saw in my house!?^000000";
+	close;
+}
+
+pay_dun00,164,44,4	script	Orphan#MSQ3	703,{
+	mes "^6666CC Who is that girl?^000000";
+	close;
+}
+
+pay_dun00,150,40,4	script	Hino Tres#3MSQ3	638,2,2,{
+	cutin "thf_lumin01",2;
+	set .@npc$, "[Hino Tres]";
+	emotion ET_QUESTION, playerattached();
+	mes .@npc$;
+	mes "Come here beside me! You'll be able to see it better!";
+	close2;
+	cutin "",255;
+	emotion ET_HUM, playerattached();
+	end;
+	OnTouch:
+	mes .@npc$;
+	mes "Look! It's that weird man...";
+	next;
+	playBGM "217";
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What is he doing here...?";
+	next;
+	cutin "ep18_bagot_01.png",2;
+	mes "[Strange Man]";
+	mes "Are you scared, child?";
+	next;
+	mes "[Scared Orphan]";
+	mes "W-who are you? I'm not scared!";
+	next;
+	emotion ET_KIK, getnpcid(0, instance_npcname("Weird Man#MSQ3"));
+	mes "[Strange Man]";
+	mes "Of course you are...How many people did you kill with your shadows?";
+	next;
+	mes "[Scared Orphan]";
+	mes "I didn't k...";
+	next;
+	mes "[Strange Man]";
+	mes "Of course you did...How many people did you kill with your shadows?";
+	next;
+	emotion ET_STARE, getnpcid(0, instance_npcname("Weird Man#MSQ3"));
+	mes "[Strange Man]";
+	mes "Don't you... DARE LIE TO MY FACE! HOW MANY!?";
+	next;
+	emotion ET_CRY, getnpcid(0, instance_npcname("Orphan#MSQ3"));
+	mes "[Scared Orphan]";
+	mes "I...I... I don't know! Too many... anyone is... too many.";
+	next;
+	mes "[Strange Man]";
+	mes "YOU MURDERER! YOU ARE A MONSTER! AN ABOMINATION IN THIS WORLD!";
+	next;
+	emotion ET_CRY, getnpcid(0, instance_npcname("Orphan#MSQ3"));
+	mes "[Scared Orphan]";
+	mes "No please... I... I...";
+	next;
+	mes "[Strange Man]";
+	mes "That's right! You ARE A MONSTER... A MONSTER!";
+	next;
+	emotion ET_CRY, getnpcid(0, "Orphan#MSQ3");
+	emotion ET_SURPRISE, playerattached();
+	emotion ET_SURPRISE;
+	emotion ET_KIK, getnpcid(0, instance_npcname("Weird Man#MSQ3"));
+	mes "[Strange Man]";
+	mes "Excelent... monster... I'll come back later to see your work...";
+	close2;
+	cutin "",255;
+	mapannounce instance_mapname("pay_dun00"), "The girl has turned into a monster?! We have to defend ourselves!",bc_map,"0xffff00";
+	disablenpc instance_npcname("Hino Tres#3MSQ3");
+	disablenpc instance_npcname("Orphan#MSQ3");
+	disablenpc instance_npcname("Weird Man#MSQ3");
+	disablenpc instance_npcname("???#msq3h");
+	enablenpc instance_npcname("???#msq3i");
+	donpcevent instance_npcname("#MSQ3Z3", instance_id())+"::OnEnable";
+	end;
+}
+
+pay_dun00,1,2,4	script	#MSQ3Z3	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#MSQ3Z3", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#MSQ3Z3", instance_id());
+	set .@map$, instance_mapname("pay_dun00");
+	.@event$ = instance_npcname("#MSQ3Z3")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,157,46,"Orphan Monster",1036,1, .@event$;
+	set 'Zombies3_MSQ,1;
+	end;
+
+OnMyMobDead:
+	set 'Zombies3_MSQ,'Zombies3_MSQ-1;
+	mapannounce instance_mapname("pay_dun00"), "I'm not a...m... ster... He...",bc_map,"0xffff00";
+	if ('Zombies3_MSQ < 1) {
+		set 'Zombies3_MSQ, 0;
+		enablenpc instance_npcname("Hino Tres#4MSQ3");
+		enablenpc instance_npcname("Anabelle#MSQ3");
+	}
+	end;
+}
+
+pay_dun00,139,27,7	script	Hino Tres#4MSQ3	638,{
+	set .@npc$, "[Hino Tres]";
+	cutin "thf_lumin01",2;
+	mes .@npc$;
+	mes "Whew... wait... is this...?";
+	close2;
+	cutin "",255;
+	end;
+}
+
+pay_dun00,145,28,7	script	Anabelle#MSQ3	10455,{
+	set .@npc$, "[Anabelle]";
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Dammit! He escaped again!";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "Anabelle?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Sister?";
+	next;
+	emotion ET_QUESTION;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Wait a second... Hino... and... " + strcharinfo(0) + "!";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh damn! You- you're alive! You're both alive!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yes. Of course I am!";
+	next;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "I see that you're both Orphans now... ironic.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What are you doing here?";
+	next;
+	mes .@npc$;
+	mes "I was tracking that Man... for quite a while. He vanished without a trace.";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Who is that man?";
+	next;
+	mes .@npc$;
+	mes "I... think we should leave this place first. This cave is not safe. I feel way too much dark energy here.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "Let's go then.";
+	close2;
+	cutin "",255;
+	mapannounce instance_mapname("pay_dun00"), "Meet Anabelle and Hino near the entrance.",bc_map,"0xffff00";
+	disablenpc instance_npcname("Hino Tres#4MSQ3");
+	disablenpc instance_npcname("Anabelle#MSQ3");
+	enablenpc instance_npcname("Anabelle#2MSQ3");
+	disablenpc instance_npcname("???#msq3i");
+	end;
+}
+
+pay_dun00,36,164,4	script	Anabelle#2MSQ3	10455,{
+	cutin "ep19_juncea01",2;
+	set .@npc$, "[Anabelle]";
+	mes .@npc$;
+	mes "You've no idea how glad I am to see you alive,   " + strcharinfo(0) + "!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Not saying it's been easy...but I'm doing what I can.";
+	next;
+	mes .@npc$;
+	mes "Well, the world is adaptating to the situation. My Guild is helping research the situation.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...How are you alive?";
+	next;
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "Excuse me?";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm an orphan... my... our... family is dead. How are you alive?";
+	next;
+	mes .@npc$;
+	mes "Oh... You know what... meet me in Geffen. We have a castle there...we should be able to talk about it all.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Castle in Geffen... got it.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Anabelle#2MSQ3");
+	enablenpc instance_npcname("Hino Tres#5MSQ3");
+	end;
+}
+
+pay_dun00,30,160,7	script	Hino Tres#5MSQ3	638,{
+	set .@npc$, "[Hino Tres]";
+	cutin "thf_lumin01",2;
+	mes .@npc$;
+	mes "That's a big mistery...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Are you coming to Geffen?";
+	next;
+	mes .@npc$;
+	mes "I'm tracking that guy for a while now...and I lost track of him. I guess my best bet is to go with you there.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Thanks.";
+	next;
+	emotion ET_GOODBOY;
+	mes .@npc$;
+	mes "Hey... Anabelle is alive! Cheer up!";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "But I've no idea what's going on...";
+	next;
+	mes .@npc$;
+	mes "Yeah but... at least you have someone waiting for you...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm sorry Hino.";
+	close2;
+	cutin "",255;
+	switch(select("You'll find your path eventually:I'll be here my friend:Just get over it")) {
+	case 1:
+		mes .@npc$;
+		mes "I'm sure I will ... I didn't give up yet.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Thanks I'll take good care of it. I promise.";
+		next;
+		achievementcomplete(200067);
+		mes "^6666CCYou leave the cave.^000000";
+		close2;
+		set MSQProg,3;
+		set hinofavour, hinofavour+1;
+		warp "pay_arche",40,137;
+		end;
+	case 2:
+		mes .@npc$;
+		mes "Thanks... oh and... take this... it belonged to my sister.";
+		next;
+		if (wickebinering ==0) {
+		set wickebinering,1;
+		getitem 16164,1;
+		}
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Thanks I'll take good care of it. I promise.";
+		next;
+		achievementcomplete(200067);
+		mes "^6666CCYou leave the cave.^000000";
+		close2;
+		set MSQProg,3;
+		set hinofavour, hinofavour+2;
+		warp "pay_arche",40,137;
+		end;
+	case 3:
+		mes .@npc$;
+		mes "Did you really need to say that?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "You need to be strong.";
+		next;
+		mes .@npc$;
+		mes "You're not really the same anymore are you? Let's just go.";
+		next;
+		achievementcomplete(200067);
+		mes "^6666CCYou leave the cave.^000000";
+		close2;
+		set MSQProg,3;
+		warp "pay_arche",40,137;
+		end;
+}
+}

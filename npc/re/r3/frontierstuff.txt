@@ -1,0 +1,693 @@
+/////////Frontier Patch 1.2 NPCS
+////////Overall Scripts and Mapflags
+
+-	shop	amarantgear	-1,13080:15000,1543:15000,18128:15000,1580:15000,1445:15000;
+-	shop	frontiergear	-1,15447:15000,15449:15000,15451:15000,15453:15000,15455:15000;
+-	shop	marolltools	-1,2101:5000;
+
+va_orpha,281,349,5	script	Envoy from Maroll#orphanage	728,{
+		mes "[Lady Ann]";
+		mes "Hey there! The Maroll Kingdom has sent me to provide support and guidance to the Orphans of New-Midgard.";
+		next;
+		mes "[Lady Ann]";
+		mes "Is there something I can help you with?";
+		next;
+		switch(select("Take me to Frontier.:Tell me about Maroll.:Tell me about yourself.:Nevermind.")) {
+		case 1:
+		mes "[Lady Ann]";
+		mes "We have connected the Rose Network with Allysia, the Orphanage Kafra, you can talk to her to get there.";
+		next;
+		emotion ET_SWEAT;
+		mes "[Lady Ann]";
+		mes "I wish we had such a great service like you guys have here with the Kafra Network, the Rose Network is cool, but it lacks that...personal connection.";
+		close;
+		case 2:
+		mes "[Lady Ann]";
+		mes "Maroll Kingdom is a very interesting country. While we have issues like anywhere else, we work together to build a better future.";
+		next;
+		mes "[Lady Ann]";
+		mes "Our two prince brothers, Croix and Guillaume, work together to provide everything our people need.";
+		next;
+		mes "[Lady Ann]";
+		mes "In the past they would host the Battlegrounds in order to find who is the best commander, who would be our King...they decided to share the responsibilities.";
+		next;
+		emotion ET_BEST;
+		mes "[Lady Ann]";
+		mes "In my opinion that was a great choice! Prince Croix is a genius political strategist and Prince Guillaume is a master in combat.";
+		next;
+		mes "[Lady Ann]";
+		mes "Frontier is a free city built in order to help the 4 regions of our kingdom to find a fair meeting place to build our relations and negotiations.";
+		next;
+		mes "[Lady Ann]";
+		mes "I'm not sure you can visit many places other than Amarant and the surrounding areas, but maybe over time people will trust you guys enough.";
+		close;
+		case 3:
+		mes "[Lady Ann]";
+		mes "I used to be the representative to the Battlegrounds, an event that would help our kingdom crown the new King.";
+		next;
+		mes "[Lady Ann]";
+		mes "I have always served Maroll to the best of my abilities and will continue to do so now here, in the Orphanage.";
+		next;
+		emotion ET_BEST;
+		mes "[Lady Ann]";
+		mes "I understand quite a bit of the problems you Orphans go through around here, so don't worry, I'm here as an ally, not a spy.";
+		close;
+		case 4:
+		mes "[Lady Ann]";
+		mes "Take Care, orphan.";
+		close;
+}
+}
+
+va_orpha,251,328,3	script	Maroll Orphan#orphanage	62,{
+
+	set .@npc$, "[Maroll Orphan]";
+	mes .@npc$;
+	mes "Good thing that Maroll and Rune-Midgarts are on good terms...I could come to the Orphanage and find a new home.";
+	next;
+	emotion ET_THANK;
+	mes .@npc$;
+	mes "We didn't have it as bad as you guys around there... but the situation was quite a mess nonetheless...";
+	close;
+}
+
+nomadvill,42,177,3	script	Curious Nomad#nomadvill	89,{
+
+	set .@npc$, "[Curious Nomad]";
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Towards this path you can visit the Maroll Kingdom...Quite cool eh?";
+	next;
+	mes .@npc$;
+	mes "While they abandoned much of the structure they had on the path due to the increased threat of monsters, if you have some skills you can get to frontier all by yourself!";
+	close;
+}
+
+nomadvill,25,177,3	script	Maroll Soldier#nomadvill	570,{
+
+	set .@npc$, "[Maroll Soldier]";
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "If you wish to walk all the way to Maroll, you're gonna need to go through the Frontier Fields.";
+	next;
+	mes .@npc$;
+	mes "Along the path you will meet the abandoned Amarant Outpost, from the times where Maroll and Arunafeltz were...on worse terms. Be careful with monsters there.";
+	close;
+}
+
+fro_fild01,135,63,3	script	Amarant Hunter#frofild	577,{
+
+	set .@npc$, "[Amarant Hunter]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I've come from Amarant, the red village to the southwest. It's a lovely place if you like calm places.";
+	next;
+	mes .@npc$;
+	mes "To be honest our people were sort of ...abandoned by the capital, Nocturne, so we try to get by in our own ways. I hunt for food around this area.";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "One of these ways is this bridge... it turns invisible sometimes so monsters don't cross it because they can't figure it out haha!";
+	next;
+	mes .@npc$;
+	mes "All fields to the east of Frontier have been mostly abandoned...It's not really the greatest situation you know? We can't let it spread.";
+	close;
+}
+
+fro_fild02,188,114,3	script	Frontier Guard#frofild	570,{
+
+	set .@npc$, "[Frontier Guard]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I know the capital doesn't care much about this region, but I grew up in Amarant, south of here.";
+	next;
+	mes .@npc$;
+	mes "I...can't just leave them there to their own luck. So I always come here to patrol a bit at the end of the day.";
+	close;
+}
+
+fro_fild03,26,47,5	script	Frontier Sage#frofild	743,{
+
+	set .@npc$, "[Frontier Sage]";
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "I took a break here to check the abandoned mines before going to the Forgotten Tower.";
+	next;
+	mes .@npc$;
+	mes "I'm sorry but I can't let you inside now, it could ruin any clues that might exist. You'll have to wait until I'm done so I can go to the Tower.";
+	next;
+	mes .@npc$;
+	mes "That place is massive and almost nobody is allowed inside. Maybe they'll make an exception since I'm doing good research?";
+	close;
+}
+
+fro_tower,139,207,5	script	Maroll Knight#frofild	570,{
+
+	set .@npc$, "[Maroll Knight]";
+	mes .@npc$;
+	mes "There is nothing here for you Orphan. Please go back.";
+	close;
+}
+
+fro_tower,198,201,3	script	Maroll Knight#frotower	571,{
+
+	set .@npc$, "[Maroll Knight]";
+	mes .@npc$;
+	mes "The access to the tower is restricted to those who have authorization from the princes. This place is dangerous.";
+	close;
+}
+
+fro_vill2,57,62,1	script	Maroll Fisherman#frovill2	577,{
+
+	set .@npc$, "[Maroll Fisherman]";
+	mes .@npc$;
+	mes "The Coral Caves are part of the natural ecosystem, they pose no risk to anyone! I can't just let you inside this place like this.";
+	close;
+}
+
+fro_vill1,129,146,3	script	Amarant Villager#frovill1	578,{
+
+	set .@npc$, "[Amarant Villager]";
+	mes .@npc$;
+	mes "Welcome to Amarant. This village was abandoned by the kingdom long ago...nowadays we get most of our supplies by trading with the islands to the south.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "You're free to stay for as long as you wish... just don't cause trouble or disturb our simple lives ok?";
+	close;
+}
+
+fro_vill1,133,119,5	script	Maroll Traveler#frovill1	558,{
+
+	set .@npc$, "[Maroll Traveler]";
+	mes .@npc$;
+	mes "Amarant is a wonderful village. No strings attached to any political groups, no reasons to fight anyone's wars...they even have their own connections to the south!";
+	close;
+}
+
+fro_vill1,112,129,3	script	Amarant Leader#frovill1	580,{
+
+	set .@npc$, "[Amarant Leader]";
+	mes .@npc$;
+	mes "An orphan eh? Welcome to our village.";
+	next;
+	mes .@npc$;
+	mes "If you can spare some coin, we got an interesting assortment of equipment, all crafted here, they may be useful for you.";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "We could also really use the extra money, so consider it.";
+	close;
+}
+
+fro_vill1,61,146,5	script	Amarant Kid#frovill1	576,{
+
+	set .@npc$, "[Amarant Kid]";
+	mes .@npc$;
+	mes "Mom doesn't let me play in the Coral Caves.";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "She says that while it's a dangerous place, it's important to preserve it for the balance of our ecosystem.";
+	close;
+}
+
+fro_vill1,64,147,3	script	Amarant Woman#frovill1	579,{
+
+	set .@npc$, "[Amarant Woman]";
+	mes .@npc$;
+	mes "The fact that our village is located at the coast with a large canyon covering us provides all the safety we need.";
+	next;
+	mes .@npc$;
+	mes "We don't really mind the lack of connections to Frontier or the Kingdom itself. We got our quiet, calm days around here.";
+	close;
+}
+
+fro_vill1,107,84,3	script	Sailor#frovill1	536,{
+
+	set .@npc$, "[Sailor]";
+	mes .@npc$;
+	mes "I visit Amarant all the time. They can provide us with great resources from that cave nearby.";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Oh... Don't mind anything I say...";
+	close;
+}
+
+fro_vill1,50,117,5	script	Trader Alchemist#frovill1	542,{
+
+	set .@npc$, "[Trader Alchemist]";
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "This place is quite impressive. The people here work hard, isolated from most, and they can still manage to create awesome stuff.";
+	close;
+}
+
+fro_vill1,80,133,3	script	Artisan#frovill1	582,{
+
+	set .@npc$, "[Artisan]";
+	mes .@npc$;
+	mes "I crafted some unique equipment here using our own techniques. They may not be the most resistant ones, but the techniques used on them are pretty unique! Check them out!";
+	close2;
+	callshop "amarantgear",0;
+	end;
+}
+
+fro_vill2,153,111,3	script	Old Fisherman#frovill1	574,{
+
+	set .@npc$, "[Old Fisherman]";
+	mes .@npc$;
+	mes "I've been to Rachel long ago! That place was gorgeous and so full of life...I'm so sad about what it has become...";
+	close;
+}
+
+fro_vill2,143,117,5	script	Good-Looking Girl#frovill1	581,{
+
+	set .@npc$, "[Good-Looking Girl]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Have you ever been to Lighthalzen? I heard they are going through some rough times due to Rekember... I've been there around 10 years ago and it was quite a busy city.";
+	next;
+	mes .@npc$;
+	mes "If somehow they really are going through hard times... They must have done some crazy stuff.";
+	close;
+}
+
+fro_vill1,164,76,1	script	Judge#frovill1	10181,{
+
+	set .@npc$, "[Judge]";
+	if (judgejob ==0){
+	mes .@npc$;
+	mes "I'm here under official orders. Please don't bother me.";
+	close;
+	}
+	mes .@npc$;
+	mes "Hello Magister. There has been some reports about how the people in this village are...very protective of the Coral Caves to the west.";
+	next;
+	mes .@npc$;
+	mes "I'll investigate these reports for now, but the Peacekeepers are already working on it.";
+	close;
+}
+
+fro_vill1,169,164,7	script	Serious Man#frovill1	88,{
+
+	set .@npc$, "[Serious Man]";
+	mes .@npc$;
+	mes "If you wanted to get to Frontier, you took a wrong turn, you gotta go back and head northwest.";
+	close;
+}
+
+prt_cas,109,290,3	script	Peacekeeper Representative#prtcas	653,{
+
+	set .@npc$, "[Peacekeeper Representative]";
+	mes .@npc$;
+	mes "The Peacekeepers are a sister branch of the Judge Order, they operate in Maroll as agents for their Kingdom.";
+	next;
+	mes .@npc$;
+	mes "New-Midgard has the Judges to bring the law to everyone. Maroll has the Peacekeepers and their whips as their warriors.";
+	close;
+}
+
+prt_cas,80,264,5	script	Peacekeeper Visitor#prtcas	898,{
+
+	set .@npc$, "[Peacekeeper Visitor]";
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "I've come from Nocturne to visit Prontera and the Judge Headquarters. Sadly they won't let me in there.";
+	next;
+	mes .@npc$;
+	mes "I understand the situation, as every order has their sensitive information, even the Corsairs from the Blue Islands have theirs.";
+	close;
+}
+
+nomadvill,161,143,3	script	Maroll Visitor#nomadvill	97,{
+
+	set .@npc$, "[Maroll Visitor]";
+	mes .@npc$;
+	mes "This village is much more peaceful than I thought it would be, given the kind of...people that are together here. It really gave them a new chance.";
+	close;
+}
+
+front_out,385,202,1	script	Frontier Guard#frontier	413,{
+
+	set .@npc$, "[Frontier Guard]";
+	mes .@npc$;
+	mes "Hello there. Beyond this point lies the Frontier Fields, they are independent fields nowadays, and connect Maroll to Arunafeltz in New-Midgard.";
+	next;
+	mes .@npc$;
+	mes "A few years ago, the region was abandoned by the Kingdom for reasons I'm not fully aware of. Take care if you take this path, it can be dangerous.";
+	close;
+}
+
+front_out,13,210,5	script	Frontier Guard#frontier2	413,{
+
+	set .@npc$, "[Frontier Guard]";
+	mes .@npc$;
+	mes "I'm sorry, I cannot allow you to go beyond this gate. The road to Nocturne, our capital is closed to foreigners.";
+	next;
+	mes .@npc$;
+	mes "New-Midgard citizens are not allowed beyond Frontier for safety reasons. Thanks for your understanding.";
+	close;
+}
+
+front_out,204,389,3	script	Frontier Guard#frontier3	413,{
+
+	set .@npc$, "[Frontier Guard]";
+	mes .@npc$;
+	mes "The path to the cathedral city of Breidablik is forbidden to non-Maroll citizens.";
+	next;
+	mes .@npc$;
+	mes "Please, do not cause trouble. You are free to stay in Frontier however long you need.";
+	close;
+}
+
+front_out,203,10,7	script	Frontier Guard#frontier4	413,{
+
+	set .@npc$, "[Frontier Guard]";
+	mes .@npc$;
+	mes "This gate leads you to the desert regions and Yordsandr, the Oasis City.";
+	next;
+	mes .@npc$;
+	mes "However, I have no authorization to let you through, as there's civil unrest around the region that we are currently handling.";
+	close;
+}
+
+front_out,294,174,3	script	Judge#frontier	10181,{
+
+	set .@npc$, "[Judge]";
+	mes .@npc$;
+	mes "Frontier is a gorgeous city. It has all the signs of being built to be a free, welcoming city. You can see that multiple regions worked here for it.";
+	next;
+	mes .@npc$;
+	mes "I'm always focused on my work, but sometimes I just get distracted by this architecture.";
+	close;
+}
+
+front_out,243,178,3	script	Woman#frontier1	90,{
+
+	set .@npc$, "[Woman]";
+	mes .@npc$;
+	mes "I've come from Nocturne to try and find new trade routes with New-Midgard.";
+	next;
+	mes .@npc$;
+	mes "They always have plenty of opportunities and are very friendly!";
+	close;
+}
+
+front_out,268,216,3	script	Young Boy#frontier1	706,{
+
+	set .@npc$, "[Boy]";
+	mes .@npc$;
+	mes "My sister is part of the Peacekeepers, they keep an eye on us both for protection and to prevent trouble!";
+	close;
+}
+
+front_out,141,123,3	script	Captain#frontier1	100,{
+
+	set .@npc$, "[Captain]";
+	mes .@npc$;
+	mes "These ships are loaded and ready to depart to the Blue Islands. The Corsairs will make sure the path is safe for us.";
+	close;
+}
+
+front_out,148,150,5	script	Happy Man#frontier1	578,{
+
+	set .@npc$, "[Happy Man]";
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "I came from the Nomad Village and managed to get a great job here! Finally I can start a new life in a big city!";
+	close;
+}
+
+front_out,149,247,3	script	Pet Collector#frontier1	485,{
+
+	set .@npc$, "[Pet Collector]";
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "I love collecting pets! I should go to Prontera someday, I heard they have a cute spirit pet there, called Sohee!";
+	close;
+}
+
+front_out,120,275,5	script	Royal Lady#frontier1	10125,{
+
+	set .@npc$, "[Royal Lady]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "The food being sold here is not as good as Nocturne's! We have plenty of great restaurants there!";
+	close;
+}
+
+front_out,198,206,3	script	Ranger#frontier1	10148 ,{
+
+	set .@npc$, "[Ranger]";
+	mes .@npc$;
+	mes "I've come to Frontier in search of new hunts, they have some very rare monsters around. Have you seen the Molinets to the East?";
+	next;
+	mes .@npc$;
+	mes "Molinets die when they become adults, and that's part of their growth cycle, they spend most of their older lives as undead! Crazy eh?";
+	close;
+}
+
+front_out,206,348,1	script	High Priest#frontier1	79,{
+
+	set .@npc$, "[High Priest]";
+	mes .@npc$;
+	mes "Breidablik is a wonderful city, built among the snow mountains, it also has the largest cathedral in the land.";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "It took a lot of work for the Grand Priest to get authorization for me to go there for training...I'm so excited!";
+	close;
+}
+
+front_out,296,283,3	script	Curious Woman#frontier1	75,{
+
+	set .@npc$, "[Curious Woman]";
+	mes .@npc$;
+	mes "Hey Orphan! You came from Morroc right?";
+	next;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "I wish to visit that city someday. I love hot climate!";
+	close;
+}
+
+front_out,134,283,5	script	Working Woman#frontier1	74,{
+
+	set .@npc$, "[Working Woman]";
+	mes .@npc$;
+	mes "The Caffeteria is currently closed. Please come back in the future.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "We are working hard in great renovations around here!";
+	close;
+}
+
+front_out,160,168,7	script	Serious Worker#frontier1	84,{
+
+	set .@npc$, "[Serious Worker]";
+	mes .@npc$;
+	mes "Please don't bother me! I need to finish sorting these resources by the end of the day.";
+	close;
+}
+
+front_out,142,162,3	script	Rich Man#frontier1	853,{
+
+	set .@npc$, "[Rich Man]";
+	mes .@npc$;
+	mes "Have you visited our blacksmith? He has some very fancy equipment for sale, all very well made!";
+	close;
+}
+
+front_out,252,268,5	script	Quiet Man#frontier1	828,{
+
+	set .@npc$, "[Quiet Man]";
+	mes .@npc$;
+	mes "I like the silence and the smell of the gardens in Frontier...in such a busy city they really allow me to rest and collect my thoughts.";
+	close;
+}
+
+front_out,280,305,5	script	Romantic Woman#frontier1	646,{
+
+	emotion ET_BIGTHROB;
+	mes "[Yufa]";
+	mes "Roan... I love you so much! I hope we can always be together in Nocturne!";
+	next;
+	mes "[Roan]";
+	mes "Of course! It's about time we leave this city and build our life!";
+	close;
+}
+
+front_out,282,305,3	script	Romantic Man#frontier1	647,{
+
+	mes "[Yufa]";
+	mes "Roan... I love you so much! I hope we can always be together in Nocturne!";
+	next;
+	emotion ET_BIGTHROB;
+	mes "[Roan]";
+	mes "Of course! It's about time we leave this city and build our life!";
+	close;
+}
+
+front_out,31,233,3	script	Assassin Agent#frontier1	730,{
+
+	emotion ET_SCRATCH;
+	mes "[Assasin Member]";
+	mes "Hmmm...I need to figure out a way to get across that guard...";
+	next;
+	emotion ET_SURPRISE;
+	mes "[Assasin Member]";
+	mes "Heyy?! I'm just thinking out loud! No worries!";
+	close;
+}
+
+front_out,174,199,3	script	Tourist#frontier1	726,{
+
+	set .@npc$, "[Tourist]";
+	mes .@npc$;
+	mes "I'm preparing to take the airship to go to New-Midgard, I wanna visit Rachel and see that massive temple there!.";
+	close;
+}
+
+front_out,153,279,3	script	Man#frontier1	61,{
+
+	set .@npc$, "[Merchant from Nocturne]";
+	mes .@npc$;
+	mes "Some people have been working with us for a while in order to provide better trade opportunities for people from New-Midgard.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "They always drop by to buy some of our equipment.";
+	close;
+}
+
+front_out,146,279,3	script	Blacksmith#frontier1	63,{
+
+	set .@npc$, "[Frontier Smith]";
+	mes .@npc$;
+	mes "Hello there. We sell unique equipment here, they may be expensive but they are always worth your zeny!";
+	close2;
+	callshop "frontiergear",0;
+	end;
+}
+
+front_out,171,273,3	script	Tool Dealer#frontier1	75,{
+
+	set .@npc$, "[Frontier Vendor]";
+	mes .@npc$;
+	mes "Hey! Welcome to Frontier! You have zeny, I have the goods!";
+	close2;
+	callshop "toolorphanshop",0;
+	end;
+}
+
+front_out,152,236,3	script	Food Vendor#frontier1	10123,{
+
+	set .@npc$, "[Frontier Cook]";
+	mes .@npc$;
+	mes "Do you want to try some unique cuisine? I make the best!";
+	close2;
+	callshop "shopfood7",0;
+	end;
+}
+
+
+front_out,115,221,5	script	Maroll Scholar#frontier1	742,{
+
+	set .@npc$, "[Maroll Scholar]";
+	mes .@npc$;
+	mes "There are 4 demons that stand beyond any other demon in terms of power.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "These demons would find a strong, brave hero and want to capture their souls. They would possess their lovers and trick the heroes into a trap, killing them easily.";
+	next;
+	mes .@npc$;
+	mes "They came to be known as the 4 Baronesses. If you ever face one of them. Be very careful.";
+	next;
+	mes .@npc$;
+	mes "There is an Island far to the west called Malaya where a gorgeous waterfall was corrupted by one of them, the Baroness of Despair. I'd avoid that place if possible.";
+	next;
+	mes .@npc$;
+	mes "The Baroness of Sorrow took the body of the elder sister, while controlling the younger sister as the Voice of Sorrow...they can be found in the strange Opera House.";
+	next;
+	mes .@npc$;
+	mes "The Baroness of Solitude is filled with regret and anger, it wanders the Forgotten Tower, that place is sealed by the Maroll Kingdom and nobody can get inside.";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "The Baroness of Blood is the most dangerous, nobody has any idea where she may be, but the few who found her mentioned a strange sound and light... Be careful with that.";
+	close;
+	end;
+}
+
+// Pet Stores
+
+-	shop	petshop1	-1,9001:10000,9004:50000,9045:150000,9022:500000,9020:3000000.
+-	shop	petshop2	-1,9011:10000,9010:50000,9015:150000,9021:500000,9056:3000000.
+-	shop	petshop3	-1,9005:10000,9009:50000,9041:150000,9095:500000,9052:3000000.
+-	shop	petshop4	-1,9012:10000,9006:50000,9018:150000,9037:500000,9027:3000000.
+-	shop	petshop5	-1,9016:10000,9014:50000,9023:150000,9050:500000,9055:3000000.
+-	itemshop	petshop6	-1,7615,9048:50,9049:100,9026:250,9042:500,9112:2000.
+
+prontera,139,227,5	script	Pet Vendor#prontera	717,{
+
+	set .@npc$, "[Prontera Pets]";
+	mes .@npc$;
+	mes "Heyyyyy! Wanna buy some cool pets?";
+	close2;
+	callshop "petshop1",0;
+	end;
+}
+
+front_out,139,240,5	script	Pet Vendor#frontier	717,{
+
+	set .@npc$, "[Frontier Pets]";
+	mes .@npc$;
+	mes "Heyyyyy! Wanna buy some cool pets?";
+	close2;
+	callshop "petshop2",0;
+	end;
+}
+
+yuno,176,105,3	script	Pet Vendor#yun	717,{
+
+	set .@npc$, "[Yuno Pets]";
+	mes .@npc$;
+	mes "Heyyyyy! Wanna buy some cool pets?";
+	close2;
+	callshop "petshop3",0;
+	end;
+}
+
+dicast_in,236,114,5	script	Pet Vendor#dic	717,{
+
+	set .@npc$, "[Dicastes Pets]";
+	mes .@npc$;
+	mes "Heyyyyy! Wanna buy some cool pets?";
+	close2;
+	callshop "petshop4",0;
+	end;
+}
+
+rachel,136,51,3	script	Pet Vendor#rac	717,{
+
+	set .@npc$, "[Rachel Pets]";
+	mes .@npc$;
+	mes "Heyyyyy! Wanna buy some cool pets?";
+	close2;
+	callshop "petshop5",0;
+	end;
+}
+
+mora,121,180,3	script	Pet Vendor#mora	717,{
+
+	set .@npc$, "[Mora Pets]";
+	mes .@npc$;
+	mes "Heyyyyy! Wanna buy some cool pets?";
+	close2;
+	callshop "petshop6",0;
+	end;
+}

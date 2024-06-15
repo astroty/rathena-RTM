@@ -1,0 +1,724 @@
+prontera,276,214,4	script	Raccoon Man#paycostume	98,{
+	set .@npc$, "[Raccoon Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Lazy Smokie<INFO>19931</INFO></ITEM>!";
+	mes "Or a <ITEM>Costume Raccoon Hat<INFO>20304</INFO></ITEM>!";
+	mes "In exchange for ^FF0000100^000000 Raccon Leaf!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure! Lazy Smokie!:	Sure! Raccon Hat!:Nope")) {
+	case 1:
+		if(countitem(945) < 100) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 945,100;
+		getitem 19931,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		if(countitem(945) < 100) goto L_noitems2;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 945,100;
+		getitem 20304,1;
+		close;
+	L_noitems2:
+		mes "You don't have all required items.";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+
+alberta,117,69,4	script	Sailor Man#paycostume	98,{
+	set .@npc$, "[Sailor Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Sailor Hat<INFO>31059</INFO></ITEM>!";
+	mes "In exchange for ^FF000080^000000 Tree Trunk!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(1019) < 80) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 1019,80;
+		getitem 31059,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+morocc,200,42,4	script	Wolf Man#paycostume	98,{
+	set .@npc$, "[Wolf Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Desert Wolf Baby<INFO>31686</INFO></ITEM>!";
+	mes "In exchange for ^FF0000200^000000 Claw of Desert Wolf!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7030) < 200) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7030,200;
+		getitem 31686,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;	
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+nomadvill,80,104,4	script	Runaway Man#paycostume	98,{
+	set .@npc$, "[Runaway Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Runaway Mask<INFO>31844</INFO></ITEM>!";
+	mes "In exchange for ^FF000080^000000 Dry Leaf!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7590) < 80) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7590,80;
+		getitem 31844,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+in_orcs01,100,162,7	script	Orc Man#paycostume	98,{
+	set .@npc$, "[Orc Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Large Orc Hero Helm<INFO>31205</INFO></ITEM>!";
+	mes "In exchange for ^FF0000250^000000 Orcish Voucher!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(931) < 250) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 931,250;
+		getitem 31205,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+geffen_in,78,174,4	script	Circle Man#paycostume	98,{
+	set .@npc$, "[Circle Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Spell Circuit<INFO>20218</INFO></ITEM>!";
+	mes "In exchange for ^FF0000250^000000 Witherless Rose!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(748) < 250) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 748,250;
+		getitem 20218,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+payon,179,129,4	script	Sakkat Man#paycostume	98,{
+	set .@npc$, "[Raccoon Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Sakkat<INFO>19639</INFO></ITEM>!";
+	mes "In exchange for ^FF0000120^000000 Trunk!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(1019) < 120) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 1019,120;
+		getitem 19639,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+pay_arche,55,142,4	script	Sohee Man#paycostume	98,{
+	set .@npc$, "[Sohee Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Golden Bells<INFO>20004</INFO></ITEM>!";
+	mes "In exchange for ^FF00005^000000 Skirt of Virgin!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(1049) < 5) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 1049,5;
+		getitem 20004,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+moc_fild07,165,363,4	script	Hatta Man#moccostume	98,{
+	set .@npc$, "[Hatta Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Hatta Black<INFO>19567</INFO></ITEM>!";
+	mes "In exchange for ^FF00001^000000 Eggshell Hat!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(5055) < 1) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 5055,1;
+		getitem 19567,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+moc_fild16,176,247,4	script	Royal Man#moccostume	98,{
+	set .@npc$, "[Royal Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Ernst Von Wolf 11th<INFO>31664</INFO></ITEM>!";
+	mes "In exchange for ^FF00003^000000 Baby Desert Wolf Cards!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(4023) < 3) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 4023,3;
+		getitem 31664,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+dicast_out,136,145,4	script	Penguin Man#diccostume	98,{
+	set .@npc$, "[Penguin Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Baby Penguin<INFO>31437</INFO></ITEM>!";
+	mes "In exchange for ^FF000015^000000 Fang of Hatii!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7036) < 15) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7036,15;
+		getitem 31437,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+comodo,218,316,4	script	Lolita Man#comcostume	98,{
+	set .@npc$, "[Lolita Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Lolita Ten Gallon Hat<INFO>19815</INFO></ITEM>!";
+	mes "In exchange for ^FF00002^000000 Cursed Ruby!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(724) < 2) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 724,2;
+		getitem 19815,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+umbala,140,164,4	script	Kabuki Man#comcostume	98,{
+	set .@npc$, "[Kabuki Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Kabuki Mask<INFO>19556</INFO></ITEM>!";
+	mes "In exchange for ^FF00003^000000 Slingshot!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7195) < 3) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7195,3;
+		getitem 19556,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+hugel,136,179,4	script	Monochrome Man#hugcostume	98,{
+	set .@npc$, "[Monochrome Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Monochrome Ribbon Hat<INFO>20464</INFO></ITEM>!";
+	mes "In exchange for ^FF00001^000000 Yellow Novus Card!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(4382) < 1) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 4382,1;
+		getitem 20464,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+lighthalzen,85,94,4	script	Mask Man#lhzcostume	98,{
+	set .@npc$, "[Mask Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Alchemist Mask<INFO>31052</INFO></ITEM>!";
+	mes "In exchange for ^FF000050^000000 Handcuffs!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7345) < 50) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7345,50;
+		getitem 31052,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+yuno,112,217,4	script	Mad Man#yunocostume	98,{
+	set .@npc$, "[Mad Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Mad Hatter<INFO>31088</INFO></ITEM>!";
+	mes "In exchange for ^FF00003^000000 Emerald!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(721) < 3) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 721,3;
+		getitem 31088,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+xmas,176,187,4	script	Knit Man#lutiecostume	98,{
+	set .@npc$, "[Knit Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Rabbit Knit Hat<INFO>19990</INFO></ITEM>!";
+	mes "In exchange for ^FF00005^000000 Pearl!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(722) < 5) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 722,5;
+		getitem 19990,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+einbroch,176,261,4	script	Protector Man#einbrochcostume	98,{
+	set .@npc$, "[Protector Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Over Protector<INFO>20283</INFO></ITEM>!";
+	mes "In exchange for ^FF0000150^000000 Used Iron Plate!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7319) < 150) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7319,150;
+		getitem 20283,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+einbech,188,122,4	script	Pencil Man#einbechcostume	98,{
+	set .@npc$, "[Pencil Man]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Costume Well-Chewed Pencil<INFO>20280</INFO></ITEM>!";
+	mes "In exchange for ^FF00002^000000 Cracked Diamond!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(733) < 2) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 733,2;
+		getitem 20280,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+rachel,247,75,4	script	Pure Man#rachelcostume	98,{
+	set .@npc$, "[Pure Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Pure White Ribbon<INFO>20332</INFO></ITEM>! ";
+	mes "In exchange for ^FF00005^000000 Contract Letter!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7278) < 5) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7278,5;
+		getitem 20332,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+grey_ft01,295,181,4	script	Gang Man#nomadcostume	98,{
+	set .@npc$, "[Gang Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Gang Scarf<INFO>19605</INFO></ITEM>! ";
+	mes "In exchange for ^FF00003^000000 Burnt Tree!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7068) < 3) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7068,3;
+		getitem 19605,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+veins,154,288,4	script	Wicked Man#veinscostume	98,{
+	set .@npc$, "[Wicked Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Beelzebub Crown<INFO>20302</INFO></ITEM>! ";
+	mes "In exchange for ^FF00003^000000 Letter from a King!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7965) < 3) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7965,3;
+		getitem 20302,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+verus04,82,164,4	script	Analyzer Man#veruscostume	98,{
+	set .@npc$, "[Analyzer Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Analyze Eye<INFO>20315</INFO></ITEM>! ";
+	mes "In exchange for ^FF000015^000000 Cor Core!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(25723) < 15) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 25723,15;
+		getitem 20315,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+juperos_03,79,145,4	script	Cannon Man#juperoscostume	98,{
+	set .@npc$, "[Cannon Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Twin Cannon<INFO>31671</INFO></ITEM>! ";
+	mes "In exchange for ^FF0000200^000000 of each Crest Piece!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7356) < 200) goto L_noitems;
+		if(countitem(7357) < 200) goto L_noitems;
+		if(countitem(7358) < 200) goto L_noitems;
+		if(countitem(7359) < 200) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7356,200;
+		delitem 7357,200;
+		delitem 7358,200;
+		delitem 7359,200;
+		getitem 31671,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+ayo_fild01,191,56,4	script	Summer Man#ayothayacostume	98,{
+	set .@npc$, "[Summer Man]";
+	mes .@npc$;
+	mes "I can give you a ";
+	mes "<ITEM>Costume Summer Flower Hat<INFO>20339</INFO></ITEM>! ";
+	mes "In exchange for ^FF0000150^000000 Fig Leaf!";
+	mes "In exchange for ^FF000050^000000 Straw Basket!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(7298) < 150) goto L_noitems;
+		if(countitem(7299) < 50) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 7298,150;
+		delitem 7299,50;
+		getitem 20339,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+gef_fild05,291,77,4	script	Astro Man#nomadcostume	98,{
+	set .@npc$, "[Astro Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Stargazer Hat<INFO>31649</INFO></ITEM>! ";
+	mes "In exchange for ^FF0000500^000000 Star Piece!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(6468) < 500) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 6468,500;
+		getitem 31649,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+front_out,380,234,4	script	Parade Man#nomadcostume	98,{
+	set .@npc$, "[Parade Man]";
+	mes .@npc$;
+	mes "I can give you <ITEM>Costume Parade Cap<INFO>19953</INFO></ITEM>! ";
+	mes "In exchange for ^FF0000100^000000 Sharp Crystal Stone!";
+	mes "What do you say?";
+	next;
+	switch(select("Sure!:Nope")) {
+	case 1:
+		if(countitem(6408) < 100) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		delitem 6408,100;
+		getitem 19953,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}

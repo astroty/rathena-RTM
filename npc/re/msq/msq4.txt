@@ -1,0 +1,581 @@
+// Quest 4
+
+
+geffen,113,64,4	script	Loremaster#MSQ4	743,{
+	set .@npc$, "[Loremaster]";
+	mes .@npc$;
+	mes "Have you heard about the 3 great guilds?";
+	next;
+	mes .@npc$;
+	mes "They were key in the victory against Satan Morroc, The White Wings protected the people and evacuated everyone quickly.";
+	next;
+	mes .@npc$;
+	mes "The Azure Kings blocked the path to Satan Morroc's escape, ensuring it could no longer avoid fightning in its weakened state.";
+	next;
+	mes .@npc$;
+	mes "The Iron Angels were extremely skilled in fighting Satan Morroc directly with fierceness, leading it to a place it couldn't escape.";
+	next;
+	mes .@npc$;
+	mes "Each of those guilds were rewarded with a permanent castle. You can see the Azure Kings's Castle here in Geffen...but I doubt you could just get inside freely.";
+	close;
+}
+
+geffen,130,56,4	script	Dreaming Girl#MSQ4	729,{
+	set .@npc$, "[Dreaming Girl]";
+	if (MSQProg >=12){
+	mes .@npc$;
+	mes "What happened to the Azure Kings? They are so quiet! They don't even visit the city anymore!";
+	close;
+	}
+	mes .@npc$;
+	mes "When I grow up I wanna be just like Lady Eris!";
+	close;
+}
+
+gef_fild13,212,76,6	script	Azure Guard#1MSQ4	420,{
+	set .@npc$, "[Azure Guard]";
+	if (MSQProg ==5){
+	mes .@npc$;
+	mes "Your mission is to find the contact near the Kafra Headquarters in Aldebaran right? Good luck there.";
+	close;
+	}
+	if (BaseLevel <=39){
+	mes .@npc$;
+	mes "The Azure Kings don't have any business with the unprepared. Why don't you come back after Base Level 40?";
+	close;
+	}
+	if (MSQProg >=12){
+	mes .@npc$;
+	mes "Thank you for your efforts, Orphan. You are a true warrior above all.";
+	close;
+	}
+	if (MSQProg >=9){
+	mes .@npc$;
+	mes "We are still trying to understand what happened, entrance to non-members is prohibited... Lady Eris is not welcome here and is to be attacked on sight. I'm so sorry.";
+	close;
+	}
+	if (MSQProg !=3){
+	mes .@npc$;
+	mes "This castle is property of the Azure Kings guild. Entrance is prohibited.";
+	close;
+	}
+	if (MSQProg ==3){
+	mes .@npc$;
+	mes "This castle is property of the Azure Kings guild. Entrance is prohibited.";
+	next;
+	emotion ET_SURPRISE;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I was invited here by Anabelle.";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh! She did tell me an Orphan would be coming soon. Please, come inside.";
+	close2;
+	warp "gefg_cas01",94,178;
+	}
+}
+
+gefg_cas01,73,170,4	script	Azure Knight#MSQ4	733,{
+	set .@npc$, "[Azure Knight]";
+	mes .@npc$;
+	mes "Have you ever fought against the Rachel Cultists?";
+	next;
+	mes .@npc$;
+	mes "They can be very dangerous, specially with their spells that can put you to sleep.";
+	next;
+	mes .@npc$;
+	mes "From what I heard, they use this opportunity to take you to the Sanctuary...";
+	next;
+	mes .@npc$;
+	mes "If you ever come across them... be careful.";
+	close;
+}
+
+gefg_cas01,66,45,4	script	Azure Monk#MSQ4	746,{
+	set .@npc$, "[Azure Monk]";
+	mes .@npc$;
+	mes "I'm using a Hiding Manual. They provide me longer windows of rest to avoid enemies.";
+	next;
+	mes .@npc$;
+	mes "You should consider them when going to dangerous places where you need to avoid enemies for a while.";
+	close;
+}
+
+gefg_cas01,56,39,6	script	Azure Guard#2MSQ4	419,{
+	set .@npc$, "[Azure Guard]";
+	mes .@npc$;
+	mes "Lady Eris is a fair and strong leader. I've seen her fight once and she can really hold her own.";
+	next;
+	mes .@npc$;
+	mes "It even scared me how ruthless she can be sometimes.";
+	close;
+}
+
+gefg_cas01,89,43,4	script	Azure Guard#3MSQ4	418,{
+	set .@npc$, "[Azure Guard]";
+	mes .@npc$;
+	mes "The Cult of the Dead God... quite a strong enemy...";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh! Don't mind me! I'm just thinking about... stuff!";
+	close;
+}
+
+gefg_cas01,193,38,4	script	Azure Smith#MSQ4	63,{
+	set .@npc$, "[Azure Smith]";
+	mes .@npc$;
+	mes "I can forge strong equipment for the Azure Kings. We used to have a very good smith here in the past, he taught me everything I needed to know.";
+	next;
+	mes .@npc$;
+	mes "I wonder where could he be nowadays...";
+	close;
+}
+
+gefg_cas01,198,182,4	script	Jester#MSQ4	715,{
+	set .@npc$, "[Jester]";
+	if (jesterjob ==1){
+	mes "[Pierrot?]";
+	mes "You seem... familiar.";
+	emotion ET_SURPRISE, playerattached();
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Pierrot?";
+	next;
+	mes "[Not-Pierrot]";
+	mes "I don't know who you're talking about. I'm not that very skilled, smart Jester. Sorry.";
+	emotion ET_SWEAT, playerattached();
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Whatever.";
+	close;
+	}
+	mes .@npc$;
+	mes "Jesters are skilled with Decks. If a jester can shuffle it fast enough, they can use a variety of skills and never run-out of SP.";
+	close;
+}
+
+gefg_cas01,183,27,6	script	Judge#MSQ4	10181,{
+	set .@npc$, "[Judge]";
+	if (judgejob ==1){
+	mes .@npc$;
+	mes "Hello Magister. I've been appointed by the King to assist the Azure Kings with their investigation. I can't provide more details than this. Sorry.";
+	close;
+	}
+	mes .@npc$;
+	mes "Watch your moves.";
+	close;
+}
+
+gefg_cas01,41,49,4	script	Creator#MSQ4	542,{
+	set .@npc$, "[Creator]";
+	if (roguejob ==1){
+	mes .@npc$;
+	mes "Oh you're a Rogue... have you learned how to properly handle Acids and Molotovs? They can be very reliable if well used!";
+	close;
+	}
+	mes .@npc$;
+	mes "The guild wants me to spend our resources on potions... but they are too expensive! So I just buys us traps and bombs instead! Potions can't really help us much.";
+	next;
+	mes .@npc$;
+	mes "I really should learn how to Pitch potions through... some items can help me with it. This would make them much more useful!";
+	close;
+}
+
+gefg_cas01,62,77,7	script	Hino Tres#MSQ4	638,{
+	set .@npc$, "[Hino Tres]";
+	cutin "thf_lumin01",2;
+	if (azurestep ==2){
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "I'll be heading out to Payon soon... good luck in Aldebaran, friend!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (azurestep ==1){
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "How is she alive...?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "The Azure Kings have quite a nice castle here! I wonder if we can have one someday?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "We?";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Come on! We're a team!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+gefg_cas01,70,84,4	script	Lady Eris#MSQ4	829,{
+	set .@npc$, "[Lady Eris]";
+	cutin "ep19_vellgunde02",2;
+	if (azurestep ==2){
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Locate our contact in Aldebaran. Make sure to prepare yourself for difficult situations there. Good Luck.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (azurestep ==1){
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "...Please, try to keep up and understand the situation.";
+	next;
+	mes .@npc$;
+	mes "Anabelle was adopted long ago by your father. He worked with us for many years as our smith.";
+	next;
+	mes .@npc$;
+	mes "She was taken care of and grew up along with everyone else. She is one of the children that survived the Dandelion Organization's sacrifices.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "So... Anabelle is literally an Orphan.";
+	next;
+	mes .@npc$;
+	mes "Yes... and as she was not blood-related to you, she survived.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm sorry sister. I didn't know that.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes "[Anabelle]";
+	mes "When that man arrived...He went for them...I did the best I could to fight him back, but he was so strong!";
+	next;
+	emotion ET_CRY, getnpcid(0, "Anabelle#MSQ4");
+	mes "[Anabelle]";
+	mes "He didn't care! He just laughed and ignored me...I couldn't do anything! I just ran away! I left them there!";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes .@npc$;
+	mes "It's not your fault. That man is strong. And you were scared. It's okay.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I will find that man. And avenge our family. I promise.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes "[Anabelle]";
+	mes "..." + strcharinfo(0) + "! I'm counting on you. We need to find him. Will you join us?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Of course I will. We need to find him.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "Hey, don't forget me! I've been looking for him for the past few weeks now! I also have some matters to settle with him!";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes .@npc$;
+	mes "The Azure Kings welcome your help, young ones. Anybody willing to help can be a great asset for us.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "So...what's the next; stop?";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes .@npc$;
+	mes "We have leads in Aldebaran about the cult meeting. We also need to go back to Payon Cave and investigate for anything we may have missed.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes "[Anabelle]";
+	mes "We have a contact that can be located in Aldebaran. Hino, since you were already working near Payon, why don't you come back there?";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes .@npc$;
+	mes "Anabelle, you'll go with him.";
+	next;
+	emotion ET_SURPRISE, getnpcid(0, "Anabelle#MSQ4");
+	cutin "ep19_juncea01",2;
+	mes "[Anabelle]";
+	mes "What!? Why!? I wanna go with " + strcharinfo(0) + "!";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes .@npc$;
+	mes "You two need to focus on the situation at hand. The cult can be dangerous and keeping you two together might be a distraction.";
+	next;
+	if (tricksterjob ==1){
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Hey, come on sister... I survived a trip to Niflheim, I can do this!";
+	next;
+	}
+	if (judgejob ==1){
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Agreed. Besides, Prontera's royalty is in good terms with the people of Aldebaran, I'll be welcome there.";
+	next;
+	}
+	if (darkknightjob ==1){
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I have the darkness to assist me anyway. They will know what a Dark Knight is capable of if necessary.";
+	next;
+	}
+	if (jesterjob ==1){
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Aww...fine. I'll bring you a kafra headband from the kafra headquarters as a gift ok? promise!";
+	next;
+	}
+	if (thiefjob ==1){
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Hey, don't worry! I'm a thief! I can sneak through them and they won't even know what hit them!";
+	next;
+	}
+	cutin "ep19_juncea01",2;
+	emotion ET_THINK, getnpcid(0, "Anabelle#MSQ4");
+	mes "[Anabelle]";
+	mes "Fine... I'll go with Hino back to Payon.";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes .@npc$;
+	mes "So... " + strcharinfo(0) + ". Your mission is to find our contact in Aldebaran and assist him with anything needed.";
+	next;
+	mes .@npc$;
+	mes "You should be able to find him hidden near the Kafra Headquarters.";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Why would he be there?";
+	next;
+	mes .@npc$;
+	mes "He is... quite an interesting fella. You'll understand when you get there.";
+	next;
+	if (bluebandmsq ==0){	
+	set bluebandmsq,1;
+	getitem 20159,1;
+	mes .@npc$;
+	mes "Here take this Blue Headband too. You're now an official ally of the Azure Kings. Thanks.";
+	next;
+	}
+	mes .@npc$;
+	mes "He is... quite an interesting fella. You'll understand when you get there.";
+	next;
+	mes .@npc$;
+	mes "Do not engage in direct combat if possible. We don't want to draw any unwanted attention.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes "[Anabelle]";
+	mes "Please... follow the plan. It's important so we don't risk the people here.";
+	next;
+	mes "[Anabelle]";
+	mes "Take care...you're still an Idiot, but I love you okay?";
+	next;
+	switch(select("Hino, take care of her:Love you too!:Whatever.")) {
+	case 1:
+		mes "[Anabelle]";
+		mes "What!? Don't you think I can take care of myself?";
+		next;
+		cutin "thf_lumin01",2;
+		mes "[Hino Tres]";
+		mes "You heard it lady, let's pack and move, I'll buy you candy on the way.";
+		next;
+		emotion ET_KIK, playerattached();
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Love you too sister, now try not to make a mess!";
+		next;
+		achievementcomplete(200068);
+		mes "^6666CCYou leave the castle quickly before Anabelle throws something at you.^000000";
+		close2;
+		set MSQProg,5;
+		set hinofavour, hinofavour+1;
+		set anabellefavour, anabellefavour+1;
+		warp "gef_fild13",215,75;
+		end;
+	case 2:
+		mes "[Anabelle]";
+		mes "I hope I can see you again soon. We have much to talk about.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Don't worry and be careful out there.";
+		next;
+		achievementcomplete(200068);
+		mes "^6666CCYou leave the castle.^000000";
+		close2;
+		set MSQProg,5;
+		set anabellefavour, anabellefavour+1;
+		warp "gef_fild13",215,75;
+		end;
+	case 3:
+		mes "[Anabelle]";
+		mes "I...good luck.";
+		next;
+		cutin "thf_lumin01",2;
+		mes "[Hino Tres]";
+		mes "Damn, cold...Let's go girl, it's been hard times for all of us, we got stuff to do!";
+		next;
+		achievementcomplete(200068);
+		mes "^6666CCYou leave the castle.^000000";
+		close2;
+		set MSQProg,5;
+		warp "gef_fild13",215,75;
+		end;
+}
+	}
+	mes .@npc$;
+	mes "So you're the Orphan who Anabelle found on the collapsed Payon Cave... very well.";
+	close2;
+	cutin "",255;
+	end;
+}
+
+gefg_cas01,64,82,5	script	Anabelle#MSQ4	10455,{
+	set .@npc$, "[Anabelle]";
+	cutin "ep19_juncea01",2;
+	if (azurestep ==2){
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "I will be investigating Payon with Hino. Good luck in Aldebaran!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (azurestep ==1){
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "...talk to Lady Eris...I'm sure she can explain it better than me.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "I was waiting for you.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What is going on? What do you know?";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "What happened in that cave? Who is that man?";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "He is one of the leaders of the Cult of the Dead God.";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Cult of the Dead God? What do you mean?";
+	next;
+	mes .@npc$;
+	mes "...Lady Eris? Can I? I believe they deserve to know the truth, they did see the man doing his...thing.";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes "[Lady Eris]";
+	mes "Go Ahead. If these 2 Orphans were already investigating and came here, they are on our side.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "The Cult of the Dead God is a cult aiming to bring Balder back to life.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "Wait...Balder? That name sounds familiar...";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Balder is one of the sons of Odin, God of Asgard. He is the Dead God.";
+	next;
+	emotion ET_SURPRISE, playerattached();
+	mes .@npc$;
+	mes "Let me start from the beginning... 600 years ago, Surt arrived in Rune-Midgard. The Hero Thanatos fought him and managed to seal his body under the desert in Morroc.";
+	next;
+	mes .@npc$;
+	mes "With his body sealed, his soul was sent to Niflheim. Surt's soul was too powerful and started consuming other souls in order to gain its powers back.";
+	next;
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I was never told this by Serin or anyone from Niflheim... and I'm a Trickster.";
+	next;
+	mes .@npc$;
+	mes "Which seems reasonable, as not everyone should know about this. It's not the kind of information that should go around.";
+	next;
+	emotion ET_THINK, playerattached();
+	}
+	mes .@npc$;
+	mes "That's when Balder was killed by Loki, the first Assassin, using an arrow made of Mistletoe.";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes "[Lady Eris]";
+	mes "This is the reason the Assassin order doesn't wield bows. In order to honor Loki's promise to never again wield a bow to harm anyone.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "Right... that story is old, as far as I know, it happened 300 years ago or something...";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "It's also not the true story.";
+	next;
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait, what???";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "I'm not sure I follow...";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes "[Lady Eris]";
+	mes "Balder asked Loki to kill him, against his will. In order to go to the underworld and keep an eye on Surt.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Balder's soul is one of the strongest in all of creation. When Surt was causing so much trouble in Niflheim, Balder being dead was a soul strong enough to completely overwhelm Surt.";
+	next;
+	mes .@npc$;
+	mes "Lady Hel personally brought this information to Lady Eris when Morroc escaped 5 years ago. He was much, much weaker than usual, since Balder had a hold on his soul from Niflheim.";
+	next;
+	cutin "ep19_vellgunde02",2;
+	mes "[Lady Eris]";
+	mes "Whatever it is that we killed that day...that was not the Satan Morroc we should fear...it was merely a piece of his being.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "That's...oh my... but if Balder was keeping hold of Satan Morroc, how could it happen?";
+	next;
+	mes "[Lady Eris]";
+	mes "The Dandelion Organization. A few years ago, the assassin guild was investigating disappearing children from their Orphanage...those children were being sacrificed to ressurrect Satan Morroc.";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Our theory is that while they succeeded, Balder's soul was strong enough to keep most of the power in the underworld...which gaves us a chance at victory.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "So this Cult of the Dead God wants to bring Balder back...";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Exactly. Since they can't bring Satan Morroc back...they may bring Balder, which would completely destroy any chance we may have at averting this crisis.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...damn.";
+	next;
+	cutin "thf_lumin01",2;
+	mes "[Hino Tres]";
+	mes "I presume you guys have no idea what's the Mark and the Orphans, do you?";
+	next;
+	cutin "ep19_juncea01",2;
+	mes .@npc$;
+	mes "Not yet. We believe that strange man's eye on his hair has some relation to it...but so far, we have little clue.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "That reminds me... Anabelle...you're my sister... why aren't you...?";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh...that... Lady Eris, can you please explain it? That's not something I'm confortable with.";
+	close2;
+	set azurestep,1;
+	cutin "",255;
+	end;
+}

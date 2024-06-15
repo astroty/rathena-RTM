@@ -1,0 +1,522 @@
+
+va_in01,272,368,4	script	Rose Sage#varsandal	4_ep18_wagon,{
+	set .@npc$, "[Rose Sage]";
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "Hello, I can repair <ITEM>Old Rose Sandals<INFO>22070</INFO></ITEM> ";
+	mes "They are easy to wear and use, but if you're skilled, you can have the <ITEM>Blooming Rose Sandals<INFO>22071</INFO></ITEM>!";
+	next;
+	if (getequipid(EQI_SHOES) == 22071){
+	achievementcomplete(200030);
+    }
+	switch(select("Please, fix my Sandals!:What do you need to fix them?:Nevermind.")) {
+	case 1:
+		if ( countitem2(22070,1,7,0,0,0,0,0) < 1) goto L_noitems2;
+		if(countitem(7615) < 10) goto L_noitems2;
+		if(countitem(7360) < 500) goto L_noitems2;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Amazing! You actually have everything needed!";
+		next;
+		if (achievbrose ==0 ){
+		achievementcomplete(200030);
+		set achievbrose,1;
+		}
+		mes .@npc$;
+		mes "These sandals carry incredible power! But they also require someone worthy of wearing them.";
+		next;
+		mes .@npc$;
+		mes "Make sure to take care of them. They are a priceless artifact!";
+		specialeffect2 96;
+		delitem2 22070,1,1,7,0,0,0,0,0;
+		delitem 7615,10;
+		delitem 7360,500;
+		setarray .@OptID[0],RDMOPT_ADDEXPPERCENT_KILLRACE_NOTHING,RDMOPT_VAR_PLUSASPDPERCENT,RDMOPT_DEC_SPELL_CAST_TIME,RDMOPT_DEC_SPELL_DELAY_TIME;
+		setarray .@OptVal[0],5,5,5,5;
+		setarray .@OptParam[0],5,5,5,5;
+		getitem3 22071,1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+		close2;
+		cutin "",255;
+		break;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please, double check to make sure you have all items needed. This is a very delicate Item.";
+		close2;
+		cutin "",255;
+		end;
+	case 2:
+		mes .@npc$;
+		mes "I can repair the Old Rose Sandals if you bring me:";
+		mes "^FF000010^000000 MVP Shards.";//7615
+		mes "^FF0000500^000000 Distortion Shards.";//7360
+		next;
+		mes .@npc$;
+		mes "Your Old Rose Sandals also need to be refined:";
+		mes "^FF0000exactly to +7^000000.";//22070
+		next;
+		mes .@npc$;
+		mes "And ^FF0000remove any cards or stuff in it before the repair^000000. I'm not going to be responsible for you losing any items. You've been warned.";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "It's a special oportunity for a special person. Come back if you need it.";
+		close2;
+		cutin "",255;
+		break;
+	}
+}
+
+va_in01,274,301,3	script	Visiting Archer#flavor	634,{
+
+	set .@npc$, "[Visiting Archer]";
+	mes .@npc$;
+	mes "This place looks like the orphanage...How is it possible?";
+	next;	
+	mes .@npc$;
+	mes "The Varmundts have explained it to me, but I'm not sure I get it. Oh well...";
+	close;
+}
+
+-	shop	shopfood8	-1,12073:25000,12078:25000,12083:25000,12088:25000,12093:25000,12098:25000.
+
+va_in01,221,122,4	script	Cook#var	10123,{
+		mes "[Cook]";
+		mes "Are you hungry? You've come to the right place!";
+		Close2;
+		callshop "shopfood8",0;
+		end;
+}
+
+va_in01,220,99,3	script	Vidar Sage#manualconvert	4_ep17_tamarin,{
+
+	set .@npc$, "[Vidar Sage]";
+	mes .@npc$;
+	mes "Hello, I can fuse your Manuals and make a <ITEM>Paradiso Tome<INFO>24107</INFO></ITEM> ";
+	mes "It's a very useful manual that will provide you with the best protection spells possible.";
+	next;
+	switch(select("Please, Do it!:What do you need to fuse them?:Nevermind.")) {
+	case 1:
+		if(countitem(24088) < 1) goto L_noitems2;
+		if(countitem(24100) < 1) goto L_noitems2;
+		if(countitem(24105) < 1) goto L_noitems2;
+		if(countitem(7360) < 1000) goto L_noitems2;
+		if(countitem(7361) < 100) goto L_noitems2;
+		if(countitem(6906) < 10) goto L_noitems2;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Amazing! You actually have everything needed!";
+		next;
+		mes .@npc$;
+		mes "This tome carries incredible energy! I hope you can use it to the highest standard!";
+		next;
+		if (achiev6 ==0 ){
+		achievementcomplete(200026);
+		set achiev6,1;
+		}
+		mes .@npc$;
+		mes "Make sure to take care of it. It's a unique creation and takes a lot of work!";
+		specialeffect2 96;
+		delitem 24088,1;
+		delitem 24100,1;
+		delitem 24105,1;
+		delitem 7360,1000;
+		delitem 7361,100;
+		delitem 6906,10;
+		getitem 24107,1;
+		close2;
+		cutin "",255;
+		break;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please, double check to make sure you have all items needed. This is a very delicate procedure.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "^FF00001^000000 Medic Manual X";//24088
+		mes "^FF00001^000000 Medic Manual Z";//24100
+		mes "^FF00001^000000 Life Manual X";//24105
+		mes "^FF00001000^000000 Distortion Shards";//7360
+		mes "^FF0000100^000000 Distortion Essences";//7360
+		mes "^FF000010^000000 Jewel Oridecons";//6906
+		next;
+		mes .@npc$;
+		mes "I know that's a very extensive list, but this one is a true mastercraft you know?";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "It's a special oportunity for a special person. Come back if you need it.";
+		close2;
+		cutin "",255;
+		break;
+	}
+	}
+	
+va_in01,207,100,6	script	Thor Sage#manualconvert	4_ep16_tamarin,{
+
+	set .@npc$, "[Thor Sage]";
+	mes .@npc$;
+	mes "Hello, I can fuse your Manuals and make a <ITEM>Purgatorio Tome<INFO>24148</INFO></ITEM> ";
+	mes "It's a very useful manual that will provide you with the best teleporting spells possible.";
+	next;
+	switch(select("Please, Do it!:What do you need to fuse them?:Nevermind.")) {
+	case 1:
+		if(countitem(24118) < 1) goto L_noitems2;
+		if(countitem(24136) < 1) goto L_noitems2;
+		if(countitem(24142) < 1) goto L_noitems2;
+		if(countitem(7360) < 1000) goto L_noitems2;
+		if(countitem(7361) < 100) goto L_noitems2;
+		if(countitem(6290) < 10) goto L_noitems2;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Amazing! You actually have everything needed!";
+		next;
+		mes .@npc$;
+		mes "This tome carries incredible movement capacities! I hope you can use it to quickly zoom around!";
+		next;
+		if (achiev7 ==0 ){
+		achievementcomplete(200027);
+		set achiev7,1;
+		}
+		mes .@npc$;
+		mes "Make sure to take care of it. It's a unique creation and takes a lot of work!";
+		specialeffect2 96;
+		delitem 24118,1;
+		delitem 24136,1;
+		delitem 24142,1;
+		delitem 7360,1000;
+		delitem 7361,100;
+		delitem 6290,10;
+		getitem 24148,1;
+		close2;
+		cutin "",255;
+		break;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please, double check to make sure you have all items needed. This is a very delicate procedure.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "^FF00001^000000 Blink Manual X";//24118
+		mes "^FF00001^000000 Portal Manual Z";//24136
+		mes "^FF00001^000000 Union Manual";//24142
+		mes "^FF00001000^000000 Distortion Shards";//7360
+		mes "^FF0000100^000000 Distortion Essences";//7360
+		mes "^FF000010^000000 Jewel Elunium";//6290
+		next;
+		mes .@npc$;
+		mes "I know that's a very extensive list, but this one is a true mastercraft you know?";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "It's a special oportunity for a special person. Come back if you need it.";
+		close2;
+		cutin "",255;
+		break;
+	}
+	}
+	
+va_in01,203,119,4	script	Vali Sage#manualconvert	4_m_tamarin,{
+	
+	set .@npc$, "[Vali Sage]";
+	mes .@npc$;
+	mes "Hello, I can fuse your Manuals and make an <ITEM>Inferno Tome<INFO>24225</INFO></ITEM> ";
+	mes "It's a very useful manual that will provide you with the best combat spells possible.";
+	next;
+	switch(select("Please, Do it!:What do you need to fuse them?:Nevermind.")) {
+	case 1:
+		if(countitem(24042) < 1) goto L_noitems2;
+		if(countitem(24050) < 1) goto L_noitems2;
+		if(countitem(24021) < 1) goto L_noitems2;
+		if(countitem(24168) < 1) goto L_noitems2;
+		if(countitem(7360) < 1000) goto L_noitems2;
+		if(countitem(7361) < 100) goto L_noitems2;
+		if(countitem(6226) < 5) goto L_noitems2;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Amazing! You actually have everything needed!";
+		next;
+		mes .@npc$;
+		mes "This tome carries incredible combat capacities! I hope you can use it to fight more effectively!";
+		next;
+		if (achiev8 ==0 ){
+		achievementcomplete(200028);
+		set achiev8,1;
+		}
+		mes .@npc$;
+		mes "Make sure to take care of it. It's a unique creation and takes a lot of work!";
+		specialeffect2 96;
+		delitem 24042,1;
+		delitem 24050,1;
+		delitem 24021,1;
+		delitem 24168,1;
+		delitem 7360,1000;
+		delitem 7361,100;
+		delitem 6226,5;
+		getitem 24225,1;
+		close2;
+		cutin "",255;
+		break;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please, double check to make sure you have all items needed. This is a very delicate procedure.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "^FF00001^000000 Vanish Manual X";//24042
+		mes "^FF00001^000000 Pickpocket Manual X";//24050
+		mes "^FF00001^000000 Agility Manual X";//24021
+		mes "^FF00001^000000 Hammer Manual X";//24168
+		mes "^FF00001000^000000 Distortion Shards";//7360
+		mes "^FF0000100^000000 Distortion Essences";//7360
+		mes "^FF00005^000000 Jewel Bradium";//6226
+		next;
+		mes .@npc$;
+		mes "I know that's a very extensive list, but this one is a true mastercraft you know?";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "It's a special oportunity for a special person. Come back if you need it.";
+		close2;
+		cutin "",255;
+		break;
+	}
+	}
+	
+va_in01,254,353,4	script	Balder Sage#manualconvert	4_ep18_tamarin,{
+	set .@npc$, "[Balder Sage]";
+	mes .@npc$;
+	mes "The other sages can make the tomes for you if you wish.";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "Unfortunately nobody has any idea how to make the ^6666CCCelestial Tome^000000.";
+	next;
+	mes .@npc$;
+	mes "The Legends say that Balder had it, but I have no idea if it's true. Not like we could just ask a dead god about it.";
+	close;
+	}
+	
+va_mansion,59,215,5	script	Mansion Guard#flavor	645,{
+
+	set .@npc$, "[Mansion Guard]";
+	mes .@npc$;
+	mes "Welcome to Varmundt, Orphan. You're not only welcome here, but our honor guest.";
+	next;	
+	mes .@npc$;
+	mes "While most places are off-limits to you, I can point towards some specific places.";
+	next;
+	mes .@npc$;
+	mes "Head north to visit the Mansion and talk to Master Varmundt himself...or masters, hehe.";
+	next;
+	mes .@npc$;
+	mes "South of here you can find the teahouse, you can buy some food there for trips and chat with some of the sages.";
+	next;
+	mes .@npc$;
+	mes "Finally, to the Southeast is the research area, where master Varmundt tests distortions and portals. Be careful there ok?";
+	close;
+}
+
+// Varmundt
+
+-	itemshop	cardshop	-1,6187,616:10,12690:25,12691:50,12692:100,12693:200,12694:500,12695:150,12698:1000.
+
+va_in01,313,313,3	script	Card Artist#varmundt	778,{
+
+	set .@npc$, "[Card Artist]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Hello Orphan, I'm Picazzo, I collect <ITEM>Blank Cards<INFO>6187</INFO></ITEM>.";
+	next;
+	mes .@npc$;
+	mes "My Father used to be a famous traveler. On his travels he collected many cards and stored them on albums.";
+	next;
+	mes .@npc$;
+	mes "I can't sell these albums to you as it would not be respectful, but I want to make some cool card paintings in his memory. And I need those Blank Cards.";
+	next;
+	mes .@npc$;
+	mes "For some strange reason, Master Varmundt likes to collect these paintings...I have no idea where they are stored... but he does pay me very well!";
+	next;
+	mes .@npc$;
+	mes "Wanna trade me some of these for the albums?";
+	close2;
+	callshop "cardshop",1;
+	end;
+	}
+	
+va_in01,296,344,3	script	Elder Varmundt#varmundt	654,{
+	set .@npc$, "[Elder Varmundt]";
+	emotion ET_THINK;
+	cutin "gl_barmund1",2;
+	if (varmundtfinish ==1){
+	mes .@npc$;
+	mes "Be careful around the world. And don't forget to investigate the distortions when possible.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "You're " +strcharinfo(0)+ ", Aren't you?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Uh...yes...And you?";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "I'm Varmundt. Well, all of us are Varmundt.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yeah...I noticed it... sort of.";
+	next;
+	cutin "ep172_barmund_a03",2;
+	mes "[Adult Varmundt]";
+	mes "I believe you have a ton of questions, right?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yes...quite a few... why does this place look like this?";
+	next;
+	cutin "ep172_barmund_b01",2;
+	mes "[Young Varmundt]";
+	mes "Well, have you ever talked to Sir Aster in Dicastes Diel about distortions?";
+	next;
+	if (asterintro ==0){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I didn't... Nope.";
+	next;
+	cutin "gl_barmund1",2;
+	mes .@npc$;
+	mes "I'm sorry. In this case it would be better if you talked to him first. It'll be easier on your brain.";
+	next;
+	cutin "ep172_barmund_a03",2;
+	mes "[Adult Varmundt]";
+	mes "Don't take it as a personal thing. We just need to keep an eye in the flow of time. And it's not something anyone unprepared can do.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yes... he explained everything about distortions and whatever else to me.";
+	next;
+	cutin "ep172_barmund_a03",2;
+	mes "[Adult Varmundt]";
+	mes "And did you get the Bifrost Mirror Shard and an Eye on it?";
+	next;
+	if (temporalwarp ==0){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm still working on it.";
+	next;
+	cutin "gl_barmund1",2;
+	mes .@npc$;
+	mes "Try to get one of these first. It'll give you all the information you need for us to properly talk.";
+	next;
+	emotion ET_DELIGHT;
+	cutin "ep172_barmund_a03",2;
+	mes "[Adult Varmundt]";
+	mes "Good luck for now.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yes, those things are pretty powerful! I feel like I'm carrying the knowledge of the world around.";
+	next;
+	cutin "gl_barmund1",2;
+	mes .@npc$;
+	mes "That's because you are. The eyes are pieces of Asgard in our land. They carry the power of creation itself. Part of it.";
+	next;
+	mes .@npc$;
+	mes "There were many eyes around the world. And many more are left to be found. The thing is, I have been researching them for years now.";
+	next;
+	cutin "ep172_barmund_b01",2;
+	mes "[Young Varmundt]";
+	mes "We have come from different distortions, and joined forces in this world. The Orphans and the Mark are an unexpected thing.";
+	next;
+	mes "[Young Varmundt]";
+	mes "In other timelines, People fought and found new paths, traveled to a new world, or were stuck in their roots.";
+	next;
+	cutin "ep172_barmund_a03",2;
+	mes "[Adult Varmundt]";
+	mes "I have seen people fighting the same War of Emperium for years, or trying to break limits or completely losing sight of their essence.";
+	next;
+	cutin "gl_barmund1",2;
+	mes .@npc$;
+	mes "Some worlds end without any meaning, some survive for eons, lost without potential and meaningless existence.";
+	next;
+	mes .@npc$;
+	mes "What's important is that no matter what happened in other worlds. This world is unique. and It deserves special attention.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I understand... And where is the orphanage in all of it?";
+	next;
+	cutin "ep172_barmund_a03",2;
+	mes "[Adult Varmundt]";
+	mes "Are you listening? The Orphanage is a distortion itself.";
+	next;
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait, you mean a distortion? From this place?";
+	next;
+	mes "[Adult Varmundt]";
+	mes "Correct. It's what makes it so easy to keep protected. And accessible. Whenever you go there, you're in a distortion.";
+	next;
+	cutin "ep172_barmund_b01",2;
+	mes "[Young Varmundt]";
+	mes "The best distortion! And a stable enough one that we can manipulate it, to some extent.";
+	next;
+	cutin "gl_barmund1",2;
+	mes .@npc$;
+	mes "The Orphanage is a safe place for you. And all your friends. This won't ever change. You have my word.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "The Orphanage is a distortion...that's interesting. Thanks for the explanation, Varmundt.";
+	next;
+	mes .@npc$;
+	mes "Take care, " +strcharinfo(0)+ ", and be careful around. We have work to do, but you can always come back.";
+	close2;
+	if (achiev16 ==0 ){
+	achievementcomplete(200078);
+	set achiev16,1;
+	}
+	set varmundtfinish,1;
+	cutin "",255;
+	end;
+
+}
+
+va_in01,288,343,5	script	Adult Varmundt#varmundt	10350,{
+	set .@npc$, "[Adult Varmundt]";
+	emotion ET_THINK;
+	cutin "ep172_barmund_a03",2;
+	mes .@npc$;
+	mes "Hello." +strcharinfo(0)+ ". How have you been?";
+	close2;
+	cutin "",255;
+	end;
+
+}
+
+va_in01,299,340,3	script	Young Varmundt#varmundt	10351,{
+	set .@npc$, "[Adult Varmundt]";
+	emotion ET_THINK;
+	cutin "ep172_barmund_b01",2;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Hey." +strcharinfo(0)+ ". Kinda weird to see us all at once eh? Haha";
+	close2;
+	cutin "",255;
+	end;
+	
+}

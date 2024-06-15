@@ -16,29 +16,10 @@ verus02,72,16,0	warp2	verus02_to_verus03	1,1,verus03,169,255
 verus03,122,17,0	warp2	fr_ver03_to_ver04_1	1,1,verus04,121,264
 verus03,44,17,0	warp2	fr_ver03_to_ver04_2	1,1,verus04,44,264
 
-verus03,52,254,0	script	verus03_to_verus01	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep15_2_permit < 1) {
-		mes "[Access Controller]";
-		mes "I am sorry but only permitted members can enter from this point.";
-		close;
-	}
-	warp "verus01",243,62;
-	end;
-}
+verus03,52,254,0	warp2	fr_ver03_to_ver04_A	1,1,verus01,243,62
 
-verus03,169,259,0	script	verus03_to_verus02	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep15_2_permit < 1) {
-		mes "[Access Controller]";
-		mes "I am sorry but only permitted members can enter from this point.";
-		close;
-	}
-	warp "verus02",72,19;
-	end;
-}
+verus03,169,259,0	warp2	fr_ver03_to_ver04_B	1,1,verus02,72,19
+
 
 juperos_01,245,87,0	warp2	fr_ju_to_eju	1,1,ver_eju,13,148
 ver_eju,10,148,0	warp2	fr_eju_to_ju	1,1,juperos_01,242,87

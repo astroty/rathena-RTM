@@ -42,12 +42,12 @@ struct s_homun_intimacy_grade {
 /// Intimacy grade, order based on enum e_homun_grade
 static struct s_homun_intimacy_grade intimacy_grades[] = {
 	{ /*"Hate with passion",*/   100 },
-	{ /*"Hate",             */   400 },
-	{ /*"Awkward",          */  1100 },
-	{ /*"Shy",              */ 10100 },
-	{ /*"Neutral",          */ 25100 },
-	{ /*"Cordial",          */ 75100 },
-	{ /*"Loyal",            */ 91100 },
+	{ /*"Hate",             */   101 },
+	{ /*"Awkward",          */   102 },
+	{ /*"Shy",              */   103 },
+	{ /*"Neutral",          */  2000 },
+	{ /*"Cordial",          */ 25000 },
+	{ /*"Loyal",            */ 90000 },
 };
 
 const std::string HomExpDatabase::getDefaultLocation() {
@@ -897,23 +897,23 @@ int hom_food(struct map_session_data *sd, struct homun_data *hd)
 	pc_delitem(sd,i,1,0,0,LOG_TYPE_CONSUME);
 
 	if ( hd->homunculus.hunger >= 91 ) {
-		hom_decrease_intimacy(hd, 50);
-		emotion = ET_KEK;
+		hom_increase_intimacy(hd, 1000);
+		emotion = ET_KIK;
 	} else if ( hd->homunculus.hunger >= 76 ) {
-		hom_decrease_intimacy(hd, 5);
-		emotion = ET_PROFUSELY_SWEAT;
+		hom_increase_intimacy(hd, 1000);
+		emotion = ET_KIK;
 	} else if ( hd->homunculus.hunger >= 26 ) {
-		hom_increase_intimacy(hd, 75);
-		emotion = ET_DELIGHT;
+		hom_increase_intimacy(hd, 1000);
+		emotion = ET_KIK;
 	} else if ( hd->homunculus.hunger >= 11 ) {
-		hom_increase_intimacy(hd, 100);
-		emotion = ET_DELIGHT;
+		hom_increase_intimacy(hd, 1000);
+		emotion = ET_KIK;
 	} else {
-		hom_increase_intimacy(hd, 50);
-		emotion = ET_DELIGHT;
+		hom_increase_intimacy(hd, 1000);
+		emotion = ET_KIK;
 	}
 
-	hd->homunculus.hunger += 10;	//dunno increase value for each food
+	hd->homunculus.hunger += 50;	//dunno increase value for each food
 	if(hd->homunculus.hunger > 100)
 		hd->homunculus.hunger = 100;
 
@@ -954,11 +954,11 @@ static TIMER_FUNC(hom_hungry){
 
 	hd->homunculus.hunger--;
 	if(hd->homunculus.hunger <= 10) {
-		clif_emotion(&hd->bl, ET_FRET);
+		clif_emotion(&hd->bl, ET_SCRATCH);
 	} else if(hd->homunculus.hunger == 25) {
 		clif_emotion(&hd->bl, ET_SCRATCH);
 	} else if(hd->homunculus.hunger == 75) {
-		clif_emotion(&hd->bl, ET_OK);
+		clif_emotion(&hd->bl, ET_SCRATCH);
 	}
 
 	if( battle_config.feature_homunculus_autofeed && hd->homunculus.autofeed && hd->homunculus.hunger <= battle_config.feature_homunculus_autofeed_rate ){
@@ -968,7 +968,7 @@ static TIMER_FUNC(hom_hungry){
 	if (hd->homunculus.hunger < 0) {
 		hd->homunculus.hunger = 0;
 		// Delete the homunculus if intimacy <= 100
-		if (!hom_decrease_intimacy(hd, 100))
+		if (!hom_decrease_intimacy(hd, 1))
 			return hom_delete(hd, ET_HUK);
 		clif_send_homdata(sd,SP_INTIMATE,hd->homunculus.intimacy / 100);
 	}
@@ -1147,7 +1147,7 @@ bool hom_call(struct map_session_data *sd)
 	struct homun_data *hd;
 
 	if (!sd->status.hom_id) //Create a new homun.
-		return hom_create_request(sd, HM_CLASS_BASE + rnd_value(0, 7)) ;
+		return hom_create_request(sd, HM_CLASS_BASE + rnd_value(0, 3)) ;
 
 	// If homunc not yet loaded, load it
 	if (!sd->hd)
@@ -1272,8 +1272,8 @@ bool hom_create_request(struct map_session_data *sd, int class_)
 	safestrncpy(homun.name, homunculus_db[i].name, NAME_LENGTH-1);
 	homun.class_ = class_;
 	homun.level = 1;
-	homun.hunger = 32; //32%
-	homun.intimacy = 2100; //21/1000
+	homun.hunger = 50; //32%
+	homun.intimacy = 3000; //21/1000
 	homun.char_id = sd->status.char_id;
 
 	homun.hp = 10 ;

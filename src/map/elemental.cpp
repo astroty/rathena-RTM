@@ -57,33 +57,33 @@ int elemental_create(map_session_data *sd, int class_, unsigned int lifetime) {
 	int i = db->status.size+1; // summon level
 
 	//[(Caster's Max HP/ 3 ) + (Caster's INT x 10 )+ (Caster's Job Level x 20 )] x [(Elemental Summon Level + 2) / 3]
-	ele.hp = ele.max_hp = (sd->battle_status.max_hp/3 + sd->battle_status.int_*10 + sd->status.job_level*20) * ((i + 2) / 3);
+	ele.hp = ele.max_hp = (sd->battle_status.max_hp/2 + sd->battle_status.vit*20);
 	//Caster's Max SP /4
-	ele.sp = ele.max_sp = sd->battle_status.max_sp/4;
+	ele.sp = ele.max_sp = sd->battle_status.max_sp/4 + sd->battle_status.int_*5;
 	//Caster's [ Max SP / (18 / Elemental Summon Skill Level) 1- 100 ]
-	ele.atk = (sd->battle_status.max_sp / (18 / i)  * 1 - 100);
+	ele.atk = 150 + sd->battle_status.str / 2;
 	//Caster's [ Max SP / (18 / Elemental Summon Skill Level) ]
-	ele.atk2 = sd->battle_status.max_sp / (18 / i);
+	ele.atk2 = 200 + sd->battle_status.str / 2;
 	//Caster's HIT + (Caster's Base Level)
-	ele.hit = sd->battle_status.hit + sd->status.base_level;
+	ele.hit = sd->battle_status.hit / 2 + sd->battle_status.dex / 2;
 	//[Elemental Summon Skill Level x (Caster's INT / 2 + Caster's DEX / 4)]
-	ele.matk = i * (sd->battle_status.int_ / 2 + sd->battle_status.dex / 4);
+	ele.matk = 150 + sd->battle_status.int_ * 3;
 	//150 + [Caster's DEX / 10] + [Elemental Summon Skill Level x 3 ]
-	ele.amotion = 150 + sd->battle_status.dex / 10 + i * 3;
+	ele.amotion = 150 + sd->battle_status.agi / 4;
 	//Caster's DEF + (Caster's Base Level / (5 - Elemental Summon Skill Level)
-	ele.def = sd->battle_status.def + sd->status.base_level / (5-i);
+	ele.def = 75 + sd->battle_status.vit / 2;
 	//Caster's MDEF + (Caster's INT / (5 - Elemental Summon Skill Level)
-	ele.mdef = sd->battle_status.mdef + sd->battle_status.int_ / (5-i);
+	ele.mdef = 20 + sd->battle_status.vit / 6 + sd->battle_status.int_ / 6;
 	//Caster's FLEE + (Caster's Base Level / (5 - Elemental Summon Skill Level)
-	ele.flee = sd->battle_status.flee + sd->status.base_level / (5-i);
+	ele.flee = sd->battle_status.flee + sd->battle_status.luk / 2;
 
 	//per individual bonuses
 	switch(db->class_){
 	case ELEMENTALID_AGNI_S:	case ELEMENTALID_AGNI_M:
 	case ELEMENTALID_AGNI_L: //ATK + (Summon Agni Skill Level x 20) / HIT + (Summon Agni Skill Level x 10)
-		ele.atk += i * 20;
-		ele.atk2 += i * 20;
-		ele.hit += i * 10;
+		ele.atk += i * 15;
+		ele.atk2 += i * 15;
+		ele.hit += i * 20;
 		break;
 	case ELEMENTALID_AQUA_S:	case ELEMENTALID_AQUA_M:
 	case ELEMENTALID_AQUA_L: //MDEF + (Summon Aqua Skill Level x 10) / MATK + (Summon Aqua Skill Level x 20)
@@ -104,11 +104,11 @@ int elemental_create(map_session_data *sd, int class_, unsigned int lifetime) {
 	}
 
 	if( (i=pc_checkskill(sd,SO_EL_SYMPATHY)) > 0 ){
-		ele.hp = ele.max_hp += ele.max_hp * 5 * i / 100;
-		ele.sp = ele.max_sp += ele.max_sp * 5 * i / 100;
-		ele.atk += 25 * i;
-		ele.atk2 += 25 * i;
-		ele.matk += 25 * i;
+		ele.hp = ele.max_hp += ele.max_hp * 20 * i / 100;
+		ele.sp = ele.max_sp += ele.max_sp * 20 * i / 100;
+		ele.atk += 50 * i;
+		ele.atk2 += 50 * i;
+		ele.matk += 50 * i;
 	}
 
 	ele.life_time = lifetime;
@@ -616,16 +616,16 @@ static int elemental_ai_sub_timer(s_elemental_data *ed, map_session_data *sd, t_
 
 	// Check if caster can sustain the summoned elemental
 	if( DIFF_TICK(tick,ed->last_spdrain_time) >= 10000 ){// Drain SP every 10 seconds
-		int sp = 5;
+		int sp = 30;
 
 		switch(ed->vd->class_){
 			case ELEMENTALID_AGNI_M:	case ELEMENTALID_AQUA_M:
 			case ELEMENTALID_VENTUS_M:	case ELEMENTALID_TERA_M:
-				sp = 8;
+				sp = 30;
 				break;
 			case ELEMENTALID_AGNI_L:	case ELEMENTALID_AQUA_L:
 			case ELEMENTALID_VENTUS_L:	case ELEMENTALID_TERA_L:
-				sp = 11;
+				sp = 30;
 				break;
 		}
 
@@ -694,7 +694,7 @@ static int elemental_ai_sub_timer(s_elemental_data *ed, map_session_data *sd, t_
 			return 1;
 		}
 
-		if( battle_check_range(&ed->bl,target,view_range) && rnd()%100 < 2 ) { // 2% chance to cast attack skill.
+		if( battle_check_range(&ed->bl,target,view_range) && rnd()%100 < 10 ) { // 2% chance to cast attack skill.
 			if(	elemental_action(ed,target,tick) )
 				return 1;
 		}

@@ -19,57 +19,31 @@
 
 // Dewata Transportation :: dewata_trans
 //============================================================
-alberta,212,202,4	script	Dewata Sailor#alberta	536,{
-	mes "[Dewata Sailor]";
+alberta,212,202,4	script	Dewata Man#alberta	536,{
+	mes "[Dewata Man]";
 	mes "Do you want to visit ^8B4513Dewata Island^000000?";
 	mes "With its dazzling waves and charming vistas it's a great place to relax.";
-	if (VIP_SCRIPT) {
-		set .@cost, vip_status(VIP_STATUS_ACTIVE)?1000:10000;
-		mes "The transit fee is 10,000 Zeny and 1,000 for VIP.";
-	} else {
-		set .@cost,10000;
-		mes "The transit fee is 10,000 Zeny.";
-	}
 	next;
-	switch(select("Yes!:No.")) {
-	case 1:
-		if (Zeny >= .@cost) {
-			mes "[Dewata Sailor]";
-			mes "^8B4513Dewata^000000 is a beautiful and peaceful island country.";
-			mes "Have a nice trip~";
-			close2;
-			set Zeny, Zeny - .@cost;
-			warp "dewata",232,53;
-			end;
-		} else {
-			mes "[Dewata Sailor]";
-			mes "You don't have the dough, kid.";
-			mes "Come back when you have a bigger wallet.";
-			close;
-		}
-	case 2:
-		mes "[Dewata Sailor]";
-		mes "Let me know";
-		mes "when you're ready to travel~";
-		close;
-	}
+	mes "[Dewata Man]";
+	mes "You need to take the Reudelus ship near the Comodo Pharos, around cmd_fild07. It's too far to go from here!";
+	close;
 }
 
-dewata,229,49,6	script	Alberta Sailor#dewata	536,{
-	mes "[Alberta Sailor]";
-	mes "Do you want to go back to Alberta?";
+dewata,229,49,6	script	Reudelus Sailor#dewata	536,{
+	mes "[Reudelus Sailor]";
+	mes "Do you want to go back to the Comodo Pharos?";
 	next;
 	switch(select("Yes.:No.")) {
 	case 1:
-		mes "[Alberta Sailor]";
+		mes "[Reudelus Sailor]";
 		mes "I hope you had a lot of fun on";
 		mes "your trip to ^8B4513Dewata^000000 Island.";
 		mes "Please come again!";
 		close2;
-		warp "alberta",210,198;
+		warp "cmd_fild07",298,80;
 		end;
 	case 2:
-		mes "[Alberta Sailor]";
+		mes "[Reudelus Sailor]";
 		mes "Have some more fun before you go.";
 		mes "^8B4513Dewata^000000 Island still has more to offer.";
 		close;
@@ -175,49 +149,10 @@ dewata,221,237,5	script	Young Man#dew-1	536,{
 }
 
 dewata,114,243,6	script	Lazy Young Man#dew	536,1,1,{
-	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 500) {
-		mes "[Lazy Young Man]";
-		mes "Why are you carrying so much? Isn't it heavy?";
-		close;
-	}
-	if (countitem(11534)) {
-		mes "[Lazy Young Man]";
-		mes "Wewt~!! Isn't that Palm Juice?";
-		mes "Can you give me that? I just woke";
-		mes "up, and my throat is parched!";
-		next;
-		switch(select("Give:Do not give")) {
-		case 1:
-			mes "[Lazy Young Man]";
-			mes "Really? For me?? I'll give you this in return... Thanks... Hehe~";
-			delitem 11534,1; //Coco_Juice
-			getrandgroupitem(IG_GiftBox),1;
-			close;
-		case 2:
-			mes "[Lazy Young Man]";
-			mes "So be it~ Ok...";
-			close;
-		}
-	}
 	mes "[Lazy Young Man]";
 	mes "Ah~ Thristy~ Anyone have some Palm";
 	mes "juice for me?~";
 	close;
-OnTouch:
-	if (countitem(11534) == 0) {
-		mes "[Lazy Young Man]";
-		mes "Arrgg~ I'm thirsty~~ so thirsty~~";
-		mes "Give me Palm juice... Palm Juuiice~~";
-		emotion ET_FRET;
-		next;
-		emotion ET_FRET;
-		next;
-		emotion ET_FRET;
-		next;
-		emotion ET_FRET;
-		close;
-	}
-	end;
 }
 
 dewata,159,81,4	script	Tourist#dew-1	881,{
@@ -236,88 +171,12 @@ dewata,159,81,4	script	Tourist#dew-1	881,{
 }
 
 dewata,146,109,5	script	Restauranteur#dew	886,{
-	if (checkweight(11532,1) == 0 || checkweight(11533,1) == 0 || MaxWeight - Weight < 500) {
-		mes "[Restauranteur]";
-		mes "You came to taste my dish? It is always good to eat with an empty stomach.";
-		close;
-	}
 	mes "[Restauranteur]";
 	mes "Welcome to the island of Dewata.";
 	mes "I hope you behave like a noble";
 	mes "traveler, unlike some of these";
 	mes "teenage punks...";
-	next;
-	switch(select("About Dewata dishes:Today's menu?:I'm okay.")) {
-	case 1:
-		mes "[Restauranteur]";
-		mes "Need info about our foods? Well... I don't have much to talk about, but feel free to listen if you want.";
-		next;
-		mes "[Restauranteur]";
-		mes "So much to cover, let me begin.";
-		next;
-		mes "[Restauranteur]";
-		mes "First, Dewata dishes have special names based on each cooking recipe,";
-		next;
-		mes "[Restauranteur]";
-		mes "If dish name has 'Goreng' in it, then it is either stir or deep fried food.";
-		next;
-		mes "[Restauranteur]";
-		mes "If it is a type of 'Bakar', then it is a grilled food.";
-		next;
-		mes "[Restauranteur]";
-		mes "And if it's 'Satay', then you are eating a skewered dish.";
-		next;
-		mes "[Restauranteur]";
-		mes "Second, we have dishes named after basic ingredients,";
-		next;
-		mes "[Restauranteur]";
-		mes "In Dewata island, we call rice as Nasi, noodle as Mie, bread as Roti, chicken as Ayam, fish as Ikan, and corn as Jagung.";
-		next;
-		mes "[Restauranteur]";
-		mes "So, if rice is fried we call it 'Nasi Goreng', and fried noodle is 'Mie Goreng'.";
-		next;
-		mes "[Restauranteur]";
-		mes "Well... This is enough to enjoy our foods in Dewata!! If you are hungry, we have our special set menu for only ^0000FF5000^000000 Zeny.";
-		close;
-	case 2:
-		mes "[Restauranteur]";
-		mes "We have 2 items 'Nasi Goreng' and 'Satay'. Which one do you want?";
-		next;
-		switch(select("Nasi Goreng:Satay")) {
-		case 1:
-			mes "[Restauranteur]";
-			mes "This is Nasi Goreng fried with my special sauce plus egg fry on the top. It only costs ^0000FF5000^000000 Zeny.";
-			set .@food,11532;
-			break;
-		case 2:
-			mes "[Restauranteur]";
-			mes "This is the Satay, a slice of meat skewered and grilled over Palm fruit charcoal. It costs only ^0000FF5000^000000 Zeny.";
-			set .@food,11533;
-			break;
-		}
-		next;
-		switch(select("Taste:Walk away")) {
-		case 1:
-			if (Zeny < 5000) {
-				mes "[Restauranteur]";
-				mes "Where's the money kid? Sheesh! No free food here! Ok?";
-				close;
-			}
-			mes "[Restauranteur]";
-			mes "Here's your "+getitemname(.@food)+", you won't regret it!";
-			set Zeny, Zeny - 5000;
-			getitem .@food,1;
-			close;
-		case 2:
-			mes "[Restauranteur]";
-			mes "It's a shame you won't taste this great dish...";
-			close;
-		}
-	case 3:
-		mes "[Restauranteur]";
-		mes "Are you serious? This is not even funny.";
-		close;
-	}
+	close;
 }
 
 dewata,147,107,6	script	Gourmet#dew	85,{
@@ -633,7 +492,6 @@ dewata,71,79,6	script	Monk#dewt3	834,{
 }
 
 dewata,211,272,4	script	Lodge Owner#dew	534,2,3,{
-OnTouch:
 	mes "[Lodge Owner]";
 	mes "These days, we have many honeymooners visiting here.";
 	next;
@@ -650,7 +508,6 @@ OnTouch:
 }
 
 dewata,245,244,4	script	Lodge Employee#dew	536,2,3,{
-OnTouch:
 	mes "[Lodge employee]";
 	mes "Argg~ This is really ticking me off!";
 	emotion ET_FRET;
@@ -667,7 +524,6 @@ OnTouch:
 }
 
 dewata,233,263,8	script	Sweet Married Couple#1	828,2,3,{
-OnTouch:
 	mes "[Sweet Husband]";
 	mes "You are the most beautiful thing in the world baby~";
 	emotion ET_CHUP;
@@ -687,7 +543,6 @@ OnTouch:
 }
 
 dewata,234,263,8	script	Sweet Married Couple#2	727,2,3,{
-OnTouch:
 	mes "[Sweet Wife]";
 	mes "Baby~ You know what flower that is~?";
 	emotion ET_QUESTION;
@@ -718,7 +573,6 @@ OnTouch:
 }
 
 dewata,279,213,4	script	Tourist#dew-2	887,2,3,{
-OnTouch:
 	mes "[Reclining Tourist]";
 	mes "Wow~ This is really comfy~";
 	next;
@@ -736,7 +590,6 @@ OnTouch:
 }
 
 dewata,269,208,4	script	Little Kid in Town#dew	538,2,3,{
-OnTouch:
 	mes "[Kid]";
 	mes "Hey "+((Sex == SEX_MALE)?"bro":"sis")+", look at that man!";
 	next;
@@ -753,7 +606,6 @@ OnTouch:
 }
 
 dewata,227,129,4	script	Sarr#dew	538,2,3,{
-OnTouch:
 	mes "[Sarr]";
 	mes "They're hiding so I should seek.";
 	mes "I'll find them for sure!-";
@@ -776,7 +628,7 @@ OnTouch:
 }
 
 dewata,239,140,4	script	Siyak#dew	539,2,3,{
-OnTouch:
+	
 	mes "[Siyak]";
 	mes "Hey come on, move over~ He's gonna find me~~";
 	next;
@@ -794,7 +646,6 @@ OnTouch:
 }
 
 dewata,193,145,4	script	Sipo#dew	538,2,3,{
-OnTouch:
 	mes "[Sipo]";
 	mes "Sarr won't find me here, right?";
 	next;
@@ -811,7 +662,6 @@ OnTouch:
 }
 
 dewata,228,177,4	script	Majya#dew	538,2,3,{
-OnTouch:
 	mes "[Majya]";
 	mes "I was playing hide-and-seek with my friends...";
 	next;
@@ -825,7 +675,6 @@ OnTouch:
 }
 
 dewata,278,100,4	script	Missing Child#dew	703,2,3,{
-OnTouch:
 	mes "[Ukki]";
 	mes "WaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaaWaa~";
 	emotion ET_CRY;
@@ -850,7 +699,6 @@ OnTouch:
 }
 
 dewata,249,87,4	script	Mum#dew	101,2,3,{
-OnTouch:
 	mes "[Mum]";
 	mes "Ukki~ Ukki~ Where did she go?";
 	emotion ET_KEK;
@@ -865,7 +713,6 @@ OnTouch:
 }
 
 dewata,251,85,6	script	Poppa#dew	97,2,3,{
-OnTouch:
 	mes "[Poppa]";
 	mes "Honey, is Ukki lost again?";
 	emotion ET_QUESTION;
@@ -1046,7 +893,6 @@ dewata,280,236,4	script	Settler#dew	726,{
 }
 
 dewata,204,230,6	script	Dieting Lady#dew	537,{
-	if (countitem(11533) == 0) {
 		mes "[Dieting Lady]";
 		mes "Ah~ I'm starving!!";
 		mes "I should be on a diet now.";
@@ -1058,37 +904,6 @@ dewata,204,230,6	script	Dieting Lady#dew	537,{
 		mes "so much~!!!!!";
 		close;
 	}
-	mes "[Dieting Lady]";
-	mes "Is that mouth-watering";
-	mes "^006400Satay^000000 for me?";
-	next;
-	switch(select("Yes, want a taste?:No, it's for me!")) {
-	case 1:
-		delitem 11533,1; //Satay
-		mes "[Dieting Lady]";
-		mes "Thanks so much!";
-		mes "I've been so hungry~!!";
-		mes "This smell of this ^006400Satay^000000";
-		mes "is so good~!";
-		next;
-		getitem 11533,1; //Satay
-		mes "[Dieting Lady]";
-		mes "Ah... gotta come back to my senses,";
-		mes "too much of a good thing is bad...";
-		mes "I should stick with my diet.";
-		mes "Sorry, I'll give it back to you.";
-		emotion ET_CRY;
-		close;
-	case 2:
-		mes "[Dieting Lady]";
-		mes "Arrgg.. You are so greedy!";
-		mes "Since you don't want to share.";
-		mes "Anyway, I shouldn't cheat on my diet";
-		mes "even for something that looks and smells so good...";
-		emotion ET_HNG;
-		close;
-	}
-}
 
 dewata,117,156,6	script	Dreaming Kid#dew	538,{
 	mes "[Dreaming Kid]";
@@ -1171,5 +986,15 @@ dew_fild01,106,306,4	script	R. Jaty Tribe Warrior	541,{
 	mes "[Reserved Jaty Warrior]";
 	mes "I won't stop until";
 	mes "I become a true warrior!";
+	close;
+}
+
+dew_fild01,51,65,4	script	Jaty Tribe Guardian#2	541,{
+	mes "[Jaty Guardian]";
+	mes "The cave has collapsed due to Scylla's activity on the volcano.";
+	mes "We can't go in anymore.";
+	next;
+	mes "[Jaty Guardian]";
+	mes "You can get to the volcano from Dewata, there's a guy on the port that can take you there.";
 	close;
 }

@@ -1,0 +1,836 @@
+// Quest 5
+
+alde_msq,46,78,0	warp	warpc#msq5	2,2,alde_msq2,33,248
+
+alde_msq	mapflag	noteleport
+alde_msq	mapflag	nomemo
+alde_msq	mapflag	nosave	SavePoint
+//
+alde_msq2	mapflag	noteleport
+alde_msq2	mapflag	nomemo
+alde_msq2	mapflag	nosave	SavePoint
+
+//
+alde_msq,1,1,0	script	msqaldespawn	-1,{
+OnInstanceInit:
+	set .@map$, instance_mapname("alde_msq");
+	monster .@map$,203,161,"Attentive Sentry",2630,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,96,248,"Attentive Sentry",2630,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,192,54,"Attentive Sentry",2630,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,228,174,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,264,236,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,154,229,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,49,231,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,88,196,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,62,151,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,89,103,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,128,195,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,51,172,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,140,159,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	monster .@map$,102,147,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn")+"::OnHeroDead";
+	end;
+OnHeroDead:
+	end;
+}
+
+aldebaran,46,179,4	script	Weirdo#MSQ5	648,{
+	set .@npc$, "[Weirdo]";
+	if (MSQProg >=7){
+	mes .@npc$;
+	mes "I've been assigned to keeping an eye on the Cultists here. Take care.";
+	close;
+	}
+	if (MSQProg <=4){
+	mes .@npc$;
+	mes "I'm trying to work here. Shoo~~";
+	close;
+	}
+	if (MSQProg ==6){
+	mes .@npc$;
+	mes "Hey... I'll keep an eye around here. Go and find that man in Hugel.";
+	next;
+	if (dkchoiceb ==1){
+	mes .@npc$;
+	mes "Yeah...I saw what you did there...I understand you but...-sigh-...you're reckless.";
+	close;
+	}
+	if (dkchoicea ==1){
+	mes .@npc$;
+	mes "We have to know what he is planning and what he knows. I'll get the news to your sister and everyone else.";
+	close;
+	}
+	}
+	if (BaseLevel <=49){
+	mes .@npc$;
+	mes "I'm sorry, i'm waiting for a friend who is Base Level 50 at least. Leave me alone please.";
+	close;
+	}
+	if (MSQProg ==5){
+	mes .@npc$;
+	mes "So where is Blossom... I wonder why the guys droll all over her... and... WHOA!";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Psst-I'm ...working here! Who are you?";
+	next;
+	if (jesterjob ==1){
+	emotion ET_SMILE, playerattached();
+	mes "[Dad]";
+	mes "Hello Working Here, I'm Dad!";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "Oh god... no really, I'll kill you right now, who are you, Orphan? ";
+	next;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "..." + strcharinfo(0) + ". I was sent here by the Azure Kings.";
+	next;
+	if (peacekeeperjob ==1){
+	mes .@npc$;
+	mes "A Peacekeeper? Is this for real? That's a surprise around this region.";
+	next;
+	}
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "So you are the reinforcements.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I... guess so, yes.";
+	next;
+	mes .@npc$;
+	mes "Ok, are you ready to start now? We gotta hurry, I'll brief you on it.";
+	next;
+	switch(select("I need time to prepare.:I'm ready.")) {
+	case 1:
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "Ok, hurry up then? It's not like we got a lot of time to spare.";
+	close;
+	case 2:
+	emotion ET_BEST, playerattached();
+	mes .@npc$;
+	mes "Excellent! We need to get started now. The Streets at Night can be dangerous, so we gotta move fast.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Streets at Night";
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Are the cult guys doing anything strange around here?";
+	next;
+	.@name$ = "MSQ5" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "...They are meeting in one of the abandoned WoE castles. We need to find a way around and see what they are up to.";
+	next;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Streets at Night]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Weirdo]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Streets at Night...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	
+	}
+}
+
+
+//Streets at Night Instance
+//Includes multiple guard monsters that when they find a player, will start long-casting a summon_slave that brings more guards to the location. These guards are present on the castle too.
+
+alde_msq,256,159,5	script	???#msqald	723,5,5,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("alde_msq"), 264, 159;
+	end;
+}
+
+alde_msq,1,1,4	script	Controller#MSQ5	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Azure Kings Spy#2MSQ5");
+	disablenpc instance_npcname("Azure Kings Spy#2MSQ5");
+	end;
+}
+
+alde_msq,269,161,4	script	Azure Kings Spy#MSQ5	648,{
+	set .@npc$, "[Spy]";
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Damn this place sure is dark!";
+	next;
+	mes .@npc$;
+	mes "It is...we're having some good luck for now!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Ok so what's the plan?";
+	next;
+	mes .@npc$;
+	mes "Sneak past the guards... There are two types of guards.";
+	next;
+	mes .@npc$;
+	mes "The RED guards will move around fast and quickly, they will also attack you on sight. The good thing is that due to how dark this area is around this time, they have very poor sight range. ";
+	next;
+	mes .@npc$;
+	mes "The BLUE guards will not move as much, but they have a great vision range, so getting anywhere near them will cause them to start calling for help from RED guards. ";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So ^6666CCRED^000000 guards will attack me directly, ^6666CCBLUE^000000 guards will call for reinforcements... got it.";
+	next;
+	mes .@npc$;
+	mes "You can try to run away from a BLUE guard quickly before they can ask for help...It's up to you.";
+	next;
+	mes .@npc$;
+	mes "Lady Eris gave us specific instructions to -NOT- engage in combat, unless extremely necessary.";
+	next;
+	mes .@npc$;
+	mes "The best way to handle this situation is to actually avoid the guards entirely. I'll meet you near the  ^6666CCsoutwest castle^000000, where they are meeting. Good Luck! ";
+	close2;
+	emotion ET_BEST, playerattached();
+	mapannounce instance_mapname("alde_msq"), "Avoid the guards and meet the Spy near the Southwest Castle!",bc_map,"0xffff00";
+	disablenpc instance_npcname("Azure Kings Spy#MSQ5");
+	disablenpc instance_npcname("???#msqald");
+	disablenpc instance_npcname("warpc#msq5");
+	enablenpc instance_npcname("Azure Kings Spy#2MSQ5");
+	end;
+}
+
+alde_msq,48,81,4	script	Azure Kings Spy#2MSQ5	648,{
+	set .@npc$, "[Spy]";
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How the hell did you get here?";
+	next;
+	mes .@npc$;
+	mes "I'm a Spy, what did you expect, lots of women and fancy gadgets?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...You came through the sewers right? I can smell it.";
+	next;
+	mes .@npc$;
+	mes "...";
+	next;
+	emotion ET_SMILE, playerattached();
+	emotion ET_THINK;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Don't ask?";
+	next;
+	mes .@npc$;
+	mes "Don't ask.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Got it.";
+	next;
+	mes .@npc$;
+	mes "Let's head inside.";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How are we getting in?";
+	next;
+	mes .@npc$;
+	mes "There's a small passage around here. The castle may be abandoned but it still has an access the winner guilds used to get in.";
+	next;
+	mes .@npc$;
+	mes "Be careful with the guards inside.";
+	close2;
+	disablenpc instance_npcname("Azure Kings Spy#2MSQ5");
+	enablenpc instance_npcname("warpc#msq5");
+	end;
+	//Add the Instance Warp code to inside the castle
+}
+
+alde_msq2,27,189,5	script	Interior#msqald1	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	disablenpc instance_npcname("Barracks#msqald3");
+	warp instance_mapname("alde_msq2"), 46, 72;
+	end;
+}
+
+alde_msq2,89,25,5	script	Meeting Hall#msqald2	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	disablenpc instance_npcname("Grand Hall#msqald3");
+	disablenpc instance_npcname("Azure Kings Spy#3MSQ5");
+	disablenpc instance_npcname("Tall Man#MSQ5");
+	warp instance_mapname("alde_msq2"), 215, 47;
+	end;
+}
+
+alde_msq2,215,54,5	script	Grand Hall#msqald3	723,2,2,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	disablenpc instance_npcname("Meeting Hall#msqald2");
+	warp instance_mapname("alde_msq2"), 89, 32;
+	end;
+}
+
+alde_msq2,1,1,0	script	msqaldespawn2	-1,{
+OnInstanceInit:
+	set .@map$, instance_mapname("alde_msq2");
+	monster .@map$,18,186,"Attentive Sentry",2630,1,instance_npcname("msqaldespawn2")+"::OnHeroDead";
+	monster .@map$,86,71,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn2")+"::OnHeroDead";
+	monster .@map$,52,39,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn2")+"::OnHeroDead";
+	monster .@map$,62,98,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn2")+"::OnHeroDead";
+	monster .@map$,72,48,"Aggressive Sentry",2631,1,instance_npcname("msqaldespawn2")+"::OnHeroDead";
+	end;
+OnHeroDead:
+	end;
+}
+
+// Meeting NPCs
+
+
+
+// Main NPCs
+alde_msq2,217,22,5	script	Mysterious Man#MSQ5	10021,{
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I should not get any closer! They will spot me! I need to find a place I can watch them!";
+	close;
+}
+
+alde_msq2,214,22,5	script	Mysterious Woman#MSQ5	10022,{
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I should not get any closer! They will spot me! I need to find a place I can watch them!";
+	close;
+}
+
+alde_msq2,214,25,4	script	Cult Leader#MSQ5	10386,{
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I should not get any closer! They will spot me! I need to find a place I can watch them!";
+	close;
+}
+
+alde_msq2,217,25,4	script	Cloaked Woman#MSQ5	10358,{
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I should not get any closer! They will spot me! I need to find a place I can watch them!";
+	close;
+}
+
+
+alde_msq2,216,41,4	script	Observation Point#MSQ5	CLEAR_NPC,1,1,{
+	end;
+	OnTouch:
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I can see them talking over there...";
+	next;
+	cutin "ep19_voglinde01.png",2;
+	mes "[Cloaked Woman]";
+	mes "How many?";
+	next;
+	cutin "ep18_bagot_01.png",2;
+	mes "[Cult Leader]";
+	mes "Some orphans are losing complete control...which while not ideal is at least something.";
+	next;
+	cutin "",255;
+	mes "[Mysterious Man]";
+	mes "My lady! The orphans who get lost are not an issue. It's very easy to break their spirit.";
+	next;
+	mes "[Mysterious Man]";
+	mes "It's the ones from the Orphanage that are a problem. They have support from the people there and are strong.";
+	next;
+	mes "[Mysterious Woman]";
+	mes "We have to do something with that place. They grow stronger by the day.";
+	next;
+	cutin "ep19_voglinde01.png",2;
+	mes "[Cloaked Woman]";
+	mes "I said... How many Ishmael?";
+	next;
+	cutin "ep18_bagot_02.png",2;
+	mes "[Cult Leader Ishmael]";
+	mes "So far this month we had around...40 new ones? I Think? It's hard to say precisely.";
+	next;
+	cutin "ep19_voglinde02.png",2;
+	mes "[Cloaked Woman]";
+	mes "You need to work harder.";
+	next;
+	cutin "",255;
+	emotion ET_KEK, getnpcid(0, "Mysterious Man#MSQ5");
+	emotion ET_KEK, getnpcid(0, "Mysterious Woman#MSQ5");
+	emotion ET_KEK, getnpcid(0, "Cult Leader#MSQ5");
+	mes "[Mysterious Woman]";
+	mes "Y-yes! Of course! But it's not so easy to do it.";
+	next;
+	cutin "ep19_voglinde03.png",2;
+	mes "[Cloaked Woman]";
+	mes "I don't care how hard it is. I want more vessels! You are not enough!";
+	next;
+	mes "[Cloaked Woman]";
+	mes "We lost our Dandelion Organization alliance when Satan Morroc returned. Their sacrifice can't be in vain. We must do our part.";
+	next;
+	mes "[Cloaked Woman]";
+	mes "The work was almost done. They already have the shadows inside them! How hard can it be to make them devour the orphans?";
+	next;
+	cutin "ep18_bagot_01.png",2;
+	mes "[Cult Leader Ishmael]";
+	mes "I understand. We will double our efforts. What should we do about the Orphanage?";
+	next;
+	cutin "ep19_voglinde01.png",2;
+	mes "[Cloaked Woman]";
+	mes "You figure it out. Get rid of that place. Take their places if necessary.";
+	next;
+	cutin "ep18_bagot_01.png",2;
+	mes "[Cult Leader Ishmael]";
+	mes "You heard her. Let's contact the other cells. We got many shadows to satisfy.";
+	next;
+	cutin "ep19_voglinde01.png",2;
+	mes "[Cloaked Woman]";
+	mes "I gave you his eye for a reason Ishmael. Don't fail me.";
+	next;
+	mes "[Cloaked Woman]";
+	mes "To make what was forbidden...";
+	next;
+	cutin "",255;
+	mes "[All members]";
+	mes "...dominant again!";
+	next;
+	emotion ET_SCRATCH, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So... the Dandelion Organization and the Cult are working for the same goal...";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Switch places...? I wonder what they mean...?";
+	next;
+	cutin "3rd_rune_knight",2;
+	mes "[Strange Voice]";
+	mes "Oh, you will know soon enough if you don't watch your surroundings.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Mysterious Man#MSQ5");
+	disablenpc instance_npcname("Mysterious Woman#MSQ5");
+	disablenpc instance_npcname("Cult Leader#MSQ5");
+	disablenpc instance_npcname("Cloaked Woman#MSQ5");
+	emotion ET_SURPRISE, playerattached();
+	disablenpc instance_npcname("Observation Point#MSQ5");
+	enablenpc instance_npcname("Tall Man#MSQ5");
+	end;
+}
+
+alde_msq2,218,50,4	script	Tall Man#MSQ5	470,{
+	set .@npc$, "[Tall Man]";
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Who are you?";
+	next;
+	cutin "3rd_rune_knight",2;
+	mes .@npc$;
+	mes "Does it even matter? If I wanted to kill you. I would already have. You should be careful.";
+	next;
+	if (roninjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Impressive movement. I usually can pay attention to every detail...but your movements elude me.";
+	next;
+	mes .@npc$;
+	mes "I also have tricks in my sleeve. Unnatural ways will always exist.";
+	next;
+	}
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "You may be tall...but you're still a single man and my scythe can take you down.";
+	next;
+	mes .@npc$;
+	mes "Do you REALLY think that scythe is the true power of darkness?";
+	next;
+	}
+	if (judgejob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I gave you an order. Identify yourself. In the name of the King.";
+	next;
+	mes .@npc$;
+	mes "Look, Magister, I'm not looking for trouble, not with you. I could, but I figured I could use your help.";
+	next;
+	}
+	if (jesterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Oh geez. Whatever. Wanna see a cool trick?";
+	next;
+	mes .@npc$;
+	mes "...no.";
+	next;
+	}
+	if (illusionistjob ==1){
+	mes .@npc$;
+	mes "I know a Illusionist when I see one. I'm sure you can help me. It's in your best interest.";
+	next;
+	}
+	mes .@npc$;
+	mes "Seeing an Orphan here is the last thing I expected. I have a proposal for you.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'll give you a chance to explain yourself. Let's hear it.";
+	next;
+	mes .@npc$;
+	mes "My name is Oberon. I'm a Dark Knight.";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes .@npc$;
+	mes "These cultists...they are a disease in our world. They upset the balance of life and death. They must be exterminated.";
+	next;
+	mes .@npc$;
+	mes "I've been hunting them for a while now. I need more people to fight with me, directly.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So Oberon, you want me to go and kill them, just like that?";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "I will be killing them regardless of what you do. You have a chance to fight alongside me and we will kill them, here and now.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "My orders are to avoid direct combat, except when necessary... I should go back and report what I saw.";
+	next;
+	mes .@npc$;
+	mes "You won't have another chance. What do you expect, to simply let them continue doing those atrocities?";
+	next;
+	if (dkchoicea ==1){
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I need to follow my Orders.";
+		next;
+		mes .@npc$;
+		mes "Those methods don't work...innocent people may die. Very well, you have your orders, I have my plans.";
+		next;
+		mes .@npc$;
+		mes "Meet me in Hugel later. In the bar. We can discuss this mess there.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Why would I?";
+		next;
+		mes .@npc$;
+		mes "Your sister and everyone else may be at risk. I can help. I trust your judgment, " + strcharinfo(0) + ".";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "How do you know my name?";
+		next;
+		mes .@npc$;
+		mes "I found you a few years ago in Niflheim. Along with most other Orphans.";
+		close2;
+		cutin "",255;
+		disablenpc instance_npcname("Tall Man#MSQ5");
+		enablenpc instance_npcname("Azure Kings Spy#3MSQ5");
+		end;
+	}
+	if (dkchoiceb ==1){
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "...Let's get them.";
+		next;
+		mes .@npc$;
+		mes "Excellent. Let's rush head-on. I'll fight alongside you against those bastards.";
+		next;
+		mes "^6666CCYou have abandoned your orders for vengeance.^000000";
+		close2;
+		cutin "",255;
+		donpcevent instance_npcname("#cultistspawn1", instance_id())+"::OnEnable";
+		enablenpc instance_npcname("Barracks#msqald3");
+		enablenpc instance_npcname("Grand Hall#msqald3");
+		disablenpc instance_npcname("Tall Man#MSQ5");
+		end;
+	}
+	switch(select("I need to follow my Orders.:...Let's get them.")) {
+	case 1:
+		if (dkchoice ==0){ 
+		set hinofavour, hinofavour+1;
+		set anabellefavour, anabellefavour+1;
+		set dkchoicea,1;
+		set dkchoice,1;
+		}
+		mes .@npc$;
+		mes "Those methods don't work...innocent people may die. Very well, you have your orders, I have my plans.";
+		next;
+		mes .@npc$;
+		mes "Meet me in Hugel later. In the bar. We can discuss this mess there.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Why would I?";
+		next;
+		mes .@npc$;
+		mes "Your sister and everyone else may be at risk. I can help. I trust your judgment, " + strcharinfo(0) + ".";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "How do you know my name?";
+		next;
+		mes .@npc$;
+		mes "I found you a few years ago in Niflheim. Along with most other Orphans.";
+		close2;
+		cutin "",255;
+		disablenpc instance_npcname("Tall Man#MSQ5");
+		enablenpc instance_npcname("Azure Kings Spy#3MSQ5");
+		end;
+	case 2:
+		if (dkchoice ==0){ 
+		set hinofavour, hinofavour-1;
+		set anabellefavour, anabellefavour-1;
+		set dkchoiceb,1;
+		set dkchoice,1;
+		}
+		mes .@npc$;
+		mes "Excellent. Let's rush head-on. I'll fight alongside you against those bastards.";
+		next;
+		mes .@npc$;
+		mes "Meet me back at the entrance to the barracks. Its beside the door you passed by.";
+		next;
+		mes "^6666CCYou have abandoned your orders for vengeance.^000000]";
+		close2;
+		cutin "",255;
+		donpcevent instance_npcname("#cultistspawn1", instance_id())+"::OnEnable";
+		disablenpc instance_npcname("Tall Man#MSQ5");
+		enablenpc instance_npcname("Grand Hall#msqald3");
+		enablenpc instance_npcname("Barracks#msqald3");
+		end;
+}
+}
+
+//Regular orders followed path
+
+alde_msq2,212,50,5	script	Azure Kings Spy#3MSQ5	648,{
+	set .@npc$, "[Azure Kings Spy]";
+	mes .@npc$;
+	mes "Hey! Are you alright? I followed them a bit but didn't see anything relevant.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yeah...no big deal. He seems to have the same goal as us...but his own way.";
+	next;
+	mes .@npc$;
+	mes "What did he talk about? Who is he?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "He's Oberon, he said something ab-";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Whoa whoa whoa, Oberon? Are you sure?";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "yes...why?";
+	next;
+	mes .@npc$;
+	mes "Oberon was the the leader of the Iron Angels in the past. He was dead. Quite a leader.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Seemed pretty alive to me. So what?";
+	next;
+	mes .@npc$;
+	mes "You don't understand... he SHOULD be dead. He died during the fight with Satan Morroc. He led the charge. Everyone saw it.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Oh...that's...weird.";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "He asked me to meet him in Hugel.";
+	next;
+	mes .@npc$;
+	mes "Go and meet him there. I'll report the details to Lady Eris. Anything else you believe is relevant?";
+	next;
+	switch(select("Nothing relevant:That my sister may be in danger:That the People may be in danger")) {
+	case 1:
+		mes .@npc$;
+		mes "Are you sure? Ok then, I'll go back to the castle. Go and find that man in Hugel.";
+		next;
+		mes "^6666CCYou leave the castle.^000000";
+		close2;
+		set MSQProg,6;
+		warp "aldebaran",49,177;
+		end;
+	case 2:
+		mes .@npc$;
+		mes "Oh no! We'll keep an eye on her! They must be planning something!";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Please do keep an eye on her.";
+		next;
+		mes .@npc$;
+		mes "Leave it to us, don't worry. Go and find that man in Hugel.";
+		next;
+		mes .@npc$;
+		mes "And take these Yggdrasil berries...I found them in the Barracks...";
+		next;
+		mes "^6666CCYou leave the castle.^000000";
+		close2;
+		getitem 607,3;
+		set MSQProg,6;
+		set anabellefavour, anabellefavour+1;
+		warp "aldebaran",49,177;
+		end;
+	case 3:
+		mes .@npc$;
+		mes "They must be planning something! I gotta warn the others. Maybe warn the orphanage?";
+		next;
+		mes .@npc$;
+		mes "Leave it to me, don't worry. Go and find that man in Hugel.";
+		next;
+		mes .@npc$;
+		mes "And take these Yggdrasil berries...I found them in the Barracks...";
+		next;
+		mes "^6666CCYou leave the castle.^000000";
+		close2;
+		getitem 607,3;
+		set MSQProg,6;
+		set prepareddefenses,1;
+		warp "aldebaran",49,177;
+		end;
+	}
+}
+
+alde_msq2,126,62,5	script	Barracks#msqald3	723,3,3,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("alde_msq2"), 177, 174;
+	playBGM "215";
+	mapannounce instance_mapname("alde_msq2"), "Kill every cultist. No Prisoners.",bc_map,"0xffff00";
+	end;
+}
+
+//Follow Oberon to fight
+
+alde_msq2,1,1,4	script	#cultistspawn1	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#cultistspawn1", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#cultistspawn1", instance_id());
+	set .@map$, instance_mapname("alde_msq2");
+	.@event$ = instance_npcname("#cultistspawn1")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,182,177,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,187,144,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,212,174,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,223,136,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,230,180,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,233,143,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,207,153,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,205,151,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,207,144,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,199,153,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,185,128,"Surprised Cultist",2632,1, .@event$;
+	monster .@map$,179,156,"Surprised Cultist",2632,1, .@event$;
+	set 'Cult_Mobs,12;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("alde_msq2"), "I'll meet you in the Barracks! Go for them!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Cult_Mobs,'Cult_Mobs-1;
+	if ('Cult_Mobs >0 ){
+	mapannounce instance_mapname("alde_msq2"), "Dying Cultist: You will not stop us, dirty Orphan...",bc_map,"0xffff00";
+	}
+	if ('Cult_Mobs < 1) {
+		set 'Cult_Mobs,0;
+		mapannounce instance_mapname("alde_msq2"), "Oberon: Impressive skill there. You really know how to handle yourself.",bc_map,"0xffff00";
+		enablenpc instance_npcname("Oberon#MSQ52");
+		stopnpctimer;
+	}
+	end;
+}
+
+alde_msq2,206,182,4	script	Oberon#MSQ5	470,{
+	set .@npc$, "[Oberon]";
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Whew... I guess that's all of them.";
+	next;
+	cutin "3rd_rune_knight",2;
+	mes .@npc$;
+	mes "Indeed. Didn't you feel great knowing you did the best you could here? Not just watch them?";
+	next;
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Niflheim could use some more souls. Specially those damned people.";
+	next;
+	}
+	if (judgejob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Some people can't be saved. The only fair judgment is a quick death.";
+	next;
+	}
+	if (jesterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "They didn't seem to laugh much during the fight. But I think it had some fun.";
+	next;
+	mes .@npc$;
+	mes "...Oh damn...why are you like this?";
+	next;
+	}
+	if (assassinjob ==1){
+	mes .@npc$;
+	mes "We share the same path. I understand the darkness in their hearts, but they are weak.";
+	next;
+	}
+	if (darkknightjob ==1){
+	mes .@npc$;
+	mes "We share the same path. I understand the darkness in their hearts, but they are weak. We are strong.";
+	next;
+	}
+	if (peacekeeperjob ==1){
+	mes .@npc$;
+	mes "Nothing can stand in the way of my whip.";
+	next;
+	}
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait... I can see you're hurt. That wound is MASSIVE! How are you still standing?";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "You can't kill what is already dead.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What...Are you not alive? What the hell is going on?";
+	next;
+	mes .@npc$;
+	mes "Meet me in Hugel later. In the bar. We can discuss this mess there, " + strcharinfo(0) + ".";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How do you know my name?";
+	next;
+	mes .@npc$;
+	mes "I found you a few years ago in Niflheim. Along with most other Orphans....take care.";
+	next;
+	mes "^6666CCYou look all around you and can't find the Azure Kings Spy anywhere...^000000";
+	next;
+	mes "^6666CCYou do find some Yggdrasil Berries around, then leave the castle.^000000";
+	close2;
+	getitem 607,5;
+	cutin "",255;
+	set MSQProg,6;
+	set reducedcultists,1;
+	warp "aldebaran",49,177;
+	end;
+}

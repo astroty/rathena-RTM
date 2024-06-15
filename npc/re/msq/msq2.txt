@@ -1,0 +1,508 @@
+//Quest 2
+
+pay_gld,142,174,6	script	Guild Guard#MSQ2	413,{
+	set .@npc$, "[Guild Guard]";
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "This castle is private property of the Iron Angels Guild. It's free to visit, if you behave.";
+	next;
+	mes .@npc$;
+	mes "Iron Angels is known as one of the 3 great guilds of Midgard, alongside the White Wings and Azure Kings.";
+	next;
+	mes .@npc$;
+	mes "Our leader is a fair and strong man. Feel free to talk to him if you need assistance.";
+	close;
+}
+
+payon,73,147,6	script	Talkative Lady#MSQ2Flavor	537,{
+	set .@npc$, "[Talkative Lady]";
+	mes .@npc$;
+	mes "The Iron Angels guild helps us a lot when we need it. They are the jewel of Payon.";
+	next;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "If you need their help, make sure to visit them at their Castle to the West.";
+	close;
+}
+
+payg_cas04,254,205,4	script	Iron Angel#1MSQ2	414,{
+	set .@npc$, "[Iron Angel]";
+	emotion ET_SCISSOR;
+	mes .@npc$;
+	mes "The Sacred Altar is a nice castle to have. Ever since the War of Emperium has been restricted in most regions, we had the right to take this place.";
+	next;
+	mes .@npc$;
+	mes "The White Wings have one of the castles in Aldebaran, and the Azure Kings have one in Geffen.";
+	next;
+	mes .@npc$;
+	mes "They call us the 3 Great Guilds due to our role in defeating Satan Morroc...damn that day was wild.";
+	close;
+}
+
+payg_cas04,40,264,4	script	Iron Angel#MSQ2	415,{
+	set .@npc$, "[Iron Angel]";
+	mes .@npc$;
+	mes "I'm trying to manage our supplies for delivery. Please, don't disturb me.";
+	close;
+}
+
+payg_cas04,67,247,4	script	Trainee Archer#MSQ2	634,{
+	set .@npc$, "[Trainee Archer]";
+	mes .@npc$;
+	mes "They are going to help me train to be a better Archer! From what I noticed, even from afar I need to keep moving and watching my surroundings.";
+	close;
+}
+
+payg_cas04,31,280,4	script	Quiet Trainee#MSQ2	818,{
+	set .@npc$, "[Quiet Trainee]";
+	mes .@npc$;
+	mes "Hey...I'm waiting for my turn to take the Trial...actually...I'm just a bit nervous.";
+	next;
+	mes .@npc$;
+	mes "The Iron Angels provided me with food and shelter. They also help us with this Trial as a learning exercise.";
+	next;
+	mes .@npc$;
+	mes "It's the least I could do considering how much they help us.";
+	close;
+}
+
+payg_cas04,38,236,4	script	Arch Bishop#MSQ2	677,{
+	set .@npc$, "[Licheniyes]";
+	mes .@npc$;
+	mes "Hello there Orphan. Enjoying the visit to our castle? Let me know if you need anything, ok?";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I know we are not to blame for what happened to you guys, but I can't help but feel a bit sad...";
+	close;
+}
+
+payg_cas04,37,273,6	script	Lord Knight#MSQ2	676,{
+	set .@npc$, "[Ifodes]";
+	mes .@npc$;
+	mes "Always keep your guard up. You never know when someone might suddenly- MAGNUM BREAK!";
+	next;
+	specialeffect 17;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "See? That could hurt you a lot if you were unprepared!";
+	next;
+	if (judgejob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I wonder if it would hurt me to bring you to a trial for provoking one of the Judges...?";
+	next;
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "What! No! I'm sorry! I was just kidding!";
+	close;
+	}
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Hahaha, so funny...no really, that was terrible.";
+	next;
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "...";
+	close;
+	}
+	if (jesterjob ==1){
+	specialeffect2 17;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Magnum Break-ier!";
+	next;
+	emotion ET_DELIGHT;
+	specialeffect 17;
+	mes .@npc$;
+	mes "Ohhh cool! Magnum-Break-ier-er!";
+	next;
+	specialeffect2 10;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Magnum Broke!";
+	next;
+	emotion ET_MONEY;
+	mes .@npc$;
+	mes "I'm so broke man! Oh..boy...I should stop playing or I'll become someone like you.";
+	close;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Uh...thanks?";
+	close;
+}
+
+payg_cas04,15,267,6	script	Sorcerer#MSQ2	680,{
+	set .@npc$, "[Eve Dwigh]";	
+	if (MSQProg <=0){
+	mes .@npc$;
+	mes "Hey there. I'm working on the tests, so let me handle this ok?";
+	close;
+	}
+	if (MSQProg >=2){
+	mes .@npc$;
+	mes "Good work overcoming the Trial. You're pretty good!";
+	close;
+	}
+	mes .@npc$;
+	mes "I'm responsible for explaining the Emperium Trial.";
+	next;
+	mes .@npc$;
+	mes "Moving past this room you'll find the old Emperium Room, It's a place where many battles happened.";
+	next;
+	emotion ET_OK;
+	mes .@npc$;
+	mes "Some plants will try to stop you, if Master Leonard allowed you in, you can open the box where the Emperium used to appear.";
+	next;
+	mes .@npc$;
+	mes "You'll find a small replica of it inside the box, come back and Leonard will provide you with some useful supplies. Simple no?";
+	next;
+	mes .@npc$;
+	mes "It's a great learning opportunity for you to actually know how to dodge enemies and prepare for fightning.";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Just be extra careful with Alphonse on the way. Fay thinks it's funny when it chases the people on the test.";
+	close;
+}
+
+payg_cas04,29,265,6	script	Alchemist Fay#MSQ2	665,{
+	set .@npc$, "[Fay Kanavian]";
+	cutin "paycana_a",2;
+	if (MSQProg >=3){
+	mes .@npc$;
+	mes "I hope our help is enough to give you the basics you need. Take Care!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (MSQProg ==2){
+	mes .@npc$;
+	mes "Why don't you go and try to find your friend? Try talking to a guard in Payon!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (leonardtest ==3){
+		emotion ET_THROB;
+		mes .@npc$;
+		mes "Wonderful! I knew you had it in you the moment I saw you around here!";
+		next;
+		if (judgejob ==1){
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I guess the Judge uniform does draw some attention right?";
+		next;
+		mes .@npc$;
+		mes "Absolutely... but that wasn't the reason...";
+		next;
+		}
+		if (jesterjob ==1){
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Let me guess...it was my obvious beauty!";
+		next;
+		emotion ET_PROFUSELY_SWEAT;
+		mes .@npc$;
+		mes "Uh... yeah, sure. But that's not what I meant...";
+		next;
+		}
+		if (thiefjob ==1){
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I believe thieves have a natural skill on adaptability eh?";
+		next;
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "That's right! But there was one more thing...";
+		next;
+		}
+		mes .@npc$;
+		mes "Tell me, do you know a guy named Hino? Hino Tres?";
+		next;
+		emotion ET_SURPRISE, playerattached();
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Oh Yes! He's a long-time friend of mine. Why do you ask?";
+		next;
+		mes .@npc$;
+		mes "He was here watching your test. He also took part in it a few days ago.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "How was it?";
+		next;
+		emotion ET_PROFUSELY_SWEAT;
+		mes .@npc$;
+		mes "That's... classified information.";
+		next;
+		if (jesterjob ==1){
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "He completely failed.";
+		next;
+		emotion ET_PROFUSELY_SWEAT;
+		mes .@npc$;
+		mes "Yes.";
+		next;
+		}
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I see... so, what did he say?";
+		next;
+		mes .@npc$;
+		mes "He said he's been looking for you all around! He was pretty happy to see you.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Oh great! Where is he now? Did he leave any message?";
+		next;
+		mes .@npc$;
+		mes "Well...not really. but maybe you can ask one of the guards in Payon. He was mumbling somethign about running out of time to get into the caves.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "By the way...if he was taking the test...does that mean...he was an Orphan too?";
+		next;
+		mes .@npc$;
+		mes "I'm afraid so...";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Very well...I'll try to find him. Thanks for the information.";
+		next;
+		specialeffect2 18;
+		mes .@npc$;
+		mes "Here's your trial reward! 15.000 zeny! Take care and if you need anything, let us know!";
+		close2;
+		set MSQProg,2;
+		achievementcomplete(200066);
+		set zeny,zeny+15000;
+		cutin "",255;
+		end;
+	}
+	mes .@npc$;
+	mes "Hello there Orphan.";
+	next;
+	mes .@npc$;
+	mes "I'm the second in command here. But I don't usually interact...directly...with people who need help.";
+	next;
+	emotion ET_OK;
+	mes .@npc$;
+	mes "The Iron Angels are commited to helping anyone who wants to train, specially Orphans, so make sure to come to us if you need help!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+payg_cas04,33,262,6	script	Master Leonard#MSQ2	459,{
+	set .@npc$, "[Master Leonard]";
+	cutin "ep13_captin_edq",2;
+	if (BaseLevel <=19 ){
+	mes .@npc$;
+	mes "So uh...you're not even Base Level 20. Why don't you train a little then come back? The test isn't so easy.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (MSQProg >=2){
+	mes .@npc$;
+	mes "Oh it's  " + strcharinfo(0) + ", how's it going?";
+	next;
+	mes .@npc$;
+	mes "If you need anything, let me know, the Iron Angels are always ready.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (leonardtest ==3){
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Good job! You're pretty skilled and quick if you could get here safe and with the item intact!";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Thanks! I'll go and talk to Fay now.";
+		close2;
+		cutin "",255;
+		end;
+	}
+	if (leonardtest ==2){
+		if(countitem(714) < 1) goto L_noitems;
+		delitem 714,1;
+		set leonardtest,3;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Good job! You're pretty skilled and quick if you could get here fast enough and with the shard intact!";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Those plants are murderous! What the hell!";
+		next;
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "Welcome to New-Midgard. It's not always a pleasant place. You need a safe environment to prepare and to handle yourself. We are here to provide this.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Why are you guys doing this? Why use your entire castle for this?";
+		next;
+		mes .@npc$;
+		mes "We lost... plenty of members due to Satan Morroc already. And quite a few more after all that happened...it's our duty as a guild to help people in need.";
+		next;
+		mes .@npc$;
+		mes "I hope you pass this on and provide people with an opportunity if you ever see someone in such a situation. Be the change you want to see in the world.";
+		next;
+		emotion ET_SCISSOR;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Ok, fine, I guess...so what now?";
+		next;
+		emotion ET_SCISSOR;
+		mes .@npc$;
+		mes "You passed! You have what's needed to at least survive around. So... we can provide you with some money to assist in your journey, talk to Fay, the Alchemist. She'll direct you.";
+		close2;
+		cutin "",255;
+		end;
+	L_noitems:
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "Good luck on your test. Get the item inside the chest in the Emperium Room and bring it to me!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (leonardtest ==1){
+	mes .@npc$;
+	mes "So, the way we provide training is pretty simple. You have to run the Emperium Trial.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...?";
+	next;
+	mes .@npc$;
+	mes "The Emperium Trial requires you to reach the Chest at the end of the path of this castle.";
+	next;
+	mes .@npc$;
+	mes "I brought some plants from the Yggdrasil Tree here, they will use basic spells targetting you and the area around. You need to dodge them and navigate to the end.";
+	next;
+	mes .@npc$;
+	mes "when you get there, Open the chest and you will need to bring me the item you find inside. Easy eh?";
+	next;
+	mes .@npc$;
+	mes "And don't worry about Shadows if you fail and die, the dark energy around here has almost completely been purified by our priests. Just thank the kafra ladies for the ressurrection haha!";
+	next;
+	mes .@npc$;
+	mes "This should teach you everything you need to grow in skill. So, whenever you're ready, go for it! Just check the door near Eve, the Sorcerer over there!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Very well... seems simple enough! Let's do this!";
+	close2;
+	set leonardtest,2;
+	cutin "",255;
+	end;
+	}
+	if (MSQProg <=0){
+	mes .@npc$;
+	mes "Hey there Orphan. How's it going? Welcome to the Iron Angels.";
+	next;
+	mes .@npc$;
+	mes "We are kinda busy currently. So unless you had some really difficulty situation that deserves attention, please, come back later.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Oh, hey...an Orphan huh? Do you need something? You don't look like you need food or a place to stay.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I've been directed here. I heard you guys can help people in need of training.";
+	next;
+	emotion ET_OK;
+	mes .@npc$;
+	mes "Oh! That's true! We got quite a few people here. Do you have any specific case you'd like to mention?";
+	next;
+	mes "^6666CCYou explain what happened in Morroc.^000000";
+	next;
+	emotion ET_OK;
+	mes .@npc$;
+	mes "Damn, quite a rude awakening to the world eh? Be careful with some people...";
+	next;
+	if (judgejob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "A good gun and bullets are enough. I must bring order to this chaos.";
+	next;
+	mes .@npc$;
+	mes "Well, things might be hard, but it's not everyday we have a Judge here.";
+	next;
+	}
+	if (vagabondjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Eh, whatever...";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Well, things might be hard, but it's not everyday we have a Judge here.";
+	next;
+	}
+	if (jesterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Skip!";
+	next;
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "I'm sorry, what?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Skip! Skip the talking. Come on. Let's go!";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Ok ok, let's try again... Try making some sense this time. Calm down.";
+	next;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So, can you guys help? What kind of assistance do you provide?";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "We provide information and training! And if you succeed, we reward you with some supplies that can help you.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Cool! So what do I need to do?";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Tell me your name, i'll add it to our records and get some details. Also, when did you wake up?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm  " + strcharinfo(0) + ", and...wake up?";
+	next;
+	mes .@npc$;
+	mes "According to reports from multiple people, Orphans vanished and lost their blood-relatives when Satan Morroc was defeated right?";
+	next;
+	mes .@npc$;
+	mes "Then someone found you on the desert...and here you are. You and those strange eyes of yours.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Oh! Got it...yeah...so... I woke up a little while ago.";
+	next;
+	mes .@npc$;
+	mes "Very well." + strcharinfo(0) + ", let me get things ready... give me just a second will you?";
+	close2;
+	set leonardtest,1;
+	cutin "",255;
+	end;
+}
+
+payg_cas04,271,29,4	script	Trial Chest#MSQ2	10005,3,3,{
+	mes "^6666CCYou can't reach the chest.^000000";
+	close;
+	end;
+	OnTouch_:
+	if (leonardtest ==2){
+	if(empreplica ==1){
+	mes "^6666CCYou already collected a Replica from the chest.^000000";
+	close;
+	}
+	mes "^6666CCIYou open the chest while being careful with your surroundings and grab an Emperium Replica from inside it. It's a very fragile material and will be destroyed if you die.^000000";
+	close2;
+	getitem 714,1;
+	set empreplica,1;
+	end;
+	}
+	mes "^6666CCIYou can see a Large Chest, but you can't touch it for some reason!^000000";
+	close;
+}
+
+payg_cas04,13,22,52,45	monster	Red Plant	1078,10,15000
+payg_cas04,13,22,52,45	monster	Blue Plant	1079,10,15000
+payg_cas04,13,22,52,45	monster	Yellow Plant	1081,5,15000
+
+payg_cas04,254,13,288,17	monster	Red Plant	1078,10,15000
+payg_cas04,254,13,288,17	monster	Blue Plant	1079,10,15000
+payg_cas04,254,13,288,17	monster	Yellow Plant	1081,5,15000
+
+payg_cas04,23,23	monster	Alfonse	2565,1,15000

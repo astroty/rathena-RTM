@@ -580,7 +580,7 @@ void skill_getareachar_skillunit_visibilty_single(struct skill_unit *su, struct 
 int skill_castfix(struct block_list *bl, uint16 skill_id, uint16 skill_lv);
 int skill_castfix_sc(struct block_list *bl, double time, uint8 flag);
 #ifdef RENEWAL_CAST
-int skill_vfcastfix(struct block_list *bl, double time, uint16 skill_id, uint16 skill_lv);
+float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint16 skill_lv, int what = 0);
 #endif
 int skill_delayfix(struct block_list *bl, uint16 skill_id, uint16 skill_lv);
 void skill_toggle_magicpower(struct block_list *bl, uint16 skill_id);
@@ -608,6 +608,7 @@ int skill_autospell(struct map_session_data *md,uint16 skill_id);
 int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 skill_id, uint16 skill_lv, bool heal);
 
 bool skill_check_cloaking(struct block_list *bl, struct status_change_entry *sce);
+int8 skill_isCopyable(struct map_session_data* sd, uint16 skill_id);
 
 // Abnormal status
 void skill_enchant_elemental_end(struct block_list *bl, int type);

@@ -12,8 +12,13 @@
 //============================================================
 
 // Prontera Invasion
-prt_q,0,0	monster	Zombie Guard	3452,60
-prt_q,0,0	monster	Ghoul	1036,10
-prt_q,0,0	monster	Immortal Corps	3451,30
-prt_q,0,0	monster	Hunter Fly	1035,10
-prt_q,0,0	monster	Immortal Commander	3490,1
+prt_q,0,0	monster	Fallen White Knight	2415,15,5000
+prt_q,0,0	monster	Fallen Khalitzburg	1640,15,5000
+prt_q,0,0	monster	Fallen Lord Knight	2473,20,5000
+prt_q,0,0	monster	Fallen Rune Knight	2474,20,5000
+prt_q,0,0	monster	Zombie Guard	3452,35,5000
+prt_q,0,0,0,0	boss_monster	Bijou	3450,1,2700000,5400000,0
+
+//
+
+

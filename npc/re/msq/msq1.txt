@@ -1,0 +1,492 @@
+// Quest 1
+
+moc_ruins,102,173,5	script	Nice Lady#MSQ1	579,{
+	set .@npc$, "[Nice Lady]";
+	if (MSQProg >=7){
+	mes .@npc$;
+	mes "We had a talk with one of the Orphanage guys... Mr. Windsor... We will re-open the Farm and provide decent jobs to the Orphans...it's the least we could do.";
+	next;
+	mes .@npc$;
+	mes "We wished to help with some research or something about the Mark... but we are simple people. All we can do is provide an opportunity of good life.";
+	next;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "Thanks for showing us the correct way to handle this situation. We can't bring our son back, but we can provide a future to people who suffered.";
+	close;
+	}
+	if (MSQProg >=2){
+	mes .@npc$;
+	mes "I'm trying to direct Orphans to find decent people. You all deserve the best.";
+	close;
+	}
+	if (MSQProg ==1){
+	mes .@npc$;
+	mes "I'm so sorry...I was so frustrated...I have no excuses.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I can't really help you with anything. I wish I could...maybe you should check out the Guild in Payon...they are pretty nice, unlike...us.";
+	close;
+	}
+	if (BaseLevel <=9){
+	mes .@npc$;
+	mes "Hey There! I need help from someone...like you! Why don't you come back once you're level 10?";
+	close;
+	}
+	emotion ET_HELP;
+	mes .@npc$;
+	mes "Hello! I need some help and can pay pretty well...are you interested?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What is it about?";
+	next;	
+	if (jesterjob ==1){
+	mes .@npc$;
+	mes "It's a child's birthday party! I need someone who can do cool tricks!";
+	next;
+	}
+	if (judgejob ==1){
+	mes .@npc$;
+	mes "Oh Magister, I need someone to help my family solve a minor conflict. It'll be quick, I promise!";
+	next;
+	}
+	if (tricksterjob ==1){
+	mes .@npc$;
+	mes "You have a strange, mysterious aura around you...I am doing research on healing magic wounds, maybe you can help?";
+	next;
+	}
+	if (raiderjob ==1){
+	mes .@npc$;
+	mes "That armor is not for people who are weak. Maybe you can help me carry some stuff home?";
+	next;
+	}
+	if (darkknightjob ==1){
+	mes .@npc$;
+	mes "You look very intimidating...Can you help me with some bullies?";
+	next;
+	}
+	mes .@npc$;
+	mes "Come on..cant't you help someone in need...? I'm kinda desperate...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Well...";
+	next;	
+	switch(select("I can't.:Sure, why not?")) {
+	case 1:
+	emotion ET_KEK;
+	mes .@npc$;
+	mes "Aww...fine.... I'm sure someone will be able to help me but...maybe reconsider it...please?";
+	close;
+	case 2:
+	emotion ET_BEST, playerattached();
+	mes .@npc$;
+	mes "Great! I'm so glad I found you... now can you follow me over here...there's my house just over there. Morroc has some Beautiful People who always can help!";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Beautiful People";
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So, what kind of work do you do around Morroc...?";
+	next;
+	.@name$ = "MSQ1" + rand(10000);
+	party_create (.@name$);
+	specialeffect2 194;
+	mes .@npc$;
+	mes "^6666CCYou fell a strong hit on the back of your head.^000000";
+	next;
+	mes .@npc$;
+	mes "...I find dumb Orphans.";
+	next;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Beautiful People]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Nice Lady]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Beautiful People...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+}
+
+
+job_thief1,1,1,4	script	Controller#MSQ1	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Farm Owner#2MSQ1");
+	disablenpc instance_npcname("Nice Lady#2MSQ1");
+	end;
+}
+
+job_thief1,202,334,4	script	Farm Owner#MSQ1	578,{
+	set .@npc$, "[Farmer Shibu]";
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What the hell...?";
+	next;
+	emotion ET_STARE;
+	mes .@npc$;
+	mes "Welcome to my Mushroom Farm. Or what's left of it.";
+	next;
+	mes .@npc$;
+	mes "Thieves would always sneak in and steal my mushrooms! Those pests! And there's that...Orphanage? For People who kill our own? Absurd!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait, I didn't kill anybody!";
+	next;
+	mes .@npc$;
+	mes "Not yet! It's what you do! You summon those freaky things and just attack us!";
+	next;
+	if (jesterjob ==1){
+	emotion ET_HUM, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So... is it your birthday or something? I should be doing some tricks or whatever. The hit on the head was not needed...but You can pay extra to compensate me.";
+	next;
+	emotion ET_STARE;
+	mes .@npc$;
+	mes "Everything's a joke for you isn't it!?";
+	next;
+	}
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Get over it. Damn.";
+	next;
+	}
+	if (judgejob ==1){
+	emotion ET_SLEEPY, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Are you aware that I'm a representative from Prontera? Because you really are stupid if you do.";
+	next;
+	emotion ET_STARE;
+	mes .@npc$;
+	mes "Magister whatever! I don't care! They won't ever find you here!";
+	next;
+	}
+	if (raiderjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So you see a fully-armored Orphan and... does this? Ok then.";
+	next;
+	}
+	if (vagabondjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...? Really? Is this what it's all about? I have no relation with any of them...";
+	next;
+	}
+	mes .@npc$;
+	mes "You guys are terrible... we gave you a home, food... and every time...you just...argh! I'll just keep all of you trapped here!";
+	next;
+	mes .@npc$;
+	mes "The Thieves Guild took my mushrooms...I'll take their aberrations! You will stay here for the rest of your days!";
+	close2;
+	mapannounce instance_mapname("job_thief1"), "Find a way out of this place.",bc_map,"0xffff00";
+	disablenpc instance_npcname("Farm Owner#MSQ1");
+	disablenpc instance_npcname("???#msq1");
+	enablenpc instance_npcname("Farm Owner#2MSQ1");
+	enablenpc instance_npcname("Nice Lady#2MSQ1");
+	end;
+}
+
+job_thief1,134,50,4	script	Tired Thief#MSQ1	118,{
+	set .@npc$, "[Tired Thief]";
+	emotion ET_HUK;
+	mes .@npc$;
+	mes "Where the hell am I...? It's been hours...or days...I'm completely lost.";
+	close;
+}
+
+job_thief1,233,325,4	script	Scared Orphan#MSQ1	93,{
+	set .@npc$, "[Scared Orphan]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I saw a boy crying...they don't care about us...Be careful. Don't give up! We can find a way out!";
+	close;
+}
+
+job_thief1,241,254,4	script	Scared Boy#MSQ1	716,{
+	set .@npc$, "[Scared Boy]";
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "This place is a mess! I wanna go home! Mrs. Sorin!!!! Where are you?? Please!!";
+	close;
+}
+
+job_thief1,182,199,4	script	Calm Girl#MSQ1	882,{
+	set .@npc$, "[Calm? Girl]";
+	emotion ET_ABS;
+	mes .@npc$;
+	mes "I-I'm not scared! I c-can handle this!";
+	close;
+}
+
+job_thief1,168,102,4	script	Serious Boy#MSQ1	807,{
+	set .@npc$, "[Serious Boy]";
+	mes .@npc$;
+	mes "...If I keep this wall on my left side... No, that's not it...What were the steps to leave a labyrinth again?";
+	close;
+}
+
+job_thief1,182,50,2	script	Nice Lady#2MSQ1	579,{
+	set .@npc$, "[Nice Lady]";
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "We can't let you leave! More innocents will die...";
+	close;
+}
+
+job_thief1,291,216,4	script	Belonging Box#MSQ1a	10250,{
+		mes "^6666CCA small box with some belongings.^000000";
+		next;
+		if (MSQ1box1 ==0){
+		mes "^6666CCYou found a Lost Orphan Coffer inside.^000000";
+		next;
+		getitem 14717,1;
+		set MSQ1box1,1;
+		}
+		mes "^6666CCNow the box has nothing useful.^000000";
+		close;
+}
+
+job_thief1,26,298,4	script	Belonging Box#MSQ1b	10250,{
+		mes "^6666CCA small box with some belongings.^000000";
+		next;
+		if (MSQ1box2 ==0){
+		mes "^6666CCYou found a Flower Ring inside.^000000";
+		next;
+		getitem 2612,1;
+		set MSQ1box2,1;
+		}
+		mes "^6666CCNow the box has nothing useful.^000000";
+		close;
+}
+
+job_thief1,329,158,4	script	Belonging Box#MSQ1c	10250,{
+		mes "^6666CCA small box with some belongings.^000000";
+		next;
+		if (MSQ1box3 ==0){
+		mes "^6666CCYou found a Costume inside.^000000";
+		next;
+		getitem 31823,1;
+		set MSQ1box3,1;
+		}
+		mes "^6666CCNow the box has nothing useful.^000000";
+		close;
+}
+
+job_thief1,181,46,2	script	Farm Owner#2MSQ1	578,{
+	set .@npc$, "[Farmer Shibu]";
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Let me out. Now!";
+	next;
+	emotion ET_STARE;
+	mes .@npc$;
+	mes "Never! You people are a disease for this society! Have you no idea how much suffering your...people, brought!?";
+	next;
+	emotion ET_CRY, getnpcid(0, instance_npcname("Nice Lady#2MSQ1"));
+	mes "[Nice Lady]";
+	mes "You will do it! You will kill...innocents...like my boy...";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait, who? You had a kid?";
+	next;
+	mes .@npc$;
+	mes "My boy...was always happy. He loved playing around the Ruins, around the Pyramid...he was always careful.";
+	next;
+	emotion ET_CRY, getnpcid(0, instance_npcname("Nice Lady#2MSQ1"));
+	mes "[Nice Lady]";
+	mes "One day...he went inside to explore along with other kids...and... from what I heard, a crazy Orphan who carried a bunny around killed him.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...I'm sorry for your loss.";
+	next;
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "But that does not excuse what you are doing to the other Orphans!";
+	next;
+	mes .@npc$;
+	mes "Really? What about those Shadows? You are a menace to society! You put all of us at risk! It's not fair!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How fair is it for you to do the same? You trap people here and leave them to die! I saw the others and the monsters around!";
+	next;
+	emotion ET_QUESTION, getnpcid(0, instance_npcname("Nice Lady#2MSQ1"));
+	mes "[Nice Lady]";
+	mes "...monsters...? These monsters were not here before!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Come on now! You really expect me to believe it?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "You are no better than the Shadows. You may be worse. You know very well what you are doing. These people have no choice.";
+	next;
+	if (judgejob ==1){
+	emotion ET_STARE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "You have to pay for this. It's not right. You don't have the power to decide people's fate!";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "You...you just don't understand!";
+	next;
+	}
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "You kill people to compensate for killing people? How twisted is this?";
+	next;
+	}
+	if (raiderjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I expected more from the people of Morroc. You're sick.";
+	next;
+	}
+	if (vagabondjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...I want to leave. Now.";
+	next;
+	}
+	mes .@npc$;
+	mes "But... My son...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Your son would be disappointed! Ashamed!";
+	next;
+	mes "[Nice Lady]";
+	mes "You... You would kill us on the first chance you have! There's no turning back for us now!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "And yet here you are. Standing in front of me. And I didn't kill any of you yet.";
+	next;
+	mes .@npc$;
+	mes "But... you didn't lose your son! You don't understand how we feel!";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I lost everyone. All of us did. We are Orphans. Our family was lost. Everything we had is gone.";
+	next;
+	emotion ET_SURPRISE, getnpcid(0, instance_npcname("Nice Lady#2MSQ1"));
+	emotion ET_SURPRISE;
+	mes "^6666CC...You can see the face of regret...^000000";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I...We...What Have I done...";
+	next;
+	mes "[Nice Lady]";
+	mes "We... we have to do something. We are wrong. EVERYONE is wrong!";
+	next;
+	if (judgejob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I sentence you both to repent for your mistakes and spend the rest of your days repairing your damage. And set the people here free. Now.";
+	next;
+	}
+	if (judgejob ==0){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Free the people here. That's a start. Then you can figure it out. It's not up to me to decide.";
+	next;
+	}
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Yes! Of Course!";
+	next;
+	mes "[Nice Lady]";
+	mes "I...think you should have this. It belonged to our son. It's about time we let it go.";
+	next;
+	if (MSQ1Item2 ==0){
+	getitem 24687,1;
+	getitem 24689,1;
+	getitem 24690,1;
+	getitem 24692,1;
+	achievementcomplete(200065);
+	set MSQ1Item2,1;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Thanks...however, I will be watching you both. If you ever do anything like this...";
+	next;
+	if (tricksterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'll have your head on my Scythe.";
+	next;
+	}
+	if (jesterjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'll spend 12 hours telling jokes about mushrooms.";
+	next;
+	}
+	if (judgejob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Your fate will be swift and fair.";
+	next;
+	}
+	if (illusionistjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I will trap you two forever in a illusion of sadness and misery.";
+	next;
+	}
+	if (thiefjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "You will know what the Thief Guild is truly capable of.";
+	next;
+	}
+	if (vagabondjob ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Eh...whatever.";
+	next;
+	}
+	emotion ET_SORRY;
+	mes .@npc$;
+	mes "I understand...I'm sorry.";
+	next;
+	mes .@npc$;
+	mes "Please if you need help with your...situation. There's a guild in one of the Payon Castles that can help. They usually help Orphans learn how to fight appropriately.";
+	next;
+	mes "[Nice Lady]";
+	mes "Oh my... we treated those people like they were monsters! Please, tell them about what happened here, and that we are terribly sorry.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Ok. Thanks for the information. I'll check this guild in Payon when I can. Don't make me regret letting you two live.";
+	next;
+	mes "^6666CCThe people are finally free and you all leave.^000000";
+	close2;
+	set MSQProg,1;
+	warp "moc_ruins",101,180;
+	end;
+}
+
+job_thief1,1,1,0	script	msq1mobs	-1,{
+OnInstanceInit:
+	set .@map$, instance_mapname("job_thief1");
+	areamonster .@map$,0,0,300,300,"Strange Skeleton",1076,50,instance_npcname("asrgspawns")+"::OnThiefDead";
+	end;
+OnMSQSpawn:
+	end;
+}
+
+job_thief1,210,332,5	script	???#msq1	723,7,7,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("job_thief1"), 200, 332;
+	end;
+}

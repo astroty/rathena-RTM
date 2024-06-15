@@ -25,7 +25,6 @@
 # - Id                Instance ID.
 #   Name              Instance Name.
 #   TimeLimit         Total lifetime of instance in seconds. (Default: 3600)
-#   IdleTimeOut       Time before an idle instance is destroyed in seconds. (Default: 300)
 #   Destroyable       Toggles the ability to destroy the instance using instance 'Destroy' button. (Default: true)
 #                     Note: the button is displayed based on parties. For any mode, it requires the party leader to be the instance owner to destroy it.
 #   Enter:            Instance entrance coordinates.
@@ -301,3 +300,113 @@ Body:
       Map: 1@slw
       X: 187
       Y: 24
+  - Id: 38
+    Name: Orphan Tutorial
+    Enter:
+      Map: orpha_tut
+      X: 123
+      Y: 35
+  - Id: 39
+    Name: Desert Guild
+    Enter:
+      Map: in_moc_16
+      X: 19
+      Y: 15
+  - Id: 40
+    Name: Heart of Power
+    Enter:
+      Map: dali
+      X: 40
+      Y: 134
+  - Id: 41
+    Name: Long Night
+    Enter:
+      Map: que_sign01
+      X: 46
+      Y: 22
+  - Id: 42
+    Name: Game of Thrones
+    Enter:
+      Map: chess_test
+      X: 22
+      Y: 13
+  - Id: 43
+    Name: Explosive Solution
+    Enter:
+      Map: que_blj01
+      X: 213
+      Y: 61
+  - Id: 44
+    Name: Sky and Land
+    Enter:
+      Map: que_nir01
+      X: 50
+      Y: 218
+  - Id: 45
+    Name: Thorns of a Rose
+    Enter:
+      Map: 1@4win
+      X: 191
+      Y: 146
+  - Id: 46
+    Name: The Final Blessing
+    Enter:
+      Map: que_sin01
+      X: 152
+      Y: 139
+  - Id: 47
+    Name: Loki's Tomb
+    Enter:
+      Map: prt_are01
+      X: 149
+      Y: 47
+  - Id: 48
+    Name: Joking Around
+    Enter:
+      Map: 1@begi
+      X: 204
+      Y: 181
+  - Id: 49
+    Name: Meeting a Grandmaster
+    Enter:
+      Map: que_arc01
+      X: 26
+      Y: 41    
+  - Id: 50
+    Name: Faceless Shadow
+    Enter:
+      Map: que_blp01
+      X: 13
+      Y: 8
+  - Id: 51
+    Name: Enter the Dragon
+    Enter:
+      Map: que_hugel
+      X: 35
+      Y: 28
+  - Id: 52
+    Name: Look into the Abyss
+    Enter:
+      Map: job4_tro
+      X: 47
+      Y: 35
+  - Id: 53
+    Name: Beautiful People
+    Enter:
+      Map: job_thief1
+      X: 197
+      Y: 335
+  - Id: 54
+    Name: Regards from Hino
+    Enter:
+      Map: pay_dun00
+      X: 21
+      Y: 184
+  - Id: 55
+    Name: Streets at Night
+    Enter:
+      Map: alde_msq
+      X: 275
+      Y: 160
+    AdditionalMaps:
+      alde_msq2: true

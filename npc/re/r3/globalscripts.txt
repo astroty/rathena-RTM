@@ -1,0 +1,455 @@
+	//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Controls use of Shadows on Orphan Spawns + Boxes
+//= Must finish adding to maps and such
+//===== Comments: =========================================
+//====================================================
+
+
+
+function	script	itemlink	{ // getarg(0) : item id
+	return "<ITEMLINK>"+getitemname(getarg(0))+"<INFO>"+getarg(0)+"</INFO></ITEMLINK>";
+}
+
+-	shop	midgardweaps	-1,1201:5000,1245:5000,1204:5000,1207:5000,1216:5000,1210:5000,1213:5000,1236:5000,1101:5000,1146:5000,1110:5000,1154:5000,1126:5000,1160:5000,1104:5000,1167:5000,1701:5000,1747:5000,1704:5000,1707:5000,1718:5000,1710:5000,1301:5000,1364:5000,1501:5000,1503:5000,1250:5000,1252:5000,1410:5000,1550:5000,1553:5000.
+
+-	shop	midgardarmor	-1,2101:5000,2103:5000,2117:5000,2110:5000,2136:5000,2321:5000,2305:5000,2343:5000,2303:5000,2312:5000,2501:5000,2503:5000,2505:5000,2401:5000,2403:5000,2405:5000,2753:5000,2755:5000,2757:5000.
+
+-	shop	schwarzweaps	-1,1219:10000,13003:10000,13050:10000,1222:10000,1113:10000,1157:10000,1135:10000,1122:10000,1714:10000,1703:10000,1734:10000,1387:10000,1360:10000,1505:10000,1507:10000,1254:10000,1412:10000,1554:10000,1555:10000.
+
+-	shop	schwarzarmor	-1,2107:10000,2113:10000,2119:10000,2332:10000,2307:10000,2314:10000,2507:10000,2512:10000,2520:10000,2441:10000,2413:10000,2419:10000,2759:10000,2761:10000,2763:10000.
+
+-	shop	arunaweaps	-1,1242:15000,1228:15000,1231:15000,13001:15000,1129:15000,1107:15000,1168:15000,1163:15000,1719:15000,1725:15000,1722:15000,1377:15000,1509:15000,1511:15000,1266:15000,1414:15000,1565:15000,1564:15000.
+
+-	shop	arunaarmor	-1,2105:15000,2147:15000,2327:15000,2335:15000,2316:15000,2545:15000,2509:15000,2514:15000,2422:15000,2451:15000,2411:15000,2917:15000,2919:15000,2918:15000,2920:15000,2921:15000,2922:15000.
+
+-	shop	isleweaps	-1,13005:20000,13014:20000,13010:20000,13007:20000,1116:20000,1119:20000,1144:20000,1181:20000,1738:20000,1742:20000,1366:20000,1513:20000,1284:20000,1416:20000,1562:20000,1563:20000.
+
+-	shop	islearmor	-1,2309:20000,2337:20000,2323:20000,2586:20000,2522:20000,2529:20000,2408:20000,2481:20000,2415:20000,2638:20000,2640:20000.
+
+-	shop	tribeweaps	-1,1247:30000,1249:30000,13000:30000,1248:30000,1130:30000,1133:30000,1141:30000,1191:30000,1730:30000,1733:30000,1731:30000,1732:30000,1258:30000,1259:30000,1256:30000,1257:30000,1357:30000,1515:30000.
+
+-	shop	tribearmor	-1,2137:30000,2139:30000,2141:30000,2143:30000,2361:30000,15039:30000,2338:30000,2590:30000,2578:30000,2525:30000,2456:30000,2478:30000,2496:30000,2951:30000,2953:30000.
+
+-	shop	nifweaps	-1,1239:50000,1234:50000,13002:50000,13073:50000,1184:50000,1156:50000,1143:50000,1712:50000,1723:50000,1392:50000,1393:50000,1365:50000,1517:50000,1519:50000,1295:50000,1293:50000,1566:50000.
+
+-	shop	nifarmor	-1,2178:50000,2183:50000,15030:50000,15037:50000,15034:50000,15032:50000,2534:50000,2575:50000,2572:50000,2547:50000,2470:50000,2476:50000,2473:50000,2429:50000,2956:50000,2958:50000,2960:50000,2772:50000.
+
+-	shop	bookstore	-1,24018:-1,24035:-1,24049:-1,24051:-1,24079:-1,24102:-1,24109:-1,24124:-1,24166:-1,24107:-1,24148:-1,24225:-1,24236:-1,24246:-1.
+
+-	shop	bookstoretst	-1,24018:-1,24035:-1,24049:-1,24051:-1,24079:-1,24102:-1,24109:-1,24124:-1,24166:-1,24107:-1,24148:-1,24225:-1,24236:-1,24246:-1.
+
+
+//==================================BOX SCRIPTS================
+//===CLONE SUMMONS FOR ILLUSIONIST===
+-	script	illusionclones	,{
+OnClones:
+	if (Class == Job_Mage) {
+	if (JobLevel < 26) {
+	specialeffect2 425;
+	specialeffect2 227;
+    getmapxy(.@map$,.@x,.@y,BL_PC);
+	clone .@Map$,.@X,.@Y,"Mirage::OnCloneDeath",getcharid(0),getcharid(0),0,1,5;
+	end;
+	OnCloneDeath:
+end;
+	}
+		if (JobLevel < 50) {
+	specialeffect2 425;
+	specialeffect2 227;
+    getmapxy(.@map$,.@x,.@y,BL_PC);
+	clone .@Map$,.@X,.@Y,"Mirage::OnCloneDeath2",getcharid(0),getcharid(0),0,1,5;
+	clone .@Map$,.@X,.@Y,"Mirage::OnCloneDeath2",getcharid(0),getcharid(0),0,1,5;
+	end;
+	OnCloneDeath2:
+end;
+	}
+		if (JobLevel < 51) {
+	specialeffect2 425;
+	specialeffect2 227;
+    getmapxy(.@map$,.@x,.@y,BL_PC);
+	clone .@Map$,.@X,.@Y,"Mirage::OnCloneDeath3",getcharid(0),getcharid(0),0,1,5;
+	clone .@Map$,.@X,.@Y,"Mirage::OnCloneDeath3",getcharid(0),getcharid(0),0,1,5;
+	clone .@Map$,.@X,.@Y,"Mirage::OnCloneDeath3",getcharid(0),getcharid(0),0,1,5;
+	end;
+	OnCloneDeath3:
+end;
+	}
+	}
+	percentheal -90,-90;
+	specialeffect2 227;
+	specialeffect2 425;
+}
+
+
+//Mesmerizing Look Script
+-	script	MesmerizingLook	,{
+	OnNPCKillEvent:
+	if(illusionistjob ==0){
+		end;
+}
+	if (getequipid(EQI_SHADOW_ARMOR) != 30077){
+		end;
+	}
+	if (getequipid(EQI_SHADOW_SHIELD) != 30078){
+		end;
+	}
+	if (getequipid(EQI_SHADOW_SHOES) != 30079){
+		end;
+	}
+	if (getequipid(EQI_SHADOW_ACC_L) != 30080){
+		end;
+	}
+	if( rand(1,4) <= 2){
+		summon "Mesmerizing Illusion",killedrid,10000;
+}
+	end;
+}
+
+
+///Merchant License
+
+function	script	MerchantLicense	{
+	switch(select("Rent Cart:Go to Orphanage:Go to Alberta:Cancel")) {
+	case 1: if (checkcart()){
+		mes "But you already have a cart!";
+		close;
+	}
+	setcart;
+	end;
+	case 2: warp "va_orpha",271,298;
+	end;
+	case 3: warp "alberta",117,56;
+	end;
+	case 4:
+	end;
+}
+}
+//MVP Prize Box - Ygg Berry and Minerals = % Same as MVP Level - ID 14704
+
+function	script	MVPPrizeBox	{
+	setarray .BoxItems[0],984,985,6240,6241,6292,6291,25729,6224,14735,7615,607;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+//First Rune Coffer - Pyramid Basement
+function	script	FirstRuneBox	{
+	setarray .BoxItems[0],24104,24111,24182,24106, 24108;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+
+//Lost Attire Coffer - Pyramid Basement
+function	script	LostOrphanBox	{
+	setarray .BoxItems[0],24687,24689,24690,24692,1736,28767,32350,28902,28901;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+//Orphanage Gift Box - Upper Hats
+function	script	OrphanageGBox	{
+	setarray .BoxItems[0],2209,2211,2217,2221,2223,2225,2227,2229,2233,2245;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Orphanage Special Box - Middle Hats
+function	script	OrphanageSBox	{
+	setarray .BoxItems[0],2202,2204,2206,2213,2239,2261,2263;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Orphanage Costume Box - All Costumes
+function	script	OrphanageCBox	{
+	setarray .BoxItems[0],2250,2253,2230,19632,2231,6636,6637,6638,6639,6640,6062,6063,6064,6065,6066,6067,6068;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Zodiac Costume Box - All Costumes
+function	script	ZodiacCBox	{
+	setarray .BoxItems[0],5438,5439,5440,5441,5424,5425,5431,5432,5406,5407,5230,5231,5232,5233,5234,5235,5236,5237,5238,5239,5240,5241,5242,5243;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Ascended Zodiac Box - All Crowns
+function	script	ZodiacSBox	{
+	setarray .BoxItems[0],5513,5546,5582,5744,5570,5588,5662,5515,5739,5676,5550,5598;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Legacy Adventurer Coffer - Lots of mobs at 0.2% - 14713
+function	script	LegacyAdvBox	{
+	setarray .BoxItems[0],24250,24251,24252,24253,24254,24255,24256,24257,24258,24259,24260,24261,24262,24263,24264,24265,24266,24267,24268,24269,24274,24275,24276,24277;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Kafra Hero Coffer - Kafra Dungeon Mobs - 14714
+function	script	KafraBox	{
+	setarray .BoxItems[0],24460,24461,24462,24463,24464,24465,24466,24467,24468,24469,24470,24471,24472,24473,24474,24475,24476,24477,24478,24479,24480,24481,24482,24483,24484,24485,24486,24487,24488,24489,24490,24491,24492,24493,24494,24495,24496,24497,24498,24499,24500,24501,24502,24503,24516,24517,24518,24519,14715;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Kafra Hero Coffer - Kafra Dungeon Mobs - 14715
+function	script	KafraBox2	{
+	setarray .BoxItems[0],24504,24505,24506,24507,24508,24509,24510,24511;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Last Alchemist Coffer - Alchemist Fortress - 14705
+function	script	LastAlchBox	{
+	setarray .BoxItems[0],13701,13702,13703,19827,19831,19835,19839,24407,24408,24409,24410;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Fallen Tribe Coffer - Orc Dungeon - 14706
+function	script	FallenOrcBox	{
+	setarray .BoxItems[0],2299,15000,2715,1124,1304,18115,24318,24319,24320,24321,2438;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Last Samurai Coffer - Amatsu Dungeon - 14727
+function	script	SamuraiBox	{
+	setarray .BoxItems[0],20953,15374,2453,5142,15055,28763,28764,28721,1164,1165,24387,24388,24389,24390;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Job Runes Coffer - Cursed Monastery - 14728
+function	script	JobRuneBox	{
+	setarray .BoxItems[0],24011,24019,24022,24031,24032,24033,24034,24043,24075,24076,24077,24078,24087,24099,24009,24010,24030,24029,24074,24006,24005;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,2);
+	setarray .@OptParam[0],rand(1,2);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+//Gift Box - Toy Factory - 644
+function	script	GiftToyBox	{
+	setarray .BoxItems[0],664,15249,5260,5445,1468,1308,1238,24342,24343,24344,24345;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Gift Box Costumes - Toy Factory - 664
+function	script	GiftToyBox2	{
+	setarray .BoxItems[0],19682,19767,31314,31476,31476,665,19681;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Gift Box Caps - Toy Factory - 665
+function	script	GiftToyBox3	{
+	setarray .BoxItems[0],20191,20019,20463,19738,19935,666;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Gift Box Wigs - Toy Factory - 666
+function	script	GiftToyBox4	{
+	setarray .BoxItems[0],31922,31407,31575,31638,31944,667;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Gift Box Top Hat - Toy Factory - 667
+function	script	GiftToyBox5	{
+	setarray .BoxItems[0],19930,31190,31195,31465,31153,668;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Gift Box Special - Toy Factory - 668
+function	script	GiftToyBox6	{
+	setarray .BoxItems[0],31062,31395,31415,31481,31565,31708,31735,31827,20102,31721;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Somatology Coffer -  14730
+function	script	SomatologyBox	{
+	setarray .BoxItems[0],24366,24367,24368,24369,24370,24371,24372,24373,24374,24528,24529,24530,24531,24399,24400,24401,24402,15137,15123,28504,13046,1331,1291;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//My First Card Album -  616
+function	script	NewbieCards	{
+	setarray .BoxItems[0],4008,4011,4009,4023,4036,4065,4015,4002,4003,4006,4021,4266,4014,4039,4040,4010,4022,4048,4178,4029,4074;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+//Streamer Reward Box
+function	script	streambox1	{
+	setarray .BoxItems[0],31778,20053,19589,31633,410062,31396,400148,31409,31406;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	streambox2	{
+	setarray .BoxItems[0],31778,20053,19589,31633,410062,400148,31396,31409,31406,31776,24004,31777,20152;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+
+//////////////////////////////////////
+/////Shadow Job Sets//////
+/////////////////////////////////////
+
+function	script	LV100ShadowSet	{
+	setarray .BoxItems[0],24472,24473,24474,24475,24476,24477,24478,24479,24484,24485,24486,24487,24480,24481,24482,24483,24460,24461,24462,24463,24468,24469,24470,24471,24464,24465,24466,24467,24488,24489,24490,24491,24500,24501,24502,24503,24532,24533,24534,24535,24516,24517,24518,24519,24492,24493,24494,24495,24496,24497,24498,24499,24713,24714,24715,24722,24052,24053,24054,24055,24064,24065,24066,24067,24023,24024,24025,24026,24112,24113,24114,24115,25000,24773,24774,24775,24776,24793,24794,24795,24796;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,3);
+	setarray .@OptParam[0],rand(1,3);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+function	script	LV105ShadowSet	{
+	setarray .BoxItems[0],30001, 30002, 30003, 30004, 30005, 30006, 30007, 30008, 30009, 30010, 30011, 30012, 30013, 30014, 30015, 30016, 30017, 30018, 30019, 30020, 30021, 30022, 30023, 30024, 30025, 30026, 30027, 30028, 30029, 30030, 30031, 30032, 30033, 30034, 30035, 30036, 30037, 30038, 30039, 30040, 30041, 30042, 30043, 30044, 30045, 30046, 30047, 30048, 30049, 30050, 30051, 30052, 30053, 30054, 30055, 30056, 30057, 30058, 30059, 30060, 30061, 30062, 30063, 30064, 30065, 30066, 30067, 30068, 30069, 30070, 30071, 30072, 30073, 30074, 30075, 30076, 30077, 30078, 30079, 30080, 30081, 30082, 30083, 30084;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,3);
+	setarray .@OptParam[0],rand(1,3);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+function	script	LV110ShadowSet	{
+	setarray .BoxItems[0],24536,24537,24538,24539,24548,24549,24550,24551,24560,24561,24562,24563,24572,24573,24574,24575,24584,24585,24586,24587,24596,24597,24598,24599,24608,24609,24610,24611,24620,24621,24622,24623,24632,24633,24634,24635,24644,24645,24646,24647,24656,24657,24658,24659,24668,24669,24670,24671,24701,24702,24703,24704,24723,24724,24725,24726,24739,24740,24741,24742,24747,24748,24749,24750,24068,24069,24070,24071,24119,24120,24121,24122,25001,24797,24798,24799,24800,24777,24778,24779,24780;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,3);
+	setarray .@OptParam[0],rand(1,3);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+function	script	LV115ShadowSet	{
+	setarray .BoxItems[0],24540,24541,24542,24543,24552,24553,24554,24555,24564,24565,24566,24567,24576,24577,24578,24579,24588,24589,24590,24591,24600,24601,24602,24603,24612,24613,24614,24615,24624,24625,24626,24627,24636,24637,24638,24639,24648,24649,24650,24651,24660,24661,24662,24663,24672,24673,24674,24675,24705,24706,24707,24708,24727,24728,24729,24730,24056,24057,24058,24059,24089,24090,24091,24092,24036,24037,24038,24039,24125,24126,24127,24128,24131,24132,24133,24134,25002,24781,24782,24783,24784,24801,24802,24803,24804;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,3);
+	setarray .@OptParam[0],rand(1,3);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+function	script	LV120ShadowSet	{
+	setarray .BoxItems[0],24544,24545,24546,24547,24556,24557,24558,24559,24568,24569,24570,24571,24580,24581,24582,24583,24592,24593,24594,24595,24604,24605,24606,24607,24616,24617,24618,24619,24628,24629,24630,24631,24640,24641,24642,24643,24652,24653,24654,24655,24664,24665,24666,24667,24676,24677,24678,24679,24709,24710,24711,24712,24731,24732,24733,24734,24060,24061,24062,24063,24093,24094,24095,24096,24044,24045,24046,24047,25003,24805,24806,24807,24808,24785,24786,24787,24788;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,3);
+	setarray .@OptParam[0],rand(1,3);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+function	script	GoldenShadowSet	{
+	setarray .BoxItems[0],24274,24275,24276,24277,24302,24303,24304,24305,24326,24327,24328,24329,24358,24359,24360,24361,24362,24363,24364,24365,24366,24367,24368,24369,24370,24371,24372,24373,24528,24529,24530,24531,24399,24400,24401,24402,24456,24457,24458,24459,24789,24790,24791,24792,24769,24770,24771,24772;
+	set .Random, getarraysize( .BoxItems );
+	setarray .@OptID[0],rand(3,8);
+	setarray .@OptVal[0],rand(1,5);
+	setarray .@OptParam[0],rand(1,5);
+	getitem3 .BoxItems[ rand( .Random ) ],1,1,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+	end;
+}
+
+///////////Card Albums//////
+
+function	script	Lv1to40FieldAlbum	{
+	setarray .BoxItems[0],4008,4011,4009,4023,4036,4065,4015,4081,4070,4076,4031,4057,4082,4315,13521,13522,13523,4072,13524,13525,4595,4101,13526,4426,4002,4003,4006,4021,4266,4014,4039,4040,4017,13527,13528,13529,4327,4083,4227,4154,45894078,4044,4142,4051,13530,4285,4217,4010,4022,4048,4178,4029,4074,4283,4034,4052,13531,4041,4045,4157,4060,4192,300297,4118,4120,4257,4001,4004,4033,4196,4197;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	Lv41to80FieldAlbum	{
+	setarray .BoxItems[0],4255,4066,4375,4256,4322,27161,4448,4511,27162,27126,4091,4292,4186,4252,4377,4152,4203,4153,4312,4326,4261,4260,4225,4177,4259,13555,4232,4476,4470,4114,4075,4079,4513,4019,4514,4445,4469,4442,4453,13556,4273,4247,13557,13558,4383,13559,13560,4163,4307,4150,4325,4161,4351,4347,4350,4348,4349,4346,4337,4343,4341,13566,4180,4173,4334,27180,4515;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	Lv81to99FieldAlbum	{
+	setarray .BoxItems[0],4510,4593,27158,4512,4216,4443,4323,4228,13564,4115,13565,4300,4345,13567,4421,4233,4422,4423,4231,4056,13568,13569,4517,4516,4286,4287,4175,4586,4592,4195,4295;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	Lv100to120FieldAlbum	{
+	setarray .BoxItems[0],4117,4042,4424,443,13570,13571,13574,13572,13573,27012,27013,4698,4699,4278,4191,4181,4321,4176,4214,27179,13503,13504,13505,13506,27125;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	FieldMVP	{
+	setarray .BoxItems[0],13507,4425,27318,4324,4132,4291,4376,4121,27249,4123,4463,4030,300297,13750;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	LesserDungeon	{
+	setarray .BoxItems[0],4037,4107,4446,4020,4018,4043,4053,4505,4059,4198,4508,4086,4094,4221,4212,4090,4100,4159,13554,4290,4016,4028,4026,4050,27030,4106,4126,4116,4248,4104,4064,4097,4135;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+function	script	DungeonMVP	{
+	setarray .BoxItems[0],4137,4134,4146,4507,4302,4131,4578,4128,4144,4148,4147,4526,4558;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}

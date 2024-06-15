@@ -2727,7 +2727,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				 // zeny calculation moblv + random moblv [Valaris]
 				zeny=(int) ((md->level+rnd()%md->level)*per*bonus/100.);
 				if( md->get_bosstype() == BOSSTYPE_MVP )
-					zeny*=rnd()%250;
+					zeny*=rnd()%100;
 			}
 
 			if (map_getmapflag(m, MF_NOBASEEXP) || !md->db->base_exp)
@@ -3837,6 +3837,7 @@ int mobskill_use(struct mob_data *md, t_tick tick, int event)
 				map_search_freecell(&md->bl, md->bl.m, &x, &y, j, j, 3);
 			}
 			md->skill_idx = i;
+			clif_showscript(&md->bl, skill_get_desc(ms[i]->skill_id), AREA);
 			map_freeblock_lock();
 			if (!battle_check_range(&md->bl, bl, skill_get_range2(&md->bl, ms[i]->skill_id, ms[i]->skill_lv, true)) ||
 				!unit_skilluse_pos2(&md->bl, x, y, ms[i]->skill_id, ms[i]->skill_lv, ms[i]->casttime, ms[i]->cancel))
@@ -3875,6 +3876,7 @@ int mobskill_use(struct mob_data *md, t_tick tick, int event)
 			if (!bl) continue;
 
 			md->skill_idx = i;
+			clif_showscript(&md->bl, skill_get_desc(ms[i]->skill_id), AREA);
 			map_freeblock_lock();
 			if (!battle_check_range(&md->bl, bl, skill_get_range2(&md->bl, ms[i]->skill_id, ms[i]->skill_lv, true)) ||
 				!unit_skilluse_id2(&md->bl, bl->id, ms[i]->skill_id, ms[i]->skill_lv, ms[i]->casttime, ms[i]->cancel))
@@ -3989,11 +3991,11 @@ int mob_clone_spawn(struct map_session_data *sd, int16 m, int16 x, int16 y, cons
 	db->jname = sd->status.name;
 	db->lv=status_get_lv(&sd->bl);
 	memcpy(status, &sd->base_status, sizeof(struct status_data));
-	status->rhw.atk2= status->dex + status->rhw.atk + status->rhw.atk2; //Max ATK
-	status->rhw.atk = status->dex; //Min ATK
+	status->rhw.atk2= (status->dex/4) + (status->lhw.atk / 2); //Max ATK
+	status->rhw.atk = status->dex/4; //Min ATK
 	if (status->lhw.atk) {
-		status->lhw.atk2= status->dex + status->lhw.atk + status->lhw.atk2; //Max ATK
-		status->lhw.atk = status->dex; //Min ATK
+		status->lhw.atk2= (status->dex / 4) + (status->lhw.atk/2); //Max ATK
+		status->lhw.atk = status->dex/4; //Min ATK
 	}
 	if (mode) //User provided mode.
 		status->mode = mode;
@@ -4121,13 +4123,13 @@ int mob_clone_spawn(struct map_session_data *sd, int16 m, int16 x, int16 y, cons
 				}
 			} else {
 				switch (skill_id) { //Certain Special skills that are passive, and thus, never triggered.
-					case MO_TRIPLEATTACK:
+					case LG_HESPERUSLIT:
 					case TF_DOUBLE:
 					case GS_CHAINACTION:
 						ms->state = MSS_BERSERK;
 						ms->target = MST_TARGET;
 						ms->cond1 = MSC_ALWAYS;
-						ms->permillage = skill_id==MO_TRIPLEATTACK?(3000-ms->skill_lv*100):(ms->skill_lv*500);
+						ms->permillage = skill_id== LG_HESPERUSLIT ?(3000-ms->skill_lv*100):(ms->skill_lv*500);
 						ms->delay -= 5000; //Remove the added delay as these could trigger on "all hits".
 						break;
 					default: //Untreated Skill

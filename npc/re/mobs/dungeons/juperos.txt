@@ -20,33 +20,34 @@
 //==================================================
 // juperos_01 - Ruins of Juperos
 //==================================================
-juperos_01,0,0	monster	Venatu	1676,70,5000
-juperos_01,0,0	monster	Venatu	1677,70,5000
-juperos_01,0,0	monster	Venatu	1678,70,5000
-juperos_01,0,0	monster	Venatu	1679,50,5000
-juperos_01,0,0	monster	Dimik	1670,10,5000
-juperos_01,0,0	monster	Dimik	1671,5,5000
-juperos_01,0,0	monster	Dimik	1672,5,5000
-juperos_01,0,0	monster	Dimik	1673,5,5000
-
-//==================================================
-// juperos_02 - Ruins of Juperos
-//==================================================
-juperos_02,0,0	monster	Apocalypse	1365,70,5000
-juperos_02,0,0	monster	Venatu	1676,65,5000
-juperos_02,0,0	monster	Venatu	1677,65,5000
-juperos_02,0,0	monster	Venatu	1678,65,5000
-juperos_02,0,0	monster	Venatu	1679,50,5000
-
-//==================================================
-// jupe_core - Center of Juperos
-//==================================================
-jupe_core,0,0	monster	Dimik	1670,40,5000
-jupe_core,0,0	monster	Dimik	1671,40,5000
-jupe_core,0,0	monster	Dimik	1672,40,5000
-jupe_core,0,0	monster	Dimik	1673,40,5000
-jupe_core,0,0	monster	Archdam	1668,40,5000
-jupe_core,0,0	monster	Venatu	1676,25,5000
-jupe_core,0,0	monster	Venatu	1677,25,5000
-jupe_core,0,0	monster	Venatu	1678,25,5000
-jupe_core,0,0,0,0	boss_monster	Vesper	1685,1,7200000,600000,1
+juperos_01,0,0	monster	Venatu	1675,100,5000
+juperos_01,0,0	monster	Photon Cannon	1664,40,5000
+juperos_01,0,0	monster	Elvira	2252,20,5000
+juperos_01,0,0	monster	Archdam	1668,10,5000
+juperos_01,0,0	monster	Genesis	1978,3,5000
+//
+juperos_02,0,0	monster	Archdam	1668,40,5000
+juperos_02,0,0	monster	Dimik	1669,40,5000
+juperos_02,0,0	monster	Apocalypse	1365,50,5000
+juperos_02,0,0	monster	Genesis	1978,7,5000
+//
+ver_eju,0,0	monster	Venatu	1675,20,5000
+ver_eju,0,0	monster	Dimik	1669,10,5000
+ver_eju,0,0	monster	Elvira	2252,50,5000
+ver_eju,0,0	monster	Genesis	1978,5,5000
+ver_eju,0,0	monster	Gioia	2251,2,600000
+//
+jupe_core,0,0	monster	Archdam	1668,30,5000
+jupe_core,0,0	monster	Dimik	1669,60,5000
+jupe_core,0,0	monster	Apocalypse	1365,30,5000
+jupe_core,0,0	monster	Genesis	1978,4,5000
+jupe_core,0,0,0,0	boss_monster	Vesper	1685,1,2700000,5400000,0
+//
+juperos_03,0,0	monster	Genesis	1978,15,5000
+juperos_03,0,0	monster	Gioia	2251,3,600000
+juperos_03,0,0	monster	Venatu	1675,50,5000
+juperos_03,0,0	monster	Photon Cannon	1664,50,5000
+juperos_03,0,0	monster	Dimik	1669,25,5000
+juperos_03,0,0	monster	Apocalypse	1365,25,5000
+juperos_03,0,0	monster	Elvira	2252,25,5000
+juperos_03,0,0	monster	Archdam	1668,25,5000

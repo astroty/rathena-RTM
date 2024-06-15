@@ -1478,11 +1478,11 @@ int char_make_new_char( struct char_session_data* sd, char* name_, int str, int 
 
 #if PACKETVER >= 20151001
 	if(!(start_job == JOB_NOVICE && (charserv_config.allowed_job_flag&1)) && 
-		!(start_job == JOB_SUMMONER && (charserv_config.allowed_job_flag&2)))
+		!(start_job == JOB_SOUL_REAPER && (charserv_config.allowed_job_flag&2)))
 		return -2; // Invalid job
 
 	// Check for Doram based information.
-	if (start_job == JOB_SUMMONER) { // Check for just this job for now.
+	if (start_job == JOB_SOUL_REAPER) { // Check for just this job for now.
 		memset(tmp_start_point, 0, MAX_STARTPOINT * sizeof(struct point));
 		memset(tmp_start_items, 0, MAX_STARTITEM * sizeof(struct startitem));
 		memcpy(tmp_start_point, charserv_config.start_point_doram, MAX_STARTPOINT * sizeof(struct point));
@@ -2772,7 +2772,7 @@ void char_set_defaults(){
 	charserv_config.start_items_doram[1].pos = EQP_ARMOR;
 #endif
 
-	charserv_config.start_status_points = 48;
+	charserv_config.start_status_points = 18;
 
 	charserv_config.console = 0;
 	charserv_config.max_connect_user = -1;

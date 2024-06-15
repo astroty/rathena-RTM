@@ -46,24 +46,24 @@
 		close;
 	case 2:
 		mes "[Aibakthing]";
-		mes "Ah, you must pay 10,000 Zeny";
+		mes "Ah, you must pay 5,000 Zeny";
 		mes "if you wish to visit Ayothaya.";
 		mes "If you're ready, we can leave";
 		mes "right now~";
 		next;
 		if (select("I'm ready, let's go!:No.") == 1) {
-			if (Zeny > 9999) {
+			if (Zeny > 4999) {
 				mes "[Aibakthing]";
 				mes "Hoo! Hah! Hoo! Hah!";
 				mes "Let us be off! Back to my";
 				mes "beautiful Ayothaya!";
 				close2;
-				set Zeny, Zeny-10000;
+				set Zeny, Zeny-5000;
 				warp "ayothaya",149,71;
 				end;
 			}
 			mes "[Aibakthing]";
-			mes "I am sorry, but you do not have the 10,000 Zeny to travel to Ayothaya. Such a price is nothing compared to the experiences that await you!";
+			mes "I am sorry, but you do not have the 5,000 Zeny to travel to Ayothaya. Such a price is nothing compared to the experiences that await you!";
 			close;
 		}
 	case 3:

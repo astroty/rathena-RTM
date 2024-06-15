@@ -1,0 +1,1127 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Desert Guild NPCs, Warps, Etc
+//===== Comments: =========================================
+//====================================================
+
+assas_03,80,12,0	warp	desertgw1	1,1,moc_fild16,127,184 // Entrance
+assas_03,71,39,0	warp	desertgw2	1,1,assas_03,41,38 // Main Corridor Lower Left
+assas_03,71,54,0	warp	desertgw3	1,1,assas_03,40,55 // Main Corridor Upper Left
+assas_03,90,48,0	warp	desertgw4	1,1,assas_03,118,48 // Main Corridor Right
+assas_03,84,65,0	warp	desertgw5	1,1,assas_03,45,106 // Main Corridor Top
+//
+assas_03,45,38,0	warp	desertgw6	1,1,assas_03,74,39 // Garden Room Lower Left
+assas_03,45,55,0	warp	desertgw7	1,1,assas_03,74,54 // Garden Room Upper Left
+assas_03,35,66,0	warp	desertgw8	1,1,assas_03,21,106 // Garden Room to Dinner
+//
+assas_03,21,103,0	warp	desertgw13	1,1,assas_03,35,62 // Dinner to Garden
+assas_03,45,103,0	warp	desertgw14	1,1,assas_03,84,60 // Dinner to Main
+assas_03,33,128,0	warp	desertgw15	1,1,assas_03,23,170 // Dinner to Kitchen
+assas_03,23,167,0	warp	desertgw16	1,1,assas_03,33,125 // Kitchen to Dinner
+assas_03,27,187,0	warp	desertgw17	1,1,assas_03,188,18 // Kitchen to Storage
+assas_03,190,18,0	warp	desertgw18	1,1,assas_03,27,184 // Storage to Kitchen
+//
+assas_03,115,48,0	warp	desertgw9	1,1,assas_03,87,48 // Right Wing Corridor Access
+assas_03,126,76,0	warp	desertgw10	1,1,assas_03,181,174 // Right Wing Stairs Access
+//
+assas_03,181,170,0	warp	desertgw11	1,1,assas_03,126,73 // LongHall-Right Wing Stairs Access
+//
+assas_03,176,72,0	warp	desertgw19	1,1,assas_03,184,150 // Secret Room
+
+
+/////NPC LOCATIONS////
+//Blade Dancer 19-64
+//Saboteur 114-131
+//Scoundrel 29-33
+//Duelist 140-63
+//Shinobi 178-15
+//Deadeye 182- 124
+//Mystic 120-140
+//Executioner 179-136
+
+
+moc_fild16,127,183,5	script	Assassin Guardian#guild	467,{
+	cutin "gc_verkhasel01",2;
+	set .@npc$, "[Black Plague Guardian]";
+	mes .@npc$;
+	mes "Hello Orphan, you can access the Main Area of the guild.";
+	mes "What do you say?";
+	next;
+	switch(select("Let me in.:What can you tell me about this place?:No, thanks.")) {
+	case 1:
+	if (judgejob >=1){
+	mes .@npc$;
+	mes "Magisters aren't common around here. Don't bring unwanted attention.";
+	close2;
+	warp "assas_03",80,16;
+	cutin "",255;
+	end;
+	}
+	if (illusionistjob >=1){
+	mes .@npc$;
+	mes "Don't let that weird puppet break anything, you hear me?";
+	close2;
+	warp "assas_03",80,16;
+	cutin "",255;
+	end;
+	}
+	if (tricksterjob >=1){
+	mes .@npc$;
+	mes "How heavy is that scythe really? Eh, whatever, come in.";
+	close2;
+	warp "assas_03",80,16;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Keep your hands in the clear, Orphan.";
+	close2;
+	warp "assas_03",80,16;
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "The Assassin's Guild was recently expanded. We have finally found the secret entrance to the old lair of Master Loki, our founder.";
+	next;
+	mes .@npc$;
+	mes "I can't provide more details, obviously, but you're free to get inside.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "It's not like you'd have time to try anything funny with so many guildsmen inside. Humph.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "...";
+	close2;
+	cutin "",255;
+	end;
+}
+}
+
+assas_03,19,64,3	script	Blade Dancer#guild	998,{
+	set .@npc$, "[Blade Dancer]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (nightravenjob == 1){
+	mes .@npc$;
+	mes "The student has surpassed the master. Well done.";
+	close;
+	}
+	if (bladedancerjob == 1){
+	mes .@npc$;
+	mes "Keep up your training. Let your blades speak for you and draw the blood from the targets.";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "I see you have chosen your path. No matter what's your role, make us known as fair, honored... and deadly.";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "It's a bit strange to see non-Assassins around...but I'm sure it was a good idea.";
+	close;
+	}	
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Hello there fellow Assassin...Do you want to learn the ways of the Blade Dancer?";
+	next;
+	switch(select("Blade Dancer?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "The Blade Dancer is one of our many specializations. Blade dancers focus on the mastery of dual wielding.";
+	next;
+	mes .@npc$;
+	mes "By training as one, you'll be able to learn how to parry enemy attacks, not only that, you can even counter attack instantly and deal massive damage around you!";
+	next;
+	mes .@npc$;
+	mes "You can also concentrate on your inner shadows to deal with far away enemies with the Soul Breaker, and finally, the core of our skills, the Southern Cross!";
+	next;
+	mes .@npc$;
+	mes "A wonderful skill that hits harder when used in succession! For even the stars brand your enemies as prey for your blades.";
+	next;
+	mes .@npc$;
+	mes "You can even work to be a Night Raven someday if you're really good ...so ...consider it, will you?";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "You still have skill points. So you haven't mastered your skills as an Assassin.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "Not yet, Orphan. You need to master your basic skills first. Why not return to me once you're job level 50?";
+	close;
+	}
+	mes .@npc$;
+	mes "Very well...We shall begin your training right now. I'll give you a chance to plan your skill path again.";
+	next;
+	mes .@npc$;
+	mes "A Blade Dancer shall let their weapons speak and dance around, while enemies have no chance to react. Use this power well.";
+	next;
+	callfunc "Job_Change",Job_Assassin_Cross;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set bladedancerjob,1;
+	resetskill();
+	mes .@npc$;
+	mes "There we go! This long coat will help you conceal your blades, and the belts will keep your body working under pressure even if you're wounded. Not that I expect you to get hurt.";
+	next;
+	mes .@npc$;
+	mes "Wield your new powers carefully, and make sure to remember your path. Be a friend of the night and shadows and an enemy of evil.";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "Make your choice soon. The world won't wait for you.";
+	close;
+	}
+}
+	mes .@npc$;
+	mes "I can't really help you.";
+	close;
+}
+
+assas_03,114,131,3	script	Saboteur#guild	750,{
+	set .@npc$, "[Saboteur]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (blastjugglerjob == 1){
+	mes .@npc$;
+	mes "A true master of our art. I'm impressed.";
+	close;
+	}
+	if (saboteurjob == 1){
+	mes .@npc$;
+	mes "Using those materials is not easy. But if you're smart, you'll improve fast. Good luck!";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "I wonder why anyone would choose any path if not the one with explosives...";
+	close;
+	}
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Hey Assassin. You don't like explosives do you? You guys love those fancy poisons!";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "Hello there Rogue...Do you want to be a Saboteur?";
+	next;
+	switch(select("Saboteur?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "The Saboteur is a specialization for Rogues. We are very skilled in using reactive material.";
+	next;
+	mes .@npc$;
+	mes "Let me tell you about Greater Explosion! It's a damn wonderful skill! It deals so much damage around an enemy that it'll make any survivors flee!";
+	next;
+	mes .@npc$;
+	mes "Of course, you can just burn the field under their feet if needed. It's a good choice if you plan to control a specific area, specially if you Snare the enemies with a trap!";
+	next;
+	mes .@npc$;
+	mes "No matter the situation, the Saboteur is very good at controlling it ...And you can also train and become a Blast Juggler, to let the madness reign supreme!";
+	next;
+	mes .@npc$;
+	mes "Oh yeah...you can also throw slim potions at allies to heal a group of them at once. It's very good but very expensive and not as fun!";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "You still have skill points. I know, they are not as cool as explosives, but yeah...protocol.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "I can't let you use explosives that strong if you're not ready. Why don't you come back once you're job level 50?";
+	close;
+	}
+	mes .@npc$;
+	mes "Great! We can start right away! I'll reset your skill path so you can fully prepare for stuff.";
+	next;
+	mes .@npc$;
+	mes "A Saboteur is a strong member of any team. Specially if this team needs some...fire...power...HAHAHAHA!";
+	next;
+	callfunc "Job_Change",Job_Creator;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set saboteurjob,1;
+	resetskill();
+	mes .@npc$;
+	mes "There you go...No, no, don't wear that jacket! Just leave it hanging on your back, it'll look cooler...also...easier for you to hide your stuff on your back!";
+	next;
+	mes .@npc$;
+	mes "Now make ...them ...BURN!";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "What the hell...really?";
+	close;
+	}
+}
+	mes .@npc$;
+	mes "Visiting? This place? Weirdo.";
+	close;
+}
+
+assas_03,29,33,3	script	Scoundrel#guild	997,{
+	set .@npc$, "[Scoundrel]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (blackplaguejob == 1){
+	mes .@npc$;
+	mes "What an imposing figure. I can feel death around you.";
+	close;
+	}
+	if (scoundreljob == 1){
+	mes .@npc$;
+	mes "Keep an eye on those enemies. They have no chance when you hit them.";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "I can't do anything for you. Leave.";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "Rogues can't wield the kind of arts I teach here. Try elsewhere.";
+	close;
+	}
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Do you want to be a Scoundrel? A master of preparation and skill?";
+	next;
+	switch(select("Scoundrel?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "The Scoundrel is one of the Assassin specializations. Scoundrels are the best at preparing their targets for a slow death.";
+	next;
+	mes .@npc$;
+	mes "Venom Mark can be used to declare death to an enemy, allowing your poison attacks to strike harder. You should always keep your poisons ready.";
+	next;
+	mes .@npc$;
+	mes "You can also use Venom Splasher to plant a poisonous bomb directly inside the target, ensuring it's poisoned when it's time is up!";
+	next;
+	mes .@npc$;
+	mes "Deadly Infect can assure your enemies they will regret any status inflicted upon you, allowing you to hit them back with it...or you can always do it yourself right?";
+	next;
+	mes .@npc$;
+	mes "Finally you can make them regret giving you an opportunity to use those poisons with Venom Buster! It's power against poisoned targets is incredible!";
+	next;
+	mes .@npc$;
+	mes "True masters can become Black Plagues. There are few of those, but the feeling of dread when you see them...is intense.";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "Spend your skill points. You need to know the basics to learn true power.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "You're not even Job Level 50, I can't even consider your name as a new Scoundrel.";
+	close;
+	}
+	mes .@npc$;
+	mes "Very well...let's begin.";
+	next;
+	mes .@npc$;
+	mes "A Scoundrel can kill an enemy from the inside. Becoming a disease that can't be cured. A wound that never closes.";
+	next;
+	callfunc "Job_Change",Job_Whitesmith;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set scoundreljob,1;
+	resetskill();
+	mes .@npc$;
+	mes "This armor is only as intimidating as the wearer. Keep it always clean and they will never suspect when you take their lives.";
+	next;
+	mes .@npc$;
+	mes "Focus on your path, Scoundrel, and be the inner demons of your enemies!";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "Few people do. Or have the talent for it.";
+	close;
+}
+	}
+	mes .@npc$;
+	mes "Be careful around this place.";
+	close;
+}
+
+assas_03,140,63,3	script	Duelist#guild	803,{
+	set .@npc$, "[Duelist]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (kingslayerjob == 1){
+	mes .@npc$;
+	mes "The price has been paid, and you were the receiver of it. Good work.";
+	close;
+	}
+	if (duelistjob == 1){
+	mes .@npc$;
+	mes "You should know when you're prepared for a fight! A duelist is always the best in what they do!";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "I see that you're not looking to be, or is, a Duelist. Don't waste my time, will you?";
+	close;
+	}
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Assassins don't really fight with honor do they? Hey come on', I'm kidding! I just can't teach you guys!";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "Hello Rogue...Do you want to be a Duelist?";
+	next;
+	switch(select("Duelist?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "The Duelist is a specialization for Rogues. Duelists are masters at close range combat.";
+	next;
+	mes .@npc$;
+	mes "You can block all direct frontal attacks with Riposte! This will give you a chance to strike an enemy with a critical hit quickly!";
+	next;
+	mes .@npc$;
+	mes "A true duelist is always prepared to fight, so you can prepare yourself with the Duel Stance and return all damage they try to inflict with Retribution!";
+	next;
+	mes .@npc$;
+	mes "The power of the Delta Skyfall is well known among everyone! It's reliable and easy to use, ensuring your blade can hit enemies no matter how far they are.";
+	next;
+	mes .@npc$;
+	mes "Consider becoming a Duelist. We are fierce, strong warriors who can turn any power the enemy has back at them!";
+	next;
+	mes .@npc$;
+	mes "You can also work your way into a Kingslayer...if you can find a king that deserves death, of course.";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "You need to use those skill points first.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "Why don't you go and train a little more before trying to take the next step? Maybe Job Level 50 is a good start.";
+	close;
+	}
+	mes .@npc$;
+	mes "Great! I see that you're ready to take your next step.";
+	next;
+	mes .@npc$;
+	mes "A Duelist is a strong warrior who takes the front when needed. Don't let anyone tell you otherwise!";
+	next;
+	callfunc "Job_Change",Job_Stalker;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set duelistjob,1;
+	resetskill();
+	mes .@npc$;
+	mes "All set! Wear that cape proud so it can protect and hide your smallest movements properly. And make sure to keep your hands always ready!";
+	next;
+	mes .@npc$;
+	mes "Good luck, Duelist. Keep your eyes focused on your targets!";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "It's easily the best choice you can make. Think about it.";
+	close;
+}
+}
+	mes .@npc$;
+	mes "Watch your step.";
+	close;
+}
+
+assas_03,178,15,3	script	Shinobi#guild	637,{
+	set .@npc$, "[Shinobi]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (satsujinjob == 1){
+	mes .@npc$;
+	mes "You seem well adjusted in control of your power, Satsujin.";
+	close;
+	}
+	if (shinobijob == 1){
+	mes .@npc$;
+	mes "The power of the union of two disciplines is in your hands now.";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "You don't walk the same path as I do. I can't do anything to help.";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "Rogues have bows, we have two weapons. I can't help you, sorry.";
+	close;
+	}
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Assassin! Perhaps you wish to be a Shinobi?";
+	next;
+	switch(select("Shinobi?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "The Shinobi is a unique specialization for Assassins. We can handle most ways of combat with perfection.";
+	next;
+	mes .@npc$;
+	mes "You can scatter Makibishi around you to ensure any enemies who come close will have a hard time moving around without being damaged.";
+	next;
+	mes .@npc$;
+	mes "Kawarimi will always trick your enemies, any direct attacks will miss you no matter how good enemies think they are at hitting!";
+	next;
+	mes .@npc$;
+	mes "Samsara Burst will ensure you're always strong to take down any enemy! The power to continuously damage them is too good to pass on!";
+	next;
+	mes .@npc$;
+	mes "Let's not forget Thousand Arms! With how quickly we can move and adapt, it's no wonder we can attack everyone around us at once as easily as we can.";
+	next;
+	mes .@npc$;
+	mes "We also can't really use Dark Claw due to our eastern capabilities...We can always use Seven Winds for maximum efficiency for the same reasons, of course.";
+	next;
+	mes .@npc$;
+	mes "However...if you become a Satsujin ...you will completely dominate any enemy with an overwhelming amount of fighting styles.";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "Your skill points as an Assassin are of no use for a Shinobi. Use them.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "You're not Job Level 50? Why would you be here then?";
+	close;
+	}
+	mes .@npc$;
+	mes "You made the right choice. You too shall be part of Amatsu now.";
+	next;
+	mes .@npc$;
+	mes "A Shinobi can handle any fighting situation. Avoiding, attacking, controling the ground and attacking all enemies with all elements. You can do it all!";
+	next;
+	callfunc "Job_Change",Job_High_Wizard;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set shinobijob,1;
+	resetskill();
+	mes .@npc$;
+	mes "The garments I provide you come straight from Amatsu's Ninja Guild. They only provide it for those who can prove they are the best. Wear it with honor.";
+	next;
+	mes .@npc$;
+	mes "Never let your enemies flee you again, as you now have every tool at your disposal as a Shinobi.";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "...Ok?";
+	close;
+}
+	}
+	mes .@npc$;
+	mes "Amatsu is so far away. But this place also feels like home.";
+	close;
+}
+
+assas_03,182,124,3	script	Deadeye#guild	10211,{
+	set .@npc$, "[Deadeye]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (sinnerjob == 1){
+	mes .@npc$;
+	mes "Everyone has done something others might deem wrong. You made your choice and I'm sure you know it was the best.";
+	close;
+	}
+	if (deadeyejob == 1){
+	mes .@npc$;
+	mes "Keep your aim on your targets!";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "I can't help you on the path you have chosen.";
+	close;
+	}
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Assassin? I'm not sure you're trained on the use of bows.";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "A Rogue...Do you want to train as a Deadeye?";
+	next;
+	switch(select("Deadeye?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "The Deadeye is a strong specialization for Rogues. Using bows with mastery is hard, for anyone else but us.";
+	next;
+	mes .@npc$;
+	mes "You can use Sniper Nest to prepare your attacks with precision and power, you might need to slow down, but you can always keep your distance.";
+	next;
+	mes .@npc$;
+	mes "While ready, you can just use Headshot! It might take a while to prepare the perfect arrow, but once it hits...damn, it hurts!";
+	next;
+	mes .@npc$;
+	mes "Cluster Arrow is a fragmentation arrow that can hit an area very hard and quickly! Unlike Aimed Bolt that aims to do the same to a single priority target.";
+	next;
+	mes .@npc$;
+	mes "A Deadeye can always take unique contracts, they might bring you difficult decisions, but everyone is a Sinner deep inside.";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "Use those skill points. They are no good for us.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "You still have a way to go, come back when you're Job Level 50.";
+	close;
+	}
+	mes .@npc$;
+	mes "Very well...The path of the arrow is always forward and precise. And so will be yours now, Deadeye.";
+	next;
+	mes .@npc$;
+	mes "Learning how to breath, how to stay calm, how to get the perfect shot...that should be your priority from now on.";
+	next;
+	callfunc "Job_Change",Job_Sniper;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set deadeyejob,1;
+	resetskill();
+	mes .@npc$;
+	mes "Lets get that jacket ready for you and...great, It fits! You can have quick access to your items there.";
+	next;
+	mes .@npc$;
+	mes "Good luck and keep an eye out for traps. Your eyes are your best friends.";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "If you say so...";
+	close;
+	}
+}
+	mes .@npc$;
+	mes "I'm watching you.";
+	close; 
+}
+
+assas_03,120,140,3	script	Mystic#guild	10059,{
+	set .@npc$, "[Mystic]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (arcanemasterjob == 1){
+	mes .@npc$;
+	mes "A true master of nature and wielder of elements. I'm proud of you.";
+	close;
+	}
+	if (mysticjob == 1){
+	mes .@npc$;
+	mes "The world is your domain now.";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "Don't bother me. You already have your path.";
+	close;
+	}
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Sorry Assassin, I can't help.";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "Looking into becoming a Mystic, Orphan?";
+	next;
+	switch(select("Mystic?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "A Mystic has the best qualities from all magic users. They have no limits in how they can manipulate elements.";
+	next;
+	mes .@npc$;
+	mes "With Unholy Light, you always have an alternative in what to do, no matter the natural element of your enemies, you can handle it.";
+	next;
+	mes .@npc$;
+	mes "Flood and Water Ball allow you to create your own water terrain...and use it as much as you want to attack with a barrage of spells.";
+	next;
+	mes .@npc$;
+	mes "We can't really use Ready to Rip, but it doesn't matter, does It? We have Double Cast to quickly overwhelm our oponents with double the power!";
+	next;
+	mes .@npc$;
+	mes "Not to mention our Eruption ensures we have full coverage by adding an earth-element magic choice to our set!";
+	next;
+	mes .@npc$;
+	mes "Becoming an Arcane Master is a possibility...but for very few, and those who are VERY good at spell fighing. Without a doubt not something common.";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "You need to use those skill points to learn new skills from me.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "Get Job Level 50 and then come back. I can't teach you new spells if you don't know your current skills.";
+	close;
+	}
+	mes .@npc$;
+	mes "Excellent! Let's start right now! A magic user on the Desert Guild is always something I wish to see around!";
+	next;
+	mes .@npc$;
+	mes "The elements are mere toys at the hands of a Mystic, you will be able to take down anyone before they have a chance to react.";
+	next;
+	callfunc "Job_Change",Job_Professor;
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set mysticjob,1;
+	resetskill();
+	mes .@npc$;
+	mes "Let's get you a new coat...It came from an ancient group of Geffen Wizards...they were afraid of its power...hah!";
+	next;
+	mes .@npc$;
+	mes "Ok, all done. Now you can start studying new magic and fight to your best!";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "Eh...ok.";
+	close;
+	}
+}
+	mes .@npc$;
+	mes "If you need a portal, I'm not the guy. Good luck.";
+	close;
+}
+
+assas_03,120,171,5	script	Executioner#guild	880,{
+	set .@npc$, "[Executioner]";
+	if (unchainedjob == 1){
+	mes .@npc$;
+	mes "Why do I feel like you have so much power...? I can't teach anyone like that!";
+	close;
+	}
+	if (gravekeeperjob == 1){
+	mes .@npc$;
+	mes "I see you're now one of the guardians...well done.";
+	close;
+	}
+	if (executionerjob == 1){
+	mes .@npc$;
+	mes "Killing is no easy job. You should be honored to have the power to do it against any enemies of justice.";
+	close;
+	}
+	if (specjob == 1){
+	mes .@npc$;
+	mes "I can't do anything for you, go seek another master.";
+	close;
+	}
+	if (roguejob == 1){
+	mes .@npc$;
+	mes "I'm still not used to seeing Rogues living here...";
+	close;
+	}	
+	if (assassinjob == 1){
+	mes .@npc$;
+	mes "Assassin...are you ready to become an Executioner?";
+	next;
+	switch(select("Executioner?:Yes!:Not Really")) {
+	case 1:
+	mes .@npc$;
+	mes "Executioners are a Specialization that can strike enemies fast and hard. And there's nothing they can do about it.";
+	next;
+	mes .@npc$;
+	mes "As long as you keep your fury, you can use Alpha and Omega in quick succession to bring a quick end to any enemies that oppose you.";
+	next;
+	mes .@npc$;
+	mes "Meteor Assault will make sure they are debilitated and defenseless and Meteor Rush will quickly finish off any group that tries to run away.";
+	next;
+	mes .@npc$;
+	mes "Many can make things die, but only the best can keep them dead. That's why you might want to join the Gravekeepers in the future if you take this path.";
+	close;
+	case 2:
+	if (SkillPoint) {
+		mes .@npc$;
+		mes "Use those skill points. No point keeping them.";
+		close;
+	}
+	if ( JobLevel <= 49) {
+	mes .@npc$;
+	mes "You Need Job Level 50...come on, you already know this.";
+	close;
+	}
+	mes .@npc$;
+	mes "Perfect...stay calm and think about your path here.";
+	next;
+	mes .@npc$;
+	mes "An Executioner doesn't care how strong it's enemy is. The power of justice and punishment will make sure everyone meets the same, fair fate.";
+	next;
+	atcommand "@job 4009";
+	set JobLevel, 50;
+	set skillpoint, 0;
+	specialeffect2 687;
+	set specjob,1;
+	set executionerjob,1;
+	resetskill();
+	mes .@npc$;
+	mes "All done. Those were once the clothes Master Loki himself picked for his personal guards. Wear them with honor.";
+	next;
+	mes .@npc$;
+	mes "You are the power of tradition itself in your actions.";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "Wh...nevermind.";
+	close;
+	}
+}
+	mes .@npc$;
+	mes "Excuse me. I'd rather not talk now.";
+	close;
+}
+
+assas_03,85,17,2	script	Entrance Guard#guild	707,{
+	set .@npc$, "[Entrance Guard]";
+	mes .@npc$;
+	mes "You are welcome here. Feel free to rest for a moment, Orphan.";
+	close;
+}
+
+//Healer 118-182
+//Tool Dealer 34-178
+//Gear Dealer 19-180
+
+
+assas_03,21,60,4	script	Assassin#guild	698,{
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "I'm still getting used to this place. We didn't find it too long ago after all.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Master Loki, our founder, apparently used it to hide and protect the people who would be hunted.";
+	next;
+	mes .@npc$;
+	mes "So it has both strategic, and historic value for us.";
+	close;
+}
+
+assas_03,144,152,4	script	Old Assassin#guild4	897,{
+	set .@npc$, "[Old Assassin]";
+	mes .@npc$;
+	mes "The Rogues are not a bad bunch after all.";
+	next;
+	mes .@npc$;
+	mes "They just have their own way of dealing with things. I'm getting used to it.";
+	close;
+}
+
+assas_03,138,66,4	script	Rogue#guild4	779,{
+	set .@npc$, "[Rogue]";
+	mes .@npc$;
+	mes "This is quite a cool place.";
+	next;
+	mes .@npc$;
+	mes "We should have joined forces long ago to be honest.";
+	close;
+}
+
+assas_03,144,57,4	script	Rogue#guild3	810,{
+	set .@npc$, "[Rogue]";
+	if (judgejob >=1){
+	mes .@npc$;
+	mes "Hello Magister. Nothing going on around here. at all.";
+	close;
+	}
+	if (jesterjob >=1){
+	mes .@npc$;
+	mes "Hey Jester! Do a cool trick! Haha! I love you guys!";
+	close;
+	}
+	mes .@npc$;
+	mes "I should have been a Jester, they are so carefree and fun...";
+	close;
+}
+
+assas_03,137,185,4	script	Orphan#guild2	642,{
+	set .@npc$, "[Orphan]";
+	if (assassinjob >=1){
+	mes .@npc$;
+	mes "Hey there! You're pretty cool looking, I wanna be like you and dual wield weapons!";
+	close;
+	}
+	if (roguejob >=1){
+	mes .@npc$;
+	mes "Oh hey... another boring Rogue...I mean, you guys are cool but you can't dual wield.";
+	close;
+	}
+	mes .@npc$;
+	mes "I wish I can be an Assassin someday...they are pretty skilled with multiple weapons.";
+	close;
+}
+
+assas_03,80,60,4	script	Lucille#guild1	667,{
+	set .@npc$, "[Lucille]";
+	cutin "tnm_lucile01",2;
+	if( Judgejob >=1){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh, An Orphan who is a Magister...impressive. You're an example to many around here, even if you're not part of the guild.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Hello, I'm Julianna Lucille. I'm the current Right Hand of the Master here. You may just call me Lucille.";
+	next;
+	switch(select("Tell me about yourself:Tell me about Specializations:What can I do after my Specialization?:Nothing.")) {
+	case 1:
+	mes .@npc$;
+	mes "I've been serving the guild for over 10 years now. I actually met Master Loki a little before he died, quite a honored man.";
+	next;
+	mes .@npc$;
+	mes "As the Right Hand of the Master, I helped the evacuation efforts during the destruction of Morroc. We may have lost the city for a while, but we saved the people.";
+	next;
+	mes .@npc$;
+	mes "My Grandmother was part of Thanatos's group when they fought Satan Morroc for the first time, since then, our family is closely linked to the protection of Morroc.";
+	next;
+	mes .@npc$;
+	mes "I may not have the same combat capabilities as most other assassins, but I can find my own way by coordinating logistics here.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "The Specializations are arts developed by our guild in conjunction with the Rogue Guild. By focusing our training in a specific style, it allows us to fight better.";
+	next;
+	mes .@npc$;
+	mes "You can speak with the masters for each style around the guild. I'm sure they will take you under training... if you're a Job Level 50 Assassin or Rogue of course.";
+	next;
+	mes .@npc$;
+	mes "Most Assassin specializations also have access to Dark Claw, to break the enemy defenses and pierce reflection, Rogues have Ready to Rip to boost their offensive limits.";
+	next;
+	mes .@npc$;
+	mes "Unless you're going for a Shinobi or Mystic that is...they have their own tricks and plans. Quite the exotic groups.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	if( desertjob ==0){
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "Why would you care? It's not like they can do anything for you. I'm not giving you information you don't need.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if( finaljob ==1){
+	mes .@npc$;
+	mes "You're already a master yourself! Why bother with it?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Looking to become one of the best after you finish your specialization training?";
+	next;
+	mes "Some people can help you with this. They may not all be affiliated with our guild, but I'm sure they can use your help.";
+	next;
+	mes .@npc$;
+	mes "Their precise location is classified. As they are busy in their own missions. I can only point you in their general location.";
+	next;
+	mes .@npc$;
+	mes "The Sky and Land brothers, Masters for Night Raven and Black Plague are investigating a cult on the cliffs of Rachel.";
+	next;
+	mes .@npc$;
+	mes "The Gravekeepers guard Master Loki's Tomb, you can find them in Morroc's Pyramid.";
+	next;
+	mes .@npc$;
+	mes "A Satsujin is working on investigating mysterious murders in Yuno, if you could help him, that'd be great.";
+	next;
+	mes .@npc$;
+	mes "Mystics are being trained by the Arcane Grandmaster in a lake near Geffen. I've no idea who that master is.";
+	next;
+	mes .@npc$;
+	mes "Some other people are also looking for help from our guild. You can try to help them.";
+	next;
+	mes .@npc$;
+	mes "A King is looking for help in Moscovia in order to take down a strange demon who took his crown. Maybe you can be a Kingslayer?";
+	next;
+	mes .@npc$;
+	mes "A high priest in Rachel is also looking for help to kidnap the Pope...it seems she has no idea what's going on in the city. A Sinner would commit such act.";
+	next;
+	mes .@npc$;
+	mes "Finally a weird scientist found someone from Rekember who escaped the raids...It seems he needs someone very skilled with explosives who can be a Blast Juggler.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "That's all the information I can say without compromising them. Good luck with that.";
+	close2;
+	cutin "",255;
+	end;
+	case 4:
+	mes .@npc$;
+	mes "Take care.";
+	close2;
+	cutin "",255;
+	end;
+}
+}
+
+assas_03,161,135,4	script	Assassin#guild3	730,{
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "Please don't bother me. I'm busy doing whatever.";
+	close;
+}
+
+assas_03,166,124,4	script	Rogue#guild2	747,{
+	set .@npc$, "[Rogue]";
+	mes .@npc$;
+	mes "Don't forget you're an Orphan. You need to be careful not to die and put other people in risk.";
+	next;
+	mes .@npc$;
+	mes "The Kafras can't just resurrect everyone. Some people don't have the willpower for it. Don't be a problem for us.";
+	close;
+}
+
+assas_03,186,150,4	script	Assassin#guild2	725,{
+	if(lokipalaceunlock ==1) {
+	set .@npc$, "[Assassin]";	
+	mes .@npc$;
+	mes "Wanna go again? Off you go! Don't tell Lucille!";
+	close2;
+	warp "assas_03",183,72;
+	end;
+	}
+	if(countitem(6292) < 1) goto L_noitems;
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "Hey. I see an Enriched Oridecon with you! Say, you give me it and I'll take you somewhere cool!";
+	next;
+	switch(select("Deal!:No, thanks.")) {
+	case 1:
+	mes .@npc$;
+	mes "Take care over there! Lucille can't know I took you to that place ok?";
+	close2;
+	delitem 6292,1;
+	set lokipalaceunlock,1;
+	warp "assas_03",183,72;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Aww ok!";
+	close;
+	}
+	L_noitems:
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "There's 3 main types of Oridecon, HD Oridecons and Enriched Oridecons.";
+	next;
+	mes .@npc$;
+	mes "You need to keep an eye out for those materials as they are valuable, don't forget the Enriched and HD variations of those! Maybe you can spare me an Enriched Oridecon? I love them!";
+	close;
+}
+
+assas_03,24,55,4	script	Rogue#guild1	642,{
+	set .@npc$, "[Rogue]";
+	mes .@npc$;
+	mes "I saw a strange, mirror-like object buried in the desert near where the Dimensional Gorge had opened 5 years ago.";
+	next;
+	mes .@npc$;
+	mes "I should dig it up someday....but not today~";
+	close;
+}
+
+assas_03,18,123,4	script	Judge#guild1	10181,{
+	set .@npc$, "[Judge]";
+	mes .@npc$;
+	mes "I was sent here by the King in order to assist, and keep an eye on the Desert Guild's activities.";
+	next;
+	mes .@npc$;
+	mes "That's all, really. they are cool people.";
+	close;
+}
+
+assas_03,48,122,4	script	Assassin#guild1	10002,{
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "This Temporal Distortion shows the Palace Dungeon, during the training of Master Loki for new Assassins.";
+	next;
+	mes .@npc$;
+	mes "They did not take it easy on new recruit it seems...they hit hard and the place is a mess...but seems like a very impressive place to test their strenght.";
+	close;
+}
+
+assas_03,47,113,4	script	Sage#guild1	10299,{
+	set .@npc$, "[Sage]";
+	mes .@npc$;
+	mes "I'm allowed here to collect data on this distortion. Everyone here was very welcoming of me, not what I expected to be honest.";
+	next;
+	mes .@npc$;
+	mes "Don't mind me, I'll be here, observing the distortion.";
+	close;
+}
+
+assas_03,42,172,4	script	Thief#guild1	118,{
+	set .@npc$, "[Thief]";
+	mes .@npc$;
+	mes "I'm hungry... I wonder what they have to eat here.";
+	close;
+}

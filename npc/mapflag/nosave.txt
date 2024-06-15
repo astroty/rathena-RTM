@@ -15,7 +15,27 @@
 //= 1.9 Renewal split. [Euphy]
 //============================================================
 
-// Job Quests ====================
+payg_cas04	mapflag	nomobloot
+prt_prison	mapflag	nosave	SavePoint
+prt_q	mapflag	nosave	SavePoint
+pay_dun00	mapflag	nosave	SavePoint
+pay_dun00	mapflag	noteleport
+pay_dun00	mapflag	nowarp
+job_thief1	mapflag	nosave	SavePoint
+ra_dun00	mapflag	nosave	SavePoint
+ra_dun01	mapflag	nosave	SavePoint
+ra_dun02	mapflag	nosave	SavePoint
+loki_tomb01	mapflag	nosave	SavePoint
+loki_tomb02	mapflag	nosave	SavePoint
+jor_nest01	mapflag	nosave	SavePoint
+jor_nest02	mapflag	nosave	SavePoint
+jor_core	mapflag	nosave	SavePoint
+guild_falld	mapflag	nosave	SavePoint
+lost_dun01	mapflag	nosave	SavePoint
+lost_dun02	mapflag	nosave	SavePoint
+lost_dun03	mapflag	nosave	SavePoint
+rek_dun03	mapflag	nosave	SavePoint
+rek_dun02	mapflag	nosave	SavePoint
 job_sword1	mapflag	nosave	SavePoint
 //job_thief1	mapflag	nosave	SavePoint
 // 2-1
@@ -300,3 +320,93 @@ arug_dun01	mapflag	nosave	SavePoint
 
 evt_bomb	mapflag	nosave	SavePoint
 //evt_zombie	mapflag	nosave	SavePoint
+
+alde_dun03	mapflag	nosave	SavePoint
+alde_dun04	mapflag	nosave	SavePoint
+gl_knp01	mapflag	nosave	SavePoint
+gl_knp02	mapflag	nosave	SavePoint
+gl_cas01_	mapflag	nosave	SavePoint
+ein_dead01	mapflag	nosave	SavePoint
+ein_dead02	mapflag	nosave	SavePoint
+ein_dead03	mapflag	nosave	SavePoint
+moc_dun01	mapflag	nosave	SavePoint
+moc_dun02	mapflag	nosave	SavePoint
+moc_dun03	mapflag	nosave	SavePoint
+moc_fild20	mapflag	nosave	SavePoint
+moc_fild21	mapflag	nosave	SavePoint
+moc_fild22	mapflag	nosave	SavePoint
+tha_para01	mapflag	nosave	SavePoint
+tha_para02	mapflag	nosave	SavePoint
+tha_para03	mapflag	nosave	SavePoint
+tha_para04	mapflag	nosave	SavePoint
+tha_para05	mapflag	nosave	SavePoint
+tha_para06	mapflag	nosave	SavePoint
+tha_para07	mapflag	nosave	SavePoint
+tha_para08	mapflag	nosave	SavePoint
+payon_old	mapflag	nosave	SavePoint
+gef_atow01	mapflag	nosave	SavePoint
+gef_atow02	mapflag	nosave	SavePoint
+gef_atow03	mapflag	nosave	SavePoint
+gef_atow04	mapflag	nosave	SavePoint
+gef_town	mapflag	nosave	SavePoint
+abyss_04	mapflag	nosave	SavePoint
+odin_past	mapflag	nosave	SavePoint
+khu_dun01	mapflag	nosave	SavePoint
+khu_dun02	mapflag	nosave	SavePoint
+xmas_fut01	mapflag	nosave	SavePoint
+iz_dun05	mapflag	nosave	SavePoint
+rachelnm	mapflag	nosave	SavePoint
+
+//Field MVP Maps
+mjolnir_04	mapflag	nosave	SavePoint
+pay_fild09	mapflag	nosave	SavePoint
+moc_fild17	mapflag	nosave	SavePoint
+gef_fild14	mapflag	nosave	SavePoint
+gef_fild11	mapflag	nosave	SavePoint
+prt_fild03	mapflag	nosave	SavePoint
+pay_fild04	mapflag	nosave	SavePoint
+spl_fild02	mapflag	nosave	SavePoint
+ra_fild13	mapflag	nosave	SavePoint
+ve_fild01	mapflag	nosave	SavePoint
+grey_ft02	mapflag	nosave	SavePoint
+odin_tem03	mapflag	nosave	SavePoint
+snow_fild05	mapflag	nosave	SavePoint
+//Dungeon MVP Maps
+ast_dun03	mapflag	nosave	SavePoint
+moc_pryd06	mapflag	nosave	SavePoint
+anthell02	mapflag	nosave	SavePoint
+moc_pryd04	mapflag	nosave	SavePoint
+in_sphinx5	mapflag	nosave	SavePoint
+beach_dun	mapflag	nosave	SavePoint
+vip_bath	mapflag	nosave	SavePoint
+nest_dun02	mapflag	nosave	SavePoint
+iz_dun04	mapflag	nosave	SavePoint
+pay_dun04	mapflag	nosave	SavePoint
+pay_tem03	mapflag	nosave	SavePoint
+face_dun04	mapflag	nosave	SavePoint
+mal_dun02	mapflag	nosave	SavePoint
+treasure02	mapflag	nosave	SavePoint
+lost_dun03	mapflag	nosave	SavePoint
+wat_dun02	mapflag	nosave	SavePoint
+cry_dun03	mapflag	nosave	SavePoint
+alch_dun04	mapflag	nosave	SavePoint
+c_tower4	mapflag	nosave	SavePoint
+prt_maze03	mapflag	nosave	SavePoint
+ama_dun03	mapflag	nosave	SavePoint
+tur_dun04	mapflag	nosave	SavePoint
+ayo_dun02	mapflag	nosave	SavePoint
+xmas_dun02	mapflag	nosave	SavePoint
+kaf_dun02	mapflag	nosave	SavePoint
+resc_dun02	mapflag	nosave	SavePoint
+va_dun04	mapflag	nosave	SavePoint
+gl_knt02	mapflag	nosave	SavePoint
+gl_chyard	mapflag	nosave	SavePoint
+skydun3	mapflag	nosave	SavePoint
+abbey03	mapflag	nosave	SavePoint
+lhz_dun02	mapflag	nosave	SavePoint
+kh_dun02	mapflag	nosave	SavePoint
+jupe_core	mapflag	nosave	SavePoint
+mag_dun02	mapflag	nosave	SavePoint
+abyss_03	mapflag	nosave	SavePoint
+lhz_dun02	mapflag	nosave	SavePoint
+rek_dun03	mapflag	nosave	SavePoint

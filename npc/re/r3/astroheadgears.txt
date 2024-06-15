@@ -1,0 +1,686 @@
+ast_dun01,109,61,4	script	Bookshelf#Astro	CLEAR_NPC,{
+	mes "You start reading some of the books.";
+	emotion ET_THINK, playerattached();
+	next;
+	mes "Constellations can be observed from the Window to the Night Sky, we have developed many telescopes with varied priorities in observation.";
+	next;
+	mes "We have added low-range Telescopes, that allow us the see major star groups in the lower floor, while keeping the Upper floor only for the ones we can call.";
+	next;
+	mes "The lower floor will let us see where each constellation shines bright in our world, while the highest will let us observe the twin constellations of Serpens.";
+	next;
+	mes "Maybe someday, the 9 Master Astrologians will know where the Moon of Serpens is located in.";
+	next;
+	if (astroquest ==0){
+	set astroquest,1;
+	}
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So the telescopes can be used to track the skies...interesting.";
+	close;
+}
+
+ast_dun02,25,60,4	script	Low-Range Telescope#Astro	CLEAR_NPC,{
+	mes "You look into the telescope...";
+	emotion ET_THINK, playerattached();
+	next;
+	if (astroquest ==0){
+	mes "You can see many bright stars in the sky.";
+	close;
+	}
+	mes "You can see many bright stars in the sky... You start observing with great attention and identifying where each one is.";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Interesting... the Antlia constellation stands above Prontera... and the Crux can be seen right above Morroc...I wonder which one is above this place...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "..Serpens. Hmm, Interesting... Why are there 2 Serpens...?";
+	next;
+	emotion ET_SCRATCH, playerattached();
+	if (astroquest ==1){
+	set astroquest,2;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I can take a better look through the upper floor telescope probably...";
+	close;
+}
+
+ast_dun03,56,103,4	script	High-Range Telescope#Astro	CLEAR_NPC,{
+	mes "You look into the telescope...";
+	emotion ET_THINK, playerattached();
+	next;
+	if (astroquest <=1){
+	mes "You can see many bright stars in the sky.";
+	close;
+	}
+	mes "You can see many bright stars in the sky... You focus on understanding what can be seen and understood from it.";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "The Northeast Serpens constellation... seems to have a star missing... I wonder why.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Curiously, the Serpens constellation of the east is located right above this observatorium...";
+	next;
+	emotion ET_SCRATCH, playerattached();
+	if (astroquest ==2){
+	set astroquest,3;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Serpens missing from the sky...I wonder where it could be.";
+	close;
+}
+
+resc_dun02,218,387,4	script	Stone#Astro	CLEAR_NPC,{
+	if (astroquest >=4){
+	mes "You found the Moon of Serpens here.";
+	close;
+	}
+	if (astroquest <=2){
+	mes "There is a strange stone here. But it vanishes from your sight whenever you try to grab it.";
+	close;
+	}
+	if (astroquest ==3){
+	mes "There is a strange stone here...It has a very unique glow.";
+	next;
+	set astroquest,4;
+	set sunhatquest,1;
+	getitem 25500,1;
+	mes "Having looked deep into the universe in the past, you can see the stone clearly and grab the Moon of Serpens.";
+	close;
+	}
+}
+
+ast_dun03,80,125,5	script	Frozen Tides#astro	CLEAR_NPC,{
+	if (sunhatquest ==0){
+	mes "A wave of crystal, frozen in time...it does not respond to any interaction.";
+	close;
+	}
+	if (sunhatquest ==2){
+	mes "The tide is no longer moving. You have found its star.";
+	close;
+	}
+	if (sunhatquest ==1){
+	mes "The Frozen Tide reacts to your touch.";
+	mes "You see strange visions of an entity asking for the Moon of Serpens.";
+	next;
+	
+	mes "Bring me back my stars...my energy...and my precious moon...and I'll give you my sun.";
+	next;
+	switch(select("What do you want from me exactly?:I have your items.:Not really.")) {
+	case 1:
+		mes "^FF0000100^000000 Galactic Dust."; //6467
+		mes "^FF00001000^000000 Star Pieces."; //6468
+		mes "^FF000015^000000 Jewel Bradiums to bring it all together."; //1075
+		mes "^FF00001^000000 Moon of Serpens...of course."; //25500
+		close;
+		break;
+	case 2:
+		if(countitem(6467) < 100) goto L_noitems;
+		if(countitem(6468) < 1000) goto L_noitems;
+		if(countitem(6226) < 15) goto L_noitems;
+		if(countitem(25500) < 1) goto L_noitems;
+		mes "I missed my moon. You can have my sun...thank you...good bye.";
+		delitem 6467,100;
+		delitem 6468,1000;
+		delitem 6226,15;
+		delitem 25500,1;
+		getitem 25501,1;
+		specialeffect2 2040;
+		set sunhatquest,2;
+		close;
+		break;
+	L_noitems:
+		mes "You're missing items...";
+		close;
+		break;
+	case 3:
+		mes "Understandable...";
+		close;
+	}
+}
+}
+
+//
+
+gef_fild06,64,159,4	script	Scutum Observer#Astro	743,{
+	set .@npc$, "[Scutum Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Scutum is the constellation of protection. It's a symbol of protection and faith.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Scutum of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31224,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Scutum into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31224,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31225,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+lhz_fild01,259,243,4	script	Cygnus Observer#Astro	743,{
+	set .@npc$, "[Cygnus Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Cygnus is the constellation of cold. It's a symbol of patience and stasis.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Cygnus of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31216,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Cygnus into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31216,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31217,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+ra_fild12,363,123,4	script	Lacerta Observer#Astro	743,{
+	set .@npc$, "[Lacerta Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Lacerta is the constellation of nature. It's a symbol of survival and change.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Lacerta of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31222,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Lacerta into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31222,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31223,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+odin_tem02,309,73,4	script	Auriga Observer#Astro	743,{
+	set .@npc$, "[Auriga Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Auriga is the constellation of power. It's a symbol of strenght and energy.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Auriga of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31218,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Auriga into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31218,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31219,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+
+ayothaya,110,252,6	script	Orion Observer#Astro	743,{
+	set .@npc$, "[Orion Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Orion is the constellation of combat. It's a symbol of war and domination.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Orion of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31210,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Orion into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31210,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31211,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+ma_fild02,247,318,6	script	Fornax Observer#Astro	743,{
+	set .@npc$, "[Fornax Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Fornax is the constellation of flames. It's a symbol of heat and fury.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Fornax of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31226,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Fornax into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31226,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31227,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+moscovia,111,119,4	script	Caelum Observer#Astro	743,{
+	set .@npc$, "[Caelum Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Caelum is the constellation of spirit. It's a symbol of balance and efficiency.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Caelum of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31212,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Caelum into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31212,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31213,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+pay_fild11,102,154,4	script	Volan Observer#Astro	743,{
+	set .@npc$, "[Volan Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Volan is the constellation of pride. It's a symbol of honor and righteousness.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Volan of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31220,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Volan into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31220,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31221,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+
+cmd_fild07,53,269,4	script	Apus Observer#Astro	743,{
+	set .@npc$, "[Apus Observer]";
+	if (sunhatquest <=1){
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close;
+	}
+	if (sunhatquest ==3){
+	mes .@npc$;
+	mes "Take care on your path. The universe is always moving.";
+	close;
+	}
+	if (sunhatquest ==2){
+	cutin "job_sage_kayron",2;
+	mes .@npc$;
+	mes "The Apus is the constellation of spirit. It's a symbol of balance and efficiency.";
+	next;
+	mes .@npc$;
+	mes "Bring me the Apus of the Moon, refined exactly at +9, and 25 Jewel Eluniums, and I will grant you its blessing.";
+	next;
+	mes .@npc$;
+	mes "I will also require the Sun of Serpens to do it.";
+	next;
+	switch(select("I want the blessing.:I will think about it.")) {
+	case 1:
+	if ( countitem2(31214,1,9,0,0,0,0,0) < 1) goto L_noitems;
+	if(countitem(6290) < 25) goto L_noitems;
+	if(countitem(25501) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "Impressive...the light of the sun shines over your astral being.";
+	next;
+	mes .@npc$;
+	mes "I shall transform the Apus into a special light that shall guide your path...take it with you and you will never be alone in this universe.";
+	next;
+	set sunhatquest,3;
+	delitem2 31214,1,1,9,0,0,0,0,0;
+	delitem 6290,25;
+	delitem 25501,1;
+	getitem 31215,1;
+	specialeffect2 2040;
+	mes .@npc$;
+	mes "We have waited for a long time until someone could finally find its path here. Well done.";
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+	mes "You're missing something...Check your items.";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I watch the stars, and the stars watch me.";
+	close2;
+	cutin "",255;
+	break;
+	}
+}
+}
+

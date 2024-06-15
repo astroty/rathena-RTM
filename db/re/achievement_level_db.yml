@@ -32,42 +32,22 @@ Header:
 
 Body:
   - Level: 1
-    Points: 18
+    Points: 100
   - Level: 2
-    Points: 49
+    Points: 200
   - Level: 3
-    Points: 98
+    Points: 300
   - Level: 4
-    Points: 171
+    Points: 400
   - Level: 5
-    Points: 306
+    Points: 500
   - Level: 6
-    Points: 410
+    Points: 600
   - Level: 7
-    Points: 550
+    Points: 700
   - Level: 8
-    Points: 728
+    Points: 800
   - Level: 9
-    Points: 942
+    Points: 900
   - Level: 10
-    Points: 1247
-  - Level: 11
-    Points: 1504
-  - Level: 12
-    Points: 1804
-  - Level: 13
-    Points: 2152
-  - Level: 14
-    Points: 2550
-  - Level: 15
-    Points: 3070
-  - Level: 16
-    Points: 3522
-  - Level: 17
-    Points: 4030
-  - Level: 18
-    Points: 4592
-  - Level: 19
-    Points: 5210
-  - Level: 20
-    Points: 5980
+    Points: 1000

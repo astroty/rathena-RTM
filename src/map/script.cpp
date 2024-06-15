@@ -9609,6 +9609,10 @@ BUILDIN_FUNC(bonus)
 		case SP_AUTOSPELL_WHENHIT:
 		case SP_AUTOSPELL_ONSKILL:
 		case SP_SKILL_ATK:
+		case SP_SKILL_HPFLAT:
+		case SP_SKILL_HPRATE:
+		case SP_SKILL_SPFLAT:
+		case SP_SKILL_SPRATE:
 		case SP_SKILL_HEAL:
 		case SP_SKILL_HEAL2:
 		case SP_ADD_SKILL_BLOW:
@@ -9616,6 +9620,9 @@ BUILDIN_FUNC(bonus)
 		case SP_ADDEFF_ONSKILL:
 		case SP_SKILL_USE_SP_RATE:
 		case SP_SKILL_COOLDOWN:
+		case SP_REDUCE_COOLDOWN:
+		case SP_BOUNCE:
+		case SP_SPLASH_SKILL:
 		case SP_SKILL_FIXEDCAST:
 		case SP_SKILL_VARIABLECAST:
 		case SP_VARCASTRATE:
@@ -9812,6 +9819,27 @@ BUILDIN_FUNC(autobonus3)
 
 	return SCRIPT_CMD_SUCCESS;
 }
+
+BUILDIN_FUNC(plagiarizeskill)
+{
+	TBL_PC *sd;
+
+	if (script_rid2sd(sd))
+		script_pushint(st, pc_skill_plagiarism(*sd, script_getnum(st, 2), script_getnum(st, 3)));
+
+	return SCRIPT_CMD_SUCCESS;
+}
+
+BUILDIN_FUNC(plagiarizeskillreset)
+{
+	TBL_PC *sd;
+
+	if (script_rid2sd(sd))
+		script_pushint(st, pc_skill_plagiarism_reset(*sd, script_getnum(st, 2)));
+
+	return SCRIPT_CMD_SUCCESS;
+}
+
 
 /// Changes the level of a player skill.
 /// <flag> defaults to 1
@@ -14435,6 +14463,19 @@ BUILDIN_FUNC(getskilllist)
 	pc_setreg(sd,add_str("@skilllist_count"),j);
 	return SCRIPT_CMD_SUCCESS;
 }
+/// Returns the skill's name [Easycore]
+///
+/// getskillname(<skill id>)
+/// getskillname("<skill name>")
+BUILDIN_FUNC(getskillname)
+{
+	uint16 skill_id = (script_isstring(st,2) ? skill_name2id(script_getstr(st,2)) : script_getnum(st,2));
+	if (!skill_get_index(skill_id))
+		script_pushconststr(st, "Unknown Skill");
+	else
+		script_pushstrcopy(st,skill_get_desc(skill_id));
+	return SCRIPT_CMD_SUCCESS;
+}
 
 /**
  * clearitem ({<char_id>});
@@ -14935,11 +14976,6 @@ BUILDIN_FUNC(specialeffect)
 	if(bl==NULL)
 		return SCRIPT_CMD_SUCCESS;
 
-	if( type <= EF_NONE || type >= EF_MAX ){
-		ShowError( "buildin_specialeffect: unsupported effect id %d\n", type );
-		return SCRIPT_CMD_FAILURE;
-	}
-
 	if( script_hasdata(st,4) )
 	{
 		TBL_NPC *nd = npc_name2id(script_getstr(st,4));
@@ -14966,12 +15002,6 @@ BUILDIN_FUNC(specialeffect2)
 	if( script_nick2sd(4,sd) ){
 		int type = script_getnum(st,2);
 		enum send_target target = script_hasdata(st,3) ? (send_target)script_getnum(st,3) : AREA;
-
-		if( type <= EF_NONE || type >= EF_MAX ){
-			ShowError( "buildin_specialeffect2: unsupported effect id %d\n", type );
-			return SCRIPT_CMD_FAILURE;
-		}
-
 		clif_specialeffect(&sd->bl, type, target);
 	}
 	return SCRIPT_CMD_SUCCESS;
@@ -25458,32 +25488,15 @@ BUILDIN_FUNC(refineui){
 BUILDIN_FUNC(getenchantgrade){
 	struct map_session_data *sd;
 
-	if (!script_charid2sd(3, sd)) {
-		script_pushint(st,-1);
+	if( !script_rid2sd( sd ) ){
 		return SCRIPT_CMD_FAILURE;
 	}
 
-	int index, position;
-
-	if (script_hasdata(st, 2))
-		position = script_getnum(st, 2);
-	else
-		position = EQI_COMPOUND_ON;
-
-	if (position == EQI_COMPOUND_ON)
-		index = current_equip_item_index;
-	else if (equip_index_check(position))
-		index = pc_checkequip(sd, equip_bitmask[position]);
-	else {
-		ShowError( "buildin_getenchantgrade: Unknown equip index '%d'\n", position );
-		script_pushint(st,-1);
+	if( current_equip_item_index == -1 ){
 		return SCRIPT_CMD_FAILURE;
 	}
 
-	if (index < 0 || index >= MAX_INVENTORY || sd->inventory.u.items_inventory[index].nameid == 0)
-		script_pushint(st, -1);
-	else
-		script_pushint(st, sd->inventory.u.items_inventory[index].enchantgrade);
+	script_pushint( st, sd->inventory.u.items_inventory[current_equip_item_index].enchantgrade );
 
 	return SCRIPT_CMD_SUCCESS;
 }
@@ -25672,6 +25685,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(autobonus,"sii??"),
 	BUILDIN_DEF(autobonus2,"sii??"),
 	BUILDIN_DEF(autobonus3,"siiv?"),
+	BUILDIN_DEF(plagiarizeskill, "ii"),
+	BUILDIN_DEF(plagiarizeskillreset, "i"),
 	BUILDIN_DEF(skill,"vi?"),
 	BUILDIN_DEF2(skill,"addtoskill","vi?"), // [Valaris]
 	BUILDIN_DEF(guildskill,"vi"),
@@ -25814,6 +25829,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(getexp,"ii?"),
 	BUILDIN_DEF(getinventorylist,"?"),
 	BUILDIN_DEF(getskilllist,"?"),
+	BUILDIN_DEF(getskillname, "v"),
 	BUILDIN_DEF(clearitem,"?"),
 	BUILDIN_DEF(classchange,"i??"),
 	BUILDIN_DEF(misceffect,"i"),
@@ -26211,7 +26227,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem2", "viiiiiii?"),
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem3", "viiiiiiirrr?"),
 
-	BUILDIN_DEF(getenchantgrade, "??"),
+	BUILDIN_DEF(getenchantgrade, ""),
 
 	BUILDIN_DEF(mob_setidleevent, "is"),
 
@@ -26220,3 +26236,4 @@ struct script_function buildin_func[] = {
 
 	{NULL,NULL,NULL},
 };
+

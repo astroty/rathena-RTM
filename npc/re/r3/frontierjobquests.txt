@@ -1,0 +1,888 @@
+amatsu,282,140,4	script	Old Master#ronin	897,{
+		cutin "heri1",2;
+		set .@npc$, "[Old Master Dio]";
+		if (roninjob ==1){
+		mes .@npc$;
+		mes "You may see Prowlers learning how to avoid all sorts of attacks, but it was me, Dio, who first faced the wind. And now you too.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (ronina && roninb && roninc) {
+		mes .@npc$;
+		mes "Impressive. You fulfilled all the tasks and didn't give up.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "That...certainly required a different approach from me.";
+		next;
+		mes .@npc$;
+		mes "You have potential, as long as you focus on the perfection of your skills, you will be fine. I have a gift for you.";
+		next;
+		atcommand "@job 4027";
+		set roninjob,1;
+		set firstjob,1;
+		set secondjob,1;
+		set finaljob,1;
+		getitem 2155,1;
+		specialeffect2 234;
+		mes .@npc$;
+		mes "This is my Void Saya. It shall help you understand how to bring out your spirit into each strike. You have perfect control of your body right?";
+		next;
+		mes .@npc$;
+		mes "Now your path forward is to learn how to master your spirit. Good luck.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Thank you Sir. I'll take this knowledge with me and cherish it.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (ronintest) {
+		mes .@npc$;
+		mes "Good luck on your journey. Walk the steps of your inner self.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Listen to someone, meditate near the water and listen to the wind... got it.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I believe listening to the wind will be harder than usual... I'll need to move EXACTLY when it comes by in a good spot...once every 60 seconds.";
+		next;
+		mes .@npc$;
+		mes "Trust your senses, Orphan.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (firstjob ==1) {
+		mes .@npc$;
+		mes "The flow of life requires no rush. Be the calm before the Storm...";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (skillpoint) {
+		mes .@npc$;
+		mes "You must learn what is essential first, to then learn a new path.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (JobLevel < 10) {
+		mes .@npc$;
+		mes "The flow of life moves one step at a time. Return once you're Job Level 10.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		mes .@npc$;
+		mes "Hello young one. You seem to have a promissing future. Your soul is filled with a dark energy but somehow, hope and dreams fill your eyes.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "How do you know?";
+		next;
+		mes .@npc$;
+		mes "I can feel the presence and aura of anyone around me to the smallest detail. This allowed me to survive to this day without ever being hit by my enemies.";
+		next;
+		switch(select("That's great. Thank you for your wise words.:Can you teach me how to be like you?")) {
+		case 1:
+		mes .@npc$;
+		mes "Take care, young one.";
+		close2;
+		cutin "",255;
+		end;
+		case 2:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "But do you have the patience and focus to do it?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I... am willing to learn it.";
+		next;
+		mes .@npc$;
+		mes "Very well... I'll give you 3 tasks. You need to go around amatsu to find them.";
+		next;
+		mes .@npc$;
+		mes "Pay attention, as I won't repeat my instructions.";
+		next;
+		mes .@npc$;
+		mes "Listen to a happy person. Truly listen to them. Care about what they have to say. Absorb their good feelings into your being.";
+		next;
+		mes .@npc$;
+		mes "Watch the water move, can you stand there for a minute and metitate in silence?";
+		next;
+		mes .@npc$;
+		mes "Listen to the voice of the wind. The wind flows every 60 seconds in Amatsu. Listen to it for exactly 60 seconds so you can hear it coming and going. Dodge it by moving right before it passes by you.";
+		next;
+		mes .@npc$;
+		mes "Good Luck, young one.";
+		close2;
+		set ronintest,1;
+		set firstjob,1;
+		cutin "",255;
+		end;
+		}
+}	
+	
+amatsu,220,211,4	script	Dreaming Lady#ronin	478,{
+	
+	if (ronintest !=1) {
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "I'm so happy to be visiting Amatsu! It has always been a dream of mine!";
+		close;
+		}
+	if (ronina ==1) {
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "I'm so happy to be visiting Amatsu! It has always been a dream of mine!";
+		close;
+		}
+	if (ronintest ==1) {
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "Hey there! I've come from Maroll to visit Amatsu! It was a long journey... wanna hear about it?";
+		next;
+		switch(select("I'm, busy:Sure thing!")) {
+		case 1:
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "Oh... okay, please enjoy the city as much as I am!";
+		close;
+		case 2:
+		mes .@npc$;
+		mes "Maroll is a wonderful place. THe country is split in 4 regions, and Frontier is right at the center of it all!";
+		next;
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "Have you ever been to Frontier? Those massive airships, the towering houses, the clean water...that place is amazing.";
+		next;
+		mes .@npc$;
+		mes "But over time I wanted to visit some unique place, a place that had a very distinct feel to it.";
+		next;
+		mes .@npc$;
+		mes "First I traveled to Ayothaya, while I loved the temples there, I'm allergic to leaf cats...";
+		next;
+		emotion ET_THINK;
+		mes .@npc$;
+		mes "I wanted to go to Dewata, but the route to get there is kinda hard to travel, as I need to take the Daedalus route.";
+		next;
+		mes .@npc$;
+		mes "I took a small break around Yuno, since the city floats and they have a very cool Museum, that was quite a nice trip.";
+		next;
+		mes .@npc$; 
+		mes "I didn't enjoy my time in Lighthalzen at all...the situation of the city is not the greatest, but they do have a nice hotel where I could take a good rest.";
+		next;
+		mes .@npc$;
+		mes "Finally I decided to come to Amatsu. And the peacefulness of the people in the city was easily my favorite thing here.";
+		next;
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "...Hey are you listening to me? Are you there?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Oh, hey! of course...I'm happy for you.";
+		next;
+		mes .@npc$;
+		mes "Are you sure you are listening? Then tell me...";
+		next;
+		switch(rand(1,4)) {
+		case 1:
+			mes .@npc$;
+			mes "Where did I go first?";
+			next;
+		if (select("Dewata:Ayothaya:Yuno:Lighthalzen") == 2){
+			set ronina,1;
+			emotion ET_THROB;
+			mes .@npc$;
+			mes "Oh...thanks for listening to me...you're a good person...People usually don't really care about anyone else.";
+			close;
+			}else{
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "If you say so...Nevermind...";
+			close;
+			}
+		case 2:
+			mes .@npc$;
+			mes "What do I like about Yuno?";
+			next;
+		if (select("Magic:Flying:Museums:Airships") == 3){
+			set ronina,1;
+			emotion ET_THROB;
+			mes .@npc$;
+			mes "Oh...thanks for listening to me...you're a good person...People usually don't really care about anyone else.";
+			close;
+			}else{
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "If you say so...Nevermind...";
+			close;
+			}
+		case 3:
+			mes .@npc$;
+			mes "Where did I rest in Lighthalzen?";
+			next;
+		if (select("Park:Simple House:Slums:Hotel") == 4){
+			set ronina,1;
+			emotion ET_THROB;
+			mes .@npc$;
+			mes "Oh...thanks for listening to me...you're a good person...People usually don't really care about anyone else.";
+			close;
+			}else{
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "If you say so...Nevermind...";
+			close;
+			}
+		case 4:
+			mes .@npc$;
+			mes "What do I really love about Amatsu?";
+			next;
+		if (select("Food:People:Silence:Culture") == 2){
+			set ronina,1;
+			emotion ET_THROB;
+			mes .@npc$;
+			mes "Oh...thanks for listening to me...you're a good person...People usually don't really care about anyone else.";
+			close;
+			}else{
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "If you say so...Nevermind...";
+			close;
+			}
+		}
+	}
+}
+}
+
+amatsu,278,252,4	script	Clear Lake#ronin	CLEAR_NPC,2,2,{
+	
+	if (ronintest !=1) {
+		mes "A very clean lake of drinkable water! You can even see some fish there!";
+		close;
+		}
+	if (roninb ==1) {
+		mes .@npc$;
+		mes "The lake is calm and silent...";
+		close;
+		}
+	if (ronintest ==1) {
+		mes .@npc$;
+		mes "You clear your mind and stare into your soul for a moment...";
+		close2;
+		progressbar "6666CC",180;
+		mes .@npc$;
+		mes "After a short moment of meditation and insight...you understand how to focus on the details.";
+		close2;
+		set roninb,1;
+		set firstjob,1;
+		end;
+	}
+}
+
+amatsu,1,1,4	script	wind#1	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "wind#1::OnWindEnable";
+OnWindEnable:
+    initnpctimer;
+    end;
+OnTimer5000:
+	addrid(1);
+    if (ronintest ==1 && roninc == 0){
+	set roninwind,1;
+	}
+	end;
+OnTimer15000:
+    addrid(1);
+    if (ronintest ==1 && roninc == 0){
+	set roninwind,0;
+	dispbottom "You feel a gust of wind just passed by you 2 seconds ago...";
+    end;
+OnTimer55000:
+    initnpctimer;
+    end;
+}
+}
+
+amatsu,265,190,4	script	Windy Spot#ronin	CLEAR_NPC,1,1,{
+	end;
+OnTouch_:	
+	if (roninc ==1) {
+		mes "You Listened to the voice of the Wind. This step is completed.";
+		close;
+		}
+	if (roninwind ==0) {
+		mes "You can hear the wind blowing around this peak... making it easy to dodge it if you know when it blows.";
+		close;
+		}
+	if (roninwind ==1) {
+		specialeffect2 389;
+		mes "You quickly step ahead and dodge a small gust of wind. You could feel the flow of the slightiest movement in the air. You Listened to the voice of the Wind.";
+		close2;
+		set roninc,1;
+		end;
+		}
+	}
+
+
+// Peacekeeper Quest
+
+front_out,245,210,5	script	Serious Peacekeeper#pkquest	798,{
+	cutin "valen_arle01",2;
+		set .@npc$, "[Peacekeeper Valen]";
+	if (peacekeeperjob ==1) {
+		mes .@npc$;
+		mes "Hey there! How's work going? Do you want to enter the Headquarters?";
+		next;
+		switch(select("Yes please.:Not now.")) {
+		case 1:
+		mes .@npc$;
+		mes "Welcome and take some rest.";
+		close2;
+		cutin "",255;
+		warp "pk_in01",85,148;
+		end;
+		case 2:
+		mes .@npc$;
+		mes "Just passing by? We have great expectations from you. Take care.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	if (peacetest ==6) {
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Is this what you guys are looking for?";
+		next;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "What!? Already? You've done some great work, that is indeed the Dread Razor Trinket!";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I had to track the person all around the city... and he fled in an Airship anyway.";
+		next;
+		mes .@npc$;
+		mes "Well... this proves some people are interested in us...how did you find this?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "A Judge stole it. He apparantly had a fight with someone and quickly scrambled to flee in an airport and this fell all the way down.";
+		next;
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "Ah... I'm already fully aware of what happened. I believe he wanted to steal a Wicked Eden Trinket from us.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "What? How are you sure?";
+		next;
+		mes .@npc$;
+		mes "The Wicked Eden is a special trinket we have. The Dread Razor is similar to it in appearance, so he probably stole the wrong one and...someone was not happy.";
+		next;
+		mes .@npc$;
+		mes "Regardless, it's valuable to us, and I'm very thankful you found it.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Sorry, I couldn't find the person.";
+		next;
+		mes .@npc$;
+		mes "Don't worry about it, I'll check the passenger list later and it will let me know who to go after...as for you...";
+		next;
+		atcommand "@job 4045";
+		set peacekeeperjob,1;
+		set firstjob,1;
+		set secondjob,1;
+		set finaljob,1;
+		set peacetest,7;
+		getitem 1952,1;
+		specialeffect2 234;
+		emotion ET_BEST;
+		mes .@npc$;
+		mes "I welcome you as one of the Peacekeepers...I guess you can keep that Trinket since you earned it.";
+		next;
+		mes .@npc$;
+		mes "You can also keep the Oathguard, our iconic Whip to use as your weapon of choice. I expect great things from you.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Thanks Sir! I'll do my best.";
+		next;
+		mes .@npc$;
+		mes "Since you're a traveler, I believe you can do more for us by hunting down the cultists and other evils of the land. It'll bring hope to people to see the Peacekeepers all over the land.";
+		next;
+		mes .@npc$;
+		mes "If you need assistance or building new trinkets. Come to the Headquarters, we will be happy to assist you. Godspeed!";
+		close2;
+		cutin "",255;
+		end;
+		}
+	if (peacetest !=0) {
+		mes .@npc$;
+		mes "How is the investigation going? Found anything near the docks so far?";
+		close2;
+		cutin "",255;
+		end;
+		}
+	if (firstjob ==1) {
+		mes .@npc$;
+		mes "The entrance to the Peacekeeper Headquarters is prohibited. Leave please.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (skillpoint) {
+		mes .@npc$;
+		mes "I'm very busy with work currently Orphan. If you want to help me, you need to learn all your skills first.";
+		close2;
+		cutin "",255;
+		end;
+		}
+		if (JobLevel < 10) {
+		mes .@npc$;
+		mes "The entrance to the Peacekeeper Headquarters is prohibited. Leave please.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	if (BaseLevel <=14 && JobLevel ==10){
+		mes .@npc$;
+		mes "I'm very busy currently Orphan. We are short-staffed in Frontier and I gotta find a criminal. I need people with Base Level 15...";
+		close2;
+		cutin "",255;
+		end;
+	}
+	if (BaseLevel >=15 && JobLevel ==10){
+		mes .@npc$;
+		mes "I'm very busy currently Orphan. We are short-staffed in Frontier and I gotta find a criminal.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Really? What happened?";
+		next;
+		mes .@npc$;
+		mes "Its confidential information. I also doubt you could help me with it.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "You just said you are short staffed. Why not give me a chance to help you?";
+		next;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Well...that's a fair point. Alright, are you sure you want to help me with it?";
+		next;
+		switch(select("I'd rather not be involved with the Peacekeepers.:I'll do my best. What is it?")) {
+		case 1:
+		mes .@npc$;
+		mes "Huh... ok then, that's your choice. Now let me work please.";
+		close2;
+		cutin "",255;
+		end;
+		case 2:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "Are you good with details?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I... can try. It won't hurt.";
+		next;
+		mes .@npc$;
+		mes "You see, one of our Trinkets was stolen from the Headquarters last night. We have some clues but can't properly track who was it.";
+		next;
+		mes .@npc$;
+		mes "Some cultists from Rachel invaded our city and the Judge Order sent people to assist us... but I'm not sure if all of them were allies.";
+		next;
+		mes .@npc$;
+		mes "Perhaps you can help me find the Trinket and the culprit. I might even provide you with an opportunity to become a Peacekeeper.";
+		next;
+		mes .@npc$;
+		mes "The Peacekeepers fight with whips and trinkets. We are very focused on preparing complex strings of skills to properly deliver justice.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Seems like an interesting proposal. Do you have any clues about the case?";
+		next;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Actually yes. A strange judge was last seen near the Docks carrying something shiny. it may be a good lead for you.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "So checking around the docks...got it.";
+		next;
+		mes .@npc$;
+		mes "Good Luck! I doubt you can figure it out but...it would be pretty amazing if you could!";
+		close2;
+		set peacetest,1;
+		set firstjob,1;
+		cutin "",255;
+		end;
+		}
+}
+}
+
+front_out,142,112,4	script	Piece of Cloth#pk	CLEAR_NPC,{
+	
+	if (peacetest >=2) {
+		mes "This is where you found the small Piece of Cloth stuck in the barrel... The wind blew it here from the industrial zone. ";
+		close;
+		}
+	if (peacetest ==1) {
+		mes "You see a small piece of light blue cloth on the floor...same color the Judges wear. It has some strange stains of oil and dust in it.";
+		next;
+		set peacetest,2;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "This seems to be industrial dirt...it may be a good idea to check around that area.";
+		close;
+	}
+	if (peacekeeperjob ==0) {
+		end;
+		}
+	if (peacetest ==0) {
+		end;
+		}
+}
+
+front_out,179,152,5	script	Hard Worker#pk	851,{
+	set .@npc$, "[Hard Worker]";
+	if (peacekeeperjob ==1) {
+		mes .@npc$;
+		mes "I heard you guys found the criminal. Congratulations!";
+		close;
+		}
+	if (peacetest ==3) {
+		mes .@npc$;
+		mes "So, did you find the Judge on the Airport? He seemed to be quite in quite a hurry.";
+		close;
+		}
+	if (peacetest ==2) {
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Excuse me sir, can I ask you a question or two?";
+		next;
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "Oh hey! Sure, what is it?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Have you seen anyone acting weird around here lately?";
+		next;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Hmm...well, to be honest last night I saw a Judge running here, he was muttering something about being late to the Airship or whatever.";
+		next;
+		set peacetest,3;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Late to the airship eh? Ok that will help me. Thanks.";
+		close2;
+		emotion ET_BEST;
+		end;
+		}
+	if (peacekeeperjob !=1) {
+		mes .@npc$;
+		mes "I don't mind working around here...it's very safe with the Peacekeepers around.";
+		close;
+		}
+	}
+
+front_out,179,200,7	script	Airship Attendant#pk	727,{
+	set .@npc$, "[Airship Attendant]";
+	if (peacekeeperjob ==1) {
+		mes .@npc$;
+		mes "Hey there Peacekeeper, keep up the good work!";
+		close;
+		}
+	if (peacetest ==4) {
+		mes .@npc$;
+		mes "Like I said, I saw them fighting near the other corner of the airport...Sorry I don't know anything else.";
+		close;
+		}
+	if (peacetest ==3) {
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Excuse me.. have you seen a Judge around here last night?";
+		next;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Oh Certainly! I see Judges around here constantly, but there was a specific individual who was acting weird.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "What happened?";
+		next;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "He was having a small fight with someone across the  Airport, near the north side... It seemed like a couple fightning so I didn't really bother.";
+		next;
+		mes .@npc$;
+		mes "But the Judge was very distressed and boarded the first airship he could find shortly after, the lady he was with also went after him.  That's all I know.";
+		next;
+		set peacetest,4;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Hmmm, I'll check the fight location for clues. Thanks.";
+		close2;
+		emotion ET_BEST;
+		end;
+		}
+	if (peacekeeperjob !=1) {
+		mes .@npc$;
+		mes "The Airport here is pretty great. We have flights to many locations around Maroll and even Yuno!";
+		close;
+		}
+	}
+
+front_out,185,245,4	script	Chipped Stone#pk	CLEAR_NPC,{
+	if (peacetest >=5) {
+		mes "This is where you noticed a small chip on the stones near the edge. Something hit here and fell all the way down.";
+		close;
+		}
+	if (peacetest ==4) {
+		mes "You notice nothing out of the ordinary around here at first. Then you notice a small chip on one of the stones as if something hit here.";
+		next;
+		mes "the side seems scratched when you look at it closely, as if something fell from this height all the way down there.";
+		next;
+		set peacetest,5;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I wonder what happened here... But more importantly...what fell down there!";
+		close;
+	}
+	if (peacekeeperjob ==0) {
+		end;
+		}
+	if (peacetest <=3) {
+		end;
+		}
+}
+
+front_out,185,248,4	script	?#pk	CLEAR_NPC,{
+	if (peacekeeperjob ==1) {
+		mes "You found your first Trinket here.";
+		close;
+		}
+	if (peacetest >=6) {
+		mes "You found the stolen Trinket here, It's best to report it back to Peacekeeper Valen.";
+		close;
+		}
+	if (peacetest ==5) {
+		mes "You look around carefully then you notice a small red object in the corner.";
+		next;
+		mes "The strange object seems to carry some power in it.";
+		close2;
+		progressbar "6666CC",2;
+		getitem 13249,1;
+		set peacetest,6;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "I believe this is a Trinket! Looks great...Now to do the right thing and take it back to where it belongs...";
+		close;
+	}
+	if (peacekeeperjob ==0) {
+		end;
+		}
+	if (peacetest >=3) {
+		end;
+		}
+}
+
+//// Peacekeeper HQ NPCS
+
+pk_in01,90,151,6	script	Old Master#pk	120,{
+		mes "[Master Lou]";
+		mes "Hello young Orphan. Welcome to the HQ.";
+		next;
+		mes "[Master Lou]";
+		mes "You can rest a little or research how to improve your trinkets with the other Peacekeepers around. Don't forget your duties.";
+		close;
+}
+
+pk_in01,79,173,5	script	Serious Peacekeeper#pk	951,{
+	set .@npc$, "[Lady Black]";
+		mes .@npc$;
+		mes "We have access to many trinkets... but even attempting to create them takes work.";
+		next;
+		mes .@npc$;
+		mes "You need some specific materials to try and craft them. So keep an eye out for those materials ok?";
+		close;
+}
+
+pk_in01,96,175,3	script	Smart Peacekeeper#pk	967,{
+	set .@npc$, "[Sir Ellion]";
+		mes .@npc$;
+		mes "To create trinkets you need different types of Jewels.";
+		next;
+		mes .@npc$;
+		mes "Then you approach the Place of Power in the center of the room...and use your whip's energy to merge your vital energy with the objects.";
+		next;
+		mes .@npc$;
+		mes "When doing this... a new trinket will be given form based on your memories.";
+		close;
+}
+
+pk_in01,92,187,5	script	Elegant Peacekeeper#pk	10125,{
+	set .@npc$, "[Lady Roserade]";
+		mes .@npc$;
+		mes "I prefer to wield my Rosevine along with the Deadly Rose Trinket to leech back my energy.";
+		next;
+		mes .@npc$;
+		mes "It's important to be quick! A peacekeeper must be efficient with its strikes, specially if they want to leech back their health.";
+		mes .@npc$;
+		mes "Or you can try to be the one to try new things and go for a magical variation... who knows. The possibilities are pretty extensive.";
+		close;
+}
+
+pk_in01,77,154,5	script	Scholar Peacekeeper#pk	10130,{
+	set .@npc$, "[Lady Amelly]";
+		mes .@npc$;
+		mes "Creating Trinkets can be quite a complex task...";
+		next;
+		mes .@npc$;
+		mes "For each trinket, you need to know exactly WHAT catalyst to use...and what's the best Jewel to match it.";
+		next;
+		mes .@npc$;
+		mes "I only know how to craft the Frost Spinner... You'll need a Permafrost Crystal and an Oridecon with you... They may be related to it.";
+		next;
+		emotion ET_SWEAT;
+		mes .@npc$;
+		mes "I should try asking for some more knowledgeable Peacekeepers about it...";
+		close;
+}
+
+pk_in01,85,167,5	script	Place of Power#pk	CLEAR_NPC,1,1,{
+	end;
+OnTouch_:
+		mes "You can feel a large amount of energy in the air...and this energy comes over you.";
+		next;
+		mes "You can create new trinkets using special items here.";
+		mes .@npc$;
+		mes "Creating Trinkets will always require at least one refine material... which is unknown, and a catalyst to transform it.";
+		close2;
+		switch(select("Frost Spinner:Deadly Rose:Guard Rock:Broken Serenade:Amulet of Siegfried:Holy Cross:Destiny Brush:Wicked Eden")) {
+	case 1:
+		if (pktrkta ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(4956) < 1) goto L_noitems1;
+		if(countitem(984) < 1) goto L_noitems1;
+		mes .@npc$;
+		mes "You created the Frost Spinner trinket!";
+		delitem 4956,1;
+		delitem 984,1;
+		getitem 13250,1;
+		set pktrkta,1;
+		close;
+	L_noitems1:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 2:
+		if (pktrktb ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(4961) < 1) goto L_noitems2;
+		if(countitem(25729) < 1) goto L_noitems2;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 4961,1;
+		delitem 25729,1;
+		getitem 13251,1;
+		set pktrktb,1;
+		close;
+	L_noitems2:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 3:
+		if (pktrktc ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(6291) < 1) goto L_noitems3;
+		if(countitem(4927) < 1) goto L_noitems3;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 6291,1;
+		delitem 4927,1;
+		getitem 13252,1;
+		set pktrktc,1;
+		close;
+	L_noitems3:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 4:
+		if (pktrktd ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(4991) < 1) goto L_noitems4;
+		if(countitem(6292) < 1) goto L_noitems4;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 4991,1;
+		delitem 6292,1;
+		getitem 13253,1;
+		set pktrktd,1;
+		close;
+	L_noitems4:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 5:
+		if (pktrkte ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(4948) < 1) goto L_noitems5;
+		if(countitem(6224) < 1) goto L_noitems5;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 4948,1;
+		delitem 6224,1;
+		getitem 13254,1;
+		set pktrkte,1;
+		close;
+	L_noitems5:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 6:
+		if (pktrktf ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(7511) < 1) goto L_noitems6;
+		if(countitem(6226) < 1) goto L_noitems6;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 7511,1;
+		delitem 6226,1;
+		getitem 13246,1;
+		set pktrktf,1;
+		close;
+	L_noitems6:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 7:
+		if (pktrktg ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(4995) < 1) goto L_noitems7;
+		if(countitem(6906) < 1) goto L_noitems7;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 4995,1;
+		delitem 6906,1;
+		getitem 13247,1;
+		set pktrktg,1;
+		close;
+	L_noitems7:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 8:
+		if (pktrkth ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(4944) < 1) goto L_noitems8;
+		if(countitem(6444) < 1) goto L_noitems8;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 4944,1;
+		delitem 6444,1;
+		getitem 13248,1;
+		set pktrkth,1;
+		close;
+	L_noitems8:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 9:
+		end;
+	}
+}

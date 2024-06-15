@@ -26,8 +26,8 @@ dicastes01,136,103,0	warp	eldicastes0007	1,1,dic_in01,26,98
 dic_in01,26,96,0	warp	eldicastes0008	1,1,dicastes01,137,106
 dicastes01,255,175,0	warp	eldicastes0009	1,1,dic_in01,344,272
 dic_in01,342,271,0	warp	eldicastes0010	1,1,dicastes01,255,173
-dicastes01,198,353,0	warp	eldicastes0011	1,1,dicastes02,120,80
-dicastes02,120,77,0	warp	eldicastes0012	1,1,dicastes01,197,351
+//dicastes01,198,353,0	warp	eldicastes0011	1,1,dicastes02,120,80
+//dicastes02,120,77,0	warp	eldicastes0012	1,1,dicastes01,197,351
 dicastes02,120,237,0	warp	eldicastes0013	1,1,dic_in01,45,246
 dic_in01,45,244,0	warp	eldicastes0014	1,1,dicastes02,119,235
 dic_in01,299,248,0	warp	eldicastes0015	1,1,dic_in01,262,191

@@ -1,0 +1,635 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//Flavor Npcs.
+//===== Comments: =========================================
+//====================================================
+
+va_orpha,306,108,3	script	Calm Assassin#unch	698,{
+
+	set .@npc$, "[Calm Assassin]";
+	mes .@npc$;
+	mes "I've been training with my stronger skills for a few days now.";
+	next;	
+	mes .@npc$;
+	mes "While the unchained arts are...amazing, they really push the limits of the human body.";
+	next;
+	mes .@npc$;
+	mes "We gotta be careful with it";
+	close;
+}
+
+va_orpha,287,120,2	script	Focused Thief#unch	809,{
+
+	set .@npc$, "[Focused Thief]";
+	mes .@npc$;
+	mes "The guys here are pretty strong! They helped me unlock my potential as an Unchained Thief!";
+	next;	
+	mes .@npc$;
+	mes "They however clearly focus on spreading my skills all around...I gotta be careful with my skill points.";
+	next;
+	mes .@npc$;
+	mes "I'll keep training to become a strong Phantom Thief someday!";
+	close;
+}
+
+va_orpha,308,120,4	script	Unchained Captain#unch	828,{
+
+	set .@npc$, "[Unchained Captain]";
+	mes .@npc$;
+	mes "Let me make this clear! Unlocking your potential has great perks such as more skill choices.";
+	next;	
+	mes .@npc$;
+	mes "However you gotta keep in mind it'll lock you out of any regular progression into specializations.";
+	next;
+	mes .@npc$;
+	mes "Make sure it's the path you want to take!";
+	close;
+}
+
+va_orpha,314,370,4	script	Assassin#orphanage	884,{
+	if (unchainedjob ==1){
+		mes "[Unchained Assassin]";
+		
+		mes "Welcome back! Looking strong eh? Come in!";
+		close2;
+		warp "va_orpha",295,104;
+		end;
+		}
+	if (finaljob ==1){
+	mes .@npc$;
+	mes "I'm not sure I can do much more for you. You have all the potential you can have now. Impressive.";
+	close;
+	}
+		if (assassinjob ==1 && specjob ==0 && BaseLevel>=99){
+		mes "[Unchained Assassin]";
+		mes "You seem pretty strong there Assassin...come in!";
+		close2;
+		warp "va_orpha",295,104;
+		end;
+		}
+		if (roguejob ==1 && specjob ==0 && BaseLevel>=99){
+		mes "[Unchained Assassin]";
+		mes "You seem pretty strong there Rogue...come in!";
+		close2;
+		warp "va_orpha",295,104;
+		end;
+		}
+		if (thiefjob ==1 && assassinjob ==0 && roguejob ==0 && JobLevel==50){
+		mes "[Unchained Assassin]";
+		mes "You seem pretty strong there Thief...come in!";
+		close2;
+		warp "va_orpha",295,104;
+		end;
+		}
+		mes "[Unchained Assassin]";
+		mes "Some people may think specializations are a waste of time and want to work with all the skills they already have, rather than learn new ones.";
+		next;
+		mes "[Unchained Assassin]";
+		mes "So you can undergo a heavy training and -Unchain- your limits, allowing you to use multiple specializations at a basic level.";
+		next;
+		mes "[Unchained Assassin]";
+		mes "This training requires a lot of power which is why it's only available for people who reached their maximum potential without ever picking a specialization.";
+		next;
+		mes "[Unchained Assassin]";
+		mes "Think of it like getting a power up to what you already have, rather than getting new tools. Not to mention we can use Deadly Poisons to attack at maximum power.";
+		next;
+		mes "[Unchained Assassin]";
+		mes "As long as you're aware you need to refine a weapon to massive levels...you should be ready to play the odds!";
+		next;
+		emotion ET_SMILE;
+		mes "[Unchained Assassin]";
+		mes "This is not a path for those weak of heart! Or who have empty pockets! Hahaha!";
+		next;
+		mes "[Unchained Assassin]";
+		mes "If you ever consider this a path you're good enough to walk, let me know when you're a Level 100 Assassin or Rogue.";
+		next;
+		mes "[Unchained Assassin]";
+		mes "Or maybe even a max Job Level Thief...some people like different paths.";
+		close;
+}
+
+
+//Unchained Thief Job Changer
+
+va_orpha,287,113,4	script	Unchained Master#unchthief	118,{
+	set .@npc$, "[Alkouskou]";
+	if (finaljob ==1){
+	mes .@npc$;
+	mes "I'm not sure I can do much more for you. You have all the potential you can have now. Impressive.";
+	close;
+	}
+	if (unchainedjob ==1){
+	mes .@npc$;
+	mes "Hello there. Make yourself at home.";
+	close;
+	}
+	if (thiefjob ==1 && assassinjob ==0 && roguejob ==0 && JobLevel==50){
+	mes .@npc$;
+	mes "A thief... and a Very strong one.";
+	next;
+	mes .@npc$;
+	mes "What do you say my good friend...instead of choosing a path, creating your own? Becoming a Unchained Thief?";
+	next;
+	switch(select("What are the requirements?:I'm ready to change my life:Nevermind.")) {
+	case 1:
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "The Unchained Thief is a very strong job. They can fight using tricks from both an Assassin and a Rogue.";
+		next;
+		mes .@npc$;
+		mes "The best Unchained Thieves who manage to somehow survive all the way to Level 99 have a chance to become a Phantom Thief, a legend among all thieves, with a massive skill kit to borrow from!";
+		next;
+		mes .@npc$;
+		mes "However you gotta show your dedication...bringing us a <ITEM>MVP Prize Box<INFO>14704</INFO></ITEM> with random options.";
+		emotion ET_BEST;
+		close;
+	case 2:
+		if(countitem(14704) < 1) goto L_noitemsA;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Incredible... you really got the guts.";
+		next;
+		mes .@npc$;
+		mes "It may have a lower skill ceiling in options, but with the correct polish, even it can shine.";
+		next;
+		mes .@npc$;
+		mes "And now you too can do the same. Hold that box close to your body...focus on your growth.";
+		next;
+		mes .@npc$;
+		mes "And... there we go! Congratulations! You've unchained your potential!";
+		close2;
+		delitem 14704,1;
+		atcommand "@job 14";
+		atcommand "@jlvl 49";
+		atcommand "@allskill";
+		specialeffect2 234;
+		specialeffect2 834;
+		set secondjob,1;
+		set unchainedjob,1;
+		set unchainedthief,1;
+		end;
+		L_noitemsA:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "So...where's the prize box...?";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "I'll be here... thieves should really consider joining us...haha.";
+		close;
+		break;
+	}
+	}
+	mes .@npc$;
+	mes "Ehh...don't bother me. You don't interest me.";
+	close;
+	}
+	
+va_orpha,287,132,4	script	Phantom Master#unchthief	648,{
+	set .@npc$, "[Melody]";
+	emotion ET_SLEEPY;
+	if (phantomthief ==1){
+	mes .@npc$;
+	mes "Look at you. You're like me. But you actually need to try! Hahaha!";
+	close;
+	}
+	if (unchainedthief ==1 && BaseLevel >=99 && JobLevel==50){
+	mes .@npc$;
+	mes "Hey there...You look pretty good...for a Thief.";
+	next;
+	mes .@npc$;
+	mes "Why don't you do that thing again...and break your limits even further? Could be fun!";
+	next;
+	switch(select("What are the requirements?:Let's do this!:Nevermind.")) {
+	case 1:
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "The Phantom Thief is a resourceful master...it can fight with all tools, all at once.";
+		next;
+		mes .@npc$;
+		mes "You can use a ton of tools from all specializations! Seems like quite a nice deal eh?";
+		next;
+		mes .@npc$;
+		mes "But my services are not cheap..I'm still a Thief at heart... bring me... <ITEM>200 Distortion Shards<INFO>7360</INFO></ITEM>.";
+		next;
+		emotion ET_BEST;
+		mes .@npc$;
+		mes "And MAYBE I'll set you on the path.";
+		close;
+	case 2:
+		if(countitem(7360) < 200) goto L_noitems;
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "A deal is a deal. You give me those and I'll teach you everything I know.";
+		next;
+		mes .@npc$;
+		mes "Which is basically... everything. Hahaha!";
+		next;
+		mes "^6666CCYou two spend a few minutes pretending to actually learn anything.^000000";
+		next;
+		emotion ET_SLEEPY;
+		mes .@npc$;
+		mes "Ok ok ok...let's actually try now!";
+		next;
+		mes "^6666CCYou actually learned something this time!^000000";
+		next;
+		emotion ET_SCISSOR;
+		mes .@npc$;
+		mes "They'll never see it coming~~";
+		close2;
+		delitem 7360,200;
+		atcommand "@job 4015";
+		atcommand "@jlvl 69";
+		atcommand "@allskill";
+		specialeffect2 234;
+		specialeffect2 834;
+		set finaljob,1;
+		set phantomthief,1;
+		end;
+		L_noitems2:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "So...where's the stuff...? Damn Thieves these days only care about changing hearts or whatever.";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "I'll be here... thieves should really consider joining us...haha.";
+		close;
+		break;
+	}
+	}
+	mes .@npc$;
+	mes "Ehh...don't bother me. You don't interest me.";
+	close;
+	}
+	
+//Unchained Assassin and Rogue
+
+va_orpha,306,130,4	script	Unchained Guy#unchthief	730,{
+	set .@npc$, "[Unchained Guy]";
+	if (finaljob ==1){
+	mes .@npc$;
+	mes "I can't really do anything for you. Keep it up!";
+	close;
+	}
+	if (unchainedjob ==1){
+	mes .@npc$;
+	mes "Hello there. Make yourself at home.";
+	close;
+	}
+	if (assassinjob ==1 && BaseLevel >=100 && JobLevel==50){
+	mes .@npc$;
+	mes "Oh look. An actually skilled assassin who didn't really specialize in anything.";
+	next;
+	mes .@npc$;
+	mes "PERFECT! So Assassin, why don't you join us and unchain your limits?";
+	next;
+	mes .@npc$;
+	mes "You'll be worthy enough to wear items that once belonged to Master Loki himself...If you are worthy to us.";
+	next;
+	switch(select("What are the requirements?:I'm ready to change my life:Nevermind.")) {
+	case 1:
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "The Unchained Thief is the core of our group. However, the potential we have here far surpasses those...underperforming skills.";
+		next;
+		mes .@npc$;
+		mes "We can teach you to infuse your weapon energy directly into your skills! With a good enough weapon you can use them up to Lv13!";
+		next;
+		mes .@npc$;
+		mes "However you gotta show your potential..bringing us a <ITEM>+7 Needle Katar<INFO>1253</INFO></ITEM>, with random options.";
+		next;
+		emotion ET_BEST;
+		mes .@npc$;
+		mes "Do not slot cards into it... we will keep the katar as a symbol of your dedication, Assassin.";
+		close;
+	case 2:
+		if ( countitem2(1253,1,7,0,0,0,0,0) < 1) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Incredible... you really got the skills needed.";
+		next;
+		mes .@npc$;
+		mes "I will give you a piece of Master Loki's Scarf... It's part of what can truly awaken your potential.";
+		next;
+		mes .@npc$;
+		mes "You'll have to help Iruga if you want to truly unlock your potential...";
+		next;
+		mes .@npc$;
+		mes "Good luck! Master Assassin!";
+		close2;
+		delitem2 1253,1,1,7,0,0,0,0,0;
+		getitem 31593,1;
+		specialeffect2 234;
+		specialeffect2 834;
+		set finaljob,1;
+		set unchainedjob,1;
+		set unchainedassassin,1;
+		atcommand "@allskill";
+		end;
+		L_noitems2:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "So...where's the Needle Katar...?";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "I'll be here... assassins shall always serve the world...no matter how painful it is.";
+		close;
+		break;
+	}
+	}
+	mes .@npc$;
+	mes "...?";
+	close;
+	}
+	
+va_orpha,301,130,4	script	Unchained Gal#unchthief	482,{
+	set .@npc$, "[Unchained Gal]";
+	if (finaljob ==1){
+	mes .@npc$;
+	mes "I can't really do anything for you. Cutie~~";
+	close;
+	}
+	if (unchainedjob ==1){
+	mes .@npc$;
+	mes "Hey! Good to see you around!";
+	close;
+	}
+	if (roguejob ==1 && BaseLevel >=100 && JobLevel==50){
+	mes .@npc$;
+	mes "Oh Quite a gorgeous Rogue we have here! And a skilled one!";
+	next;
+	mes .@npc$;
+	mes "Wanna go extra gorgeous and unchain your limits?";
+	next;
+	mes .@npc$;
+	mes "You'll be worthy enough to wear items that once belonged to Master Loki himself...If you can do cool stuff.";
+	next;
+	switch(select("What are the requirements?:I'm ready to change my life:Nevermind.")) {
+	case 1:
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "The Unchained Thief is the core of our group. However, the potential we have here far surpasses those...underperforming skills.";
+		next;
+		mes .@npc$;
+		mes "We can teach you to infuse your weapon energy directly into your skills! With a good enough weapon you can use them up to Lv13!";
+		next;
+		mes .@npc$;
+		mes "However you gotta show your potential..bringing us a <ITEM>+7 Hunter Bow<INFO>1726</INFO></ITEM>, with random mods.";
+		next;
+		emotion ET_BEST;
+		mes .@npc$;
+		mes "Do not slot cards into it... we will keep the bow as a symbol of your cool skills, Rogue.";
+		close;
+	case 2:
+		if ( countitem2(1726,1,7,0,0,0,0,0) < 1) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Incredible... you really got the skills needed.";
+		next;
+		mes .@npc$;
+		mes "I will give you a piece of Master Loki's Scarf... It's part of what can truly awaken your potential.";
+		next;
+		mes .@npc$;
+		mes "You'll have to help Iruga if you want to truly unlock your potential...";
+		next;
+		mes .@npc$;
+		mes "Good luck! Master Rogue!";
+		close2;
+		delitem2 1726,1,1,7,0,0,0,0,0;
+		getitem 31593,1;
+		specialeffect2 234;
+		specialeffect2 834;
+		set finaljob,1;
+		set unchainedjob,1;
+		set unchainedrogue,1;
+		atcommand "@allskill";
+		end;
+		L_noitems2:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "So...where's the Hunter Bow...?";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "I'll be here... rogues shall always be ready for any situation! Even helping other rogues!";
+		close;
+		break;
+	}
+	}
+	mes .@npc$;
+	mes "...?";
+	close;
+	}
+	
+//Mistletoe Ring
+
+va_orpha,298,117,4	script	Iruga#mistletoering	10002,{
+	
+	set .@npc$, "[Iruga]";
+	if (mistletoeexchange ==1){
+	mes .@npc$;
+	mes "Take good care of the ring... Mistletoe has a special meaning for us.";
+	close;
+	}
+	if (roguejob ==0 && assassinjob ==0 ){
+	mes .@npc$;
+	mes "Mistletoe has a special meaning for us. You would never understand.";
+	close;
+	}
+	mes .@npc$;
+	mes "...300 <ITEM>Necklace of Oblivion<INFO>1008</INFO></ITEM>.";
+	next;
+	mes .@npc$;
+	mes "They were once part of the ritual of the Assassin Cross job change...";
+	next;
+	mes .@npc$;
+	mes "You'll have to dig the desert for days to find even a couple of them...";
+	next;
+	mes "But if you do find them... I can make you a unique trinket...";
+	next;
+	mes "...<ITEM>Mistletoe Ring<INFO>2682</INFO></ITEM>?";
+	next;
+	switch(select("I have 300 Necklaces of Oblivion:Nevermind.")) {
+	case 1:
+	if(countitem(1008) < 300) goto L_noitems;
+	mes .@npc$;
+	mes "You actually did it...Master Loki would be proud if he ever saw someone like you.";
+	next;
+	mes .@npc$;
+	mes "This ring is one of a kind. Keep it safe as you'd keep your soul.";
+	close2;
+	delitem 1008,300;
+	getitem 2682,1;
+	set mistletoeexchange,1;
+	break;
+	L_noitems:
+		mes .@npc$;
+		mes "You don't have enough. Leave.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+	mes .@npc$;
+	mes "...whatever.";
+	close;
+}
+}
+
+//Unchained Rings
+
+in_rogue,355,41,4	script	Markie#mistletoering	747 ,{
+	
+	set .@npc$, "[Markie]";
+	if (unchainedjob ==0){
+	mes .@npc$;
+	mes "The rogues left and joined the Assassins....eh. Whatever. I'll continue working to unchain my limits.";
+	close;
+	}
+	if (BaseLevel < 100 ){
+	mes .@npc$;
+	mes "You're not even Base Level 100. Don't waste my time.";
+	close;
+	}
+	if (roguejob ==0 && assassinjob ==0 ){
+	mes .@npc$;
+	mes "Hello there. You're not really a master of the Rogue or Assassin crafts, no matter how much you believe it. Leave.";
+	close;
+	}
+	mes .@npc$;
+	mes "I see... you have trained to be the best. Regardless of you following the Desert Guild, I believe limits exist to be broken.";
+	next;
+	mes .@npc$;
+	mes "I can provide you with my three treasure rings.";
+	next;
+	mes .@npc$;
+	mes "As long as you can bring me some amazing treasure that is... hahaha.";
+	next;
+	switch(select("What do you need?:I want one of the rings.:Nevermind.")) {
+		case 1:
+	emotion ET_STARE;
+	mes .@npc$;
+	mes "If you want the <ITEM>Unchained Ring<INFO>2683</INFO></ITEM>...";
+	mes "^FF00001000^000000 Distortion Shards."; //7360
+	mes "^FF00005^000000 Gigallopy."; //4957
+	mes "And a special ^FF00001^000000 Costume Fancy Gift Box for my work!"; //666
+	next;
+	mes .@npc$;
+	mes "If you want the <ITEM>Tradition Ring<INFO>2684</INFO></ITEM>...";
+	mes "^FF00002000^000000 Distortion Shards."; //7360
+	mes "^FF000010^000000 Valhalla Flowers."; //4961
+	mes "And a rare ^FF00001^000000 Costume Marvelous Gift Box for my help!"; //667
+	next;
+	mes .@npc$;
+	mes "If you want the <ITEM>Change Ring<INFO>2685</INFO></ITEM>...";
+	mes "^FF00002000^000000 Distortion Shards."; //7360
+	mes "^FF000010^000000 Marks of Sorrow."; //4965
+	mes "And a rare ^FF00001^000000 Costume Marvelous Gift Box for my help!"; //667
+	next;
+	mes .@npc$;
+	mes "What, you didn't expect me to just GIVE you them right? Hehehe!";
+	close2;
+	cutin "",255;
+	break;
+		case 2:
+	switch(select("Unchained Ring:Tradition Ring:Change Ring:I'll come back later.")) {
+			case 1:
+	if (unchainedringa ==1){
+	mes .@npc$;
+	mes "I don't have this ring anymore...";
+	close;
+	}
+	if(countitem(7360) < 1000) goto L_noitems;
+	if(countitem(4957) < 5) goto L_noitems;
+	if(countitem(666) < 1) goto L_noitems;
+	mes .@npc$;
+	mes "You really want this ring eh? Very well, it's yours!";
+	next;
+	mes .@npc$;
+	mes "Enjoy the skills of a Thief in a whole new level!";
+	close2;
+	delitem 7360,1000;
+	delitem 4957,5;
+	delitem 666,1;
+	getitem 2683,1;
+	set unchainedringa,1;
+	break;
+	L_noitems:
+		mes .@npc$;
+		mes "You don't have enough. Sowyyy~~!";
+		close2;
+		cutin "",255;
+		break;
+			case 2:
+	if (unchainedringb ==1){
+	mes .@npc$;
+	mes "I don't have this ring anymore...";
+	close;
+	}
+	if(countitem(7360) < 2000) goto L_noitems2;
+	if(countitem(4961) < 10) goto L_noitems2;
+	if(countitem(667) < 1) goto L_noitems2;
+	mes .@npc$;
+	mes "You really want this ring eh? Very well, it's yours!";
+	next;
+	mes .@npc$;
+	mes "Enjoy the skills of an Assassin in a whole new level!";
+	close2;
+	delitem 7360,2000;
+	delitem 4961,10;
+	delitem 667,1;
+	getitem 2684,1;
+	set unchainedringb,1;
+	break;
+	L_noitems2:
+		mes .@npc$;
+		mes "You don't have enough. Sowyyy~~!";
+		close2;
+		cutin "",255;
+		break;
+			case 3:
+	if (unchainedringc ==1){
+	mes .@npc$;
+	mes "I don't have this ring anymore...";
+	close;
+	}
+	if(countitem(7360) < 2000) goto L_noitems3;
+	if(countitem(4965) < 10) goto L_noitems3;
+	if(countitem(667) < 1) goto L_noitems3;
+	mes .@npc$;
+	mes "You really want this ring eh? Very well, it's yours!";
+	next;
+	mes .@npc$;
+	mes "Enjoy the skills of a Rogue in a whole new level!";
+	close2;
+	delitem 7360,2000;
+	delitem 4965,10;
+	delitem 667,1;
+	getitem 2685,1;
+	set unchainedringc,1;
+	break;
+	L_noitems3:
+		mes .@npc$;
+		mes "You don't have enough. Sowyyy~~!";
+		close2;
+		cutin "",255;
+		break;
+	}
+	case 3:
+	mes .@npc$;
+	mes "...whatever.";
+	close;
+}
+}

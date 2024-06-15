@@ -1,0 +1,67 @@
+fro_fild01,112,37,4	script	EmpHATic Girl#1frontier	559,{
+	cutin "ep19_friederike05.png",2;
+	emotion ET_MONEY ;
+	mes "[EmpHATic Girl]";
+	mes "I'm traveling around Maroll!";
+	mes "And collecting all kinds of gifts!";
+	mes "I need help with these monsters!";
+	next;
+	if (feathermouth >= 1) {
+	emotion ET_THANKS;
+	mes "[EmpHATic Girl]";
+	mes "I already have the items from this area!";
+	mes "What else do you want? A HUG?! Sureeeee~~";
+	mes "So far you helped me in -"+emphaticpoints+"-  Maroll areas!";
+	cutin "",255;
+	close;
+	}
+	mes "[EmpHATic Girl]";
+	mes "You can fight the monsters around here";
+	mes "and bring me some cool-looking souvenirs!";
+	mes "I'll give you a <ITEM>Feather in Mouth<INFO>7841</INFO></ITEM>!";
+	mes "Seems like a fair deal no?";
+	next;
+	switch(select("What are you looking for?:I have your stuff:Nope")) {
+	case 1:
+		emotion ET_SCISSOR;
+		mes "[EmpHATic Girl]";
+		mes "^FF000090^000000 Beast Bone from Animals!"; //25766
+		mes "^FF000060^000000 Sharp Crystal Stone from Spirits!"; //6408
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if(countitem(25766) < 90) goto L_noitems;
+		if(countitem(6408) < 60) goto L_noitems;
+		emotion ET_BIGTHROB;
+		mes "[EmpHATic Girl]";
+		mes "Yay! You did it!";
+		mes "Here, you can have this Hat!";
+		mes "I'll be adding these cool items to my baggage!";
+		mes "Thanks a lot for your help Orphan~~";
+		delitem 25766,90;
+		delitem 6408,60;
+		getitem 7841,1;
+		set emphaticpoints, emphaticpoints+1;
+		set feathermouth,1;
+		close2;
+		cutin "",255;
+		break;
+	L_noitems:
+		emotion ET_DELIGHT;
+		mes "[EmpHATic Girl]";
+		mes "Are you sure you got all of them?";
+		mes "You're missing...";
+		if(countitem(25766) < 90) mes "^FF0000"+(90 - countitem(25766)) +"^000000 Beast Bone!";
+		if(countitem(6408) < 60) mes "^FF0000"+(60 - countitem(6408)) +"^000000 Sharp Crystal Stone!";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		emotion ET_BEST;
+		mes "[EmpHATic Girl]";
+		mes "Be careful out there!";
+		cutin "",255;
+		close;
+	}
+}

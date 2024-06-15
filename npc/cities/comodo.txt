@@ -342,23 +342,15 @@ cmd_fild07,299,83,4	script	Zain#cmd	100,{
 	mes "board a ship on the";
 	mes "Reudelus route? You";
 	mes "can travel on Reudelus";
-	mes "to Alberta or Izlude.";
+	mes "to Dewata.";
 	next;
-	switch(select("Alberta - 600 Zeny:Izlude - 800 Zeny:Cancel")) {
+	switch(select("Dewata - 3000 Zeny:Cancel")) {
 	case 1:
-		if (Zeny < 600) break;
-		set Zeny, Zeny-600;
-		warp "alberta",192,169;
+		if (Zeny < 2999) break;
+		set Zeny, Zeny-3000;
+		warp "dewata",232,53;
 		end;
 	case 2:
-		if (Zeny < 800) break;
-		set Zeny, Zeny-800;
-		if(checkre(0))
-			warp "izlude",195,212;
-		else
-			warp "izlude",176,182;
-		end;
-	case 3:
 		mes .@n$;
 		mes "Travel by ship is";
 		mes "still one of the safest and";
@@ -375,22 +367,11 @@ cmd_fild07,299,83,4	script	Zain#cmd	100,{
 }
 cmd_fild07,94,134,4	duplicate(Zain#cmd)	Sarumane#cmd	100
 
-cmd_in02,146,180,4	script	Kafra Employee::kaf_comodo2	721,{
+cmd_in02,147,181,4	script	Kafra Employee::kaf_comodo2	721,{
 	cutin "kafra_07",2;
 	mes "[Kafra Misty]";
-	mes "Welcome to the";
-	mes "Kafra Corporation.";
-	mes "You know that our";
-	mes "service is always";
-	mes "on your side~";
-	next;
-	mes "[Kafra Misty]";
-	mes "The Kafra Corporation";
-	mes "Western Division promises";
-	mes "the best quality service that";
-	mes "emphasizes reliability, and";
-	mes "total consumer satisfaction.";
-	mes "Thank you for your patronage~";
+	mes "Welcome to the Kafra Corporation.";
+	mes "We currently provide access to the VIP Bathhouse here. Make sure to behave appropriately.";
 	close2;
 	cutin "", 255;
 	end;
@@ -402,15 +383,15 @@ moc_fild12,35,303,4	script	Serutero#cmd	59,{
 	mes "[Serutero]";
 	mes "Hello, I'm Serutero,";
 	mes "guardian of the roads that";
-	mes "lead to Sandaruman Fortress.";
+	mes "lead to St Darmain Fortress.";
 	mes "If you really want to go there,";
 	mes "I'll permit you to continue, but you must beware of its dangers...";
 	next;
-	switch(select("I'm going there!:Sandaruman Fortress?:Cancel")) {
+	switch(select("I'm going there!:St Darmain Fortress?:Cancel")) {
 	case 1:
 		mes "[Serutero]";
 		mes "So you're really going";
-		mes "to go to Sandaruman";
+		mes "to go to the";
 		mes "Fortress. Alright then,";
 		mes "good luck, and be careful!";
 		close2;
@@ -418,7 +399,7 @@ moc_fild12,35,303,4	script	Serutero#cmd	59,{
 		end;
 	case 2:
 		mes "[Serutero]";
-		mes "Although Sandaruman";
+		mes "Although St Darmain";
 		mes "Fortress is infested with";
 		mes "monsters now, it used to be";
 		mes "a province where people lived.";
@@ -426,7 +407,7 @@ moc_fild12,35,303,4	script	Serutero#cmd	59,{
 		mes "invaded and pillaged...";
 		next;
 		mes "[Serutero]";
-		mes "Sandaruman's inhabitants";
+		mes "St Darmain's inhabitants";
 		mes "eventually adapted to the";
 		mes "invasions, developing smoke";
 		mes "signals and fortifications to";
@@ -435,13 +416,13 @@ moc_fild12,35,303,4	script	Serutero#cmd	59,{
 		next;
 		mes "[Serutero]";
 		mes "Comodo grew in power and";
-		mes "influence and eventually annexed Sandaruman. More and more people";
-		mes "moved from the fortress to Comodo until Sandaruman fortress was";
+		mes "influence and eventually annexed St Darmain. More and more people";
+		mes "moved from the fortress to Comodo until St Darmain fortress was";
 		mes "essentially abandoned.";
 		next;
 		mes "[Serutero]";
 		mes "There were a few people";
-		mes "remaining in Sandaruman,";
+		mes "remaining in St Darmain,";
 		mes "but they revolted and some";
 		mes "fledging government came into";
 		mes "power there. The monsters took";
@@ -450,9 +431,10 @@ moc_fild12,35,303,4	script	Serutero#cmd	59,{
 		mes "[Serutero]";
 		mes "There's nothing around";
 		mes "Sandaruman now. Well, nothing";
-		mes "except maybe Paros Lighthouse,";
-		mes "which is southwest of here. That place might be of interest to";
-		mes "aspiring Rogues, I hear...";
+		mes "except maybe Pharos Lighthouse,";
+		next;
+		mes "[Serutero]";
+		mes "It used to be the Rogue's guild, but since they joined the Assassins and expanded their guild... It's just empty now. I guess.";
 		close;
 	case 3:
 		mes "[Serutero]";

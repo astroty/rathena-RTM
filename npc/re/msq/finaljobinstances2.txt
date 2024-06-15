@@ -1,0 +1,454 @@
+/////////////////////////////
+//////////////////////////////
+////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////////
+
+moc_pryd06,101,185,5	script	Tomb Guardian#quest1	4_m_dstman,{
+	set .@npc$, "[Tomb Guardian]";
+	if (gravekeeperjob >=1){
+	mes .@npc$;
+	mes "The tomb of Master Loki is now safe, Leave this place and hunt our enemies.";
+	close;
+	}
+	if (executionerjob ==0){
+	mes .@npc$;
+	mes "This is the tomb of Master Loki, the first master of the assassins.";
+	next;
+	mes .@npc$;
+	mes "His soul protects the Orphanage right above us. May his rest be eternal and peaceful.";
+	close;	
+	}
+	if (executionerjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "I never understood why people would save skillpoints. They are essential to development of their abilities!";
+	close;
+	}
+	mes .@npc$;
+	mes "An Executioner...and an Orphan as well! You seem to be good enough to enter this place, what do you say?";
+	next;
+	switch(select("No Thanks.:Yes, Let me in.")) {
+	case 1:
+	mes .@npc$;
+	mes "If you change your mind, come back.";
+	close;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "On a second thought...It's offensive for someone below Job Level 70 to even consider entering...leave.";
+	close;
+	}
+	mes .@npc$;
+	mes "This tomb is a very calm place. Sometimes some people do try to come and cause trouble, but some Gravekeepers are always watching Loki's Tomb.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Loki's Tomb";
+	mes .@npc$;
+	mes "Nobody is inside right now. So take your time and appreciate the silence. I'll follow you to the center.";
+	next;
+	specialeffect2 834;
+	.@name$ = "Gravekp" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Watch your step. This place is older than both of us.";
+	next;
+	savepoint "moc_pryd06",101,180,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Loki's Tomb]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Tomb Guardian]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Loki's Tomb...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}	
+//////////Gravekeeper Quest - Remove Kienna from prt_are01 Enter at  149,47
+////Npc at 150,150 - explains the place. mentions they protect the tomb, asked for help because they will be attacked soon
+////Mob spawns at 138,161 = 161,161 = 161,138 = 138,138
+// Npc Return at 150,150, mentions a stronger evil approaching, is killed. Boss NPC 149,161 - Adds Spawn 141 166 /156, 166
+//Fight Boss for 30 seconds and deals 10~50 damage per hit, Loki appears, boss summons 2 adds that give it shield on spam, loki asks you to kill adds.
+//Loki Kills boss when you remove adds (boss loses shield), deals over 50k per hit.
+//Loki makes player chosen, job change to gravekeeper.
+prt_are01,1,1,4	script	Controller#GravekeeperTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Tomb Guardian#quest3");
+	disablenpc instance_npcname("Loki#quest1");
+	disablenpc instance_npcname("Loki#quest2");
+	disablenpc instance_npcname("#lokispawner");
+	disablenpc instance_npcname("Tomb Guardian#quest4");
+	disablenpc instance_npcname("Tomb Guardian#quest5");
+	end;
+}
+
+prt_are01,150,70,5	script	Tomb Guardian#quest2	4_m_dstman,{
+	set .@npc$, "[Tomb Guardian]";
+	if (gravekeeperchk ==1){ 
+	mes .@npc$;
+	mes "...Let's go back  to the middle. Good job killing those monsters!";
+	close2;
+	enablenpc instance_npcname("Tomb Guardian#quest4");
+	end;
+	}
+	mes .@npc$;
+	mes "...Executioner, welcome to Loki's tomb.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "This place is huge!";
+	next;
+	mes .@npc$;
+	mes "That's a common reaction...well, Executioners might be very skilled at making things dead.";
+	next;
+	mes .@npc$;
+	mes "But it actually takes much more effort to KEEP them dead.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "What do you mean?";
+	next;
+	mes .@npc$;
+	mes "Master Loki made many enemies through his life. Most of them try to come back and take what's left of him back to Asgard.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "So that's why you guys take care of it.";
+	next;
+	mes .@npc$;
+	mes "Exactly. The Gravekeepers are responsible not only for Loki's tomb, but also to make sure anybody they kill actually receives the proper respect...if possible.";
+	next;
+	mes .@npc$;
+	mes "Please, proceed down to the center of the area. I'll explain more details there.";
+	close2;
+	disablenpc instance_npcname("Tomb Guardian#quest2");
+	enablenpc instance_npcname("Tomb Guardian#quest3");
+	end;
+}
+
+prt_are01,150,150,5	script	Tomb Guardian#quest3	4_m_dstman,{
+	set .@npc$, "[Tomb Guardian]";
+	mes .@npc$;
+	mes "Loki's tomb lies right here.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "I expected a huge monument or...a mausoleum, or something.";
+	next;
+	mes .@npc$;
+	mes "Oh, there used to be quite a few of them. But since we always are fighting here, it's best if we can keep this place clear of possible obstacles.";
+	next;
+	mes .@npc$;
+	mes "You can also...oh...what a coincidence.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "?";
+	next;
+	mes .@npc$;
+	mes "I can sense evil energy flowing into this place... I need to hurry and find the Gravekeepers!";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Hey! What about me!?";
+	next;
+	mes .@npc$;
+	mes "You can protect this place until I arrive with help!";
+	next;
+	mes .@npc$;
+	mes "I'm pretty sure you're strong enough to handle a few demons aren't you? I'll be back as soon as possible!";
+	close2;
+	disablenpc instance_npcname("Tomb Guardian#quest3");
+	donpcevent instance_npcname("#Tombspawns", instance_id())+"::OnEnable";
+	end;
+}
+
+prt_are01,1,1,4	script	#Tombspawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#Tombspawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#Tombspawns", instance_id());
+	set .@map$, instance_mapname("prt_are01");
+	.@event$ = instance_npcname("#Tombspawns")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,138,161,"Dark Minion",1374,1, .@event$;
+	monster .@map$,161,161,"Dark Minion",1374,1, .@event$;
+	monster .@map$,161,138,"Dark Minion",1374,1, .@event$;
+	monster .@map$,138,138,"Dark Minion",1374,1, .@event$;
+	set 'Tomb_Mobs,4;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("prt_are01"), "Protect the tomb and survive!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Tomb_Mobs,'Tomb_Mobs-1;
+	mapannounce instance_mapname("prt_are01"), "Tomb Guardian: Damn, where are the Gravekeepers!? Keep fighting!",bc_map,"0xffff00";
+	if ('Tomb_Mobs < 1) {
+		set 'Tomb_Mobs,0;
+		set gravekeeperchk,1;
+		mapannounce instance_mapname("prt_are01"), "Tomb Guardian: Whew! You actually took care of them all! Nice work!.",bc_map,"0xffff00";
+		enablenpc instance_npcname("Tomb Guardian#quest4");
+		stopnpctimer;
+	}
+	end;
+}
+
+prt_are01,150,150,5	script	Tomb Guardian#quest4	4_m_dstman,{
+	set .@npc$, "[Tomb Guardian]";
+	mes .@npc$;
+	mes "These demons are quite a bit stronger than usual...";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "So... where are the Gravekeepers?";
+	next;
+	mes .@npc$;
+	mes "I have no idea! There must be a reason for them not to be here!";
+	next;
+	mes .@npc$;
+	mes "We must be careful and keep our guard up...";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Wait- what's that noise?";
+	next;
+	mes .@npc$;
+	mes "Another Monster! This one seems..different! Get him! I-I'll k-keep watch on the e-entrance!";
+	close2;
+	disablenpc instance_npcname("Tomb Guardian#quest4");
+	donpcevent instance_npcname("#Tombspawns2", instance_id())+"::OnEnable";
+	end;
+}
+
+prt_are01,1,1,4	script	#Tombspawns2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#Tombspawns2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#Tombspawns2", instance_id());
+	set .@map$, instance_mapname("prt_are01");
+	.@event$ = instance_npcname("#Tombspawns2")+"::OnMyMobDead";
+	monster .@map$,150,148,"Lord of Darkness",2888,1, .@event$;
+	set 'Tomb_Mobsb,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("prt_are01"), "Fight the Lord of Darkness!",bc_map,"0xffff00";
+	end;
+	
+OnTimer5000:
+	mapannounce instance_mapname("prt_are01"), "Tomb Guardian:It's... too strong! It's gonna destroy the tomb! Everyone above us will die!",bc_map,"0xffff00";
+	end;
+	
+OnTimer10000:
+	mapannounce instance_mapname("prt_are01"), "You feel a strong presence within the tomb.",bc_map,"0xffff00";
+	end;
+
+OnTimer15000:
+	mapannounce instance_mapname("prt_are01"), "Tomb Guardian: I see a familiar shadow to the north...No point fighting like this. Go check it!",bc_map,"0xffff00";
+	enablenpc instance_npcname("Loki#quest1");
+	end;
+	stopnpctimer;
+
+OnMyMobDead:
+	enablenpc instance_npcname("Loki#quest2");
+	end;
+}
+
+prt_are01,150,153,5	script	Loki#quest2	4_m_roki2,{
+	cutin "ep14_roki01",2;
+	set .@npc$, "[Loki]";
+	atcommand "@killmonster";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Good Job. Now give me that piece of my spirit back...I need it.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "You're... strong.";
+	next;
+	mes .@npc$;
+	mes "I was strong. Now I'm merely a memory. A memory for those Assassins who always strive for a higher path.";
+	next;
+	mes .@npc$;
+	mes "A memory for assassin's like you...and Him.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Him?";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Loki#quest2");
+	enablenpc instance_npcname("Tomb Guardian#quest5");
+	end;
+}
+
+prt_are01,150,155,5	script	Tomb Guardian#quest5	4_m_dstman,{
+	cutin "bio_eremes01",2;
+	set .@npc$, "[Tomb Guardian Eremes]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Congratulations.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Hey! You're that hero from Lighthalzen! Everyone thinks you're dead!";
+	next;
+	mes .@npc$;
+	mes "And it must continue this way.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Why didn't you help me?";
+	next;
+	mes .@npc$;
+	mes "Demons attack this place frequently. I'm the only guardian here. I needed to know if I could trust you to help me.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Help you? How?";
+	next;
+	mes .@npc$;
+	mes "You're a strong and honorable Executioner. I believe you're perfect to be a Gravekeeper.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Me? A Gravekeeper? Are you sure?";
+	next;
+	mes .@npc$;
+	mes "Yes. You knew how to handle yourself in combat, and had enough energy and power to channel Master Loki's Spirit to fight the Lord of Darkness.";
+	next;
+	mes .@npc$;
+	mes "Master Loki has left this world Over 100 years ago. I've been living here, exiled, ever since I survived the Lighthalzen Incident.";
+	next;
+	mes .@npc$;
+	mes "I have completed my mission in that laboratory. Now it's my mission to keep this tomb safe. And so is yours now.";
+	next;
+	mes .@npc$;
+	mes "The Orphanage above us is a key piece in keeping this world safe, the so called -Orphans- are a key for the future.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Very well...I shall embrace my role in this. I will be here.";
+	next;
+	mes .@npc$;
+	mes "It's not here that you need to worry about. It's outside. Hunt the enemies of our master and his tomb no longer will need guardians.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "You have my word, Eremes.";
+	next;
+	specialeffect2 234;
+	atcommand "@job 4063";
+	set finaljob,1;
+	set gravekeeperjob,1;
+	mes .@npc$;
+	mes "One more thing...";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "What is it?";
+	next;
+	mes .@npc$;
+	mes "Take care of Lucy, my sister.";
+	close2;
+	cutin "",255;
+	warp "moc_pryd06",101,180;
+	end;
+}
+
+prt_are01,150,252,5	script	Loki#quest1	4_m_roki2,{
+	cutin "ep14_roki01",2;
+	set .@npc$, "[Loki]";
+	playbgm "98";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". Tough day eh?";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Wait...how...?";
+	next;
+	mes .@npc$;
+	mes "Let's just go and kill that beast. Look for the traces of my essence near it. I need your help to bring my power to this world.";
+	next;
+	mes "[^339966" + strcharinfo(0) + "^000000]";
+	mes "Why are you helping me?";
+	next;
+	emotion ET_SCISSOR;
+	mes .@npc$;
+	mes "You have potential, and those things showing up is...common. Now hurry before I change my mind!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Loki#quest1");
+	enablenpc instance_npcname("#lokispawner");
+	end;
+}
+
+prt_are01,150,141,5	script	#lokispawner	10043,2,2,{
+	end;
+	OnTouch_:
+	summon "Loki's Spirit",2157,120000;
+	donpcevent instance_npcname("#Tombspawns3", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("#lokispawner");
+	end;
+ }
+
+prt_are01,1,1,4	script	#Tombspawns3	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#Tombspawns3", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#Tombspawns3", instance_id());
+	set .@map$, instance_mapname("prt_are01");
+	.@event$ = instance_npcname("#Tombspawns3")+"::OnMyMobDead";
+	monster .@map$,150,155,"Servant of Darkness",2154,1, .@event$;
+	monster .@map$,145,148,"Servant of Darkness",2154,1, .@event$;
+	monster .@map$,155,148,"Servant of Darkness",2154,1, .@event$;
+	set 'Tomb_Mobsc,3;
+	initnpctimer;
+	end;
+
+OnTimer3000:
+	mapannounce instance_mapname("prt_are01"), "Loki: Get ride of those Servants who are protecting the Lord, will you?",bc_map,"0xffff00";
+	end;
+	
+OnTimer5000:
+	mapannounce instance_mapname("prt_are01"), "Loki: My power will only last for 2 minutes in this world! Hurry!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Tomb_Mobsc,'Tomb_Mobsc-1;
+	mapannounce instance_mapname("prt_are01"), "Loki: Keep killing them!",bc_map,"0xffff00";
+	if ('Tomb_Mobsc < 1) {
+		set 'Tomb_Mobsc,0;
+		mapannounce instance_mapname("prt_are01"), "Loki: My blades shall now take your life, Monster!",bc_map,"0xffff00";
+		stopnpctimer;
+	}
+	end;
+	end;
+}
+//////////Sinner Quest - Rescue Mission
+////Job Quest for Deadeye - > Sinner
+////Entrance at 166,60 - ra_temple
+////Arrive - 152,139 NPC at 141,139 - Warp to 99,8 - Go up Stairs
+// OnTouch for 100,64 - Talks about behaving near pope.
+//100,99 - Pope asks for help - Guards turn into mobs -> 94,97 // 105,97 // Pope Spawns as Mercenary to help
+// Go to 67,96 and 131,96 - Kills monsters that spawn
+//Warp npc opens in 99,118 (Checkpoint) - warps to 47,128 - Kill Big Demon in 47,136
+//Pope dies in 47,128 -Absolves you - Job Change
+

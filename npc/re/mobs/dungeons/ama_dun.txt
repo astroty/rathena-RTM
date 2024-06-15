@@ -15,27 +15,29 @@
 //==================================================
 // ama_dun01 - Tatami Maze
 //==================================================
-ama_dun01,0,0	monster	Miyabi Doll	1404,91,5000
-ama_dun01,0,0	monster	Firelock Soldier	1403,63,5000
-ama_dun01,0,0	monster	Shinobi	1401,2,5000
+ama_dun01,0,0	monster	Miyabi Doll	1404,45,5000
+ama_dun01,0,0	monster	The Paper	1375,10,5000
+ama_dun01,0,0	monster	Corrupted Shinobi	1401,10,5000
+ama_dun01,0,0	monster	Firelock Soldier	1403,45,5000
+ama_dun01,0,0	monster	Silent Ronin	2254,1,5000
 
 //==================================================
 // ama_dun02 - Battle Field in the Underground Forest
 //==================================================
-ama_dun02,0,0	monster	Poison Toad	1402,35,5000
-ama_dun02,0,0	monster	Firelock Soldier	1403,20,5000
-ama_dun02,0,0	monster	Horong	1129,10,5000
-ama_dun02,0,0	monster	Miyabi Doll	1404,5,5000
-ama_dun02,0,0	monster	Shinobi	1401,2,5000
-ama_dun02,0,0	monster	The Paper	1375,1,5000
+ama_dun02,0,0	monster	Miyabi Doll	1404,10,5000
+ama_dun02,0,0	monster	Firelock Soldier	1403,10,5000
+ama_dun02,0,0	monster	Silent Ronin	2254,2,5000
+ama_dun02,0,0	monster	The Paper	1375,10,5000
+ama_dun02,0,0	monster	Tengu	1405,15,5000
+ama_dun02,0,0	monster	Corrupted Shinobi	1401,10,5000
 
 //==================================================
 // ama_dun03 - Amatsu Underground Shrine
 //==================================================
-ama_dun03,0,0	monster	Shinobi	1401,65,5000
-ama_dun03,0,0	monster	Tengu	1405,65,5000
-ama_dun03,0,0	monster	Firelock Soldier	1403,29,5000
-ama_dun03,0,0	monster	The Paper	1375,23,5000
-ama_dun03,0,0	monster	Mimic	1191,5,5000
-ama_dun03,0,0	monster	Miyabi Doll	1404,1,5000
-ama_dun03,0,0,0,0	boss_monster	Samurai Specter	1492,1,5460000,600000,0
+ama_dun03,0,0	monster	Miyabi Doll	1404,5,5000
+ama_dun03,0,0	monster	Firelock Soldier	1403,5,5000
+ama_dun03,0,0	monster	Silent Ronin	2254,5,5000
+ama_dun03,0,0	monster	The Paper	1375,15,5000
+ama_dun03,0,0	monster	Corrupted Shinobi	1401,25,5000
+ama_dun03,0,0	monster	Tengu	1405,45,5000
+ama_dun03,0,0,0,0	boss_monster	Incantation Samurai	1492,1,2700000,5400000,0

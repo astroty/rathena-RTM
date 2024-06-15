@@ -83,7 +83,7 @@
 		mes "charging a fare. You don't think that crossing oceans and currents is easy, do you?";
 		next;
 		mes "[Walter Moers]";
-		mes "10,000 zeny for a round-trip! I've";
+		mes "5,000 zeny for a round-trip! I've";
 		mes "got a stately room in a sturdy and";
 		mes "safe trade ship for you. It is a ";
 		mes "reasonable fare when you consider";
@@ -94,17 +94,17 @@
 		mes "the fare, right? Let's go.";
 		next;
 		if (select("All Aboard!:Cancel") == 1) {
-			if (Zeny > 9999) {
+			if (Zeny > 4999) {
 				mes "[Walter Moers]";
 				mes "Alright, I will start the engine!";
 				close2;
-				set Zeny, Zeny-10000;
+				set Zeny, Zeny-5000;
 				warp "amatsu",197,83;
 				end;
 			}
 			mes "[Walter Moers]";
 			mes "Were you even listening to me?";
-			mes "10,000 zeny. If you got";
+			mes "5,000 zeny. If you got";
 			mes "nothing, find some treasure";
 			mes "somewhere, like in a wrecked ship...Show me the money!";
 			close;

@@ -12,25 +12,16 @@
 //============================================================
 
 //==================================================
-// mjo_dun01 - Mjolnir Dead Pit
-//==================================================
-mjo_dun01,0,0	monster	Tarou	1175,63,5000
-mjo_dun01,0,0	monster	Familiar	1005,31,5000
-mjo_dun01,0,0	monster	Martin	1145,21,5000
-
-//==================================================
-// mjo_dun02 - Mjolnir Dead Pit
-//==================================================
-mjo_dun02,0,0	monster	Martin	1145,71,5000
-mjo_dun02,0,0	monster	Giearth	1121,41,5000
-mjo_dun02,0,0	monster	Drainliar	1111,23,5000
-mjo_dun02,0,0	monster	Skeleton Worker	1169,23,5000
-
-//==================================================
-// mjo_dun03 - Mjolnir Dead Pit
-//==================================================
-mjo_dun03,0,0	monster	Skeleton Worker	1169,78,5000
-mjo_dun03,0,0	monster	Myst	1151,39,5000
-mjo_dun03,0,0	monster	Giearth	1121,5,5000
-mjo_dun03,0,0	monster	Martin	1145,5,5000
-mjo_dun03,0,0	monster	Cramp	1209,3,5000
+mjo_dun01,0,0	monster	Martin	1145,35,5000
+mjo_dun01,0,0	monster	Giearth	1121,25,5000
+mjo_dun01,0,0	monster	Skeleton Worker	1169,10,5000
+mjo_dun01,0,0	monster	Knocker	1838,1,5000
+//
+mjo_dun01,0,0	monster	Giearth	1121,10,5000
+mjo_dun03,0,0	monster	Skeleton Worker	1169,35,5000
+mjo_dun03,0,0	monster	Knocker	1838,10,5000
+mjo_dun03,0,0	monster	Myst	1151,5,5000
+//
+mjo_dun04,0,0	monster	Knocker	1838,55,5000
+mjo_dun04,0,0	monster	Myst	1151,20,5000
+mjo_dun04,0,0,0,0	boss_monster	Noble Devourer	2583,1,2700000,5400000,0

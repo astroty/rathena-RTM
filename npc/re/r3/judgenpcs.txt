@@ -1,0 +1,1187 @@
+///Judge HQ NPCs
+
+-	shop	judgeshop	-1,13200:250,13201:5000,13215:7000,13216:7000.
+
+prt_cas,261,320,4	script	Quartermaster#judge	10182,{
+	cutin "ep16_tes01",2;
+	if (judgejob < 1) {
+	mes "[Quartermaster]";
+	mes "Please, go talk to the Queen if you're here to become a Judge. I can't help you.";	
+	close2;
+	cutin "",255;
+	end;
+	}
+		mes "[Quartermaster]";
+		mes "Magister, welcome. I can provide your supplies or access to your storage.";
+		next;
+		mes "[Quartermaster]";
+		mes "I can also remove cards from your revolvers, for a reasonable price.";
+		close2;
+		cutin "",255;
+		switch(select("Buy Bullets:Storage:Remove Cards:Nothing")) {
+		case 1:
+		cutin "",255;
+		callshop "judgeshop",0;
+		end;
+		case 2:
+		openstorage;
+		end;
+		case 3:
+	set .zenycost,5000;    // base cost of the card remover services (in Zeny)
+	set .percardcost,3000;  // cost per card of the card remover services (in Zeny)
+	set .faildestroy,0;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
+
+	disable_items;
+	mes "[Quartermaster]";
+	mes "Very well. What equipment do you want me to remove it from?";
+	next;
+		setarray .@indices[1], EQI_HAND_R;
+		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
+			if( getequipisequiped(.@indices[.@i]) )
+				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part, .@indices[ select(.@menu$) ];
+		if(!getequipisequiped(.@part)) {
+			mes "[Quartermaster]";
+			mes "What card? There's no card on this equipment.";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[Quartermaster]";
+			mes "What card? There's no card on this equipment.";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "I can't remove any cards since you're carrying too much weight, Get rid of some and come back.";
+			close;
+		}
+		mes "[Quartermaster]";
+		mes "This item has " + .@cardcount + " cards compounded on it. To remove them I'll need " + (.zenycost+(.@cardcount * .percardcost)) + " zeny.";
+		next;
+		if(select("Ok, Go Ahead.:Nevermind.") == 2) {
+			mes "[Quartermaster]";
+			mes "Very well. Return if you need my services.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost)))) {
+			mes "[Quartermaster]";
+			mes "You can't pay me with just " + zeny + " zeny! Don't waste my time!";
+			close;
+		}
+		mes "[Quartermaster]";
+		mes "Very well. Let me get to work.";
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		// Replace the constants in the next 3 lines with failure chance values defined in refine_db.txt
+		// First value = Total failure chance (item and cards destroyed)
+		// Second value = Partial failure chance (one or the other is destroyed, player decides which one is safe)
+		// Third value = Harmless failure chance (all that's lost is your investment)
+
+		set .@failchance,rand(100);
+		if (.faildestroy==1) {
+			if(.@failchance < 2) {
+				next;
+				successremovecards .@part;
+				mes "[Quartermaster]";
+				mes "There you go, all done. Farewell Magister.";
+				close;
+			}
+
+			if(.@failchance < 8) {
+				if (.@failtype == 1) {
+					next;
+					successremovecards .@part;
+					mes "[Quartermaster]";
+					mes "There you go, all done. Farewell.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					successremovecards .@part;
+					mes "[Quartermaster]";
+					mes "There you go, all done. Farewell.";
+					close;
+				}
+			}
+		}
+
+		if(.@failchance < 10) {
+			next;
+			successremovecards .@part;
+			mes "[Quartermaster]";
+			mes "There you go, all done. Farewell Magister.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[Quartermaster]";
+		mes "There you go, all done. Farewell Magister.";
+		close2;
+		cutin "",255;
+	end;
+		case 4:
+		end;
+		}
+}
+
+prt_cas,237,315,4	script	Quiet Judge#judge	10181,{
+	if (judgejob < 1) {
+	mes "[Quiet Judge]";
+	mes "Please, go talk to the Queen if you're here to become a Judge. I can't help you.";	
+	close;
+	}
+		mes "[Quiet Judge]";
+		mes "Magister, have you ever heard of Master Bolkova?";
+		next;
+		mes "[Quiet Judge]";
+		mes "I heard he went to the Nameless Island and never returned... He was the best gunsmith we ever had. He made all the guns for the Rebellion in the past!";
+		next;
+		mes "[Quiet Judge]";
+		mes "Damn...I hope he's well. Dude didn't really care much about his family, Elena still hates the guy... but his guns are quite a work of art!";
+		close;
+}
+
+prt_cas,82,73,5	script	Smart Judge#judge	10201,{
+	if (judgejob < 1) {
+	mes "[Smart Judge]";
+	mes "Please, go talk to the Queen if you're here to become a Judge. I can't help you.";	
+	close;
+	}
+		mes "[Smart Judge]";
+		mes "Magister, this garden is a good resting place for us.";
+		next;
+		mes "[Smart Judge]";
+		mes "Queen Catherine makes sure to always be around. To care for us and listen to what we have to say.";
+		next;
+		mes "[Smart Judge]";
+		mes "She is no military expert, but she really is a born leader. And a charismatic one at that.";
+		close;
+}
+
+prt_cas,257,304,5	script	Shy Judge#judge	10203,{
+	if (judgejob < 1) {
+	mes "[Shy Judge]";
+	mes "Please, go talk to the Queen if you're here to become a Judge. I can't help you.";	
+	close;
+	}
+		mes "[Shy Judge]";
+		mes "Lovejoy is our military captain. She decides where we need to go for our missions.";
+		next;
+		mes "[Shy Judge]";
+		mes "She is SO GORGEOUS! I wonder if I have any chance with her...";
+		next;
+		mes "[Shy Judge]";
+		mes "One day I will know... I just need... a small bit of courage!";
+		close;
+}
+
+prt_cas,240,235,4	script	Friedrich Heine#judge	10120,{
+	cutin "ep16_friedrich_stolz_heine",2;
+	if (judgejob < 1) {
+	mes "[Friedrich Heine]";
+	mes "Please, go talk to the Queen if you're here to become a Judge. You may get into troube wandering around like this.";	
+	close2;
+	cutin "",255;
+	end;
+	}
+		mes "[Friedrich Heine]";
+		mes "Magister, please, don't diturb my work. I'm trying to coordinate the whole order with Lovejoy here.";
+		next;
+		mes "[Friedrich Heine]";
+		mes "Don't forget your duties. Captain Lovejoy might have a soft spot, but I don't.";
+		close2;
+		cutin "",255;
+		end;
+}
+
+prt_cas,244,230,1	script	Judge#judge1	10197,{
+		mes "[Judge]";
+		mes "...";
+		close;
+}
+
+prt_cas,241,230,1	script	Judge#judge2	10196,{
+		mes "[Judge]";
+		mes "...";
+		close;
+}
+
+prt_cas,237,230,1	script	Judge#judge3	10193,{
+		mes "[Judge]";
+		mes "...";
+		close;
+}
+
+prt_cas,250,224,4	script	Curious Judge#judge	10181,{
+		mes "[Curious Judge]";
+		mes "You can craft quite a few good weapons with the 4 judges on the room near the end of the hall.";
+		next;
+		mes "[Curious Judge]";
+		mes "They do require quite a bit of care with your guns for that however...I guess I'll never get those.";
+		close;
+}
+
+prt_cas,96,344,4	script	Guard Judge#judge	10193,{
+	if (judgejob < 1) {
+	mes "[Guard Judge]";
+	mes "To get to the Garden, go down the corridor, all the way to the end.";	
+	close;
+	}	
+		mes "[Guard Judge]";
+		mes "Remember to use your Monarch Seals. They are the best way for you to prepare your skills for use.";
+		next;
+		mes "[Guard Judge]";
+		mes "A judge without seals is a sitting duck waiting to be killed.";
+		close;
+}
+
+prt_cas,262,236,2	script	Captain Lovejoy#judge	10183,{
+	cutin "ep162_est01",2;
+	if (judgejob < 1) {
+	mes "[Captain Lovejoy]";
+	mes "You shouldn't be here. Go talk to the queen or leave.";	
+	close2;
+	cutin "",255;
+	end;
+	}
+		mes "[Captain Lovejoy]";
+		mes "Magister " + strcharinfo(0) + ". Don't forget your duties.";
+		next;
+		mes "[Captain Lovejoy]";
+		mes "Judges have a duty with the population, we must serve them to our best abilities.";
+		next;
+		mes "[Captain Lovejoy]";
+		mes "Elena is an...exception. The girl really could use a break. Don't mind her rudeness.";
+		close2;
+		cutin "",255;
+		end;
+}
+
+prt_cas,338,338,2	script	Kronecker Heine#judge	10119,{
+	cutin "ep16_kronecker_granz_heine",2;
+		mes "[Kronecker Heine]";
+		mes "Nihil is a good king... in a single year, he stopped the heart hunters, created the judge order and helped us protect our kingdom.";
+		next;
+		mes "[Kronecker Heine]";
+		mes "Any father would be proud, but it's my duty to keep the pressure on him, for he is our hope.";
+		close2;
+		cutin "",255;
+		end;
+}
+
+///Tenebris Rosa Instance//// - 202,164 // 183,177 // 185,180 (Tomb)
+
+prt_cas,25,28,4	script	Elena Bolkova#judge	10192,{
+	cutin "162elena_01",2;
+	set .@npc$, "[Elena Bolkova]";
+	if (elenafinish ==1){
+	mes "Magister " + strcharinfo(0) + ". Thanks for sparing me. I'll do my best to protect the people.";
+	next;
+	mes "Take good care of the Tenebris Rosa. I couldn't. But my father would be happy to see it put to good use.";
+	next;
+	mes "^6666CCYou remember the words of honor that Elena received:^000000";
+	next;
+	mes "^6666CCIn the name of the King^000000";
+	mes "^6666CCI am Elena, the Magister.^000000";
+	mes "^6666CCI challenge you!^000000";
+	mes "^6666CC-the last line was missing, but should be personal-^000000";
+	close;	
+}
+	if (judgejob < 1) {
+	mes .@npc$;
+	mes "This room is private. Please, leave.";	
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (judgeguns >=10) {
+	mes .@npc$;
+	mes "Oh it's you... You're one of the best Judges in the Order eh? You have quite a few guns...Think you can help me with something?";
+	next;
+	switch(select("I'm busy, sorry.:Yes, Right Now.")) {
+	case 1:
+	mes .@npc$;
+	mes "It's ok, don't worry about it... I can find a way to handle this situation by myself.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (JobLevel < 80){
+	mes .@npc$;
+	mes "Wait a second... This is a very difficult mission. I'd advise you to be at least Job Level 80 to come with me.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Well... I need you to follow me. I'll tell you the details on the way.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Thorns of a Rose";
+	mes .@npc$;
+	mes "I'll keep the Thorns of a Rose  close to me... and take it where it belongs...";
+	next;
+	specialeffect2 834;
+	.@name$ = "Judge" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "...to my final resting place.";
+	next;
+	savepoint "prt_cas",24,26,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Thorns of a Rose]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Elena Bolkova]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Thorns of a Rose...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + "... What brings you here? I don't want to see anyone. LEAVE. NOW!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+1@4win,1,1,4	script	Controller#TenebrisTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Elena#quest2");
+	disablenpc instance_npcname("Family Grave#quest3");
+	end;
+}
+
+1@4win,1,1,4	script	#ElenaSpawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#ElenaSpawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#ElenaSpawns", instance_id());
+	set .@map$, instance_mapname("1@4win");
+	.@event$ = instance_npcname("#ElenaSpawns")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,202,164,"Elena Bolkova",2443,1,.@event$;
+	set 'Elena_Mobs,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("1@4win"), "Fight Elena!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Elena_Mobs,'Elena_Mobs-1;
+	if ('Elena_Mobs < 1) {
+		set 'Elena_Mobs,0;
+		mapannounce instance_mapname("1@4win"), "Elena has been defeated... You spare her life.",bc_map,"0xffff00";
+		enablenpc instance_npcname("Elena#quest2");
+		stopnpctimer;
+	}
+	end;
+}
+
+1@4win,202,164,4	script	Elena#quest1	10192,{
+	cutin "162elena_01",2;
+	set .@npc$, "[Elena Bolkova]";
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "Well... I didn't know there was a cabin here.";
+	next;
+	mes .@npc$;
+	mes "This place is pretty hidden...welcome to my house.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "Wait, What?";
+	next;
+	mes .@npc$;
+	mes "I used to live here before I joined the order. I lived with my sisters, after our mother died. We were all part of the Rebellion.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I'm sorry for your loss...";
+	next;
+	mes .@npc$;
+	mes "Listen...My father was a master gunsmith. He could create the best guns in the world. One day he created the Tenebris Rosa. My gun.";
+	next;
+	mes .@npc$;
+	mes "Maybe some people in the HQ told you. They think I'm an Orphan like you... But I don't have the Mark.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "Now that you mention it... Where's your mark? How can you be an Orphan without one?";
+	next;
+	mes .@npc$;
+	mes "I don't have a mark. I don't create shadows.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I'm not sure I understand...are you saying you're not an Orphan?";
+	next;
+	mes .@npc$;
+	mes "My sisters thought my mother was killed by monsters. They never saw the bullet hole on its body.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "Wait... so it was...";
+	next;
+	mes .@npc$;
+	mes "Yes, it was me. I had taken this gun... unlike any others...the Tenebris Rosa. It's power was so immense that I could never control it.";
+	next;
+	mes .@npc$;
+	mes "This gun feels alive. It never misses it's target. No matter who the target is. And it's bound to me. One day it decided to aim at my mother...and I couldn't stop it.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "So you want my help to get rid of the gun?";
+	next;
+	mes .@npc$;
+	mes "Not really. I want you to have it. You are strong enough to wield it and not lose control.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "What do I need to do?";
+	next;
+	mes .@npc$;
+	mes "The gun is bound to me. To my life. I want you to kill me. I've been waiting for a long time for someone as strong as you.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I can't kill you... You are innocent!";
+	next;
+	emotion ET_SORRY;
+	mes .@npc$;
+	mes "Kill me. Or I'll kill you. The Tenebris Rosa deserves a real Master!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Elena#quest1");
+	donpcevent instance_npcname("#ElenaSpawns", instance_id())+"::OnEnable";
+	end;
+}
+
+1@4win,183,177,4	script	Elena#quest2	10192,{
+	cutin "162elena_01",2;
+	set .@npc$, "[Elena Bolkova]";
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I'm not going to kill you. Not today.";
+	next;
+	mes .@npc$;
+	mes "Fool... I killed my mother. I killed my sisters... I need to be judged.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "You...killed your sisters?";
+	next;
+	mes .@npc$;
+	mes "On the day that Morroc's Mark appeared...and took all those people... the gun took me over again. And I took their life.";
+	next;
+	mes .@npc$;
+	mes "It all happened on the same day...I hid myself in the cabin for years... then when the Orphans started appearing... I just...pretended to be one of you.";
+	next;
+	mes .@npc$;
+	mes "Now...You have defeated me. The Tenebris Rosa is now yours for the taking. You are strong enough to control it.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I will take it with me. But on one condition.";
+	next;
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "What is it?";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "That you live. And repent for your sins. Protect people who didn't have the same luck as you.";
+	next;
+	emotion ET_HUK;
+	mes .@npc$;
+	mes "I'm weak. I can't... I've suffered enough already.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "This is my final Judgment, Elena. You have to live to make up for your mistakes from the past. To grow strong.";
+	next;
+	mes .@npc$;
+	mes "Very well... I'll leave the gun here. It's yours for the taking...please, don't let it do any more harm to good people.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "You have my word.";
+	close2;	
+	cutin "",255;
+	disablenpc instance_npcname("Elena#quest2");
+	enablenpc instance_npcname("Family Grave#quest3");
+	end;	
+}
+
+1@4win,185,180,4	script	Family Grave#quest3	10042,{
+	cutin "ep171_trio_memory.bmp",2;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "So this is her family... It seems this grave was put here by Elena. Thats... a very sweet photo.";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I'm sorry for all of you. Elena really is full of guilt. I hope she can find peace in her mind to control her life again.";
+	next;
+	mes "^6666CCThe Tenebris Rosa sits near the photo and the grave. you can feel a strong aura around it. You grab the gun.^000000";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "I shall carry the memory of this family with me. And use the mastercraft of their father to bring order...";
+	next;
+	mes "[^FF0000" + strcharinfo(0) + "^000000]";
+	mes "...and justice to all.";
+	next;
+	mes "^6666CCNear the tombstone, there's a small plaque with Elena's honors as a Judge and a chant:^000000";
+	next;
+	mes "^6666CCIn the name of the King^000000";
+	mes "^6666CCI am Elena, the Magister.^000000";
+	mes "^6666CCI challenge you!^000000";
+	mes "^6666CC-the last line is missing, but seems personal-^000000";
+	next;
+	set elenafinish,1;
+	getitem 13113,1;
+	mes "^6666CCYou take the Tenebris Rosa with you.^000000";
+	close2;
+	cutin "",255;
+	warp "prt_cas",24,26;
+	end;
+}
+
+///main Judge Weapons
+
+abbey03,222,136,7	script	Lonely Gunmith#lifesteal	10187,{
+	set .@npc$, "[Gunsmith Bolkova]";
+	if (judgejob < 1) {
+	mes .@npc$;
+	mes "Leave me alone. I'm paying my respects to the late King Tristram III.";	
+	close;
+	}
+	mes .@npc$;
+	mes "I used to make the best guns... Judges all over came to me to craft new weapons for them.";
+	next;
+	if (elenafinish >= 1) {
+	mes .@npc$;
+	mes "I see that you are the master of my Tenebris Rosa. That was my best creation...handle it with care and respect and it'll always be a good weapon.";
+	close;
+	}
+	if (rubrumvestigium >= 1) {
+	mes .@npc$;
+	mes "I have nothing else to help you with. Please, allow me to spend my days in peace here.";
+	close;
+	}
+	mes .@npc$;
+	mes "I left all of this behind. I've come to pay my respects for the late king, Tristram III... But I can't do it as I can't find its broken crown.";
+	next;
+	mes .@npc$;
+	mes "Magister, witness the <ITEM>Rubrum Vestigium<INFO>13112</INFO></ITEM>... is the last gun I made. It's not the best, but it's certainly unique. ";
+	next;
+	switch(select("I want the Rubrum Vestigium:How can I have that?:Nevermind.")) {
+	case 1:
+		if(countitem(7754) < 1) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "So you have found a piece of the crown...Amazing.";
+		next;
+		mes .@npc$;
+		mes "This revolver is one of my strongest creations. It could make any attack heal you back. Use it with care.";
+		next;
+		mes .@npc$;
+		mes "My previous work was too strong. A gun that never misses... but that can take any target if the wielder is not strong enough.";
+		next;
+		mes .@npc$;
+		mes "Not this one. This one can be controlled. As long as you don't hurt people just to take care of yourself.";
+		delitem 7754,1;
+		getitem 13112,1;
+		set judgeguns, judgeguns+1;
+		set rubrumvestigium,1;
+		close;
+		L_noitems2:
+		mes .@npc$;
+		mes "Where's the Broken Crown? I know it's hard to find, but it's here somewhere...keep looking for it.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "I need only one thing:";
+		mes "^FF00001 Broken Crown^000000.";//7754 - 0.01% drop from Necromancers, 1% drop from Fallen Bishop Hibram
+		next;
+		mes .@npc$;
+		mes "Any broken crowns here would be pieces left by the late king. And enough for me to pay my respects.";
+		next;
+		mes .@npc$;
+		mes "I abandoned my family in the name of my craft...It's a choice I shall never regret. Even alone in these halls.";
+		close;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "I wonder how the Order is doing without me...? I hope you have good gunsmiths around there.";
+		close;
+		break;
+	}
+}
+
+alb2trea,100,69,7	script	Sea Judge#kingofseas	10187,{
+	set .@npc$, "[Judge Reed]";
+	if (judgejob < 1) {
+	mes .@npc$;
+	mes "I'm on duty for the King. Please don't disturb me.";	
+	close;
+	}
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + ". Don't you think its facinating how even imponent structures like ships can sink with a well placed attack?";
+	next;
+	if (kingofseas >= 1) {
+	mes .@npc$;
+	mes "Now you can do the same to your enemies...Like I did in the past.";
+	close;
+	}
+	mes .@npc$;
+	mes "The <ITEM>King of Seas<INFO>13111</INFO></ITEM>  may be an inconventional weapon. But it's very reliable, specially when cornered. ";
+	next;
+	switch(select("I want the King of Seas:How can I have that?:Nevermind.")) {
+	case 1:
+		if ( countitem2(15209,1,7,0,0,0,0,0) < 1) goto L_noitems2;
+		if(countitem(6240) < 15) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Looking for one of the classics then? Ok.";
+		next;
+		mes .@npc$;
+		mes "Once upon a time, I also was like Drake, I would sail the seas, travel the world...";
+		next;
+		mes .@npc$;
+		mes "This gun was my companion during this whole ordeal. Only it knows how I feel.";
+		next;
+		mes .@npc$;
+		mes "But it's time it finds a new, suitable owner. like you.";
+		delitem2 15209,1,1,7,0,0,0,0,0;
+		delitem 6240,15;
+		getitem 13111,1;
+		set judgeguns, judgeguns+1;
+		set kingofseas,1;
+		close;
+		L_noitems2:
+		mes .@npc$;
+		mes "I know that's a hard task. But you can't just trick me. You're missing items. Also, make sure not to have any cards on that. I don't need cards.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "To give you mine, I want:";
+		mes "^FF0000+7 Drake Coat, not higher.^000000.";//13102
+		mes "^FF000015^000000 HD Oridecon.";//6240
+		next;
+		mes .@npc$;
+		mes "Keep in mind I only have one. So I require something that would remind me of the best days of my young life.";
+		next;
+		mes .@npc$;
+		mes "And ^FF0000remove any cards or stuff in it before the upgrade^000000. I'm not going to be responsible for you losing any items. You've been warned.";
+		close;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "The weapons of a Judge are one of a kind. And only as good as you make them. Take good care of what's yours.";
+		close;
+		break;
+	}
+}
+
+prt_cas,90,51,4	script	Loyal Judge#royalgunupg	10187,{
+	set .@npc$, "[Jon Uik]";
+	mes .@npc$;
+	mes "Magister " + strcharinfo(0) + ". How are you doing? Handling your duties with honor?";
+	next;
+	if (auctoritasregium >= 1) {
+	mes .@npc$;
+	mes "I expect nothing but good deeds from you, my friend.";
+	close;
+	}
+	mes .@npc$;
+	mes "Some judges might not care about their usual <ITEM>Royal Revolver<INFO>13100</INFO></ITEM> ... that's a mistake. It's a very reliable gun.";
+	next;
+	mes .@npc$;
+	mes "The <ITEM>Auctoritas Regium<INFO>13105</INFO></ITEM>  ...is well known as a very reliable revolver, one of the best we have. And it's nothing but a well-made Royal Revolver. ";
+	next;
+	switch(select("I want the Auctoritas Regium:How can I have that?:Nevermind.")) {
+	case 1:
+		if(countitem(6292) < 5) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "So you are worth of this gun... You really found a name for yourself on the Order huh?";
+		next;
+		mes .@npc$;
+		mes "This revolver shall be polished and well-crafted. You can use your Seals with much more efficiency with it.";
+		next;
+		mes .@npc$;
+		mes "It also has a bullet tracking that is pretty impressive. Enemies will fear your use of this weapon.";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it! It's a Masterwork that few can have!";
+		delitem 6292,5;
+		getitem 13105,1;
+		set judgeguns, judgeguns+1;
+		set auctoritasregium,1;
+		close;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "I'll craft you one, you'll need:";
+		mes "^FF00005^000000 Enriched Oridecon.";//6292
+		next;
+		mes .@npc$;
+		mes "You can only have one of each, so take good care of your guns. They are all mastercrafts.";
+		next;
+		mes .@npc$;
+		mes "And ^FF0000remove any cards or stuff in it before the upgrade^000000. I'm not going to be responsible for you losing any items. You've been warned.";
+		close;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "The weapons of a Judge are one of a kind. And only as good as you make them. Take good care of what's yours.";
+		close;
+		break;
+	}
+}
+
+prt_cas,303,277,4	script	Desert Judge#firstweapon	10181,{
+	mes "[Desert Judge]";
+	mes "I'm responsible for one of the royal arms of the Judges. I've been deployed on the desert multiple times.";
+	next;
+	if (arenaesicarius >= 1 && wastelandrevolver >=1) {
+	mes "[Desert Judge]";
+	mes "Are you taking good care of your weapon? I really hope you are.";
+	close;
+	}
+	mes "[Desert Judge]";
+	mes "I can provide you with our Quick Revolvers, you can make a <ITEM>Wasteland Revolver<INFO>13101</INFO></ITEM>";
+	next;
+	mes "[Desert Judge]";
+	mes "Or if you're skilled enough, the <ITEM>Arenae Sicarius<INFO>13106</INFO></ITEM> will be a stronger option, as long as you got what it takes to have one. ";
+	next;
+	switch(select("I want the Wasteland Revolver:I want the Arenae Sicarius:What do I need to get them?:Nevermind.")) {
+	case 1:
+		if (wastelandrevolver >=1 ){
+		mes "[Desert Judge]";
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(984) < 10) goto L_noitems;
+		if(countitem(6240) < 5) goto L_noitems;
+		if(countitem(6292) < 2) goto L_noitems;
+		emotion ET_SPARK;
+		mes "[Desert Judge]";
+		mes "Very well... this weapon is a fine choice. Take good care of it. It's one of a Kind.";
+		next;
+		mes "[Desert Judge]";
+		mes "This gun shall receive a unique engraving on its trigger. You can adjust it however you like it...";
+		next;
+		mes "[Desert Judge]";
+		mes "It's very flexible for a single action gun, you can make quite a mess with quick shots...";
+		next;
+		mes "[Desert Judge]";
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 984,10;
+		delitem 6240,5;
+		delitem 6292,2;
+		getitem 13101,1;
+		set judgeguns, judgeguns+1;
+		set wastelandrevolver,1;
+		close;
+		L_noitems:
+		mes "[Desert Judge]";
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if (arenaesicarius >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(6906) < 3) goto L_noitems2;
+		if(countitem(7360) < 150) goto L_noitems2;
+		emotion ET_SPARK;
+		mes "[Desert Judge]";
+		mes "So you think you're good enough to handle this gun? Ok then.";
+		next;
+		mes "[Desert Judge]";
+		mes "This revolver can take the life of an enemy in an instant. But it's a weapon, so it's still only as good as the person who wields it.";
+		next;
+		mes "[Desert Judge]";
+		mes "It is easily the best single action gun we have. I'm sure you will enjoy every shot from it.";
+		next;
+		mes "[Desert Judge]";
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 6906,3;
+		delitem 7360,150;
+		getitem 13106,1;
+		set judgeguns, judgeguns+1;
+		set arenaesicarius,1;
+		close;
+		L_noitems2:
+		mes "[Desert Judge]";
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Desert Judge]";
+		mes "I can craft you the Wasteland Revolver for:";
+		mes "^FF000010^000000 Oridecon.";//984
+		mes "^FF00005^000000 HD Oridecon.";//6240
+		mes "^FF00002^000000 Enriched Oridecon.";//6292
+		next;
+		mes "[Desert Judge]";
+		mes "I also can craft you the Arenae Sicarius for:";
+		mes "^FF00003^000000 Jewel Oridecon.";//6906
+		mes "^FF0000150^000000 Distortion Shards.";//7360
+		next;
+		mes "[Desert Judge]";
+		mes "You can only have one of each, so polish and improve your Wasteland Revolver and maybe you can have the Arenae Sicarius ok?";
+		close;
+		break;
+	case 4:
+		mes "[Desert Judge]";
+		mes "The weapons of a Judge are one of a kind. Make sure to take good care of them.";
+		close;
+		break;
+	}
+}
+
+prt_cas,311,268,2	script	Mountain Judge#secondweapon	10181,{
+	set .@npc$, "[Mountain Judge]";
+	mes .@npc$;
+	mes "I'm responsible for one of the royal arms of the Judges. I've been deployed on the mountains multiple times.";
+	next;
+	if (ignisdivina >= 1 && longrevolver >=1) {
+	mes .@npc$;
+	mes "Are you taking good care of your weapon? I really hope you are.";
+	close;
+	}
+	mes .@npc$;
+	mes "I can provide you with our Long Reach Revolvers, you can make a <ITEM>Long Revolver<INFO>13102</INFO></ITEM>";
+	next;
+	mes .@npc$;
+	mes "Or if you're a hotshot, the <ITEM>Ignis Divina<INFO>13107</INFO></ITEM> will be a fancy option, as long as you always polished your Long Revolver, of course. ";
+	next;
+	switch(select("I want the Long Revolver:I want the Ignis Divina:What do I need to get them?:Nevermind.")) {
+	case 1:
+		if (longrevolver >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(984) < 5) goto L_noitems;
+		if(countitem(6240) < 10) goto L_noitems;
+		if(countitem(6292) < 3) goto L_noitems;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Very well... this weapon is a perfect design. Take good care of it. It's unique to you.";
+		next;
+		mes .@npc$;
+		mes "This gun may seem small, but the hammer has such a powerful kick...It will make sure its bullets reach the enemies.";
+		next;
+		mes .@npc$;
+		mes "It's barrel has a very unique property, making it perfect for shots to hit fast, and hard...";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 984,5;
+		delitem 6240,10;
+		delitem 6292,3;
+		getitem 13102,1;
+		set judgeguns, judgeguns+1;
+		set longrevolver,1;
+		close;
+		L_noitems:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if (ignisdivina >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(14704) < 5) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "So you think you're good enough to handle this gun? Ok then.";
+		next;
+		mes .@npc$;
+		mes "This revolver has outstanding reach. You can hit any enemies that might consider sniping you, or fleeing.";
+		next;
+		mes .@npc$;
+		mes "It's the best of its category. It can match a rifle, without the issues of being bulky and big.";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 14704,5;
+		getitem 13107,1;
+		set judgeguns, judgeguns+1;
+		set ignisdivina,1;
+		close;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "I can craft you the Long Revolver for:";
+		mes "^FF00005^000000 Oridecon.";//984
+		mes "^FF000010^000000 HD Oridecon.";//6240
+		mes "^FF00003^000000 Enriched Oridecon.";//6292
+		next;
+		mes .@npc$;
+		mes "I also can craft you the Ignis Divina for:";
+		mes "^FF00005^000000 MVP Prize Box.";//14704
+		next;
+		mes .@npc$;
+		mes "You can only have one of them, so take good care of your Long Revolver and maybe someday you can have the Ignis Divina.";
+		close;
+		break;
+	case 4:
+		mes .@npc$;
+		mes "The weapons of a Judge are one of a kind. Make sure to take good care of them.";
+		close;
+		break;
+	}
+}
+
+prt_cas,317,260,0	script	Forest Judge#thirdweapon	10181,{
+	set .@npc$, "[Forest Judge]";
+	mes .@npc$;
+	mes "I'm responsible for one of the royal arms of the Judges. I've been deployed on the forests multiple times.";
+	next;
+	if (aurummandatum >= 1 && darksteelrevolver >=1) {
+	mes .@npc$;
+	mes "Are you taking good care of your weapon? I really hope you are.";
+	close;
+	}
+	mes .@npc$;
+	mes "I can provide you with our Piercing Revolvers, you can make a <ITEM>Darksteel Revolver<INFO>13103</INFO></ITEM>";
+	next;
+	mes .@npc$;
+	mes "Or if you prefer a more aggressive style, the <ITEM>Aurum Mandatum<INFO>13108</INFO></ITEM> will be a strong one, as long as you know how to handle your Darksteel Revolver, of course. ";
+	next;
+	switch(select("I want the Darksteel Revolver:I want the Aurum Mandatum:What do I need to get them?:Nevermind.")) {
+	case 1:
+		if (darksteelrevolver >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(984) < 3) goto L_noitems;
+		if(countitem(6240) < 15) goto L_noitems;
+		if(countitem(6292) < 5) goto L_noitems;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Very well... this weapon is has a beautiful design. Take good care of it. It's a masterwork for you.";
+		next;
+		mes .@npc$;
+		mes "This gun has a unique cannon engraving. The bullets spin faster when shot, allowing for piercing properties.";
+		next;
+		mes .@npc$;
+		mes "You can hit even the hardest defenses with big impact...all while keeping style.";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 984,3;
+		delitem 6240,15;
+		delitem 6292,5;
+		getitem 13103,1;
+		set judgeguns, judgeguns+1;
+		set darksteelrevolver,1;
+		close;
+		L_noitems:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if (aurummandatum >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(984) < 10) goto L_noitems2;
+		if(countitem(7615) < 3) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "So you think you're skilled enough to handle this gun? Ok then.";
+		next;
+		mes .@npc$;
+		mes "This revolver can destroy your enemies. No protection is good enough against it.";
+		next;
+		mes .@npc$;
+		mes "It's literally unstoppable. As long as you have the skill to hit your mark and control it's recoil, It's a monster!";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 984,10;
+		delitem 7615,3;
+		getitem 13108,1;
+		set judgeguns, judgeguns+1;
+		set aurummandatum,1;
+		close;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "I can craft you the Darksteel Revolver for:";
+		mes "^FF00003^000000 Oridecon.";//984
+		mes "^FF000015^000000 HD Oridecon.";//6240
+		mes "^FF00005^000000 Enriched Oridecon.";//6292
+		next;
+		mes .@npc$;
+		mes "I also can craft you the Aurum Mandatum for:";
+		mes "^FF000010^000000 Oridecon.";//984
+		mes "^FF00003^000000 MVP Shards.";//7615
+		next;
+		mes .@npc$;
+		mes "You can only have one of them, so take good care of your Darksteel Revolver and you may craft the Aurum Mandatum someday.";
+		close;
+		break;
+	case 4:
+		mes .@npc$;
+		mes "The weapons of a Judge are one of a kind. Make sure to take good care of them.";
+		close;
+		break;
+	}
+}
+
+prt_cas,328,279,2	script	Distortion Judge#fourthweapon	10181,{
+	set .@npc$, "[Distortion Judge]";
+	mes .@npc$;
+	mes "I'm responsible for one of the royal arms of the Judges. I've been deployed on the temporal distortions multiple times.";
+	next;
+	if (iudexdracoarma >= 1 && blessedrevolver >=1) {
+	mes .@npc$;
+	mes "Are you taking good care of your weapon? I really hope you are, It's the best we have to offer.";
+	close;
+	}
+	mes .@npc$;
+	mes "I can provide you with our Power Revolvers, you can make a <ITEM>Blessed Revolver<INFO>13104</INFO></ITEM>";
+	next;
+	mes .@npc$;
+	mes "Or if you prefer a more antique style, the <ITEM>Iudex Draco Arma<INFO>13109</INFO></ITEM> will be a iconic one, if you take care of your Blessed Revolver to your best. ";
+	next;
+	switch(select("I want the Blessed Revolver:I want the Iudex Draco Arma:What do I need to get them?:Nevermind.")) {
+	case 1:
+		if (blessedrevolver >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(7360) < 100) goto L_noitems;
+		if(countitem(6292) < 5) goto L_noitems;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Very well... The strongest revolver a Judge can ever put his hands on...That I know of.";
+		next;
+		mes .@npc$;
+		mes "This gun can ensure your bullets completely cover the area. The amount of energy it has is unmatched.";
+		next;
+		mes .@npc$;
+		mes "You can attack any enemies who are stupid enough to surround you.";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 7360,100;
+		delitem 6292,5;
+		getitem 13104,1;
+		set judgeguns, judgeguns+1;
+		set blessedrevolver,1;
+		close;
+		L_noitems:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		if (iudexdracoarma >=1 ){
+		mes .@npc$;
+		mes "You already have one of these. Try not to lose or break it.";
+		close;
+		}
+		if(countitem(6906) < 10) goto L_noitems2;
+		if(countitem(14704) < 20) goto L_noitems2;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "So you think you're powerful enough to handle this gun? Ok then.";
+		next;
+		mes .@npc$;
+		mes "This revolver breaks the limits of known crafts. It can bring so much power that few Judges have ever seen it in use, don't even think about USING it!";
+		next;
+		mes .@npc$;
+		mes "It's my life's work to bring any of these to life!I hope you know that now, you are above any others in pure power.";
+		next;
+		mes .@npc$;
+		mes "And... there we go! It's done! Take good care of it!";
+		delitem 6906,10;
+		delitem 14704,20;
+		getitem 13109,1;
+		set judgeguns, judgeguns+1;
+		set iudexdracoarma,1;
+		close;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please check your items. You do not have everything needed with you.";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+		mes .@npc$;
+		mes "I can craft you the Blessed Revolver for:";
+		mes "^FF0000100^000000 Distortion Shards.";//7360
+		mes "^FF00005^000000 Enriched Oridecon.";//6292
+		next;
+		mes .@npc$;
+		mes "I also can craft you the Iudex Draco Arma for:";
+		mes "^FF000010^000000 Jewel Oridecon.";//6906
+		mes "^FF000020^000000 MVP Prize Box.";//14704
+		next;
+		mes .@npc$;
+		mes "You can only have one of them, so take good care of your Blessed Revolver and if you're really good, someday you'll get the Iudex Draco Arma.";
+		close;
+		break;
+	case 4:
+		mes .@npc$;
+		mes "The weapons of a Judge are one of a kind. Make sure to take good care of them.";
+		close;
+		break;
+	}
+}

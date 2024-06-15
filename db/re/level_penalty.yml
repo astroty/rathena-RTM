@@ -36,64 +36,76 @@ Body:
   - Type: Exp
     LevelDifferences:
       - Difference: 16
-        Rate: 40
+        Rate: 1
       - Difference: 15
-        Rate: 115
+        Rate: 130
       - Difference: 14
-        Rate: 120
+        Rate: 127
       - Difference: 13
-        Rate: 125
+        Rate: 124
       - Difference: 12
-        Rate: 130
+        Rate: 121
       - Difference: 11
-        Rate: 135
+        Rate: 118
       - Difference: 10
-        Rate: 140
-      - Difference: 9
-        Rate: 135
-      - Difference: 8
-        Rate: 130
-      - Difference: 7
-        Rate: 125
-      - Difference: 6
-        Rate: 120
-      - Difference: 5
         Rate: 115
+      - Difference: 9
+        Rate: 112
+      - Difference: 8
+        Rate: 109
+      - Difference: 7
+        Rate: 106
+      - Difference: 6
+        Rate: 103
+      - Difference: 5
+        Rate: 100
       - Difference: 4
-        Rate: 110
+        Rate: 100
       - Difference: 3
-        Rate: 105
-      - Difference: -6
-        Rate: 95
-      - Difference: -11
-        Rate: 90
-      - Difference: -16
+        Rate: 100
+      - Difference: 2
+        Rate: 100
+      - Difference: 1
+        Rate: 100
+      - Difference: -1
+        Rate: 100
+      - Difference: -2
+        Rate: 100
+      - Difference: -3
+        Rate: 100
+      - Difference: -4
         Rate: 85
-      - Difference: -21
-        Rate: 60
-      - Difference: -26
-        Rate: 35
-      - Difference: -31
+      - Difference: -5
+        Rate: 70   
+      - Difference: -6
+        Rate: 55
+      - Difference: -7
+        Rate: 40
+      - Difference: -8
+        Rate: 25
+      - Difference: -9
         Rate: 10
+      - Difference: -10
+        Rate: 1
   - Type: Drop
     LevelDifferences:
       - Difference: 16
-        Rate: 50
+        Rate: 100
       - Difference: 13
-        Rate: 60
+        Rate: 100
       - Difference: 10
-        Rate: 70
+        Rate: 100
       - Difference: 7
-        Rate: 80
+        Rate: 100
       - Difference: 4
-        Rate: 90
+        Rate: 100
       - Difference: -4
-        Rate: 90
+        Rate: 100
       - Difference: -7
-        Rate: 80
+        Rate: 100
       - Difference: -10
-        Rate: 70
+        Rate: 100
       - Difference: -13
-        Rate: 60
+        Rate: 100
       - Difference: -16
-        Rate: 50
+        Rate: 100

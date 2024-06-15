@@ -1,0 +1,544 @@
+va_orpha,301,369,4	script	Mr Kim#orphanage	10006 ,{
+	mes "[Mr Kim]";
+	mes "Hello! I'm Mr Kim! A Rich man!";
+	next;
+	emotion ET_MONEY;
+	mes "[Mr Kim]";
+	mes "I can help you with the use of special headgears that cost Cash Points in original PRM!";
+	next;
+	switch(select("Open The Shops:Removed:No Thanks.")) {
+	case 1:
+	switch(select("5.000 Costumes:10.000 Costumes:15.000 Costumes:Monthly Costumes:Job Costumes:Astrologika Costumes:Special Items: Nevermind.")) {
+	case 1:	
+	mes "[Mr Kim]";
+	mes "Very well! Spend with care and don't overdo it!";
+	close2;
+	callshop "cashshop5000",1;
+	end;
+	break;
+	case 2:	
+	mes "[Mr Kim]";
+	mes "Very well! Spend with care and don't overdo it!";
+	close2;
+	callshop "cashshop10000",1;
+	end;
+	break;
+	case 3:	
+	mes "[Mr Kim]";
+	mes "Very well! Spend with care and don't overdo it!";
+	close2;
+	callshop "cashshop15000",1;
+	end;
+	break;
+	case 4:	
+	mes "[Mr Kim]";
+	mes "Very well! Every month a cheap cool item!";
+	close2;
+	callshop "cashshopmonthly",1;
+	end;
+	break;
+	case 5:	
+	mes "[Mr Kim]";
+	mes "Very well! They can be worn by any job at any level!";
+	close2;
+	callshop "cashshopjobs",1;
+	end;
+	break;
+	case 6:	
+	mes "[Mr Kim]";
+	mes "Very well! They can be worn by any job at any level!";
+	close2;
+	callshop "cashshopastro",1;
+	end;
+	break;
+	case 7:	
+	mes "[Mr Kim]";
+	mes "Very well! These items are very special!";
+	close2;
+	callshop "cashshopspecial",1;
+	end;
+	break;
+	}
+	case 2:
+	close;
+	case 3:
+	mes "[Mr Kim]";
+	mes "Take Care!";
+	close;
+			
+	}
+}
+
+-	shop	cashshop5000	-1,31209:5000,31250:5000,20171:5000,20335:5000,20043:5000,31766:5000,31047:5000,19692:5000,20379:5000,31308:5000,31398:5000,19602:5000,19603:5000,19604:5000.
+-	shop	cashshop10000	-1,31660:10000,31203:10000,31645:10000,31646:10000,31647:10000,31648:10000,31650:10000,31653:10000,31655:10000,31045:10000,31959:10000,19882:10000,20237:10000,5410:10000,31850:10000,19758:10000,20450:10000,31150:10000,20185:10000,20278:10000,20451:10000.
+-	shop	cashshop15000	-1,31731:15000,31620:15000,410056:15000,31651:15000,31652:15000,31654:15000,31656:15000,31798:15000,20349:15000,20305:15000,20010:15000,31930:15000,420016:15000,440002:15000,19947:15000,31040:15000,21207:15000,19775:15000,31588:15000,20459:15000,20440:15000,31577:15000.
+-	shop	cashshopmonthly	-1,31512:10000,19910:10000,31772:10000,20195:15000,20404:15000,20116:15000,31315:15000.
+-	shop	cashshopspecial	-1,19999:10000,12790:15000,20011:50000,9072:50000,9119:20000,9118:20000.
+-	shop	cashshopastro	-1,29999:10000,29998:15000,29997:10000,29996:15000,29995:10000,29994:15000,29993:10000,29992:15000,29991:10000,29990:15000,29989:10000,29988:15000,29987:10000,29986:15000,29985:10000,29984:15000,29983:10000,29982:15000.
+-	shop	cashshopjobs	-1,14677:20000,14678:20000,14679:20000,31856:20000,31857:20000,31858:20000,31859:20000,31860:20000,31861:20000,31862:20000,31863:20000,31864:20000,31865:20000,31866:20000,31867:20000,31868:20000,31869:20000,31870:20000,31871:20000,31872:20000,31873:20000.
+
+va_orpha,305,369,4	script	Mr Kim's Helper#orphanage	612 ,{
+	mes "[Mr Kim's Helper]";
+	mes "Hello! I can help you preview any costume sold by Mr Kim!";
+	next;
+	mes "[Mr Kim's Helper]";
+	mes "You will receive a rental version that lasts 30 seconds!";
+	close2;
+	emotion ET_BEST;
+	switch(select("5.000 Costumes:10.000 Costumes:15.000 Costumes:Monthly/Special Costumes:Job Costumes:Astrologika Costumes:Nevermind.")) {
+	case 1:
+		switch(select("Straight Long(White):Beast Ears:Sepia Cap:Watery Eyes:Cherryblossom in Mouth:Peony Hair Ornament:First Love Cheek:Antique Pipe:Pocketwatch Hair Ornament:Protect Feathers:Blinking Thin Eyes")) {
+		case 1:
+		rentitem 31209,30;
+		end;
+		case 2:
+		rentitem 31250,30;
+		end;
+		case 3:
+		rentitem 20171,30;
+		end;
+		case 4:
+		rentitem 20335,30;
+		end;
+		case 5:
+		rentitem 20043,30;
+		end;
+		case 6:
+		rentitem 31766,30;
+		end;
+		case 7:
+		rentitem 31047,30;
+		end;
+		case 8:
+		rentitem 19692,30;
+		end;
+		case 9:
+		rentitem 20379,30;
+		end;
+		case 10:
+		rentitem 31308,30;
+		end;
+		case 11:
+		rentitem 31398,30;
+		end;	
+		}		
+	case 2:
+		switch(select("Black Valkyrie:Charcoal Stove:Doctore Hat:Doctore Mask:Carnivale Hat:Carnivale Cape:Smug Ears:Loyal Muffler:Classic Valkyrie:Blue Rear Ribbon:Firm Wave Hair(Black):Flowerpot Mask:Pink Beanie:Hat of Reject:Crown of Faithful Faith:Indomitable Crown:Gram Peony:Shalosh Headdress:Fashionable Glasses:Man's Medal:Sky of Memory")) {
+		case 1:
+		rentitem 31660,30;
+		end;
+		case 2:
+		rentitem 31203,30;
+		end;
+		case 3:
+		rentitem 31645,30;
+		end;
+		case 4:
+		rentitem 31646,30;
+		end;
+		case 5:
+		rentitem 31647,30;
+		end;
+		case 6:
+		rentitem 31648,30;
+		end;
+		case 7:
+		rentitem 31650,30;
+		end;
+		case 8:
+		rentitem 31653,30;
+		end;
+		case 9:
+		rentitem 31655,30;
+		end;
+		case 10:
+		rentitem 31045,30;
+		end;
+		case 11:
+		rentitem 31959,30;
+		end;
+		case 12:
+		rentitem 19882,30;
+		end;
+		case 13:
+		rentitem 20237,30;
+		end;
+		case 14:
+		rentitem 5410,30;
+		end;
+		case 15:
+		rentitem 31850,30;
+		end;
+		case 16:
+		rentitem 19758,30;
+		end;
+		case 17:
+		rentitem 20450,30;
+		end;
+		case 18:
+		rentitem 31150,30;
+		end;
+		case 19:
+		rentitem 20185,30;
+		end;
+		case 20:
+		rentitem 20278,30;
+		end;
+		case 21:
+		rentitem 20451,30;
+		end;
+		}
+	case 3:
+		switch(select("Sweets Party:Magic Successor:Poulet:Black Cupid:Rodent Squire:Valhalla Guardian:Master Loki Scarf:Baby Panda:Flying Galapago:Nettie Heart Bubble Gum:Rainbow Feather Ears:Standing Mic:Amulet Paper Doll:Happy Cat:Agent of Darkness:Magical Feather:Bull Mask:First Manteau:Snowflake on Head:Valhalla Idol:Gold Tones:Chicken Hat")) {
+		case 1:
+		rentitem 31731,30;
+		end;
+		case 2:
+		rentitem 31620,30;
+		end;
+		case 3:
+		rentitem 410056,30;
+		end;
+		case 4:
+		rentitem 31651,30;
+		end;
+		case 5:
+		rentitem 31652,30;
+		end;
+		case 6:
+		rentitem 31654,30;
+		end;
+		case 7:
+		rentitem 31656,30;
+		end;
+		case 8:
+		rentitem 31798,30;
+		end;
+		case 9:
+		rentitem 20349,30;
+		end;
+		case 10:
+		rentitem 20305,30;
+		end;
+		case 11:
+		rentitem 20010,30;
+		end;
+		case 12:
+		rentitem 31930,30;
+		end;
+		case 13:
+		rentitem 420016,30;
+		end;
+		case 14:
+		rentitem 440002,30;
+		end;
+		case 15:
+		rentitem 19947,30;
+		end;
+		case 16:
+		rentitem 31040,30;
+		end;
+		case 17:
+		rentitem 21207,30;
+		end;
+		case 18:
+		rentitem 19775,30;
+		end;
+		case 19:
+		rentitem 31588,30;
+		end;
+		case 20:
+		rentitem 20459,30;
+		end;
+		case 21:
+		rentitem 20440,30;
+		end;
+		case 22:
+		rentitem 31577,30;
+		end;
+		}
+	case 4:
+		switch(select("Last Mark Crown:Honor of Batata:Blessing of Angel:Mermaid Headphones:Angel Stall:Scratching Cat:Halloween Hat:Halloween Collar:Panda Rabbit")) {
+		case 1:
+		rentitem 20011,30;
+		end;
+		case 2:
+		rentitem 19999,30;
+		end;
+		case 3:
+		rentitem 20404,30;
+		end;
+		case 4:
+		rentitem 20116,30;
+		end;
+		case 5:
+		rentitem 31315,30;
+		end;
+		case 6:
+		rentitem 20195,30;
+		end;
+		case 7:
+		rentitem 19910,30;
+		end;
+		case 8:
+		rentitem 31772,30;
+		end;
+		case 9:
+		rentitem 31512,30;
+		end;
+		}
+	case 5:
+		switch(select("Ronin:Peacekeeper:Mimic:Prowler:Shadowseer:Dracomancer:Illusionist:Dark Knight:Judge:Unchained:Jester:Legend:Revenant:Night Raven: Black Plague:Gravekeeper:Satsujin:Arcane Master:Blast Juggler:Sinner:Kingslayer")) {
+		case 1:
+		rentitem 14677,30;
+		end;
+		case 2:
+		rentitem 14678,30;
+		end;
+		case 3:
+		rentitem 14679,30;
+		end;
+		case 4:
+		rentitem 31856,30;
+		end;
+		case 5:
+		rentitem 31857,30;
+		end;
+		case 6:
+		rentitem 31858,30;
+		end;
+		case 7:
+		rentitem 31859,30;
+		end;
+		case 8:
+		rentitem 31860,30;
+		end;
+		case 9:
+		rentitem 31861,30;
+		end;
+		case 10:
+		rentitem 31862,30;
+		end;
+		case 11:
+		rentitem 31863,30;
+		end;
+		case 12:
+		rentitem 31864,30;
+		end;
+		case 13:
+		rentitem 31865,30;
+		end;
+		case 14:
+		rentitem 31866,30;
+		end;
+		case 15:
+		rentitem 31867,30;
+		end;
+		case 16:
+		rentitem 31868,30;
+		end;
+		case 17:
+		rentitem 31869,30;
+		end;
+		case 18:
+		rentitem 31870,30;
+		end;
+		case 19:
+		rentitem 31871,30;
+		end;
+		case 20:
+		rentitem 31872,30;
+		end;
+		case 21:
+		rentitem 31873,30;
+		end;
+		}
+	case 6:
+		switch(select("Orion Sun and Moon:Caelum Sun and Moon:Apus Sun and Moon:Cygnus Sun and Moon:Auriga Sun and Moon:Volan Sun and Moon:Lacerta Sun and Moon:Scutum Sun and Moon:Fornax Sun and Moon")) {
+		case 1:
+		rentitem 29999,30;
+		rentitem 29998,30;
+		end;
+		case 2:
+		rentitem 29997,30;
+		rentitem 29996,30;
+		end;
+		case 3:
+		rentitem 29995,30;
+		rentitem 29994,30;
+		end;
+		case 4:
+		rentitem 29993,30;
+		rentitem 29992,30;
+		end;
+		case 5:
+		rentitem 29991,30;
+		rentitem 29990,30;
+		end;
+		case 6:
+		rentitem 29989,30;
+		rentitem 29988,30;
+		end;
+		case 7:
+		rentitem 29987,30;
+		rentitem 29986,30;
+		end;
+		case 8:
+		rentitem 29985,30;
+		rentitem 29984,30;
+		end;
+		case 9:
+		rentitem 29983,30;
+		rentitem 29982,30;
+		end;
+		}
+	case 7:
+	mes "[Mr Kim's Helper]";
+	mes "Take Care!";
+	close;
+			
+	}
+	}
+	
+va_orpha,272,324,4	script	Honored Founders#donation	CLEAR_NPC,{
+	mes "^FF0000You can see a long list of names and a small plaque on top:^000000";
+	next;
+	mes "^FF0000Varmundt the Sage and Amadeus Windsor, will always be thankful for the first Orphans to arrive and assist me in building the Orphanage.^000000";
+	next;
+	switch(select("Leave:Read the list of Founders")) {
+	case 1:
+	emotion ET_THANKS, playerattached();
+	mes "After a short smile acknowledging the Founders, you go back to your usual afairs.";
+	close;
+	case 2:
+	mes "The List is pretty long...and split in sections about who did what work:";
+	next;
+	mes "^FF0000The Orphans who arrived first and made the dream come true:^000000";
+	mes "Calamidade the Dearest,  Kadaj the Challenger, Kureyto the Smoke, Kuroikami the Ghost.";
+	next;
+	mes "^FF0000The Orphans who took the first steps into the foundation of the Orphanage:^000000";
+	mes "Alemi the First, Jururu the Creative, Shinryu the Caretaker, Ktak the Cat, Vadhadon the Informed, Silverthundr the Calculator, Chugs the Lost, Sehlyn the Fast, Sinistar the Doom, Khiet the Returner";
+	next;
+	mes "^FF0000The Orphans who negotiated with the Thieves Guild for a safe location:^000000";
+	mes "Speev the Slow, Gryph the Honorable, Venaire the Honest, Azureyume the Comunicator, Yasiru the Gentleman, Smug Kot the Depraved, ArtemisDream the Quiet, EntropyTwo the Tahitian.";
+	next;
+	mes "^FF0000The Orphans who helped stabilize the distortion to make it safe:^000000";
+	mes "Wuicel the Silent, Selassie the Ninja, Lorenor the Supporter, Bo the Forgotten, Neidschel the Raven, Mullciber the Magister, Saintreem the Arrow, Scamp the Abandoner,Riry the Abandoned, DonaldGHorn, the Creator.";
+	next;
+	mes "^FF0000The Orphans that protected the gates of the Orphanage and faced enemies:^000000";
+	mes "Tonat the Gentle, Calleil the Believer, MuneSiriou the Distracted, Teto the Watcher, Kiel the Foreigner, Everdream the Double, Posh the Badie, Identify the Busy, Woobz the Clumsy, Rpd the Player.";
+	next;
+	mes "^FF0000The Orphans that assisted with the decorations and welcoming organization:^000000";
+	mes "Gooey the Hopeful, Faexys the Angry, Kayle the Artist, Kheera the Achiever, Agudon the Buyer, VitorDelacroix the Tester, Brandonowitz the Noble, Metallia the Focused, Nix the Hunter, Paski the Informed.";
+	next;
+	mes "^FF0000The Orphans that assisted with the facilities and kitchen:^000000";
+	mes "Demafogotto the Grateful, Light the Pharos, Logan the Cheerful, Draguno the Booster, Kit the Visitor, Alutte the Informer, TwilightsCall the Analyst, Jellopy the Guide, Jinsain the Thankful, 99ozMilk the Gamer.";
+	next;
+	mes "^FF0000The Orphans that found Iris and assisted with her magic:^000000";
+	mes "Anti Climex the Smart ,Alphan Blitzen the Stuck, Yoshi of Yellow the Buddy,Ouroboros the Changed, Red the Wrong, Abyss the Shadow, Chemz the Away, Artheus the Bold, Ramonzudo the Friendly, Literally Who the Mr.";
+	next;
+	mes "^FF0000The Orphans who would search for others over the world:^000000";
+	mes "Isinore the Sniper, Elith the Humble, Alastor the Mute, Ayrton Kunuma the Showman, Mick the Sage, Panda the Panda, G0ose the Wanderer, Phillifer the Thanksgiver, Rejkjavik the Named, Kihri the Discreet.";
+	next;
+	mes "^FF0000The Orphans that would make good relations with the Morroc civilians:^000000";
+	mes "Happy the Sad, Foggy the Quick Caster, SnooP OrO the Gordito, Hubnoz the Good, Soap the Clean, ZetsBR the Assistant, Sebi the Animated, MrKen the Scholar, Pablim the Traitor, Send the Reporter.";
+	next;
+	mes "^FF0000The Orphans that would help the staff keep the Orphanage running:^000000";
+	mes "Rekaris the Professional, Desmond the Invoker, PedroHilfiger the Merchant, Bubble Romance the Wisher, Lexi the Distant, RiceCakez the Beginner, Knny the Direct, Rupilink the Spanyard, Will the Poor.";
+	next;
+	mes "^FF0000The Orphans who fell in combat protecting the weak:^000000";
+	mes "Plenair the Brave, Cryptid the Cryptic, Veigaz0rd the Bomber, Arthorien the Fair, Leifon the Random, Phear the Dick, Tellezman the Laugher, GodSthufer the Suspect, Waerok the Fallen.";
+	next;
+	mes "^FF0000The Orphans who helped clean it all:^000000";
+	mes "Nid Rich Sugar Mama the Collector, Rafcakes the Killer, Mamotromico the Efficient, Kevin the Bird, Adrianuk the Unseen, Biel Thor the Fighter, Nenfz the Joker, Noirua the Gargoyle, Pie Soreveign the Last.";
+	next;
+	mes "^FF0000The one who set the first and last stone:^000000";
+	mes "Ornstein, the Developer.";
+	close;	
+}
+}
+
+// Halloween Event NPCs
+
+//Halloween Prize Box - 2 items from below
+
+function	script	HalloweenBox	{
+	setarray .BoxItems[0],984,985,6240,6241,6292,6291,25729,6224,12298;
+	set .Random, getarraysize( .BoxItems );
+	getitem .BoxItems[ rand( .Random ) ], 1;
+	end;
+}
+
+nif_fild01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+niflheim,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+nif_fild02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+gef_dun00,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+gef_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+gef_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+nif_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+nif_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+nif_cas01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+nif_cas02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+moc_prydb1,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+
+-	itemshop	halloweenshop	-1,6657,14503:1,20394:3,31853:5,31120:10,19903:20,31121:25,20174:50.
+
+va_orpha,272,367,4	script	Jack O'Morroc#halloween	10015,{
+	
+	cutin "morrocjakk.png",2;
+	set .@npc$, "[Jack O'Morroc]";
+	mes .@npc$;
+	mes "Hey there Cursed One! I'm taking a break around this FAAANCYYY place~~";
+	next;
+	mes .@npc$;
+	mes "~I've been looking for some coins... The  <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. I'll give you some cool Emblems for those! ";
+	next;
+	if (halloweenfree ==0){
+		emotion ET_SPARK;
+		mes "[Jack O'Morroc]";
+		mes "Take this as a token of my faith in your hunting skills! They allow you to collect those! Now go get me some coins!";
+		getitem 31771,1;
+		set halloweenfree, 1;
+		emotion ET_SPARK;
+		close2;
+		cutin "",255;
+		end;
+	}
+	switch(select("I want to deliver 100 coins.:Show me the Emblem rewards.:Nevermind.")) {
+	case 1:
+	if(countitem(6658) < 100) goto L_noitems;
+	emotion ET_SPARK;
+	mes .@npc$;
+	mes "Excelennnnntt~~~Now go get more Coins before I bite your head off! Hehehehe!";
+	mes "So far, I gave-away "+$jackfill+" Emblems! Can you guys get to 5.000?";
+	set $jackfill,$jackfill+1;
+	delitem 6658,100;
+	getitem 6657,1;
+	specialeffect2 845;
+	close2;
+	cutin "",255;
+	end;
+	L_noitems:
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "You don't have <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. Come oooon~~";
+		close2;
+		cutin "",255;
+		end;
+	case 2:
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "These items are pretty great! Take a look!";
+	close2;
+	cutin "",255;
+	callshop "halloweenshop",1;
+	break;
+	case 3:
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Come back anytime... HYAHAHAHAHA~~";
+	close2;
+	cutin "",255;
+	break;
+}
+}

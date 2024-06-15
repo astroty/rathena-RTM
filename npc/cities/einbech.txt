@@ -203,18 +203,18 @@ einbech,39,215,5	script	Train Station Staff#ein3	852,{
 	mes "the Train Station.";
 	mes "The fare to take the";
 	mes "train to Einbroch is";
-	mes "200 zeny. Would";
+	mes "500 zeny. Would";
 	mes "you like to ride?";
 	next;
 	switch(select("Yes.:No.")) {
 	case 1:
-		if (Zeny > 199) {
+		if (Zeny > 499) {
 			mes "[Staff]";
 			mes "Thank you and";
 			mes "we hope you enjoy";
 			mes "the ride. All aboard!";
 			close2;
-			set Zeny, Zeny-200;
+			set Zeny, Zeny-500;
 			warp "einbroch",226,276;
 			end;
 		}
@@ -793,19 +793,6 @@ einbech,148,242,5	script	Jung#ein	855,{
 			mes "you even notice...";
 			next;
 			mes "[Jung]";
-			mes "You should know that";
-			mes "Noxious is Ghost property";
-			mes "and Venomous is Poison.";
-			mes "Both are medium sized,";
-			mes "formless monsters.";
-			next;
-			mes "[Jung]";
-			mes "Both of them drop Apple,";
-			mes "Dust Pollutant, Toxic Gas,";
-			mes "Poisonous Powder, Bacillus,";
-			mes "Mold Powder and Anodyne.";
-			next;
-			mes "[Jung]";
 			mes "That's all for now.";
 			mes "Feel free to ask me";
 			mes "if you have any questions";
@@ -814,7 +801,7 @@ einbech,148,242,5	script	Jung#ein	855,{
 			close;
 		case 2:
 			mes "[Jung]";
-			mes "Pollcellio is an insect that";
+			mes "Porcellio is an insect that";
 			mes "lives in caves and drinks water";
 			mes "dripped from stalactites. It's";
 			mes "different from Ungoliant since";
@@ -822,14 +809,7 @@ einbech,148,242,5	script	Jung#ein	855,{
 			mes "kinds of minerals and ores.";
 			next;
 			mes "[Jung]";
-			mes "Pollcellio drops Jubilee,";
-			mes "Insect Antenna, Single Cell,";
-			mes "Moss of Morning Dew, Neon";
-			mes "Liquid and a few other things";
-			mes "I can't quite remember.";
-			next;
-			mes "[Jung]";
-			mes "Lastly, Pollcellio is an";
+			mes "Lastly, Porcellio is an";
 			mes "Earth property monster.";
 			mes "That's all I know about it.";
 			mes "But if you want to know more";
@@ -847,13 +827,6 @@ einbech,148,242,5	script	Jung#ein	855,{
 			next;
 			mes "[Jung]";
 			mes "Supposedly, just a piece of an Obsidian in a Jung Processor has enough energy to light up the night sky. Unfortunately, it's impossible to capture one alive and hunting them isn't so easy.";
-			next;
-			mes "[Jung]";
-			mes "Obsidian is a small,";
-			mes "shapeless monster that";
-			mes "drops Clear Jewel, Piece of";
-			mes "Black Crystal, Coal, Elunium,";
-			mes "Iron and Steel.";
 			next;
 			mes "[Jung]";
 			mes "That's all for Obsidian.";
@@ -942,11 +915,7 @@ einbech,148,246,5	script	Franz#ein	851,{
 			next;
 			mes "[Franz]";
 			mes "Now, an adventurer that";
-			mes "managed to kill an Ungoliant";
-			mes "has told me that it drops Ant's";
-			mes "Jaw, Colorful Shell, Very Hard";
-			mes "Shell, Long Leg, Neon Liquid";
-			mes "and Zilcon.";
+			mes "managed to kill an Ungoliant also found a different Jewel Ungoliant in the snow fields. Crazy eh?";
 			close;
 		case 2:
 			mes "[Franz]";

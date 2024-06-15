@@ -111,7 +111,6 @@ izlude_c	mapflag	restricted	7
 izlude_d	mapflag	restricted	7
 malangdo	mapflag	restricted	7
 malaya	mapflag	restricted	7
-mora	mapflag	restricted	7
 lasagna	mapflag	restricted	7
 
 // Restricted maps for WOE:TE Items ==

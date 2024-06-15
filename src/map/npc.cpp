@@ -165,6 +165,17 @@ int npc_isnear_sub(struct block_list* bl, va_list args) {
 
 	return 1;
 }
+int npc_warp_isnear_sub(struct block_list* bl, va_list args) {
+    struct npc_data *nd = (struct npc_data*)bl;
+
+    if (nd->sc.option & (OPTION_HIDE|OPTION_INVISIBLE))
+        return 0;
+
+	if (nd->subtype == NPCTYPE_WARP)
+		return 1;
+
+	return 0;
+}
 
 bool npc_isnear(struct block_list * bl) {
 
@@ -2124,6 +2135,7 @@ static int npc_selllist_sub(struct map_session_data* sd, int n, unsigned short* 
 	char option_id[NAME_LENGTH], option_val[NAME_LENGTH], option_param[NAME_LENGTH];
 	int i, j;
 	int key_nameid = 0;
+	int key_idx = 0;
 	int key_amount = 0;
 	int key_refine = 0;
 	int key_attribute = 0;
@@ -2164,6 +2176,7 @@ static int npc_selllist_sub(struct map_session_data* sd, int n, unsigned short* 
 		int idx = item_list[i * 2] - 2;
 
 		script_setarray_pc( sd, "@sold_nameid", i, sd->inventory.u.items_inventory[idx].nameid, &key_nameid );
+		script_setarray_pc(sd, "@sold_idx", i, idx, &key_idx);
 		script_setarray_pc( sd, "@sold_quantity", i, item_list[i*2+1], &key_amount );
 
 		if( itemdb_isequip(sd->inventory.u.items_inventory[idx].nameid) )

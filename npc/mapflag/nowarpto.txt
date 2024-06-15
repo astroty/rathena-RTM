@@ -130,8 +130,6 @@ bat_a02	mapflag	nowarpto
 mid_campin	mapflag	nowarpto
 man_fild01	mapflag	nowarpto
 man_fild03	mapflag	nowarpto
-spl_fild02	mapflag	nowarpto
-spl_fild03	mapflag	nowarpto
 moc_fild22b	mapflag	nowarpto
 que_dan01	mapflag	nowarpto
 que_dan02	mapflag	nowarpto
@@ -145,7 +143,6 @@ manuk	mapflag	nowarpto
 man_fild02	mapflag	nowarpto
 man_in01	mapflag	nowarpto
 splendide	mapflag	nowarpto
-spl_fild01	mapflag	nowarpto
 spl_in01	mapflag	nowarpto
 
 //Orc's Memory ===================

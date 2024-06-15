@@ -26,7 +26,7 @@ struct status_change;
  * Max Refine available to your server
  **/
 #ifdef RENEWAL
-#	define MAX_REFINE 20
+#	define MAX_REFINE 10
 #else
 #	define MAX_REFINE 10
 #endif
@@ -154,7 +154,7 @@ enum sc_type : int16 {
 	SC_CONFUSION,
 	SC_BLIND,
 	SC_BLEEDING,
-	SC_DPOISON, //10
+	SC_BLESSING, //10
 	SC_COMMON_MAX = 10, // end
 
 	//Next up, we continue on 20, to leave enough room for additional "common" ailments in the future.
@@ -168,7 +168,7 @@ enum sc_type : int16 {
 	SC_POISONREACT,
 	SC_QUAGMIRE,
 	SC_ANGELUS,
-	SC_BLESSING, //30
+	SC_DPOISON, //30
 	SC_SIGNUMCRUCIS,
 	SC_INCREASEAGI,
 	SC_DECREASEAGI,
@@ -2960,6 +2960,13 @@ unsigned short status_base_matk_min(struct block_list *bl, const struct status_d
 unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level);
 #endif
 
+#ifdef RENEWAL_ASPD
+short status_calc_aspd(struct block_list* bl, struct status_change* sc, bool fixed);
+int status_base_amotion_pc(struct map_session_data* sd, struct status_data* status);
+#endif
+short status_calc_fix_aspd(struct block_list* bl, struct status_change* sc, int);
+
+short status_calc_aspd_rate(struct block_list*, struct status_change*, int);
 unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level);
 
 void initChangeTables(void);

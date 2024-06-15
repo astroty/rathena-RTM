@@ -18,15 +18,14 @@
 //==================================================
 // ayo_dun01 - Ancient Shrine Maze
 //==================================================
-ayo_dun01,0,0	monster	Leaf Cat	1586,104,5000
-ayo_dun01,0,0	monster	Ghoul	1036,48,5000
-ayo_dun01,0,0	monster	Whisper	1179,16,5000
-ayo_dun01,0,0	monster	Kraben	1587,8,5000
+ayo_dun01,0,0	monster	Gremlin	1632,50,5000
+ayo_dun01,0,0	monster	Tamruan	1584,20,5000
+ayo_dun01,0,0	monster	Horong	1129,5,5000
 
 //==================================================
 // ayo_dun02 - Inside Ancient Shrine
 //==================================================
-ayo_dun02,0,0	monster	Tamruan	1584,116,5000
-ayo_dun02,0,0	monster	Whisper	1179,23,5000
-ayo_dun02,0,0	monster	Kraben	1587,23,5000
-ayo_dun02,150,90,15,30	boss_monster	Lady Tanee	1688,1,25200000,600000,0
+ayo_dun02,0,0	monster	Tamruan	1584,50,5000
+ayo_dun02,0,0	monster	Gremlin	1632,25,5000
+ayo_dun02,0,0	monster	Horong	1129,10,5000
+ayo_dun02,0,0,0,0	boss_monster	Amon Ra	1511,1,2700000,5400000,0

@@ -1,0 +1,503 @@
+//===== rAthena Script =======================================
+//= Custom Added Warps
+//===== By: ==================================================
+//= Me
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Warp Points for Orphanage and Etc
+//===== Additional Comments: =================================
+//= 1.0 First Version.
+//============================================================
+
+
+//=====Orphanage and Pyramids
+
+moc_prydb1,165,116,0	warp	guildruins	1,1,moc_ruins,41,134
+moc_prydb1,36,121,0	warp	orphanageoutin	1,1,va_orpha,272,273
+va_orpha,271,266,0	warp	orphanageinout	1,1,moc_prydb1,39,122
+va_orpha,366,289,0	warp	orphanage0001	1,1,va_orpha,14,255
+va_orpha,11,255,0	warp	orphanage0002	1,1,va_orpha,362,289
+va_orpha,301,328,0	warp	orphanage0003	1,1,va_orpha,361,193
+va_orpha,357,193,0	warp	orphanage0004	1,1,va_orpha,298,328
+va_orpha,40,8,0	warp	orphanage0005	1,1,va_orpha,255,349
+va_orpha,255,353,0	warp	orphanage0006	1,1,va_orpha,40,12
+va_orpha,202,370,0	warp	orphanage0007	1,1,va_orpha,376,103
+va_orpha,376,99,0	warp	orphanage0008	1,1,va_orpha,202,366
+va_orpha,350,361,0	warp	orphanage0009	1,1,va_orpha,280,193
+va_orpha,277,193,0	warp	orphanage0010	1,1,va_orpha,347,361
+va_orpha,40,106,0	warp	orphanage0011	1,1,va_orpha,212,165
+va_orpha,212,162,0	warp	orphanage0012	1,1,va_orpha,40,102
+va_orpha,295,99,0	warp	orphanage0013	1,1,va_orpha,314,367
+va_orpha,24,308,0	warp	orphanage0014	1,1,va_orpha,295,348
+va_orpha,295,353,0	warp	orphanage0015	1,1,va_orpha,24,311
+
+//Fields Connections New - Rachel
+
+grey_ft01,27,314,0	warp	greyft001	1,1,nomadvill,255,37
+nomadvill,260,34,0	warp	greyft002	1,1,grey_ft01,35,312
+grey_ft01,151,31,0	warp	greyft003	1,1,grey_ft02,121,375
+grey_ft02,121,382,0	warp	greyft004	1,1,grey_ft01,152,37 // MVP Spawn: Dark Rose Dragon -  245,72
+grey_ft01,380,270,0	warp	greyft005	1,1,ra_fild10,140,248
+ra_fild10,133,248,0	warp	greyft006	1,1,grey_ft01,375,270
+ra_fild10,385,297,0	warp	greyft007	1,1,ra_fild11,26,291
+rachel,27,126,0	warp	greyft008	1,1,ra_fild11,355,227
+ra_fild11,360,227,0	warp	greyft000	1,1,rachel,33,126
+ra_fild11,20,293,0	warp	greyft009	1,1,ra_fild10,380,297
+ra_fild11,201,336,0	warp	greyft010	1,1,ra_fild07,209,34
+ra_fild07,209,26,0	warp	greyft011	1,1,ra_fild11,201,329
+ra_fild11,231,29,0	warp	greyft012	1,1,ve_fild01,245,361
+ve_fild01,245,368,0	warp	greyft013	1,1,ra_fild11,229,35
+ra_fild07,165,356,0	warp	greyft014	1,1,ra_fild02,168,44
+ra_fild02,168,35,0	warp	greyft015	1,1,ra_fild07,166,347
+ra_fild02,372,273,0	warp	greyft016	1,1,ra_fild03,29,292
+ra_fild03,23,292,0	warp	greyft017	1,1,ra_fild02,365,267
+
+
+
+//Fields Connections New - Yuno
+yuno_fild04,43,369,0	warp	yunofld03	1,1,yuno_fild05,62,36
+yuno_fild05,61,30,0	warp	yunofld04	1,1,yuno_fild04,43,364
+yuno_fild06,40,320,0	warp	yunofld05	1,1,yuno_fild05,363,319
+yuno_fild05,367,321,0	warp	yunofld06	1,1,yuno_fild06,45,320
+
+//Fields Connections New - Veins
+ve_fild05,358,191,0	warp	veinsfld01	1,1,veins,75,145 // Secret Veins Passage
+veins,68,147,0	warp	veinsfld02	1,1,ve_fild05,349,193
+ve_fild05,203,331,0	warp	veinsfld03	1,1,ve_fild03,223,49
+ve_fild03,223,42,0	warp	veinsfld04	1,1,ve_fild05,203,326
+
+//Fields Connections New - Orc Village
+gef_fild14,373,219,0	warp	orcvils11	1,1,gef_fild10,32,218
+gef_fild10,26,219,0	warp	orcvils22	1,1,gef_fild14,368,219
+gef_fild14,180,359,0	warp	orcvils33	1,1,gef_fild13,193,31
+gef_fild13,199,25,0	warp	orcvils44	1,1,gef_fild14,180,352
+
+//Fields Connections New - Splendide // DONT FORGET TO FIX PAY_FILD01 > PAY_FILD10 ON MINIMAP
+cmd_fild03,238,382,0	warp	splcmd01	1,1,spl_fild03,105,40
+spl_fild03,102,34,0	warp	splcmd02	1,1,cmd_fild03,238,378
+spl_fild02,274,262,0	warp	splmora1	1,1,mora,177,75
+mora,182,75,0	warp	splmora2	1,1,spl_fild02,279,262
+gef_fild12,92,21,0	warp	splgef1	1,1,spl_fild01,128,375
+spl_fild01,128,380,0	warp	splgef2	1,1,gef_fild12,93,27
+gef_fild12,369,182,0	warp	gef121	1,1,gef_fild13,29,202
+gef_fild13,24,201,0	warp	gef122	1,1,gef_fild12,363,182
+gef_fild12,374,51,0	warp	gef123	1,1,gef_fild13,29,60
+gef_fild13,24,57,0	warp	gef124	1,1,gef_fild12,368,50
+gef_fild12,221,373,0	warp	gef125	1,1,gef_fild08,215,23
+gef_fild08,215,16,0	warp	gef126	1,1,gef_fild12,220,367
+
+//Fields Connections New - Payon Area
+pay_arche,149,85,0	warp	facepay1	1,1,face_dun01,28,73
+face_dun01,23,73,0	warp	facepay2	1,1,pay_arche,143,80
+
+//Fields Connections New - Snow Fields
+xmas,149,43,0	warp	snow001	1,1,snow_fild01,218,370
+snow_fild01,220,373,0	warp	snow002	1,1,xmas,149,48
+snow_fild01,103,57,0	warp	snow003	1,1,snow_fild03,85,358
+snow_fild03,85,364,0	warp	snow004	1,1,snow_fild01,103,62
+snow_fild01,373,232,0	warp	snow005	1,1,snow_fild02,36,262
+snow_fild02,32,262,0	warp	snow006	1,1,snow_fild01,369,231
+snow_fild02,165,373,0	warp	snow007	1,1,snow_fild04,69,30
+snow_fild04,69,25,0	warp	snow008	1,1,snow_fild02,165,367
+snow_fild02,139,42,0	warp	snow009	1,1,snow_fild05,71,368
+snow_fild05,71,373,0	warp	snow010	1,1,snow_fild02,139,48
+snow_fild04,150,281,0	warp	snow011	1,1,dicast_out,119,81
+dicast_out,119,79,0	warp	snow012	1,1,snow_fild04,149,275
+
+//Fields Connections New - Yggdrasil Fields
+ygg_fild01,305,65,0	warp	yggtree01	1,1,ygg_dun02,140,152
+yggdrasil01,249,262,0	warp	yggtree02	1,1,ygg_fild01,301,67
+ygg_fild01,161,354,0	warp	yggtree03	1,1,ygg_fild02,243,69
+ygg_fild02,246,64,0	warp	yggtree04	1,1,ygg_fild01,162,349
+
+//rachel sanctuary, move out from corner.
+ra_san01,234,45,0	warp	rasanexit	1,1,ra_temple,166,210
+
+//Distortion Connections New - Rachel Hidden Temple - Exit: ra_dun00 200,387
+ra_dun00,352,352,0	warp	radun001	1,1,ra_dun00,50,349
+ra_dun00,47,352,0	warp	radun002	1,1,ra_dun00,349,349
+ra_dun01,36,223,0	warp	radun003	1,1,ra_dun00,50,50
+ra_dun00,46,46,0	warp	radun004	1,1,ra_dun01,36,218
+ra_dun00,353,46,0	warp	radun005	1,1,ra_dun01,204,218
+ra_dun01,204,222,0	warp	radun006	1,1,ra_dun00,349,50
+ra_dun01,120,47,0	warp	radun007	1,1,ra_dun02,123,15
+ra_dun02,123,9,0	warp	radun008	1,1,ra_dun01,120,40
+
+//Distortion Connections New - Morroc Stuff
+moc_dun02,94,142,0	warp	mocdun007	1,1,moc_dun02,92,86
+moc_dun02,58,33,0	warp	mocdun008	1,1,moc_dun03,16,171
+moc_dun03,11,171,0	warp	mocdun009	1,1,moc_dun02,53,33
+moc_dun02,91,66,0	warp	mocdun010	1,1,moc_dun02,94,160
+moc_dun02,94,157,0	warp	mocdun011	1,1,moc_dun02,91,59
+moc_dun02,51,115,0	warp	mocdun012	1,1,moc_dun02,94,178
+moc_dun02,94,182,0	warp	mocdun013	1,1,moc_dun02,51,117
+moc_dun02,16,129,0	warp	mocdun014	1,1,moc_dun02,16,165
+moc_dun02,16,161,0	warp	mocdun015	1,1,moc_dun02,16,125
+moc_dun02,63,90,0	warp	mocdun016	1,1,moc_dun02,44,164
+moc_dun02,40,164,0	warp	mocdun017	1,1,moc_dun02,59,90
+moc_dun02,140,86,0	warp	mocdun018	1,1,moc_dun02,86,163
+moc_dun02,82,163,0	warp	mocdun019	1,1,moc_dun02,137,86
+moc_dun02,134,101,0	warp	mocdun020	1,1,moc_dun02,54,162
+moc_dun02,54,159,0	warp	mocdun021	1,1,moc_dun02,134,96
+moc_dun02,54,138,0	warp	mocdun022	1,1,moc_dun02,96,96
+moc_dun02,96,92,0	warp	mocdun023	1,1,moc_dun02,54,134
+moc_dun02,92,82,0	warp	mocdun024	1,1,moc_dun02,94,138
+moc_dun02,69,163,0	warp	mocdun025	1,1,moc_dun02,123,163
+moc_dun02,120,163,0	warp	mocdun026	1,1,moc_dun02,65,163
+moc_dun02,80,89,0	warp	mocdun027	1,1,moc_dun02,103,163
+moc_dun02,107,163,0	warp	mocdun028	1,1,moc_dun02,83,89
+moc_dun02,53,69,0	warp	mocdun029	1,1,moc_dun02,134,161
+moc_dun02,134,157,0	warp	mocdun030	1,1,moc_dun02,53,65
+moc_dun02,88,93,0	warp	mocdun031	1,1,moc_dun02,134,134
+moc_dun02,134,138,0	warp	mocdun032	1,1,moc_dun02,88,88
+moc_dun02,120,76,0	warp	mocdun033	1,1,moc_dun02,25,163
+moc_dun02,29,163,0	warp	mocdun034	1,1,moc_dun02,124,76
+moc_dun02,149,164,0	warp	mocdun035	1,1,moc_dun02,161,164
+moc_dun02,158,164,0	warp	mocdun036	1,1,moc_dun02,145,164
+moc_dun02,170,160,0	warp	mocdun037	1,1,moc_dun02,170,127
+moc_dun02,170,131,0	warp	mocdun038	1,1,moc_dun02,170,165
+//moc_dun02 - 134,127 - Warp Skip, Allowed With Quest
+//moc_dun03 - 50,178 - Secret Passage, Require dun02 Item Drop from bedrooms
+moc_dun03,98,6,0	warp	mocdun039	1,1,moc_dun03,184,173
+moc_dun03,184,178,0	warp	mocdun040	1,1,moc_dun03,98,13
+moc_dun03,166,165,0	warp	mocdun041	1,1,moc_dun03,130,156
+moc_dun03,135,156,0	warp	mocdun042	1,1,moc_dun03,170,165
+moc_dun03,84,178,0	warp	mocdun043	1,1,moc_dun03,49,178
+
+//Connections New - Kafra Warehouse
+//kaf_dun02,338,336,0	warp	NPC warps to random spot
+kaf_dun01,157,21,0	warp	kafdun02	1,1,yuno_fild01,195,154
+//yuno_fild01,200,159,0	warp	kafdun03	1,1,kaf_dun01,157,26 - Changed to NPC
+kaf_dun02,67,324,0	warp	kafdun04	1,1,kaf_dun02,60,324
+kaf_dun02,63,324,0	warp	kafdun05	1,1,kaf_dun02,70,324
+//kaf_dun01 - 15,136 - Warp Kafra NPC to 2F, Npc Keeps Changing Spots
+
+//Alchemist Fortress
+
+alch_dun01,11,115,0	warp	alcdun000	1,1,mjolnir_09,275,345
+alch_dun02,11,116,0	warp	alcdun001	1,1,alch_dun03,257,244
+alch_dun03,260,244,0	warp	alcdun002	1,1,alch_dun02,14,116
+alch_dun03,149,19,0	warp	alcdun003	1,1,alch_dun04,146,276
+alch_dun04,146,282,0	warp	alcdun004	1,1,alch_dun03,149,24
+
+
+//Underground Endless Tower - Lost Island - Add Prisoners to Sunken Tower Cells
+//Add Warp Npc from out to > 1@sunk1 - 12,58 - Same for Leaving
+1@sunk1,50,23,0	warp	lostisle01	1,1,1@sunk1,96,58
+1@sunk1,96,61,0	warp	lostisle02	1,1,1@sunk1,46,23
+1@sunk1,134,23,0	warp	lostisle03	1,1,1@sunk1,184,58
+1@sunk1,184,61,0	warp	lostisle04	1,1,1@sunk1,131,23
+1@sunk1,222,23,0	warp	lostisle05	1,1,1@sunk1,270,58
+1@sunk1,270,61,0	warp	lostisle06	1,1,1@sunk1,219,23
+1@sunk1,308,23,0	warp	lostisle07	1,1,1@sunk1,354,58
+1@sunk1,354,61,0	warp	lostisle08	1,1,1@sunk1,305,23
+1@sunk1,392,23,0	warp	lostisle09	1,1,lost_dun01,16,160
+lost_dun01,13,160,0	warp	lostisle10	1,1,1@sunk1,388,23
+lost_dun01,188,112,0	warp	lostisle12	1,1,lost_dun02,23,51
+lost_dun02,20,51,0	warp	lostisle13	1,1,lost_dun01,184,112
+lost_dun02,79,50,0	warp	lostisle14	1,1,lost_dun03,110,128
+lost_dun03,107,129,0	warp	lostisle15	1,1,lost_dun02,75,49
+lost_dun03,153,184,0	warp	lostisle16	1,1,lost_dun03,299,22
+lost_dun03,299,18,0	warp	lostisle23	1,1,lost_dun03,154,180
+lost_dun03,300,294,0	warp	lostisle17	1,1,lost_dun03,123,64 // King Schmidt PreArena1 Access
+lost_dun03,119,64,0	warp	lostisle18	1,1,lost_dun03,296,294 // King Schmidt PreArena1 Access Return
+lost_dun03,291,156,0	warp	lostisle19	1,1,lost_dun03,67,175 // Dead End Room
+lost_dun03,81,176,0	warp	lostisle20	1,1,lost_dun03,287,156
+lost_dun03,155,74,0	warp	lostisle22	1,1,lost_dun03,77,72 // Dead End Room Return
+lost_dun03,80,72,0	warp	lostisle21	1,1,lost_dun03,151,72 // King Schmidt PreArena2 Access Return
+//lost_dun03,12,60,0	warp	Npc to access King's Arena
+//lost_dun03 96,295 - Npc to squeeze by and leave, return to lost_dun02 73,63
+
+//faceworm Forest Dungeon - Add Flavor to Stones? Mist?
+face_dun01,190,254,0	warp	facedun1	1,1,face_dun02,189,48
+face_dun02,189,43,0	warp	facedun2	1,1,face_dun01,190,250
+face_dun02,200,272,0	warp	facedun3	1,1,face_dun03,163,34
+face_dun03,164,29,0	warp	facedun4	1,1,face_dun02,200,268
+face_dun03,270,114,0	warp	facedun5	1,1,face_dun04,30,138
+face_dun04,25,136,0	warp	facedun6	1,1,face_dun03,264,118
+
+//Sky Garden Dungeon - Entrance NPC at  ygg_fil02-162,233
+skyent,27,35,0	warp	skygrd1	1,1,ygg_fild02,162,230
+skyent,51,67,0	warp	skygrd2	1,1,skydun1,46,117
+skydun1,46,123,0	warp	skygrd3	1,1,skyent,46,67
+skydun1,246,156,0	warp	skygrd4	1,1,skydun2,24,93
+skydun2,19,94,0	warp	skygrd5	1,1,skydun1,242,156
+skydun2,324,104,0	warp	skygrd6	1,1,skydun3,74,269
+skydun3,73,273,0	warp	skygrd7	1,1,skydun2,315,101
+//Add Npc to warp get Reward after boss - 244,372
+//Add Npc to warp go away after boss - 259,372
+skydun3,260,374,0	warp	skygrdf	1,1,skydun3,345,31
+skydun3,345,28,0	warp	skygrd8	1,1,skydun3,260,370
+skydun3,129,103,0	warp	skygrd9	1,1,skydun3,151,109
+skydun3,149,105,0	warp	skygrd10	1,1,skydun3,125,103
+skydun3,114,164,0	warp	skygrd11	1,1,skydun3,137,171
+skydun3,132,171,0	warp	skygrd12	1,1,skydun3,115,159
+
+//Crystal Caves - Snow Fields - 242,80 NPC Entrance > cry_dun01 23,143
+cry_dun02,18,171,0	warp	crydun001	1,1,cry_dun01,200,157
+cry_dun01,203,159,0	warp	crydun002	1,1,cry_dun02,21,171
+cry_dun02,145,58,0	warp	crydun004	1,1,cry_dun03,190,17
+cry_dun03,190,14,0	warp	crydun005	1,1,cry_dun02,145,55
+cry_dun01,18,143,0	warp	crydun003	1,1,snow_fild04,237,77
+
+//juperos - change juperos_04 - ver_eju exists - warp to a broken house at 249,209
+//remove all access quests/npcs
+juperos_03,322,156,0	warp	jupedun001	1,1,jupe_core,150,72
+juperos_01,248,210,0	warp	jupedun005	1,1,juperos_04,34,43
+juperos_04,31,43,0	warp	jupedun006	1,1,juperos_01,245,210
+jupe_core,150,79,0	warp	jupedun002	1,1,juperos_03,322,160
+juperos_02,130,150,0	warp	jupedun003	1,1,jupe_core,149,283
+jupe_core,149,286,0	warp	jupedun004	1,1,juperos_02,130,145
+juperos_02,33,59,0	warp	jupedun008	1,1,juperos_01,94,91
+juperos_01,99,92,0	warp	jupedun007	1,1,juperos_02,38,59
+
+
+//Rachel Temple - Remove Quest Requirement
+
+//Kiel Dungeon - Remove Quest Requirement
+
+//Yggdrasil Dungeon -Umbala
+
+umbala,106,285,0	warp	yggdun1-1	1,1,ygg_dun01,42,30
+ygg_dun01,42,27,0	warp	yggdun1-2	1,1,umbala,109,284
+ygg_dun01,149,198,0	warp	yggdun2-1	1,1,ygg_dun02,52,22
+ygg_dun02,55,19,0	warp	yggdun2-2	1,1,ygg_dun01,152,198
+ygg_dun02,60,89,0	warp	yggdun3-1	1,1,ygg_dun02,215,74
+ygg_dun02,215,77,0	warp	yggdun3-2	1,1,ygg_dun02,60,92
+ygg_dun02,64,79,0	warp	yggdun4-1	1,1,ygg_dun02,219,261
+ygg_dun02,222,259,0	warp	yggdun4-2	1,1,ygg_dun02,67,77
+ygg_dun02,26,244,0	warp	yggdun5-1	1,1,ygg_dun02,233,253
+ygg_dun02,231,255,0	warp	yggdun5-2	1,1,ygg_dun02,25,241
+ygg_dun02,103,208,0	warp	yggdun6-1	1,1,ygg_dun02,180,38
+ygg_dun02,177,38,0	warp	yggdun6-2	1,1,ygg_dun02,100,208
+ygg_dun02,32,249,0	warp	yggdun7-1	1,1,ygg_dun02,117,208
+ygg_dun02,113,208,0	warp	yggdun7-2	1,1,ygg_dun02,35,252
+ygg_dun02,215,85,0	warp	yggdun8-1	1,1,ygg_dun02,166,38
+ygg_dun02,169,38,0	warp	yggdun8-2	1,1,ygg_dun02,215,88
+//Upper Ygg
+ygg_dun02,136,152,1	warp	upperygg	1,1,ygg_fild01,301,67
+ygg_dun02,125,151,1	warp	nifgateyg	1,1,nif_fild01,315,66
+nif_fild01,315,63,1	warp	nifgateyg2	1,1,ygg_dun02,125,147
+yggdrasil01,36,64,1	warp	upperygg2	1,1,ygg_dun02,140,152
+
+
+//Distortion - Einbroch Deadlands - Add 2 Last Survivors NPCs to ein_dead03
+//add fog mapflag to maps
+ein_dead01,199,376,1	warp	eindead001	1,1,ein_dead03,188,43
+ein_dead03,188,34,1	warp	eindead002	1,1,ein_dead01,199,371
+ein_dead02,212,380,1	warp	eindead003	1,1,ein_dead01,241,31
+ein_dead01,244,26,1	warp	eindead004	1,1,ein_dead02,212,376
+
+//Airship Crash Site
+ein_fild10,172,32,1	warp	crashwarp001	1,1,resc_dun01,219,378
+resc_dun01,219,383,1	warp	crashwarp002	1,1,ein_fild10,174,34
+resc_dun01,274,253,1	warp	crashwarp003	1,1,resc_dun02,364,46
+resc_dun02,374,46,1	warp	crashwarp004	1,1,resc_dun01,278,253
+
+//Thanatos Paradise - Exit at 70,372 (tha_para01)
+//Need to get 4 items on 4 Maps to access boss room
+//Entrance + First Floor
+tha_para01,173,372,1	warp	thapara001	1,1,tha_para02,29,166
+tha_para02,25,166,1	warp	thapara002	1,1,tha_para01,169,372
+tha_para02,113,166,1	warp	thapara003	1,1,tha_para03,29,44
+tha_para03,26,44,1	warp	thapara004	1,1,tha_para02,109,166
+//2nd Area - Access to Boss
+tha_para03,114,44,1	warp	thapara005	1,1,tha_para01,73,287
+tha_para01,70,287,1	warp	thapara006	1,1,tha_para03,110,44
+tha_para08,141,213,1	warp	thapara008	1,1,tha_para01,171,288
+//2nd Area - 4 Rooms Access
+tha_para03,65,101,1	warp	thapara009	1,1,tha_para01,16,74//SW
+tha_para01,13,74,1	warp	thapara010	1,1,tha_para03,65,98
+tha_para01,15,16,1	warp	thapara011	1,1,tha_para06,87,36
+tha_para06,91,36,1	warp	thapara012	1,1,tha_para01,18,16
+tha_para03,65,112,1	warp	thapara013	1,1,tha_para01,32,224//NW
+tha_para01,29,224,1	warp	thapara014	1,1,tha_para03,65,115
+tha_para01,31,166,1	warp	thapara015	1,1,tha_para04,87,146
+tha_para04,91,146,1	warp	thapara016	1,1,tha_para01,34,166
+tha_para03,74,112,1	warp	thapara017	1,1,tha_para01,182,224//NE
+tha_para01,179,224,1	warp	thapara018	1,1,tha_para03,74,115
+tha_para01,181,166,1	warp	thapara019	1,1,tha_para05,166,139
+tha_para05,169,139,1	warp	thapara020	1,1,tha_para01,184,166
+tha_para03,74,101,1	warp	thapara021	1,1,tha_para01,182,74//SE
+tha_para01,179,74,1	warp	thapara022	1,1,tha_para03,74,98
+tha_para01,181,16,1	warp	thapara023	1,1,tha_para07,130,48
+tha_para07,130,52,1	warp	thapara024	1,1,tha_para01,184,16
+
+ma_dun01,30,110,1	warp	hosp001	1,1,malaya,55,76
+malaya,51,76,1	warp	hosp002	1,1,ma_dun01,34,110
+ma_dun01,151,7,1	warp	hosp003	1,1,mal_dun02,36,63
+mal_dun02,33,63,1	warp	hosp004	1,1,ma_dun01,151,11
+mal_dun02,105,63,1	warp	hosp005	1,1,mal_dun02,113,63
+mal_dun02,110,63,1	warp	hosp006	1,1,mal_dun02,102,63
+mal_dun02,105,158,1	warp	hosp007	1,1,mal_dun02,113,158
+
+//VIP Bathhouse - ADD npc to comodo volcano 176,229
+vip_bath,160,7,1	warp	bathwarp1	1,1,cmd_in02,183,189
+
+//geffen Antitower + Old Geffenia 철창살.rsm 카페트.rsm
+//Temporal Npc Warp to: gef_atow04 - 38 31  // Door at 34,18? Do Something
+gef_atow03,50,47,1	warp	gefatow01	1,1,gef_atow04,26,22
+gef_atow04,27,26,1	warp	gefatow02	1,1,gef_atow03,50,44
+gef_atow03,49,11,1	warp	gefatow03	1,1,gef_atow02,47,9
+gef_atow02,52,9,1	warp	gefatow04	1,1,gef_atow03,45,12
+gef_atow02,60,89,1	warp	gefatow05	1,1,gef_atow01,72,105
+gef_atow01,67,106,1	warp	gefatow06	1,1,gef_atow02,64,89
+gef_atow01,61,12,1	warp	gefatow07	1,1,gef_town,105,113
+gef_town,108,113,1	warp	gefatow08	1,1,gef_atow01,57,12
+
+//Dead Pit Fix - Add 4th Floor
+mjo_dun03,16,47,1	warp	mjopit41	1,1,mjo_dun04,366,378
+mjo_dun04,370,379,1	warp	mjopit42	1,1,mjo_dun03,19,47
+
+//Jormungand Nest
+//Time Distortion NPC Warp - ve_fild02 57, 199 -> 284,164
+//Requires 150 total of a  stat to enter 2F - Lift Stone near 28 69
+jor_nest01,27,69,1	warp	jornest000	1,1,jor_nest02,100,197
+jor_nest02,101,201,1	warp	jornest001	1,1,jor_nest01,28,72
+jor_nest02,140,283,1	warp	jornest002	1,1,jor_core,101,25
+jor_core,101,22,1	warp	mjornest003	1,1,jor_nest02,141,279
+jor_core,101,102,1	warp	mjornest004	1,1,jor_core,100,128
+jor_core,99,121,1	warp	mjornest005	1,1,jor_nest02,141,279
+
+//Old Glast Heim glast_01 199,349 - Entrance
+gl_knp01,149,6,1	warp	oldgh000	1,1,glast_01,199,343
+gl_knp01,288,145,1	warp	oldgh001	1,1,gl_knp02,283,140
+gl_knp02,289,139,1	warp	oldgh002	1,1,gl_knp01,292,150
+gl_knp01,149,286,1	warp	oldgh003	1,1,gl_knp02,157,285
+gl_knp02,157,271,1	warp	oldgh004	1,1,gl_knp01,149,282
+gl_knp01,11,148,1	warp	oldgh005	1,1,gl_knp02,16,141
+gl_knp02,11,138,1	warp	oldgh006	1,1,gl_knp01,8,152
+
+//Niflheim Castle 
+nif_fild01,216,46,1	warp	nifcas001	1,1,nif_cas01,29,24
+nif_cas01,26,24,1	warp	nifcas002	1,1,nif_fild01,213,48
+//Npc Entrance to cas02 - Requires X Stuff to enter
+nif_cas02,51,196,1	warp	nifcas003	1,1,nif_cas01,41,116
+nif_cas02,51,257,1	warp	nifcas004	1,1,nif_cas02,215,202
+nif_cas02,215,199,1	warp	nifcas005	1,1,nif_cas02,51,254
+nif_cas02,213,254,1	warp	nifcas006	1,1,nif_cas02,212,88
+nif_cas02,209,88,1	warp	nifcas007	1,1,nif_cas02,209,254
+//Coffin Warp on last block: 57,84 >< 190,60
+
+//Opera House
+niflheim,149,124,1	warp	nifope01	1,1,nif_dun01,145,95
+nif_dun01,146,83,1	warp	nifope02	1,1,niflheim,148,122
+nif_dun01,156,34,1	warp	nifope03	1,1,nif_dun02,161,22
+nif_dun01,136,34,1	warp	nifope04	1,1,nif_dun02,138,22
+nif_dun02,138,15,1	warp	nifope05	1,1,nif_dun01,140,34
+nif_dun02,161,15,1	warp	nifope06	1,1,nif_dun01,150,34
+
+//Payon Sunken Temple + Old Payon Access
+payon_in03,20,195,1	warp	payt000	1,1,pay_tem02,165,38
+pay_tem02,165,35,1	warp	payt004	1,1,payon_in03,26,193
+pay_tem02,77,259,1	warp	payt005	1,1,pay_tem03,119,20
+pay_tem03,119,13,1	warp	payt006	1,1,pay_tem02,77,253
+pay_tem03,119,134,1	warp	payt007	1,1,pay_tem04,119,25
+pay_tem04,119,21,1	warp	payt008	1,1,pay_tem03,119,129
+//Access to Old Payon : Temporal NPC at pay_tem04 : 219,225
+
+//Waterfall Caves + port Malaya - remove fild01
+wat_dun01,248,156,1	warp	watd001	1,1,wat_dun02,32,38
+wat_dun02,32,35,1	warp	watd002	1,1,wat_dun01,248,153
+wat_dun01,61,232,1	warp	watd003	1,1,ma_fild02,315,320
+ma_fild02,315,323,1	warp	watd004	1,1,wat_dun01,65,229
+malaya,369,277,1	warp	watd005	1,1,ma_fild02,32,252
+ma_fild02,29,254,1	warp	watd006	1,1,malaya,366,277
+
+//Dragon Nest -- um_fild03 326,346 > 43, 101
+um_fild03,337,349,1	warp	nestd000	1,1,nest_dun01,35,114
+nest_dun01,30,114,1	warp	nestd001	1,1,um_fild03,330,349
+nest_dun01,199,35,1	warp	nestd002	1,1,nest_dun02,261,261
+nest_dun02,261,264,1	warp	nestd003	1,1,nest_dun01,199,38
+
+//Regenschutz Lab - ra_fild06 - NPC on statue 270 72 - Require Rekember Emblem from LHZ building
+rek_dun01,126,34,1	warp	rekn002	1,1,ra_fild06,271,68
+rek_dun02,12,331,1	warp	rekn004	1,1,rek_dun03,50,15
+rek_dun03,76,25,1	warp	rekn005	1,1,rek_dun02,190,324
+//door at rek_dun03 49,84 - back to rek_dun02 29,253
+
+//Kiel Hyre University - Entrance Near Original Door to -> khu_dun01 70,155 Exit NPC : 76,154
+
+khu_dun01,30,125,0	warp	khu_dun01_02a	1,1,khu_dun01,67,14
+khu_dun01,71,14,0	warp	khu_dun01_02b	1,1,khu_dun01,36,125
+khu_dun01,35,133,0	warp	khu_dun01_03a	1,1,khu_dun01,148,16
+khu_dun01,153,16,0	warp	khu_dun01_03b	1,1,khu_dun01,39,136
+khu_dun01,30,155,0	warp	khu_dun01_04a	1,1,khu_dun01,182,116
+khu_dun01,186,117,0	warp	khu_dun01_04b	1,1,khu_dun01,35,155
+khu_dun01,35,176,0	warp	khu_dun01_05a	1,1,khu_dun01,148,56
+khu_dun01,153,56,0	warp	khu_dun01_05b	1,1,khu_dun01,40,176
+khu_dun01,30,185,0	warp	khu_dun01_06a	1,1,khu_dun01,67,74
+khu_dun01,71,74,0	warp	khu_dun01_06b	1,1,khu_dun01,35,184
+khu_dun01,174,169,0	warp	khu_dun01_07b	1,1,khu_dun01,62,75
+khu_dun01,62,80,0	warp	khu_dun01_07a	1,1,khu_dun01,174,172
+
+khu_dun02,8,150,0	warp	khu_dun02_01a	1,1,khu_dun01,151,37
+
+lighthalzen,266,76,0	warp	lhzskipair	1,1,lighthalzen,302,76
+lighthalzen,294,76,0	warp	lhzskipair2	1,1,lighthalzen,260,76
+
+va_mansion,197,279,0	warp	vamans001	1,1,va_in01,271,275
+va_in01,271,268,0	warp	vamans002	1,1,va_mansion,197,274
+va_mansion,100,66,0	warp	vamans003	1,1,va_in01,222,116//Teahouse
+va_in01,225,116,0	warp	vamans004	1,1,va_mansion,104,66
+va_mansion,306,321,0	warp	vamans029	1,1,va_in01,307,35//Mansion Annex - Dungeon Access dun02
+va_in01,307,31,0	warp	vamans030	1,1,va_mansion,306,317
+
+//Varmundt's Dungeon - Isles can be connected on Gat Editor Later // Delete lower West part of va_dun01
+
+va_in01,386,38,0	warp	vadun001	1,1,va_dun02,52,81//Mansion Annex Access
+va_dun02,48,82,0	warp	vadun002	1,1,va_in01,383,38
+va_mansion,264,79,0	warp	vadun003	1,1,va_dun01,216,56//Normal Access
+va_dun01,207,56,0	warp	vadun004	1,1,va_mansion,260,79
+va_dun01,267,68,0	warp	vadun005	1,1,va_dun01,311,68
+va_dun01,306,68,0	warp	vadun006	1,1,va_dun01,262,68
+va_dun01,343,106,0	warp	vadun007	1,1,va_dun01,343,142
+va_dun01,343,138,0	warp	vadun008	1,1,va_dun01,343,102
+va_dun01,343,187,0	warp	vadun009	1,1,va_dun01,343,222
+va_dun01,343,218,0	warp	vadun010	1,1,va_dun01,343,183
+va_dun01,254,310,0	warp	vadun011	1,1,va_dun01,214,310
+va_dun01,219,309,0	warp	vadun012	1,1,va_dun01,259,310
+//Floor 2
+va_dun01,182,287,0	warp	vadun013	1,1,va_dun02,203,268
+va_dun02,203,272,0	warp	vadun014	1,1,va_dun01,182,283
+//Npc to warp to va_dun02 251,96 at the tree in 128,313 >>>><<<<<
+va_dun02,122,80,0	warp	vadun015	1,1,va_dun02,154,80
+va_dun02,149,80,0	warp	vadun016	1,1,va_dun02,118,80
+//Warp to va_dun03 when Checking 223,105 - Wardrobe
+va_dun02,223,80,0	warp	vadun017	1,1,va_dun02,245,80
+va_dun02,241,80,0	warp	vadun018	1,1,va_dun02,219,80
+va_dun03,160,8,0	warp	vadun019	1,1,va_dun02,223,99
+//va_dun03 160,310 - Fix Clock to open Next Area
+va_dun04,162,32,0	warp	vadun020	1,1,va_dun03,160,308
+
+//Manual Shops - Prontera - Yuno - Rachel
+prontera,227,283,0	warp	manual001	1,1,man_stores,14,119
+man_stores,11,119,0	warp	manual002	1,1,prontera,225,280
+man_stores,26,128,0	warp	manual003	1,1,man_stores,75,120
+man_stores,75,123,0	warp	manual004	1,1,man_stores,21,128
+yuno,247,118,0	warp	manual005	1,1,man_stores,112,122
+man_stores,108,122,0	warp	manual006	1,1,yuno,245,116
+man_stores,159,129,0	warp	manual007	1,1,man_stores,116,129
+man_stores,110,129,0	warp	manual008	1,1,man_stores,159,123
+rachel,123,185,0	warp	manual009	1,1,man_stores,131,70
+man_stores,131,74,0	warp	manual010	1,1,rachel,119,185
+man_stores,168,72,0	warp	manual011	1,1,man_stores,118,64
+man_stores,119,70,0	warp	manual012	1,1,man_stores,174,72
+
+//geffen dungeon
+gef_dun02,215,66,0	warp	gefdun01	1,1,gef_fild09,293,54
+gef_fild09,296,57,0	warp	gefdun02	1,1,gef_dun02,215,62
+
+//Kiel Dungeon Access
+yuno_fild08,85,194,0	warp	kh_dun_xx	1,1,kh_dun01,3,230
+
+//Ayothaya Temple 2F
+ayo_dun01,24,283,0	warp	ayo_dun01	1,1,ayo_dun02,23,27
+
+//Prontera Distortion
+prt_q,155,355,0	warp	pronteradist1	1,1,prt_lib_q,9,30
+prt_lib_q,9,25,0	warp	pronteradist2	1,1,prt_q,155,350
+prt_prison,154,290,0	warp	pronteradist3	1,1,prt_lib_q,88,52

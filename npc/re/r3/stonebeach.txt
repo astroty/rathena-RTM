@@ -1,0 +1,226 @@
+//===== rAthena Script =======================================
+//= Veins Fields Monster Spawn Script
+//===== By: ==================================================
+//= $ephiroth
+//===== Current Version: =====================================
+//= 2.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.0 Temp. monster spawn in Veins Field. [$ephiroth]
+//= 1.1 Updated monster spawn based on kRO website. [$ephiroth]
+//= 1.2 Updated mobs based on info jAthena. [$ephiroth]
+//= 1.3 Fixed some typos and Atros spawn [Playtester]
+//= 1.4 Updated spawns with info from RO Monthly [Playtester]
+//= 1.5 Updated spawn amounts to official [Playtester]
+//= 1.6 Even more accurate spawns [Playtester]
+//= 1.7 Corrected MVP spawn variance. [Gepard]
+//= 1.8 Updated to Renewal Spawns. [Kisuka]
+//= 1.9 Renewal spawn update.
+//= 2.0 Correct Spawn by Navigation's mob data. [attackjom]
+//============================================================
+
+//==================================================
+// ve_fild01 - Veins Field
+//==================================================
+//
+ve_fild07,0,0	monster	Coward Q	1851,1,5000
+ve_fild07,0,0,0,0	boss_monster	Mega Peco	2718,1,3600000,3600000,1
+//
+ve_fild07,0,0	monster	Monster	1049,1,5000
+ve_fild07,0,0	monster	Monster	1050,1,5000
+ve_fild07,0,0	monster	Monster	1011,1,5000
+ve_fild07,0,0	monster	Monster	1107,1,5000
+ve_fild07,0,0	monster	Monster	1055,1,5000
+ve_fild07,0,0	monster	Monster	1072,1,5000
+ve_fild07,0,0	monster	Monster	1009,1,5000
+ve_fild07,0,0	monster	Monster	1127,1,5000
+ve_fild07,0,0	monster	Monster	1116,1,5000
+ve_fild07,0,0	monster	Monster	1138,1,5000
+ve_fild07,0,0	monster	Monster	1019,1,5000
+ve_fild07,0,0	monster	Monster	1058,1,5000
+ve_fild07,0,0	monster	Monster	1106,1,5000
+ve_fild07,0,0	monster	Monster	1256,1,5000
+ve_fild07,0,0	monster	Monster	1091,1,5000
+ve_fild07,0,0	monster	Monster	1184,1,5000
+ve_fild07,0,0	monster	Monster	1229,1,5000
+ve_fild07,0,0	monster	Monster	1040,1,5000
+ve_fild07,0,0	monster	Monster	1232,1,5000
+ve_fild07,0,0	monster	Monster	2289,1,5000
+ve_fild07,0,0	monster	Monster	2365,1,5000
+ve_fild07,0,0	monster	Monster	1165,1,5000
+ve_fild07,0,0	monster	Monster	2577,1,5000
+ve_fild07,0,0	monster	Monster	1839,1,5000
+//
+ve_fild07,0,0	monster	Monster	1007,1,5000
+ve_fild07,0,0	monster	Monster	1008,1,5000
+ve_fild07,0,0	monster	Monster	1063,1,5000
+ve_fild07,0,0	monster	Monster	1052,1,5000
+ve_fild07,0,0	monster	Monster	1093,1,5000
+ve_fild07,0,0	monster	Monster	1012,1,5000
+ve_fild07,0,0	monster	Monster	1174,1,5000
+ve_fild07,0,0	monster	Monster	1018,1,5000
+ve_fild07,0,0	monster	Monster	1167,1,5000
+ve_fild07,0,0	monster	Monster	1231,1,5000
+ve_fild07,0,0	monster	Monster	2576,1,5000
+ve_fild07,0,0	monster	Monster	1182,1,5000
+ve_fild07,0,0	monster	Monster	1408,1,5000
+ve_fild07,0,0	monster	Monster	1162,1,5000
+ve_fild07,0,0	monster	Monster	1322,1,5000
+ve_fild07,0,0	monster	Monster	1409,1,5000
+ve_fild07,0,0	monster	Monster	2316,1,5000
+ve_fild07,0,0	monster	Monster	1166,1,5000
+ve_fild07,0,0	monster	Monster	1056,1,5000
+ve_fild07,0,0	monster	Monster	1046,1,5000
+//
+ve_fild07,0,0	monster	Monster	1057,1,5000
+ve_fild07,0,0	monster	Monster	1585,1,5000
+ve_fild07,0,0	monster	Monster	1214,1,5000
+ve_fild07,0,0	monster	Monster	1410,1,5000
+//
+ve_fild07,0,0	monster	Monster	1010,1,5000
+ve_fild07,0,0	monster	Monster	1014,1,5000
+ve_fild07,0,0	monster	Monster	1077,1,5000
+ve_fild07,0,0	monster	Monster	1321,1,5000
+ve_fild07,0,0	monster	Monster	1013,1,5000
+ve_fild07,0,0	monster	Monster	1060,1,5000
+ve_fild07,0,0	monster	Monster	1277,1,5000
+ve_fild07,0,0	monster	Monster	1024,1,5000
+ve_fild07,0,0	monster	Monster	1033,1,5000
+ve_fild07,0,0	monster	Monster	1097,1,5000
+//
+ve_fild07,0,0	monster	Monster	1104,1,5000
+ve_fild07,0,0	monster	Monster	1128,1,5000
+ve_fild07,0,0	monster	Monster	1258,1,5000
+ve_fild07,0,0	monster	Monster	1122,1,5000
+ve_fild07,0,0	monster	Monster	1123,1,5000
+ve_fild07,0,0	monster	Monster	1124,1,5000
+ve_fild07,0,0	monster	Monster	1125,1,5000
+ve_fild07,0,0	monster	Monster	1126,1,5000
+ve_fild07,0,0	monster	Monster	1392,1,5000
+ve_fild07,0,0	monster	Monster	1155,1,5000
+ve_fild07,0,0	monster	Monster	1156,1,5000
+ve_fild07,0,0	monster	Monster	1261,1,5000
+ve_fild07,0,0	monster	Monster	1273,1,5000
+ve_fild07,0,0	monster	Monster	1023,1,5000
+ve_fild07,0,0	monster	Monster	1686,1,5000
+ve_fild07,0,0	monster	Monster	1189,1,5000
+ve_fild07,0,0	monster	Monster	1213,1,5000
+//
+ve_fild07,0,0	monster	Monster	1884,1,5000
+ve_fild07,0,0	monster	Monster	1992,1,5000
+ve_fild07,0,0	monster	Monster	2136,1,5000
+ve_fild07,0,0	monster	Monster	1885,1,5000
+ve_fild07,0,0	monster	Monster	2068,1,5000
+//
+ve_fild07,0,0	monster	Monster	1133,1,5000
+ve_fild07,0,0	monster	Monster	1134,1,5000
+ve_fild07,0,0	monster	Monster	1135,1,5000
+ve_fild07,0,0	monster	Monster	1282,1,5000
+ve_fild07,0,0	monster	Monster	1254,1,5000
+//
+ve_fild07,0,0	monster	Monster	1271,1,5000
+ve_fild07,0,0	monster	Monster	1687,1,5000
+ve_fild07,0,0	monster	Monster	1391,1,5000
+ve_fild07,0,0	monster	Monster	1262,1,5000
+ve_fild07,0,0	monster	Monster	1073,1,5000
+ve_fild07,0,0	monster	Monster	1317,1,5000
+ve_fild07,0,0	monster	Monster	1323,1,5000
+//
+ve_fild07,0,0	monster	Monster	1499,1,5000
+ve_fild07,0,0	monster	Monster	1498,1,5000
+ve_fild07,0,0	monster	Monster	1495,1,5000
+ve_fild07,0,0	monster	Monster	1493,1,5000
+ve_fild07,0,0	monster	Monster	1497,1,5000
+//
+ve_fild07,0,0	monster	Monster	2137,1,5000
+ve_fild07,0,0	monster	Monster	2363,1,5000
+ve_fild07,0,0	monster	Monster	1881,1,5000
+ve_fild07,0,0	monster	Monster	2134,1,5000
+//
+ve_fild07,0,0	monster	Monster	1932,1,5000
+ve_fild07,0,0	monster	Monster	1413,1,5000
+ve_fild07,0,0	monster	Monster	1995,1,5000
+ve_fild07,0,0	monster	Monster	1988,1,5000
+ve_fild07,0,0	monster	Monster	1099,1,5000
+ve_fild07,0,0	monster	Monster	1100,1,5000
+ve_fild07,0,0	monster	Monster	1139,1,5000
+ve_fild07,0,0	monster	Monster	2133,1,5000
+ve_fild07,0,0	monster	Monster	1004,1,5000
+ve_fild07,0,0	monster	Monster	2132,1,5000
+ve_fild07,0,0	monster	Monster	1994,1,5000
+ve_fild07,0,0	monster	Monster	1993,1,5000
+//
+ve_fild07,0,0	monster	Monster	1986,1,5000
+ve_fild07,0,0	monster	Monster	1989,1,5000
+ve_fild07,0,0	monster	Monster	1997,1,5000
+ve_fild07,0,0	monster	Monster	1243,1,5000
+ve_fild07,0,0	monster	Monster	2016,1,5000
+ve_fild07,0,0	monster	Monster	1515,1,5000
+//
+ve_fild07,0,0	monster	Monster	1074,1,5000
+ve_fild07,0,0	monster	Monster	1266,1,5000
+ve_fild07,0,0	monster	Monster	1572,1,5000
+ve_fild07,0,0	monster	Monster	3790,1,5000
+ve_fild07,0,0	monster	Monster	1715,1,5000
+ve_fild07,0,0	monster	Monster	1758,1,5000
+ve_fild07,0,0	monster	Monster	1757,1,5000
+ve_fild07,0,0	monster	Monster	1259,1,5000
+//
+ve_fild07,0,0	monster	Monster	1494,1,5000
+ve_fild07,0,0	monster	Monster	1372,1,5000
+ve_fild07,0,0	monster	Monster	1376,1,5000
+ve_fild07,0,0	monster	Monster	1369,1,5000
+ve_fild07,0,0	monster	Monster	1386,1,5000
+ve_fild07,0,0	monster	Monster	2926,1,5000
+ve_fild07,0,0	monster	Monster	1035,1,5000
+ve_fild07,0,0	monster	Monster	1422,1,5000
+ve_fild07,0,0	monster	Monster	1283,1,5000
+//
+ve_fild07,0,0	monster	Monster	1656,1,5000
+ve_fild07,0,0	monster	Monster	1654,1,5000
+ve_fild07,0,0	monster	Monster	1657,1,5000
+ve_fild07,0,0	monster	Monster	1653,1,5000
+ve_fild07,0,0	monster	Monster	1655,1,5000
+ve_fild07,0,0	monster	Monster	1652,1,5000
+//
+ve_fild07,0,0	monster	Monster	1619,1,5000
+ve_fild07,0,0	monster	Monster	1628,1,5000
+ve_fild07,0,0	monster	Monster	1613,1,5000
+ve_fild07,0,0	monster	Monster	2590,1,5000
+ve_fild07,0,0	monster	Monster	1380,1,5000
+ve_fild07,0,0	monster	Monster	1378,1,5000
+ve_fild07,0,0	monster	Monster	1620,1,5000
+ve_fild07,0,0	monster	Monster	3741,1,5000
+//
+ve_fild07,0,0	monster	Monster	1680,1,5000
+ve_fild07,0,0	monster	Monster	1629,1,5000
+ve_fild07,0,0	monster	Monster	1781,1,5000
+ve_fild07,0,0	monster	Monster	1415,1,5000
+ve_fild07,0,0	monster	Monster	1782,1,5000
+ve_fild07,0,0	monster	Monster	1783,1,5000
+ve_fild07,0,0	monster	Monster	1516,1,5000
+ve_fild07,0,0	monster	Monster	1114,1,5000
+ve_fild07,0,0	monster	Monster	1524,1,5000
+ve_fild07,0,0	monster	Monster	1474,1,5000
+//
+ve_fild07,0,0	monster	Monster	1037,1,5000
+ve_fild07,0,0	monster	Monster	1042,1,5000
+ve_fild07,0,0	monster	Monster	1784,1,5000
+ve_fild07,0,0	monster	Monster	1836,1,5000
+ve_fild07,0,0	monster	Monster	1424,1,5000
+ve_fild07,0,0	monster	Monster	3087,1,5000
+ve_fild07,0,0	monster	Monster	1394,1,5000
+//
+ve_fild07,0,0	monster	Monster	1002,1,5000
+ve_fild07,0,0	monster	Monster	1113,1,5000
+ve_fild07,0,0	monster	Monster	1031,1,5000
+ve_fild07,0,0	monster	Monster	1242,1,5000
+ve_fild07,0,0	monster	Monster	1090,1,5000
+//
+ve_fild07,0,0	monster	Monster	3739,1,5000
+ve_fild07,0,0	monster	Monster	3636,1,5000
+ve_fild07,0,0	monster	Monster	3669,1,5000
+ve_fild07,0,0	monster	Monster	3670,1,5000
+ve_fild07,0,0	monster	Monster	3743,1,5000
+ve_fild07,0,0	monster	Monster	2071,1,5000

@@ -1,0 +1,407 @@
+tha_scene01,140,191,5	script	Strange Person#questdraco	4_m_dstman,{
+	set .@npc$, "[Strange Person]";
+	if (dracomancerjob >=1){
+	mes .@npc$;
+	mes "Your power will continue to grow as long as you control the Orbs. Farewell, Dracomancer.";
+	close;
+	}
+	if (raiderjob ==0){
+	mes .@npc$;
+	mes "This tower really brings a feeling of dread when you look at it.";
+	next;
+	mes .@npc$;
+	mes "May Thanatos rest in peace as our first savior. He deserves it.";
+	close;	
+	}
+	if (raiderjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Why would a Raider carry skillpoints? Wanting to save them for whatever?";
+	close;
+	}
+	mes .@npc$;
+	mes "A true dragon hunter... must carry a legendary card to stand a chance to pass the trial. In your spear...";
+	next;
+	mes .@npc$;
+	mes "Perhaps you have what it takes to take an extra step. I have a proposition for you. Something very few are skilled enough to handle. You may fail... and hurt yourself.";
+	next;
+	switch(select("No Thanks.:Yes, I'm listening.")) {
+	case 1:
+	mes .@npc$;
+	mes "If you change your mind, come back. I'll be here anyway.";
+	close;
+	case 2:
+	if (JobLevel < 50){
+	mes .@npc$;
+	mes "Wait a second... you didn't even finish your Raider training? You need to prepare yourself. Come back once you're Job Level 50.";
+	close;
+	}
+	mes .@npc$;
+	mes "Only a true Raider who mastered the arts of the spear fighting can Raise the Dragons and raise above all others.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Enter the Dragon";
+	mes .@npc$;
+	mes "Tiamat shall be your guide in this path. A dragon who resides deep within this black abyss of silence.";
+	next;
+	specialeffect2 834;
+	.@name$ = "Dracom" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "The trials require using knowledge and understanding one's limits. True power does not always come from attacking. But knowing how to handle difficulties.";
+	next;
+	savepoint "tha_scene01",140,203,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Enter the Dragon]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Skilled Spearman]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering Enter the Dragon...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}
+
+que_hugel,1,1,4	script	Controller#DracomancerTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Vision of Nydhogg#quest2");
+	disablenpc instance_npcname("Vision of Tiamat#quest1");
+	disablenpc instance_npcname("Vision of Tiamat#quest2");
+	end;
+}
+
+que_hugel,35,33,5	script	Vision of Nydhogg#quest1	510,{
+	set .@npc$, "[Vision of Nydhogg]";
+	playbgm "132";
+	cutin "ep14_nyd01",2;
+	mes .@npc$;
+	mes "I'm Nydhogg. Great Mother of Dragons.";
+	next;
+	if (dracomancerchk ==2){
+	mes .@npc$;
+	mes "Tiamat awaits you.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Vision of Nydhogg#quest1");
+	enablenpc instance_npcname("Vision of Tiamat#quest1");
+	disablenpc instance_npcname("???#tiamatwarp3");
+	warp instance_mapname("que_hugel"), 164, 150;
+	end;
+	}
+	if (dracomancerchk ==1){
+	mes .@npc$;
+	mes "You seem worthy...meet me ahead.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Vision of Nydhogg#quest1");
+	enablenpc instance_npcname("Vision of Nydhogg#quest2");
+	disablenpc instance_npcname("???#tiamatwarp1");
+	disablenpc instance_npcname("???#tiamatwarp2");
+	end;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Nydhogg...? I swear I heard about a dragon with that name.";
+	next;
+	mes .@npc$;
+	mes "The Nydhogg in Dragon's Nest is merely a shadow of my being. That entire place is a good way to find the strongest heroes of our land.";
+	next;
+	mes .@npc$;
+	mes "My soul is bound to this abyss, along with Tiamat's. We are responsible for protecting the world from the awakening of Jormungandr. Odin has tasked us with this mission.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What do you need from me? What's my trial?";
+	next;
+	mes .@npc$;
+	mes "The dragons were fearsome creatures...Their power can only be handled by someone strong enough to fight for it.";
+	next;
+	mes .@npc$;
+	mes "The dragons of nowadays are nothing but a sad reflection of better times. A Dracomancer can change that.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Dracomancer?";
+	next;
+	mes .@npc$;
+	mes "A Dracomancer can draw power directly from this place. You can find the souls of dragons long extinct and connect with them, forming a bond and a powerful alliance.";
+	next;
+	mes .@npc$;
+	mes "As long as you show your respect and has the willpower to gain their approval.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Very well, Nydhogg, what do you need me to do?";
+	next;
+	mes .@npc$;
+	mes "Walk the path you see in front of you. Use your skills to find ways to reach Tiamat.";
+	next;
+	mes .@npc$;
+	mes "I'll be the guide on this path, Tiamat will be the one to test your power.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Vision of Nydhogg#quest1");
+	donpcevent instance_npcname("#dragonspawns", instance_id())+"::OnEnable";
+	end;
+}
+
+//Pushbacks
+
+que_hugel,35,78,5	script	???#tiamatwarp1	723,1,1,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_hugel"), 35, 50;
+	end;
+}
+
+que_hugel,35,110,5	script	???#tiamatwarp2	723,1,1,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_hugel"), 35, 105;
+	end;
+}
+
+que_hugel,164,150,5	script	???#tiamatwarp3	723,1,1,{
+	end;
+	OnTouch_:
+	specialeffect2 799;
+	warp instance_mapname("que_hugel"), 169, 137;
+	end;
+}
+
+que_hugel,1,1,4	script	#dragonspawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#dragonspawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#dragonspawns", instance_id());
+	set .@map$, instance_mapname("que_hugel");
+	.@event$ = instance_npcname("#dragonspawns")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,35,51,"Pillar of Claws",2912,1, .@event$;
+	monster .@map$,35,84,"Pillar of Wings",2912,1, .@event$;
+	monster .@map$,35,114,"Pillar of Scales",2912,1, .@event$;
+	set 'Drake_Mobs,3;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_hugel"), "Find ways to get through!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Drake_Mobs,'Drake_Mobs-1;
+	if ('Drake_Mobs2 >0 ){
+	mapannounce instance_mapname("que_hugel"), "Nydhogg: You found a way forward. Impressive.",bc_map,"0xffff00";
+	}
+	if ('Drake_Mobs < 1) {
+		set 'Drake_Mobs,0;
+		set dracomancerchk,1;
+		mapannounce instance_mapname("que_hugel"), "Nydhogg: You really know how to use the tools you were given.",bc_map,"0xffff00";
+		disablenpc instance_npcname("???#tiamatwarp1");
+		disablenpc instance_npcname("???#tiamatwarp2");
+		enablenpc instance_npcname("Vision of Nydhogg#quest2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_hugel,35,177,5	script	Vision of Nydhogg#quest2	510,{
+	set .@npc$, "[Vision of Nydhogg]";
+	
+	mes .@npc$;
+	mes "Impressive. Human.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What are those pillars?";
+	next;
+	mes .@npc$;
+	mes "They contain the Orbs that carry the souls of Dragons. There are 3 types of orbs.";
+	next;
+	mes .@npc$;
+	mes "Claw Orbs carry the offensive powers of the dragons. They can help your offensive powers reach new heights.";
+	next;
+	mes .@npc$;
+	mes "Wing Orbs carry the defensive powers of the dragons. They can help safeguard you from harm.";
+	next;
+	mes .@npc$;
+	mes "Scale Orbs carry the soul of the dragons. They will drain your energy but bring an Ancient Dragon to fight for you.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How can I have them?";
+	next;
+	mes .@npc$;
+	mes "Only those with unstoppable will can find them with dragons who carry them. But you are not worthy yet.";
+	next;
+	mes .@npc$;
+	mes "Tiamat awaits you ahead. Good luck, Raider.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Vision of Nydhogg#quest2");
+	donpcevent instance_npcname("#dragonspawns2", instance_id())+"::OnEnable";
+	warp instance_mapname("que_hugel"), 163, 29;
+	end;
+}
+
+que_hugel,1,1,4	script	#dragonspawns2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#dragonspawns2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#dragonspawns2", instance_id());
+	set .@map$, instance_mapname("que_hugel");
+	.@event$ = instance_npcname("#dragonspawns2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,163,63,"Pillar of Scales",2912,1, .@event$;
+	monster .@map$,164,77,"Pillar of Scales",2912,1, .@event$;
+	monster .@map$,163,102,"Pillar of Scales",2912,1, .@event$;
+	monster .@map$,163,135,"Pillar of Scales",2912,1, .@event$;
+	set 'Drake_Mobs2,4;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_hugel"), "Find ways to get through!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Drake_Mobs2,'Drake_Mobs2-1;
+	if ('Drake_Mobs2 >0 ){
+	mapannounce instance_mapname("que_hugel"), "Nydhogg: Impressive! You really have the potential!",bc_map,"0xffff00";
+	}
+	if ('Drake_Mobs2 < 1) {
+		set 'Drake_Mobs2,0;
+		set dracomancerchk,2;
+		mapannounce instance_mapname("que_hugel"), "Tiamat: You are worthy of our time... come to me.",bc_map,"0xffff00";
+		disablenpc instance_npcname("???#tiamatwarp3");
+		enablenpc instance_npcname("Vision of Tiamat#quest1");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_hugel,163,177,5	script	Vision of Tiamat#quest1	621,{
+	set .@npc$, "[Vision of Tiamat]";
+	playbgm "98";
+	cutin "ep14_robert1",1;
+	mes .@npc$;
+	mes "So it's you who comes to face us.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Aren't you the one who helped me become a Raider?";
+	next;
+	mes .@npc$;
+	mes "Creating a vision of my being in another place is easy...and very efficient into finding potential allies.";
+	next;
+	mes .@npc$;
+	mes "For your final test you have to embrace the true power of a Dracomancer and face me in battle.";
+	next;
+	mes .@npc$;
+	mes "Our blood shall fill this place. And with it, your wings shall rise.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Very well, I accept your challenge!";
+	next;
+	mes .@npc$;
+	mes "I want to see the same fire burning in your eyes that I saw the first time we met. Get ready!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Vision of Tiamat#quest1");
+	donpcevent instance_npcname("#dragonspawns3", instance_id())+"::OnEnable";
+	end;
+}
+
+que_hugel,1,1,4	script	#dragonspawns3	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#dragonspawns3", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#dragonspawns3", instance_id());
+	set .@map$, instance_mapname("que_hugel");
+	.@event$ = instance_npcname("#dragonspawns3")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,163,177,"Tiamat",2913,1, .@event$;
+	set 'Drake_Mobs3,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_hugel"), "Survive Tiamat's attacks and fight back!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Drake_Mobs3,'Drake_Mobs3-1;
+	if ('Drake_Mobs3 < 1) {
+		set 'Drake_Mobs3,0;
+		mapannounce instance_mapname("que_hugel"), "Tiamat: You are as ruthless as a dragon, young one...",bc_map,"0xffff00";
+		enablenpc instance_npcname("Vision of Tiamat#quest2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_hugel,163,177,5	script	Vision of Tiamat#quest2	621,{
+	set .@npc$, "[Vision of Tiamat]";
+	cutin "ep14_robert1",1;
+	mes .@npc$;
+	mes "You are a powerful one.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Well? What now?";
+	next;
+	specialeffect2 234;
+	callfunc "Job_Change",Job_Knight;
+	set finaljob,1;
+	set dracomancerjob,1;
+	mes .@npc$;
+	mes "You carry our power and defend this world. For Jormungandr is a dangerous foe, but many others lurk around the corner.";
+	next;
+	mes .@npc$;
+	mes "The power of a dracomancer comes from the persistence and the bonds you can forge. But only power or orbs is not enough.";
+	next;
+	mes .@npc$;
+	mes "The dragons of today are a mere shadow of our might from the past. You shall bring our legacy to the present at the tip of your spear.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I will not fail you.";
+	next;
+	mes .@npc$;
+	mes "Spread wings and rise, Dracomancer.";
+	close2;
+	cutin "",255;
+	warp "tha_scene01",140,203;
+	end;
+}
+
+
+
+
+
+

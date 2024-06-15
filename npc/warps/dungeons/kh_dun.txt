@@ -16,10 +16,11 @@
 //============================================================
 
 //= Kiel Dungeon =============================================
-kh_dun01,3,234,0	warp	kh_dun_00	1,1,yuno_fild08,74,174
+kh_dun01,3,234,0	warp	kh_dun_00	1,1,yuno_fild08,88,194
 
 //Factory Restricted Area Exit
 kh_dun01,232,226,0	warp	kh_dun_01	1,1,kh_dun01,13,12
+kh_dun01,41,198,0	warp	kh_dun_01-2	1,1,kh_dun02,43,203
 
 //Factory side warps
 kh_dun01,63,7,0	warp	kh_dun_02	1,1,kh_dun01,227,176

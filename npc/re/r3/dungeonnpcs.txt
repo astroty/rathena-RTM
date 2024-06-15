@@ -1,0 +1,2407 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Dungeon Npcs
+//= Entrance and Misc
+//===== Comments: =========================================
+//====================================================
+
+//KAFRA WAREHOUSE NPCS===================================================
+
+gef_fild07,282,144,3	script	Ferry#gef	101,{
+	
+	set .@npc$, "[Ferry]";
+	mes .@npc$;
+	mes "I can take you closer to the Geffen Dungeon, do you want to go now? I won't take you back, so be careful!";
+	next;
+	switch(select("No Thanks:Yes Please!")) {
+	case 1:
+	mes .@npc$;
+	mes "Take care.";
+	close;
+	case 2:
+	warp "gef_fild09",121,148;
+	}
+}
+
+gef_fild07,319,193,3	script	Helper Lady#gef	727,{
+	
+	set .@npc$, "[Helper Lady]";
+	mes .@npc$;
+	mes "have you seen the new ferry to the south of here? It can take you near Geffen Dungeon!";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Try checking near the body of water! The Mage Guild really helps us quite a bit";
+	close;
+}
+
+
+
+yuno_fild01,193,158,4	script	Manager Rina	4_f_kafra9,{
+
+	if (kafrawarehouse ==1){
+	set .@npc$, "[Kafra Manager Rina]";
+	cutin "kafra_09",2;
+	mes .@npc$;
+	mes "Hello there. The Warehouse access is unlocked for you. If you find Manager Jenni there, please, Let me know ok?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	
+	set .@npc$, "[Kafra Manager Rina]";
+	cutin "kafra_09",2;
+	mes .@npc$;
+	mes "Oh! An Adventurer! what brings you here?";
+	next;
+	switch(select("Do you need help?:Just passing by")) {
+	case 1:
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "Well... to be honest.. yes.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Maybe I can do something, what is it?";
+	next;
+	mes .@npc$;
+	mes "We recently found the entrance to one of our warehouses. And a VERY old one. Nobody even knew it was here.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "What, really? Aren't you guys supposed to take care of everyone's stuff?";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "I thought so! Anyway...we're trying to clean it inside but it seems dangerous. There are some...monsters who took the place and now we can't clean the place and rebuild it.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Just a few monsters? I guess that's nothing I can't handle.";
+	next;
+	mes .@npc$;
+	mes "Wounderful! But please be careful if you go in. We found some terrible mutation inside. Must be part of that Rekember experiment, I'm not sure.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Even bankrupt, still an issue eh? I'll be careful.";
+	next;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "Good luck there! I'll ask the staff to let you in. If you come across any interesting items, feel free to take them.";
+	close2;
+	set kafrawarehouse, 1;
+	cutin "",255;
+	end;
+	case 2:
+	emotion ET_SORRY;
+		mes .@npc$;
+		mes "The Kafra corporation is always ready to serve. But not here!";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	
+yuno_fild01,200,160,4	script	Kafra Gatekeeper#warehouse	4_f_kafra8,{
+	
+	if (kafrawarehouse ==1){
+	set .@npc$, "[Kafra Gatekeeper]";
+	cutin "kafra_08angry",2;
+	mes .@npc$;
+	mes "Hey there. You're "+ strcharinfo(0) +" right? The Manage has allowed you to enter. Please be careful inside and remember to watch your step.";
+	next;
+	switch(select("Let me in:I'll think about it")) {
+	case 1:
+	warp "kaf_dun01",157,26;	
+	cutin "",255;
+	end;
+	case 2:
+		mes .@npc$;
+		mes "No problem. Make sure to be ready!";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	
+	if (kafrawarehouse ==0){
+	
+	set .@npc$, "[Kafra Gatekeeper]";
+	cutin "kafra_08angry",2;
+	mes .@npc$;
+	mes "I'm sorry, you're not allowed to enter. Talk to the manager first.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	
+}
+
+kaf_dun01,157,51,4	script	Information Kafra#warehouse	4_f_kafra8,{
+	
+	set .@npc$, "[Information Kafra]";
+	mes .@npc$;
+	mes "I'm here to help adventurers with information about the warehouse. What do you need?";
+	next;
+	switch(select("Any essential information?:I want to go deeper:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "There's a lot of forgotten stuff here. Be careful with the Ash Porings, so old and forgotten on the storage they literally turned to dust. They might be very hard to hit.";
+	next;
+	mes .@npc$;
+	mes "The assistant robots also can be an issue. They used to help us with Saving, Warping and such in the past, but now they actually cause a lot of issues with their power.";
+	next;
+	mes .@npc$;
+	mes "Manager Jenni did go deep into the warehouse. But something got her mad and now we can't help her. Must've been seeing what happened to our sisters. Take care!";
+	close;
+	case 2:
+	mes .@npc$;
+	mes "Kafra Lana knows the way... You might find her inside and I'm sure she can take you there. Keep in mind she keeps moving around trying to fix things!She can usually be found on the side rooms.";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "Take care and stay healthy!";
+	close;
+	}
+}
+
+kaf_dun01,23,216,4	script	Kafra Lana#warehouse	4_f_kafra3,{
+	
+	set .@npc$, "[Kafra Lana]";
+	mes .@npc$;
+	mes "I'm busy!!!! What do you want?";
+	next;
+	switch(select("I want to go to the second floor:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "Are you sure? Well... Good Luck!";
+	next;
+	warp "kaf_dun02",338,334;
+	case 2:
+	mes .@npc$;
+	mes "Don't waste my time please!";
+	close;
+	}
+}
+
+kaf_dun02,336,336,4	script	Kafra Wendy#warehouse	4_f_kafra2,{
+	
+	set .@npc$, "[Kafra Wendy]";
+	mes .@npc$;
+	mes "This place is scary eh? Wanna go back?";
+	next;
+	switch(select("I want to stay longer!:Let's go back up!")) {
+	case 1:
+	mes .@npc$;
+	mes "Take care. The enemies here can be an issue.";
+	close;
+	case 2:
+	warp "kaf_dun01",166,138;
+	}
+}
+
+//Crystal Caves======================================================================
+
+snow_fild04,241,79,4	script	Crystal Cave Sage#crystalcave	4_ep18_wagon,{
+	
+	mes "[Crystal Cave Sage]";
+	mes "So you wish to visit the Crystal Caves? These crystals aren't worth anything... Why would you want to go there? The monsters inside are pretty strong.";
+	next;
+	switch(select("I want to go regardless:Nevermind")) {
+	case 1:
+	warp "cry_dun01",23,143;	
+	end;
+	case 2:
+		mes "[Crystal Cave Sage]";
+		mes "Be careful around these lands.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	
+//Death Castle
+	
+nif_cas01,30,125,4	script	Strange Soul#deathcas	802,{
+	
+	mes "Lord of the Dead welcomes any living fool to challenge him. Are you up for it?";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+	mes "Enjoy your last few minutes alive... hahaha!";
+	close2;
+	warp "nif_cas02",51,201;	
+	end;
+	case 2:
+	mes "Coward!!!";
+	close;
+		}
+	}
+
+nif_cas02,190,60,4	script	Open Coffin#deathcas1	clear_npc,{
+	
+	mes "Do you want to lie down inside the coffin?";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+	warp "nif_cas02",83,29;	
+	end;
+	case 2:
+	end;
+		}
+	}
+
+nif_cas02,83,25,4	script	Open Coffin#deathcas2	clear_npc,{
+	
+	mes "Do you want to lie down inside the coffin?";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+	warp "nif_cas02",194,60;	
+	end;
+	case 2:
+	end;
+		}
+	}
+	
+nif_cas02,83,54,4	script	Open Coffin#deathcas3	clear_npc,{
+	
+	mes "Do you want to lie down inside the coffin?";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+	warp "niflheim",130,274;	
+	end;
+	case 2:
+	end;
+		}
+	}
+
+nif_cas02,57,85,4	script	Strange Coffin#deathcas5	clear_npc,{
+	
+	mes ""+hatpoints+"/90.";
+	next;
+	if (hatpoints ==90){
+	if (chaosremembers ==1){
+	mes "Hey...I know you...come here.";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+	mes "You lie down inside the coffin and falls asleep shortly after...";
+	close2;
+	warp "balder_cell",86,91;	
+	end;
+	case 2:
+	end;
+	}
+	}
+	mes "I don't know you. Go away. Let me rest.";
+	close;
+	}
+	mes "Nothing happens.";
+	close;
+}
+balder_cell,84,91,4	script	Chained Coffin#deathcas6	clear_npc,{
+	
+	mes "Do you want to lie down inside the coffin?";
+	next;
+	switch(select("Yes.:No.")) {
+	case 1:
+	warp "niflheim",130,274;	
+	end;
+	case 2:
+	end;
+		}
+	}
+
+//Regenschutz Lab
+
+ra_fild06,270,74,4	script	Strange Switch#regenschutz	clear_npc,{
+	
+	mes "There's a tiny switch near the symbol, press it?";
+	next;
+	switch(select("Press the switch:Nevermind")) {
+	case 1:
+	mes "A small opening appears in front of you...";
+	close2;
+	warp "rek_dun01",126,38;	
+	end;
+	case 2:
+		end;
+		}
+	}
+	
+rek_dun01,249,182,4	script	Data Computer#regenschutz	clear_npc,{
+	
+	mes "You can see a lot of info about Rekember, read it?";
+	next;
+	switch(select("Read the Information:Add my Data:Nevermind")) {
+	case 1:
+	mes "The company may have suffered heavy losses, but the Judge Order could not completely get rid of us.";
+	next;
+	mes "The Rekember Core is a powerful creation, capable of replicating any kind of DNA.";
+	next;
+	mes "We must be careful not to let it get near the Somatology Laboratory DNA, the results could be catastrophic.";
+	close;
+	case 2:
+	if (rekdun1warp ==1){
+	mes "Data already added, Teleporter to restricted area is available.";
+	close;
+		}
+	if (rekdun1warp ==0){
+	set rekdun1warp,1;
+	set $rekemberdata,$rekemberdata+1;
+	mes "Biological data scanned into Rekember Core Database successfully. Orphan information added to the database.";
+	close;
+		}
+	case 3:
+		end;
+		}
+	}
+
+rek_dun01,126,175,0	script	#rekdunwarp1	45,1,1,{
+	end;
+	OnTouch:
+	if (rekdun1warp ==0){
+	mes "Nothing Happens.";
+	close;
+	}
+	if (rekdun1warp ==1){
+	warp "rek_dun02",117,27;
+	end;
+	}
+}
+
+rek_dun02,190,329,0	script	#rekdunwarpf1	45,1,1,{
+	end;
+	OnTouch:
+	mes "It's a one-way emergency door, you can't go through it.";
+	close;
+	}
+
+rek_dun03,49,10,0	script	#rekdunwarpf2	45,1,1,{
+	end;
+	OnTouch:
+	mes "There's a small sign on this side of the door that can be read:";
+	next;
+	mes "For safety reasons, this door is locked from the inside. Please use the emergency exit instead.";
+	close;
+}
+
+rek_dun02,117,23,0	script	#rekdunwarp2	45,1,1,{
+	end;
+	OnTouch:
+	warp "rek_dun01",126,170;
+	end;
+	}
+//Rachel Sanctuary==== 
+
+ra_temple,166,215,4	script	Rachel Guard#Dungeon	934,{
+	
+	set .@npc$, "[Rachel Guard]";
+	mes .@npc$;
+	mes "These people... they are completely Crazy!";
+	next;
+	mes .@npc$;
+	mes "You look strong! Maybe you can enter the temple and try to find what the hell they are doing inside?";
+	next;
+	switch(select("Help me Enter:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "Take care. They are dangerous.";
+	close2;
+	warp "ra_san01",230,47;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I don't judge you... this place is completely nuts.";
+	close;
+	}
+}
+
+//Alchemist Fortress
+
+mjolnir_09,277,350,4	script	Regretful Alchemist#Dungeon	4_f_science,{
+	
+	set .@npc$, "[Regretful Alchemist]";
+	mes .@npc$;
+	mes "This place started like a cool experiment... A way to help us evolve!";
+	next;
+	mes .@npc$;
+	mes "They may think they are right but what they have done...it's madness! Would you really wish to enter the Alchemist Fortress?";
+	next;
+	switch(select("Yes, I Do:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "Ok then. Let me show you how to use the elevator...";
+	close2;
+	warp "alch_dun01",16,115;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "I hope someone can put an end to this...";
+	close;
+	}
+}
+
+alch_dun01,13,125,4	script	Crazy Alchemist#Dungeon	4_lgtscience,{
+	
+	set .@npc$, "[Crazy Alchemist]";
+	mes .@npc$;
+	mes "Oh!! Welcome to our humble Fortress!!";
+	next;
+	mes .@npc$;
+	mes "Feel free to test your power against our totally safe homunculus...In exchange, we'll be keeping track of your combat data!";
+	next;
+	mes .@npc$;
+	mes "Do try to avoid the third floor and on... they are under...hmm...renovations!!!";
+	close;
+	}
+
+alch_dun01,95,291,4	script	Elevator#Dungeon	10042,{
+	
+	mes "Go down to the second floor?";
+	next;
+	switch(select("Yes:No")) {
+	case 1:
+	mes .@npc$;
+	mes "You press the buttons and call the elevator...";
+	close2;
+	warp "alch_dun02",91,289;
+	break;
+	case 2:
+	break;
+	}
+}
+
+alch_dun02,95,291,4	script	Elevator#Dungeon2	10042,{
+	
+	mes "Go up to the first floor?";
+	next;
+	switch(select("Yes:No")) {
+	case 1:
+	mes .@npc$;
+	mes "You press the buttons and call the elevator...";
+	close2;
+	warp "alch_dun01",91,289;
+	break;
+	case 2:
+	break;
+	}
+}
+
+alch_dun02,18,115,4	script	Normal Alchemist#Dungeon	4_m_science,{
+	
+	set .@npc$, "[Normal Alchemist]";
+	mes .@npc$;
+	mes "This place will take you to the third floor... there isn't actually a fourth floor.";
+	next;
+	mes .@npc$;
+	mes "We are currently checking what might have happened inside! This place is pretty safe, but I have no idea what's inside there.";
+	next;
+	mes .@npc$;
+	mes "Regardless of what you find, don't worry, it's perfectly safe!";
+	close;
+	}
+
+gef_atow04,19,35,4	script	Scared Girl#GefDungeon	441,{
+	
+	set .@npc$, "[Scared Girl]";
+	emotion ET_HELP;
+	mes .@npc$;
+	mes "They... they are gonna kill everybody!.";
+	next;
+	mes .@npc$;
+	mes "Please save my friends, my family! EVERYONE!";
+	close;
+	}
+	
+gef_atow02,86,73,4	script	Sad Boy#GefDungeon	442,{
+	
+	set .@npc$, "[Sad Boy]";
+	emotion ET_HELP;
+	mes .@npc$;
+	mes "They are...attacking the town.";
+	next;
+	mes .@npc$;
+	mes "Save Geffenia! Save us from those monsters!";
+	close;
+	}
+	
+gef_atow02,83,69,0	script	Brave Woman#GefDungeon	435,{
+	
+	set .@npc$, "[Brave Woman]";
+	mes .@npc$;
+	mes "I'm trying to save the kids...they ignore some of us on the tower.";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "but the people down there...Oh no...";
+	close;
+	}
+	
+gef_atow02,89,70,3	script	Quiet Girl#GefDungeon	439,{
+	
+	set .@npc$, "[Quiet Girl]";
+	mes .@npc$;
+	mes "...";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes ".....snif.";
+	close;
+	}
+	
+gef_town,107,118,3	script	Geffenia Guard#GefDungeon	447,{
+	
+	set .@npc$, "[Geffenia Guard]";
+	mes .@npc$;
+	mes "The Nymphs are trying to help us but...";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "We are completely overrun...";
+	close;
+	}
+
+ygg_dun01,49,31,3	script	Yggdrasil Guard#yggdun	455,{
+	
+	set .@npc$, "[Yggdrasil Guard]";
+	mes .@npc$;
+	mes "My people lives on top of the tree.";
+	next;
+	mes .@npc$;
+	mes "We would protect it with our lives...but the small plants do it already! Be Careful!";
+	close;
+	}
+
+ygg_dun02,150,198,3	script	Yggdrasil Sage#yggdun	453,{
+	
+	set .@npc$, "[Yggdrasil Sage]";
+	mes .@npc$;
+	mes "Climb these stairs to reach the fields in the sky.";
+	next;
+	mes .@npc$;
+	mes "Go south this path and reach the fields of the dead.";
+	close;
+	}
+	
+
+//////////Insect Society Nest
+
+-	itemshop	insectshop	-1,7020,2621:3,2622:3,2664:3,2671:3,2619:3,2672:3,23080:5,6226:10.
+
+moc_fild04,245,307,5	script	Senior Archeologist#anthell	743,{
+	set .@npc$, "[Senior Archeologist]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I'm studying the Insect Society below this desert. If you find any <ITEM>Mother's Nightmare<INFO>7020</INFO></ITEM>, bring them to me and i'll exchange for some items I found buried here!";
+	close2;
+	callshop "insectshop",1;
+	end;
+	}
+	
+	
+moc_fild04,241,311,3	script	Archeologist#anthell	755,{
+	
+	set .@npc$, "[Archeologist]";
+	mes .@npc$;
+	mes "Be careful with the holes around the desert.";
+	next;
+	mes .@npc$;
+	mes "The insects from the nest made quite a mess dragging that stuff around. It's easy to fall there!";
+	close;
+}
+
+moc_fild15,245,252,3	script	Archeologist#anthell2	755,{
+	
+	set .@npc$, "[Archeologist]";
+	mes .@npc$;
+	mes "So I can enter the hole on the north and cross the nest all the way to the south. That's quite interesting...";
+	close;
+}
+moc_fild04,244,302,8	script	Crusader#anthell	751,{
+	
+	set .@npc$, "[Crusader]";
+	mes .@npc$;
+	mes "We tried to get into the nest. But it was quite a difficult experience.";
+	next;
+	mes .@npc$;
+	mes "The good thing is I was properly geared, so I could actually take hits and protect them!";
+	close;
+}
+
+moc_fild04,253,305,8	script	Wise Man#anthell	798,{
+	
+	set .@npc$, "[Wise Man]";
+	if (illugloveverm >= 1) {
+	mes .@npc$;
+	mes "I hope you put that weapon to good use! You have talent!";
+	close;	
+	}
+	if (illusionistjob == 0) {
+	mes .@npc$;
+	mes "If you know anybody who could use a <ITEM>Vermillion Spirit Glove<INFO>5523</INFO></ITEM>, tell them to come here! I'm willing to trade it for some items!";
+	close;
+}
+	if (illusionistjob >= 1) {
+	mes .@npc$;
+	mes "Hey there! You seem pretty skilled wit magic! I found this <ITEM>Vermillion Spirit Glove<INFO>5523</INFO></ITEM> while diggin in these ruins, do you want them?";
+	next;
+	switch(select("What for?:Yes please!:Nope")) {
+	case 1:
+		mes .@npc$;
+		mes "^FF000010^000000 Mother's Nightmare from Society Nest!";
+		mes "I need them to research the nest's foundations! You can get them from Vitata in rare cases as well as the stronger insects there!";
+		close;
+		break;
+	case 2:
+		if(countitem(7020) < 10) goto L_noitems;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Thanks! These Nightmares are what made the queens join forces to build the society! This will really help my research! Thanks!"; //7020
+		delitem 7020,10;
+		getitem 5523,1;
+		set illugloveverm,1;
+		close;
+	L_noitems:
+		mes .@npc$;
+		mes "You're missing...";
+		if(countitem(7020) < 10) mes "^FF0000"+(10 - countitem(7020)) +"^000000 Mother's Nightmare";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "I'll be here anyway!";
+		close;
+	}
+	}
+	}
+//Waterfall Dungeon
+
+ma_fild02,320,318,5	script	Explorer#waterfall	690,{
+	
+	set .@npc$, "[Explorer]";
+	mes .@npc$;
+	mes "I heard the waterfall caves are a wonderful visiting place.";
+	next;
+	mes .@npc$;
+	mes "However, when I get near the entrance I hear strange noises...";
+	close;
+}
+
+malaya,310,280,5	script	Rogue#waterfall	482,{
+	
+	set .@npc$, "[Rogue]";
+	mes .@npc$;
+	mes "People who go to the waterfall caves sometimes feel terrible.";
+	next;
+	mes .@npc$;
+	mes "It seems like the dread of facing death head-on is very strong...";
+	close;
+}
+
+//Sky Garden
+skydun3,132,135,8	script	Traces#skygarden	649,{
+	
+
+	mes "You see traces of someone having played with toys around here...";
+	next;
+	mes "It seems like it used to belong to a little kid...";
+	close;
+}
+
+umbala,163,257,4	script	Large Crusader#skygarden	752,{
+	
+	set .@npc$, "[Large Crusader]";
+	mes .@npc$;
+	mes "The people around here said that there's a massive field and garden on top of the tree.";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "They are completely nuts! That's IMPOSSIBLE!";
+	close;
+}
+
+skyent,52,50,8	script	Swordsman#skygarden	645,{
+	
+	set .@npc$, "[Swordsman]";
+	mes .@npc$;
+	mes "This garden is said to be the gate to Asgard...";
+	next;
+	mes .@npc$;
+	mes "Be careful around there... those avatars love to put mortals to test. I believe they enjoy it.";
+	close;
+}
+
+skyent,23,68,1	script	Lady Knight#skygarden	469,{
+	
+	set .@npc$, "[Lady Knight]";
+	mes .@npc$;
+	mes "Every avatar I defeat around here gives me one of these <ITEM>Einherjar Soul<INFO>7362</INFO></ITEM>!";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "I wonder what's their meaning...";
+	close;
+}
+-	itemshop	skygardenshop	-1,7363,2629:1,2630:1,2631:1,2632:1,2633:1,3634:1,2636:1,2541:2,2410:2,2383:3,5484:3,5483:3,1592:4,1418:4,1419:4,1161:4,1533:4,1530:4,7898:4,13020:4,2181:4,2182:4,31160:5,19133:5.
+
+skydun3,346,81,4	script	Wish Maiden#skygarden	403,{
+	
+	cutin "wish_maiden11",2;
+	set .@npc$, "[Wish Maiden]";
+	mes .@npc$;
+	mes "Welcome to the gates of Valhalla, warrior.";
+	next;
+	mes .@npc$;
+	mes "It's not your time yet... but you can bring <ITEM>Einherjar Soul<INFO>7362</INFO></ITEM>. I will send them to the afterlife properly. ";
+	next;
+	mes .@npc$;
+	mes "I will also reward you with <ITEM>Odin's Blessing<INFO>7363</INFO></ITEM>. But only for every 100 souls you bring me...which you exchange for some artifacts.";
+	next;
+	switch(select("I want to deliver souls.:Show me the artifacts.:Nevermind.")) {
+	case 1:
+	if(countitem(7362) < 100) goto L_noitems;
+	mes .@npc$;
+	mes "Thank you for your efforts.";
+	delitem 7362,100;
+	getitem 7363,1;
+	specialeffect2 845;
+	close2;
+	cutin "",255;
+	break;
+	L_noitems:
+		mes .@npc$;
+		mes "You don't have <ITEM>Einherjar Soul<INFO>7362</INFO></ITEM>.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+	mes .@npc$;
+	mes "Choose carefully. The gods may bless those who are strong.";
+	close2;
+	cutin "",255;
+	callshop "skygardenshop",1;
+	break;
+	case 3:
+	mes .@npc$;
+	mes "Come back anytime... Watch out on your way out.";
+	close2;
+	cutin "",255;
+	break;
+}
+}
+
+skydun3,244,373,4	script	Swordsman?#skygarden	645,{
+	
+	set .@npc$, "[Swordsman?]";
+	mes .@npc$;
+	mes "Have you seen my avatar near the entrance?";
+	next;
+	mes .@npc$;
+	mes "I have projected it there so as to provide guidance to anybody who comes here. I can take you there...What do you say?";
+	next;
+	switch(select("Take me back.:Nevermind.")) {
+		case 1:
+		warp "skyent",52,48;	
+		end;
+		case 2:
+		mes .@npc$;
+		mes "The avatars will test anyone who would wish to come so close to Asgard. Be Brave.";
+		close;
+	}
+}
+
+ygg_fild02,165,233,4	script	Gardenkeeper#skygardenent	811,{
+	
+	set .@npc$, "[Valkyrie]";
+	mes .@npc$;
+	mes "This is the entrance to the Sky Garden of Asgard.";
+	next;
+	mes .@npc$;
+	mes "The Avatars of the gods wish to test any mortal brave enough to enter. Do you want to test yourself?";
+	next;
+	switch(select("Take me there!.:Nevermind.")) {
+		case 1:
+		warp "skyent",32,35;	
+		end;
+		case 2:
+		mes .@npc$;
+		mes "It's better to be a cautious living mortal, than a dead brave fool.";
+		close;
+	}
+}
+
+//Bathhouse
+
+cmd_in02,183,192,4	script	Bath Gatekeeper#warehouse	71,{
+	
+	set .@npc$, "[Bath Gatekeeper]";
+	cutin "wedding_marry01",2;
+	mes .@npc$;
+	mes "You're an Orphan and you want to go inside? Are you crazy? They're gonna kill you!";
+	next;
+	switch(select("I want to go anyway:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "You do you sir...I'll guide you there. Enjoy...?";
+	next;
+	warp "vip_bath",160,11;	
+	end;
+	case 2:
+		mes .@npc$;
+		mes "You'd better not go in anyway.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	
+}
+
+cmd_in02,183,180,3	script	Customer#bath	537,{
+	
+	set .@npc$, "[Customer]";
+	mes .@npc$;
+	mes "Why don't they just let us all in? I wanna check out this place!";
+	next;
+	mes .@npc$;
+	mes "You damn Orphans always get it easy!";
+	close;
+}
+
+cmd_in02,173,185,5	script	Alchemist#bath	558,{
+	
+	set .@npc$, "[Alchemist]";
+	mes .@npc$;
+	mes "They don't let many people inside...something about the water or whatever.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "But somehow Orphans are allowed in...? Weird...";
+	close;
+}
+
+cmd_in02,184,173,3	script	Monk#bath	690,{
+	
+	set .@npc$, "[Monk]";
+	mes .@npc$;
+	mes "We monks don't have many opportunities to visit Comodo...it sort of is against the teachings!";
+	next;
+	emotion ET_HEH;
+	mes .@npc$;
+	mes "I won't tell if you don't!";
+	close;
+}
+
+cmd_in02,73,186,4	script	Curious Man#bath	48,{
+	
+	set .@npc$, "[Curious Man]";
+	mes .@npc$;
+	mes "Where is the entrance...WHERE IS IT!? They won't tell me!";
+	emotion ET_HELP;
+	close;
+}
+
+comodo,191,145,4	script	Bath Representative#bath	124,{
+	
+	set .@npc$, "[Bath Representative]";
+	mes .@npc$;
+	mes "Hello there Orphan! Wanna relax a bit and have some fun?";
+	next;
+	mes .@npc$;
+	mes "Visit the Noble Bathhouse here in Comodo! Just check the house Northwest of here!";
+	close;
+}
+
+vip_bath,156,43,4	script	Scared Lady#bath	727,{
+	
+	set .@npc$, "[Scared Lady]";
+	mes .@npc$;
+	mes "What the hell is going on here! These people are sick!";
+	emotion ET_SURPRISE;
+	close;
+}
+
+// Destroyed Morroc
+
+moc_dun01,32,295,5	script	Lucile#morrocdst	667,{
+	
+	set .@npc$, "[Assassin Lucile]";
+	cutin "tnm_lucile01",2;
+	mes .@npc$;
+	mes "Satan Morroc is here! We failed! Please run to the Ruins!";
+	emotion ET_CRY;
+	close2;
+	cutin "",255;
+	end;
+}
+
+moc_dun01,33,286,5	script	Royal Guard#morrocdst	653,{
+	
+	set .@npc$, "[Royal Guard]";
+	mes .@npc$;
+	mes "Fall Back! Everyone! Fall Back!";
+	close;
+}
+
+moc_dun01,28,292,5	script	Assassin#morrocdst1	682,{
+	
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "No monster shall pass!";
+	close;
+}
+
+moc_dun01,26,289,5	script	Assassin#morrocdst2	682,{
+	
+	set .@npc$, "[Assassin]";
+	mes .@npc$;
+	mes "We must protect the people who are alive!";
+	close;
+}
+
+moc_dun01,26,294,5	script	Priest#morrocdst1	677,{
+	
+	set .@npc$, "[Priest]";
+	mes .@npc$;
+	mes "I will save the people!";
+	close;
+}
+
+moc_dun01,46,282,5	script	Fallen Hero#moc1	687,{
+	end;
+}
+
+moc_dun01,33,244,5	script	Fallen Hero#moc2	689,{
+	end;
+}
+
+moc_dun01,91,199,5	script	Fallen Hero#moc3	694,{
+	end;
+}
+
+moc_dun01,131,154,5	script	Fallen Hero#moc4	697,{
+	end;
+}
+
+moc_dun01,130,142,5	script	Fallen Hero#moc5	692,{
+	end;
+}
+
+moc_dun01,164,101,5	script	Fallen Hero#moc6	687,{
+	end;
+}
+
+moc_dun01,180,186,5	script	Fallen Hero#moc7	689,{
+	end;
+}
+
+moc_dun01,211,123,5	script	Fallen Hero#moc8	694,{
+	end;
+}
+
+moc_dun01,269,197,5	script	Fallen Hero#moc9	697,{
+	end;
+}
+
+moc_dun01,72,73,5	script	Fallen Hero#moc10	692,{
+	end;
+}
+
+moc_dun01,160,282,5	script	Fallen Hero#moc11	699,{
+	end;
+}
+
+moc_dun01,180,35,5	script	Fallen Hero#moc12	699,{
+	end;
+}
+
+hu_fild02,146,256,5	script	Farmer#mhugel	536,{
+	
+	set .@npc$, "[Farmer]";
+	mes .@npc$;
+	mes "Some guys used to live here...they called this island Neet.";
+	next;
+	mes .@npc$;
+	mes "No idea why they called this place Neet. They are weird. This is just my house now.";
+	close;
+}
+
+
+///Varmundt's Mansion
+
+
+va_dun02,128,313,4	script	Strange Tree#varmundt	CLEAR_NPC,{
+	
+	mes "^000099You can see a strange room reflected on the tree trunk.^000000";
+	next;
+	switch(select("Touch the Trunk:Nevermind")) {
+	case 1:
+	warp "va_dun02",255,99;	
+	end;
+	case 2:
+		end;
+		}
+	}
+	
+va_dun02,252,99,4	script	Strange Tree#varmundt2	CLEAR_NPC,{
+	
+	mes "^000099You can see a strange garden reflected on the tree trunk.^000000";
+	next;
+	switch(select("Touch the Trunk:Nevermind")) {
+	case 1:
+	warp "va_dun02",128,310;	
+	end;
+	case 2:
+		end;
+		}
+	}
+	
+va_dun02,223,104,4	script	???#varmundt2	CLEAR_NPC,{
+	
+	mes "^000099You can feel a slight gust of wind coming from this place.^000000";
+	next;
+	switch(select("Push aside:Nevermind")) {
+	case 1:
+	mes "^000099You can see a long staircase...You go down.^000000";
+	close2;
+	warp "va_dun03",160,13;	
+	end;
+	case 2:
+		end;
+		}
+	}
+	
+va_dun03,160,311,4	script	Paradox Clock#varmundt2	CLEAR_NPC,{
+	
+	mes "^000099Touch the Clock?^000000";
+	next;
+	switch(select("Yes:No")) {
+	case 1:
+	mes "^000099The clock is actually a door! You go through...^000000";
+	close2;
+	warp "va_dun04",162,37;	
+	end;
+	case 2:
+		end;
+		}
+	}
+	
+//Culvert
+
+prt_sewb1,196,253,5	script	Sewer Guard#sewers1	105,{
+	
+	set .@npc$, "[Sewer Guard]";
+	mes .@npc$;
+	mes "We have sealed the tunnels that some people would take to the large gallery deep inside.";
+	next;
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "It was deemed a lost cause due to the large amount of bugs there... You may however go to the gallery directly from here.";
+	next;
+	mes .@npc$;
+	mes "Just be careful! Quite a few massive bugs inside!";
+	close;
+}
+
+//Juperos Exchanges 
+
+-	itemshop	crest1shop	-1,7356,28352:50,13597:100,13598:100,13605:100.
+-	itemshop	crest2shop	-1,7357,28353:50,13599:100,13600:100,13605:100.
+-	itemshop	crest3shop	-1,7358,28357:50,13601:100,13602:100,13605:100.
+-	itemshop	crest4shop	-1,7359,28359:50,13603:100,13604:100,13605:100.
+
+juperos_04,36,49,6	script	Crest Archeologist#juperos1	743,{
+	set .@npc$, "[Crest Archeologist]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "We're collecting crests for research! If you bring us some of them, We can provide you with artifacts we found here.";
+	close2;
+	callshop "crest3shop",1;
+	end;
+	}
+	
+juperos_04,48,47,3	script	Crest Archeologist#juperos2	120,{
+	set .@npc$, "[Crest Archeologist]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "We're collecting crests for research! If you bring us some of them, We can provide you with artifacts we found here.";
+	close2;
+	callshop "crest2shop",1;
+	end;
+	}
+	
+juperos_04,49,43,3	script	Crest Archeologist#juperos3	110,{
+	set .@npc$, "[Crest Archeologist]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "We're collecting crests for research! If you bring us some of them, We can provide you with artifacts we found here.";
+	close2;
+	callshop "crest1shop",1;
+	end;
+	}
+	
+juperos_04,42,38,6	script	Crest Archeologist#juperos4	121,{
+	set .@npc$, "[Crest Archeologist]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "We're collecting crests for research! If you bring us some of them, We can provide you with artifacts we found here.";
+	close2;
+	callshop "crest4shop",1;
+	end;
+	}
+	
+juperos_04,37,39,3	script	Team Guard#juperos	468,{
+	
+	set .@npc$, "[Team Guard]";
+	mes .@npc$;
+	mes "Hello Orphan. I'm scorting this group of researchers.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "They are looking for those weird Crest Pieces that the robots around here carry. Give them some for some cool stuff.";
+	next;
+	mes .@npc$;
+	mes "From what I noticed, those Protocards are very good when matched with Juperos Weapons, but they also may work well with regular weapons!";
+	close;
+}
+
+//Old Glast Heim Warps
+
+gl_knp01,9,174,5	script	#glold1	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp01,160,107,5	script	#glold2	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp01,104,104,5	script	#glold3	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,123,162,5	script	#glold4	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,193,26,5	script	#glold5	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,212,88,5	script	#glold6	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp01,221,97,5	script	#glold7	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp01,229,126,5	script	#glold8	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp01,246,157,5	script	#glold9	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,219,156,5	script	#glold10	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,157,153,5	script	#glold11	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,286,165,5	script	#glold12	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,206,216,5	script	#glold13	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,270,263,5	script	#gloldXX	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 151, 193;
+	specialeffect2 799;
+	end;
+}
+gl_knp01,150,200,5	script	#gloldZZ	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 270, 255;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,192,167,5	script	#glold14	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,51,61,5	script	#glold15	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,28,26,5	script	#glold16	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,39,158,5	script	#glold17	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,64,218,5	script	#glold18	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,104,244,5	script	#glold19	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,152,276,5	script	#glold20	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,152,292,5	script	#glold21	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp02,152,292,5	script	#glold22	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp02,207,235,5	script	#glold23	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+gl_knp02,120,228,5	script	#glold24	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,125,191,5	script	#glold25	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,202,195,5	script	#glold26	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,227,175,5	script	#glold27	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,264,221,5	script	#glold28	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,71,214,5	script	#glold29	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp01", 150, 103;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,49,247,5	script	#gloldAA	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp02", 150, 157;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp02,150,162,5	script	#gloldBB	723,2,2,{
+	end;
+	OnTouch_:
+	warp "gl_knp02", 48, 243;
+	specialeffect2 799;
+	end;
+}
+
+gl_knp01,149,105,5	script	Heinrich#oldgh	652,{
+	
+	set .@npc$, "[Heinrich]";
+	cutin "gl_heinrich1",2;
+	mes .@npc$;
+	mes "Something is wrong! These portals! They Are Unpredictable! My Knights have completely gone mad!";
+	next;
+	mes .@npc$;
+	mes "Master Varmundt talked to me about a strange distortion that would happen...But this? We were not prepared!";
+	next;
+	mes .@npc$;
+	mes "They must have at least one way out! Himmelmez can't escape! You need to find it! And try to find Amdarais and kill it too!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+ve_fild07,130,131,4	script	Island Ferryman#nameless	88,{
+	
+	set .@npc$, "[Island Ferryman]";
+	mes .@npc$;
+	mes "I can take you to the Nameless Island... if you wish. I don't care what you'll do there...I just do what Master Hibram tells me to do...";
+	next;
+	switch(select("I want to go:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "I will not bring you back. You've been warned. A bit late.";
+	next;
+	warp "nameless_n",257,215;	
+	end;
+	case 2:
+		mes .@npc$;
+		mes "Master Hibram needs... people.";
+		close2;
+		cutin "",255;
+		end;
+		}
+}
+
+//Malaya Hospital 2F
+
+ma_dun01,176,66,4	script	Lost Nurse#malayain	569,{
+	cutin "malaya_nursea04",2;
+	mes "[Lost Nurse]";
+	mes "Bangungot may be an ever present torment in this place... but it's not the source of the darkness here.";
+	next;
+	mes "[Lost Nurse]";
+	mes "If you bring me a <ITEM>Bangungot Doll<INFO>6517</INFO></ITEM>...I can use it to take you across the mirror safely.";
+	next;
+	switch(select("I will give you the doll:Nevermind")) {
+	case 1:
+	if(countitem(6517) < 1) goto L_noitems;
+	mes "[Lost Nurse]";
+	mes "Protect your soul inside that place. Or it shall be bound here forever...like mine. Look for any dark portals to instantly return to this side of the mirror.";
+	next;
+	delitem 6517,1;
+	warp "mal_dun02",39,157;	
+	end;
+	L_noitems:
+	mes "[Lost Nurse]";
+	mes "The doll can absorb the darkness within the passage... You need it to survive crossing.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+		mes "[Nurse]";
+		mes "The doll can absorb the darkness within the passage... You need it to survive crossing.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	
+mal_dun02,35,157,5	script	#malayareturn	723,2,2,{
+	end;
+	OnTouch_:
+	warp "ma_dun01", 174, 68;
+	end;
+}
+
+mal_dun02,113,175,5	script	#malayareturn2	723,2,2,{
+	end;
+	OnTouch_:
+	warp "ma_dun01", 174, 68;
+	end;
+}
+
+//Loki's Palace
+
+loki_tomb01,177,199,4	script	Assassin Tutor#distortion	637,{
+	
+	set .@npc$, "[Assassin Tutor]";
+	cutin "aca_ninja_k",2;
+	mes .@npc$;
+	mes "So you're another traveler from that Distortion eh...? Very well.";
+	next;
+	switch(select("What's going on?:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "I'm just guarding the Distortion. I'm developing a special technique where I can merge both assassin and ninja arts together. I hope to succeed someday.";
+	next;
+	if (satsujinjob ==1){
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Judging by your skills and potential... It seems that I succeeded. Excellent! So Satsujin is the name I'll choose...interesting.";
+	next;
+	}
+	mes .@npc$;
+	mes "You're in the Assassin Cross Job Test. Your mission is to defeat 100 assassins and avoid the stronger Shadow Chasers and Guillotine Crosses. Don't forget to collect proof of their defeat!";
+	next;
+	mes .@npc$;
+	mes "If you somehow find and defeat Juliette D Rachel... well...you can skip all that and just move on the the real test: fight Master Loki.";
+	next;
+	mes .@npc$;
+	mes "The assassins here are not aware of who you are or where you came from...but Master Loki and I think this is a good oportunity to test their limits and yours...whatever reason you have to be here for.";
+	cutin "",255;
+	close;	
+	case 2:
+		mes .@npc$;
+		mes "Hehe, good luck, you'll need it.";
+		close2;
+		cutin "",255;
+		end;
+		}
+}
+
+loki_tomb01,281,18,4	script	Assassin Cross Guard#lokipalace	884,{
+	
+	set .@npc$, "[Assassin Cross Guard]";
+	cutin "mocseal_kid01",2;
+	mes .@npc$;
+	mes "Another visitor huh...whatever. Do you have the 100 <ITEM>Necklace of Oblivion<INFO>1008</INFO></ITEM>?";
+	next;
+	mes .@npc$;
+	mes "If you have them, I'll allow you to access the hall where the true test begins. ";
+	next;
+	mes .@npc$;
+	mes "If somehow you get a <ITEM>Necklace of Despair<INFO>28320</INFO></ITEM> I'll also let you in.";
+	next;
+	switch(select("I have 100 Necklaces of Oblivion.:I have a Necklace of Despair.:Nevermind.")) {
+	case 1:
+	if(countitem(1008) < 100) goto L_noitems;
+	mes .@npc$;
+	mes "Well well well, good luck then. If you run back, I won't let you in again without 100 more necklaces got it?";
+	close2;
+	delitem 1008,100;
+	cutin "",255;
+	warp "loki_tomb02",79,142;
+	break;
+	L_noitems:
+		mes .@npc$;
+		mes "You don't have enough. Leave.";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+	if(countitem(28320) < 1) goto L_noitems2;
+	mes .@npc$;
+	mes "Impressive...Good luck inside. They are pretty strong.";
+	close2;
+	delitem 28320,1;
+	cutin "",255;
+	warp "loki_tomb02",79,142;
+	break;
+	L_noitems2:
+		mes .@npc$;
+		mes "You don't have enough. Leave.";
+		close2;
+		cutin "",255;
+		break;
+	case 3:
+	mes .@npc$;
+	mes "Not ready eh?... Watch out for those guys.";
+	close2;
+	cutin "",255;
+	break;
+}
+}
+
+loki_tomb02,79,146,4	script	Assassin Cross Guard#lokipalace2	885,{
+	
+	set .@npc$, "[Assassin Cross Guard]";
+	cutin "mocseal_rin01",2;
+	mes .@npc$;
+	mes "Giving up? Want to return?";
+	next;
+	switch(select("I want to go back:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "Are you sure? Well... That's ok.";
+	next;
+	warp "loki_tomb01",281,25;
+	case 2:
+	mes .@npc$;
+	mes "Don't waste my time!";
+	close;
+	}
+}
+
+
+ein_fild04,376,108,6	script	Einbroch Oligarch#eindist	853,{
+	set .@npc$, "[Einbroch Oligarch]";
+	mes .@npc$;
+	mes "I don't understand why you are so worried? We just need to drill!";
+	close;
+}
+
+ein_fild04,374,111,6	script	Einbroch Worker#eindist	851,{
+	set .@npc$, "[Einbroch Worker]";
+	mes .@npc$;
+	mes "You don't understand sir! This rock is too hard! No drill can pierce it!";
+	close;
+}
+
+ein_fild04,376,117,6	script	Einbroch Miner#eindist	848,{
+	set .@npc$, "[Einbroch Miner]";
+	mes .@npc$;
+	mes "They keep talking about how there's a ton of Gold according to the sensors down there...";
+	next;
+	mes .@npc$;
+	mes "Too bad they can't figure out how to get it. I'll keep trying, they are paying me afterall!";
+	close;
+}
+
+ein_dead01,194,373,6	script	North Guard#eindist	997,{
+	set .@npc$, "[North Guard]";
+	mes .@npc$;
+	mes "Beyond this point is territory for the Blades faction! You may be attacked on sight...";
+	next;
+	mes .@npc$;
+	mes "Or not... I don't really know. They are pretty random.";
+	close;
+}
+
+ein_dead01,246,35,3	script	South Guard#eindist	10196,{
+	set .@npc$, "[South Guard]";
+	mes .@npc$;
+	mes "Beyond this point is territory for the Bullets faction! You may be attacked on sight...";
+	next;
+	mes .@npc$;
+	mes "Unless you can actually bribe your way around the camp. Haha.";
+	close;
+}
+
+ein_dead02,270,343,3	script	South Scavenger#eindist	10195,{
+	set .@npc$, "[South Scavenger]";
+	mes .@npc$;
+	mes "Those sword-wielding bastards! They got the resources on north...";
+	next;
+	mes .@npc$;
+	mes "My gun will take them down...";
+	close;
+}
+
+ein_dead02,283,327,2	script	South Scavenger#eindist2	10199,{
+	set .@npc$, "[South Scavenger]";
+	mes .@npc$;
+	mes "Why don't you bring us some White Tokens?";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Taking them down should be easy for you...or anyone! Haha!";
+	close;
+}
+
+ein_dead02,279,334,3	script	South Captain#eindist	10300,{
+
+	set .@npc$, "[South Captain]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Have you been hunting those white-clothed bastards? I'll take any <ITEM>White Token<INFO>730</INFO></ITEM>.";
+	close2;
+	callshop "whitetokenshop",1;
+	end;
+	}
+
+
+
+ein_dead03,348,277,4	script	North Scavenger#eindist	946,{
+	set .@npc$, "[North Scavenger]";
+	mes .@npc$;
+	mes "We, the Blades take care of the north.";
+	next;
+	mes .@npc$;
+	mes "Be careful with the Bullets, those guys who camp at the south.";
+	close;
+}
+
+ein_dead03,331,275,8	script	North Scavenger#eindist2	953,{
+	set .@npc$, "[North Scavenger]";
+	mes .@npc$;
+	mes "Using the Ymir's Heart to power a drill? Were they crazy?";
+	next;
+	emotion ET_SHY;
+	mes .@npc$;
+	mes "Some people really are stupid! Damn!";
+	close;
+}
+	
+ein_dead03,342,287,3	script	North Captain#eindist	998,{
+
+	set .@npc$, "[North Captain]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Have you been hunting those dirty-clothed losers? I'll take any <ITEM>Black Token<INFO>731</INFO></ITEM>.";
+	close2;
+	callshop "blacktokenshop",1;
+	end;
+	}
+
+-	itemshop	whitetokenshop	-1,730,6291:100,6292:150,6906:300,5120:100,14004:50,14005:25,14006:25,24444:25,24445:25,24446:25,24447:25.
+-	itemshop	blacktokenshop	-1,731,6291:150,6292:100,6906:300,5120:100,14001:50,14002:25,14003:25,24444:25,24445:25,24446:25,24447:25.
+
+
+//Crash Site
+
+resc_dun01,223,367,3	script	Aldebaran Guard#crashshite	953,{
+	set .@npc$, "[Aldebaran Guard]";
+	mes .@npc$;
+	mes "Are you here to help the people or to raid the supplies...?";
+	next;
+	emotion ET_HNG;
+	mes .@npc$;
+	mes "or maybe you'll look for that... thing...that took the airship down?";
+	close;
+}
+
+resc_dun01,222,363,3	script	Voluntary #crashshite	967,{
+	set .@npc$, "[Voluntary]";
+	mes .@npc$;
+	mes "Most of the people from the crash has already been saved.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "However...the monsters we found around here are very dangerous. Be Careful!";
+	close;
+}
+
+resc_dun01,200,234,3	script	Engineer #crashshite	851,{
+	set .@npc$, "[Engineer]";
+	mes .@npc$;
+	mes "The reason for the crash is absolutely not mechanical fault...";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "I wonder what could be so strong to bring it down...";
+	close;
+}
+
+resc_dun01,187,221,2	script	Alchemist #crashshite	558,{
+	set .@npc$, "[Alchemist]";
+	mes .@npc$;
+	mes "My supplies... I had a full load of incredible mixes here!";
+	next;
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "I gotta find whatever is left...";
+	close;
+}
+
+resc_dun01,365,214,3	script	Aldebaran Captain #crashshite	419,{
+	set .@npc$, "[Aldebaran Captain]";
+	mes .@npc$;
+	mes "Many people were not found... not even their bodies...";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "I wonder if they fell underground... the airship did sink partially...";
+	close;
+}
+
+resc_dun01,362,210,3	script	Aldebaran Soldier #crashshite	417,{
+	set .@npc$, "[Aldebaran Soldier]";
+	mes .@npc$;
+	mes "I'm taking the survivors to aldebaran, do you want to go too?";
+	next;
+	mes .@npc$;
+	mes "I won't bring you back however, this route is for evacuation only.";
+	switch(select("Yes, please:No, thanks")) {
+	case 1:
+	warp "aldebaran",159,59;	
+	cutin "",255;
+	end;
+	case 2:
+		next;
+		mes .@npc$;
+		mes "No problem. Be careful around here!";
+		close;
+		end;
+		}
+	}
+
+aldebaran,155,62,5	script	Aldebaran Soldier #crashshite2	417,{
+	set .@npc$, "[Aldebaran Soldier]";
+	mes .@npc$;
+	mes "I'm using this boat to bring people from the Airship Crash Site... quite a mess!";
+	close;
+}
+
+resc_dun01,369,212,4	script	Worried Woman #crashshite2	478,{
+	set .@npc$, "[Worried Woman]";
+	mes .@npc$;
+	mes "My husband was on the airship! Please! Find Him!";
+	next;
+	emotion ET_SOB;
+	mes "[Honest Guard]";
+	mes "Ma'am... I'm sorry, but we did everything and found everybody on the surface.";
+	next;
+	mes "[Honest Guard]";
+	mes "We can't do anything else... his body is probably on the underground and can't be recovered safely.";
+	close;
+}
+
+resc_dun01,368,210,7	script	Honest Guard #crashshite2	418,{
+	set .@npc$, "[Honest Guard]";
+	mes .@npc$;
+	mes "This woman is so sad... I wish I could do more to help her.";
+	next;
+	mes "[Honest Guard]";
+	mes "But the underground... what I've seen there...is not from this world.";
+	close;
+}
+
+//Snow Fields Ferry
+
+snow_fild01,28,245,4	script	Snow Ferry#snow	709,{
+	set .@n$,"[Snow Ferry]";
+	mes .@n$;
+	mes "Would you like to go to Hugel?";
+	mes "It's not so far from here... but it's a dangerous route.";
+	next;
+	switch(select("Hugel - 500 Zeny:Cancel")) {
+	case 1:
+		if (Zeny < 500) break;
+		set Zeny, Zeny-500;
+		warp "hugel",200,108;
+		end;
+	case 2:
+		mes .@n$;
+		mes "Let me know if you change your mind. Take Care!";
+		close;
+	}
+	mes .@n$;
+	mes "I'm sorry, but you";
+	mes "don't have enough";
+	mes "zeny for the boarding fare.";
+	close;
+}
+
+hugel,209,109,4	script	Hugel Ferry#hugel	709,{
+	set .@n$,"[Hugel Ferry]";
+	mes .@n$;
+	mes "Would you like to go to the Snow Fields?";
+	mes "It's not so far from here... but it's a dangerous route.";
+	next;
+	switch(select("Snow Fields - 1500 Zeny:Take me to Odin Temple - 3000 Zeny:Cancel")) {
+	case 1:
+		if (Zeny < 1500) break;
+		set Zeny, Zeny-1500;
+		warp "snow_fild01",31,246;
+		end;
+	case 2:
+		mes .@n$;
+		mes "Feeling Brave eh?";
+		mes "Watch out for the Monsters there... they may look divine but they're...wrong.";
+		next;
+		if (Zeny < 3000) break;
+		set Zeny, Zeny-3000;
+		warp "odin_tem01",97,146;
+		end;
+	case 3:
+		mes .@n$;
+		mes "Let me know if you change your mind. Take Care!";
+		close;
+	}
+	mes .@n$;
+	mes "I'm sorry, but you";
+	mes "don't have enough";
+	mes "zeny for the boarding fare.";
+	close;
+}
+
+odin_tem01,92,146,4	script	Temple Ferry#odin	709,{
+	set .@n$,"[Temple Ferry]";
+	mes .@n$;
+	mes "Would you like to go to Hugel?";
+	mes "We must leave as soon as possible!.";
+	next;
+	switch(select("Let's Go!:Cancel")) {
+	case 1:
+		warp "hugel",200,108;
+		end;
+	case 2:
+		mes .@n$;
+		mes "Let me know if you change your mind. Take Care!";
+		close;
+	}
+	mes .@n$;
+	mes "I'm sorry, but you";
+	mes "don't have enough";
+	mes "zeny for the boarding fare.";
+	close;
+}
+
+lighthalzen,103,243,3	script	Prontera Judge #lhzdun	10198,{
+	set .@npc$, "[Prontera Judge]";
+	if (judgejob ==1){
+	mes .@npc$;
+	mes "Magister, the Rekember Corporation HQ is closed to visitation, after the events that transpired in their Laboratory.";
+	next;
+	mes .@npc$;
+	mes "I'm assigned to this post. You have nothing to worry about.";
+	close;	
+	}
+	mes .@npc$;
+	mes "The Rekember Corporation HQ is closed to visitation, after the events that transpired in their Laboratory.";
+	next;
+	mes .@npc$;
+	mes "Please do not approach this place carelessly.";
+	close;
+}
+
+lighthalzen,148,300,3	script	Cleaning Captain#lhzdun	10126,{
+	set .@npc$, "[Cleaning Captain]";
+	
+	mes .@npc$;
+	mes "You can access the abandoned laboratory from here...";
+	next;
+	mes "That place was once filled with strange clones but now...It really needs some cleaning. Do you want to help?";
+	switch(select("Let's Go!:Cancel")) {
+	case 1:
+		warp "lhz_dun01",149,287;
+		end;
+	case 2:
+		mes .@npc$;
+		mes "Let me know if you change your mind. Take Care!";
+		close;
+}
+}
+
+//Distortion Prontera
+
+prt_lib_q,89,43,4	script	Sage Nylem#distortion1	735,{
+	
+	mes "[Sage Nilem]";
+	mes "I have no idea how you came here... But I myself am versed in temporal magic and know you're not from this place.";
+	next;
+	mes "[Sage Nilem]";
+	mes "With that said...I need help. The spirits of two forever abandoned lovers can't rest...I need someone strong enough to put an end to their misery.";
+	next;
+	mes "[Sage Nilem]";
+	mes "For much as the people may call them traitors... They don't deserve to be forgotten in a dirty prison.";
+	next;
+	mes "[Sage Nilem]";
+	mes "Do you want me to open the secret passage to the Prison so you can find them?";
+	next;
+	switch(select("I want to help:What is that massive gate?:Nevermind")) {
+	case 1:
+	mes "[Sage Nilem]";
+	mes "Be careful with the swords...they are cursed. They lust for blood. Let me open the passage...";
+	next;
+	warp "prt_prison",159,290;	
+	end;
+	case 2:
+	mes "[Sage Nilem]";
+	mes "That's where the Terra Gloria is located. I'm afraid you're not allowed inside.";
+	close;
+	case 3:
+		mes "[Sage Nilem]";
+		mes "Be careful around here. Go back to your world as soon as you can.";
+		close;
+		}
+	}
+
+alberta,205,74,4	script	Brave Sailor#losttower	571,{
+	
+	set .@npc$, "[Janssen's Son]";
+	mes .@npc$;
+	mes "My father would take many adventurers to a strange tower...";
+	next;
+	mes .@npc$;
+	mes "One day he heard a terrible scream coming from inside the tower...and it...sunk deep in the ocean.";
+	next;
+	mes .@npc$;
+	mes "I still look for my father around there everyday...";
+	next;
+	mes .@npc$;
+	mes "I did find a very mysterious cave...but a powerful monster blocked my passage past a large arena.";
+	next;
+	mes .@npc$;
+	mes "I have no idea what can be found beyond that point. But maybe you can. Want me to take you there?";
+	next;
+	mes .@npc$;
+	mes "All I ask is for you to tell me is to try and find my father there!";
+	next;
+	switch(select("Let's go there:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "Thank you! I'll get everyone ready. The Tower is sinking so be careful when going around it.";
+	close2;
+	warp "1@sunk1",12,52;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Be careful! This place can be tricky.";
+	close;
+	}
+}	
+	
+1@sunk1,9,57,5	script	First Mate#losttower	807,{
+	
+	set .@npc$, "[First Mate]";
+	mes .@npc$;
+	mes "Are you ready to leave? The Tripulation is still exploring the area, but I can take you back.";
+	next;
+	switch(select("I want to go back to Alberta:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "Better be safe than sorry right? Let's go.";
+	close2;
+	warp "alberta",214,72;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Be careful! This place can be unforgiving.";
+	close;
+	}
+}
+
+1@sunk1,18,49,3	script	Calm Sailor#losttower	828,{
+	
+	set .@npc$, "[Calm Sailor]";
+	mes .@npc$;
+	mes "This place used to be a very tall tower...over 100 floors high!";
+	next;
+	mes .@npc$;
+	mes "Now we need to find a way to go down the few floors that remain, while avoiding the monsters...";
+	close;
+}
+
+1@sunk1,205,56,3	script	Tired Sailor#losttower	841,{
+	
+	set .@npc$, "[Tired Sailor]";
+	mes .@npc$;
+	mes "Going down is easy, apart from the monsters of course...";
+	next;
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "But I don't even want to think about walking all the way back!";
+	close;
+}
+
+lost_dun01,20,162,3	script	Worried Adventurer#losttower	881,{
+	
+	set .@npc$, "[Worried Adventurer]";
+	mes .@npc$;
+	mes "I know we promised the Captain we'd find his father...";
+	next;
+	emotion ET_KEK;
+	mes .@npc$;
+	mes "But this is too much! This place is not ok! Something weird is going on!";
+	close;
+}
+
+lost_dun01,163,114,5	script	Deceased Sailor#losttower	849,{
+	
+	mes "Strange injuries cover the man's body.";
+	close;
+}
+
+lost_dun01,168,119,3	script	Desperate Sailor#losttower	870,{
+	
+	set .@npc$, "[Worried Adventurer]";
+	emotion ET_FRET;
+	mes .@npc$;
+	mes "That massive monster killed my friend! Please kill it!";
+	close;
+}
+
+lost_dun03,118,132,3	script	Strong Sailor#losttower	943,{
+	
+	set .@npc$, "[Strong Sailer]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "The captain is ahead...This place...I know these things...";
+	next;
+	mes .@npc$;
+	mes "So this is where they hid the Mad King's body...be careful around.";
+	close;
+}
+
+lost_dun03,12,58,5	script	Captain#losttower	571,{
+	
+	set .@npc$, "[Janssen's Son]";
+	mes .@npc$;
+	mes "I can feel a strange presence ahead. Please be careful. There's no turning back.";
+	next;
+	switch(select("Climb on the Platform:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "I still couldn't find my father...";
+	close2;
+	warp "lost_dun03",52,243;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Better be careful.";
+	close;
+	}
+}
+
+lost_dun03,98,295,5	script	Small Passage#losttower	CLEAR_NPC,{
+	mes "I can squeeze through a small passage back to the entrance, there's no way to come back through it.";
+	close2;
+	switch(select("Leave the Area:Nevermind")) {
+	case 1:
+	warp "lost_dun02",36,73;
+	end;
+	case 2:
+	end;
+	}
+}
+
+//Kiel University Distortion
+
+yuno_fild08,162,197,3	script	Sad Student#khu	748,{
+	
+	set .@npc$, "[Sad Student]";
+	emotion ET_CRY;
+	mes .@npc$;
+	mes "We had made such nice discoveries! They shut down our project!";
+	close;
+}
+
+yuno_fild08,159,196,6	script	Angry Student#khu	750,{
+	
+	set .@npc$, "[Angry Student]";
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "They have closed down the entire University!";
+	mes "How can they expect us to make any progress???";
+	close;
+}
+
+yuno_fild08,157,192,4	script	Judge#khu	10181,{
+	
+	set .@npc$, "[Serious Judge]";
+	if (judgejob ==1){
+	mes .@npc$;
+	mes "Hello Magister, taking a walk around this area?";
+	next;
+	mes .@npc$;
+	mes "Kiel Academy has been permanently closed, did you know they had robots disguised as students? These people...";
+	close;
+	}
+	emotion ET_X;
+	mes .@npc$;
+	mes "The Kiel Hyre Academy is permanently closed due to their evil use of robotics. Please. Do not approach.";
+	close;
+}
+
+khu_dun01,181,187,5	script	Student Book#khu	CLEAR_NPC,{
+	mes "You check the notes on the workbook:";
+	next;
+	mes "I need to continue blending in this area to understand how they made these robots.";
+	next;
+	mes "I have heard some noise near one of the statues, but I don't understand how to move it.";
+	next;
+	if (khuunlocka ==0){
+	set khuunlocka, 1;
+	set khuunlock, khuunlock+1;
+	}
+	mes "The way these monsters took over New-Midgard... If I could find the source of it all...";
+	next;
+	mes "All I found was a strange string... EI8S or something like that...I wonder what it is.";
+	close;
+	}
+
+
+khu_dun01,176,187,5	script	Student Book#khu2	CLEAR_NPC,{
+	mes "You check the notes on the workbook:";
+	next;
+	mes "Master Kiel knows what is best. Master Kiel is the smartest.";
+	next;
+	mes "His power and influence changed the world and will soon change my life.";
+	next;
+	mes "For I will be fixed, and made whole.";
+	close;
+	}
+	
+khu_dun01,177,61,5	script	Blackboard Notes#khu3	CLEAR_NPC,{
+	mes "You check the notes written on the blackboard:";
+	next;
+	mes "The Factory is the heart of our operations. The old factory near the mansion was too much risk.";
+	next;
+	mes "Creating multiple guardians and sentries would draw  too much attention. We must be resourceful and hide our access.";
+	next;
+	mes "Keys can be stolen, but a code is pure knowledge and cannot be taken from us. Specially a code that can't be understood.";
+	next;
+	if (khuunlockb ==0){
+	set khuunlockb, 1;
+	set khuunlock, khuunlock+1;
+	}
+	mes "Protect the new, perfect factory. Watch over the secret underground entrance. This University is merely a front.";
+	close;
+	}
+
+khu_dun01,177,128,5	script	Old Book#khu3	CLEAR_NPC,{
+	mes "A very old book has a very interesting design, similar to one of the statues.";
+	next;
+	mes "The entire text on the book is written in a mirrored way. It's hard to understand what it says. There's a small message under one of the pages:";
+	next;
+	if (khuunlockc ==0){
+	set khuunlockc, 1;
+	set khuunlock, khuunlock+1;
+	}
+	mes "Do not ever make these codes public, it can be dangerous. Follow the idea shown here.";
+	close;
+	}
+	
+khu_dun01,173,46,5	script	Food#khu4	CLEAR_NPC,{
+	mes "The food is made of plastic and metal.";
+	next;
+	mes "It can't be eaten.";
+	close;
+	}
+	
+khu_dun01,156,36,3	script	Statue#khu_dun02	CLEAR_NPC,{
+
+	if (khuunlock <=2){
+	mes "A fancy statue holding a book.";
+	close;
+	}
+	input .@pass;
+	if (.@pass == 5813) {
+		mes "A small passage opens beneath the statue.";
+		close2;
+		warp "khu_dun02", 13, 150;
+	}
+	
+	else {
+		specialeffect2 257;
+		sc_start SC_STUN,10000,0,10000;
+		percentheal -50,-100;
+		mes "You hear a strange sound... and you are electrocuted shortly after.";
+		close2;
+	}
+	
+	end;
+}
+
+//
+
+moc_dun03,51,179,3	script	Strange Shelf#moc_dun03	CLEAR_NPC,{
+
+		mes "You see some markings of nails and blood... from very small people...children?";
+		next;
+		mes "You push the shelf aside and walk in.";
+		close2;
+		warp "moc_dun03", 87, 178;
+	
+	end;
+}
+
+//Freya Temple stuff
+
+ra_dun02,124,210,4	script	Outer Gates#divinefreya	clear_npc,{
+	
+	mes "If you have a <ITEM>First Emblem of Freya<INFO>6150</INFO></ITEM>, you can get inside. You can also leave.";
+	next;
+	switch(select("Get in:Get Out:Nevermind")) {
+	case 1:
+	if(countitem(6150) < 1) goto L_noitems2;
+	delitem 6150,1;
+	warp "ra_dun02",124,215;	
+	end;
+	L_noitems2:
+	mes .@npc$;
+	mes "You don't have a key.";
+	close;
+	end;
+	case 2:
+	warp "ra_dun02",124,208;
+	end;
+	case 3:
+	end;
+		}
+	}
+
+ra_dun02,124,310,4	script	Inner Gates#divinefreya	clear_npc,{
+	
+	mes "If you have a <ITEM>Last Emblem of Freya<INFO>6186</INFO></ITEM>, you can get inside. You can also leave.";
+	next;
+	switch(select("Get in:Get Out:Nevermind")) {
+	case 1:
+	if(countitem(6186) < 1) goto L_noitems2;
+	delitem 6186,1;
+	warp "ra_dun02",124,314;	
+	end;
+	L_noitems2:
+	mes .@npc$;
+	mes "You don't have a key.";
+	close;
+	end;
+	case 2:
+	warp "ra_dun02",124,305;
+	end;
+	case 3:
+	end;
+		}
+	}
+
+ve_fild05,93,259,4	script	?#PassageBlood	clear_npc,2,2,{
+end;
+OnTouch_:	
+	soundeffect "chunithm_atk.wav",0;
+	 if (getequipid(EQI_GARMENT) == 20721){
+		 if (getequipid(EQI_SHOES) == 22033){
+			  if (getequipid(EQI_HEAD_TOP) == 18820){
+				  mes "You can hear your mother scream... and a strange light guides you home...";
+				  close2;
+				  warp "1@4sac",58,64;
+				  
+		}
+		}
+		}
+	end;
+	}
+	
+//Waterfall Cave Mystery
+
+malaya,161,299,5	script	Traveling Sage#water	4_ep18_wagon,{
+	
+	set .@npc$, "[Traveling Sage]";
+	mes .@npc$;
+	mes "I don't understand what is going on inside the waterfall caves... I can hear a demon calling my name.";
+	next;
+	mes .@npc$;
+	mes "I once heard a similar sound near Veins...like a scream of agony from a woman...";
+	next;
+	mes .@npc$;
+	mes "Maybe I could cover myself in darkness in order to see the light...YES. I SHOULD DO IT...!";
+	close;
+	}
+
+1@4sac,89,62,1,1	boss_monster	Baroness of Blood	2661,1,22500000,23400000,0
+
+1@4sac,56,64,0	warp	baronesswarp	1,1,ve_fild05,99,260
+
+1@4sac	mapflag	clouds
+1@4sac	mapflag	nosave	SavePoint
+
+1@4sac,1,1,4	script	BaronessKill#1	CLEAR_NPC,{
+OnNPCKillEvent:
+if( killedrid == 2661 ){
+	announce "Thank you...my child...",bc_blue|bc_all;
+	end;
+}
+}
+
+1@4sac,1,2,4	script	BGM#blood	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "BGM#blood::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer500:
+    playbgmall "156","1@4sac";
+    end;
+OnTimer2000:
+    initnpctimer;
+    end;
+}

@@ -72,25 +72,18 @@ geffen_in,164,109,0	script	Wizard Stanza	64,{
 	next;
 	mes "[Stanza]";
 	if (BaseJob == Job_Mage)
-		mes "It seems that you are trained in the mystic arts. Magic... Its power is governed by the law of cause and effect.";
-	else if (BaseJob == Job_Acolyte) {
+		mes "It seems that you are trained in the mystic arts. Illusions... Its power is governed by the law of spirits and memory. Take good care of your Puppet.";
+	else if (BaseJob == Job_Gunslinger) {
 		mes "Ah...";
-		mes "I see that you wield holy power in one way or another. I suppose Holy power may be considered one form of mystical energy.";
+		mes "I see that you wield the shadows... please stay away from me.";
 	}
 	else if (Class == Job_Novice)
-		mes "Although you may not be able to use magic or any other kind of powerful skills for now, this knowledge may be helpful in the future, young Novice...";
+		mes "Although you may not be able to use magic or any other kind of powerful skills for now, this knowledge may be helpful in the future, young Orphan...";
 	else
 		mes "Although you are not formally trained in the use of magic, you use skills which draw upon otherworldly energies, whether you know it or not...";
 	next;
 	mes "[Stanza]";
 	mes "If you use mystic energy for the purpose of harming others, or to defy the rules set by Mother Nature, that power will naturally be turned against you. Remember, you reap what you sow.";
-	next;
-	mes "[Stanza]";
-	mes "But there is an item that can protect the caster from ill consequence, allowing the safe use of certain magics. These are the shining, mystical stones known as Gemstones.";
-	next;
-	mes "[Stanza]";
-	mes "Gemstone...";
-	mes "If you wish to use your powers to the fullest, remember this item.";
 	close;
 }
 
@@ -254,7 +247,7 @@ OnTouch_:
 		mes "You can heal all your wounds by drinking Red Potions! And I'll sell you one for just ^FF3333500 zeny^000000!";
 		next;
 		mes "[Suspicious Guy]";
-		mes "Now, how cheap is that?! Since they're in such high demand, I can only sell you 100 of";
+		mes "Now, how cheap is that?! Since they're in such high demand, I can only sell you 10 of";
 		mes "them at a time.";
 		next;
 		while(1) {
@@ -267,7 +260,7 @@ OnTouch_:
 					mes "W-waaaait! You didn't let me tell you the part about how Red Potions help you lose and gain weight in all the right places! Waaaaait!";
 				close;
 			}
-			else if (.@input > 100) {
+			else if (.@input > 10) {
 				mes "[Suspicious Guy]";
 				mes "Whoa...";
 				mes "I can't let you buy that many. I mean, it's not like, you know, there's a trace impurity in these Potions or anything like that...";
@@ -299,7 +292,7 @@ OnTouch_:
 			mes "[Suspicious Guy]";
 			mes "Now...";
 			mes "What you really";
-			mes "need is a ^FF3333manly Dagger^000000.";
+			mes "need is a ^FF3333Legendary Dagger^000000.";
 		}
 		else {
 			mes "A nice lady like you? Come on now, kitchen knives are for old naggy wives and the hired help.";
@@ -308,12 +301,12 @@ OnTouch_:
 			mes "Now...";
 			mes "What you really";
 			mes "need is a fine, exquisite";
-			mes "^FF3333French Dagger^000000 to match your beauty and elegance.";
+			mes "^FF3333Legendary Dagger^000000 to match your beauty and elegance.";
 		}
 		next;
 		mes "[Suspicious Guy]";
 		mes "I call it...";
-		mes "The ^FF3333Main Gauche^000000! I invented it myself. And I'm only selling it for 9,400 zeny!";
+		mes "The ^FF3333Main Gauche^000000! I invented it myself. And I'm only selling it for 19,400 zeny!";
 		next;
 		select("Aren't you going to give me a sheath too?");
 		mes "[Suspicious Guy]";
@@ -325,7 +318,7 @@ OnTouch_:
 		mes "for a bargain?";
 		next;
 		mes "[Suspicious Guy]";
-		mes "There's no way you can pass this up! Now, how many do you want?";
+		mes "There's no way you can pass this up! Now, how many do you want? I can sell you 3!";
 		next;
 		while(1) {
 			input .@input;
@@ -337,7 +330,7 @@ OnTouch_:
 				close;
 
 			}
-			else if (.@input > 100) {
+			else if (.@input > 3) {
 				mes "[Suspicious Guy]";
 				mes "Whoa!";
 				mes "I can't sell that many Daggers! That'll attract the Prontera Chiv--I mean, um, I was gonna donate some Daggers to... Hungry children?";
@@ -346,7 +339,7 @@ OnTouch_:
 			else
 				break;
 		}
-		set .@Main_gauche_hap,.@input * 9400;
+		set .@Main_gauche_hap,.@input * 19400;
 		if (Zeny < .@Main_gauche_hap) {
 			mes "[Suspicious Guy]";
 			mes "Short on zeny?";
@@ -376,10 +369,10 @@ OnTouch_:
 		next;
 		mes "[Suspicious Guy]";
 		mes "Man...";
-		mes "So much technology was invested into this Hood. Can you believe I'm only selling it for 930 zeny?";
+		mes "So much technology was invested into this Hood. Can you believe I'm only selling it for 3930 zeny?";
 		next;
 		mes "[Suspicious Guy]";
-		mes "Clearly, this is the deal of the century. So how many do you want?";
+		mes "Clearly, this is the deal of the century. So how many do you want? I got 3 right here!";
 		next;
 		while(1) {
 			input .@input;
@@ -389,7 +382,7 @@ OnTouch_:
 				mes "It wasn't because of the whole drawstrings thing, was it?";
 				close;
 			}
-			else if (.@input > 100) {
+			else if (.@input > 3) {
 				mes "[Suspicious Guy]";
 				mes "Whoa~!";
 				mes "I can't sell you that many! What are you trying to do, take advantage of me?";
@@ -398,7 +391,7 @@ OnTouch_:
 			else
 				break;
 		}
-		set .@Hood__hap,.@input * 930;
+		set .@Hood__hap,.@input * 3930;
 		if (Zeny < .@Hood__hap) {
 			mes "[Suspicious Guy]";
 			mes "Oh nuts...";
@@ -429,99 +422,19 @@ geffen_in,22,125,1	script	Crumpler	52,{
 	mes "[Crumpler]";
 	mes "Ooooh~!";
 	mes "You sure are dressed pretty,";
-	mes "ya fancy schmancy Mage!";
+	mes "ya fancy schmancy Illusionist!";
 	next;
 	if (Class == Job_Mage) {
-		mes "^3355FFSomeday, you swear to yourself, you will have your bloody revenge on this belligerent drunk for besmirching the proud Mage profession. Someday...^000000";
+		mes "^3355FFYou consider exploding the person's heart from the inside. Then you remember you can't and just ignore him.^000000";
 		close;
-	}
-	else if (Class == Job_Wizard) {
-		select("Actually, I'm a Wizard.");
-		mes "[Crumpler]";
-		mes "I'm so scared!";
-		mes "A Wizard?! Bwahaha!";
-		next;
-		mes "[Crumpler]";
-		mes "Everyone knows Wizards are all intelligence and no strength! Come on, smart man! Show me how tough you are!";
-		next;
-		switch(select("Meteor Storm!:Lord of Vermilion!:Show Mercy.")) {
-		case 1:
-			mes "[Crumpler]";
-			mes "Huh?";
-			mes "What'd you just say?";
-			next;
-			mes "[Crumpler]";
-			mes "...";
-			next;
-			mes "[Crumpler]";
-			mes "...";
-			mes "......";
-			next;
-			mes "[Crumpler]";
-			mes "Ooooooooh";
-			mes "crraaaap!";
-			emotion ET_SURPRISE;
-			next;
-			mes "[Crumpler]";
-			mes "Help meeeee!";
-			specialeffect EF_METEORSTORM;
-			close;
-		case 2:
-			mes "[Crumpler]";
-			mes "Hahahahaah!";
-			mes "Silly Wizard! Only a monster like Baphomet can handle a big spell like th--";
-			next;
-			mes "[Crumpler]";
-			mes "Oh sweet lord...";
-			mes "You're serious...";
-			next;
-			specialeffect EF_LORD;
-			mes "[Crumpler]";
-			mes "ARRRRRGH~!";
-			mes "IT BUUUURNS!";
-			close;
-		case 3:
-			mes "["+strcharinfo(0)+"]";
-			mes "No...";
-			mes "I can only use";
-			mes "my powers for good.";
-			next;
-			mes "[Crumpler]";
-			mes "Haw haw!";
-			mes "Good...";
-			mes "For nothing!";
-			close;
 		}
-	}
-	else if (Class == Job_Sage) {
-		select("Actually, sir, I'm a Sage.");
 		mes "[Crumpler]";
-		mes "A...";
-		mes "Sage?";
-		emotion ET_QUESTION;
-		next;
-		mes "[Crumpler]";
-		mes "I don't know what that is. But I guess it can't be half as bad as a Mage.";
-		next;
-		mes "[Crumpler]";
-		mes "Soooo...";
-		mes "Wanna drink with me?";
-		close;
-	}
-	else {
-		mes "[Crumpler]";
-		mes "Wait a sec...";
-		mes "You're not a Mage!";
-		mes "J-just how drunk am I?!";
-		next;
-		mes "[Crumpler]";
-		mes "Man, I hate Mages with a passion! Always studying and chanting and making taxes high and stuff...";
+		mes "Man, I hate Magic with a passion! Dudes always studying and chanting and making taxes high and stuff...";
 		next;
 		mes "[Crumpler]";
 		mes "Taking our jobs, censoring the media, ruining our education system, causing air pollution, starting wars, making rap music...";
 		close;
 	}
-}
 
 geffen_in,59,61,1	script	Skyler	61,{
 	mes "[Skyler]";
@@ -529,22 +442,11 @@ geffen_in,59,61,1	script	Skyler	61,{
 	mes "You're not looking";
 	mes "for Eric, are you?";
 	next;
-	if (select("Eric? Who's that?:Yes. Yes, I am.") == 1) {
-		mes "[Skyler]";
-		mes "Oh, I see. He's just some guy in the room to the left of me. He's always working on some sort of project.";
-		next;
-		mes "[Skyler]";
-		mes "Something to do with these magic sort of Ear Muffs. I guess he's been looking for investors to help him finish building whatever he's making.";
-		close;
-	}
 	mes "[Skyler]";
-	mes "Oh, alright. You can find Eric in the room to the left of me. He'll probably be happy to know someone is interested in what he's trying to build.";
+	mes "He left this place a few months ago. Finished his project and is now rich somewhere.";
 	next;
 	mes "[Skyler]";
-	mes "From what I remember, he seemed really discouraged, thinking he'd never be able to finish his little project.";
-	next;
-	mes "[Skyler]";
-	mes "I'm glad to hear you've come this way to help out that young fellow.";
+	mes "I'm glad to hear you've come this way to help out that young fellow anyway. He would be happy.";
 	close;
 }
 
@@ -565,7 +467,7 @@ geffen_in,27,134,5	script	Waitress#elen	91,{
 	if (select("May I have a drink?:Is there any interesting gossip?") == 1) {
 		mes "[Elenore]";
 		mes "Well...";
-		mes "If you're looking for alcohol, King Tristram III outlawed it a while ago. Now I hear they only serve it in certain places.";
+		mes "If you're looking for alcohol, We don't have it here, against the law. Now I hear they only serve it in certain places.";
 		next;
 		mes "[Elenore]";
 		mes "Still, people manage to get drunk off the imitation drinks that we serve here. I guess it's all psychological.";
@@ -582,7 +484,7 @@ geffen_in,27,134,5	script	Waitress#elen	91,{
 		mes "in Juno!";
 		next;
 		mes "[Elenore]";
-		mes "Or at least, they're planning to. The airship isn't really ready to take off just yet. In the meantime, there's some weird customer representative over there who's offering a teleport service.";
+		mes "Or at least, they're planning to. The airship isn't really ready to take off just yet.";
 		next;
 		mes "[Elenore]";
 		mes "It seems like Kafra Corporation may finally have a competitor! Then again, I don't think many girls are as attractive as the Kafra Employees...";
@@ -706,6 +608,9 @@ geffen_in,70,67,3	script	Waitress#elise	90,{
 		next;
 		mes "[Elisa]";
 		mes "It's horrible that King Tristram III outlawed alcohol in the kingdom! It's probably the only bad decision he's made throughout his entire reign!";
+		next;
+		mes "[Elisa]";
+		mes "Other than visiting comodo alone and well...dying of course.";
 		close;
 	}
 	switch(rand(1,4)) {
@@ -719,7 +624,7 @@ geffen_in,70,67,3	script	Waitress#elise	90,{
 		mes "that a Priest got married to a Priestess!";
 		next;
 		mes "[Elisa]";
-		mes "I really had no idea whether or not Priests could marry, but since King Tristram III was there himself,";
+		mes "I really had no idea whether or not Priests could marry, but since it was there,";
 		mes "I suppose that it's okay!";
 		break;
 	case 2:
@@ -743,7 +648,7 @@ geffen_in,70,67,3	script	Waitress#elise	90,{
 		mes "The Rune-Midgarts Kingdom?";
 		next;
 		mes "[Elisa]";
-		mes "I hear that it was originally called the Rune-Midgarts Kingdom, after our continent. However, for some reason, the name was changed to 'Rune-Midgarts.'";
+		mes "I hear that it was originally called the Rune-Midgard Kingdom, after our continent. However, for some reason, the name was changed to 'Rune-Midgarts.'";
 		next;
 		mes "[Elisa]";
 		mes "It was obviously a wise decision, since too many people kept confusing the our continent with our kingdom. Weird, huh?";
@@ -821,7 +726,7 @@ geffen_in,79,76,2	script	Merchant Daven	120,{
 	case 1:
 		if (BaseJob == Job_Mage) {
 			mes "[Merchant Daven]";
-			mes "Mages are wielders of magic. But you would know more about that topic now, wouldn't you?";
+			mes "Mages are wielders of magic. But you would know more about magic than me, wouldn't you?";
 		}
 		else {
 			mes "[Merchant Daven]";
@@ -1351,7 +1256,7 @@ geffen_in,109,72,2	script	Monster Scholar	90,{
 		mes "Still, if you want to seek out strong monsters, you can cross the bridge to the West and fight Kobolds.";
 		next;
 		mes "[Estheres]";
-		if (BaseLevel > 40)
+		if (BaseLevel > 30)
 			mes "You look strong enough for that kind of challenge. But if you see anyone more reckless cross the Western bridge, you might want to give them a warning.";
 		else
 			mes "Um, but if you're planning to go there, you better not go alone. I really recommend that you be well prepared if you're gonna fight those kinds of monsters.";
@@ -1404,25 +1309,3 @@ geffen_in,109,72,2	script	Monster Scholar	90,{
 	close;
 }
 
-// Lvl 4 weapon quest related NPC ------------------------------------------------------
-
-geffen,203,146,5	script	Citizen	97,{
-	mes "[Citizen]";
-	mes "There was a skillful weapon smith";
-	mes "in Al De Baran who had 4 sons.";
-	mes "Unfortunately he lost all of his sons";
-	mes "while developing a powerful weapon.";
-	mes "The father survived alone from the tragedy.";
-	next;
-	mes "[Citizen]";
-	mes "How sad it will be for the father...";
-	mes "Because of the incident, the weapon smith";
-	mes "retired from his work and hid himself somewhere.";
-	mes "After that, no one could ever see";
-	mes "the powerful weapon that he and his sons were developing.";
-	next;
-	mes "[Citizen]";
-	mes "I don't think that 4 sons of him";
-	mes "went to the heaven with the anxiety.";
-	close;
-}

@@ -42,15 +42,15 @@
 	mes "on a fascinating Ship!";
 	mes "Hurry, hurry!";
 	next;
-	switch(select("Byalan Island -> 150 Zeny.:Alberta Marina  -> 500 Zeny.:Cancel.")) {
+	switch(select("Byalan Island -> 500 Zeny.:Alberta Marina  -> 500 Zeny.:Cancel.")) {
 	case 1:
-		if (Zeny < 150) {
+		if (Zeny < 500) {
 			mes "[Sailor]";
-			mes "150 Zeny!";
-			mes "Only 150 Zeny to ride!";
+			mes "500 Zeny!";
+			mes "Only 500 Zeny to ride!";
 			close;
 		}
-		set Zeny, Zeny - 150;
+		set Zeny, Zeny - 500;
 		warp "izlu2dun",107,50;
 		end;
 	case 2:
@@ -514,5 +514,17 @@ izlu2dun,108,27,0	script	Sailor#2izlude	100,{
 			warp "izlude",176,182;
 		end;
 	}
+	close;
+}
+
+izlude,128,256,4	script	Academia Representative#2izlude	65,{
+	mes "[Representative]";
+	mes "I'm sorry but Orphans aren't allowed inside. Novices are training here.";
+	close;
+}
+
+izlude,209,161,3	script	Arena Representative#2izlude	65,{
+	mes "[Representative]";
+	mes "I'm sorry but the arena is under renovations. Please come back later.";
 	close;
 }

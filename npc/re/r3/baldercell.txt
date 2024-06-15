@@ -1,0 +1,252 @@
+
+balder_cell,107,101,3	script	Balder#Cell	683,{ 
+	set .@npc$, "[Balder]";
+	cutin "h_chaos02",2;
+	if (balderunlock ==1){
+	mes .@npc$;
+	mes "Oh, it's the determinated Orphan, what is it?";
+	next;
+	switch(select("Do you know Iris?:How did you get the hats?:How did you die?:What can you do for me?:Nothing")) {
+	case 1:
+	mes .@npc$;
+	mes "Iris? Is she still alive?";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Yes, why?";
+	next;
+	mes .@npc$;
+	mes "I... Chaos always loved her. I'm happy to know she is fine.";
+	next;
+	mes .@npc$;
+	mes "Chaos was a piece of my soul that walked the land after I died. He was part of my eyes, he slayed a lot of monsters to protect the world. Much like you do now.";
+	next;
+	mes .@npc$;
+	mes "Then I needed all my power to keep Surt here. And Chaos had to come and serve as my vessel. He didn't have time to say goodbye to Iris.";
+	next;
+	mes .@npc$;
+	mes "Tell Iris that chaos is fine. He won't come back, but she needs to be strong.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "And he... We... miss her.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Leave it to me.";
+	close2;
+	if (irisunlock ==0){
+	set irisunlock,1;
+	}
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Have you met Sarah in Payon? Maybe in a distortion?";
+	next;
+	if (achiev20 ==0){
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "No, Who is she? What about it?";
+	next;
+	mes .@npc$;
+	mes "Well...nevermind. I'd rather not discuss it now. Sorry.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Oh yeah, cute little girl. What about her?";
+	next;
+	mes .@npc$;
+	mes "When Chaos walked the lands, he would slay all sorts of enemies. He would craft special Hats for Sarah.";
+	next;
+	mes .@npc$;
+	mes "These hats were the inspiration for my HATred rewards. For the same way Sarah would receive a gift from Chaos, you receive something that reminds him of his story.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Oh...that's...cool. And pretty nice.";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Sarah was chosen to be one of the Valkyries. Quite a sad outcome. But this doesn't change who she was for us.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "Curious aren't you?";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Well, yes.";
+	next;
+	mes .@npc$;
+	mes "Loki was a friend of mine. I asked him to do it.";
+	next;
+	mes .@npc$;
+	mes "He used a Mistletoe Arrow as I requested. He knew this would forever taint his image. But he knew it was necessary.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "To keep Surt here right?";
+	next;
+	emotion ET_BEST;
+	mes .@npc$;
+	mes "Exactly. It was a difficult moment for both of us. But the mortals don't care about the truth. They'd rather have a drama.";
+	close2;
+	cutin "",255;
+	end;
+	case 4:
+	mes .@npc$;
+	mes "Well, I actually can do some stuff for you. But I doubt you'll have what it takes to get it.";
+	next;
+	mes .@npc$;
+	mes "I do need some materials, but I can't actually leave this place to get them myself you know?";
+	next;
+	mes .@npc$;
+	mes "If you bring me some items and the materials needed, I'll make you a <ITEM>Celestial Tome<INFO>24236</INFO></ITEM> ";
+	mes "It's extremely heavy, but I'm sure it'll be amazing for you.";
+	next;
+	switch(select("I have everything needed.:What do you need?:Nevermind.")) {
+	case 1:
+		if(countitem(7361) < 500) goto L_noitems2;
+		if(countitem(23080) < 25) goto L_noitems2;
+		if(countitem(24107) < 1) goto L_noitems2;
+		if(countitem(24148) < 1) goto L_noitems2;
+		if(countitem(24225) < 1) goto L_noitems2;
+		if(countitem(14735) < 25) goto L_noitems2;
+		if(countitem(7615) < 10) goto L_noitems2;
+		emotion ET_SURPRISE;
+		mes .@npc$;
+		mes "Amazing! You actually have everything needed!";
+		next;
+		mes .@npc$;
+		mes "This is a massive tome! It has so many enchantments in it that I would carry it everywhere you go.";
+		next;
+		mes .@npc$;
+		mes "It's literally crafted by a god, for you. So, take care of it.";
+		if (achievchaos ==0 ){
+		achievementcomplete(200029);
+		set achievchaos,1;
+		}
+		specialeffect2 96;
+		delitem 7361,500;
+		delitem 23080,25;
+		delitem 24107,1;
+		delitem 24148,1;
+		delitem 24225,1;
+		delitem 14735,25;
+		delitem 7615,10;
+		getitem 24236,1;
+		close2;
+		cutin "",255;
+		end;
+		L_noitems2:
+		mes .@npc$;
+		mes "Please, double check to make sure you have all items needed. I can't even try to make it without those.";
+		close2;
+		cutin "",255;
+		end;
+	case 2:
+		mes .@npc$;
+		mes "Well, I'll need a few materials to help strenghten my seal here, they are:";
+		mes "^FF0000500^000000 Distortion Essences";//7361
+		mes "^FF000025^000000 Jewel Shadowdecons";//23080
+		next;
+		mes .@npc$;
+		mes "And to actually create your Celestial Tome, I'll need:";
+		mes "^FF00001^000000 Paradiso Tome";//24107
+		mes "^FF00001^000000 Purgatorio Tome";//24148
+		mes "^FF00001^000000 Inferno Tome";//24225
+		mes "^FF000025^000000 Growth Shadow Coffers";//14735
+		mes "^FF000010^000000 MVP Shards";//7615
+		next;
+		mes .@npc$;
+		mes "I know that's a very extensive list, and I don't really expect you to get it. But if you wish to try... It's gonna be a LOT of weight ok?";
+		close2;
+		cutin "",255;
+		end;
+	case 3:
+		mes .@npc$;
+		mes "I did tell you it was complicated didnt I? Exactly.";
+		close2;
+		cutin "",255;
+		end;
+	}
+	}
+	}
+	mes .@npc$;
+	mes "An...Orphan...? I know you from somewhere.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Chaos?";
+	next;
+	mes .@npc$;
+	mes "They used to call me that, true.";
+	next;
+	mes .@npc$;
+	mes "I'm Balder. Nice to meet you.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Balder? THE Balder? You died years ago!";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "Yes, you're in the land of the dead. You are seeing a dead guy.";
+	next;
+	mes .@npc$;
+	mes "Chaos was my mortal name. I had a good life full of adventures. But duty calls and I must take responsability for the world. That's why I'm here.";
+	next;
+	mes .@npc$;
+	mes "This door binds the soul of Surt, or as you call him, Satan Morroc.";
+	next;
+	emotion ET_PANIC, playerattached();
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "And why are you here?!";
+	next;
+	mes .@npc$;
+	mes "Surt shall never return. I'm here to make sure he stays here. Forever.";
+	next;
+	mes .@npc$;
+	mes "The HATred Dude is essential in this mission. That's why I allowed you to come here.";
+	next;
+	mes .@npc$;
+	mes "You helped all 90 of my requests. I'm impressed. Honest.";
+	next;
+	emotion ET_SCRATCH;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "You are the HATred Dude?!";
+	next;
+	emotion ET_HUM;
+	mes .@npc$;
+	mes "Red Spiky hair, an attitude, strange focus on killing monsters...doesn't it ring a bell?";
+	next;
+	mes .@npc$;
+	mes "They are pieces of my soul that I scatered through the land. I don't care that you brought the items for the hats. By killing the monsters for me, I was able to channel more power to keep the door closed.";
+	next;
+	mes .@npc$;
+	mes "The HATred Dude is merely a way for you Orphans to help me here in Niflheim.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "That's... quite a lot to take in. I'm glad I got something out of it. And could help.";
+	next;
+	mes .@npc$;
+	mes "Thanks. Really. It's exhausting to keep watch over a demon that can destroy the world.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "...Can you do me a favor?";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Of Course.";
+	next;
+	mes .@npc$;
+	mes "Don't let those cultists bring me back. A single moment and Morroc will break free. We won't have a chance.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "You have my word.";
+	next;
+	mes .@npc$;
+	mes "Well, feel free to ask me anything you may need to know. It's good to have someone to talk.";
+	close2;
+	set balderunlock,1;
+	cutin "",255;
+	end;
+}

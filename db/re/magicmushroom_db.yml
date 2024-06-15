@@ -30,26 +30,13 @@ Header:
   Version: 1
 
 Body:
-  - Skill: SM_MAGNUM
   - Skill: SM_ENDURE
   - Skill: MG_SIGHT
   - Skill: AL_RUWACH
-  - Skill: AL_CRUCIS
-  - Skill: AL_ANGELUS
   - Skill: AC_CONCENTRATION
   - Skill: KN_AUTOCOUNTER
   - Skill: PR_MAGNIFICAT
-  - Skill: BS_HAMMERFALL
-  - Skill: BS_MAXIMIZE
   - Skill: NV_FIRSTAID
   - Skill: TF_BACKSLIDING
   - Skill: TF_PICKSTONE
-  - Skill: MG_ENERGYCOAT
-  - Skill: CR_AUTOGUARD
-  - Skill: CR_PROVIDENCE
-  - Skill: MO_CALLSPIRITS
-  - Skill: MO_EXPLOSIONSPIRITS
-  - Skill: DC_SCREAM
-  - Skill: GS_GLITTERING
   - Skill: NJ_TATAMIGAESHI
-  - Skill: NJ_UTSUSEMI

@@ -1,0 +1,2375 @@
+//MVP Relics that spawn an extra MVP
+
+
+function	script	Relic#1930	{
+	
+	if (strcharinfo(3) != "moc_pryd06"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@piamette ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_pryd06"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1930,1,"MVP#1930::OnMVPDeath";
+	set $@piamette,1;
+	end;
+	}
+}
+
+moc_pryd06,1,1,4	script	MVP#1930	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@piamette,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+	}
+	
+//
+	
+function	script	Relic#1751	{
+	
+	if (strcharinfo(3) != "odin_tem03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@randgris ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "odin_tem03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1751,1,"MVP#1751::OnMVPDeath";
+	set $@randgris,1;
+	end;
+	}
+}
+
+odin_tem03,1,1,4	script	MVP#1751	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@randgris,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+	}
+	
+//
+	
+function	script	Relic#3503	{
+	
+	if (strcharinfo(3) != "kaf_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@jenni ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "kaf_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3503,1,"MVP#3503::OnMVPDeath";
+	set $@jenni,1;
+	end;
+	}
+}
+
+kaf_dun02,1,1,4	script	MVP#3503	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@jenni,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+	
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1733	{
+	
+	if (strcharinfo(3) != "kh_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@kiel ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "kh_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1733,1,"MVP#1733::OnMVPDeath";
+	set $@kiel,1;
+	end;
+	}
+}
+
+kh_dun02,1,1,4	script	MVP#1733	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@kiel,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1157	{
+	
+	if (strcharinfo(3) != "in_sphinx4"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@jenni ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "in_sphinx4"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1157,1,"MVP#1157::OnMVPDeath";
+	set $@jenni,1;
+	end;
+	}
+}
+
+in_sphinx4,1,1,4	script	MVP#1157	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@jenni,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1927	{
+	
+	if (strcharinfo(3) != "nif_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@sorrow ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "nif_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1927,1,"MVP#1927::OnMVPDeath";
+	set $@sorrow,1;
+	end;
+	}
+}
+
+nif_dun02,1,1,4	script	MVP#1927	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@sorrow,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3021	{
+	
+	if (strcharinfo(3) != "alch_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@abomination ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "alch_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3021,1,"MVP#3021::OnMVPDeath";
+	set $@abomination,1;
+	end;
+	}
+}
+
+alch_dun04,1,1,4	script	MVP#3021	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@abomination,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3074	{
+	
+	if (strcharinfo(3) != "c_tower4"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@timeholder ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "c_tower4"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3074,1,"MVP#3074::OnMVPDeath";
+	set $@timeholder,1;
+	end;
+	}
+}
+
+c_tower4,1,1,4	script	MVP#3074	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@timeholder,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1039	{
+	
+	if (strcharinfo(3) != "prt_maze03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@timeholder ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "prt_maze03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1039,1,"MVP#1039::OnMVPDeath";
+	set $@timeholder,1;
+	end;
+	}
+}
+
+prt_maze03,1,1,4	script	MVP#1039	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@timeholder,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2583	{
+	
+	if (strcharinfo(3) != "mjo_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@nobledevo ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "mjo_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2583,1,"MVP#2583::OnMVPDeath";
+	set $@nobledevo,1;
+	end;
+	}
+}
+
+mjo_dun04,1,1,4	script	MVP#2583	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@nobledevo,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1086	{
+	
+	if (strcharinfo(3) != "prt_sewb4"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@goldenbug ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "prt_sewb4"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1086,1,"MVP#1086::OnMVPDeath";
+	set $@goldenbug,1;
+	end;
+	}
+}
+
+prt_sewb4,1,1,4	script	MVP#1086	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@goldenbug,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1147	{
+	
+	if (strcharinfo(3) != "anthell02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@queenmaya ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "anthell02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1147,1,"MVP#1147::OnMVPDeath";
+	set $@queenmaya,1;
+	end;
+	}
+}
+
+anthell02,1,1,4	script	MVP#1147	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@queenmaya,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2087	{
+	
+	if (strcharinfo(3) != "anthell02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@queenscaraba ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "anthell02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2087,1,"MVP#2087::OnMVPDeath";
+	set $@queenscaraba,1;
+	end;
+	}
+}
+
+anthell02,1,1,4	script	MVP#2087	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@queenscaraba,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1038	{
+	
+	if (strcharinfo(3) != "moc_pryd04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@osiris ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_pryd04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1038,1,"MVP#1038::OnMVPDeath";
+	set $@osiris,1;
+	end;
+	}
+}
+
+moc_pryd04,1,1,4	script	MVP#1038	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@osiris,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1583	{
+	
+	if (strcharinfo(3) != "beach_dun"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@taogunka ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "beach_dun"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1583,1,"MVP#1583::OnMVPDeath";
+	set $@taogunka,1;
+	end;
+	}
+}
+
+beach_dun,1,1,4	script	MVP#1583	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@taogunka,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2249	{
+	
+	if (strcharinfo(3) != "vip_bath"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@pyuriel ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "vip_bath"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2249,1,"MVP#2249::OnMVPDeath";
+	set $@pyuriel,1;
+	end;
+	}
+}
+
+vip_bath,1,1,4	script	MVP#2249	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@pyuriel,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2022	{
+	
+	if (strcharinfo(3) != "nest_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@nidhogg ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "nest_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2022,1,"MVP#2022::OnMVPDeath";
+	set $@nidhogg,1;
+	end;
+	}
+}
+
+nest_dun02,1,1,4	script	MVP#2022	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@nidhogg,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1871	{
+	
+	if (strcharinfo(3) != "abbey03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@fallenbishop ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "abbey03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1871,1,"MVP#1871::OnMVPDeath";
+	set $@fallenbishop,1;
+	end;
+	}
+}
+
+abbey03,1,1,4	script	MVP#1871	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@fallenbishop,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1190	{
+	
+	if (strcharinfo(3) != "orcsdun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@fallenorc ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "orcsdun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1190,1,"MVP#1190::OnMVPDeath";
+	set $@fallenorc,1;
+	end;
+	}
+}
+
+orcsdun02,1,1,4	script	MVP#1190	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@fallenorc,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1389	{
+	
+	if (strcharinfo(3) != "gef_dun00"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@dracula ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gef_dun00"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1389,1,"MVP#1389::OnMVPDeath";
+	set $@dracula,1;
+	end;
+	}
+}
+
+gef_dun00,1,1,4	script	MVP#1389	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@dracula,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3449	{
+	
+	if (strcharinfo(3) != "gefenia04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@bestia ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gefenia04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3449,1,"MVP#3449::OnMVPDeath";
+	set $@bestia,1;
+	end;
+	}
+}
+
+gefenia04,1,1,4	script	MVP#3449	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@bestia,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3200	{
+	
+	if (strcharinfo(3) != "dew_dun01"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@scylla ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "dew_dun01"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3200,1,"MVP#3200::OnMVPDeath";
+	set $@scylla,1;
+	end;
+	}
+}
+
+dew_dun01,1,1,4	script	MVP#3200	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@scylla,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1272	{
+	
+	if (strcharinfo(3) != "gl_chyard"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@darklord ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gl_chyard"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1272,1,"MVP#1272::OnMVPDeath";
+	set $@darklord,1;
+	end;
+	}
+}
+
+gl_chyard,1,1,4	script	MVP#1272	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@darklord,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1832	{
+	
+	if (strcharinfo(3) != "thor_v03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@ifrit ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "thor_v03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1832,1,"MVP#1832::OnMVPDeath";
+	set $@ifrit,1;
+	end;
+	}
+}
+
+thor_v03,1,1,4	script	MVP#1832	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@ifrit,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1768	{
+	
+	if (strcharinfo(3) != "ra_san05"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@gloom ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ra_san05"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1768,1,"MVP#1768::OnMVPDeath";
+	set $@gloom,1;
+	end;
+	}
+}
+
+ra_san05,1,1,4	script	MVP#1768	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@gloom,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1658	{
+	
+	if (strcharinfo(3) != "lhz_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@ygnizem ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "lhz_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1658,1,"MVP#1658::OnMVPDeath";
+	set $@ygnizem,1;
+	end;
+	}
+}
+
+lhz_dun02,1,1,4	script	MVP#1658	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@ygnizem,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1779	{
+	
+	if (strcharinfo(3) != "ice_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@ktullanux ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ice_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1779,1,"MVP#1779::OnMVPDeath";
+	set $@ktullanux,1;
+	end;
+	}
+}
+
+ice_dun03,1,1,4	script	MVP#1779	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@ktullanux,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1312	{
+	
+	if (strcharinfo(3) != "tur_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@turtlegen ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "tur_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1312,1,"MVP#1312::OnMVPDeath";
+	set $@turtlegen,1;
+	end;
+	}
+}
+
+tur_dun04,1,1,4	script	MVP#1312	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@turtlegen,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1112	{
+	
+	if (strcharinfo(3) != "treasure02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@drake ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "treasure02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1112,1,"MVP#1112::OnMVPDeath";
+	set $@drake,1;
+	end;
+	}
+}
+
+treasure02,1,1,4	script	MVP#1112	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@drake,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2253	{
+	
+	if (strcharinfo(3) != "pay_tem04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@daehyon ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "pay_tem04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2253,1,"MVP#2253::OnMVPDeath";
+	set $@daehyon,1;
+	end;
+	}
+}
+
+pay_tem04,1,1,4	script	MVP#2253	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@daehyon,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1150	{
+	
+	if (strcharinfo(3) != "pay_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@moonlight ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "pay_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1150,1,"MVP#1150::OnMVPDeath";
+	set $@moonlight,1;
+	end;
+	}
+}
+
+pay_dun04,1,1,4	script	MVP#1150	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@moonlight,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2529	{
+	
+	if (strcharinfo(3) != "face_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@facewormq ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "face_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2529,1,"MVP#2529::OnMVPDeath";
+	set $@facewormq,1;
+	end;
+	}
+}
+
+face_dun04,1,1,4	script	MVP#2529	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@facewormq,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2186	{
+	
+	if (strcharinfo(3) != "iz_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@coelacanth ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "iz_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2186,1,"MVP#2186::OnMVPDeath";
+	set $@coelacanth,1;
+	end;
+	}
+}
+
+iz_dun04,1,1,4	script	MVP#2186	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@coelacanth,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3483	{
+	
+	if (strcharinfo(3) != "wat_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@despair ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "wat_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3483,1,"MVP#3483::OnMVPDeath";
+	set $@despair,1;
+	end;
+	}
+}
+
+wat_dun02,1,1,4	script	MVP#3483	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@despair,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1492	{
+	
+	if (strcharinfo(3) != "ama_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@incsamurai ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ama_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1492,1,"MVP#1492::OnMVPDeath";
+	set $@incsamurai,1;
+	end;
+	}
+}
+
+ama_dun03,1,1,4	script	MVP#1492	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@incsamurai,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1511	{
+	
+	if (strcharinfo(3) != "ayo_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@amonra ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ayo_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1511,1,"MVP#1511::OnMVPDeath";
+	set $@amonra,1;
+	end;
+	}
+}
+
+ayo_dun02,1,1,4	script	MVP#1511	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@amonra,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3091	{
+	
+	if (strcharinfo(3) != "cry_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@brinaranea ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "cry_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3091,1,"MVP#3091::OnMVPDeath";
+	set $@brinaranea,1;
+	end;
+	}
+}
+
+cry_dun03,1,1,4	script	MVP#3091	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@brinaranea,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1251	{
+	
+	if (strcharinfo(3) != "xmas_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@stormykn ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "xmas_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1251,1,"MVP#1251::OnMVPDeath";
+	set $@stormykn,1;
+	end;
+	}
+}
+
+xmas_dun02,1,1,4	script	MVP#1251	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@stormykn,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1719	{
+	
+	if (strcharinfo(3) != "abyss_03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@detale ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "abyss_03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1719,1,"MVP#1719::OnMVPDeath";
+	set $@detale,1;
+	end;
+	}
+}
+
+abyss_03,1,1,4	script	MVP#1719	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@detale,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1685	{
+	
+	if (strcharinfo(3) != "jupe_core"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@vesper ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "jupe_core"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1685,1,"MVP#1685::OnMVPDeath";
+	set $@vesper,1;
+	end;
+	}
+}
+
+jupe_core,1,1,4	script	MVP#1685	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@vesper,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3092	{
+	
+	if (strcharinfo(3) != "mag_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@muspelsk ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "mag_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3092,1,"MVP#3092::OnMVPDeath";
+	set $@muspelsk,1;
+	end;
+	}
+}
+
+mag_dun02,1,1,4	script	MVP#3092	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@muspelsk,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1623	{
+	
+	if (strcharinfo(3) != "ein_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@rsxeinb ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ein_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1623,1,"MVP#1623::OnMVPDeath";
+	set $@rsxeinb,1;
+	end;
+	}
+}
+
+ein_dun02,1,1,4	script	MVP#1623	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@rsxeinb,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#2925	{
+	
+	if (strcharinfo(3) != "resc_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@serpens ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "resc_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2925,1,"MVP#2925::OnMVPDeath";
+	set $@serpens,1;
+	end;
+	}
+}
+
+resc_dun02,1,1,4	script	MVP#2925	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@serpens,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#3740	{
+	
+	if (strcharinfo(3) != "grey_ft02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@darkrosedrg ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "grey_ft02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3740,1,"MVP#3740::OnMVPDeath";
+	set $@darkrosedrg,1;
+	end;
+	}
+}
+
+grey_ft02,1,1,4	script	MVP#3740	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@darkrosedrg,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1785	{
+	
+	if (strcharinfo(3) != "ve_fild01"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@atroce ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ve_fild01"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1785,1,"MVP#1785::OnMVPDeath";
+	set $@atroce,1;
+	end;
+	}
+}
+
+ve_fild01,1,1,4	script	MVP#1785	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@atroce,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1395	{
+	
+	if (strcharinfo(3) != "ra_fild13"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@miguelmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ra_fild13"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1395,1,"MVP#1395::OnMVPDeath";
+	set $@miguelmvp,1;
+	end;
+	}
+}
+
+ra_fild13,1,1,4	script	MVP#1395	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@miguelmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1937	{
+	
+	if (strcharinfo(3) != "pay_fild04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@kingporingmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "pay_fild04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1937,1,"MVP#1937::OnMVPDeath";
+	set $@kingporingmvp,1;
+	end;
+	}
+}
+
+pay_fild04,1,1,4	script	MVP#1937	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@kingporingmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+	
+function	script	Relic#1252	{
+	
+	if (strcharinfo(3) != "snow_fild05"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@hatiimvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "snow_fild05"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1252,1,"MVP#1252::OnMVPDeath";
+	set $@hatiimvp,1;
+	end;
+	}
+}
+
+snow_fild05,1,1,4	script	MVP#1252	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@hatiimvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1087	{
+	
+	if (strcharinfo(3) != "gef_fild14"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@orcheromvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gef_fild14"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1087,1,"MVP#1087::OnMVPDeath";
+	set $@orcheromvp,1;
+	end;
+	}
+}
+
+gef_fild14,1,1,4	script	MVP#1087	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@orcheromvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2672	{
+	
+	if (strcharinfo(3) != "ast_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@starscomvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ast_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2672,1,"MVP#2672::OnMVPDeath";
+	set $@starscomvp,1;
+	end;
+	}
+}
+
+ast_dun03,1,1,4	script	MVP#2672	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@starscomvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1708	{
+	
+	if (strcharinfo(3) != "thana_boss"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@thanatosmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "thana_boss"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1708,1,"MVP#1708::OnMVPDeath";
+	set $@thanatosmvp,1;
+	end;
+	}
+}
+
+thana_boss,1,1,4	script	MVP#1708	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@thanatosmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2102	{
+	
+	if (strcharinfo(3) != "gl_knt02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@dreamkmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gl_knt02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2102,1,"MVP#2102::OnMVPDeath";
+	set $@dreamkmvp,1;
+	end;
+	}
+}
+
+gl_knt02,1,1,4	script	MVP#2102	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@dreamkmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#3225	{
+	
+	if (strcharinfo(3) != "rek_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@abseyrenmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "rek_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3225,1,"MVP#3225::OnMVPDeath";
+	set $@abseyrenmvp,1;
+	end;
+	}
+}
+
+rek_dun03,1,1,4	script	MVP#3225	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@abseyrenmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2802	{
+	
+	if (strcharinfo(3) != "lost_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@schmidtmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "lost_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2802,1,"MVP#2802::OnMVPDeath";
+	set $@schmidtmvp,1;
+	end;
+	}
+}
+
+lost_dun03,1,1,4	script	MVP#2802	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@schmidtmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1373	{
+	
+	if (strcharinfo(3) != "nif_cas02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@lorddeadmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "nif_cas02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1373,1,"MVP#1373::OnMVPDeath";
+	set $@lorddeadmvp,1;
+	end;
+	}
+}
+
+nif_cas02,1,1,4	script	MVP#1373	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@lorddeadmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#3485	{
+	
+	if (strcharinfo(3) != "skydun3"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@sarahmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "skydun3"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3485,1,"MVP#3485::OnMVPDeath";
+	set $@sarahmvp,1;
+	end;
+	}
+}
+
+skydun3,1,1,4	script	MVP#3485	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@sarahmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2202	{
+	
+	if (strcharinfo(3) != "iz_dun05"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@krakenmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "iz_dun05"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2202,1,"MVP#2202::OnMVPDeath";
+	set $@krakenmvp,1;
+	end;
+	}
+}
+
+iz_dun05,1,1,4	script	MVP#2202	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@krakenmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2937	{
+	
+	if (strcharinfo(3) != "loki_tomb02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@lokimvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "loki_tomb02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2937,1,"MVP#2937::OnMVPDeath";
+	set $@lokimvp,1;
+	end;
+	}
+}
+
+loki_tomb02,1,1,4	script	MVP#2937	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@lokimvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1916	{
+	
+	if (strcharinfo(3) != "moc_dun01"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@satanmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_dun01"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1916,1,"MVP#1916::OnMVPDeath";
+	set $@satanmvp,1;
+	end;
+	}
+}
+
+moc_dun01,1,1,4	script	MVP#1916	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@satanmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#3097	{
+	
+	if (strcharinfo(3) != "moc_fild22"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@emperormvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_fild22"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3097,1,"MVP#3097::OnMVPDeath";
+	set $@emperormvp,1;
+	end;
+	}
+}
+
+moc_fild22,1,1,4	script	MVP#3097	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@emperormvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2942	{
+	
+	if (strcharinfo(3) != "moc_dun03"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@fanaticmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_dun03"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2942,1,"MVP#2942::OnMVPDeath";
+	set $@fanaticmvp,1;
+	end;
+	}
+}
+
+moc_dun03,1,1,4	script	MVP#2942	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@fanaticmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1245	{
+	
+	if (strcharinfo(3) != "prt_prison"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@sakraymvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "prt_prison"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1245,1,"MVP#1245::OnMVPDeath";
+	set $@sakraymvp,1;
+	end;
+	}
+}
+
+prt_prison,1,1,4	script	MVP#1245	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@sakraymvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#3001	{
+	
+	if (strcharinfo(3) != "gef_town"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@revenantmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gef_town"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3001,1,"MVP#3001::OnMVPDeath";
+	set $@revenantmvp,1;
+	end;
+	}
+}
+
+gef_town,1,1,4	script	MVP#3001	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@revenantmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2476	{
+	
+	if (strcharinfo(3) != "gl_knp02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@amdaramvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gl_knp02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2476,1,"MVP#2476::OnMVPDeath";
+	set $@amdaramvp,1;
+	end;
+	}
+}
+
+gl_knp02,1,1,4	script	MVP#2476	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@amdaramvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1626	{
+	
+	if (strcharinfo(3) != "gl_cas01_"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@himelmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "gl_cas01_"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1626,1,"MVP#1626::OnMVPDeath";
+	set $@himelmvp,1;
+	end;
+	}
+}
+
+gl_cas01_,1,1,4	script	MVP#1626	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@himelmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1957	{
+	
+	if (strcharinfo(3) != "alde_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@entwehmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "alde_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1957,1,"MVP#1957::OnMVPDeath";
+	set $@entwehmvp,1;
+	end;
+	}
+}
+
+alde_dun04,1,1,4	script	MVP#1957	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@entwehmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#3124	{
+	
+	if (strcharinfo(3) != "1@mcd"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@charlesmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "1@mcd"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3124,1,"MVP#3124::OnMVPDeath";
+	set $@charlesmvp,1;
+	end;
+	}
+}
+
+1@mcd,1,1,4	script	MVP#3124	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@charlesmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2037	{
+	
+	if (strcharinfo(3) != "odin_past"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@reginlmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "odin_past"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2037,1,"MVP#2037::OnMVPDeath";
+	set $@reginlmvp,1;
+	end;
+	}
+}
+
+odin_past,1,1,4	script	MVP#2037	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@reginlmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2996	{
+	
+	if (strcharinfo(3) != "xmas_fut01"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@kimimvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "xmas_fut01"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2996,1,"MVP#2996::OnMVPDeath";
+	set $@kimimvp,1;
+	end;
+	}
+}
+
+xmas_fut01,1,1,4	script	MVP#2996	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@kimimvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1734	{
+	
+	if (strcharinfo(3) != "khu_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@kieldxmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "khu_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1734,1,"MVP#1734::OnMVPDeath";
+	set $@kieldxmvp,1;
+	end;
+	}
+}
+
+khu_dun02,1,1,4	script	MVP#1734	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@kieldxmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2895	{
+	
+	if (strcharinfo(3) != "abyss_04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@bonedetalemvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "abyss_04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2895,1,"MVP#2895::OnMVPDeath";
+	set $@bonedetalemvp,1;
+	end;
+	}
+}
+
+abyss_04,1,1,4	script	MVP#2895	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@bonedetalemvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2808	{
+	
+	if (strcharinfo(3) != "ein_dead01"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@markmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "ein_dead01"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2808,1,"MVP#2808::OnMVPDeath";
+	set $@markmvp,1;
+	end;
+	}
+}
+
+ein_dead01,1,1,4	script	MVP#2808	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@markmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2958	{
+	
+	if (strcharinfo(3) != "va_dun04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@paradoxmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "va_dun04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2958,1,"MVP#2958::OnMVPDeath";
+	set $@paradoxmvp,1;
+	end;
+	}
+}
+
+va_dun04,1,1,4	script	MVP#2958	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@paradoxmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2255	{
+	
+	if (strcharinfo(3) != "mal_dun02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@azraelmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "mal_dun02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2255,1,"MVP#2255::OnMVPDeath";
+	set $@azraelmvp,1;
+	end;
+	}
+}
+
+mal_dun02,1,1,4	script	MVP#2255	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@azraelmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#3450	{
+	
+	if (strcharinfo(3) != "prt_q"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@bijoumvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "prt_q"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",3450,1,"MVP#3450::OnMVPDeath";
+	set $@bijoumvp,1;
+	end;
+	}
+}
+
+prt_q,1,1,4	script	MVP#3450	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@bijoumvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1059	{
+	
+	if (strcharinfo(3) != "mjolnir_04"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@mistressmvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "mjolnir_04"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1059,1,"MVP#1059::OnMVPDeath";
+	set $@mistressmvp,1;
+	end;
+	}
+}
+
+mjolnir_04,1,1,4	script	MVP#1059	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@mistressmvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#2667	{
+	
+	if (strcharinfo(3) != "fro_fild02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@rockullamvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "fro_fild02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",2667,1,"MVP#2667::OnMVPDeath";
+	set $@rockullamvp,1;
+	end;
+	}
+}
+
+fro_fild02,1,1,4	script	MVP#2667	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@rockullamvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1991	{
+	
+	if (strcharinfo(3) != "spl_fild02"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@tendrilMVP ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "spl_fild02"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1991,1,"MVP#1991::OnMVPDeath";
+	set $@tendrilMVP,1;
+	end;
+	}
+}
+
+spl_fild02,1,1,4	script	MVP#1991	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@tendrilMVP,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function	script	Relic#1159	{
+	
+	if (strcharinfo(3) != "moc_fild17"){
+	announce "The Relic has been shattered...The Map of the Boss is not correct...",bc_blue|bc_area;
+	end;
+	}
+	if ($@phreemvp ==1) {
+	announce "The summoning of the Boss has failed...it's already summoned.",bc_blue|bc_area;
+	end;
+	}
+	if (strcharinfo(3) == "moc_fild17"){
+	announce strcharinfo(0) + " is Summoning a Boss using a Relic!",bc_blue|bc_area;
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	monster .@map$,.@x,.@y,"Relic Boss",1159,1,"MVP#1159::OnMVPDeath";
+	set $@phreemvp,1;
+	end;
+	}
+}
+
+moc_fild17,1,1,4	script	MVP#1159	CLEAR_NPC,{
+	end;
+OnMVPDeath:
+set $@phreemvp,0;
+if(playerattached()==0) { end; }
+announce "The summoned Boss has been Slain!",bc_blue|bc_area;
+end;
+}

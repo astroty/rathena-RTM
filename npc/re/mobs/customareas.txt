@@ -1,0 +1,582 @@
+//===== rAthena Script =======================================
+//= Custom Maps Monster Spawn Script
+//===== Current Version: =====================================
+//= 1.0
+//===== Description: =========================================
+//= Spawns monsters around the World
+//==================================================
+// grey Forest - 01-02
+//==================================================
+
+//==================================================
+// Kafra Storage
+//==================================================
+kaf_dun01,0,0	monster	Ashring	3496,40,5000
+kaf_dun01,0,0	monster	Old Blue Bag	3497,10,5000
+kaf_dun01,0,0	monster	Save Assistant	3498,30,5000
+kaf_dun01,0,0	monster	Storage Assistant	3499,30,5000
+kaf_dun01,0,0	monster	Warp Assistant	3500,30,5000
+kaf_dun02,0,0	monster	Save Assistant	3498,15,5000
+kaf_dun02,0,0	monster	Storage Assistant	3499,15,5000
+kaf_dun02,0,0	monster	Warp Assistant	3500,15,5000
+kaf_dun02,0,0	monster	Mutated Kafra	3501,40,5000
+kaf_dun02,0,0	monster	Consumed Kafra	3502,15,5000
+kaf_dun02,0,0,1,1	boss_monster	Manager Jenni	3503,1,2700000,5400000,0
+
+//==================================================
+// Crystal Caves
+//==================================================
+cry_dun01,0,0	monster	Dolomedes	2092,45,5000
+cry_dun02,0,0	monster	Dolomedes	2092,25,5000
+cry_dun01,0,0	monster	Living Crystal	1398,8,5000
+cry_dun02,0,0	monster	Living Crystal	1398,8,5000
+cry_dun03,0,0	monster	Living Crystal	1398,8,5000
+cry_dun01,0,0	monster	Unstable Crystal	3504,5,5000
+cry_dun02,0,0	monster	Unstable Crystal	3504,5,5000
+cry_dun03,0,0	monster	Unstable Crystal	3504,5,5000
+cry_dun01,0,0	monster	Crystal Megalith	3506,6,5000
+cry_dun02,0,0	monster	Crystal Megalith	3506,6,5000
+cry_dun03,0,0	monster	Crystal Megalith	3506,6,5000
+cry_dun02,0,0	monster	Jewel Ungoliant	3508,4,5000
+cry_dun03,0,0	monster	Jewel Ungoliant	3508,10,5000
+cry_dun02,0,0	monster	Crystal Dolomedes	3507,25,5000
+cry_dun03,0,0	monster	Crystal Dolomedes	3507,45,5000
+cry_dun03,0,0,1,1	boss_monster	Brinaranea	3091,1,2700000,5400000,0
+
+//==================================================
+// Alchemist Fortress
+//==================================================
+
+alch_dun01,0,0	monster	Lif	3010,35,5000
+alch_dun01,0,0	monster	Amistr	3011,35,5000
+alch_dun01,0,0	monster	Vanilmirth	3012,35,5000
+alch_dun01,0,0	monster	Filir	3013,35,5000
+alch_dun01,0,0	monster	Broken Homunculus	3018,3,5000
+alch_dun01,0,0	monster	Weird Alchemist	3020,3,5000
+//
+alch_dun02,0,0	monster	Lif	3010,40,5000
+alch_dun02,0,0	monster	Amistr	3011,40,5000
+alch_dun02,0,0	monster	Vanilmirth	3012,40,5000
+alch_dun02,0,0	monster	Filir	3013,40,5000
+alch_dun02,0,0	monster	Chaos Lif	3014,4,5000
+alch_dun02,0,0	monster	Chaos Amistr	3015,4,5000
+alch_dun02,0,0	monster	Chaos Vanilmirth	3016,4,5000
+alch_dun02,0,0	monster	Chaos Filir	3017,4,5000
+alch_dun02,0,0	monster	Broken Homunculus	3018,4,5000
+alch_dun02,0,0	monster	Weird Alchemist	3020,4,5000
+//
+alch_dun03,0,0	monster	Lif	3010,5,5000
+alch_dun03,0,0	monster	Amistr	3011,5,5000
+alch_dun03,0,0	monster	Vanilmirth	3012,5,5000
+alch_dun03,0,0	monster	Filir	3013,5,5000
+alch_dun03,0,0	monster	Chaos Lif	3014,20,5000
+alch_dun03,0,0	monster	Chaos Amistr	3015,20,5000
+alch_dun03,0,0	monster	Chaos Vanilmirth	3016,20,5000
+alch_dun03,0,0	monster	Chaos Filir	3017,20,5000
+alch_dun03,0,0	monster	Broken Homunculus	3018,5,5000
+alch_dun03,0,0	monster	Weird Alchemist	3020,5,5000
+//
+alch_dun04,0,0	monster	Chaos Lif	3014,30,5000
+alch_dun04,0,0	monster	Chaos Amistr	3015,30,5000
+alch_dun04,0,0	monster	Chaos Vanilmirth	3016,30,5000
+alch_dun04,0,0	monster	Chaos Filir	3017,30,5000
+alch_dun04,0,0	monster	Broken Homunculus	3018,15,5000
+alch_dun04,0,0	monster	Weird Alchemist	3020,15,5000
+alch_dun04,0,0,1,1	boss_monster	Failed Abomination	3021,1,2700000,5400000,0
+
+//Grey Forest
+grey_ft01,0,0	monster	Coyote	3739,25,5000
+grey_ft02,0,0	monster	Coyote	3739,15,5000
+grey_ft01,0,0	monster	Tumblering	3636,25,5000
+grey_ft02,0,0	monster	Tumblering	3636,15,5000
+grey_ft01,0,0	monster	Orphan Hunter	3669,15,5000
+grey_ft02,0,0	monster	Orphan Hunter	3669,15,5000
+grey_ft01,0,0	monster	Pitaya	3670,15,5000
+grey_ft02,0,0	monster	Pitaya	3670,15,5000
+grey_ft01,0,0	monster	Ghost Tree	3743,10,5000
+grey_ft02,0,0	monster	Ghost Tree	3743,15,5000
+grey_ft01,0,0	monster	Flame Stallion	2071,15,5000
+grey_ft02,0,0	monster	Flame Stallion	2071,20,5000
+grey_ft02,0,0,1,1	boss_monster	Black Rose Dragon	3740,1,2700000,5400000,0
+
+
+////Freya Hidden Temple
+
+ra_dun00,0,0	monster	Aunoe	1796,30,5000
+ra_dun00,0,0	monster	Fanat	1797,30,5000
+ra_dun00,0,0	monster	Dominated Follower	3622,10,5000
+ra_dun00,0,0	monster	Ascended Follower	3621,5,5000
+ra_dun00,0,0	monster	Ritual Priest	3624,10,15000
+//
+ra_dun01,0,0	monster	Aunoe	1796,15,5000
+ra_dun01,0,0	monster	Fanat	1797,15,5000
+ra_dun01,0,0	monster	Ascended Follower	3621,5,5000
+ra_dun01,0,0	monster	Dominated Follower	3622,5,5000
+ra_dun01,0,0	monster	Doomed Follower	3623,15,5000
+ra_dun01,0,0	monster	Ritual Priest	3624,5,15000
+//
+ra_dun02,0,0	monster	Aunoe	1796,15,5000
+ra_dun02,0,0	monster	Fanat	1797,15,5000
+ra_dun02,0,0	monster	Dominated Follower	3622,15,5000
+ra_dun02,0,0	monster	Doomed Follower	3623,25,5000
+ra_dun02,0,0	monster	Ritual Priest	3624,15,15000
+ra_dun01,0,0	monster	Ascended Follower	3621,5,5000
+ra_dun02,208,143,1,1	monster	Fake Pope	3625,1,1200000
+ra_dun02,39,144,1,1	monster	Fake Pope	3625,1,1200000
+ra_dun02,100,238,1,1	monster	Fake Pope	3625,1,1200000
+ra_dun02,147,240,1,1	monster	Fake Pope	3625,1,1200000
+ra_dun02,124,355,1,1	boss_monster	Goddess Freya	3626,1,2700000,5400000,0
+
+////Geffenia Antitower
+gef_atow03,0,0	monster	Blackguard Knight	3194,3,15000
+gef_atow03,0,0	monster	Minion Amdarais	3448,3,15000
+gef_atow03,0,0	monster	Forest Nymph	2310,12,15000
+//
+gef_atow02,0,0	monster	Blackguard Knight	3194,5,15000
+gef_atow02,0,0	monster	Blackguard Captain	3193,1,15000
+gef_atow02,0,0	monster	Minion Amdarais	3448,4,15000
+gef_atow02,0,0	monster	Forest Nymph	2310,6,15000
+//
+gef_atow01,0,0	monster	Blackguard Knight	3194,5,15000
+gef_atow01,0,0	monster	Blackguard Captain	3193,2,15000
+gef_atow01,0,0	monster	Minion Amdarais	3448,3,15000
+gef_atow01,0,0	monster	Forest Nymph	2310,2,15000
+//
+gef_town,0,0	monster	Blackguard Knight	3194,25,15000
+gef_town,0,0	monster	Blackguard Captain	3193,5,15000
+gef_town,0,0	monster	Minion Amdarais	3448,25,15000
+gef_town,0,0	monster	Forest Nymph	2310,20,15000
+gef_town,0,0,0,0	boss_monster	First Revenant	3001,1,2700000,5400000,0
+
+//Yggdrasil Dungeon
+ygg_dun01,0,0	monster	Red Plant	1078,25,15000
+ygg_dun01,0,0	monster	Blue Plant	1079,25,15000
+ygg_dun01,0,0	monster	Yellow Plant	1081,25,15000
+ygg_dun01,0,0	monster	White Plant	1082,25,15000
+ygg_dun01,0,0	monster	Green Plant	1080,25,15000
+//
+ygg_dun02,0,0	monster	Red Plant	1078,25,15000
+ygg_dun02,0,0	monster	Blue Plant	1079,25,15000
+ygg_dun02,0,0	monster	Yellow Plant	1081,25,15000
+ygg_dun02,0,0	monster	White Plant	1082,25,15000
+ygg_dun02,0,0	monster	Green Plant	1080,25,15000
+ygg_dun02,45,87,1,1	monster	White Plant	1082,1,30000
+ygg_dun02,45,77,1,1	monster	White Plant	1082,1,30000
+ygg_dun02,45,81,1,1	boss_monster	Shinning Plant	1083,1,2700000,5400000,0
+
+////Waterfall Caves
+wat_dun01,0,0	monster	Dollocaris	3478,25,5000
+wat_dun01,0,0	monster	Depths Dollocaris	3479,5,5000
+wat_dun01,0,0	monster	Depths Mermaid	3480,15,5000
+wat_dun01,0,0	monster	Limacina	3481,3,5000
+wat_dun01,0,0	monster	Limacone	3482,1,150000
+//
+wat_dun02,0,0	monster	Dollocaris	3478,15,5000
+wat_dun02,0,0	monster	Depths Dollocaris	3479,25,5000
+wat_dun02,0,0	monster	Depths Mermaid	3480,10,5000
+wat_dun02,0,0	monster	Limacina	3481,5,5000
+wat_dun02,0,0	monster	Limacone	3482,2,150000
+wat_dun02,0,0,0,0	boss_monster	Baroness of Despair	3483,1,2700000,5400000,0
+
+////Sky Garden
+skydun1,0,0	monster	Sif Avatar	3474,20,5000
+skydun1,0,0	monster	Sleipnir Avatar	3475,15,5000
+skydun1,0,0	monster	Idun Avatar	3476,10,5000
+skydun1,0,0	monster	Siegfried Avatar	3477,5,5000
+skydun1,0,0	monster	Thor Avatar	3484,1,5000
+//
+skydun2,0,0	monster	Sif Avatar	3474,10,5000
+skydun2,0,0	monster	Sleipnir Avatar	3475,10,5000
+skydun2,0,0	monster	Idun Avatar	3476,15,5000
+skydun2,0,0	monster	Siegfried Avatar	3477,10,5000
+skydun2,0,0	monster	Thor Avatar	3484,3,5000
+//
+skydun3,1,1,280,360	monster	Sif Avatar	3474,20,5000
+skydun3,1,1,280,360	monster	Sleipnir Avatar	3475,20,5000
+skydun3,1,1,280,360	monster	Idun Avatar	3476,20,5000
+skydun3,1,1,280,360	monster	Siegfried Avatar	3477,25,5000
+skydun3,1,1,280,360	monster	Thor Avatar	3484,5,5000
+skydun3,0,0,1,1	boss_monster	Sarah Irine	3485,1,2700000,5400000,0
+
+
+////Waterfall Caves
+nest_dun01,0,0	monster	Draco	2013,35,5000
+nest_dun01,0,0	monster	Sky Draco	2321,25,5000
+nest_dun01,0,0	monster	Sropho	2201,15,5000
+nest_dun01,0,0	monster	Lake Dragon	2320,2,5000
+//
+nest_dun02,0,0	monster	Draco	2013,20,5000
+nest_dun02,0,0	monster	Sky Draco	2321,30,5000
+nest_dun02,0,0	monster	Sropho	2201,25,5000
+nest_dun02,0,0	monster	Lake Dragon	2320,3,5000
+nest_dun02,0,0,0,0	boss_monster	Nidhogg	2022,1,2700000,5400000,0
+
+////Yggdrasil Fields
+ygg_fild01,0,0	monster	Les Fairy	1881,25,5000
+ygg_fild01,0,0	monster	Miming	2137,25,5000
+ygg_fild01,0,0	monster	Menblatt	2363,15,5000
+ygg_fild01,0,0	monster	Parus	2134,5,5000
+//
+ygg_fild02,0,0	monster	Les Fairy	1881,15,5000
+ygg_fild02,0,0	monster	Miming	2137,15,5000
+ygg_fild02,0,0	monster	Menblatt	2363,25,5000
+ygg_fild02,0,0	monster	Parus	2134,10,5000
+
+snow_fild01,0,0	monster	Tatacho	1986,20,5000
+snow_fild01,0,0	monster	Hillsrion	1989,30,5000
+snow_fild01,0,0	monster	Frost Flower	1997,5,5000
+//////
+snow_fild03,0,0	monster	Tatacho	1986,30,5000
+snow_fild03,0,0	monster	Hillsrion	1989,20,5000
+snow_fild03,0,0	monster	Frost Flower	1997,5,5000
+//////
+snow_fild02,0,0	monster	Sasquatch	1243,20,5000
+snow_fild02,0,0	monster	Aqua Elemental	2016,30,5000
+snow_fild02,0,0	monster	Hatii Baby	1515,5,5000
+//////
+snow_fild04,0,0	monster	Sasquatch	1243,30,5000
+snow_fild04,0,0	monster	Aqua Elemental	2016,20,5000
+snow_fild04,0,0	monster	Hatii Baby	1515,5,5000
+//////
+snow_fild05,0,0	monster	Sasquatch	1243,20,5000
+snow_fild05,0,0	monster	Aqua Elemental	2016,20,5000
+snow_fild05,0,0	monster	Hatii Baby	1515,8,5000
+snow_fild05,0,0,0,0	boss_monster	Hatii	1252,1,2700000,5400000,0
+
+//Noble Bathhouse
+vip_bath,0,0	monster	Rudo	2256,25,5000
+vip_bath,0,0	monster	Strange Thief	2551,30,5000
+vip_bath,0,0	monster	Strange Monk	2554,30,5000
+vip_bath,0,0	monster	Strange Wizard	2555,30,5000
+vip_bath,0,0	monster	Strange Crusader	2556,30,5000
+vip_bath,0,0	monster	Strange Angry Wanderer	2560,1,5000
+vip_bath,0,0,0,0	boss_monster	Angry Pyuriel	2249,1,2700000,5400000,0
+
+////Distortion Morroc
+
+moc_dun01,0,0	monster	Aspect of Lies	2571,75,5000
+moc_dun01,0,0	monster	Aspect of Horror	2155,75,5000
+moc_dun01,0,0	monster	Aspect of Torment	2309,15,5000
+moc_dun01,0,0	monster	Evil Essence	1750,18,5000
+moc_dun01,0,0,0,0	boss_monster	Satan Morroc	1916,1,2700000,5400000,0
+
+//Varmundt Mansion
+
+va_dun01,0,0	monster	Gentleman	2950,15,5000
+va_dun02,0,0	monster	Gentleman	2950,5,5000
+va_dun03,0,0	monster	Gentleman	2950,50,5000
+//
+va_dun01,0,0	monster	Maiden of Past	2951,20,5000
+va_dun02,0,0	monster	Maiden of Past	2951,3,5000
+//
+va_dun02,0,0	monster	Maiden of Present	2953,30,5000
+va_dun03,0,0	monster	Maiden of Present	2953,20,5000
+va_dun04,0,0	monster	Maiden of Present	2953,10,5000
+//
+va_dun01,0,0	monster	Cavalier	2955,2,5000
+va_dun02,0,0	monster	Cavalier	2955,2,5000
+va_dun03,0,0	monster	Cavalier	2955,15,5000
+//
+va_dun03,0,0	monster	Lost Codex	2952,60,5000
+va_dun02,55,45,311,114	monster	Lost Codex	2952,5,5000
+va_dun04,0,0	monster	Lost Codex	2952,5,5000
+//
+va_dun03,0,0	monster	Maiden of Future	2954,10,5000
+va_dun04,0,0	monster	Maiden of Future	2954,20,5000
+//
+va_dun04,0,0,0,0	boss_monster	Paradox Amdarais	2958,1,2700000,5400000,0
+//
+va_dun01,0,0	monster	Lost Traveler	2956,1,5000
+va_dun02,0,0	monster	Lost Traveler	2956,1,5000
+va_dun03,0,0	monster	Lost Traveler	2956,1,5000
+va_dun04,0,0	monster	Lost Traveler	2956,3,5000
+//
+va_dun02,0,0,0,0	monster	Navigator	2957,1,300000
+
+
+///Old Glast Heim
+gl_knp02,0,0,0,0	boss_monster	Amdarais	2476,1,2500000,5700000,0
+gl_knp01,150,255,0,0	boss_monster	Corruption Root	2475,1,1400000,1800000,0
+//
+gl_knp01,0,0	monster	Spectre Raydric Archer	2690,50,5000
+gl_knp01,0,0	monster	Spectre Raydric	2691,50,5000
+gl_knp01,0,0	monster	Khalitzburg Knight	1438,10,5000
+gl_knp01,0,0	monster	White Knight	1893,10,5000
+//
+gl_knp02,0,0	monster	Spectre Raydric Archer	2690,20,5000
+gl_knp02,0,0	monster	Spectre Raydric	2691,20,5000
+gl_knp02,0,0	monster	Khalitzburg Knight	1438,40,5000
+gl_knp02,0,0	monster	White Knight	1893,40,5000
+
+//Abyss Glast Heim
+gl_cas01_,0,0,0,0	boss_monster	Himelmez	1626,1,2700000,5400000,0
+gl_cas01_,0,0,0,0	boss_monster	Abyss Lord	2052,2,1400000,1800000,0
+gl_cas01_,0,0	monster	Abyss Raydric	1467,60,5000
+gl_cas01_,0,0	monster	Abyss Raydric Archer	1453,60,5000
+gl_cas01_,0,0	monster	Abyss Wanderer	1490,25,5000
+
+//Faceworm Forest
+face_dun04,0,0,0,0	boss_monster	Faceworm Queen	2529,1,2700000,5400000,0
+//
+face_dun01,0,0	monster	Toxic Scorpion	1212,10,5000
+face_dun01,0,0	monster	Elder Willow	1033,25,5000
+face_dun01,0,0	monster	Poison Spore	1077,25,5000
+//
+face_dun02,0,0	monster	Toxic Scorpion	1212,20,5000
+face_dun02,0,0	monster	Faceworm	2528,70,5000
+face_dun02,0,0	monster	Dark Faceworm	2530,5,5000
+//
+face_dun03,0,0	monster	Toxic Scorpion	1212,20,5000
+face_dun03,0,0	monster	Faceworm	2528,80,5000
+face_dun03,0,0	monster	Dark Faceworm	2530,10,5000
+//
+face_dun04,0,0	monster	Faceworm	2528,90,5000
+face_dun04,0,0	monster	Dark Faceworm	2530,15,5000
+
+//Opera House
+nif_dun02,0,0,0,0	boss_monster	Baroness of Sorrow	1927,1,2700000,5400000,0
+//
+nif_dun02,0,0	monster	Scream	1185,15,5000
+nif_dun02,0,0	monster	Night Ruri	1892,25,5000
+nif_dun02,0,0	monster	Gan Ceann	2928,25,5000
+nif_dun02,0,0	monster	Opera Jitterbug	3108,5,5000
+//
+nif_dun01,0,0	monster	Scream	1185,25,5000
+nif_dun01,0,0	monster	Night Ruri	1892,15,5000
+nif_dun01,0,0	monster	Gan Ceann	2928,15,5000
+nif_dun01,0,0	monster	Opera Jitterbug	3108,3,5000
+nif_dun01,0,0,0,0	boss_monster	Voice of Sorrow	3109,2,1400000,1900000,0
+
+//Sunken Temple
+pay_tem04,0,0,0,0	boss_monster	General Daehyon	2253,1,2700000,5400000,0
+//
+pay_tem02,0,0	monster	Hyegun	1512,40,5000
+pay_tem02,0,0	monster	Gwisin Warrior	1519,30,5000
+pay_tem02,0,0	monster	Hermit Spirit	1412,10,5000
+pay_tem02,0,0	monster	Elder Spirit	2542,3,5000
+pay_tem02,0,0	monster	Oracle Spirit	1518,3,5000
+//
+pay_tem03,0,0	monster	Hyegun	1512,20,5000
+pay_tem03,0,0	monster	Gwisin Warrior	1519,25,5000
+pay_tem03,0,0	monster	Nymph Spirit	1416,35,5000
+pay_tem03,0,0	monster	Elder Spirit	2542,4,5000
+pay_tem03,0,0	monster	Oracle Spirit	1518,4,5000
+//
+pay_tem04,0,0	monster	Hermit Spirit	1412,50,5000
+pay_tem04,0,0	monster	Nymph Spirit	1416,30,5000
+pay_tem04,0,0	monster	Elder Spirit	2542,5,5000
+pay_tem04,0,0	monster	Oracle Spirit	1518,5,5000
+
+//Loki's Palace
+loki_tomb02,68,17,278,227	boss_monster	Master Loki	2937,1,2700000,5600000,0
+loki_tomb01,68,17,278,227	boss_monster	Juliette D Rachel	2568,1,300000,300000,0
+//
+loki_tomb01,68,17,278,227	monster	Assassin	2553,125,5000
+loki_tomb01,68,17,278,227	monster	Guillotine Cross	2567,2,5000
+loki_tomb01,68,17,278,227	monster	Shadow Chaser	2557,2,5000
+//
+loki_tomb02,31,15,125,109	monster	Guillotine Cross	2567,15,5000
+loki_tomb02,31,15,125,109	monster	Shadow Chaser	2557,15,5000
+
+//Einbroch Deadlands
+ein_dead01,0,0,0,0	boss_monster	Mark Bearer	2808,1,2700000,5400000,0
+//
+ein_dead01,0,0	monster	Living Failure	2803,30,5000
+ein_dead01,0,0	monster	North Scavenger	2804,25,5000
+ein_dead01,0,0	monster	South Scavenger	2805,25,5000
+ein_dead01,0,0	monster	North Mercenary	2806,3,5000
+ein_dead01,0,0	monster	South Mercenary	2807,3,5000
+//
+ein_dead02,0,0	monster	Living Failure	2803,10,5000
+ein_dead02,0,0	monster	South Scavenger	2805,45,5000
+ein_dead02,0,0	monster	South Mercenary	2807,20,5000
+//
+ein_dead03,0,0	monster	Living Failure	2803,10,5000
+ein_dead03,0,0	monster	North Scavenger	2804,45,5000
+ein_dead03,0,0	monster	North Mercenary	2806,20,5000
+
+//Airship Crash Site
+
+resc_dun02,0,0,0,0	boss_monster	Serpens	2925,1,2700000,5400000,0
+//
+resc_dun01,0,0	monster	Googly	1430,50,5000
+resc_dun01,0,0	monster	Combo Breaker	2292,30,5000
+resc_dun01,0,0	monster	Vine Willow	1574,5,5000
+//
+resc_dun02,0,0	monster	Googly	1430,5,5000
+resc_dun02,0,0	monster	Combo Breaker	2292,10,5000
+resc_dun02,0,0	monster	Vine Willow	1574,110,5000
+resc_dun02,0,0	monster	Missing Body	2924,30,5000
+//
+veins,0,0	monster	Fly	1042,10,5000
+veins,0,0	monster	Fly	2301,30,5000
+veins,0,0	monster	Fly	2597,1,5400000
+
+//Lost Tomb of the King
+lost_dun03,51,306,0,0	boss_monster	King Schmidt	2802,1,2900000,5600000,0
+1@sunk1,0,0	monster	Gargoyle	1253,3,5000
+1@sunk1,0,0	monster	Small Octopus	2192,1,5000
+1@sunk1,0,0	monster	Giant Octopus	2194,4,5000
+1@sunk1,0,0	monster	Devoted Knight	2795,4,5000
+//
+lost_dun01,0,0	monster	Gargoyle	1253,8,5000
+lost_dun01,0,0	monster	Giant Octopus	2194,8,5000
+lost_dun01,0,0	monster	Devoted Knight	2795,8,5000
+//
+lost_dun02,48,58	monster	Tower Eater	2796,1,1800000
+//
+lost_dun03,0,0	monster	Magma Knight	2797,12,5000
+lost_dun03,0,0	monster	Tornado Knight	2798,12,5000
+lost_dun03,0,0	monster	Quake Knight	2799,12,5000
+lost_dun03,0,0	monster	Tidal Knight	2800,12,5000
+lost_dun03,0,0	monster	Umbral Knight	2801,5,30000
+//
+rek_dun01,0,0	monster	Rekember Core	1634,20,5000
+rek_dun02,0,0	monster	Rekember Core	1634,25,5000
+rek_dun03,36,63	monster	Rekember Core	1634,1,180000
+rek_dun03,62,63	monster	Rekember Core	1634,1,180000
+rek_dun03,51,66	boss_monster	Absolute Seyren	3225,1,2700000,5400000,0
+//
+nif_cas01,0,0	monster	Haunting Guise	2579,2,5000
+nif_cas02,0,0	monster	Haunting Guise	2579,7,5000
+nif_cas01,0,0	monster	Guillotine	2987,2,5000
+nif_cas02,0,0	monster	Guillotine	2987,7,5000
+nif_cas01,0,0	monster	Death Ruri	2774,2,5000
+nif_cas02,0,0	monster	Death Ruri	2774,7,5000
+nif_cas01,0,0	monster	Great Shadow	2059,1,5000
+nif_cas02,0,0	monster	Great Shadow	2059,3,5000
+nif_cas02,0,0	boss_monster	Lord of the Dead	1373,1,2700000,5400000,0
+//
+abyss_04,0,0	monster	Bone Ferus	2832,20,5000
+abyss_04,0,0	monster	Bone Acidus	1759,20,5000
+abyss_04,0,0	monster	Abyss Mimic	2903,20,5000
+abyss_04,0,0	boss_monster	Bone Detardeurus	2895,1,2700000,5400000,0
+//
+khu_dun01,0,0	monster	Red Hover	2833,5,5000
+khu_dun01,0,0	monster	Red Machina	2834,1,5000
+khu_dun02,0,0	monster	Red Hover	2833,5,5000
+khu_dun02,0,0	monster	Red Machina	2834,33,5000
+khu_dun02,0,0	monster	Red Terminus	2835,22,5000
+khu_dun02,0,0	boss_monster	Kiel DX-03	1734,1,2700000,5400000,0
+//
+iz_dun05,0,0	monster	Deviace	1108,15,5000
+iz_dun05,0,0	monster	Bubble Spirit	1571,15,5000
+iz_dun05,0,0	monster	Black Swordfish	1069,10,5000
+iz_dun05,0,0	monster	Siren	2713,5,5000
+iz_dun05,0,0	boss_monster	Kraken	2202,1,2700000,5400000,0
+//
+xmas_fut01,0,0	monster	Broken Cruiser	2990,18,5000
+xmas_fut01,0,0	monster	Lost Gift	2991,18,5000
+xmas_fut01,0,0	monster	Old Cookie	2989,18,5000
+xmas_fut01,0,0	monster	Deviling	1582,3,5000
+xmas_fut01,0,0	boss_monster	Celine Kimi	2996,1,2700000,5400000,0
+//
+odin_past,0,0	monster	Holy Skogul	1761,32,5000
+odin_past,0,0	monster	Holy Frus	1762,32,5000
+odin_past,0,0	boss_monster	Valkyrie Reginleif	2037,1,2700000,5400000,0
+odin_past,327,274	monster	Shadow of Reginleif	2036,1,900000
+odin_past,335,105	monster	Shadow of Reginleif	2036,1,900000
+odin_past,289,124	monster	Shadow of Reginleif	2036,1,900000
+odin_past,254,166	monster	Shadow of Reginleif	2036,1,900000
+odin_past,214,164	monster	Shadow of Reginleif	2036,1,900000
+odin_past,271,236	monster	Shadow of Reginleif	2036,1,900000
+odin_past,206,279	monster	Shadow of Reginleif	2036,1,900000
+odin_past,139,320	monster	Shadow of Reginleif	2036,1,900000
+odin_past,138,286	monster	Shadow of Reginleif	2036,1,900000
+//
+1@mcd,0,0	monster	Mind Vessel	3122,35,5000
+1@mcd,0,0	monster	Laboratory Cleaner	3123,25,5000
+1@mcd,0,0	monster	DR815	3252,15,5000
+1@mcd,0,0	boss_monster	Charleston	3124,1,2700000,5400000,0
+//
+moc_dun02,0,0	monster	Dandelion Cultist	1985,20,5000
+moc_dun02,0,0	monster	Dandelion Cultist	2026,20,5000
+moc_dun02,0,0	monster	Dandelion Master	2031,5,5000
+moc_dun03,0,0	monster	Dandelion Cultist	1985,15,5000
+moc_dun03,0,0	monster	Dandelion Cultist	2026,15,5000
+moc_dun03,0,0	monster	Dandelion Master	2031,10,5000
+moc_dun03,97,72	boss_monster	Evil Fanatic	2942,1,2700000,5400000,0
+//
+moc_fild20,0,0	monster	War Incarnate	1920,30,5000
+moc_fild20,0,0	monster	Famine Incarnate	1919,30,5000
+moc_fild20,0,0	monster	Death Incarnate	1921,2,5000
+moc_fild20,0,0	monster	Conquest Incarnate	1918,2,5000
+moc_fild20,0,0	monster	Vision of Surt	3096,10,5000
+//
+moc_fild21,0,0	monster	War Incarnate	1920,2,5000
+moc_fild21,0,0	monster	Famine Incarnate	1919,2,5000
+moc_fild21,0,0	monster	Death Incarnate	1921,30,5000
+moc_fild21,0,0	monster	Conquest Incarnate	1918,30,5000
+moc_fild21,0,0	monster	Vision of Surt	3096,10,5000
+//
+moc_fild22,0,0	monster	War Incarnate	1920,15,5000
+moc_fild22,0,0	monster	Famine Incarnate	1919,15,5000
+moc_fild22,0,0	monster	Death Incarnate	1921,15,5000
+moc_fild22,0,0	monster	Conquest Incarnate	1918,15,5000
+moc_fild22,0,0	boss_monster	Emperor Morroc	3097,1,2700000,5400000,0
+////
+tha_para01,0,0	monster	Empathy	2641,5,5000
+tha_para01,0,0	monster	Smile	2642,5,5000
+tha_para01,0,0	monster	Happiness	2643,5,5000
+tha_para01,0,0	monster	Prayer	2644,5,5000
+//
+tha_para02,0,0	monster	Empathy	2641,5,5000
+tha_para02,0,0	monster	Smile	2642,5,5000
+tha_para02,0,0	monster	Happiness	2643,5,5000
+tha_para02,0,0	monster	Prayer	2644,5,5000
+//
+tha_para03,0,0	monster	Empathy	2641,5,5000
+tha_para03,0,0	monster	Smile	2642,5,5000
+tha_para03,0,0	monster	Happiness	2643,5,5000
+tha_para03,0,0	monster	Prayer	2644,5,5000
+//
+tha_para06,0,0	monster	Empathy	2641,3,5000
+tha_para06,0,0	monster	Smile	2642,1,5000
+tha_para06,0,0	monster	Happiness	2643,1,5000
+tha_para06,0,0	monster	Prayer	2644,1,5000
+tha_para06,0,0	monster	Anger of Thanatos	2645,5,5000
+//
+tha_para04,0,0	monster	Empathy	2641,1,5000
+tha_para04,0,0	monster	Smile	2642,1,5000
+tha_para04,0,0	monster	Happiness	2643,1,5000
+tha_para04,0,0	monster	Prayer	2644,3,5000
+tha_para04,0,0	monster	Horror of Thanatos	2646,5,5000
+//
+tha_para05,0,0	monster	Empathy	2641,1,5000
+tha_para05,0,0	monster	Smile	2642,3,5000
+tha_para05,0,0	monster	Happiness	2643,1,5000
+tha_para05,0,0	monster	Prayer	2644,1,5000
+tha_para05,0,0	monster	Resentment of Thanatos	2647,5,5000
+//
+tha_para07,0,0	monster	Empathy	2641,1,5000
+tha_para07,0,0	monster	Smile	2642,1,5000
+tha_para07,0,0	monster	Happiness	2643,3,5000
+tha_para07,0,0	monster	Prayer	2644,1,5000
+tha_para07,0,0	monster	Regret of Thanatos	2648,5,5000
+//
+tha_para08,136,139	boss_monster	Broken Thanatos	2649,1,2700000,5400000,0
+//
+
+//Jormungandr's Nest
+jor_nest01,0,0	monster	Angel of Genesis	2650,25,5000
+jor_nest01,0,0	monster	Demon of Apocalypse	2651,10,5000
+jor_nest01,0,0	monster	Heartless	2652,10,5000
+//
+jor_nest02,0,0	monster	Angel of Genesis	2650,10,5000
+jor_nest02,0,0	monster	Demon of Apocalypse	2651,25,5000
+jor_nest02,0,0	monster	Heartless	2652,10,5000
+//
+jor_core,66,110	monster	Heart of the Serpent	2653,1,60000
+jor_core,85,88	monster	Heart of the Serpent	2653,1,60000
+jor_core,117,88	monster	Heart of the Serpent	2653,1,60000
+jor_core,138,110	monster	Heart of the Serpent	2653,1,60000
+//
+jor_core,104,133	boss_monster	Jormungandr	1665,1,6700000,9400000,0
+
+//SS Rachel
+rachelnm,0,0	monster	Converted Zealot	2656,15,5000
+rachelnm,0,0	monster	Tortured Maiden	2660,40,5000
+rachelnm,0,0	monster	Godly Seeker	2657,15,5000
+rachelnm,0,0	monster	Njord Zealot	2655,15,5000
+rachelnm,0,0	monster	Burning Fury	2658,15,5000
+rachelnm,0,0,1,1	boss_monster	Desperate Njord	2659,1,3700000,7400000,0

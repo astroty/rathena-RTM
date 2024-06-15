@@ -23,7 +23,7 @@
 
 // Poison Herb Merchants (Guillotine Cross) :: poison_herb_3rd_trader
 //============================================================
--	shop	Herb_Seller	HIDDEN_NPC,no,7932:4000,7933:4000,7934:4000,7935:4000,7936:4000,7937:4000,7931:5000
+-	shop	Herb_Seller	HIDDEN_NPC,no,7932:4000,7933:4000,7934:4000,7935:4000,7936:4000,7937:4000
 
 -	script	::phs	HIDDEN_NPC,{
 	npctalk "Do you need poison?", "", bc_self;

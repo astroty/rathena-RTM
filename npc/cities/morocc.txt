@@ -29,12 +29,12 @@
 
 // Morocc
 //============================================================
-morocc,150,120,5	script	Soldier - Morocc#01::MocSoldier	707,3,3,{
+morocc,155,127,5	script	Soldier - Morocc#01::MocSoldier	707,{
 	mes "[Morocc Soldier]";
 	mes "Hey, you! Stop there.";
 	next;
 	mes "[Morocc Soldier]";
-	mes "This is a restricted area. You can't come any further!";
+	mes "I'm keeping an eye on you, Orphan.";
 	close;
 
 OnTouch_:
@@ -42,7 +42,7 @@ OnTouch_:
 	mes "Hey, you! Stop there.";
 	next;
 	mes "[Morocc Soldier]";
-	mes "This is a restricted area. You can't come any further!";
+	mes "I'm keeping an eye on you, Orphan.";
 	close;
 }
 
@@ -61,7 +61,7 @@ morocc,88,133,3	script	Volunteer - Morocc#02	748,{
 	next;
 	mes "[Morocc Volunteer]";
 	mes "This work's like never-ending, no matter how hard we try!!!";
-	mes "People of Rune-Midgarts!! Please lend us a helping hand!!";
+	mes "At least the Thief Guild helps us when they are around!!";
 	next;
 	mes "[Morocc Volunteer]";
 	mes "Haw.... Whew... Ugh...";
@@ -77,6 +77,9 @@ morocc,202,110,0	script	Volunteer - Morocc#03	730,{
 	next;
 	mes "[Morocc Volunteer]";
 	mes "Unless we settle the original cause, the damage will even spread out of Morocc. The only thing left is to get worse.";
+	next;
+	mes "[Morocc Volunteer]";
+	mes "I'm impressed we could rebuild most of the city in 5 years. The damage was pretty heavy.";
 	close;
 }
 
@@ -86,7 +89,7 @@ morocc,268,287,3	script	Volunteer - Morocc#04	727,{
 	mes "This sure must be the worst thing ever happened in Rune-Midgarts' history.";
 	next;
 	mes "[Morocc Volunteer]";
-	mes "I wish I knew how bad the damage is, but we can't even estimate it. It's like shovelling sand against the tide..";
+	mes "We feel bad for the Orphans. This happening is bad enough, losing your family in the process then? Ouch.";
 	close;
 }
 
@@ -137,7 +140,7 @@ morocc,223,102,0	script	Volunteer - Morocc#06::MocVolunteer	741,{
 	mes "Anyways, isn't that a crib? I think I heard something like that before..";
 	next;
 	mes "[Morocc Volunteer]";
-	mes "No, No way!? It,, sure is not!";
+	mes "No, No way!? It, sure is not!";
 	close;
 }
 
@@ -154,10 +157,10 @@ moc_ruins,123,154,0	script	Young Man#moc01	99,{
 	mes "Those things have been around here for thousands and thousands of years. No one knows when and why they were built, or who built them.";
 	next;
 	mes "[Young Man]";
-	mes "All we know is that tons of monsters live inside those weird buildings. You might wanna stay away from those really dangerous places.";
+	mes "All we know is that tons of monsters live inside those weird buildings. You should avoid climbing the floors inside it.";
 	next;
 	mes "[Young Man]";
-	mes "Those monsters in the Pyramid would be very, very sensitive to sweet flash smell of people....";
+	mes "The lower floors however are much safer. The Orphanage was built there since it doesn't bother the ignorant people as much.";
 	close;
 }
 
@@ -220,23 +223,22 @@ moc_ruins,109,138,0	script	Diamond Young Man#moc	99,{
 	close;
 }
 
-morocc,54,251,0	script	Young Man#moc02	89,{
-	mes "[Drunken Young Man]";
+morocc,54,251,0	script	Drunk Orphan#moc02	89,{
+	mes "[Drunken Orphan]";
 	mes "Wait a second..! Are you perhaps an adventurer? Welcome! How's your trip?";
 	mes "Heh heh~ Let me tell you a story. You know I just got out of that Tavern, there, huh?";
 	next;
-	mes "[Drunken Young Man]";
+	mes "[Drunken Orphan]";
 	mes "I heard the Satan Morocc has revived. It just got out of cracking the time and the space blar... hic~";
 	next;
-	mes "[Drunken Young Man]";
-	mes "Ah... I kinda wanna see that Satan with my own eyes, but! I really shouldn't. I shouldn't even dream of seeing that Satan in person.";
+	mes "[Drunken Orphan]";
+	mes "Ah... I kinda wanted to see that Satan with my own eyes, but! I really shouldn't. I shouldn't even dream of seeing that Satan in person.";
 	next;
-	mes "[Drunken Young Man]";
-	mes "But I think there'd be nothing to lose if you, a person of bravery, who came through the wile desert try to find it, don't you think? Teehee~ Don't forget to buy me a drink when you find it!";
-	mes "Hic!";
+	mes "[Drunken Orphan]";
+	mes "Then those blasted adventurers killed it!...hic~... That was so anticlimatic...";
 	next;
-	mes "[Drunken Young Man]";
-	mes "Anyway, do you know where we are? I just had a little drink at a tavern, but all of a sudden, the whole town's disappeared when I got out.. or, some five hundred years have passed???!";
+	mes "[Drunken Orphan]";
+	mes "Anyway, do you know where we are? I just had a little drink at a tavern, but all of a sudden, everything vanished and now i'm back here somehow!?";
 	close;
 }
 
@@ -261,7 +263,7 @@ moc_ruins,94,117,0	script	Pale Looking Young Man	48,{
 	close;
 }
 
-moc_ruins,115,82,0	script	Little Girl#moc	703,{
+moc_ruins,115,82,0	script	Orphan Sister#moc	703,{
 	mes "[Little Girl]";
 	mes "-Crying-";
 	next;
@@ -272,11 +274,11 @@ moc_ruins,115,82,0	script	Little Girl#moc	703,{
 	mes "Please stop crying, Eliese... You could even faint if you cry all day long, you know...";
 	next;
 	mes "[Little Girl]";
-	mes "No! No... Mommy... Daddy....";
+	mes "No! No... Mommy... Daddy....Thanks for being here bro...";
 	close;
 }
 
-moc_ruins,118,82,1	script	Little Boy#moc	706,{
+moc_ruins,118,82,1	script	Orphan Brother#moc	706,{
 	mes "[Little Boy]";
 	mes "............... Let's stop crying, Eliese...";
 	next;
@@ -291,16 +293,18 @@ moc_ruins,118,82,1	script	Little Boy#moc	706,{
 	next;
 	mes "[Little Boy]";
 	mes "Right, you love ice-cream, don't you? I.. I can get you an ice-cream if you stop crying. Don't cry, Eliese, please.. Ok? Don't...";
+	next;
+	mes "[Little Girl]";
+	mes "...Okay... Thanks...";
 	close;
 }
 
 moc_ruins,121,116,4	script	Picky Lady#moc	66,{
 	mes "[Syvia]";
 	mes "The fields of Rune-Midgarts are infested with wild and dangerous monsters..But, you've got to admit a bunch of them are soooo cute!";
-	mes "You know, like how Spore sticks out its tongue after you kill it..";
 	next;
 	mes "[Syvia]";
-	mes "Or, how little Picky wears that tiny egg shell sometimes?..";
+	mes "Like how little Picky wears that tiny egg shell sometimes?..";
 	next;
 	mes "[Syvia]";
 	mes "I can't believe what just has happened.. Our town used to be the one with those cute little monsters, not that kinda of vicious dreadful Evil sleeping in! Whew...";
@@ -349,19 +353,19 @@ moc_ruins,155,107,4	script	Ant Man#moc	47,{
 	mes "Hey, you. Did you cross the desert?";
 	next;
 	mes "[Akira]";
-	mes "When you walk through the desert about one map North and 3 maps East, you'll find the entrance to Ant Hell.";
+	mes "When you walk through the desert, you'll find the entrance to Ant Hell.";
 	next;
 	mes "[Akira]";
 	mes "There are two different entrances to the Ant Hell. When you get inside, the 1st and the 2nd underground levels of winding looking caves are connected to each other.";
 	next;
 	mes "[Akira]";
-	mes "I'm really wondered how those entrances are after the horrible destruction, but I can't go out.. If you ever hear anything about it, please get me informed.";
+	mes "I'm really curious how that place is now that more insects moved in, but I can't go out.. If you ever hear anything about it, please get me informed.";
 	next;
 	switch(select("About 'Ant Hell':About Ants:End Conversation")) {
 	case 1:
 		mes "[Akira]";
-		mes "That cave is sure a dangerous hell, sticky and all... There are 2 underground levels.";
-		mes "Just head East till you see the bridge which connects to the Payon Forest.";
+		mes "That cave is sure a dangerous hell, sticky and all... There used to be 2 underground levels.";
+		mes "I wonder how big it has grown now with all those insects around.";
 		next;
 		mes "[Akira]";
 		mes "In the map right before that bridge, head north to find the entrance to Ant Hell, though I'm not sure if it's still there.";
@@ -381,7 +385,7 @@ moc_ruins,155,107,4	script	Ant Man#moc	47,{
 		mes "Oh, and those ants are greedy as Porings and will try to steal your items, so keep that in mind.";
 		next;
 		mes "[Akira]";
-		mes "If you ever, could cross the desert without any disturbances from the Satan...";
+		mes "I know there are some other insects around there. But I have no idea how they behave.";
 		close;
 	case 3:
 		mes "[Akira]";
@@ -391,7 +395,7 @@ moc_ruins,155,107,4	script	Ant Man#moc	47,{
 		mes "Sharp teeth and strong jaws of the ants would be something that you should be careful of, but the shovelling skills of that old grandpa is very strong that you should watch out.";
 		next;
 		mes "[Akira]";
-		mes "...Well, what am I talking about? What is left to be afraid when the Satan of Morocc is revived? Huh..huhhuh...";
+		mes "...Well, what am I talking about? What is left to be afraid when the Orphans are around? Huh..huhhuh...";
 		close;
 	}
 }
@@ -438,7 +442,7 @@ moc_ruins,143,43,4	script	Assassin Boy#moc	118,{
 		close;
 	case 3:
 		mes "[Slayer Kid]";
-		mes "Assassin is one of the advanced jobs for Thief, and specializes in fighting with Neutral and Poison property attacks.";
+		mes "Assassin is one of the advanced jobs for Thief, and specializes in fighting with quick and deadly attacks.";
 		next;
 		mes "[Slayer Kid]";
 		mes "They're also very sneaky! I hear that they're able to cloak so that no one can see them!";
@@ -505,17 +509,12 @@ moc_ruins,174,120,4	script	Fly Man#moc	54,{
 	case 1:
 		mes "[Armani]";
 		mes "Yes, yes! I'm talking about the Dragon Fly, master of all flies!!";
-		mes "The Dragon Fly is a special one that stays in the North-east of the town.";
 		next;
 		mes "[Armani]";
 		mes "It's so much stronger than the other flies.";
 		next;
 		mes "[Armani]";
-		mes "And when you kill it, there's even a chance that you might earn a ^880000Clip^000000 item!";
-		next;
-		mes "[Armani]";
-		mes "Anyways, don't you think the Satan Morocc is so cruel?";
-		mes "They may not be the same kind, but still isn't it cruel to take that monster's soul with a single blow?";
+		mes "There apparently is an even tougher fly somewhere else. But I never saw it before.";
 		next;
 		mes "[Armani]";
 		mes "What should we do when this dreadful evil has come to life again!";
@@ -545,7 +544,7 @@ moc_ruins,173,70,4	script	Uncle Morocc#moc	48,{
 		mes "One of those is Muka, the mutated cactus..";
 		next;
 		mes "[Phlanette]";
-		mes "However, now that the Satan has revived, no one's sure of what changes would be made in the life cycles of Morocc.";
+		mes "However, since Satan Morroc was revived, no one's sure of what changes would be made in the life cycles of Morocc.";
 		close;
 	case 2:
 		mes "[Phlanette]";
@@ -555,10 +554,7 @@ moc_ruins,173,70,4	script	Uncle Morocc#moc	48,{
 		mes "Damn you!";
 		next;
 		mes "[Phlanette]";
-		mes "But our of all this hatred, I didn't want it to be completely destroyed...";
-		next;
-		mes "[Phlanette]";
-		mes "How come it's never possible to know its value while it's still around?";
+		mes "How come I still love this city despite this.";
 		close;
 	}
 }
@@ -623,95 +619,6 @@ moc_fild16,199,212,4	script	 Uncle Assassin#moc	55,{
 	}
 }
 
-moc_fild16,211,254,4	script	Assassin#07rhea_30	118,{
-	mes "[La Conte]";
-	mes "Once Thiefs are promoted";
-	mes "to Assassins, which is very professional";
-	mes "they will be able to vary their battle style.";
-	mes "their battle style.";
-	mes "There are 2 main battle styles available to Assassins.";
-	mes "They may either wield dual daggers,";
-	mes "or fight with a set of Katars!";
-	next;
-	switch(select("Specialty of Katar:Specialty of Dual Daggers:Quit Conversation")) {
-	case 1:
-		mes "[La Conte]";
-		mes "A set of Katars is";
-		mes "worn on both of the hands,";
-		mes "and allows Assassins";
-		mes "to quickly slash their enemies.";
-		mes "Anyone can buy a basic set of Katars";
-		mes "in Morocc somewhere.";
-		mes "Of course, only Assassins can use them.";
-		next;
-		mes "[La Conte]";
-		mes "The right Katar";
-		mes "usually does more damage,";
-		mes "while the left Katar";
-		mes "is used for the follow-through.";
-		mes "But since Katars are equipped on both hands,";
-		mes "you can't equip a shield or an extra weapon.";
-		next;
-		mes "[La Conte]";
-		mes "Compared to Dual Daggers,";
-		mes "Katars have faster attack speed.";
-		mes "Also, the ^663399Sonic Blow^000000 skill";
-		mes "can only be used with Katars.";
-		next;
-		mes "[La Conte]";
-		mes "You can learn the Sonic Blow skill";
-		mes "at ^663399Level 4 Katar Mastery^000000.";
-		mes "If you're an Assassin,";
-		mes "it's a handy skill to know.";
-		next;
-		mes "[La Conte]";
-		mes "Sonic Blow is the skill";
-		mes "that inflicts 8 continuous hits of";
-		mes "Neutral damage.";
-		close;
-	case 2:
-		mes "[La Conte]";
-		mes "Dual Daggers";
-		mes "enables you to equip";
-		mes "2 different kinds of Daggers";
-		mes "at the same time.";
-		mes "Of course,";
-		mes "there are other weapons you can equip";
-		mes "aside from daggers,";
-		next;
-		mes "[La Conte]";
-		mes "but they'll probably";
-		mes "be lacking in attack speed.";
-		mes "So I suggest daggers.";
-		mes "Also, without a dagger";
-		mes "in your right hand,";
-		mes " you won't be able to use";
-		mes "the ^663399Double Attack^000000 skill.";
-		next;
-		mes "[La Conte]";
-		mes "So with Dual Daggers,";
-		mes "you would have a double attack";
-		mes "with the right hand dagger,";
-		mes " and a single attack with your left hand weapon.";
-		next;
-		mes "[La Conte]";
-		mes "So that's three strikes";
-		mes "in one blow!";
-		mes "You can't argue";
-		mes "against that kind of damage!";
-		close;
-	case 3:
-		mes "[La Conte]";
-		mes "Hopefully";
-		mes "you will make good use of";
-		mes "the weapons at your disposal.";
-		mes "Remember";
-		mes "the importance of";
-		mes "strategy and";
-		mes "planning your attacks.";
-		close;
-	}
-}
 
 // Other NPCs
 //============================================================
@@ -758,25 +665,29 @@ morocc_in,166,76,3	script	Bartender#02	46,{
 
 // Assassin Guild Guards
 //===================================================
-moc_fild16,195,281,4	script	Assassin Guardian#1::SinGuard	707,{
+moc_fild16,195,281,4	script	Assassin Guardian#1::SinGuard	494,{
 	mes "[Assassin Guardian]";
-	if(BaseJob == Job_Assassin) {
-		mes "Welcome.";
-		close;
+	if (assassinjob ==1){
+	mes "Welcome home...";
+	close;
+	}
+	if (roguejob ==1){
+	mes "Rogues are welcome here...";
+	close;
 	}
 	set .@temp, rand(1,4);
 	if(.@temp == 1) mes "........";
 	if(.@temp == 2) mes "Hmmm..........";
-	if(.@temp == 3) mes "Hmmm... you shouldn't be here.....";
-	if(.@temp == 4) mes "You're trespassing on forbidden grounds.......";
+	if(.@temp == 3) mes "Hmmm... An Orphan.....? Try not to cause trouble";
+	if(.@temp == 4) mes "Orphans who are strong are welcome here.......";
 	close;
 }
 
-moc_fild16,204,281,4	duplicate(SinGuard)	Assassin Guardian#2	707
-moc_fild16,207,281,4	duplicate(SinGuard)	Assassin Guardian#3	707
-moc_fild16,216,281,4	duplicate(SinGuard)	Assassin Guardian#4	707
-moc_fild16,200,231,4	duplicate(SinGuard)	Assassin Guardian#5	707
-moc_fild16,211,231,4	duplicate(SinGuard)	Assassin Guardian#6	707
-moc_fild16,200,257,4	duplicate(SinGuard)	Assassin Guardian#7	707
-moc_fild16,211,257,4	duplicate(SinGuard)	Assassin Guardian#8	707
+moc_fild16,204,281,4	duplicate(SinGuard)	Assassin Guardian#2	494
+moc_fild16,207,281,4	duplicate(SinGuard)	Assassin Guardian#3	494
+moc_fild16,216,281,4	duplicate(SinGuard)	Assassin Guardian#4	494
+moc_fild16,200,231,4	duplicate(SinGuard)	Assassin Guardian#5	494
+moc_fild16,211,231,4	duplicate(SinGuard)	Assassin Guardian#6	494
+moc_fild16,200,257,4	duplicate(SinGuard)	Assassin Guardian#7	494
+moc_fild16,211,257,4	duplicate(SinGuard)	Assassin Guardian#8	494
 

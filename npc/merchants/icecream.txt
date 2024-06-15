@@ -85,4 +85,4 @@ alberta,120,45,2	duplicate(IceCreamer)	Ice Cream Maker#1	85
 moc_fild16,88,304,4	duplicate(IceCreamer)	Ice Cream Maker#2	85
 
 // Morocc
-//morocc,160,144,4	duplicate(IceCreamer)	Ice Cream Maker#3	85
+morocc,160,144,4	duplicate(IceCreamer)	Ice Cream Maker#3	85

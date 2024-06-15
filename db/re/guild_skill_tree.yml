@@ -51,55 +51,10 @@ Body:
     - Id: GD_APPROVAL
       Level: 1
 
-  - Id: GD_GUARDUP
-    MaxLevel: 3
-
   - Id: GD_EXTENSION
-    MaxLevel: 10
-
-  - Id: GD_GLORYGUILD
-    MaxLevel: 0
-
-  - Id: GD_LEADERSHIP
-    MaxLevel: 5
-
-  - Id: GD_GLORYWOUNDS
-    MaxLevel: 5
-
-  - Id: GD_SOULCOLD
-    MaxLevel: 5
-    Required:
-    - Id: GD_GLORYWOUNDS
-      Level: 1
-
-  - Id: GD_HAWKEYES
-    MaxLevel: 5
-    Required:
-    - Id: GD_LEADERSHIP
-      Level: 1
-
-  - Id: GD_BATTLEORDER
-    MaxLevel: 1
-    Required:
-    - Id: GD_APPROVAL
-      Level: 1
-    - Id: GD_EXTENSION
-      Level: 2
-
-  - Id: GD_REGENERATION
     MaxLevel: 3
     Required:
     - Id: GD_APPROVAL
-      Level: 1
-    - Id: GD_EXTENSION
-      Level: 5
-    - Id: GD_BATTLEORDER
-      Level: 1
-
-  - Id: GD_RESTORE
-    MaxLevel: 1
-    Required:
-    - Id: GD_REGENERATION
       Level: 1
 
   - Id: GD_EMERGENCYCALL
@@ -107,46 +62,9 @@ Body:
     Required:
     - Id: GD_APPROVAL
       Level: 1
-    - Id: GD_GUARDRESEARCH
-      Level: 1
-    - Id: GD_EXTENSION
-      Level: 5
-    - Id: GD_BATTLEORDER
-      Level: 1
-    - Id: GD_REGENERATION
-      Level: 1
-
-  - Id: GD_DEVELOPMENT
-    MaxLevel: 1
 
   - Id: GD_GUILD_STORAGE
-    MaxLevel: 5
+    MaxLevel: 3
     Required:
-    - Id: GD_EMERGENCYCALL
-      Level: 1
-    - Id: GD_EXTENSION
-      Level: 10
-    - Id: GD_SOULCOLD
-      Level: 1
-    - Id: GD_HAWKEYES
-      Level: 1
-
-  - Id: GD_CHARGESHOUT_FLAG
-    MaxLevel: 1
-    Required:
-    - Id: GD_EMERGENCYCALL
-      Level: 1
-
-  - Id: GD_CHARGESHOUT_BEATING
-    MaxLevel: 1
-    Required:
-    - Id: GD_CHARGESHOUT_FLAG
-      Level: 1
-
-  - Id: GD_EMERGENCY_MOVE
-    MaxLevel: 1
-    Required:
-    - Id: GD_LEADERSHIP
-      Level: 1
-    - Id: GD_GLORYWOUNDS
+    - Id: GD_APPROVAL
       Level: 1

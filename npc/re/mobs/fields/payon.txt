@@ -15,102 +15,60 @@
 //= 1.6 Correct Spawn by Navigation's mob data. [attackjom]
 //============================================================
 
-//==================================================
-// pay_fild01 - Payon Forest
-//==================================================
-pay_fild01,0,0	monster	Willow	1010,181,5000
-pay_fild01,0,0	monster	Poring	1002,38,5000
-pay_fild01,0,0	monster	Fabre	1007,38,5000
-pay_fild01,0,0	monster	Green Plant	1080,5,180000,90000
+pay_fild01,0,0	monster	Willow	1010,61,5000
+pay_fild01,0,0	monster	Spore	1014,41,5000
+pay_fild01,0,0	monster	Poison Spore	1077,5,5000
+//
+pay_fild07,0,0	monster	Willow	1010,31,5000
+pay_fild07,0,0	monster	Spore	1014,61,5000
+pay_fild07,0,0	monster	Poison Spore	1077,5,5000
+//
+moc_fild03,0,0	monster	Willow	1010,51,5000
+moc_fild03,0,0	monster	Spore	1014,51,5000
+moc_fild03,0,0	monster	Poison Spore	1077,6,5000
+//
+pay_fild09,0,0	monster	Dragon Tail	1321,25,5000
+pay_fild09,0,0	monster	Wolf	1013,40,5000
+pay_fild09,0,0	monster	Bigfoot	1060,5,5000
+pay_fild09,0,0,1,1	boss_monster	Eddga	1115,1,2700000,5400000,0
+//
+pay_fild10,0,0	monster	Dragon Tail	1321,45,5000
+pay_fild10,0,0	monster	Wolf	1013,20,5000
+pay_fild10,0,0	monster	Bigfoot	1060,5,5000
+//
+pay_fild08,0,0	monster	Dragon Tail	1321,30,5000
+pay_fild08,0,0	monster	Wolf	1013,30,5000
+pay_fild08,0,0	monster	Bigfoot	1060,10,5000
+//
+pay_fild03,0,0	monster	Dragon Tail	1321,15,5000
+pay_fild03,0,0	monster	Wolf	1013,25,5000
+pay_fild03,0,0	monster	Bigfoot	1060,2,5000
+//
+pay_fild02,0,0	monster	Wormtail	1024,45,5000
+pay_fild02,0,0	monster	Elder Willow	1033,50,5000
+pay_fild02,0,0	monster	Forest Creeper	1097,5,5000
+//
+pay_fild11,0,0	monster	Wormtail	1024,45,5000
+pay_fild11,0,0	monster	Elder Willow	1033,30,5000
+pay_fild11,0,0	monster	Forest Creeper	1097,20,5000
+//
+pay_fild05,0,0	monster	Greatest General	1277,55,5000
+pay_fild05,0,0	monster	Elder Willow	1033,50,5000
+pay_fild05,0,0	monster	Forest Creeper	1097,5,5000
+//
+pay_fild06,0,0	monster	Greatest General	1277,55,5000
+pay_fild06,0,0	monster	Wormtail	1024,45,5000
+pay_fild06,0,0	monster	Forest Creeper	1097,5,5000
+//
+pay_fild06,0,0	monster	Greatest General	1277,25,5000
+pay_fild06,0,0	monster	Wormtail	1024,25,5000
+pay_fild06,0,0	monster	Elder Willow	1033,25,5000
+pay_fild06,0,0	monster	Forest Creeper	1097,7,5000
 
-//==================================================
-// pay_fild02 - Payon Forest 
-//==================================================
-pay_fild02,0,0	monster	Boa	1025,142,5000
-pay_fild02,0,0	monster	Wormtail	1024,30,5000
-pay_fild02,0,0	monster	Spore	1014,30,5000
-pay_fild02,105,256,10,10	monster	Green Plant	1080,4,360000,180000
-pay_fild02,105,256,10,10	monster	Red Mushroom	1085,4,360000,180000
-
-//==================================================
-// pay_fild03 - Payon Forest
-//==================================================
-pay_fild03,0,0	monster	Fabre	1007,130,5000
-pay_fild03,0,0	monster	Poring	1002,25,5000
-pay_fild03,0,0	monster	Willow	1010,25,5000
-pay_fild03,0,0	monster	Pupa	1008,20,5000
-pay_fild03,153,216,10,10	monster	Red Mushroom	1085,6,900000,450000
-pay_fild03,372,64,15,15	monster	Green Plant	1080,4,180000,90000
-
-//==================================================
-// pay_fild04 - Sograt Desert
-//==================================================
-pay_fild04,0,0	monster	Poporing	1031,141,5000
-pay_fild04,0,0	monster	Marin	1242,32,5000
-pay_fild04,0,0	monster	Drops	1113,21,5000
-pay_fild04,0,0	monster	Poring	1002,16,5000
-pay_fild04,0,0	monster	Angeling	1096,1,3600000,1800000
-pay_fild04,0,0	monster	Ghostring	1120,1,3600000,1800000
-pay_fild04,0,0	monster	Mastering	1090,1,3600000,1800000
-pay_fild04,0,0	monster	Deviling	1582,1,7200000,3600000
-pay_fild04,346,335,5,5	monster	Shining Plant	1083,1,1800000,900000
-pay_fild04,254,193,10,10	monster	Green Plant	1080,5,360000,180000
-
-//==================================================
-// pay_fild05 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// pay_fild06 - Payon Forest
-//==================================================
-pay_fild06,0,0	monster	Wormtail	1024,140,5000
-pay_fild06,0,0	monster	Boa	1025,30,5000
-pay_fild06,0,0	monster	Spore	1014,30,5000
-pay_fild06,211,191,2,10	monster	Red Mushroom	1085,8,180000,90000
-pay_fild06,268,155,20,20	monster	Green Plant	1080,10,360000,180000
-pay_fild06,268,155,20,20	monster	Shining Plant	1083,1,1800000,900000
-
-//==================================================
-// pay_fild07 - Payon Forest
-//==================================================
-pay_fild07,0,0	monster	Bigfoot	1060,174,5000
-pay_fild07,0,0	monster	Caramel	1103,40,5000
-pay_fild07,0,0	monster	Stainer	1174,26,5000
-pay_fild07,0,0	monster	Creamy	1018,26,5000
-pay_fild07,171,331,20,20	monster	Green Plant	1080,8,900000,450000
-
-//==================================================
-// pay_fild08 - Payon Forest
-//==================================================
-pay_fild08,0,0	monster	Spore	1014,148,5000
-pay_fild08,0,0	monster	Wormtail	1024,31,5000
-pay_fild08,0,0	monster	Boa	1025,31,5000
-pay_fild08,0,0	monster	Green Plant	1080,10,60000,30000
-pay_fild08,143,156,40,40	monster	Shining Plant	1083,1,3600000,1800000
-
-//==================================================
-// pay_fild09 - Payon Forest
-//==================================================
-pay_fild09,0,0	monster	Elder Willow	1033,25,5000
-pay_fild09,0,0	monster	Horn	1128,181,5000
-pay_fild09,0,0	monster	Coco	1104,38,5000
-pay_fild09,198,217,30,30	monster	Green Plant	1080,10,360000,180000
-pay_fild09,198,217,30,30	monster	Shining Plant	1083,1,1800000,900000
-
-//==================================================
-// pay_fild10 - Payon Forest
-//==================================================
-pay_fild10,0,0	monster	Greatest General	1277,129,5000
-pay_fild10,0,0	monster	Beetle King	1494,64,5000
-pay_fild10,0,0	monster	Savage	1166,64,5000
-pay_fild10,0,0,0,0	boss_monster	Eddga	1115,1,7200000,600000,1
-pay_fild10,213,157,10,10	monster	Green Plant	1080,5,360000,180000
-pay_fild10,281,307,10,10	monster	Green Plant	1080,5,360000,180000
-pay_fild10,66,332,10,10	monster	Green Plant	1080,5,360000,180000
-pay_fild10,213,157,10,10	monster	Blue Plant	1079,1,360000,180000
-pay_fild10,281,307,10,10	monster	Blue Plant	1079,1,360000,180000
-pay_fild10,66,332,10,10	monster	Blue Plant	1079,1,360000,180000
-
-//==================================================
-// pay_fild11 - Disabled on Renewal
-//==================================================
+//
+pay_fild04,0,0	monster	Poring	1002,25,5000
+pay_fild04,0,0	monster	Poporing	1031,25,5000
+pay_fild04,0,0	monster	Drops	1113,25,5000
+pay_fild04,0,0	monster	Marin	1242,25,5000
+pay_fild04,0,0	monster	Mastering	1090,5,5000
+pay_fild04,0,0,0,0	boss_monster	King Poring	1937,1,2700000,5400000,0

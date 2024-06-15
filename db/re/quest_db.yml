@@ -3816,8 +3816,6 @@ Body:
     Targets:
       - Mob: GLD_DARK_FRAME
         Count: 20
-      - Mob: GLD_DARK_PRIEST
-        Count: 20
       - Mob: GLD_DARK_SHADOW
         Count: 50
   - Id: 7533
@@ -6514,10 +6512,6 @@ Body:
     Targets:
       - Mob: EP16_2_H_HUNTER_EV
         Count: 1
-    Drops:
-      - Mob: EP16_2_H_HUNTER_EV
-        Item: High_Class_Tea
-        Rate: 10000
   - Id: 11466
     Title: Dien's High Class Tea
     TimeLimit: 4h
@@ -6526,10 +6520,7 @@ Body:
     Targets:
       - Mob: EP16_2_H_HUNTER_V
         Count: 1
-    Drops:
-      - Mob: EP16_2_H_HUNTER_V
-        Item: Old_Letter
-        Rate: 5000
+
   - Id: 11468
     Title: Ridsh's Old Letter
     TimeLimit: 4h
@@ -6538,10 +6529,6 @@ Body:
     Targets:
       - Mob: EP16_2_H_HUNTER_MD
         Count: 5
-    Drops:
-      - Mob: EP16_2_H_HUNTER_MD
-        Item: Very_Shining_Ring
-        Rate: 5000
   - Id: 11470
     Title: Cotness's Shiny Ring
     TimeLimit: 4h
@@ -8537,19 +8524,11 @@ Body:
     Targets:
       - Mob: EP16_2_BROKEN_GUN
         Count: 5
-    Drops:
-      - Mob: EP16_2_BROKEN_GUN
-        Item: Broken_Gun_Wreck
-        Rate: 5000
   - Id: 14611
     Title: Gun recycling
     Targets:
       - Mob: EP16_2_BROKEN_GUN
         Count: 5
-    Drops:
-      - Mob: EP16_2_BROKEN_GUN
-        Item: Broken_Gun_Wreck
-        Rate: 5000
   - Id: 14612
     Title: Time for repair
     TimeLimit: 4h

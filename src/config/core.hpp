@@ -57,8 +57,8 @@
 
 #ifdef VIP_ENABLE
 	#define MIN_STORAGE 300 // Default number of storage slots.
-	#define MIN_CHARS 3 // Default number of characters per account.
-	#define MAX_CHAR_VIP 6 // This must be less than MAX_CHARS
+	#define MIN_CHARS 5 // Default number of characters per account.
+	#define MAX_CHAR_VIP 10 // This must be less than MAX_CHARS
 	#define MAX_CHAR_BILLING 0 // This must be less than MAX_CHARS
 #endif
 

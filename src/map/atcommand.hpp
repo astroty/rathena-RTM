@@ -38,5 +38,9 @@ struct atcmd_binding_data {
 };
 extern struct atcmd_binding_data** atcmd_binding;
 struct atcmd_binding_data* get_atcommandbind_byname(const char* name);
+// Sense skill to mobinfo
+void atcmd_mobinfo(struct map_session_data* sd, struct block_list* dst);
+void atcmd_battlestats(struct map_session_data* sd, struct block_list* dst);
+
 
 #endif /* ATCOMMAND_HPP */

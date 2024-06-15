@@ -122,7 +122,7 @@ lhz_in02,230,284,4	script	Hotel Employee#01	86,{
 	mes "finest accomodations";
 	mes "and the best service.";
 	next;
-	switch(select("Save Point:Rest - 5,000 zeny:Cancel")) {
+	switch(select("Save Point:Rest - 1,000 zeny:Cancel")) {
 	case 1:
 		savepoint "lhz_in02",209,275,1,1;
 		mes "[Hotel Employee]";
@@ -132,14 +132,14 @@ lhz_in02,230,284,4	script	Hotel Employee#01	86,{
 		mes "the Royal Dragon.";
 		close;
 	case 2:
-		if(Zeny < 5000) {
+		if(Zeny < 1000) {
 			mes "[Hotel Employee]";
 			mes "I'm sorry, but";
-			mes "you need 5,000 zeny";
+			mes "you need 1,000 zeny";
 			mes "in order to check in.";
 			close;
 		}
-		set Zeny,Zeny - 5000;
+		set Zeny,Zeny - 1000;
 		mes "[Hotel Employee]";
 		mes "Thank you~";
 		mes "I hope you enjoy";
@@ -147,8 +147,7 @@ lhz_in02,230,284,4	script	Hotel Employee#01	86,{
 		mes "Royal Dragon.";
 		close2;
 		warp "lhz_in02",219,150;
-		percentheal 100,100;
-		npcskill "AL_BLESSING",10,99,99;
+		percentheal 100,100;;
 		end;
 	case 3:
 		mes "[Hotel Employee]";
@@ -173,7 +172,7 @@ ve_in,157,219,5	script	Inn Master#Receptionist	709,{
 	mes "most comfortable";
 	mes "inn here in Veins~";
 	next;
-	switch(select("Save:Take a Rest -> 5000 zeny:Quit")) {
+	switch(select("Save:Take a Rest -> 1000 zeny:Quit")) {
 	case 1:
 		mes "[Inn Master]";
 		mes "Your Respawn Point";
@@ -183,16 +182,16 @@ ve_in,157,219,5	script	Inn Master#Receptionist	709,{
 		close;
 	case 2:
 		mes "[Inn Master]";
-		if(Zeny < 5000){
+		if(Zeny < 1000){
 			mes "I'm sorry, but I don't";
 			mes "think you have enough";
 			mes "money to check in. The";
-			mes "service charge is 5,000 zeny.";
+			mes "service charge is 1,000 zeny.";
 			close;
 		}
 		mes "Enjoy your stay~";
 		close2;
-		set Zeny,Zeny - 5000;
+		set Zeny,Zeny - 1000;
 		percentheal 100,100;
 		warp "ve_in",184,228;
 		end;
@@ -212,7 +211,7 @@ function	script	F_InnMaid	{
 	mes getarg(1) + ".";
 	mes "How may I help you?";
 	next;
-	switch(select("Save:Take a Rest -> 5000 zeny:Cancel")) {
+	switch(select("Save:Take a Rest -> 1000 zeny:Cancel")) {
 	case 1:
 		mes .@npc_name$;
 		mes "Your respawn point";
@@ -223,7 +222,7 @@ function	script	F_InnMaid	{
 		close;
 	case 2:
 		mes .@npc_name$;
-		if(Zeny < 5000){
+		if(Zeny < 1000){
 			mes "I'm sorry, but the service charge is 5,000 zeny. Please make sure that you have enough money to check in next time, okay?";
 			close;
 		}
@@ -231,7 +230,7 @@ function	script	F_InnMaid	{
 		mes "I hope you";
 		mes "enjoy your rest~";
 		close2;
-		set Zeny,Zeny - 5000;
+		set Zeny,Zeny - 1000;
 		percentheal 100,100;
 		return;
 	case 3:

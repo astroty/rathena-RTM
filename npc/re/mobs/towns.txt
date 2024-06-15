@@ -12,25 +12,26 @@
 //= 1.0 First version, Renewal spawns.
 //============================================================
 
-//==================================================
-// Brasilis, Strange Hydras
-//==================================================
-brasilis,283,88,6,6	monster	Strange Hydra	2081,5,5000
-brasilis,284,104,6,6	monster	Strange Hydra	2081,4,5000
-brasilis,215,80,6,6	monster	Strange Hydra	2081,4,5000
-brasilis,96,50,8,8	monster	Strange Hydra	2081,5,5000
+va_orpha,44,325	monster	3s-Quick Dummy	2409,1,5000
+va_orpha,44,319	monster	5s-Average Dummy	2410,1,5000
+va_orpha,44,313	monster	10s-Slow Dummy	2411,1,5000
 
-//==================================================
-// Alberta Ship, Swapping the Deck
-//==================================================
-alb_ship,0,0	monster	Strange Mouse	2057,25
+va_orpha,24,326,5	script	Training Tutor#orph	642,{
 
-//==================================================
-// Prontera, Training Dummy Area
-//==================================================
-prontera,251,77	monster	Dummy Lv50	2409,1,5000
-prontera,259,77	monster	Dummy Lv50	2409,1,5000
-prontera,251,66	monster	Dummy Lv100	2410,1,5000
-prontera,259,66	monster	Dummy Lv100	2410,1,5000
-prontera,251,55	monster	Dummy Lv150	2411,1,5000
-prontera,259,55	monster	Dummy Lv150	2411,1,5000
+	set .@npc$, "[Training Tutor]";
+	mes .@npc$;
+	mes "Hey Orphan!";
+	mes "The dummies will heal at varied intervals when you hit them!";
+	next;
+	
+	mes .@npc$;
+	mes "This way you know exactly how much damage you can deal over a specific time, cool eh?";
+	close2;
+	switch(select("Open Storage:Nevermind")) {
+	case 1:
+	openstorage;
+	end;
+	case 2:
+	end;
+}
+}

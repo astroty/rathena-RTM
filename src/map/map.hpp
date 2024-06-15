@@ -544,6 +544,8 @@ enum _sp {
 	SP_IGNORE_DEF_CLASS_RATE, SP_REGEN_PERCENT_HP, SP_REGEN_PERCENT_SP, SP_SKILL_DELAY, SP_NO_WALK_DELAY, //2088-2092
 	SP_LONG_SP_GAIN_VALUE, SP_LONG_HP_GAIN_VALUE, SP_SHORT_ATK_RATE, SP_MAGIC_SUBSIZE, SP_CRIT_DEF_RATE, // 2093-2097
 	SP_MAGIC_SUBDEF_ELE, SP_REDUCE_DAMAGE_RETURN, SP_ADD_ITEM_SPHEAL_RATE, SP_ADD_ITEMGROUP_SPHEAL_RATE, // 2098-2101
+	SP_WEAPON_SUBSIZE, SP_REDUCE_COOLDOWN, SP_BOUNCE, SP_AUTOATK_CAP, SP_ASPD_CAP, SP_SPLASH_SKILL,  // 2102-2107
+	SP_SKILL_HPFLAT, SP_SKILL_HPRATE, SP_SKILL_SPFLAT, SP_SKILL_SPRATE, // 2108-2111
 };
 
 enum _look {
@@ -639,6 +641,12 @@ enum e_mapflag : int16 {
 	MF_SKILL_DURATION,
 	MF_NOCASHSHOP,
 	MF_NORODEX,
+	MF_RANKE,
+	MF_RANKD,
+	MF_RANKC,
+	MF_RANKB,
+	MF_RANKA,
+	MF_RANKS,
 	MF_MAX
 };
 
@@ -887,7 +895,7 @@ inline bool mapdata_flag_gvg2(struct map_data *mapdata) {
 	if (mapdata == nullptr)
 		return false;
 
-	if (mapdata->flag[MF_GVG] || mapdata->flag[MF_GVG_TE] || mapdata->flag[MF_GVG_CASTLE] || mapdata->flag[MF_GVG_TE_CASTLE])
+	if (mapdata->flag[MF_GVG] || mapdata->flag[MF_PVP] || mapdata->flag[MF_GVG_TE] || mapdata->flag[MF_GVG_CASTLE] || mapdata->flag[MF_GVG_TE_CASTLE])
 		return true;
 
 	return false;

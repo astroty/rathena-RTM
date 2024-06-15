@@ -1,0 +1,1837 @@
+//Includes Dicastes Warps and NPCs + Temporal Portals
+//Temporal Dungeon Warps:
+
+va_orpha,196,278,4	script	Orphanage Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From another location.";
+	next;
+	mes "The Sage Varmundt created the Orphanage from a distortion out of his own mansion. The reality is a much more secluded location.";
+	next;
+	switch(select("Leave Distortion :Stay")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Mirror shines brightly... And takes you to the real Varmundt's Mansion.";
+	next;
+	warp "va_in01",196,284;
+	end;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps by finding a Bifrost Mirror Shard...?";
+	close;
+	break;
+	case 2:
+	end;
+}
+}
+
+va_in01,196,278,4	script	Orphanage Distortion#warp2	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Orphanage.";
+	next;
+	mes "The Sage Varmundt created the Orphanage from a distortion out of his own mansion.";
+	next;
+	switch(select("Enter Distortion :Stay")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Mirror shines brightly... And takes you to the Orphanage, created by Varmundt.";
+	next;
+	warp "va_orpha",196,284;
+	end;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps by finding a Bifrost Mirror Shard...?";
+	close;
+	break;
+	case 2:
+	end;
+}
+}
+
+rachel,37,79,4	script	Nightmare Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From a Nightmare.";
+	next;
+	mes "A father shall do anything to protect the memory of its child. Specially if its child is a pure Goddess being corrupted by dark desires.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And takes you into a strange dream.";
+	next;
+	warp "rachelnm",37,75;
+	end;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+}
+}
+
+rachelnm,37,79,4	script	Nightmare Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And returns you to your reality.";
+	close2;
+	warp "rachel",37,75;
+	break;
+	case 2:
+	end;
+	}
+}
+
+pay_tem04,218,228,4	script	Payon Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The peaceful city in the forest of Payon...";
+	next;
+	switch(select("Access Distortion:Leave")) {
+	case 1:
+	mes "A strange light shines brightly... And sends you to a peaceful place.";
+	close2;
+	warp "payon_old",79,118;
+	break;
+	case 2:
+	end;
+	}
+}
+
+payon_old,79,123,4	script	Payon Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "A strange light shines brightly... And returns you to your timeline.";
+	close2;
+	warp "pay_tem04",218,224;
+	break;
+	case 2:
+	end;
+	}
+}
+
+nameless_n,179,91,4	script	Monastery Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The island monastery receives a king...";
+	next;
+	switch(select("Access Distortion:Leave")) {
+	case 1:
+	mes "A strange light shines brightly... And sends you to a peaceful place.";
+	close2;
+	warp "nameless_i",182,94;
+	break;
+	case 2:
+	end;
+	}
+}
+
+nameless_i,179,91,4	script	Monastery Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "A strange light shines brightly... And returns you to your timeline.";
+	close2;
+	warp "nameless_n",182,94;
+	break;
+	case 2:
+	end;
+	}
+}
+
+
+grey_ft02,353,298,4	script	Lost Distortion#warp1	4_ed_orb,{
+	
+	if (BaseLevel <130){
+	mes "You can't see anything on the reflection. Your Base Level is not high enough. You must be Base Level 130.";
+	close;
+	}
+	mes "You can see a different reflection from this place. From the End Times.";
+	next;
+	mes "Ragnarok has come...?";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And the spirits of the heroes who conquered Jormungand protect you.";
+	next;
+	mes "Auteur, the Dark Knight";
+	mes "Drachnid, the Gravekeeper";
+	mes "Grimoire, the Revenant";
+	mes "Hunter, the Sinner";
+	mes "Bearing the banner of Bossfight Cafe,";
+	mes "Guide you safely into the beast's lair...";
+	next;
+	warp "jor_nest01",283,176;
+	end;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+}
+}
+
+jor_nest01,283,170,4	script	Lost Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And returns you to your reality.";
+	close2;
+	warp "grey_ft02",349,298;
+	break;
+	case 2:
+	end;
+	}
+}
+
+tha_t01,149,105,4	script	Paradise Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From a Paradox.";
+	next;
+	mes "The greatest hero to ever live, Thanatos, forever a God, ever the brave and strong. A true living legend.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you somewhere bright.";
+	close2;
+	warp "tha_para01",75,372;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+tha_para01,70,372,4	script	Paradise Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And returns you to your reality.";
+	close2;
+	warp "tha_t01",149,100;
+	break;
+	case 2:
+	end;
+	}
+}
+
+xmas_dun02,134,134,4	script	Factory Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Future.";
+	next;
+	mes "The smile ends when the toymaker finally dies.The toys patiently waiting for someone to play one last time.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >1){
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 25 Years in the Future.";
+	close2;
+	warp "xmas_fut01",130,134;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+xmas_fut01,134,134,4	script	Factory Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And returns you to your timeline.";
+	close2;
+	warp "xmas_dun02",130,134;
+	break;
+	case 2:
+	end;
+	}
+}
+
+odin_tem03,189,143,4	script	Temple Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The Valkyries are the warriors of Odin who guard his image and holy grounds. And brings the strongest to Valhala.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 2000 Years in the Past.";
+	close2;
+	warp "odin_past",189,138;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+odin_past,189,143,4	script	Temple Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "odin_tem03",189,138;
+	break;
+	case 2:
+	end;
+	}
+}
+
+verus01,149,154,4	script	Laboratory Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The mighty civilization of Verus may have made a terrible mistake that brought it down. The Soul cannot leave the body.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 500 Years in the Past.";
+	close2;
+	warp "1@mcd",120,146;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+1@mcd,129,150,4	script	Laboratory Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "verus01",149,150;
+	break;
+	case 2:
+	end;
+	}
+}
+
+iz_dun04,245,269,4	script	Sea Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The ocean is big. The dangers who dwell deep inside are also always unknown..";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 1000 Years in the Past.";
+	close2;
+	warp "iz_dun05",248,226;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+iz_dun05,251,229,4	script	Sea Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "iz_dun04",245,265;
+	break;
+	case 2:
+	end;
+	}
+}
+
+prontera,53,118,4	script	City Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "After the fall of Glast Heim, Himmelmez orderer her forces to take down Prontera and crush any remaining oposition.";
+	next;
+	mes "All while a murdered couple lies in sadness deep inside the prison, forever destined to suffer.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 99 Years in the Past.";
+	close2;
+	warp "prt_q",53,115;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+prt_q,53,118,4	script	City Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And returns you to your timeline.";
+	close2;
+	warp "prontera",53,115;
+	break;
+	case 2:
+	end;
+	}
+}
+
+c_tower1,53,51,4	script	Clock Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Future.";
+	next;
+	mes "A powerful deity is bored of conquering a tower in the middle of nowhere and curses a tower in the middle of civilization with a temporal curse.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >1){
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 100 Years in the Future.";
+	close2;
+	warp "alde_dun03",25,268;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+alde_dun03,15,268,4	script	Clock Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And returns you to your timeline.";
+	close2;
+	warp "c_tower1",53,45;
+	break;
+	case 2:
+	end;
+	}
+}
+
+abyss_03,98,103,4	script	Decay Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Future.";
+	next;
+	mes "In the end, everything dies, even the millenial dragons meet their end in the face of time. Treasures shall remain forever unconquered and forgotten.";
+	next;
+	mes "Nothing that is dead can exist in this world, only the dragons, anything else is instantly banished.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you 5000 Years in the Future.";
+	close2;
+	warp "abyss_04",171,163;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+abyss_04,171,166,4	script	Decay Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And returns you to your timeline.";
+	close2;
+	warp "abyss_03",98,99;
+	break;
+	case 2:
+	end;
+	}
+}
+
+
+assas_03,186,72,4	script	Desert Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The test of the true warriors takes place in a secret location. Only the strongest shall be honored to face the Master and become an Assassin Cross.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 300 Years in the Past.";
+	close2;
+	warp "loki_tomb01",184,191;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+loki_tomb01,185,196,4	script	Desert Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "assas_03",183,72;
+	break;
+	case 2:
+	end;
+	}
+}
+
+ein_fild04,362,111,4	script	Deadlands Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Future.";
+	next;
+	mes "Einbroch's thirst for money has no ends... or so it was until someone tried using Ymir's Heart to drill and it struck the core of the planet.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >1){
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 100 Years in the Future.";
+	close2;
+	warp "ein_dead01",25,222;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+ein_dead01,24,226,4	script	Deadlands Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vali shines brightly... And returns you to your timeline.";
+	close2;
+	warp "ein_fild04",362,107;
+	break;
+	case 2:
+	end;
+	}
+}
+
+glast_01,200,349,4	script	Glast Heim Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The halls are bright and shiny...but a curse is slowly taking place.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 100 Years in the Past.";
+	close2;
+	warp "gl_knp01",149,24;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+yuno_fild08,152,190,4	script	University Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From a Paradox.";
+	next;
+	mes "The students of Kiel made an incredible discovery that forever changed the face of the world.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >2){
+	mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you 15 years in the future.";
+	close2;
+	warp "khu_dun01",70,155;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+khu_dun01,74,155,4	script	University Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Thor shines brightly... And returns you to your reality.";
+	close2;
+	warp "yuno_fild08",157,190;
+	break;
+	case 2:
+	end;
+	}
+}
+
+gl_knp01,76,169,4	script	Abyssal Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From a Paradox.";
+	next;
+	mes "Snow and frost covers the entire world, no matter where you go, only death stands.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >2){
+	mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you somewhere dark, 100 years in the future.";
+	close2;
+	warp "gl_cas01_",200,36;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+gl_cas01_,200,28,4	script	Abyssal Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Thor shines brightly... And returns you to the past.";
+	close2;
+	warp "gl_knp01",80,167;
+	break;
+	case 2:
+	end;
+	}
+}
+
+gl_knp01,149,16,4	script	Glast Heim Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "glast_01",200,346;
+	break;
+	case 2:
+	end;
+	}
+}
+
+morocc,24,283,4	script	Morroc Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The sky is covered in ashes and flames rain from above.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 5 Years in the Past.";
+	close2;
+	warp "moc_dun01",35,283;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+moc_dun01,24,283,4	script	Morroc Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "morocc",35,283;
+	break;
+	case 2:
+	end;
+	}
+}
+//Castle
+
+moc_dun02,93,118,4	script	Castle Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Thor shines brightly... And returns you all the way back to your timeline, away from morroc's nightmare.";
+	close2;
+	warp "morocc",35,283;
+	break;
+	case 2:
+	end;
+	}
+}
+
+moc_dun01,159,180,4	script	Castle Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "A terrible ritual is taking place The time is running out.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >2){
+	mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you 1 Hour in the Past.";
+	close2;
+	warp "moc_dun02",94,126;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+//Dimensional Gorge
+moc_dun01,159,17,4	script	Gorge Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Distant Future.";
+	next;
+	mes "Morroc has returned...again?";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you...Here. 5 Years in the Future.";
+	close2;
+	warp "moc_fild20",25,301;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+moc_fild20,24,308,4	script	Gorge Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And returns you all the way back to your timeline, away from morroc's nightmare.";
+	close2;
+	warp "morocc",35,283;
+	break;
+	case 2:
+	end;
+	}
+}
+
+
+ra_san01,139,145,4	script	Rachel Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Future.";
+	next;
+	mes "The Place has lost all it's hope and the red that once covered the floors, now covers the people.";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >3){
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you 10 Years in the Future.";
+	close2;
+	warp "ra_dun00",199,380;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	break;
+	case 2:
+	end;
+	}
+}
+
+ra_dun00,199,388,4	script	Rachel Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Balder shines brightly... And returns you to your timeline.";
+	close2;
+	warp "ra_san01",139,125;
+	break;
+	case 2:
+	end;
+	}
+}
+
+gefenia01,59,169,4	script	Geffen Distortion#warp1	4_ed_orb,{
+	
+	mes "You can see a different reflection from this place. From the Past.";
+	next;
+	mes "The reflection shows a long tower, but it goes down instead of up. It leads to the town far on the bottom... The same town you can see far below in the distance... but it seems... alive?";
+	next;
+	switch(select("Access Distortion Dungeon:Leave")) {
+	case 1:
+	if (temporalwarp >0){
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 200 Years in the Past.";
+	close2;
+	warp "gef_atow04",38,32;
+	break;
+	}
+	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
+	close;
+	case 2:
+	end;
+	}
+}
+
+gef_atow04,37,35,4	script	Geffen Distortion#warp2	4_ed_orb,{
+	
+	switch(select("Return:Cancel")) {
+	case 1:
+	mes "The Bifrost Shard's Eye of Vidar shines brightly... And returns you to your timeline.";
+	close2;
+	warp "gefenia01",59,164;
+	break;
+	case 2:
+	end;
+	}
+}
+
+
+dicast_in,46,244,0	warp	dicast001	1,1,dicast_out,119,228
+dicast_out,120,237,0	warp	dicast002	1,1,dicast_in,46,248
+//dicast_in,122,282,0	warp	dicast003	1,1,dicast_in,0,0//north
+//dicast_in,299,250,0	warp	dicast004	1,1,dicast_in,0,0//south
+//dicast_in,372,100,0	warp	dicast005	1,1,dicast_in,0,0//south
+//dicast_in,260,116,0	warp	dicast006	1,1,dicast_in,0,0// east
+//dicast_in,45,286,0	warp	dicast007	1,1,dicast_in,0,0// north - Entrance
+dicast_in,226,252,0	warp	dicastmst	1,1,dicast_in,46,285
+dicast_in,372,100,0	warp	dicastarm	1,1,dicast_in,221,193
+//dicast_in,241,180,0	warp	dicast009	1,1,dicast_in,0,0// Corridor Center Elevator
+//dicast_in,262,194,0	warp	dicast010-	1,1,dicast_in,0,0// Corridor East
+//dicast_in,222,194,0	warp	dicast011	1,1,dicast_in,0,0// Corridor East
+//dicast_in,36,212,0	warp	dicast011	1,1,dicast_in,0,0// Library
+
+dicast_in,46,287,4	script	Main Elevator#Hall	CLEAR_NPC,{
+	switch(select("Entrance Hall:Main Corridor:Master Room")) {
+	case 1:
+	end;
+	case 2:
+	warp "dicast_in",241,180;
+	end;
+	case 3:
+	warp "dicast_in",226,256;
+	end;
+	}
+}
+
+dicast_in,241,181,4	script	Main Elevator#Corridor	CLEAR_NPC,{
+	switch(select("Entrance Hall:Main Corridor:Master Room")) {
+	case 1:
+	warp "dicast_in",46,285;
+	end;
+	case 2:
+	end;
+	case 3:
+	warp "dicast_in",226,256;
+	end;
+	}
+}
+
+dicast_in,221,195,4	script	Quarters Elevator#Corridor	CLEAR_NPC,{
+	switch(select("Main Corridor:Lounge:Armory")) {
+	case 1:
+	end;
+	case 2:
+	warp "dicast_in",259,116;
+	end;
+	case 3:
+	warp "dicast_in",372,103;
+	end;
+	}
+}
+
+dicast_in,261,115,4	script	Quarters Elevator#Lounge	CLEAR_NPC,{
+	switch(select("Main Corridor:Lounge:Armory")) {
+	case 1:
+	warp "dicast_in",221,194;
+	end;
+	case 2:
+	end;
+	case 3:
+	warp "dicast_in",372,103;
+	end;
+	}
+}
+
+dicast_in,261,195,4	script	Study Elevator#Corridor	CLEAR_NPC,{
+	switch(select("Main Corridor:Sage's Study:Scrolls Library")) {
+	case 1:
+	end;
+	case 2:
+	warp "dicast_in",385,208;
+	end;
+	case 3:
+	warp "dicast_in",35,211;
+	end;
+	}
+}
+
+dicast_in,35,213,4	script	Study Elevator#Scrolls	CLEAR_NPC,{
+	switch(select("Main Corridor:Sage's Study:Scrolls Library")) {
+	case 1:
+	warp "dicast_in",261,193;
+	end;
+	case 2:
+	warp "dicast_in",385,208;
+	end;
+	case 3:
+	end;
+	}
+}
+
+dicast_in,387,208,4	script	Study Elevator#Sages	CLEAR_NPC,{
+	switch(select("Main Corridor:Sage's Study:Scrolls Library")) {
+	case 1:
+	warp "dicast_in",261,193;
+	end;
+	case 2:
+	end;
+	case 3:
+	warp "dicast_in",35,211;
+	end;
+	}
+}
+
+moc_fild14,345,198,4	script	Bifrost Stone Shard#Desert	10442,{
+	if (bifrostmirror >=1){
+	mes "^6666CCYou found the Bifrost Mirror Shard here.";
+	close;
+	}
+	mes "^6666CCThe Bifrost black stone has something under it...Dig it out?";
+	next;
+	switch(select("Dig the thing out.:Nevermind")) {
+	case 1:
+	mes "^6666CCYou can feel the power of Asgard coursing through the object, reaching through time and space... Was it left here due to Morroc's Death?";
+	next;
+	achievementcomplete(200087);
+	set bifrostmirror, 1;
+	getitem 1632,1;
+	specialeffect2 EF_BRANDISHSPEAR;
+	specialeffect2 EF_BOWLINGSELF;
+	mes "^6666CCYou Obtained a piece of Bifrost. You can travel through time using it correctly.";
+	close;
+	case 2:
+	end;
+	}
+}
+
+pay_fild06,103,222,4	script	Bifrost Stone Shard#Vidar	10442,{
+	if (vidareye >=1){
+	mes "^6666CCYou found the Eye of Vidar here.";
+	close;
+	}
+	mes "^6666CCThe Bifrost black stone has something under it...Dig it out?";
+	next;
+	switch(select("Dig the thing out.:Nevermind")) {
+	case 1:
+	mes "^6666CCYou can feel the life of Vidar, Son of Odin, running through your fingers.";
+	next;
+	achievementcomplete(200088);
+	set vidareye, 1;
+	getitem 1633,1;
+	specialeffect2 EF_BRANDISHSPEAR;
+	specialeffect2 EF_BOWLINGSELF;
+	mes "^6666CCYou Obtained the Eye of Vidar. One of the 4 Jewels of the sons of Odin.";
+	close;
+	case 2:
+	end;
+	}
+}
+
+hu_fild06,188,230,4	script	Bifrost Stone Shard#Vali	10442,{
+	if (valieye >=1){
+	mes "^6666CCYou found the Eye of Vali here.";
+	close;
+	}
+	mes "^6666CCThe Bifrost black stone has something under it...Dig it out?";
+	next;
+	switch(select("Dig the thing out.:Nevermind")) {
+	case 1:
+	mes "^6666CCYou can feel the life of Vali, Son of Odin, running through your fingers.";
+	next;
+	achievementcomplete(200089);
+	set valieye, 1;
+	getitem 1634,1;
+	specialeffect2 EF_BRANDISHSPEAR;
+	specialeffect2 EF_BOWLINGSELF;
+	mes "^6666CCYou Obtained the Eye of Vali. One of the 4 Jewels of the sons of Odin.";
+	close;
+	case 2:
+	end;
+	}
+}
+
+ra_fild03,214,267,4	script	Bifrost Stone Shard#Thor	10442,{
+	if (thoreye >=1){
+	mes "^6666CCYou found the Eye of Thor here.";
+	close;
+	}
+	mes "^6666CCThe Bifrost black stone has something under it...Dig it out?";
+	next;
+	switch(select("Dig the thing out.:Nevermind")) {
+	case 1:
+	mes "^6666CCYou can feel the life of Thor, Son of Odin, running through your fingers.";
+	next;
+	achievementcomplete(200090);
+	set thoreye, 1;
+	getitem 1635,1;
+	specialeffect2 EF_BRANDISHSPEAR;
+	specialeffect2 EF_BOWLINGSELF;
+	mes "^6666CCYou Obtained the Eye of Thor. One of the 4 Jewels of the sons of Odin.";
+	close;
+	case 2:
+	end;
+	}
+}
+
+niflheim,289,262,4	script	Bifrost Stone Shard#Balder	10442,{
+	if (baldereye >=1){
+	mes "^6666CCYou found the Eye of Balder here.";
+	close;
+	}
+	mes "^6666CCThe Bifrost black stone has something under it...Dig it out?";
+	next;
+	switch(select("Dig the thing out.:Nevermind")) {
+	case 1:
+	mes "^6666CCYou can feel the life of Balder, Son of Odin, running through your fingers.";
+	next;
+	achievementcomplete(200091);
+	set baldereye, 1;
+	getitem 1636,1;
+	specialeffect2 EF_BRANDISHSPEAR;
+	specialeffect2 EF_BOWLINGSELF;
+	mes "^6666CCYou Obtained the Eye of Balder. One of the 4 Jewels of the sons of Odin.";
+	close;
+	case 2:
+	end;
+	}
+}
+
+dicast_in,359,214,5	script	Master of Vidar	4_ep17_tamarin,{
+	set .@npc$, "[Sage of Vidar]";
+	if (bifrostmirror <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (vidareye <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (vidareye >=2){
+	mes .@npc$;
+	mes "I have nothing else to do for you. May you use your new power with wisdom.";
+	close;
+	}	
+	if (vidareye >=1){
+	mes .@npc$;
+	mes "I can restore the power of your Eye of Vidar, and put it inside the Bifrost Mirror Shard... I require a donation of 25.000z for it, do you accept it?";
+	next;
+	switch(select("Accept and Add Stone:Nevermind")) {
+	case 1:
+	if (Zeny >= 25000) {
+	mes .@npc$;
+	mes "Very well... close your eyes and think about what you loved of your past.";
+	next;
+	mes "^6666CCYou start thinking about your family and everything they meant to you.";
+	next;
+	specialeffect2 EF_BOWLINGSELF;
+	specialeffect2 EF_BRANDISHSPEAR;
+	soundeffect "cd_argutus_vita.wav", 0;
+	delitem 1632,1;
+	delitem 1633,1;
+	getitem2 1632,1,1,0,0,1633,0,0,0;
+	set vidareye, 2;
+	set temporalwarp, 1;
+	set zeny,zeny-25000;
+	mes .@npc$;
+	mes "As your Eye of Morroc curses you, may the Eye of Vidar bless your path.";
+	close;
+			} else {
+				mes "You don't have enough zeny.";
+				close;	
+			}
+	case 2:
+	mes "Come back if you change your mind.";
+	next;
+	end;
+	}
+}
+}
+
+dicast_in,375,215,5	script	Master of Vali	4_m_tamarin,{
+	set .@npc$, "[Sage of Vali]";
+	if (bifrostmirror <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (valieye <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (valieye >=2){
+	mes .@npc$;
+	mes "I have nothing else to do for you. May you use your new power with wisdom.";
+	close;
+	}	
+	if (valieye >=1){
+	mes .@npc$;
+	mes "I can restore the power of your Eye of Vali, and put it inside the Bifrost Mirror Shard... I require a donation of 50.000z for it, do you accept it?";
+	next;
+	switch(select("Accept and Add Stone:Nevermind")) {
+	case 1:
+	if (temporalwarp <=0){
+	mes .@npc$;
+	mes "Your mirror shard is too weak for the Eye of Vali to fit. Why don't you try the Eye of Vidar first?";
+	close;
+	}	
+	if (Zeny >= 50000) {
+	mes .@npc$;
+	mes "Very well... close your eyes and think about what you wish from your future.";
+	next;
+	mes "^6666CCYou start dreaming of being free from the Mark.";
+	next;
+	specialeffect2 EF_BOWLINGSELF;
+	specialeffect2 EF_BRANDISHSPEAR;
+	soundeffect "cd_argutus_vita.wav", 0;
+	delitem 1632,1;
+	delitem 1634,1;
+	getitem2 1632,1,1,0,0,1633,1634,0,0;
+	set Valieye, 2;
+	set temporalwarp, 2;
+	set zeny,zeny-50000;
+	mes .@npc$;
+	mes "As your Eye of Morroc curses you, may the Eye of Vali bless your path.";
+	close;
+			} else {
+				mes "You don't have enough zeny.";
+				close;	
+			}
+	case 2:
+	mes "Come back if you change your mind.";
+	next;
+	end;
+	}
+}
+}
+
+dicast_in,375,201,1	script	Master of Thor	4_ep16_tamarin,{
+	set .@npc$, "[Sage of Thor]";
+	if (bifrostmirror <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (thoreye <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (thoreye >=2){
+	mes .@npc$;
+	mes "I have nothing else to do for you. May you use your new power with wisdom.";
+	close;
+	}	
+	if (thoreye >=1){
+	mes .@npc$;
+	mes "I can restore the power of your Eye of Thor, and put it inside the Bifrost Mirror Shard... I require a donation of 100.000z for it, do you accept it?";
+	next;
+	switch(select("Accept and Add Stone:Nevermind")) {
+	case 1:
+	if (temporalwarp <=1){
+	mes .@npc$;
+	mes "Your mirror shard is too weak for the Eye of Thor to fit. Why don't you try the Eye of Vali first?";
+	close;
+	}	
+	if (Zeny >= 100000) {
+	mes .@npc$;
+	mes "Very well... close your eyes and think about how your life constantly changes.";
+	next;
+	mes "^6666CCYou start meditating about all the wrong and right choices you made.";
+	next;
+	specialeffect2 EF_BOWLINGSELF;
+	specialeffect2 EF_BRANDISHSPEAR;
+	soundeffect "cd_argutus_vita.wav", 0;
+	delitem 1632,1;
+	delitem 1635,1;
+	getitem2 1632,1,1,0,0,1633,1634,1635,0;
+	set thoreye, 2;
+	set temporalwarp, 3;
+	set zeny,zeny-100000;
+	mes .@npc$;
+	mes "As your Eye of Morroc curses you, may the Eye of Thor bless your path.";
+	close;
+			} else {
+				mes "You don't have enough zeny.";
+				close;	
+			}
+	case 2:
+	mes "Come back if you change your mind.";
+	next;
+	end;
+	}
+}
+}
+
+dicast_in,359,201,8	script	Master of Balder	4_ep18_tamarin,{
+	set .@npc$, "[Sage of Balder]";
+	if (bifrostmirror <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (baldereye <=0){
+	mes .@npc$;
+	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
+	close;
+	}
+	if (baldereye >=2){
+	mes .@npc$;
+	mes "I have nothing else to do for you. May you use your new power with wisdom.";
+	close;
+	}	
+	if (baldereye >=1){
+	mes .@npc$;
+	mes "I can restore the power of your Eye of Balder, and put it inside the Bifrost Mirror Shard... I require a donation of 300.000z for it, do you accept it?";
+	next;
+	switch(select("Accept and Add Stone:Nevermind")) {
+	case 1:
+	if (temporalwarp <=2){
+	mes .@npc$;
+	mes "Your mirror shard is too weak for the Eye of Balder to fit. Why don't you try the Eye of Thor first?";
+	close;
+	}	
+	if (Zeny >= 300000) {
+	mes .@npc$;
+	mes "Very well... close your eyes and think about how the world might end.";
+	next;
+	mes "^6666CCYou start meditating about your role in the fate of the world.";
+	next;
+	specialeffect2 EF_BOWLINGSELF;
+	specialeffect2 EF_BRANDISHSPEAR;
+	soundeffect "cd_argutus_vita.wav", 0;
+	delitem 1632,1;
+	delitem 1636,1;
+	getitem2 1632,1,1,0,0,1633,1634,1635,1636;
+	achievementcomplete(200092);
+	set baldereye, 2;
+	set temporalwarp, 4;
+	set zeny,zeny-300000;
+	mes .@npc$;
+	mes "As your Eye of Morroc curses you, may the Eye of Balder bless your path.";
+	close;
+			} else {
+				mes "You don't have enough zeny.";
+				close;	
+			}
+	case 2:
+	mes "Come back if you change your mind.";
+	next;
+	end;
+	}
+}
+}
+
+dicast_in,44,263,4	script	Reception Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Reception Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	if (achiev12 ==0 ){
+		achievementcomplete(200050);
+		set achiev12,1;
+		}
+	mes .@npc$;
+	mes "Welcome to Dicastes Diel. Popularly known as Sage's Palace. You are welcome to visit and learn as much as needed. We believe knowledge is divine.";
+	next;
+	switch(select("Tell me about this place:Who is the Leader?:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "The sages here study all kinds of things...One of the current fields of study are the Temporal Rifts...Since they can bring great risk to anyone.";
+	next;
+	mes .@npc$;
+	mes "We also have a special division focused on developing Eternal Weapons. These weapons are unique in their property where they fuse new and old into a unique special property.";
+	next;
+	mes .@npc$;
+	mes "You can identify the sages through their clothes. Do not ask for anyone's identity as it might be considered rude. As long as people don't cause harm, everyone is welcome here. Even Orphans.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "^6666CCSir Aster^000000 is our leader. He is an Orphan and one of the Arcane Masters. I'm pretty sure he could completely obliterate this place without effort. I'm glad he is the kindest soul I've ever met.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "Take care.";
+	close2;
+	cutin "",255;
+	end;
+	}
+}
+
+dicast_in,41,270,3	script	Quarters Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Quarters Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "I'm responsible for explaining about the Quarters of the Diel. Is there anything you wish to ask?";
+	next;
+	switch(select("The Lounge:The Armory:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "The Lounge is a place to relax and meet... interesting people. It's important to consider the care of the body and good rest as much as of the mind.";
+	next;
+	mes .@npc$;
+	mes "You can also stock up on potions and other consumables. Those black market guys also are around for some reason, not that we mind, it's convenient.";
+	next;
+	mes .@npc$;
+	mes "Some very curious people love to be there. Just be careful not to accept tasks you might not be ready for.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "The Armory is where we keep some of our equipment and allows people to purchase them. They might not seem very strong, but they work with special, abnormal rules.";
+	next;
+	mes .@npc$;
+	mes "We can trade ^6666CCEternal Frost Weapons^000000 for special materials. You can get them from strong monsters around the world. They can really change how your fights go.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	cutin "",255;
+	mes .@npc$;
+	mes "Don't worry, I'll be here anyway.";
+	close;
+	}
+}
+
+dicast_in,50,266,7	script	Study Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Study Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "I'm responsible for explaining about the Study of the Diel. Is there anything you wish to ask?";
+	next;
+	switch(select("The Scrolls Library:The Sage's Study:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "The Scrolls Library is where we focus our studies on the World situation. You can find assistance regarding a multitude of situations from everywhere.";
+	next;
+	mes .@npc$;
+	mes "Currently the biggest issues we have are: ^6666CCMorroc's Mark^000000, ^6666CCTemporal Distortions^000000 and the ^6666CCHATred Dude^000000.";
+	next;
+	mes .@npc$;
+	mes "If you can assist or need specialized assistance with any of these subjects, you are welcome to visit that area. Please do remember to donate some zeny to help fund research.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "The Sage's Study is where the masters of the 5 groups usually work. They are 100% focused on the Temporal Distortions and know how to access them safely.";
+	next;
+	mes .@npc$;
+	mes "If you have a ^6666CCBifrost Mirror Shard^000000, you might consider visiting them to unlock that power for your use.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	cutin "",255;
+	mes .@npc$;
+	mes "Always keep your mind sharp!";
+	close;
+	}
+}
+
+dicast_in,48,272,1	script	Organization Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Organization Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "I'm responsible for explaining about the Groups of the Diel. Is there anything you wish to ask?";
+	next;
+	switch(select("White Sages:Blue Sages:Red Sages:Green Sages:Yellow Sages:Opinion on Rachel and Freya?:Nevermind")) {
+	case 1:
+	mes .@npc$;
+	mes "The White Sages are the sages who focus on general research of the world and keeping the Diel running. They are the most common, but don't mistake them as inferior.";
+	next;
+	mes "Everyone is equal here. For better or worse.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "Followers of Vidar, specialists on silence and calm focusing their study on the arts of evasion and speed. They may provide you with unique equipment related to these things. As long as you help them, of course.";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "Followers of Vali, specialists on tracking and distance focusing their study on the arts of bows and range. They may provide you with unique equipment related to these things.";
+	close2;
+	cutin "",255;
+	end;
+	case 4:
+	mes .@npc$;
+	mes "Followers of Thor, specialists on power and might focusing their study on the arts of attack and defense. They may provide you with unique equipment related to these things.";
+	close2;
+	cutin "",255;
+	end;
+	case 5:
+	mes .@npc$;
+	mes "Followers of Balder, specialists on beauty and magic focusing their study on the arts of spells and enchants. They may provide you with unique equipment related to these things.";
+	close2;
+	cutin "",255;
+	end;
+	case 6:
+	mes .@npc$;
+	mes "Madness. Freya is a great risk to our world. The way she handles situations among the gods is chaotic and unpredictable. Rachel might be a big problem for us, eventually.";
+	close2;
+	cutin "",255;
+	end;
+	case 7:
+	mes "Feel free to ask anything.";
+	close2;
+	cutin "",255;
+	end;
+	}
+}
+
+dicast_in,350,208,7	script	Head Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Head Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "The Masters here are working on developing evolution for the ^6666CCBifrost Mirror Shard^000000. If you have one, make sure to talk to them about it.";
+	next;
+	mes .@npc$;
+	mes "They do require you special ^6666CCEyes^000000 of the sons of Odin. But it'll allow you to use the Shard to travel through distortions! And with that, you can help the other sages with their research.";
+	close2;
+	cutin "",255;
+	end;
+	}
+
+
+dicast_in,44,206,3	script	Scrolls Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Scrolls Sage]";
+	cutin "whitesage",2;
+	if (achiev17 ==0 ){
+	achievementcomplete(200079);
+	set achiev17,1;
+	}
+	mes .@npc$;
+	mes "We research old scrolls here. We try to find special information or things that can help change the world for the better.";
+	next;
+	emotion ET_HNG;
+	mes .@npc$;
+	mes "We do need more investment to make it work faster through...It really is a tiresome task.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	
+dicast_in,29,189,3	script	Vidar Sage#dielstudy	4_ep17_tamarin,{
+
+	set .@npc$, "[Vidar Sage]";
+	mes .@npc$;
+	mes "We are working hard to translate these scrolls. But it can be quite a lot of work. And we gotta spread our funds thin to make ends meet. It's a mistery how so many have appeared in just a few years!";
+	close;
+	}
+	
+dicast_in,46,193,6	script	Thor Sage#dielstudy	4_ep16_tamarin,{
+
+	set .@npc$, "[Thor Sage]";
+	mes .@npc$;
+	mes "Thor is often considered the strongest of the Gods. It's not for any reason after all, anyone worthy of wielding the legendary ^6666CCMjolnir^000000 deserves such a title.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "According to my research, Mjolnir will fall in Midgard one day, beginning the end for all of us. Hopefully it takes a long time.";
+	close;
+	}
+
+dicast_in,34,196,3	script	Attentive Sage#dielstudy	4_m_tamarin,{
+
+	set .@npc$, "[Attentive Sage]";
+	mes .@npc$;
+	mes "The 4 Eyes...I wonder If I can find them. I already found a Bifrost Mirror Shard after all!";
+	close;
+	}
+	
+dicast_in,25,196,6	script	Dusty Scrolls I#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls I]";
+	mes .@npc$;
+	mes "The Shadows who appear from Orphans depend on the danger of the place they are in when they die.";
+	next;
+	mes .@npc$;
+	mes "Different places may bring different Shadows. Shadows are a big risk to anyone nearby, but they can also bring their unique ^6666CCcards^000000.";
+	close;
+	}
+dicast_in,25,194,6	script	Dusty Scrolls II#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls II]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,25,191,6	script	Dusty Scrolls III#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls III]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,25,188,6	script	Dusty Scrolls IV#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls IV]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+
+dicast_in,32,196,6	script	Dusty Scrolls V#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls V]";
+	mes .@npc$;
+	mes "The Eyes of the 4 sons of Odin have fallen in different places of the World. One in each Kingdom.";
+	next;
+	mes .@npc$;
+	mes "Black runes might show where they are. Hundreds of them might appear at the same time. They are not eyes per see, but Gems that carry that God's essences.";
+	close;
+	}
+dicast_in,32,194,6	script	Dusty Scrolls VI#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls VI]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,32,191,6	script	Dusty Scrolls VII#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls VII]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,32,188,6	script	Dusty Scrolls VIII#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls VIII]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,48,194,6	script	Dusty Scrolls IX#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls IX]";
+	mes .@npc$;
+	mes "Jormungandr, the World Devourer, may one day awake and bring the end to the world. ";
+	next;
+	mes .@npc$;
+	mes "The end shall come with its waves of fire from the depths of the land, in an infinite abyss.";
+	close;
+	}
+dicast_in,48,192,6	script	Dusty Scrolls X#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls X]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,48,189,6	script	Dusty Scrolls XI#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls XI]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,48,186,6	script	Dusty Scrolls XII#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls XII]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+
+dicast_in,54,194,6	script	Dusty Scrolls XIII#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls XIII]";
+	mes .@npc$;
+	mes "Beelzebub, the King of Flies will always go where the death gather. The putrid stench of rotten corpses will lure it close and bring with him, a thick fog of dirt and blood.";
+	next;
+	mes .@npc$;
+	mes "A perfect monster for the perfect calamity. For even he carries secrets when near death... as temporary as it may be.";
+	close;
+	}
+dicast_in,54,192,6	script	Dusty Scrolls XIV#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls XIV]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,54,189,6	script	Dusty Scrolls XV#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls XV]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+	
+dicast_in,54,186,6	script	Dusty Scrolls XVI#diel	844,{
+
+	set .@npc$, "[Dusty Scrolls XVI]";
+	mes .@npc$;
+	mes "The Scrolls haven't been translated yet. Maybe someday...";
+	close;
+	}
+
+dicast_in,371,116,5	script	Knight#diel	4_m_job_knight1,{
+	
+	emotion ET_SCRATCH;
+	set .@npc$, "[Knight]";
+	mes .@npc$;
+	mes "They have some cool weapons here. I might actually work for that sword.";
+	close;
+	end;
+}
+
+dicast_in,353,116,3	script	Alchemist#diel	1_m_signalche,{
+
+	set .@npc$, "[Alchemist]";
+	mes .@npc$;
+	mes "If you're looking for the Sage Items, you need to know they take quite an effort to get. You'll need to visit the Distortions around the world and get the materials from the monsters there.";
+	close;
+	end;
+}
+//7141 - Ygg Dew
+dicast_in,335,135,7	script	Distortion Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Distortion Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+mes "You can find the <ITEM>Distortion Essences<INFO>7361</INFO></ITEM> inside the Distortion Portals, all around the world. You'll need a <ITEM>Bifrost Mirror Shard<INFO>1632</INFO></ITEM>  . So go and find one if you don't already have it.";
+	next;
+	mes .@npc$;
+	mes "Stronger distortion monsters usually carry more of those around. So keep it in mind if you want to help us with the research.";
+	close2;
+	cutin "",255;
+	end;
+	}
+
+-	itemshop	eternalfrostshop	-1,7361,7141:10,1407:500,1400:500,13110:500,1227:250,1197:250,1391:250,1292:250,1545:250,18141:250,1434:250,1569:250,1961:250.
+
+-	itemshop	sageshop	-1,7361,16305:1000,16306:1000,16307:1000,16308:1000,16309:1000,16310:1000,16311:1000,16312:1000,16313:1000,16314:1000,1408:500,1409:500,400056:2000,400057:2000.
+	
+dicast_in,369,134,3	script	Eternal Sage#diel	4_ep18_wagon,{
+
+	set .@npc$, "[Eternal Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "I'm responsible for the Eternal Weapons we have here. To provide our technology, we require contribution from adventurers with <ITEM>Distortion Essences<INFO>7361</INFO></ITEM>.";
+	close2;
+	callshop "eternalfrostshop",1;
+	cutin "",255;
+	end;
+	}
+	
+dicast_in,363,140,5	script	Eternal Sage#diel2	4_ep18_wagon,{
+
+	set .@npc$, "[Eternal Sage]";
+	emotion ET_THINK;
+	cutin "whitesage",2;
+	mes .@npc$;
+	mes "I'm responsible for the Sage Equipment we have here. To provide our technology, we require contribution from adventurers with <ITEM>Distortion Essences<INFO>7361</INFO></ITEM>.";
+	close2;
+	callshop "sageshop",1;
+	cutin "",255;
+	end;
+	}
+
+dicast_in,226,280,4	script	Sir Aster#diel	4_ep17_guard_b,{
+
+	set .@npc$, "[Sir Aster]";
+	cutin "siraster",2;
+	if (asterintro ==1){
+	mes .@npc$;
+	mes "Hello. How have you been?";
+	next;
+	if (temporalwarp <1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I still can't access distortions. I'm working on it.";
+	next;
+	mes .@npc$;
+	mes "You can always look for help with the Sages. Take your time and take some time to find the Eyes around the world. Bring them to the Sages to get them on the Mirror.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (temporalwarp >=1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I'm working on helping the Sages currently. I'm already well on my way with it.";
+	next;
+	mes .@npc$;
+	mes "Very good! I knew you would be the right person for it!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	}
+	mes .@npc$;
+	mes "It's good to see you here... " + strcharinfo(0) + ". I've been expecting your arrival.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How do you know me?";
+	next;
+	mes .@npc$;
+	mes "Master Varmundt told me you'd arrive here around...now.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Varmundt...you mean the Sage who built the Orphanage with the Lighthalzen Damned's families?";
+	next;
+	mes .@npc$;
+	mes "Oh yes. You could say that... yes, that Varmundt.";
+	next;
+	emotion ET_SCRATCH, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So, What is this place? And What do you know about me?";
+	next;
+	mes .@npc$;
+	mes "This is Dicastes Diel. Often refered to as Sage's Palace, due to the large amount of Sages around here.";
+	next;
+	mes .@npc$;
+	mes "Dicastes Diel was covered in ice and snow for hundreds of years. It was discovered a few months after Satan Morroc was defeated.";
+	next;
+	mes .@npc$;
+	mes "Master Varmundt had just returned from self-exile after years of research, and tracked this place down and prepared it for us.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What's special about this place?";
+	next;
+	mes .@npc$;
+	mes "The energy around this place is massive. You can literally see the flow of time and the distortions by looking around.";
+	next;
+	mes .@npc$;
+	mes "We research the world here. And observing distortions, the time and bringing it all together makes it very effective for this.";
+	next;
+	mes .@npc$;
+	mes "So while Master Varmundt continues his research and the experiments in his mansion, near Lighthalzen, we can continue the research here.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "That's interesting...so. what did you guys discover so far?";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "While I can't disclose many details, Master Varmundt told me to bring specific information to your knowledge.";
+	next;
+	emotion ET_SCRATCH, playerattached();
+	mes .@npc$;
+	mes "The distortions are like windows to different moments in time, or even completely new universes. This window however, can become a door.";
+	next;
+	mes .@npc$;
+	mes "A door for gifted people, like Orphans.";
+	next;
+	if (temporalwarp >0){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yeah, I'm aware. I got this Bifrost Mirror Shard here.";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Impressive! Seems like your travels took you to quite a few places.";
+	next;
+	}
+	if (temporalwarp ==0){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "How can I get inside them?";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "You need a Bifrost Mirror Shard. The bridge of worlds. You can probably find one near where Morroc was defeated.";
+	next;
+	mes .@npc$;
+	mes "Morroc was defeated near the east coast of Sograt Desert. He attempted to open a Dimensional Gorge. Good thing the guilds prevented it.";
+	next;
+	}
+	mes .@npc$;
+	mes "So, with the Bifrost Mirror Shard. If you find one of the Eyes from the Sons of Odin you can channel their divine energy and go through the reflections.";
+	next;
+	mes .@npc$;
+	mes "different distortions require different power levels. So keep it in mind. A few rare ones don't even require much energy, if any at all, while others may directly suck your life force. So be careful.";
+	next;
+	mes .@npc$;
+	mes "You can find the Eyes around the World. Legend says each eye is in one of the corners of this land. So I'd check your world map and think about it.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Why would I want to visit distortions? They seem dangerous.";
+	next;
+	mes .@npc$;
+	mes "Well, it be a good thing for you to understand your destiny. There's also ^6666CCDistortion Essences^000000, which are very useful for our research.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Ok I understand. Thanks for the information.";
+	next;
+	mes .@npc$;
+	mes "Take care on your travels. If you need help, feel free to come here.";
+	close2;
+	set asterintro,1;
+	cutin "",255;
+	end;
+}

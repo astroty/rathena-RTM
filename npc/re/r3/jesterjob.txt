@@ -1,0 +1,308 @@
+prontera,105,64,4	script	Funny Guy#jester	715,{
+
+	set .@npc$, "[Pierrot]";
+	if (jesterjob == 1){
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "How are your card skills hmm? making your enemies feel dumb? hahaha!";
+	close;
+	}
+	if (jesterquest == 1){
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "So... did you find my apprentice? It's south of here, in a small secluded area. You should be able to find the entrance through a parallel path.";
+	close;
+	}
+	mes .@npc$;
+	mes "Hello there young Orphan. I'm Pierrot. The Jester.";
+	next;
+	if (SkillPoint) {
+	mes .@npc$;
+	mes "I'm looking for skilled people to learn some tricks! Come back when you have mastered your Job Level and has all skills! Maybe we can learn something funny!";
+	emotion ET_SURPRISE;
+	close;
+	}
+	mes .@npc$;
+	mes "What do you say, are you interested in learning how to be a Jester and do card tricks?";
+	next;
+	switch(select("Sure, teach me!:I like to be a serious person!")) {
+	case 1:
+	if (Class != Job_Novice) {
+			mes .@npc$;
+			mes "Eh, you already have a boring job! You're not fun anymore!";
+			close;
+		}
+	if (Class == Job_Novice) {
+		if (JobLevel < 10) {
+			mes .@npc$;
+			mes "You still need to learn some basics! Come back when you're Job Level 10!";
+			close;
+		}
+		emotion ET_THROB;
+		mes .@npc$;
+		mes "Wonderful! Let's start with the basics. What's your name young one?";
+		next;
+		mes "[^339966" + strcharinfo(0) + "^000000]";
+		mes "Well, I'm...";
+		next;
+		mes .@npc$;
+		mes "You're " + strcharinfo(0) + " Aren't you?";
+		next;
+		mes "[^339966" + strcharinfo(0) + "^000000]";
+		mes "How did you...";
+		next;
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "I can read your dialogue box. You name was in there. In green.";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "What, in green? Are you sure?";
+		next;
+		mes .@npc$;
+		mes "Of course I'm sure!";
+		next;
+		mes "[^339966" + strcharinfo(0) + "^6666CC]";
+		mes "^FF0000I'm not sure^339966 that's right it's just... ^6666CCwait... ^000000nevermind. ^FF0000What do I need to ^339966learn your tricks?";
+		next;
+		mes .@npc$;
+		mes "Part of a being a good Jester is being good at tricking your opponents. I have an apprentice south of here, in a small secluded area. Why don't you try to find him?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "South of here... In a secluded area...not easily accessible... got it.";
+		set jesterquest,1;
+		close;
+	}
+	emotion ET_SMILE;
+	case 2:
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Look at you, why so serious?! Hahaha!";
+	close;
+	}
+}
+
+prt_fild08,55,57,4	script	Jester Apprentice#jester	715,{
+	set .@npc$, "[Pierrot?]";
+	if (jesterquest < 1){
+	emotion ET_SMILE;
+	mes "[Jester]";
+	mes "Hello!";
+	mes "3..2...1...";
+	mes "Bye!";
+	close2;
+	warp "prt_fild08", 0, 0;
+	end;
+	}
+	if (jesterjob == 1){
+	emotion ET_SMILE;
+	mes "[Jester]";
+	mes "We're done here!";
+	mes "3..2...1...";
+	mes "Bye!";
+	close2;
+	warp "prontera", 0, 0;
+	end;
+	}
+	if (jesterquest == 1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Pierrot?";
+	next;
+	mes .@npc$;
+	mes "Erm...of course not! I'm his brother... Pierret!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Pierrot mentioned apprentice.";
+	next;
+	set jesterquest,2;
+	mes .@npc$;
+	mes "Yeah that, whatever! Look, let's just start your training. Let me know when you are ready.";
+	close;
+	}
+	if (jesterquest == 2){
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Joking Around";
+	mes .@npc$;
+	mes "I'll take you to an Island not far from here. We will be joking around for a while.";
+	next;
+	specialeffect2 834;
+	.@name$ = "Jester" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Don't worry its PERFECTLY safe! 3...2...1...!";
+	next;
+	savepoint "prt_fild08",52,55,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Long Night]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Pierrot?]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Joking Around...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+}
+}
+1@begi,1,1,0	script	plantjestspawns	-1,{
+OnInstanceInit:
+	set .@map$, instance_mapname("1@begi");
+	areamonster .@map$,0,0,190,190,"Jester Plant",1078,20,instance_npcname("plantjestspawns")+"::OnJesterDead";
+	areamonster .@map$,0,0,190,190,"Jester Plant",1079,20,instance_npcname("plantjestspawns")+"::OnJesterDead";
+	areamonster .@map$,0,0,190,190,"Jester Plant",1080,20,instance_npcname("plantjestspawns")+"::OnJesterDead";
+	areamonster .@map$,0,0,190,190,"Jester Plant",1081,20,instance_npcname("plantjestspawns")+"::OnJesterDead";
+	end;
+OnJesterDead:
+	areamonster instance_mapname("1@begi"),0,0,0,0,"Jester Plant",1078,1,instance_npcname("plantjestspawns")+"::OnJesterDead";
+	end;
+}
+
+1@begi,1,1,4	script	Control#JesterTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Pierrot#test2");
+	end;
+}	
+
+1@begi,204,181,4	script	Pierret#test1	715,{
+	set .@npc$, "[Pierret?]";
+	mes .@npc$;
+	mes "So, the idea is simple. Meet me at the end of the path. Be careful with the plants.";
+	next;
+	emotion ET_SMILE;
+	mes "[" + strcharinfo(0) + "]";
+	mes "What plants? Careful with plants? Hey!";
+	close2;
+	disablenpc instance_npcname("Pierret#test1");
+	enablenpc instance_npcname("Pierrot#test2");
+	end;
+}
+
+1@begi,102,25,4	script	Pierrot#test2	715,{
+	set .@npc$, "[Pierrot?]";
+	mes .@npc$;
+	mes "Congratulations!";
+	next;
+	emotion ET_SMILE;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What the hell are those plants! You're crazy!";
+	next;
+	mes .@npc$;
+	mes "You did learn how to dodge and pay attention didn't you?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Well.. yes... but it wasn't so simple! They wanted to kill me!";
+	next;
+	mes .@npc$;
+	mes "And you are here now... so all's well. Let me tell you a secret.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What secret?";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Pierret doesn't exist! It's me! Pierrot!";
+	next;
+	emotion ET_SMILE;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wow. You don't say. Amazing. You Tricked me.";
+	next;
+	mes .@npc$;
+	mes "Well you now are skilled enough to become a Jester! For my final trick, pick a card!";
+	next;
+	switch(select("Spades(Less SP Cost):Clubs(ATK):Hearts(MATK):Diamond(DEF)")) {
+	case 1:
+	mes .@npc$;
+	mes "You'll also receive a Joker's Wild. My favourite card and essential for when you need some SP back!";
+	next;
+	callfunc "Job_Change",Job_Archer;
+	set finaljob,1;
+	set firstjob,1;
+	set jesterjob,1;
+	getitem 1551,1;
+	getitem 1550,1;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Uh... thanks! I do feel more powerful now!";
+	next;
+	mes .@npc$;
+	mes "It's now time to go home young one! 3...2...1...";
+	close2;
+	warp "prt_fild08", 52, 55;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "You'll also receive a Joker's Wild. My favourite card and essential for when you need some SP back!";
+	next;
+	callfunc "Job_Change",Job_Archer;
+	set finaljob,1;
+	set firstjob,1;
+	set jesterjob,1;
+	getitem 1551,1;
+	getitem 1553,1;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Uh... thanks! I do feel more powerful now!";
+	next;
+	mes .@npc$;
+	mes "It's now time to go home young one! 3...2...1...";
+	close2;
+	warp "prt_fild08", 52, 55;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "You'll also receive a Joker's Wild. My favourite card and essential for when you need some SP back!";
+	next;
+	callfunc "Job_Change",Job_Archer;
+	set finaljob,1;
+	set firstjob,1;
+	set jesterjob,1;
+	getitem 1551,1;
+	getitem 1554,1;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Uh... thanks! I do feel more powerful now!";
+	next;
+	mes .@npc$;
+	mes "It's now time to go home young one! 3...2...1...";
+	close2;
+	warp "prt_fild08", 52, 55;
+	end;
+	case 4:
+	mes .@npc$;
+	mes "You'll also receive a Joker's Wild. My favourite card and essential for when you need some SP back!";
+	next;
+	callfunc "Job_Change",Job_Archer;
+	set finaljob,1;
+	set firstjob,1;
+	set jesterjob,1;
+	getitem 1551,1;
+	getitem 1555,1;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Uh... thanks! I do feel more powerful now!";
+	next;
+	mes .@npc$;
+	mes "It's now time to go home young one! 3...2...1...";
+	close2;
+	warp "prt_fild08", 52, 55;
+	end;
+}
+}

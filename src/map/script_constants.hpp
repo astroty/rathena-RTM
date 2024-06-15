@@ -527,6 +527,12 @@
 	export_constant(MF_SKILL_DURATION);
 	export_constant(MF_NOCASHSHOP);
 	export_constant(MF_NORODEX);
+	export_constant(MF_RANKE);
+	export_constant(MF_RANKD);
+	export_constant(MF_RANKC);
+	export_constant(MF_RANKB);
+	export_constant(MF_RANKA);
+	export_constant(MF_RANKS);
 
 	/* setcell types */
 	export_constant(CELL_WALKABLE);
@@ -750,6 +756,10 @@
 	export_constant2("bAddEffWhenHit",SP_ADDEFF_WHENHIT);
 	export_constant2("bAutoSpellWhenHit",SP_AUTOSPELL_WHENHIT);
 	export_constant2("bSkillAtk",SP_SKILL_ATK);
+	export_constant2("bSkillHPFlat", SP_SKILL_HPFLAT);
+	export_constant2("bSkillHPRate", SP_SKILL_HPRATE);
+	export_constant2("bSkillSPFlat", SP_SKILL_SPFLAT);
+	export_constant2("bSkillSPRate", SP_SKILL_SPRATE);
 	export_constant2("bUnstripable",SP_UNSTRIPABLE);
 	export_constant2("bAutoSpellOnSkill",SP_AUTOSPELL_ONSKILL);
 	export_constant2("bSPGainValue",SP_SP_GAIN_VALUE);
@@ -782,6 +792,11 @@
 	export_constant2("bComaRace",SP_COMA_RACE);
 	export_constant2("bSkillUseSPrate",SP_SKILL_USE_SP_RATE);
 	export_constant2("bSkillCooldown",SP_SKILL_COOLDOWN);
+	export_constant2("bReduceCooldown",SP_REDUCE_COOLDOWN);
+	export_constant2("bBounce", SP_BOUNCE);
+	export_constant2("bAutoAtkCap", SP_AUTOATK_CAP);
+	export_constant2("bASPDCap", SP_ASPD_CAP);
+	export_constant2("bSplashSkill", SP_SPLASH_SKILL);
 	export_constant2("bSkillFixedCast",SP_SKILL_FIXEDCAST);
 	export_constant2("bSkillVariableCast",SP_SKILL_VARIABLECAST);
 	export_constant2("bFixedCastrate",SP_FIXCASTRATE);

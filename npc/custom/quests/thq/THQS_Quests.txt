@@ -457,32 +457,6 @@ N_QuestStart:
 }
 ///////Job list 5///////
 //5-1;
-prt_maze01,18,184,6	script	Lithin#01	752,{
-	if (five_qset == 1 && countitem(1028) > 14) goto N_QuestComp;
-	if (five_qset == 1) goto N_QuestStart;
-	mes "[Lithin]";
-	mes "Well hello.";
-	mes "Welcome to the Forest Maze.";
-	close;
-N_QuestComp:
-	mes "[Lithin]";
-	mes "Oh thank you so much, but they will be back...";
-	next;
-	mes "Take these 2 Treasure Tokens";
-	delitem 1028,15;
-	set five_qset,0;
-	set On_Quest,0;
-	set #Treasure_Token,#Treasure_Token+2;
-	close;
-N_QuestStart:
-	mes "[Lithin]";
-	mes "Well hello.";
-	mes "Welcome to the Forest Maze, I have a task for you.";
-	mes " ";
-	mes "Ever heard of a monster called a Savage? It looks like a boar but it makes very annoying noises.";
-	mes "What I want you to do is bring me 15 Manes from the savages.";
-	close;
-}
 //5-2 goes to 6-2 using callfunc;
 moc_ruins,75,167,6	script	Lithin#02	87,{
 	if (five_qset == 2 && countitem(932) > 29) goto N_QuestComp;
@@ -804,31 +778,6 @@ N_QuestStart:
 
 }
 //8-3;
-prt_maze02,103,86,6	script	Zack	751,{
-	if (eight_qset == 3 && countitem(923) > 0) goto N_QuestComp;
-	if (eight_qset == 3) goto N_QuestStart;
-	mes "[Zack]";
-	mes "Hello, have you seen my Whisper friend?";
-	close;
-N_QuestComp:
-	mes "[Zack]";
-	mes "Thank you for helping me, I presume the worse.";
-	next;
-	mes "[Zack]";
-	mes "Here take these 5 Treasure Tokens.";
-	delitem 923,1;
-	set eight_qset,0;
-	set On_Quest,0;
-	set #Treasure_Token,#Treasure_Token+5;
-	close;
-N_QuestStart:
-	mes "[Zack]";
-	mes "Hello,the reason why I brought you here was because of a very strange monster known as Baphomet.";
-	mes "People say that Baphomet guilds the gate to the under-world but I don't believe them, Kill Baphomet!";
-	mes " ";
-	mes "Bring me his Evil Horn!";
-	close;
-}
 //8-4;
 payon,136,129,6	script	Flower	703,{
 	if (eight_qset == 4 && countitem(746) > 9) goto N_QuestComp;

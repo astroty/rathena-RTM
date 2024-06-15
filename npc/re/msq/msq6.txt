@@ -1,0 +1,277 @@
+// Quest 6
+
+hu_in01,373,80,5	script	#msq6w	CLEAR_NPC,10,10,{
+	mes "You see small mark on the floor. It seems like some spell protects this place.";
+	close;
+	end;
+	OnTouch_:
+	if (squirecheck ==1 && MSQProg ==6){
+	end;
+	}
+	warp "hu_in01",374,96;
+	end;
+}
+
+hu_in01,376,97,3	script	Squire#MSQ6	645,{
+	set .@npc$, "[Squire Marcus]";	
+	if (MSQProg <=5){
+	mes .@npc$;
+	mes "Hey there. I can't let you through, sorry. There is only a storage room there.";
+	close;
+	}
+	if (MSQProg >=7){
+	mes .@npc$;
+	mes "I'll buy you a drink later. We gotta help the people in the Orphanage first!";
+	close;
+	}
+	if (MSQProg >=8){
+	mes .@npc$;
+	mes "Good luck on whatever it is you're doing with... you know who.";
+	close;
+	}
+	if (squirecheck ==1){
+	mes .@npc$;
+	mes "Go ahead. You're allowed inside.";
+	close;
+	}
+	if (MSQProg ==6){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Excuse me I'm looking for a... specific knight.";
+	next;
+	if (BaseLevel <=59){
+	mes .@npc$;
+	mes "I believe such Knight would not have business with anyone under Base Level 60. He handles dangerous stuff.";
+	close;
+	}
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Oh... you mean... a very specific knight? And who might you be?";
+	next;
+	mes "[Distant Familiar Voice]";
+	mes "Marcus, this is a friend of mine. Thank you.";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Oh! Any friend of... the knight is a friend of mine. Please go down the hall.";
+	close2;
+	set squirecheck,1;
+	end;
+	}
+}
+
+hu_in01,380,53,3	script	Oberon#MSQ6	470,{
+	set .@npc$, "[Oberon]";	
+	cutin "3rd_rune_knight",2;
+	if (MSQProg ==7){
+	mes .@npc$;
+	mes "Hello. " + strcharinfo(0) + ", let's hurry to the Airship. We gotta get the supplies to the Orphanage!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if(dkchoiceb ==1){
+	mes .@npc$;
+	mes "You have already strayed from your orders...It's important to be prepared for what awaits you ahead.";
+	next;
+	}
+	if (MSQProg ==6){
+	mes .@npc$;
+	mes "Hello. " + strcharinfo(0) + ", I believe you've come looking for answers.";
+	next;
+	if(dkchoiceb ==1){
+	mes .@npc$;
+	mes "You have already strayed from your orders...It's important to be prepared for what awaits you ahead.";
+	next;
+	}
+	if(dkchoicea ==1){
+	mes .@npc$;
+	mes "You always follow orders...but I need you to follow your instincts now.";
+	next;
+	}
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What do you know?";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "Straight to the point eh? I like it! Very well...";
+	next;
+	mes .@npc$;
+	mes "I was killed during the fight against Satan Morroc. Part of the job you see...as former leader of the Iron Angels.";
+	next;
+	mes .@npc$;
+	mes "While wandering around Niflheim, I saw a strange situation... many souls that had arrived not long before me were being pulled away from the land of the dead.";
+	next;
+	mes .@npc$;
+	mes "I believe those souls were the children sacrificed by the Dandelion Organization. They had a pure light with them.";
+	next;
+	mes .@npc$;
+	mes "Then, a strange powerful presence approached them... It... whispered something...I couldn't understand what it was...but it felt...comforting. It had some purpose.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Could it be...Balder?";
+	next;
+	emotion ET_QUESTION;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "The Azure Kings told me about this....";
+	next;
+	mes .@npc$;
+	mes "Interesting that you guys have this kind of information then. That saves me a lot of trouble. And time.";
+	next;
+	mes .@npc$;
+	mes "Well...I don't know what Balder told those spirits, but shortly after, many of them vanished from Niflheim. A few moments later, Satan Morroc's Soul was back in the land of the dead.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Do you think they were responsible for the defeat of Satan Morroc or something?";
+	next;
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "What? No! Of course not! Their souls were pure...they could not be used for this.";
+	next;
+	mes .@npc$;
+	mes "I believe they had some other purpose...but I still can't understand it.";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "And how are you alive now?";
+	next;
+	mes .@npc$;
+	mes "I can't talk about it... not yet.";
+	next;
+	mes .@npc$;
+	mes "I live in the Nomad Village...they don't care where I'm from, or what I've done, or anything... as long as I don't cause trouble.";
+	next;
+	mes .@npc$;
+	mes "The Nomad Village just happens to be very close to Rachel. Rachel is...not the friendliest place nowadays. I've been observing them.";
+	next;
+	mes .@npc$;
+	mes "But it's very useful to be so close to Maroll. I can locate more Orphans in other regions quickly by going there.";
+	next;
+	mes .@npc$;
+	mes "There seems to be some...overlap between the Freya cultists and the Cult of the Dead God.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Two cults, wanting to bring two gods to life...what could go wrong?";
+	next;
+	mes .@npc$;
+	mes "Exactly. It seems like the orphans are an important piece of this puzzle. Or more specifically, the Shadows.";
+	next;
+	mes .@npc$;
+	mes "I have a simple approach towards this matter. Cults where every member is dead are no longer cults.";
+	next;
+	if (dkchoiceb ==1){
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Judging by how you acted on the Castle...I'm not the only one am I? haha!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Can't say you're wrong. Heh.";
+	next;
+	}
+	if (dkchoicea ==1){
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Unlike you, who just follow orders blindly.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I couldnt't risk the plans of everyone else. It was the right thing to do.";
+	next;
+	}
+	mes .@npc$;
+	mes "Since the guilds seem to have...less efficient plans. We need to cover for their faults. That's why I wanted your help.";
+	next;
+	emotion ET_QUESTION, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What's the matter? Are they in danger?";
+	next;
+	mes .@npc$;
+	mes "The Cult of the Dead God is planning a raid on the Orphanage... They will turn as many orphans as possible into monsters.";
+	next;
+	emotion ET_SURPRISE, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I saw that once! The strange man with the red eye on his hair could do it!";
+	next;
+	mes .@npc$;
+	mes "You seem to know quite a bit about this.";
+	next;
+	emotion ET_THINK, playerattached();
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Not really the most pleasant of moments. That poor girl... I also have no clue how it was done. But I know it's possible.";
+	next;
+	mes .@npc$;
+	mes "The shadows are constantly attempting to take over the Mark. This monstrous transformation must have some connection to it.";
+	next;
+	if (darkknightjob ==1) {
+	mes .@npc$;
+	mes "Since you're a Dark Knight... you probably know exactly what I'm talking about.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "The shadows seem to have their own personality... I don't understand it. but they seem...familiar.";
+	next;
+	mes .@npc$;
+	mes "I take it you've made a pact with one of them?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yes.";
+	next;
+	mes .@npc$;
+	mes "Don't trust them. Not even that one. never let your guard down. You may use it's power like I do...but it's not an ally. It will never be an ally.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "...Understood. Thanks for the warning.";
+	next;
+	}
+	if (darkknightjob ==0) {
+	mes .@npc$;
+	mes "The Mark is like a beacon from the underworld... The shadows come to you using it as a guide. A lighthouse in the storm.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "They are merely beasts are they not? Strange, clearly disturbing beasts. but Beasts nonetheless...";
+	next;
+	mes .@npc$;
+	mes "They whisper lies to you, constantly. They will talk about your fears, your secrets... they bring the worst you have deep inside.";
+	next;
+	mes .@npc$;
+	mes "The Shadows may hurt everyone around. But who they hurt the most is yourself.";
+	next;
+	}
+	mes .@npc$;
+	mes "Let's hurry and meet them in the Orphanage. I have an airship ready with resources they may need.";
+	next;
+	if (prepareddefenses ==1){
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I asked the spy who accompanied me to warn the guys about the danger...I hope they could prepare themselves.";
+	next;
+	mes .@npc$;
+	mes "Well. At least you did something right even when leaving the castle. I had to handle the cultists there myself.";
+	next;
+	}
+	mes .@npc$;
+	mes "Here, get one of my scrolls...hmmm...what fits you better?";
+	next;
+	switch(select("Protecting people:Facing enemies head-on")) {
+	case 1:
+		mes "^6666CCYou grab the Doctor Scroll.^000000";
+		next;
+		mes .@npc$;
+		mes "Meet me near the airship. The Kafra working there will take us to the Orphanage. I have some resources that we need to take there.";
+		close2;
+		getitem 24190,1;
+		set MSQProg,7;
+		cutin "",255;
+		end;
+	case 2:
+		mes "^6666CCYou grab the Knight Scroll.^000000";
+		next;
+		mes .@npc$;
+		mes "Meet me near the airship. The Kafra working there will take us to the Orphanage. I have some resources that we need to take there.";
+		close2;
+		getitem 24191,1;
+		set MSQProg,7;
+		cutin "",255;
+		end;
+	}
+	}
+	mes .@npc$;
+	mes "Take care.";
+	close;
+}

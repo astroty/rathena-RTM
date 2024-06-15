@@ -1,0 +1,2031 @@
+//Legend Job Quest
+
+//Legend Job Quest
+
+dicast_out,106,168,5	script	Vagabond#quest1	99,{
+	set .@npc$, "[Vagabond]";
+	if (legendtst >0){
+	mes .@npc$;
+	mes "Eh... the world is full of weird stuff.";
+	close;	
+	}
+	if (vagabondquest ==2){
+	mes .@npc$;
+	mes "Hello there fellow Vagabond. I'm just taking a rest from the long walk to Dicastes... This place is quite a sight eh?";
+	next;	
+	mes .@npc$;
+	mes "I met a strange dude in a camp down south... I wonder what he was up to... I had a familiar feeling from him, but also felt a strange power.";
+	next;
+	mes .@npc$;
+	mes "He wanted me to help him do something about a weird source of power...Mentioned as a Vagabond, I seemed to not have much to lose anyway...but I got scared.";
+	next;
+	set legendtst,1;
+	mes .@npc$;
+	mes "Eh... the world is full of weird stuff. I'd rather stick to basics.";
+	close;
+}else{
+	mes .@npc$;
+	mes "Hello there. I'm just taking a rest from the long walk to Dicastes... This place is quite a sight eh?";
+	close;
+}
+}
+snow_fild05,239,54,5	script	#legendremove	-1,8,2,{
+	end;
+	OnTouch_:
+	if (BaseJob == Job_Ninja){
+	 changebase 25;
+	 end;
+ }
+}
+
+snow_fild05,239,55,5	script	Strange Man#quest2	4_ep17_basic_b_ng,{
+	set .@npc$, "[Mysterious Man]";
+	if (legendjob ==1){
+	mes "[Zack]";
+	mes "...";
+	next;
+	mes "The man seems frozen. As if his soul has left his body.";
+	close;
+	}
+	if (legendtst ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "You still have skill points left. You're not interesting enough to me if you're not at your full potential.";
+	close;	
+	}
+	mes .@npc$;
+	mes "Hello. I'm researching this strange source of power... You seem like you don't really have any obligations...Perhaps you'd like to help me?";
+	next;
+	mes .@npc$;
+	mes "This place is a portal to a weird dimensions. Apparently all the energy that flows in this world can be seen from here.";
+	next;
+	mes .@npc$;
+	mes "I figured out a way to enter it and see how energy flows around the place. So... do you want to join me on an expedition there?";
+	next;
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "You should come back when you are stronger... like Job Level 70 or so. This place might be dangerous. I'll let you come with me then.";
+	close;
+	}
+	switch(select("Sure, Why Not?:I don't think it's a good idea...")) {
+	case 1:
+	mes .@npc$;
+	mes "Perfect! Let me know when you are ready! Two fellow Vagabonds, exploring a strange place! Seems fun!";
+	close2;
+	set legendtst,2;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "I'll be here if you change your mind... maybe someone else shows up and takes your spot. You never know!~~";
+	close;
+	end;
+	}
+}
+	if (legendtst ==2){
+	mes .@npc$;
+	mes "Let's go quick! I'm so excited!";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Heart of Power";
+	mes .@npc$;
+	mes "Adjusting the flow of energy... Try to think about good things...";
+	next;
+	specialeffect2 834;
+	.@name$ = "Legend" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Ok, the energy is adjusted... Let's go!";
+	next;
+	savepoint "snow_fild05",237,54,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Heart of Power]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Mysterious Man]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Heart of Power...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+}
+mes .@npc$;
+	mes "I'm researching strange sources of power. Please don't disturb my work.";
+	close;
+}
+//Heart of Power Instance
+
+//Break Seals to spawn the boss to be killed.
+
+dali,1,1,4	script	Controller#HeartofPower	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Mysterious Man#quest4");
+	end;
+}
+
+dali,65,113,5	script	Mysterious Man#quest3	4_ep17_basic_b_ng,{
+	set .@npc$, "[Zack]";	
+	if (legendinst >=2){
+	mes .@npc$;
+	mes "Well done breaking the Seals. Meet me across the large bridge!";
+	close2;
+	disablenpc instance_npcname("Mysterious Man#quest3");
+	enablenpc instance_npcname("Mysterious Man#quest4");
+	end;
+	}	
+	mes .@npc$;
+	mes "Allow me to introduce Myself... I'm Zack. I've been studying sources of power for a long time now.";
+	next;	
+	mes .@npc$;
+	mes "Since you're here. I need you to give me a hand with a few things. There's 6 small Seals on the smaller platforms. Go ahead and break them.";
+	next;
+	mes .@npc$;
+	mes "I'll be observing the movement of the flow of energy. Good luck!";
+	close2;
+	donpcevent instance_npcname("#SealSpawnsleg", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("Mysterious Man#quest3");
+}
+
+dali,113,81,5	script	Mysterious Man#quest4	4_ep17_basic_b,{
+	set .@npc$, "[Zack]";
+	if (legendinst ==3){
+	cutin "ex_ss_ninja",2;
+	mes .@npc$;
+	mes "I... I don't understand!.. HOW!?...HOW COULD YOU BE THIS STRONG!?";
+	next;
+	specialeffect2 234;
+	mes "^6666CCYou can't speak...emotions and energy flows inside you...You can feel the Heart of Power calling your name...^000000";
+	next;
+	specialeffect2 234;
+	mes .@npc$;
+	mes "I am the Legendary Zack! I am the only one who can hear the Heart of Power... but now... I can't... hear... anything?";
+	next;
+	specialeffect2 234;
+	mes .@npc$;
+	mes "....What...who...are...you...?";
+	next;
+	cutin "",255;
+	specialeffect2 234;
+	mes "^6666CCWhen you think about the answer you stop and listen to the Heart of Power calling your name, again...^000000";
+	next;
+	specialeffect2 234;
+	mes "^6666CCFor now, the world's energy shall burn through your veins...And echo around the land...^000000";
+	next;
+	specialeffect2 234;
+	atcommand "@job 4211";
+	set finaljob,1;
+	set legendjob,1;
+	mes "^6666CCThat a new Legend is born.^000000";
+	close2;
+	warp "snow_fild05",237,53;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	end;
+	}
+	cutin "ex_ss_ninja",2;
+	mes .@npc$;
+	mes "Finally... The seals are broken and I can absorb the whole energy of this place... And you? You can DIE.";
+	next;
+	playbgm "98";
+	mes .@npc$;
+	mes "You shall be the sacrifice that will finally let me take what's left in this place...";
+	next;
+	mes .@npc$;
+	mes "This place shall be your final resting place. Two Orphans without a destiny... Fighting on the Heart of Power... This shall be a fight for the ages!";
+	next;
+	mes "^6666CCYou can feel... a power surging inside you. A will to survive unlike any other...^000000";
+	next;
+	specialeffect2 885;
+	specialeffect2 886;
+	changebase 4211;
+	mes .@npc$;
+	mes "I am the only one leaving this place alive... prepare youself!";
+	close2;
+	cutin "",255;
+	donpcevent instance_npcname("#BossSpawnsleg2", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("Mysterious Man#quest4");
+	end;
+}
+
+dali,1,2,4	script	#SealSpawnsleg	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#SealSpawnsleg", instance_id());
+	end;
+OnEnable:
+	disablenpc instance_npcname("Mysterious Man#quest3", instance_id());
+	enablenpc instance_npcname("#SealSpawnsleg", instance_id());
+	set .@map$, instance_mapname("dali");
+	.@event$ = instance_npcname("#SealSpawnsleg")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,47,96,"Heart Seal",1627,1, .@event$;
+	monster .@map$,97,145,"Heart Seal",1627,1, .@event$;
+	monster .@map$,82,61,"Heart Seal",1627,1, .@event$;
+	monster .@map$,118,64,"Heart Seal",1627,1, .@event$;
+	monster .@map$,138,117,"Heart Seal",1627,1, .@event$;
+	monster .@map$,137,82,"Heart Seal",1627,1, .@event$;
+	set 'Legend_Mobs,6;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("dali"), "Break the seals around the area.",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Legend_Mobs,'Legend_Mobs-1;
+	if ('Legend_Mobs < 1) {
+		set 'Legend_Mobs,0;
+		set legendinst,2;
+		mapannounce instance_mapname("dali"), "Seals Broken! Meet Zack again!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Mysterious Man#quest4");
+		enablenpc instance_npcname("RemoveLegend#dali");
+	}
+	end;
+}
+
+dali,1,3,4	script	#BossSpawnsleg2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#BossSpawnsleg2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#BossSpawnsleg2", instance_id());
+	set .@map$, instance_mapname("dali");
+	.@event$ = instance_npcname("#BossSpawnsleg2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,113,81,"Legendary Zack",3455,1, .@event$;
+	set 'Legend_Mobs2,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("dali"), "Defend yourself and become a Legend!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Legend_Mobs2,'Legend_Mobs2-1;
+	if ('Legend_Mobs2 < 1) {
+		set 'Legend_Mobs,0;
+		set legendinst,3;
+		mapannounce instance_mapname("dali"), "The flow of power disperses. Zack is Powerless...",bc_map,"0xffff00";
+		enablenpc instance_npcname("Mysterious Man#quest4");
+	}
+	end;
+}
+
+//Revenant Job Quest
+
+niflheim,93,227,5	script	Trickster#quest1	4_m_dstman,{
+	set .@npc$, "[Trickster]";
+	if (revenantjob >=1){
+	mes .@npc$;
+	mes "So you're a Revenant now... cool. Now do a flip!";
+	next;
+	specialeffect2 414;
+	mes .@npc$;
+	mes "Holy Shit!";
+	close;
+	}
+	if (tricksterjob ==0){
+	mes .@npc$;
+	mes "Are you lost? Need something? No? Good. then go away!";
+	close;	
+	}
+	if (tricksterjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Why do you save skill points? You can't reap souls any better with them unspent!";
+	close;
+	}
+	mes .@npc$;
+	mes "A fellow trickster...Do you want an audience with Lady Hel? I can guide you to her mansion...";
+	next;
+	switch(select("No Thanks.:Yes, Right Now.")) {
+	case 1:
+	mes .@npc$;
+	mes "Oh no, thank YOU. I don't like to leave my house like that...geez...";
+	close;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "Ehh... with that level, I doubt she would care about you. Go get stronger!";
+	close;
+	}
+	mes .@npc$;
+	mes "Very well.. let me stretch my legs a bit for the walk... It's gonna be a Long Night.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Long Night";
+	mes .@npc$;
+	mes "It's quite a walk... and you might have issues there. enjoy the view.";
+	next;
+	specialeffect2 834;
+	.@name$ = "Revenant" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Ahhhh~~~ ok, I'm ready, lets go!";
+	next;
+	savepoint "niflheim",92,224,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Long Night]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Trickster]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Long Night...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}	
+
+que_sign01,1,1,4	script	Controller#RevenantTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Ebel#quest3");
+	disablenpc instance_npcname("Lady Hel#quest4");
+	end;
+}	
+	
+que_sign01,49,27,5	script	Serin#quest2	940,{
+	cutin "3rd_gc_daora02",2;
+	set .@npc$, "[Trickster Serin]";
+	if (revenanttst ==1){
+	mes .@npc$;
+	mes "I said go and meet Ebel...";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Serin#quest2");
+	enablenpc instance_npcname("Ebel#quest3");
+	end;
+	}
+	if (revenanttst >=3){
+	mes .@npc$;
+	mes "Are you crazy? Don't leave Lady Hel waiting!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Serin#quest2");
+	enablenpc instance_npcname("Lady Hel#quest4");
+	end;
+	}
+	mes .@npc$;
+	mes "...You? Here? The Orphan who asked for a job test? There must be a mistake.";
+	next;
+	emotion ET_SURPRISE;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "It's good to see you too Serin.";
+	next;
+	mes .@npc$;
+	mes "Ah, just shut up! Now tell me... why did you come here?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "But you just told me to shut up and-";
+	next;
+	mes .@npc$;
+	mes "Oh my Lord of Death! Are you always this dense? Just answer me!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I've been hearing voices recently...it's coming from my Scythe... Any of them I wield I hear the same sound.";
+	next;
+	mes .@npc$;
+	mes "Oh... that... yeah... It probably is the Reaper inside you awakening.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Reaper?";
+	next;
+	mes .@npc$;
+	mes "Did I stutter?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";;
+	mes "Eh... nevermind.";
+	next;
+	mes .@npc$;
+	mes "Ok, no, really. You probably need to talk to Lady Hel. You should move down this path to the fountain and speak with Ebel. She will direct you on what you need to do.";
+	next;
+	mes .@npc$;
+	mes "Now FUCK.OFF.AGAIN.";
+	next;
+	emotion ET_KEK;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Love you too.";
+	close2;
+	emotion ET_THROB;
+	cutin "",255;
+	disablenpc instance_npcname("Serin#quest2");
+	enablenpc instance_npcname("Ebel#quest3");
+	end;
+}
+
+que_sign01,46,44,5	script	Ebel#quest3	4_f_hunter_evil,{
+	cutin "ep16_evil101",2;
+	set .@npc$, "[Ebel]";
+	if (revenanttst ==1){
+	mes .@npc$;
+	mes "Reaper of Souls... come forth!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Ebel#quest3");
+	donpcevent instance_npcname("#ReaperSpawns", instance_id())+"::OnEnable";
+	end;
+	}
+	mes .@npc$;
+	mes "You must be " + strcharinfo(0) + ", Right?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yes. How do you know?";
+	next;
+	mes .@npc$;
+	mes "I heard Serin talking about you. A few times.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I hope it was good stuff.";
+	next;
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "No.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "SOOOO.... Reaper talking or something. Any idea what is the deal?";
+	next;
+	mes .@npc$;
+	mes "That's normal. Means your Mark is breaking control. We should lock it somewhere else.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Wait... my Morroc's Mark?";
+	next;
+	mes .@npc$;
+	mes "Yes... It happens when you wield your Scythe for too long.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Shouldn't you guys tell us about this?";
+	next;
+	mes .@npc$;
+	mes "Most of you never reach this power level. Besides, we can make good use of the mark.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Ok fine... so What should I do?";
+	next;
+	mes .@npc$;
+	mes "Well... Lady Hel can't be seen by regular eyes. You need to continue awakening the Mark, but here. It'll slowly bring the Mark out but in a place we can control it.";
+	next;
+	mes .@npc$;
+	mes "As a Revenant, I can use a power called the ^6666CCInvoker's Mark^000000, with it, I'll summon my Reaper to fight you as multiple entities. Defeat all of them and It should be enough.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "So defeat the Reapers and I can meet Lady Hel. Got it.";
+	next;
+	mes .@npc$;
+	mes "Let me know when you are ready.";
+	close2;
+	set revenanttst,1;
+	cutin "",255;
+	end;
+}
+
+que_sign01,45,227,5	script	Lady Hel#quest4	856,{
+	set .@npc$, "[Lady Hel]";
+	if (revenanttst ==4){
+	mes .@npc$;
+	mes "So cute... It wants to get out! Haha!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "It hurts so much...Help me.";
+	next;
+	mes .@npc$;
+	mes "Don't worry... You can do it! Focus on your weapon, hold it! Feel it as part of you! I'm controlling the tides of darkness to not overcome your soul!";
+	next;
+	specialeffect2 687;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "... COME TO ME MY REAPER!";
+	next;
+	specialeffect2 689;
+	atcommand "@job 4215";
+	set finaljob,1;
+	set revenantjob,1;
+	getitem 20597,1;
+	getitem 9057,1;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "And bring fear to the heart of our enemies...";
+	next;
+	mes .@npc$;
+	mes "Well done... I could contain the evil... and with your power... you may now proudly carry it around. For you are now... a Revenant.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "I feel...different, I can feel darkness around my Scythe.";
+	next;
+	mes .@npc$;
+	mes "The Reaper was locked inside your Scythe. You may carry it wherever you go. I have imprisoned it with an Egg...you can hatch it anytime and use it to fight for you.";
+	next;
+	mes .@npc$;
+	mes "Serin can also be found at the usual place and will take care of it for you and give you Ebel's Card in exchange for it, you can trade as many times as you wish. Now go and fulfill your destiny!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Kill my enemies? Save the world? Help the people?";
+	next;
+	mes .@npc$;
+	mes "...Ask stupid questions.";
+	close2;
+	warp "niflheim",92,221;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	end;
+	}
+	if (revenanttst ==3){
+	playbgm "98";
+	mes .@npc$;
+	mes "Ebel was the first Revenant... I found her wandering around a gunslinger base or something...Ebel... show us what a REAL test is like!";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Lady Hel#quest4");
+	donpcevent instance_npcname("#ReaperSpawns2", instance_id())+"::OnEnable";
+	end;
+	}
+	mes .@npc$;
+	mes "..." + strcharinfo(0) + "...?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Yeah, that's me.";
+	next;
+	mes .@npc$;
+	mes "Did you really ask for a test from Serin?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Am I the butt of a joke here or something?";
+	next;
+	mes .@npc$;
+	mes "Oh, no, never... so, your Mark is awakening eh?";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Can you help me with it?";
+	next;
+	mes .@npc$;
+	mes "Sure why not? You'll fight Ebel now, and if you can defeat her here, I'll seal your Mark on your Scythe.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What? So will I be free of shadows, and people hating me?";
+	next;
+	mes .@npc$;
+	mes "Not really. But you'll have control of your mark and if you train enough, you'll be able to fight beside it someday, using the Invoker's Mark.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Seems like a plan.";
+	next;
+	mes .@npc$;
+	mes "You shall fight Ebel now. If you can defeat her, I'll allow you to be one of my Revenants, the strongest soul reapers in this realm. Get ready!";
+	close2;
+	set revenanttst,3;
+	end;
+}
+	
+que_sign01,1,1,4	script	#ReaperSpawns	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#ReaperSpawns", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#ReaperSpawns", instance_id());
+	set .@map$, instance_mapname("que_sign01");
+	.@event$ = instance_npcname("#ReaperSpawns")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,46,63,"Ebel Reaper",3029,1, .@event$;
+	monster .@map$,46,114,"Ebel Reaper",3029,1, .@event$;
+	monster .@map$,46,164,"Ebel Reaper",3029,1, .@event$;
+	set 'Reaper_Mobs,3;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_sign01"), "Fight the Reapers!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Reaper_Mobs,'Reaper_Mobs-1;
+	mapannounce instance_mapname("que_sign01"), "????: I can feel it... my freedom... CONTINUE FIGHTING!",bc_map,"0xffff00";
+	if ('Reaper_Mobs < 1) {
+		set 'Reaper_Mobs,0;
+		set revenanttst,2;
+		mapannounce instance_mapname("que_sign01"), "The Reapers have been defeated. You may now see Lady Hel.",bc_map,"0xffff00";
+		enablenpc instance_npcname("Lady Hel#quest4");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_sign01,1,1,4	script	#ReaperSpawns2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#ReaperSpawns2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#ReaperSpawns2", instance_id());
+	set .@map$, instance_mapname("que_sign01");
+	.@event$ = instance_npcname("#ReaperSpawns2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,55,217,"Revenant Ebel",3628,1, .@event$;
+	set 'Reaper_Mob,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_sign01"), "Defeat Revenant Ebel and claim your true power!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Reaper_Mob,'Reaper_Mob-1;
+	if ('Reaper_Mob < 1) {
+		set 'Reaper_Mob,0;
+		set revenanttst,4;
+		mapannounce instance_mapname("que_sign01"), "????: I AM FREE!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Lady Hel#quest4");
+		stopnpctimer;
+	}
+	end;
+}
+
+////////////////////
+//Pawns:
+//13-16-19-22-25-28-31-34,31
+//Backrow:
+//same,34
+//Queen:25,34
+//King: 22,34
+//Kingslayer Job Quest
+/////////////////////
+
+moscovia,266,208,5	script	Dethroned King#quest1	4_M_5THPRIN1,{
+	set .@npc$, "[Dethroned King]";
+	if (kingslayerjob >=1){
+	mes "[Body Double]";
+	mes "I'm a body double for our king! Thanks to you, he took back the Throne! Thank you!";
+	next;
+	mes "[Body Double]";
+	mes "I'm here to make sure any unwanted people who might want to attempt at his life pay for it!";
+	close;
+	}
+	if (duelistjob ==0){
+	mes .@npc$;
+	mes "Oh well... such is life...sometimes even a crown can't save you.";
+	close;	
+	}
+	if (duelistjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "I need help from someone at full capacity, why don't you spend your skill points?";
+	close;
+	}
+	mes .@npc$;
+	mes "Hey There! Duelist! You seem quite capable...Would you help a Monarch past his prime?";
+	next;
+	mes .@npc$;
+	mes "I come from a distant land. My throne was taken and I was exiled...There's a demon pretending to be a king and tricking everyone!";
+	next;
+	mes .@npc$;
+	mes "He challenged me to a strange game... and I couldn't fight the monsters...can you help me?";
+	next;
+	switch(select("Sorry, I can't.:Of course your majesty!")) {
+	case 1:
+	mes .@npc$;
+	mes "Well... if you change your mind...I'll be here. Not like I can leave anyway...";
+	close;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "The usurper of the throne is a dangerous foe! You need to be stronger!";
+	close;
+	}
+	mes .@npc$;
+	mes "Thank you so much! I have faith in your power...You may defeat him...and his Game of Thrones...";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Game of Thrones";
+	mes .@npc$;
+	mes "There's a small boat behind the island... you have to take it and travel north for 2 hours...";
+	next;
+	specialeffect2 834;
+	.@name$ = "Kingslayer" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "He will take you to a game as soon as you get there. Don't be fooled and keep your guard up!";
+	next;
+	savepoint "moscovia",264,206,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Game of Thrones]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Dethroned King]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Game of Thrones...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}
+
+//Game of Thrones Instance
+
+chess_test,1,1,4	script	Controller#KingslayerTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Fake King#quest2");
+	disablenpc instance_npcname("True King#quest2");
+	end;
+}
+
+chess_test,23,26,5	script	Fake King#quest1	1_M_PRON_KING,{
+	set .@npc$, "[Fake King]";
+	if (kingslayerinst ==1){
+	mes .@npc$;
+	mes "You have defeated my army... Oh no...";
+	close2;
+	disablenpc instance_npcname("Fake King#quest1");
+	enablenpc instance_npcname("Fake King#quest2");
+	end;
+	}
+	if (duelistjob >=1){
+	mes .@npc$;
+	mes "So a Duelist has come to our kingdom... and expects to change things around a bit eh?";
+	next;
+	mes .@npc$;
+	mes "We're gonna play a little game...The last king was weak, couldn't fight for his own.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "And here you are. thinking you can take me on by yourself?";
+	next;
+	mes .@npc$;
+	mes "By myself? No, Not really. But my soldiers can.";
+	next;
+	mes .@npc$;
+	mes "Here's the deal. If you can survive, I'll let the king have his crown back. If not, I'll be the new king.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Fine, I challenge you!";
+	close2;
+	disablenpc instance_npcname("Fake King#quest1");
+	donpcevent instance_npcname("#PawnSpawnks", instance_id())+"::OnEnable";
+}
+}
+
+chess_test,22,34,5	script	Fake King#quest2	1_M_PRON_KING,{
+	set .@npc$, "[Fake King]";
+	mes .@npc$;
+	mes "How could you... you're so strong!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Now, leave this place and give the King back his place!";
+	next;
+	playbgm "98";
+	mes .@npc$;
+	mes "You're kidding right?! This place is mine! You will never leave!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "We had a deal! I defeated your game!";
+	next;
+	mes .@npc$;
+	mes "You never had a chance! THIS. is my game! Can you defeat my whole Army!?";
+	close2;
+	disablenpc instance_npcname("Fake King#quest2");
+	donpcevent instance_npcname("#KingSpawnks", instance_id())+"::OnEnable";
+}
+
+chess_test,22,35,5	script	True King#quest2	4_M_5THPRIN2,{
+	set .@npc$, "[True King]";
+	mes .@npc$;
+	mes "You... you have saved us! You saved our kingdom!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "That demon was strong...But it won't be a problem anymore.";
+	next;
+	mes .@npc$;
+	mes "You are a fair person. People might call you a Kingslayer, but you are righteous! You will always be welcome in our kingdom! Go in peace, my new friend.";
+	close2;
+	warp "moscovia",264,206;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	end;
+}
+
+chess_test,1,1,4	script	#PawnSpawnks	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#PawnSpawnks", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#PawnSpawnks", instance_id());
+	set .@map$, instance_mapname("chess_test");
+	.@event$ = instance_npcname("#PawnSpawnks")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,22,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,25,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,19,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,28,31,"Ebony Pawn",2405,1, .@event$;
+	set 'Pawn_mob,4;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("chess_test"), "Fake King: Can you handle my soldiers?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Pawn_mob,'Pawn_mob-1;
+	if ('Pawn_mob < 1) {
+		set 'Pawn_mob,0;
+		donpcevent instance_npcname("#BishopSpawnks", instance_id())+"::OnEnable";
+		stopnpctimer;
+	}
+	end;
+}
+
+chess_test,1,2,4	script	#BishopSpawnks	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#BishopSpawnks", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#BishopSpawnks", instance_id());
+	set .@map$, instance_mapname("chess_test");
+	.@event$ = instance_npcname("#BishopSpawnks")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,19,34,"Ebony Bishop",3447,1, .@event$;
+	monster .@map$,28,34,"Ebony Bishop",3447,1, .@event$;
+	set 'Bishop_mob,2;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("chess_test"), "Fake King: What about my Priests?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Bishop_mob,'Bishop_mob-1;
+	if ('Bishop_mob < 1) {
+		set 'Bishop_mob,0;
+		donpcevent instance_npcname("#KnightSpawnks", instance_id())+"::OnEnable";
+		stopnpctimer;
+	}
+	end;
+}
+
+chess_test,1,3,4	script	#KnightSpawnks	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#KnightSpawnks", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#KnightSpawnks", instance_id());
+	set .@map$, instance_mapname("chess_test");
+	.@event$ = instance_npcname("#KnightSpawnks")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,15,34,"Ebony Knight",1061,1, .@event$;
+	monster .@map$,31,34,"Ebony Knight",1061,1, .@event$;
+	set 'Knight_mob,2;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("chess_test"), "Fake King: Ehh...maybe my Knights?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Knight_mob,'Knight_mob-1;
+	if ('Knight_mob < 1) {
+		set 'Knight_mob,0;
+		donpcevent instance_npcname("#RookSpawnks", instance_id())+"::OnEnable";
+		stopnpctimer;
+	}
+	end;
+}
+
+chess_test,1,4,4	script	#RookSpawnks	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#RookSpawnks", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#RookSpawnks", instance_id());
+	set .@map$, instance_mapname("chess_test");
+	.@event$ = instance_npcname("#RookSpawnks")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,13,34,"Ebony Rook",3506,1, .@event$;
+	monster .@map$,34,34,"Ebony Rook",3506,1, .@event$;
+	set 'Rook_mob,2;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("chess_test"), "Fake King: Hahaha! Tremble before my mighty shields!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Rook_mob,'Rook_mob-1;
+	if ('Rook_mob < 1) {
+		set 'Rook_mob,0;
+		donpcevent instance_npcname("#QueenSpawnks", instance_id())+"::OnEnable";
+		stopnpctimer;
+	}
+	end;
+}
+
+chess_test,1,5,4	script	#QueenSpawnks	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#QueenSpawnks", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#QueenSpawnks", instance_id());
+	set .@map$, instance_mapname("chess_test");
+	.@event$ = instance_npcname("#QueenSpawnks")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,25,34,"Ebony Queen",1370,1, .@event$;
+	set 'Queen_mob,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("chess_test"), "Fake King: Can you handle a mighty Sorceress?",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'Queen_mob,'Queen_mob-1;
+	if ('Queen_mob < 1) {
+		set 'Queen_mob,0;
+		enablenpc instance_npcname("Fake King#quest2");
+		set kingslayerinst,1;
+		stopnpctimer;
+	}
+	end;
+}
+
+chess_test,1,6,4	script	#KingSpawnks	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#KingSpawnks", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#KingSpawnks", instance_id());
+	set .@map$, instance_mapname("chess_test");
+	.@event$ = instance_npcname("#KingSpawnks")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,13,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,34,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,15,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,31,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,22,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,25,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,19,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,28,31,"Ebony Pawn",2405,1, .@event$;
+	monster .@map$,19,34,"Ebony Bishop",3447,1, .@event$;
+	monster .@map$,28,34,"Ebony Bishop",3447,1, .@event$;
+	monster .@map$,15,34,"Ebony Knight",1061,1, .@event$;
+	monster .@map$,31,34,"Ebony Knight",1061,1, .@event$;
+	monster .@map$,13,34,"Ebony Rook",3506,1, .@event$;
+	monster .@map$,34,34,"Ebony Rook",3506,1, .@event$;
+	monster .@map$,25,34,"Ebony Queen",1370,1, .@event$;
+	monster .@map$,22,34,"Ebony King",1374,1, .@event$;
+	set 'King_mob,16;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("chess_test"), "Fake King: I shall take your soul! You will be part of my army!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'King_mob,'King_mob-1;
+	if ('King_mob < 1) {
+		set 'King_mob,0;
+		enablenpc instance_npcname("True King#quest2");
+		set kingslayerinst,2;
+		atcommand "@job 4079";
+		specialeffect2 687;
+		set finaljob,1;
+		set kingslayerjob,1;
+		stopnpctimer;
+	}
+	end;
+}
+
+//Blast Juggler Job Quest
+
+lighthalzen,54,278,5	script	Mad Scientist#quest1	4_F_SCIENCE,{
+	set .@npc$, "[Mad Scientist]";
+	if (blastjugglerjob >=1){
+	mes .@npc$;
+	mes "Good job there! HAHAHAHAHA!";
+	next;
+	mes .@npc$;
+	mes "Ygnizem is finally free and can rest again...No one will ever user her spirit for lab tests anymore.";
+	next;
+	mes .@npc$;
+	mes "I wish there would be more of those bastards around! Just so we could do the same again! HAHAHAHA!";
+	close;
+	}
+	if (saboteurjob ==0){
+	mes .@npc$;
+	mes "Hey! Do you know anyone who knows how to handle explosives? Send them here!";
+	close;	
+	}
+	if (saboteurjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Why do you save skill points? You can't explode them!";
+	close;
+	}
+	mes .@npc$;
+	mes "Hey There! Saboteur! You seem like quite an expert on handling explosives. Care to give me a hand on a situation?";
+	next;
+	mes .@npc$;
+	mes "Rekember may be bakrupt, but some of them escaped the city and were never found, including that bastard, Wolfchev!";
+	next;
+	mes .@npc$;
+	mes "I have a lead on where He might be...He should pay for his crimes. One way or another. Don't you agree?";
+	next;
+	switch(select("Sorry, I can't.:Lets get him!")) {
+	case 1:
+	mes .@npc$;
+	mes "What are you doing? Are you a coward? Geez, I expected more...Come back if you change your mind.";
+	close;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "Ehh... to be honest you don't seem strong enough to handle the explosives. Come back after you're Job Level 70 ok?";
+	close;
+	}
+	mes .@npc$;
+	mes "Sometimes everything it takes is an Explosive Solution...hahahaha!";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Explosive Solution";
+	mes .@npc$;
+	mes "Apparently Wolfchev is hiding inside a bunker... near Aldebaran... We'll go there now. And get him out of there. One way or another!";
+	next;
+	specialeffect2 834;
+	.@name$ = "BJuggler" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "The door will likely be locked. but it doesn't really matter does it? We can do it with some fun stuff.";
+	next;
+	savepoint "lighthalzen",54,273,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Explosive Solution]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Mad Scientist]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Explosive Solution...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;	
+	}
+	}
+	}
+}
+
+//Explosive Solution Instance
+//217,73 - Scientist1
+//212,124 - Scientist 2 - Spawn Mobs
+//216,128 - Vault Lock - Need to explode -> 155,63
+//Wolfchev - 154,111
+//Scientist Shows up 155, 90
+
+que_blj01,1,1,4	script	Controller#BlastJugglerTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Scientist#quest2");
+	disablenpc instance_npcname("Strong Door#quest3");
+	end;
+}
+
+que_blj01,217,73,5	script	Scientist#quest1	4_F_SCIENCE,{
+	set .@npc$, "[Mad Scientist]";
+	if (blastjginst ==1){
+	mes .@npc$;
+	mes "The door is already open! Let's go!";
+	close2;
+	disablenpc instance_npcname("Scientist#quest5");
+	warp instance_mapname("que_blj01"), 155, 63;
+	end;
+	}
+	if (saboteurjob >=1){
+	mes .@npc$;
+	mes "Well Saboteur... This place seems really interesting. There's a big metal door right there. lets go and take a look at it!";
+	close2;
+	disablenpc instance_npcname("Scientist#quest1");
+	enablenpc instance_npcname("Scientist#quest2");
+	end;
+}
+}
+
+que_blj01,212,124,5	script	Scientist#quest2	4_F_SCIENCE,{
+	set .@npc$, "[Mad Scientist]";
+	mes .@npc$;
+	mes "This seems like a really sturdy door... We can use an explosive mix to open it. Let me set the items near it.";
+	next;
+	mes .@npc$;
+	mes "Let's see...you need to add, in this order: Metal Pieces, Black Powder, White Gel and Hot Spark.";
+	next;
+	mes .@npc$;
+	mes "When you add all this...maybe you can...wait...watch out!";
+	close2;
+	disablenpc instance_npcname("Scientist#quest2");
+	donpcevent instance_npcname("#blastspawn1", instance_id())+"::OnEnable";
+	end;
+}
+
+que_blj01,1,1,4	script	#blastspawn1	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#blastspawn1", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#blastspawn1", instance_id());
+	set .@map$, instance_mapname("que_blj01");
+	.@event$ = instance_npcname("#blastspawn1")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,212,115,"Bunker Guard",1088,1, .@event$;
+	monster .@map$,217,97,"Bunker Guard",1089,1, .@event$;
+	monster .@map$,210,78,"Bunker Guard",1088,1, .@event$;
+	monster .@map$,214,70,"Bunker Guard",1089,1, .@event$;
+	set 'blast_mob,4;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_blj01"), "Scientist: These guards... Let's get rid of them!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'blast_mob,'blast_mob-1;
+	if ('blast_mob < 1) {
+		set 'blast_mob,0;
+		enablenpc instance_npcname("Strong Door#quest3");
+		mapannounce instance_mapname("que_blj01"), "Scientist: Finally we took care of them. Go and blast the door! I'll keep watch outside!",bc_map,"0xffff00";
+		stopnpctimer;
+	}
+	end;
+}
+
+que_blj01,216,128,5	script	Strong Door#quest3	CLEAR_NPC,{
+	mes "The door is firmly bolted. Maybe you can explode it with some good explosives.";
+	next;
+	mes "-You carefully set the materials together and light the fuse...";
+	next;
+	mes "...";
+	next;
+	mes "......";
+	next;
+	mes ".........";
+	next;
+	specialeffect 722;
+	mes "Bingo! Let's head inside!";
+	close2;
+	warp instance_mapname("que_blj01"), 155, 63;
+	mapannounce instance_mapname("que_blj01"), "Scientist: Go and get Wolfchev! I'm counting on you!",bc_map,"0xffff00";
+	set blastjginst,1;
+}
+
+que_blj01,154,111,5	script	Wolfchev#quest	4_LGTSCIENCE,{
+	set .@npc$, "[Wolfchev]";
+	mes .@npc$;
+	mes "H-how did you find me? Who are you??";
+	next;
+	playbgm "98";
+	mes .@npc$;
+	mes "This place was supposed to be a secret! Nobody knew about it!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "It's over. Surrender now and I'll take you to the Royal Court for judgment!";
+	next;
+	mes .@npc$;
+	mes "Never! This place shall be my tomb... and yours!";
+	close2;
+	specialeffect 426;
+	specialeffect 425;
+	disablenpc instance_npcname("Wolfchev#quest", instance_id());
+	donpcevent instance_npcname("#blastspawn2", instance_id())+"::OnEnable";
+	end;
+}
+
+que_blj01,1,1,4	script	#blastspawn2	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#blastspawn2", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#blastspawn2", instance_id());
+	set .@map$, instance_mapname("que_blj01");
+	.@event$ = instance_npcname("#blastspawn2")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,154,111,"Monster Wolfchev",2445,1, .@event$;
+	set 'blast_mob2,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_blj01"), "Defeat the transformed Wolfchev!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'blast_mob2,'blast_mob2-1;
+	if ('blast_mob2 < 1) {
+		set 'blast_mob2,0;
+		mapannounce instance_mapname("que_blj01"), "Scientist: Wolfchev is finally dead! Good job!",bc_map,"0xffff00";
+		set blastjginst,2;
+		enablenpc instance_npcname("Scientist#quest5");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_blj01,155,90,5	script	Scientist#quest5	4_F_SCIENCE,{
+	set .@npc$, "[Mad Scientist]";
+	if (blastjginst ==1){
+	mes .@npc$;
+	mes "Be careful Orphan, he's dangerous...";
+	close;	
+	}
+	if (blastjginst ==2){
+	mes .@npc$;
+	mes "He's dead... finally...I'm free...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "What do you mean...free?";
+	next;
+	cutin "bio_ygnizem02",2;
+	mes "[Ygnizem Cenia]";
+	mes "I am the first Ygnizem...My soul was trapped in Lighthalzen... until I found  this Scientist who had as much hate as me.";
+	next;
+	mes "[Ygnizem Cenia]";
+	mes "I begged him to take my soul with him and...kill Wolfchev. Now I can finally rest in peace.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Is there anything I can do for you?";
+	next;
+	callfunc "Job_Change",Job_Genetic;
+	specialeffect2 687;
+	set finaljob,1;
+	set blastjugglerjob,1;
+	mes "[Ygnizem Cenia]";
+	mes "You are good with explosives. Continue exploding every last bit of evil from this land. It's what you can do for the memory of my friends.";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Rest in peace, Ygnizem.";
+	next;
+	cutin "",255;
+	mes .@npc$;
+	mes "Well... now she is free... thanks for the help friend. I'll take us back to Lighthalzen!";
+	next;
+	close2;
+	warp "lighthalzen",54,273;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	end;
+	}
+}
+
+/////Night Raven and Black Plague Quests
+/////Talk with respective brother outside.
+/////Night Raven: Patrol area outside, get inside burning mansion, find brother and save, leave.
+/////Black Plague: Get inside mansion, captured on purpose, poison the waterways,Leave.
+ra_fild09,180,237,4	script	Land Brother#quest0	4_m_blackman,{
+	set .@npc$, "[Land Brother]";
+	cutin "bu_alp1",2;
+	if (blackplaguejob >=1){
+	mes .@npc$;
+	mes "Good job there. You sure handled the situation.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (scoundreljob ==0){
+	mes .@npc$;
+	mes "...What? I'm just chilling here.";
+	close2;
+	cutin "",255;
+	end;	
+	}
+	if (scoundreljob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Use those skillpoints...they are useless unspent!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Hello Scoundrel...? Do you want to help me in a mision? We could use your help.";
+	next;
+	switch(select("No, just passing by.:Yes, What is it?")) {
+	case 1:
+	mes .@npc$;
+	mes "Hmm... I'll wait for someone who actually wants to help.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "Ehh... with that level, you can't expect me to trust your fighting power, do you? Go get stronger!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Great! I'm the Land Brother. I'm a master Black Plague.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Sky and Land";
+	mes .@npc$;
+	mes "There's a group of cultists who are killing the people who try to flee Rachel in a villa down this mountain...";
+	next;
+	specialeffect2 834;
+	.@name$ = "BlackPla" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Our mission is to rescue the people and kill any enemies while my brother clears the way out for our escape.";
+	next;
+	savepoint "ra_fild09",182,230,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Sky and Land]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Land Brother]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Sky and Land Brothers...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close2;
+		cutin "",255;
+		end;	
+	}
+	}
+	}
+}
+
+ra_fild09,183,235,5	script	Sky Brother#quest0	4_ep18_alf,{
+	set .@npc$, "[Sky Brother]";
+	cutin "ep18_alf_01",2;
+	if (nightravenjob >=1){
+	mes .@npc$;
+	mes "Hey there. We're watching for enemies that might come investigate. Don't worry.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (bladedancerjob ==0){
+	mes .@npc$;
+	mes "I can't do anything for you.";
+	close2;
+	cutin "",255;
+	end;	
+	}
+	if (bladedancerjob ==1){
+	if (SkillPoint){
+	mes .@npc$;
+	mes "Use those skillpoints...come on!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "A Blade Dancer...? Do you want to help a fellow guildmate? We have a mission to do here.";
+	next;
+	switch(select("No, just passing by.:Yes, What is it?")) {
+	case 1:
+	mes .@npc$;
+	mes "Hmm... I'll wait for someone who actually cares to help.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (JobLevel < 70){
+	mes .@npc$;
+	mes "Ehh... with that level, you can't expect me to trust you to survive, do you? Go get stronger!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Allow me to introduce myself, I'm the Sky Brother. I'm a master Night Raven.";
+	next;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Sky and Land";
+	mes .@npc$;
+	mes "There's a group of cultists who are killing the people who try to flee Rachel in a villa down this mountain...";
+	next;
+	specialeffect2 834;
+	.@name$ = "NightRav" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Our mission is to patrol the area and kill enemies while my brother rescues the people inside.";
+	next;
+	savepoint "ra_fild09",182,230,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Sky and Land Brothers]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Sky Brother]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the Sky and Land Brothers...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close2;
+		cutin "",255;
+		end;	
+	}
+	}
+	}
+}
+
+//Sky and Land Brothers Instance:
+//Sky Brother - 59 230, spawn monsters around area. Meet again at 76,234 - warp to 246,36 - Fight Monsters - skybro at 265, 34 - boss warp
+//Land Brother - 56,234 - warp to 285,250 - monsters in area - brother spawn at 268,268 - secret entrance at 257,285 -> 78,24 monsters in area - landbro at 102,62 - boss warp
+//Final Scene: Sky : 263, 183 Land: 268, 178 - Boss at 268,178 - Arrive at 246,167
+//
+//
+
+que_nir01,1,1,4	script	Controller#NightPlagueTest	CLEAR_NPC,{
+OnInstanceInit:
+	disablenpc instance_npcname("Sky Brother#quest2");
+	disablenpc instance_npcname("Sky Brother#quest3");
+	disablenpc instance_npcname("Land Brother#quest3");
+	disablenpc instance_npcname("Land Brother#quest2");
+	end;
+}
+
+que_nir01,59,230,5	script	Sky Brother#quest1	4_ep18_alf,{
+	set .@npc$, "[Sky Brother]";
+	cutin "ep18_alf_01",2;
+	if (nightravtst == 1){
+	mes .@npc$;
+	mes "Let's hurry inside! The villa is burning!";
+	close2;
+	cutin "",255;
+	warp instance_mapname("que_nir01"), 246, 167;
+	end;
+	}
+	if (bladedancerjob ==0){
+	mes .@npc$;
+	mes "Talk to my brother when you're ready to start. I'm busy preparing my Raven for attack.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Here's the plan...";
+	next;
+	mes .@npc$;
+	mes "There should be enemies around here... This place was expected to be heavily guarded. We will find these guards and take care of them.";
+	next;
+	mes .@npc$;
+	mes "We will then proceed to the main entrance of the villa, and make sure it's cleared of enemies before my brother finishes his work.";
+	next;
+	cutin "bu_alp1",2;
+	mes "[Land Brother]";
+	mes "While you guys work here, I'll be inside making sure the people are safe and clearing any guards I find.";
+	next;
+	cutin "ep18_alf_01",2;
+	mes .@npc$;
+	mes "If anything goes wrong, we must be ready to assist him in leaving this place alive.";
+	next;
+	mes .@npc$;
+	mes "Well... my Raven found a few enemies hiding already! So let's get to work!";
+	close2;
+	cutin "",255;
+	donpcevent instance_npcname("#nightspawn01", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("Sky Brother#quest1");
+	disablenpc instance_npcname("Land Brother#quest1");
+	end;
+}
+
+que_nir01,56,234,5	script	Land Brother#quest1	4_m_blackman,{
+	set .@npc$, "[Land Brother]";
+	cutin "bu_alp1",2;
+	if (nightravtst == 1){
+	mes .@npc$;
+	mes "Let's hurry inside! The villa is burning!";
+	close2;
+	cutin "",255;
+	warp instance_mapname("que_nir01"), 246, 167;
+	end;
+	}
+	if (scoundreljob ==0){
+	mes .@npc$;
+	mes "Talk to my brother when you're ready to start. I'm busy preparing my toxins and coatings.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Here's the plan...";
+	next;
+	mes .@npc$;
+	mes "There's a small window that is unguarded near the villa. We will approach and enter it. Once inside, we will try to locate the secret entrance to the basement.";
+	next;
+	mes .@npc$;
+	mes "On the basement we will probably find the people that were captured. We will take them with us to safety.";
+	next;
+	cutin "ep18_alf_01",2;
+	mes "[Sky Brother]";
+	mes "Meanwhile, I'll be clearing the outside area of the villa and scouting so nobody sees us when we leave.";
+	next;
+	cutin "bu_alp1",2;
+	mes .@npc$;
+	mes "On the basement we will probably find the people that were captured. We will take them with us to safety.";
+	next;
+	mes .@npc$;
+	mes "There will probably be enemies inside. So be ready to fight...Let's go!";
+	close2;
+	cutin "",255;
+	donpcevent instance_npcname("#plaguespawn01", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("Sky Brother#quest1");
+	disablenpc instance_npcname("Land Brother#quest1");
+	warp instance_mapname("que_nir01"), 284, 250;
+	end;
+}
+
+que_nir01,268,268,5	script	Land Brother#quest2	4_m_blackman,{
+	set .@npc$, "[Sky Brother]";
+	cutin "ep18_alf_01",2;
+	mes .@npc$;
+	mes "We need to find a hidden switch! Check the area around, see if you can find anything.";
+	close2;
+	cutin "",255;
+	disablenpc instance_npcname("Land Brother#quest2");
+	enablenpc instance_npcname("Secret Book#quest2");
+	end;
+}
+
+que_nir01,260,285,5	script	Secret Book#quest2	CLEAR_NPC,{
+	mes "You hear a click.... then a BIG EXPLOSION!";
+	close2;
+	donpcevent instance_npcname("#plaguespawn02", instance_id())+"::OnEnable";
+	warp instance_mapname("que_nir01"), 78, 22;
+	end;
+}
+
+que_nir01,1,1,4	script	#nightspawn01	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#nightspawn01", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#nightspawn01", instance_id());
+	set .@map$, instance_mapname("que_nir01");
+	.@event$ = instance_npcname("#nightspawn01")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,76,203,"Villa Guard",1088,1, .@event$;
+	monster .@map$,74,239,"Villa Guard",1088,1, .@event$;
+	monster .@map$,44,242,"Villa Guard",1089,1, .@event$;
+	set 'night_mob2,3;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_nir01"), "Defeat the guards hiding around!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'night_mob2,'night_mob2-1;
+	if ('night_mob2 < 1) {
+		set 'night_mob2,0;
+		mapannounce instance_mapname("que_nir01"), "Sky Brother: Excellent...wait a second...",bc_map,"0xffff00";
+		enablenpc instance_npcname("Sky Brother#quest2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_nir01,1,1,4	script	#plaguespawn01	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#plaguespawn01", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#plaguespawn01", instance_id());
+	set .@map$, instance_mapname("que_nir01");
+	.@event$ = instance_npcname("#plaguespawn01")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,265,258,"Villa Guard",1088,1, .@event$;
+	monster .@map$,260,267,"Villa Guard",1088,1, .@event$;
+	monster .@map$,252,258,"Villa Guard",1089,1, .@event$;
+	set 'night_mob2,3;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_nir01"), "Defeat the guards inside the villa!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'night_mob2,'night_mob2-1;
+	if ('night_mob2 < 1) {
+		set 'night_mob2,0;
+		mapannounce instance_mapname("que_nir01"), "Land Brother: Good job! That was pretty easy!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Land Brother#quest2");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_nir01,76,234,5	script	Sky Brother#quest2	4_ep18_alf,{
+	set .@npc$, "[Sky Brother]";
+	cutin "ep18_alf_01",2;
+	mes .@npc$;
+	mes "The villa...it's burning! We need to hurry! Get Ready to fight our way in!";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "Alright! Let's go!";
+	close2;
+	cutin "",255;
+	donpcevent instance_npcname("#nightspawn02", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("Sky Brother#quest2");
+	warp instance_mapname("que_nir01"), 246, 36;
+	end;
+}
+
+que_nir01,1,1,4	script	#nightspawn02	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#nightspawn02", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#nightspawn02", instance_id());
+	set .@map$, instance_mapname("que_nir01");
+	.@event$ = instance_npcname("#nightspawn02")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,256,39,"Villa Guard",1089,1, .@event$;
+	monster .@map$,256,34,"Villa Guard",1088,1, .@event$;
+	monster .@map$,256,30,"Villa Guard",1089,1, .@event$;
+	set 'night_mob2,3;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_nir01"), "Defeat the guards on the front gate!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'night_mob2,'night_mob2-1;
+	if ('night_mob2 < 1) {
+		set 'night_mob2,0;
+		mapannounce instance_mapname("que_nir01"), "Sky Brother: Finally... Let's hurry inside!",bc_map,"0xffff00";
+		set nightravtst,1;
+		enablenpc instance_npcname("Sky Brother#quest3");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_nir01,1,1,4	script	#plaguespawn02	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#plaguespawn02", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#plaguespawn02", instance_id());
+	set .@map$, instance_mapname("que_nir01");
+	.@event$ = instance_npcname("#plaguespawn02")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,89,37,"Villa Guard",1088,1, .@event$;
+	monster .@map$,79,55,"Villa Guard",1089,1, .@event$;
+	monster .@map$,99,36,"Villa Guard",1088,1, .@event$;
+	monster .@map$,100,16,"Villa Guard",1089,1, .@event$;
+	set 'night_mob2,4;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_nir01"), "Defeat the guards in the basement!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'night_mob2,'night_mob2-1;
+	if ('night_mob2 < 1) {
+		set 'night_mob2,0;
+		mapannounce instance_mapname("que_nir01"), "Land Brother: Damn...There's nobody here!",bc_map,"0xffff00";
+		enablenpc instance_npcname("Land Brother#quest3");
+		stopnpctimer;
+	}
+	end;
+}
+
+que_nir01,261,33,5	script	Sky Brother#quest3	4_ep18_alf,{
+	set .@npc$, "[Sky Brother]";
+	cutin "ep18_alf_01",2;
+	mes .@npc$;
+	mes "So many guards... are you okay? Let's head in and see what's happening!";
+	close2;
+	cutin "",255;
+	warp instance_mapname("que_nir01"), 246, 167;
+	end;
+}
+
+que_nir01,101,58,5	script	Land Brother#quest3	4_m_blackman,{
+	set .@npc$, "[Land Brother]";
+	cutin "bu_alp1",2;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "They...completely destroyed the place! That book was rigged with explosives! It's a trap!";
+	next;
+	mes .@npc$;
+	mes "Where could they take the people... let's go back up quickly!";
+	close2;
+	cutin "",255;
+	warp instance_mapname("que_nir01"), 251, 186;
+	end;
+}
+
+que_nir01,263,183,5	script	Sky Brother#quest4	4_ep18_alf,{
+	set .@npc$, "[Sky Brother]";
+	cutin "ep18_alf_01",2;
+	if (nightravtst ==2){
+	mes .@npc$;
+	mes "Great fight! Let's finish her off...";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "This bastard... Don't let her escape!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+que_nir01,267,178,5	script	Land Brother#quest4	4_m_blackman,{
+	set .@npc$, "[Land Brother]";
+	cutin "bu_alp1",2;
+	if (nightravtst ==2){
+	mes .@npc$;
+	mes "Excelent work. Too bad we couldn't find the people...bastards...";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "He's a dangerous man... keep your eyes on him!";
+	close2;
+	cutin "",255;
+	end;
+}
+
+que_nir01,272,181,5	script	Cultist Leader#quest4	4_F_MASK1,{
+	set .@npc$, "[Cultist Leader]";
+	if (nightravtst ==2){
+	mes .@npc$;
+	mes "This can't be... I hate every single one of you Orphans... and you too you stupid brothers!";
+	next;
+	cutin "ep18_alf_01",2;
+	mes "[Sky Brother]";
+	mes "Just finish the guy off. Let's not waste time.";
+	next;
+	cutin "bu_alp1",2;
+	mes "[Land Brother]";
+	mes "What a waste of a nice villa...";
+	next;
+	disablenpc instance_npcname("Cultist Leader#quest4");
+	if (bladedancerjob ==1){
+	cutin "ep18_alf_01",2;
+	mes "[Sky Brother]";
+	mes "I'm impressed by your great work today! I think you're fit to be a great Night Raven...";
+	next;
+	callfunc "Job_Change",Job_Guillotine_Cross;
+	specialeffect2 687;
+	set finaljob,1;
+	set nightravenjob,1;
+	getitem 12848,1;
+	cutin "bu_alp1",2;
+	mes "[Land Brother]";
+	mes "Congratulations Orphan! That really was quite impressive! Now let's leave this mess of a place!";
+	close2;
+	warp "ra_fild09",183,230;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	end;
+	}
+	if (scoundreljob ==1){
+	cutin "bu_alp1",2;
+	mes "[Land Brother]";
+	mes "You really know how to control death at the tip of your fingers eh? I'm sure you'll be a great Black Plague!";
+	next;
+	callfunc "Job_Change",Job_Mechanic;
+	specialeffect2 687;
+	set finaljob,1;
+	set blackplaguejob,1;
+	cutin "ep18_alf_01",2;
+	mes "[Sky Brother]";
+	mes "Congratulations Orphan! That really was quite impressive! Now let's leave this mess of a place!";
+	close2;
+	warp "ra_fild09",183,230;
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	end;
+	}
+	}
+	mes .@npc$;
+	mes "So the three of you are the small rabbits that fell in my trap.";
+	next;
+	playbgm "98";
+	cutin "bu_alp1",2;
+	mes "[Land Brother]";
+	mes "What kind of stupid trap makes you homeless?";
+	next;
+	cutin "ep18_alf_01",2;
+	mes "[Sky Brother]";
+	mes "You don't seem very smart!";
+	next;
+	mes .@npc$;
+	mes "So you thought the people were being taken here...? They are in the temple. Where they belong! They will help bring Goddess Freya back!";
+	next;
+	cutin "ep18_alf_01",2;
+	mes "[Sky Brother]";
+	mes "Oh come on... now our friend will have to kill you!";
+	next;
+	cutin "bu_alp1",2;
+	mes "[Land Brother]";
+	mes "Well, you want a job promotion right rookie? KICK HIS ASS!";
+	next;
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "You can try, Orphan!";
+	close2;
+	cutin "",255;
+	donpcevent instance_npcname("#nightplagueboss", instance_id())+"::OnEnable";
+	disablenpc instance_npcname("Cultist Leader#quest4");
+	disablenpc instance_npcname("Sky Brother#quest4");
+	disablenpc instance_npcname("Land Brother#quest4");
+	end;
+}
+
+que_nir01,1,1,4	script	#nightplagueboss	-1,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#nightplagueboss", instance_id());
+	end;
+OnEnable:
+	enablenpc instance_npcname("#nightplagueboss", instance_id());
+	set .@map$, instance_mapname("que_nir01");
+	.@event$ = instance_npcname("#nightplagueboss")+"::OnMyMobDead";
+	killmonster .@map$, .@event$;
+	monster .@map$,270,180,"Cultist Captain",2444,1, .@event$;
+	set 'night_mob2,1;
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	mapannounce instance_mapname("que_nir01"), "Defeat the Captain!",bc_map,"0xffff00";
+	end;
+
+OnMyMobDead:
+	set 'night_mob2,'night_mob2-1;
+	if ('night_mob2 < 1) {
+		set 'night_mob2,0;
+		mapannounce instance_mapname("que_nir01"), "Cultist Captain: H-How...how could you!",bc_map,"0xffff00";
+		set nightravtst,2;
+		enablenpc instance_npcname("Cultist Leader#quest4");
+		enablenpc instance_npcname("Sky Brother#quest4");
+		enablenpc instance_npcname("Land Brother#quest4");
+		stopnpctimer;
+	}
+	end;
+}

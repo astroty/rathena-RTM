@@ -1,0 +1,152 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Opens the black market
+//===== Comments: =========================================
+//====================================================
+-	shop	blackmarketskill	-1,12581:1000,537:250,7524:150,717:100,6493:50,7139:50,7135:10,7136:10,7940:5,28599:10000,12848:3000.
+-	shop	blackmarketmanuals	-1,24079:5000,24018:5000,24035:5000,24080:50000,24081:50000,24082:50000,24083:50000,24084:50000,24085:50000,24086:50000,24097:50000.
+-	shop	blackmarketammo		-1,1750:50,1753:5000,1752:2000,1754:2000,1755:2000,1756:2000,1751:5000,1767:5000,1757:5000,13294:10000,13293:10000.
+-	shop	blackmarketpoison	-1,678:500,12717:200,12722:400,12720:600,12718:800,6128:1000,12724:1200,713:50,511:100,972:300,7932:200,7933:400,7934:800,7935:1600,7936:3200.
+-	shop	blackmarketcook	-1,6249:1000,6251:1000,6253:1000,6252:1000,6254:1000,7454:1000,6258:1000,6257:1000,6259:1000,7457:1000,6260:1000,6261:1000.
+-	shop	blackmarketunique	-1,7931:100000,6189:50000,6190:120000,6191:250000,11022:200000,6255:50000,6248:50000,2187:25000.
+
+-	script	::blkmkt	HIDDEN_NPC,{
+	set .@npc$, "[Mr. Somebody]";
+	cutin "ep18_merchant",2;
+	mes .@npc$;
+	mes "Welcome to our shop.";
+	mes "Only we have this stuff!";
+	mes "We have everything you need!";
+	emotion ET_MONEY;
+	close2;
+	switch(select("Catalogue and Skill Materials:Manuals:Ammo and Throwing:Poison Inventory:Cooking Inventory:Unique Trinkets:Nothing:Im Important")) {
+	case 1:
+		callshop "blackmarketskill",1;
+		cutin "",255;
+		break;
+	case 2:
+		callshop "blackmarketmanuals",1;
+		cutin "",255;
+		break;
+	case 3:
+		callshop "blackmarketammo",1;
+		cutin "",255;
+		break;
+	case 4:
+		callshop "blackmarketpoison",1;
+		cutin "",255;
+		break;
+	case 5:
+		callshop "blackmarketcook",1;
+		cutin "",255;
+		break;
+	case 6:
+		callshop "blackmarketunique",1;
+		cutin "",255;
+		break;
+	case 7:
+		mes .@npc$;
+		mes "Feel free to return anytime!";
+		close2;
+		cutin "",255;
+		end;
+	case 8:
+	if (#darkmarket ==1){
+		emotion ET_SURPRISE;
+	mes .@npc$;
+		mes "Oh. Please do take a look at our unique selection of items! You are a very valuable customer of ours!";
+		close2;	
+		callshop "darkmarket",1;
+		end;
+	}
+		mes .@npc$;
+		mes "Good for you.";
+		mes "I don't care.";
+		close2;
+		emotion ET_SCRATCH;
+		cutin "",255;
+		end;
+	}
+}
+-	shop	darkmarket	-1,12581:750,526:5000,1758:50000,1760:50000,1762:50000,13259:100000,7937:1000,12723:4000,12721:4500,12719:5000,6192:2500000,14738:5000000,14739:10000000.
+
+va_orpha,365,204,4	duplicate(blkmkt)	Black Market#Orphanage	10380
+moc_prydb1,162,129,4	duplicate(blkmkt)	Black Market#Basement	10380
+dicast_in,259,102,3	duplicate(blkmkt)	Black Market#Diel	10380
+morocc,204,68,3	duplicate(blkmkt)	Black Market#Morroc	10380
+prontera,209,192,4	duplicate(blkmkt)	Black Market#Prontera	10380
+geffen,179,171,4	duplicate(blkmkt)	Black Market#Geffen	10380
+payon,222,109,4	duplicate(blkmkt)	Black Market#Payon	10380
+alberta,59,246,4	duplicate(blkmkt)	Black Market#Alberta	10380
+izlude_in,73,110,4	duplicate(blkmkt)	Black Market#Izlude	10380
+aldeba_in,92,104,1	duplicate(blkmkt)	Black Market#Aldebaran	10380
+xmas_in,38,46,3	duplicate(blkmkt)	Black Market#Lutie	10380
+cmd_in01,75,163,3	duplicate(blkmkt)	Black Market#Comodo	10380
+yuno_in01,38,31,4	duplicate(blkmkt)	Black Market#Yuno	10380
+ama_in01,19,31,4	duplicate(blkmkt)	Black Market#Amatsu	10380
+um_in,93,121,6	duplicate(blkmkt)	Black Market#Umbala	10380
+nif_in,32,20,3	duplicate(blkmkt)	Black Market#Niflheim	10380
+ayo_in01,17,192,4	duplicate(blkmkt)	Black Market#Ayothaya	10380
+einbroch,247,186,4	duplicate(blkmkt)	Black Market#Einbroch	10380
+lhz_in02,31,155,3	duplicate(blkmkt)	Black Market#Lighthalzen	10380
+ein_in01,173,18,6	duplicate(blkmkt)	Black Market#Einbech	10380
+hugel,115,73,4	duplicate(blkmkt)	Black Market#Hugel	10380
+rachel,101,163,4	duplicate(blkmkt)	Black Market#Rachel	10380
+veins,130,250,4	duplicate(blkmkt)	Black Market#Veins	10380
+moscovia,225,217,4	duplicate(blkmkt)	Black Market#Moscovia	10380
+mora,46,125,3	duplicate(blkmkt)	Black Market#Mora	10380
+dewata,80,172,3	duplicate(blkmkt)	Black Market#Dewata	10380
+malaya,169,218,4	duplicate(blkmkt)	Black Market#Malaya	10380
+nomadvill,122,163,4	duplicate(blkmkt)	Black Market#Nomads	10380
+
+nameless_i,258,216,4	script	Dark Market#namelessdst	10380,{ 
+	set .@npc$, "[Dark Market]";
+	if (#darkmarket ==1){
+	mes .@npc$;
+	mes "I now have all the money I need to start my business, thanks to people like you!";
+	close;
+	}
+	mes .@npc$;
+	mes "It's time for me to leave this island. I need to change my line of business.";
+	next;
+	mes .@npc$;
+	mes "A Dark Market is not very attractive... I need to rebrand...hey...why don't you help me with it?";
+	next;
+	mes .@npc$;
+	mes "If you invest 5.000.000z in my development, I'll give you a cool card, better than any other card. So you can buy cool stuff from my work in the future. What do you say?";
+	next;
+	switch(select("Deal:No way")) {
+	case 1:
+	if (zeny < 5000000){
+				mes .@npc$;
+				mes "Sorry, You don't have enough zeny. Go get some and bring it to me!";
+				close;
+				}
+				set zeny,zeny-5000000;
+				getitem 14737,1;
+				set #darkmarket,1;
+				mes .@npc$;
+				mes "Thank you kind sir! You won't regret it! I'll always remember it. You can use this if you visit my new line of work someday and I PROMISE it'll be worth it!";
+				close;
+				end;
+				break;
+	close;
+	case 2:
+	emotion ET_SMILE;
+	mes .@npc$;
+	mes "Your loss buddy.";
+	next;
+	
+}
+}

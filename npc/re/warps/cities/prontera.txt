@@ -6,110 +6,13 @@
 //= 1.0 Prontera castle map changed in ep16.1 [Capuche]
 //============================================================
 
-prt_lib_q,9,25,0	script	lib_q_to_pprt	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep16_royal < 21) {
-		mes "There are more to find out.";
-		mes "Go back to Nillem.";
-		close;
-	}
-	warp "prt_q",155,354;
-	end;
-}
 
-prt_cas,152,163,0	script	way_to_qroom_L_qroom_L_to_way	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep16_royal == 0) {
-		npctalk "That way is a royal villa for VIPs. Outsiders cannot access the place.", "Royal Guardian Knight#02", bc_self;
-		setpcblock PCBLOCK_NPC, true;
-		sleep2 3000;
-		setpcblock PCBLOCK_NPC, false;
-		npctalk "If you are invited, a severnt should be there to greet you. Please be guided officially.", "Royal Guardian Knight#02", bc_self;
-		end;
-	}
-	warp "prt_cas_q",150,8;
-    end;
-}
 
-prt_cas,278,163,0	script	way_to_qroom_R_qroom_R_to_way	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep16_royal == 0) {
-		npctalk "That way is a royal villa for VIPs. Outsiders cannot access the place.", "Royal Guardian Knight#03", bc_self;
-		setpcblock PCBLOCK_NPC, true;
-		sleep2 3000;
-		setpcblock PCBLOCK_NPC, false;
-		npctalk "If you are invited, a severnt should be there to greet you. Please be guided officially.", "Royal Guardian Knight#03", bc_self;
-		end;
-	}
-	warp "prt_cas_q",135,119;
-    end;
-}
 
-prt_cas_q,130,32,0	script	qroom_heine_in_qroom_heine_out	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep16_royal > 7 && ep16_royal < 16) {
-		mes "It is locked.";
-		close;
-	}
-	warp "prt_cas_q",30,78;
-    end;
-}
 
-prt_cas_q,130,56,0	script	qroom_nerius_in_qroom_nerius_out	WARPNPC,1,1,{
-	end;
-OnTouch:
-	if (ep16_royal > 2 && ep16_royal < 15 && ep16_royal != 7) {
-		mes "It is locked.";
-		close;
-	}
-	if (ep16_royal == 15) {
-		if (isbegin_quest(7697) < 1) {
-			mes "Let's first reply to the servant that the invitation will be accepted.";
-			close;
-		}
-	}
-	warp "prt_cas_q",30,128;
-    end;
-}
 
-prt_lib,9,24,0	script	lib_to_prt_prison	WARPNPC,1,1,{
-	end;
-OnTouch_:
-	if (ep16_royal > 13)
-		warp "prt_pri00",60,127;
-	else {
-		mes "[Guardian Knight]";
-		mes "You cannot go that way.";
-		close2;
-		warp "prt_lib",60,61;
-	}
-	end;
-}
-
-prt_cas,188,258,0	script	prt_cas_to_prt_pri00	WARPNPC,1,1,{
-	end;
-OnTouch_:
-	if (ep16_royal >= 2)
-		warp "prt_pri00",54,134;
-	else {
-		npctalk "You shouldn't enter the place like that.", "Guardian Knight#ep16_prigate01", bc_self;
-		setpcblock PCBLOCK_NPC, true;
-		sleep2 2000;
-		setpcblock PCBLOCK_NPC, false;
-		warp "prt_cas",182,258;
-	}
-	end;
-}
 
 prt_pri00,54,139,0	warp	prt_pri_to_prt_cas	1,1,prt_cas,182,258
-
-prt_prison,155,290,0	warp2	prt_prison_OUT	2,2,prt_pri00,50,120
-
-prt_q,155,358,0	warp	#prt_q_tp_lib_q	1,1,prt_lib_q,89,43
 
 prt_cas_q,34,78,0	warp	qroom_heine_out_qroom_heine_in	1,1,prt_cas_q,134,32
 prt_cas_q,154,8,0	warp	qroom_L_to_way_way_to_qroom_L	1,1,prt_cas,156,163

@@ -1,0 +1,2856 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Flavor and Basic NPCs - Pyramid and orphanage
+//===== Comments: =========================================
+//====================================================
+
+-	shop	toolorphanshop2	-1,501:25,502:300,505:3000,601:100,602:500,611:200,645:1000.
+-	itemshop	orphanvoucher	-1,14736,13053:1,13408:1,18112:1,1591:1,1437:1,1540:1,28601:1.
+
+va_orpha,42,91,3	script	Welcome Party#orphanage	914,{
+		mes "[Helpful Orphan]";
+		mes "Welcome to the Orphanage! I'm sure you'll love this place.";
+		next;
+		mes "[Helpful Orphan]";
+		mes "I will give you now 5 tips to have a good stay. Are you ready?";
+		next;
+		emotion ET_BEST;
+		mes "[Helpful Orphan]";
+		mes "1-Watch your movements and enemies. Dodge them and pay attention to everything.";
+		next;
+		mes "[Helpful Orphan]";
+		mes "2-Check your World Map for ideas on where to go and what to do.";
+		next;
+		mes "[Helpful Orphan]";
+		mes "3-Always get some INT and VIT on any build, it really helps with the HP/SP management!";
+		next;
+		mes "[Helpful Orphan]";
+		mes "4-Don't feel discouraged, other Orphans can always help you!";
+		next;
+		mes "[Helpful Orphan]";
+		mes "5-Enjoy the Journey! This is a marathon, not a sprint! And it's a great trip!";
+		next;
+		mes "[Helpful Orphan]";
+		mes "Take Care! Don't forget to talk to other Orphans about us!";
+		close;
+}
+
+va_orpha,16,263,5	script	Ornstein#orphanage	904,{
+
+	set .@npc$, "[Ornstein]";
+	mes .@npc$;
+	mes "Welcome to the Orphanage. If you find promissing Orphans, direct them here after they finally get to Job Level 10 ok?";
+	next;
+	if (firstjob ==0){
+	mes .@npc$;
+	mes "Sorry, I can only help those who changed jobs already. Everyone needs a path in life. Even you.";
+	close;
+	}
+	if(countitem(14736) < 1){
+	mes .@npc$;
+	mes "The world can be cruel, and any help is welcome.";
+	close;	
+	}
+	if (darkknightjob ==1){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "You chose the path of the Dark Knight? Impressive.";
+	next;
+	mes .@npc$;
+	mes "I have something cool for you. Take this. Don't let the others know, ok?";
+	close2;
+	getitem 13410,1;
+	delitem 14736,1;
+	}
+	if (illusionistjob ==1){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "You chose the path of the Illusionist? Impressive.";
+	next;
+	mes .@npc$;
+	mes "I have something cool for you. Take this. Don't let the others know, ok?";
+	close2;
+	getitem 2154,1;
+	delitem 14736,1;
+	}
+	if (judgejob ==1){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "You chose the path of the Judge? Impressive.";
+	next;
+	mes .@npc$;
+	mes "I can't really help with weapons, since you guys have your custom made ones.";
+	next;
+	mes .@npc$;
+	mes "I have something cool for you. Take this. Don't let the others know, ok?";
+	close2;
+	getitem 15373,1;
+	delitem 14736,1;
+	}
+	if (peacekeeperjob ==1){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "You chose the path of the Peacekeeper? Impressive.";
+	next;
+	mes .@npc$;
+	mes "I can't really help with weapons, since you guys have your fancy flexible ones.";
+	next;
+	mes .@npc$;
+	mes "I have something cool for you. Take this. Don't let the others know, ok?";
+	close2;
+	getitem 15373,1;
+	delitem 14736,1;
+	}
+	mes .@npc$;
+	mes "You can choose any of these Account-Bound items to help you out. You'll outgrow them eventually but the Orphanage wants you to have a chance.";
+	close2;
+	callshop "orphanvoucher",0;
+	end;
+}
+va_orpha,275,273,3	script	Caravan Leader#orphanage	642,{
+
+	set .@npc$, "[Caravan Leader]";
+	if (xachiev2 ==0 ){
+		achievementcomplete(200094);
+		set xachiev2,1;
+		}
+	mes .@npc$;
+	mes "Hey There Orphan!";
+	mes "We have a caravan here you can take to the Desert and get some";
+	mes "sunlight safely!";
+	next;	
+	mes .@npc$;
+	mes "The area we take you guys to has a small oasis to rest.";
+	mes "And you can return anytime. What do you say?";
+	next;
+	switch(select("Let's go!:I'd rather not, thanks.:Can you take me somewhere else?")) {
+	case 1:
+	mes .@npc$;
+	mes "Don't forget to pack your stuff!";
+	close2;
+	warp "moc_fild07",162,350;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "We will be here if you change your mind!";
+	close;
+	case 3:
+	mes .@npc$;
+	mes "Let's try the forests of Payon then! You'll love the breeze!";
+	close2;
+	warp "pay_fild09",55,270;
+	end;
+}
+}
+
+moc_fild07,164,354,3	script	Caravan Leader#orphanage2	642,{
+
+	set .@npc$, "[Caravan Leader]";
+	mes .@npc$;
+	mes "Hey There Orphan!";
+	mes "We have a caravan here that can take you back to the orphanage!";
+	next;	
+	mes .@npc$;
+	mes "What do you say? Want to go back?";
+	next;
+	switch(select("Let's go!:I want to stay longer!")) {
+	case 1:
+	mes .@npc$;
+	mes "Ok, let's go back!";
+	close2;
+	warp "va_orpha",273,277;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "No hurry! Enjoy the sun!";
+	close;
+}
+}
+
+pay_fild09,54,273,3	script	Caravan Leader#orphanage3	642,{
+
+	set .@npc$, "[Caravan Leader]";
+	mes .@npc$;
+	mes "Hey There Orphan!";
+	mes "We have a caravan here that can take you back to the orphanage!";
+	next;	
+	mes .@npc$;
+	mes "What do you say? Want to go back?";
+	next;
+	switch(select("Let's go!:I want to stay longer!")) {
+	case 1:
+	mes .@npc$;
+	mes "Ok, let's go back!";
+	close2;
+	warp "va_orpha",273,277;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "No hurry! Enjoy the forest!";
+	close;
+}
+}
+
+moc_fild07,173,343,3	script	Cartographer#orphanagecar	110,{
+
+	set .@npc$, "[Cartographer]";
+	if (xachiev3 ==0 ){
+		achievementcomplete(200095);
+		set xachiev3,1;
+		}
+	mes .@npc$;
+	mes "Hey there. I'm working on updating this map of mine. I want to explore distant lands.";
+	next;
+	mes .@npc$;
+	mes "You know how to use your map right? There are multiple ways to do it.";
+	next;
+	mes .@npc$;
+	mes "The Map icon on the upper left menu, using the shortcut (default ctrl+'), the small circle near the area map on the upper right... plenty of ways to locate yourself.";
+	next;
+	mes .@npc$;
+	mes "Don't forget you can press TAB or click the small Monster checkbox to see different areas and data.";
+	next;
+	mes .@npc$;
+	mes "Finally, you can change into different maps with the upper-right drop down menu on the map, pretty cool eh? That's all really. Come back if you need information.";
+	close;
+}
+
+
+moc_fild07,161,360,5	script	Tool Dealer#orphanagecar	88,{
+
+	set .@npc$, "[Tool Dealer]";
+	mes .@npc$;
+	mes "You can buy and sell some basic items here.";
+	close2;
+	callshop "toolorphanshop2",0;
+	end;
+}
+
+moc_prydb1,103,120,4	script	Tough Guy#orphanage	953,{
+
+	set .@npc$, "[Tough Guy]";
+	specialeffect2 588;
+	mes .@npc$;
+	mes "I tried to climb the Pyramid floors...";
+	mes "But the monster up there can be";
+	mes "pretty strong!";
+	next;	
+	mes .@npc$;
+	mes "I need to take a rest and recover.";
+	mes "I'll try going down instead, since";
+	mes "I see even kids hunting monsters there.";
+	next;
+	mes .@npc$;
+	mes "Don't tell anyone please!";
+	mes "Even a strong guy needs a break!";
+	emotion ET_PROFUSELY_SWEAT;
+	close;
+}
+	
+moc_prydb1,52,126,4	script	Orphan#orphanageA	97,{
+
+	set .@npc$, "[Orphan]";
+	mes .@npc$;
+	mes "I'm happy that i can live here.";
+	mes "They even offer some choices for life.";
+	next;	
+	mes .@npc$;
+	mes "I wanted to be a Knight someday.";
+	mes "But since im an orphan, they won't accept me.";
+	mes "So i'll be a Rogue instead!";
+	next;
+	mes .@npc$;
+	mes "You also are an orphan right?";
+	mes "Im glad the Thief guild doesn't care.";
+	mes "We can still be happy.";
+	close;
+}	
+moc_prydb1,49,131,4	script	Researcher#orphanage	755,{
+
+	set .@npc$, "[Researcher]";
+	mes .@npc$;
+	mes "Hmm...";
+	mes "It appears that even here the shadow sets";
+	mes "can be found on monsters...";
+	next;	
+	mes .@npc$;
+	mes "I need to study those items well,";
+	mes "So far i only found a <ITEM>Lost Attire Gloves<INFO>24687</INFO></ITEM>";
+	mes "but I'm sure the whole set is here.";
+	next;
+	mes .@npc$;
+	mes "Not to mention they are actually easier";
+	mes "to find here... must be an anomaly.";
+	mes "It does smell a lot of blood. Eww.";
+	mes "....................hmm?";
+	next;
+	mes .@npc$;
+	mes "Hey! Stop staring at me! ";
+	mes "Im just thinking to myself!";
+	mes "Get Lost!";
+	emotion ET_SURPRISE;
+	close;
+}
+
+va_orpha,272,317,4	script	Receptionist#orphanage	90,{
+	cutin "v_sprakki02",2;
+	set .@npc$, "[Receptionist Sprakki]";
+	if (achiev5 ==0 ){
+	achievementcomplete(200025);
+	set achiev5,1;
+	}
+	mes .@npc$;
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "What brings you here?";
+	mes "Need to know the basics about this";
+	mes "place? Or perhaps just remember?";
+	next;
+	switch(select("Just Passing by:Tell me about the Managers:Tell me about the Orphanage:Tell me about yourself")) {
+	case 1:
+		emotion ET_DELIGHT;
+		mes .@npc$;
+		mes "Taking a break eh?";
+		mes "Everyone needs it sometimes!";
+		cutin "",255;
+		close;
+	case 2:
+		cutin "v_sprakki01",2;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Well... they are nice people.";
+		mes "All of them came from a similar situation";
+		mes "where they lost someone on the family";
+		mes "under terrible circunstances.";
+		next;
+		mes .@npc$;
+		mes "Amadeus Windsor. Our Host.";
+		mes "A very rich Knight from Prontera";
+		mes "that paid fully for the building";
+		mes "He is the last one of his family";
+		mes "And had 2 wonderful children.";
+		next;
+		mes .@npc$;
+		mes "Lorelei Sorin. Our Director.";
+		mes "A sad woman who lost her faith";
+		mes "after losing her talented daughter.";
+		mes "A Natural leader and an example.";
+		mes "Makes sures everything is in order.";
+		next;
+		mes .@npc$;
+		mes "Lucy Guille. Our Healer.";
+		mes "A young lady with a heart of gold.";
+		mes "Loved her older brother and always";
+		mes "followed on his steps. She is a";
+		mes "healer so nobody ever dies, like him.";
+		next;
+		mes .@npc$;
+		mes "The Alt-Eisen Brothers. Our Smiths.";
+		mes "A trio who work hard in memory";
+		mes "of their fallen brother.";
+		mes "They can make, upgrade and sell";
+		mes "many kinds of affordable equipment.";
+		next;
+		mes .@npc$;
+		mes "Leon Damon. Our Representative.";
+		mes "A strong man who always protects";
+		mes "the weak, worked with his sister.";
+		mes "Lives fighting for the rights of";
+		mes "the orphans in her name.";
+		next;
+		mes .@npc$;
+		mes "Mary Cenia. Our cook.";
+		mes "She might be a hot-head, but she";
+		mes "ensures that nobody ever is hungry.";
+		mes "Her daughter was an energetic girl";
+		mes "who could eat everything in a bite.";
+		next;
+		mes .@npc$;
+		mes "Well... I guess that's everyone?";
+		mes "These people really help us around here";
+		mes "I'm sure they can help you if you need.";
+		cutin "",255;
+		close;
+	case 3:
+		cutin "v_sprakki03",2;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "The orphanage might not be";
+		mes "luxurious, but it has everything.";
+		mes "Everyone here works hard to ensure";
+		mes "Orphans can have a normal life.";
+		next;
+		mes .@npc$;
+		mes "Marked orphans have a home,";
+		mes "abandoned people can dream,";
+		mes "the wounds of loss can heal";
+		mes "and everyone has a chance. ";
+		next;
+		mes .@npc$;
+		mes "It's important to help us ok?";
+		mes "So if you ever get some spare time,";
+		mes "make sure to do your part!";
+		mes "Never forget it!";
+		cutin "",255;
+		close;
+	case 4:
+		cutin "v_sprakki04",2;
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Me? Oh! not many people ask me!";
+		mes "I used to work in the Novice Grounds,";
+		mes "near Prontera, I helped new people";
+		mes "get ready and plan for the future.";
+		next;
+		mes .@npc$;
+		mes "Then... the merge happened.";
+		mes "Two worlds as one...";
+		mes "who would have though about it!?";
+		next;
+		mes .@npc$;
+		mes "The people were afraid once again,";
+		mes "but afraid of themselves.";
+		mes "Afraid of the Shadows.";
+		mes "I decided to come here to help.	";
+		mes "So I'm responsible for the kids that arrive.";
+		next;
+		mes .@npc$;
+		mes "The Mark can be a terrible burden,";
+		mes "I always took care of the Novices.";
+		mes "So I came here!";
+		mes "Hopefully that answers your question.";
+		next;
+		emotion ET_DELIGHT;
+		mes .@npc$;
+		mes "It was nice talking to you...";
+		mes "Thanks for caring.";
+		cutin "",255;
+		close;
+}
+}
+
+va_orpha,60,29,3	script	Orphan Support#orphanage	475,{
+	set .@npc$, "[Orphan Support]";
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "I can help you understand your situation a little better, do you need help?";
+	next;
+	switch(select("No Thanks:What is the Mark?:What are the Shadows?:What are my Restrictions?")) {
+	case 1:
+		emotion ET_THINK;
+		mes .@npc$;
+		mes "If you need anything, please let me know.";
+		close;
+	case 2:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "The Mark isn't actually a mark. It's a red light deep inside the eyes of an orphan. You can only see it if you look at someone close enough.";
+		next;
+		mes .@npc$;
+		mes "Not much is known about it, except that when a person with the mark dies, they leave a Shadow behind, and it's a dangerous situation for anyone nearby.";
+		next;
+		mes .@npc$;
+		mes "The mark first started appearing when a massive guild killed Satan Morroc in the Dimensional Gorge. Everyone who has The Mark is an Orphan.";
+		next;
+		mes .@npc$;
+		mes "Every Orphan with the mark mentioned that they saw a strange person near the bodies of their family and they died suddenly.";
+		next;
+		mes .@npc$;
+		mes "In the end, nobody who has any relative alive has the Mark. Which ensures most of these people are either Orphans or people expelled from society.";
+		next;
+		mes .@npc$;
+		mes "Not that Orphans don't suffer enough already...";
+		close;
+	case 3:
+		emotion ET_KEK;
+		mes .@npc$;
+		mes "The Shadows are extremely dangerous for anybody not prepared. They are extra dangerous to adventurer groups in risky situations.";
+		next;
+		mes .@npc$;
+		mes "When a person with The Mark dies, they leave behind a Shadow, those beings are quite resistant to attacks and explode after some time.";
+		next;
+		mes .@npc$;
+		mes "For adventurers it's even more dangerous, since sometimes they work in groups and it can cause a flood of Shadows";
+		next;
+		mes .@npc$;
+		mes "For this reason, job guilds don't take Orphans among them, except for the Thief and Assassins guild really.";
+		next;
+		mes .@npc$;
+		mes "Oh yeah, the Merchant guild also take Orphans, on condition that they never actually take part in combat and focus on business.";
+		next;
+		mes .@npc$;
+		mes "Orphans can get back to life without the help of Kafras, but it requires someone to be quick and kill the Shadow before exploding, kinda risky if you ask me.";
+		close;
+	case 4:
+		emotion ET_SORRY;
+		mes .@npc$;
+		mes "You can join the Thief guild and work hard to either be an Assassin or a Rogue, each of them have specific specializations.";
+		next;
+		mes .@npc$;
+		mes "I heard some people talking about other choices... but honestly I have no idea what they were talking about.";
+		next;
+		mes .@npc$;
+		mes "You can also travel to Alberta and become a Merchant. You will have a series of restrictions imposed to you, but it's a safe, honest work.";
+		next;
+		mes .@npc$;
+		mes "Some people might treat you differently and I advise you to avoid picking unnecessary fights, it's a waste of time.";
+		next;
+		mes .@npc$;
+		mes "Don't forget you can always come back here and help us with our tasks, not to mention help with the investigation of The Mark.";
+		next;
+		mes .@npc$;
+		mes "On the bright side, the adaptability with specific combat skills of the Orphans is famous all over Rune-Midgard, so keep it in mind!";
+		close;
+	}
+}
+
+va_orpha,42,95,3	script	Nanny#orphanage	979,{
+	set .@npc$, "[Nanny]";
+	mes .@npc$;
+	if (xachiev1 ==0 ){
+		achievementcomplete(200093);
+		set xachiev1,1;
+		}
+	mes "Hey, " + strcharinfo(0) + "?";
+	mes "How are you feeling today?";
+	next;
+	if (mirrornanny ==1 && BaseLevel >=15){
+	mes .@npc$;
+	mes "You've grown strong! Let me check my mirror...";
+	next;
+	if(countitem(613) > 0){
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "The mirror...it's Intact! You took great care of it and yourself.";
+	next;
+	if (xachiev5 ==0 ){
+		achievementcomplete(200097);
+		set xachiev5,1;
+		}
+	delitem 613,1;
+	getitem 616,1;
+	set mirrornanny,2;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "Keep it up and you'll be safe.";
+	close;
+	}
+	if(countitem(614) > 0){
+		if (xachiev5 ==0 ){
+		achievementcomplete(200097);
+		set xachiev5,1;
+		}
+	emotion ET_SURPRISE;
+	mes .@npc$;
+	mes "The mirror...it's Broken! That's too bad...but well, you need some help right?";
+	next;
+	delitem 614,1;
+	getitem 569,10;
+	set mirrornanny,2;
+	emotion ET_THROB;
+	mes .@npc$;
+	mes "Take these extra potions and be careful around here!";
+	close;
+	}
+	}
+	if (neworphan ==1){
+	if(countitem(22847) < 1) goto L_noitems;
+	}
+	if (neworphan ==0){
+	mes .@npc$;
+	mes "You woke up screaming...I was worried for a second, I believe you are okay now?";
+	next;
+	mes .@npc$;
+	mes "Director Sorin asked me to give you some items, since you just arrived, I'm sure this stuff will help you a lot!";
+	next;
+	mes .@npc$;
+	mes "If you have questions about this place and your situation, I'm afraid I'm not the best with details.";
+	next;
+	mes .@npc$;
+	mes "You can try to talk to the staff near the counter downstairs, maybe they can help?";
+	next;
+	set neworphan,1;
+	set mirrornanny,1;
+	getitem 569,15;
+	getitem 12324,3;
+	getitem 12325,2;
+	getitem 22847,1;
+	getitem 613,1;
+	mes " You received some useful items:";
+	mes " 15 Potions";
+	mes " 2 Magnifiers";
+	mes " 3 Butterfly Wings";
+	mes " 1 Orphan Badge";
+	mes " A... mirror?";
+	next;
+	mes .@npc$;
+	mes "And please, carry my mirror for a while...It's fragile...but maybe you'll need it. It's up to you! Bring back to me once you're Base Level 15 ok?";
+	next;
+	mes .@npc$;
+	mes "Please take care and try not to get in trouble ok?";
+	close;
+	}
+	mes .@npc$;
+	mes "I got work to do now, clean the bedroom, change sheets, the usual.";
+	close;
+	L_noitems:
+	getitem 22847,1;
+	mes .@npc$;
+	mes "Don't you have a Badge with you?. Ok i'll give you another! Take care of it!";
+	close;
+}
+
+va_orpha,277,303,4	script	Lucy Guille#orphanage	641,{
+	cutin "acact_01",2;
+	set .@npc$, "[Lucy Guille]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ".";
+	mes "What do you need?";
+	next;
+	switch(select("Can you Heal/Repair me?:Can you do something else?:Tell me about yourself:Nevermind")) {
+		case 1:
+			cutin "",255;
+			repairall;
+			emotion ET_BEST;
+			percentheal 100,100;
+			sc_end SC_DECREASEAGI;
+			specialeffect2 EF_HEAL2;
+			mes .@npc$;
+			mes "There you go!";
+			close;
+		case 2:
+			if ( $orphanagelevel <25){
+			mes .@npc$;
+			mes "I can provide you with a boost to your SP regeneration for a few minutes, what do you think? As long as you contribute with the orphanage's coffers, of course. ";
+			switch(select("Yes,Please - 5000z:No,Thanks")) {
+			case 1:
+			if (Zeny >= 5000) {
+				cutin "acact_02",2;
+				emotion ET_BEST;
+				percentheal 100,100;
+				specialeffect2 EF_BLESSING;
+				set Zeny, Zeny - 5000;
+				set orphandonation,orphandonation+1;
+				set $orphanfunds,$orphanfunds+1;
+				set orphantotal,orphantotal+1;
+				sc_start SC_MAGNIFICAT,300000+($orphanagelevel*60000),3;
+				mes "There you go! You also will receive ^6666CC1 Donation Point^000000!";
+				close2;
+				cutin "",255;
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny.";
+				close;	
+			}
+			case 2:
+				cutin "",255;
+				mes .@npc$;
+				mes "Feel free to come again.";
+				close;
+				}
+			}
+			if ( $orphanagelevel <50){
+			mes .@npc$;
+			mes "I can provide you with a boost to your SP regeneration and revest your weapon against breaking and removal for a few minutes, what do you think? As long as you contribute with the orphanage's coffers, of course. ";
+			switch(select("Yes,Please - 5000z:No,Thanks")) {
+			case 1:
+			if (Zeny >= 5000) {
+				cutin "acact_02",2;
+				emotion ET_BEST;
+				percentheal 100,100;
+				specialeffect2 EF_BLESSING;
+				set Zeny, Zeny - 5000;
+				set orphandonation,orphandonation+1;
+				set $orphanfunds,$orphanfunds+1;
+				set orphantotal,orphantotal+1;
+				sc_start SC_MAGNIFICAT,300000+($orphanagelevel*60000),3;
+				sc_start SC_CP_WEAPON,300000+($orphanagelevel*60000),3;
+				mes "There you go! You also will receive ^6666CC1 Donation Point^000000!";
+				close2;
+				cutin "",255;
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny.";
+				close;	
+			}
+			case 2:
+				cutin "",255;
+				mes .@npc$;
+				mes "Feel free to come again.";
+				close;
+				}
+			}
+			if ( $orphanagelevel <=99){
+			mes .@npc$;
+			mes "I can provide you with a boost to your SP regeneration, revest your weapon against breaking and removal for a few minutes, and improve your job level growth speed by 10%!";
+			next;
+			mes "What do you think? As long as you contribute with the orphanage's coffers, of course.";
+			switch(select("Yes,Please - 5000z:No,Thanks")) {
+			case 1:
+			if (Zeny >= 5000) {
+				cutin "acact_02",2;
+				emotion ET_BEST;
+				percentheal 100,100;
+				specialeffect2 EF_BLESSING;
+				set Zeny, Zeny - 5000;
+				set orphandonation,orphandonation+1;
+				set $orphanfunds,$orphanfunds+1;
+				set orphantotal,orphantotal+1;
+				sc_start SC_MAGNIFICAT,300000+($orphanagelevel*60000),3;
+				sc_start SC_CP_WEAPON,300000+($orphanagelevel*60000),3;
+				sc_start SC_JEXPBOOST,300000+($orphanagelevel*60000),10;
+				mes "There you go! You also will receive ^6666CC1 Donation Point^000000!";
+				close2;
+				cutin "",255;
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny.";
+				close;	
+			}
+			case 2:
+				cutin "",255;
+				mes .@npc$;
+				mes "Feel free to come again.";
+				close;
+				}
+			}
+			if ( $orphanagelevel >99){
+			mes .@npc$;
+			mes "I can provide you with a boost to your SP regeneration, revest your weapon against breaking and removal for a few minutes, and improve your base and job level growth speed by 10%!";
+			next;
+			mes "What do you think? As long as you contribute with the orphanage's coffers, of course.";
+			switch(select("Yes,Please - 5000z:No,Thanks")) {
+			case 1:
+			if (Zeny >= 5000) {
+				cutin "acact_02",2;
+				emotion ET_BEST;
+				percentheal 100,100;
+				specialeffect2 EF_BLESSING;
+				set Zeny, Zeny - 5000;
+				set orphandonation,orphandonation+1;
+				set $orphanfunds,$orphanfunds+1;
+				set orphantotal,orphantotal+1;
+				sc_start SC_MAGNIFICAT,300000+($orphanagelevel*60000),3;
+				sc_start SC_CP_WEAPON,300000+($orphanagelevel*60000),3;
+				sc_start SC_JEXPBOOST,300000+($orphanagelevel*60000),10;
+				sc_start SC_EXPBOOST,300000+($orphanagelevel*60000),10;
+				mes "There you go! You also will receive ^6666CC1 Donation Point^000000!";
+				close2;
+				cutin "",255;
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny.";
+				close;	
+			}
+			case 2:
+				cutin "",255;
+				mes .@npc$;
+				mes "Feel free to come again.";
+				close;
+				}
+			}
+		case 3:
+		cutin "acact_02",2;
+		mes .@npc$;
+		mes "My brother was Eremes Guille, he helped uncover the chaos in Rekenber. Sadly he was killed doing his work.";
+		next;
+		mes .@npc$;
+		mes "We were very close and he would always take care of me. I have no combat talent, so I dedicate myself to healing people here.";
+		next;
+		emotion ET_HNG;
+		cutin "",255;
+		mes .@npc$;
+		mes "It can be tiresome sometimes, but everyone helps when they can.";
+		close;
+		case 4:
+		emotion ET_THINK;
+		cutin "",255;
+		end;
+		break;
+	}
+}
+
+va_orpha,252,343,4	script	Orphan#orphanageB	914,{
+
+	set .@npc$, "[Smart Orphan]";
+	mes .@npc$;
+	mes "We can be quite resourceful due to our situation, don't you agree?";
+	next;	
+	mes .@npc$;
+	mes "Some people need to study a lot to learn how to run faster, or how to hide, but we can do it easily.";
+	next;
+	mes .@npc$;
+	mes "There is a guy who always sits around this place and loves to say -ohh noooo- when stuff goes bad.";
+	next;
+	mes .@npc$;
+	mes "I guess the body can adapt to difficult situations. I hope he can too. haha!";
+	close;
+}
+
+va_orpha,227,294,7	script	Patient Knight#orphanage	418,{
+
+	set .@npc$, "[Patient Knight]";
+	set .@npc2$, "[Sad Ranger]";
+	mes .@npc$;
+	mes "They have quite a group here.";
+	next;	
+	mes .@npc2$;
+	mes "But I don't understand why can't we invite some of them to help us!";
+	next;
+	mes .@npc$;
+	mes "Because it's a big risk. If they fall in battle and a Shadow appears, it could be a big problem for us.";
+	next;
+	mes .@npc2$;
+	mes "So what? we can just kill the Shadow before it explodes, it will even revive them sometimes!";
+	next;
+	mes .@npc$;
+	mes "How? Only people with The Mark can attack them, and don't forget Shadows can permanently kill people without the Mark.";
+	next;
+	mes .@npc2$;
+	mes "Th-that's so unfair! I wish I could help them somehow.";
+	next;
+	mes .@npc$;
+	mes "Unfortunately there's nothing we can do. Not to mention some of them may spawn Shadows on purpose just to attack us.";
+	next;
+	mes .@npc2$;
+	mes "I can't believe they would do such a thing.";
+	next;
+	mes .@npc$;
+	mes "I guess we need to visit Veins so you understand.";
+	close;
+}
+
+va_orpha,230,294,2	script	Sad Ranger#orphanage	10148,{
+
+	set .@npc$, "[Patient Knight]";
+	set .@npc2$, "[Sad Ranger]";
+	mes .@npc$;
+	mes "They have quite a group here.";
+	next;	
+	mes .@npc2$;
+	mes "But I don't understand why can't we invite some of them to help us!";
+	next;
+	mes .@npc$;
+	mes "Because it's a big risk. If they fall in battle and a Shadow appears, it could be a big problem for us.";
+	next;
+	mes .@npc2$;
+	mes "So what? we can just kill the Shadow before it explodes, it will even revive them sometimes!";
+	next;
+	mes .@npc$;
+	mes "How? Only people with The Mark can attack them, and don't forget Shadows can permanently kill people without the Mark.";
+	next;
+	mes .@npc2$;
+	mes "Th-that's so unfair! I wish I could help them somehow.";
+	next;
+	mes .@npc$;
+	mes "Unfortunately there's nothing we can do. Not to mention some of them may spawn Shadows on purpose just to attack us.";
+	next;
+	mes .@npc2$;
+	mes "I can't believe they would do such a thing.";
+	next;
+	mes .@npc$;
+	mes "I guess we need to visit Veins so you understand.";
+	close;
+}
+-	shop	heimdallores0	-1,984:1000,985:1000.
+-	shop	heimdallores10	-1,984:1000,985:1000,6240:5000;
+-	shop	heimdallores20	-1,984:1000,985:1000,6240:5000,6241:5000.
+-	shop	heimdallores30	-1,984:1000,985:1000,6240:5000,6241:5000,6292:15000.
+-	shop	heimdallores40	-1,984:1000,985:1000,6240:5000,6241:5000,6292:15000,6291:15000.
+-	shop	heimdallores50	-1,984:1000,985:1000,6240:5000,6241:5000,6292:15000,6291:15000,6224:10000.
+
+-	shop	helmutweapons0	-1,1201:5000,1101:5000,1701:5000.
+-	shop	helmutweapons10	-1,1201:5000,1101:5000,1701:5000,1245:5000,1204:5000,1207:5000,1146:5000,1110:5000,1154:5000,1747:5000,1704:5000,1501:5000.
+-	shop	helmutweapons20	-1,1201:5000,1101:5000,1701:5000,1245:5000,1204:5000,1207:5000,1146:5000,1110:5000,1154:5000,1747:5000,1704:5000,1501:5000,1216:5000,1210:5000,1213:5000,1236:5000,1126:5000,1160:5000,1104:5000,1167:5000,1707:5000,1718:5000,1710:5000,1301:5000,1364:5000,1503:5000,1505:5000,1250:5000,1252:5000.
+-	shop	helmutweapons30	-1,1201:5000,1101:5000,1701:5000,1245:5000,1204:5000,1207:5000,1146:5000,1110:5000,1154:5000,1747:5000,1704:5000,1501:5000,1216:5000,1210:5000,1213:5000,1236:5000,1126:5000,1160:5000,1104:5000,1167:5000,1707:5000,1718:5000,1710:5000,1301:5000,1364:5000,1503:5000,1505:5000,1250:5000,1252:5000,1219:5000,13003:5000,13050:5000,1222:5000,1113:5000,1157:5000,1135:5000,1122:5000,1714:5000,1703:5000,1734:5000,1387:5000,1360:5000,1507:5000,1254:5000.
+-	shop	horacioarmors0	-1,2101:5000,2103:5000,2117:5000,2321:5000,2305:5000,2501:5000,2401:5000.
+-	shop	horacioarmors10	-1,2101:5000,2103:5000,2117:5000,2321:5000,2305:5000,2501:5000,2401:5000,2110:5000,2136:5000,2343:5000,2303:5000,2312:5000,2503:5000,2505:5000,2403:5000,2405:5000.
+-	shop	horacioarmors20	-1,2101:5000,2103:5000,2117:5000,2321:5000,2305:5000,2501:5000,2401:5000,2110:5000,2136:5000,2343:5000,2303:5000,2312:5000,2503:5000,2505:5000,2403:5000,2405:5000,2107:5000,2113:5000,2119:5000,2332:5000,2307:5000,2314:5000,2507:5000,2512:5000,2520:5000.
+-	shop	horacioarmors30	-1,2101:5000,2103:5000,2117:5000,2321:5000,2305:5000,2501:5000,2401:5000,2110:5000,2136:5000,2343:5000,2303:5000,2312:5000,2503:5000,2505:5000,2403:5000,2405:5000,2107:5000,2113:5000,2119:5000,2332:5000,2307:5000,2314:5000,2507:5000,2512:5000,2520:5000,2105:5000,2147:5000,2753:5000,2755:5000.
+-	shop	horacioarmors40	-1,2101:5000,2103:5000,2117:5000,2321:5000,2305:5000,2501:5000,2401:5000,2110:5000,2136:5000,2343:5000,2303:5000,2312:5000,2503:5000,2505:5000,2403:5000,2405:5000,2107:5000,2113:5000,2119:5000,2332:5000,2307:5000,2314:5000,2507:5000,2512:5000,2520:5000,2105:5000,2147:5000,2753:5000,2755:5000,2757:5000,2759:5000,2761:5000,2763:5000.
+-	shop	horacioarmors50	-1,2101:5000,2103:5000,2117:5000,2321:5000,2305:5000,2501:5000,2401:5000,2110:5000,2136:5000,2343:5000,2303:5000,2312:5000,2503:5000,2505:5000,2403:5000,2405:5000,2107:5000,2113:5000,2119:5000,2332:5000,2307:5000,2314:5000,2507:5000,2512:5000,2520:5000,2105:5000,2147:5000,2753:5000,2755:5000,2757:5000,2759:5000,2761:5000,2763:5000,2917:5000,2919:5000,2918:5000,2920:5000,2921:5000,2922:5000.
+
+va_orpha,31,261,3	script	Heimdall Alt-Eisen#orphanage	813,{
+	cutin "fey_nor",2;
+	mes "[Heimdall Alt-Eisen]";
+	mes "Hey, " + strcharinfo(0) + " ,good to see you.";
+	mes "What do you need?";
+	next;
+	repairall;
+	switch(select("I have equipment to refine:Can you sell me some ores?:Open my storage:Tell me about yourselves:Nothing")) {
+		case 1:	
+		mes "[Heimdall Alt-Eisen]";
+		mes "I'm the best at what I do, what do you need refining?";
+		close2;
+		cutin "",255;
+		refineui();
+		end;
+		case 2:
+		if ( $orphanagelevel >49){
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores50",1;
+		cutin "",255;
+		break;
+		}
+		if ( $orphanagelevel >39){
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores40",1;
+		cutin "",255;
+		break;
+		}
+		if ( $orphanagelevel >29){
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores30",1;
+		cutin "",255;
+		break;
+		}
+		if ( $orphanagelevel >29){
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores30",1;
+		cutin "",255;
+		break;
+		}
+		if ( $orphanagelevel >19){
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores20",1;
+		cutin "",255;
+		break;
+		}
+		if ( $orphanagelevel >9){
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores10",1;
+		cutin "",255;
+		break;
+		}
+		mes "[Heimdall Alt-Eisen]";
+		mes "Looking to spend a bit on some materials eh? Lets see...";
+		close2;
+		callshop "heimdallores0",1;
+		cutin "",255;
+		break;
+		case 3:
+		mes "[Heimdall Alt-Eisen]";
+		mes "Sure thing. Try not to spend all your ores ok?";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+		case 4:
+		mes "[Heimdall Alt-Eisen]";
+		mes "Me and my brothers, Helmut and Horacio, setup shop here to assist the Thief Guild on taking care of the orphanage";
+		next;
+		mes "[Heimdall Alt-Eisen]";
+		mes "We believe having quality equipment is the decisive factor on surviving, Howard was our little brother and would do his best as well.";
+		next;
+		mes "[Heimdall Alt-Eisen]";
+		mes "In his memory, we vow to provide everything people might need, for the right price, of course.";
+		close2;
+		cutin "",255;
+		break;
+		case 5:
+		cutin "",255;
+		mes "[Heimdall Alt-Eisen]";
+		mes "I see... okay.";
+		close;
+	}
+}
+
+va_orpha,25,267,5	script	Helmut Alt-Eisen#orphanage	52,{
+		if ( $orphanagelevel >29){
+		callshop "helmutweapons30",0;
+		end;
+		}
+		if ( $orphanagelevel >19){
+		callshop "helmutweapons20",0;
+		end;
+		}
+		if ( $orphanagelevel >9){
+		callshop "helmutweapons10",0;
+		end;
+		}
+		callshop "helmutweapons0",0;
+		end;
+}
+
+
+va_orpha,21,266,5	script	Horacio Alt-Eisen#orphanage	63,{
+		if ( $orphanagelevel >49){
+		callshop "horacioarmors50",0;
+		end;
+		}
+		if ( $orphanagelevel >39){
+		callshop "horacioarmors40",0;
+		end;
+		}
+		if ( $orphanagelevel >29){
+		callshop "horacioarmors30",0;
+		end;
+		}
+		if ( $orphanagelevel >19){
+		callshop "horacioarmors20",0;
+		end;
+		}
+		if ( $orphanagelevel >9){
+		callshop "horacioarmors10",0;
+		end;
+		}
+		callshop "horacioarmors10",0;
+		end;
+}
+
+va_orpha,272,363,1	script	Memory Fountain	844,{
+	if (xachiev4 ==0 ){
+		achievementcomplete(200096);
+		set xachiev4,1;
+		}
+	if ( $orphanagelevel >99){
+	mes "["+strcharinfo(0)+"]";
+	mes "I can see all my memories on the reflection. Almost as if I could be there again.";
+	next;
+	set .resetpricebase,1000-($orphanagelevel*10);
+	set .resetprice,BaseLevel*.resetpricebase;
+	mes "^6666CCYou have a feeling you can reset your stats and skills here.";
+	next;
+	if (unchainedjob !=0){
+	mes "^6666CCYou Unchained your limits. You can reset for free.^000000";
+	next;
+	atcommand "@allskill";
+	switch(select("Let me think about it.:Look deep inside.(Reset Stats)")) {
+	case 1:
+	close2;
+	end;
+	case 2:
+		resetstatus();
+		specialeffect2 EF_BLESSING;
+		close2;
+		end;
+	}
+	}
+	switch(select("Let me think about it.:Look deep inside.(Reset Stats) :Look near the surface.(Reset Skills)")) {
+	case 1:
+	close2;
+	end;
+	case 2:
+		if (zeny >= 1) {
+		resetstatus();
+		specialeffect2 EF_BLESSING;
+		close2;
+		end;
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "I don't have enough zeny.";
+		close;
+	case 3:
+		if (zeny >= 1) {
+		resetskill();
+		specialeffect2 EF_BLESSING;
+		close2;
+		end;
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "I don't have enough zeny.";
+		close;
+	}
+	}
+	mes "["+strcharinfo(0)+"]";
+	mes "I can see all my memories on the reflection. Almost as if I could be there again.";
+	next;
+	set .resetpricebase,200-($orphanagelevel*2);
+	if (BaseLevel <=99){
+	set .resetprice,BaseLevel*.resetpricebase;
+	}
+	if (BaseLevel >=100){
+	set .resetprice,3*BaseLevel*.resetpricebase;
+	}
+	mes "^6666CCYou have a feeling you can reset your stats and skills if you throw enough coins in the fountain...200 zeny per base level.^000000";
+	mes " ";
+	mes "^6666CCThe happiness from the Orphanage Level of "+ $orphanagelevel + " decreases this cost to "+ .resetpricebase +" zeny per base level.^000000";
+	next;
+	if (BaseLevel >=100){
+	mes "^6666CCHaving grown past Level 100, the weight of your experience is tripled to "+ 3*.resetpricebase +" per base level.^000000";
+	next;
+	}
+	if (unchainedjob !=0){
+	switch(select("Let me think about it.:Look deep inside.(Reset Stats)")) {
+	case 1:
+	close2;
+	end;
+	case 2:
+		if (zeny >= .resetprice) {
+		resetstatus();
+		set zeny,zeny-.resetprice;
+		specialeffect2 EF_BLESSING;
+		close2;
+		end;
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "I don't have enough zeny.";
+		close;
+	}
+	}
+	switch(select("Let me think about it.:Look deep inside.(Reset Stats)->"+ .resetprice +"z:Look near the surface.(Reset Skills)->"+ .resetprice +"z")) {
+	case 1:
+		end;
+	case 2:
+		if (zeny >= .resetprice) {
+		set zeny,zeny-.resetprice;
+		resetstatus();
+		if (BaseLevel >=100){
+		set $orphanfunds,$orphanfunds+10;
+		}
+		specialeffect2 EF_BLESSING;
+		close2;
+		end;
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "I don't have enough zeny.";
+		close;
+	case 3:
+		if (zeny >= .resetprice) {
+		set zeny,zeny-.resetprice;
+		resetskill();
+		if (BaseLevel >=100){
+		set $orphanfunds,$orphanfunds+10;
+		}
+		specialeffect2 EF_BLESSING;
+		close2;
+		end;
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "I don't have enough zeny.";
+		close;
+	}
+}
+
+
+va_orpha,286,371,3	script	Happy Orphan#orphanage	881,{
+		mes "[Happy Orphan]";
+		mes "I was training at the basement since it's very simple and can be done by anyone.";
+		next;
+		mes "[Happy Orphan]";
+		mes "Then I saw a yellow light and I found this cool <ITEM>Tomb Skeleton Card<INFO>4446</INFO></ITEM>!";
+		next;
+		mes "[Happy Orphan]";
+		mes "I was so happy! I'm gonna hunt for more cards when I go out!";
+		close;
+}
+
+va_orpha,287,368,3	script	Serious Orphan#orphanage	882,{
+		mes "[Serious Orphan]";
+		mes "Some equipment can be worn on top of other equipment with no problems, they are called ^6666CCCostumes^000000.";
+		next;
+		mes "[Serious Orphan]";
+		mes "Some equipment can also be worn under others, they are called ^6666CCShadow Equipment^000000.";
+		next;
+		mes "[Serious Orphan]";
+		mes "Apparently we can wear those ^6666CCShadow Equipment^000000 because we have The Mark, anyone else who tries it simply won't fit.";
+		next;
+		mes "[Serious Orphan]";
+		mes "Costumes can be worn by anyone, but they very rarely have any battle effects, but they can look really cool!.";
+		close;
+}
+
+va_orpha,280,369,7	script	Curious Orphan#orphanage	567,{
+		if (runequest >0){
+		mes "[Curious Orphan]";
+		mes "What? Do you want the <ITEM>Raidho Rune<INFO>24228</INFO></ITEM>? It's mine, Don't even try!";
+		close;
+		end;
+		}
+		mes "[Curious Orphan]";
+		mes "I found a weird lady near Payon yesterday, she said I had a bright destiny ahead of me.";
+		next;
+		mes "[Curious Orphan]";
+		mes "She gave me this cool <ITEM>Raidho Rune<INFO>24228</INFO></ITEM>, I have no idea what it does since I'm not strong enough to use it.";
+		next;
+		mes "[Curious Orphan]";
+		mes "But maybe someday I'll know! I need to train more!";
+		set runequest,1;
+		close;
+}
+
+va_orpha,47,33,3	script	Thief Guildsman#orphanage	118,{
+		if (thiefjob >0){
+		mes "[Thief Guildsman]";
+		mes "I see you decided to join us... I hope you can do a good job!";
+		close;
+		end;
+		}
+		mes "[Thief Guildsman]";
+		mes "You might wish to join the Thief Guild eventually. We don't mind if Orphans join, since most of us work alone or are used to risks anyway.";
+		next;
+		mes "[Thief Guildsman]";
+		mes "Thieves are resourceful, our guild can provide specializations in many combat arts. Even magic to some extend. We could use some strong people.";
+		next;
+		mes "[Thief Guildsman]";
+		mes "Not that you have much choice other than joining the nomads or the merchants anyway.";
+		close;
+}
+
+va_orpha,289,311,5	script	Merchant Girl#orphanage	558,{
+		if (merchantquest >0){
+		mes "[Merchant Girl]";
+		mes "Oh a fellow merchant! what have you been selling huh?";
+		close;
+		end;
+		}
+		mes "[Merchant Girl]";
+		mes "I decided to be a merchant, so I could travel the world and sell some of my stuff.";
+		next;
+		emotion ET_MONEY;
+		mes "[Merchant Girl]";
+		mes "It was a good choice for me since I love money and hate fighting.";
+		next;
+		mes "[Merchant Girl]";
+		mes "You should consider the same and talk to the representative in the backroom!";
+		close;		
+}
+
+va_orpha,62,73,1	script	Sleepy Orphan#orphanage	921,{
+		emotion ET_ANGER;
+		mes "[Sleepy Orphan]";
+		mes "Look at this! JUST LOOK AT IT! I'm from a high-class family, I should sleep in better conditions!";
+		next;
+		emotion ET_ANGER;
+		mes "[Sleepy Orphan]";
+		mes "How do They expect us to WORK? To actually TRY AND REST? Thats Unacceptable!";
+		next;
+		emotion ET_ANGER;
+		mes "[Sleepy Orphan]";
+		mes "This is absurd, I WILL NOT STAND FOR IT. IT's OUTRAGEOUS!";
+		next;
+		emotion ET_ANGER;
+		mes "[Sleepy Orphan]";
+		mes "The bed is light brown and the pillow is 1/3 of  a shade darker! They SHOULD MATCH!";
+		close;
+}
+
+va_orpha,299,314,3	script	Curious Man#orphanageC	86,{
+		mes "[Curious Man]";
+		mes "The Orphanage is pretty fancy for an underground building...";
+		next;
+		emotion ET_SCRATCH;
+		mes "[Curious Man]";
+		mes "I wonder how they built it...seems impossible.";
+		close;
+}
+
+moc_prydb1,40,118,5	script	Guard#orphanage	852,{
+		mes "[Guard]";
+		mes "Access to the orphanage is restricted, you must have authorization from th-";
+		next;
+		mes "[Guard]";
+		mes "Oh,"+ strcharinfo(0) + " ,nevermind!";
+		close;
+}
+
+va_orpha,351,341,3	script	Doram#orphanage	10154,{
+		mes "[Doll named Doram]";
+		mes "^6666CCIt's just a doll. It can't speak or do anything. You could even imagine it moving around, talking or even fighting, but it does nothing.^000000";
+		close;
+}
+
+va_orpha,295,202,4	script	Master of Cards#orphanage	878,{
+	
+	set .zenycost,20000;    // base cost of the card remover services (in Zeny)
+	set .percardcost,5000;  // cost per card of the card remover services (in Zeny)
+	set .faildestroy,0;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
+
+	disable_items;
+	mes "[Master of Cards]";
+	mes "Hello, Cards are quite tricky to remove without tearing them, but I can do it with a special technique, need any cards removed?";
+	next;
+	switch(select("Yes, I do:What's the cost?:No thanks.")) {
+	case 1:
+		if ( $orphanagelevel <25){
+		mes "[Master of Cards]";
+		mes "I'm sorry but the funds of the orphanage cannot afford my services yet.";
+		next;
+		mes "[Master of Cards]";
+		mes "I require an Orphanage Level of 25 to work with orphan's cards.";
+		close;
+		}
+		mes "[Master of Cards]";
+		mes "Very well. What equipment do you want me to remove it from?";
+		next;
+
+		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
+			if( getequipisequiped(.@indices[.@i]) )
+				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part, .@indices[ select(.@menu$) ];
+		if(!getequipisequiped(.@part)) {
+			mes "[Master of Cards]";
+			mes "What card? There's no card on this equipment.";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[Master of Cards]";
+			mes "What card? There's no card on this equipment.";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "I can't remove any cards since you're carrying too much weight, Get rid of some and come back.";
+			close;
+		}
+		mes "[Master of Cards]";
+		mes "This item has " + .@cardcount + " cards compounded on it. To remove them I'll need " + (.zenycost+(.@cardcount * .percardcost)) + " zeny.";
+		next;
+		if(select("Ok, Go Ahead.:Nevermind.") == 2) {
+			mes "[Master of Cards]";
+			mes "Very well. Return if you need my services.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost)))) {
+			mes "[Master of Cards]";
+			mes "You can't pay me with just " + zeny + " zeny! Don't waste my time!";
+			close;
+		}
+		mes "[Master of Cards]";
+		mes "Very well. Let me get to work.";
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		// Replace the constants in the next 3 lines with failure chance values defined in refine_db.txt
+		// First value = Total failure chance (item and cards destroyed)
+		// Second value = Partial failure chance (one or the other is destroyed, player decides which one is safe)
+		// Third value = Harmless failure chance (all that's lost is your investment)
+
+		set .@failchance,rand(100);
+		if (.faildestroy==1) {
+			if(.@failchance < 2) {
+				next;
+				successremovecards .@part;
+				mes "[Master of Cards]";
+				mes "There you go, all done. Farewell.";
+				close;
+			}
+
+			if(.@failchance < 8) {
+				if (.@failtype == 1) {
+					next;
+					successremovecards .@part;
+					mes "[Master of Cards]";
+					mes "There you go, all done. Farewell.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					successremovecards .@part;
+					mes "[Master of Cards]";
+					mes "There you go, all done. Farewell.";
+					close;
+				}
+			}
+		}
+
+		if(.@failchance < 10) {
+			next;
+			successremovecards .@part;
+			mes "[Master of Cards]";
+			mes "There you go, all done. Farewell.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[Master of Cards]";
+		mes "There you go, all done. Farewell.";
+		close;
+	case 2:
+		mes "[Master of Cards]";
+		mes "My price is "+callfunc("F_InsertComma",.zenycost)+" zeny, plus "+callfunc("F_InsertComma",.percardcost)+" zeny for each card I remove from the item.";
+		close;
+	case 3:
+		mes "[Master of Cards]";
+		mes "No problem, let me know if you need anything.";
+		close;
+	}
+}
+
+-	shop	maryfood1	-1,12041:3000,12046:3000,12051:3000,12056:3000,12061:3000,12066:3000.
+-	shop	maryfood2	-1,12042:3000,12047:3000,12052:3000,12057:3000,12062:3000,12067:3000.
+-	shop	maryfood3	-1,12043:3000,12048:3000,12053:3000,12058:3000,12063:3000,12068:3000.
+-	shop	maryfood4	-1,12044:3000,12049:3000,12054:3000,12059:3000,12064:3000,12069:3000.
+-	shop	maryfood5	-1,12045:3000,12050:3000,12055:3000,12060:3000,12065:3000,12070:3000.
+-	shop	maryfood6	-1,12071:3000,12076:3000,12081:3000,12086:3000,12091:3000,12096:3000.
+-	shop	maryfood7	-1,12072:3000,12077:3000,12082:3000,12087:3000,12092:3000,12097:3000.
+-	shop	maryfood8	-1,12073:3000,12078:3000,12083:3000,12088:3000,12093:3000,12098:3000.
+-	shop	maryfood9	-1,12074:3000,12079:3000,12084:3000,12089:3000,12094:3000,12099:3000.
+-	shop	maryfood10	-1,12075:3000,12080:3000,12085:3000,12090:3000,12095:3000,12100:3000.
+
+va_orpha,383,205,4	script	Mary Cenia#orphanage	10122,{
+	cutin "ep16cook_king_1",2;
+	set .@npc$, "[Mary Cenia]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + "!";
+	mes "Need something from the kitchen?";
+	next;
+	switch(select("Got any meals?:Tell me about yourself:Nevermind")) {
+		case 1:
+			if ( $orphanagelevel >89){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood10",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >79){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood9",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >69){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood8",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >59){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood7",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >49){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood6",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >39){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood5",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >29){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood4",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >19){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood3",1;
+			cutin "",255;
+			break;
+			}
+			if ( $orphanagelevel >9){
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood2",1;
+			cutin "",255;
+			break;
+			}
+			mes .@npc$;
+			mes "You need food, I need zeny! Remember that only ONE food will work at a time!";
+			close2;
+			callshop "maryfood1",1;
+			cutin "",255;
+			break;
+		case 2:
+			mes .@npc$;
+			mes "I had a wonderful daughter called Egnigem, and those M*@¨#!@f*&¨%$# at Rekenber took her away and did horrible things, I'm F*$&#@ glad they got what they deserved!";
+			next;
+			mes .@npc$;
+			mes "Cooking makes me calm. Sometimes. So I cook for kids, since I can't throw plates at them.";
+			next;
+			emotion ET_KIK;
+			cutin "",255;
+			mes .@npc$;
+			mes "Not everyday.";
+			close;
+		case 3:
+			cutin "",255;
+			mes .@npc$;
+			mes "NEXT!!!";
+			close;
+	}
+}
+	
+va_orpha,276,342,4	script	Amadeus Windsor#orphanage	10085,{
+	cutin "ep15_rekenber01",2;
+	set .@npc$,"[Amadeus Windsor]";
+	mes .@npc$;
+	mes "" + strcharinfo(0) + ". I'm glad to see you.";
+	mes "What do you need?";
+	next;
+	switch(select("What's our donation situation?:I want to donate!:Tell me about yourself:Nevermind")) {
+		case 1:
+			mes .@npc$;
+			mes "As you know, I fully financed the initial investment of the Orphanage, but I do count on people to help with the costs.";
+			next;
+			mes .@npc$;
+			mes "Currently we take donations and the cost of some of our services also are part of our donation fund. That's why we still require minimal payment from anyone here.";
+			next;
+			mes .@npc$;
+			mes "The current Donation amount is:^FF0000";
+			mes "^FF0000" +$orphanfunds + "000 zeny^000000";
+			mes "Orphanage Investment level : Lv ^FF0000" + $orphanagelevel + "^000000.";
+			mes "Amount needed for next Level is:^FF0000";
+			mes "^FF0000" +$orphanlvreq + "000 zeny^000000";
+			next;
+			mes .@npc$;
+			mes "The total amount you donated was:";
+			mes "^FF0000" + orphantotal + "000 zeny^000000";
+			mes "Your current/total  Donation Points:";
+			mes "^FF0000" + orphandonation + "/"+ orphantotal + " Points^000000";
+			next;
+			mes .@npc$;
+			mes "All money donated is used to improve our services, extend our support quality, food and such. For every 10 Levels, the quality of the shops will increase too.";
+			next;
+			emotion ET_THANKS;
+			mes .@npc$;
+			mes "We thank everyone who takes part in this effort.";
+			close2;
+			cutin "",255;
+			break;
+		case 2:
+			mes .@npc$;
+			mes "Wonderful, how much would you like to donate?";
+			mes "We currently need ^FF0000" + ($orphanlvreq - $orphanfunds) + "000 zeny";
+			next;
+			switch(select("10.000z:50.000z:100.000z:Sorry, Nevermind.")) {
+			case 1:
+			if (Zeny >= 10000) {
+				emotion ET_THANKS;
+				specialeffect2 EF_STEAL;
+				set Zeny, Zeny - 10000;
+				set orphandonation,orphandonation+10;
+				set $orphanfunds,$orphanfunds+10;
+				set orphantotal,orphantotal+10;
+				if (achiev1 ==0 ){
+				achievementcomplete(200021);
+				set achiev1,1;
+				}
+				mes .@npc$;
+				mes "Thanks for your support! You also will receive ^6666CC10 Donation Point^000000!";
+				close2;
+				cutin "",255;
+				if ($orphanfunds >= $orphanlvreq-1) {
+				set $orphanfunds,1;
+				set $orphanagelevel,$orphanagelevel+1;
+				set $orphanlvreq,$orphanlvreq+$orphanagelevel*10;
+				announce "The Orphanage Level has Increased to Lv" + $orphanagelevel +"!!! The new amount required is " + $orphanlvreq + "000z!",0;
+				playbgmall "05","va_orpha";
+				addrid(0);
+				emotion ET_SURPRISE;
+				sc_start SC_EXPBOOST,1800000,50;
+				end;
+				}
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny... Sorry.";
+				close;	
+			}
+			case 2:
+			if (Zeny >= 50000) {
+				emotion ET_THANKS;
+				specialeffect2 EF_STEAL;
+				set Zeny, Zeny - 50000;
+				set orphandonation,orphandonation+50;
+				set $orphanfunds,$orphanfunds+50;
+				set orphantotal,orphantotal+50;
+				if (achiev2 ==0 ){
+				achievementcomplete(200022);
+				set achiev2,1;
+				}
+				mes .@npc$;
+				mes "Well! That will surely make everyone happy! You also will receive ^6666CC50 Donation Points^000000!";
+				close2;
+				cutin "",255;
+				if ($orphanfunds >= $orphanlvreq-1) {
+				set $orphanfunds,1;
+				set $orphanagelevel,$orphanagelevel+1;
+				set $orphanlvreq,$orphanlvreq+$orphanagelevel*10;
+				announce "The Orphanage Level has Increased to Lv" + $orphanagelevel +"!!! The new amount required is " + $orphanlvreq + "000z!",0;
+				playbgmall "05","va_orpha";
+				addrid(0);
+				emotion ET_SURPRISE;
+				sc_start SC_EXPBOOST,1800000,50;
+				end;
+				}
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny... Sorry.";
+				close;	
+			}
+			case 3:
+			if (Zeny >= 100000) {
+				emotion ET_THANKS;
+				specialeffect2 EF_STEAL;
+				set Zeny, Zeny - 100000;
+				set orphandonation,orphandonation+100;
+				set $orphanfunds,$orphanfunds+100;
+				set orphantotal,orphantotal+100;
+				if (achiev3 ==0 ){
+				achievementcomplete(200023);
+				set achiev3,1;
+				}
+				mes .@npc$;
+				mes "Oh my! That's quite a lot of money to helps us! You're doing great! You also will receive ^6666CC100 Donation Points^000000!";
+				close2;
+				cutin "",255;
+				if ($orphanfunds >= $orphanlvreq-1) {
+				set $orphanfunds,1;
+				set $orphanagelevel,$orphanagelevel+1;
+				set $orphanlvreq,$orphanlvreq+$orphanagelevel*10;
+				announce "The Orphanage Level has Increased to Lv" + $orphanagelevel +"!!! The new amount required is " + $orphanlvreq + "000z!",0;
+				playbgmall "05","va_orpha";
+				addrid(0);
+				emotion ET_SURPRISE;
+				sc_start SC_EXPBOOST,1800000,50;
+				end;
+				}
+				end;
+				break;
+			} else {
+				cutin "",255;
+				mes .@npc$;
+				mes "You don't have enough zeny... Sorry.";
+				close;	
+			}
+			case 4:
+				cutin "",255;
+				mes .@npc$;
+				mes "No problem, i'll be here.";
+				close;	
+			}
+		case 3:
+		mes .@npc$;
+			mes "My children were Seyren and Keyron, both took part on the first Rekenber investigation, that eventually took down the company.";
+			next;
+			mes .@npc$;
+			mes "I'm proud of them for what they have done, but it doesn't make it any easier to deal with. Part of this mourning is to take care of the people who are now in a similar situation with the Shadows and The Mark.";
+			next;
+			mes .@npc$;
+			mes "There's no reason for me to hoard my possessions, as I no longer have an heir. I want to do what I can for now and leave it in good hands.";
+			next;
+			mes .@npc$;
+			mes "I might be an aristocrat, but my belief is in people like my children, only they can change  the world.";
+			close2;
+			cutin "",255;
+			break;
+		case 4:
+			cutin "",255;
+			mes .@npc$;
+			mes "No problem, i'll be here.";
+			close;
+	}
+}
+
+va_orpha,326,301,3	script	Cleaning Lady#orphanage	53,{
+		emotion ET_FRET;
+		mes "[Cleaning Lady]";
+		mes "These kids make a mess! I'm glad they pay me well but...Ugh!";
+		close;
+}
+
+va_orpha,389,205,4	script	Kitchen Assistant#orphanage	820,{
+		emotion ET_HELP;
+		mes "[Kitchen Assistant]";
+		mes "Wahhhhh!! Sorry for being so slow Lady Cenia!!! Please don't give me that look again!!!";
+		close;
+}
+
+-	pointshop	happycostumeshop	-1,orphandonation,14724:50,14725:200,2250:250,2253:250,2230:250,19632:250,2231:250,6636:250,6637:250,6638:250,6639:250,6640:250,6062:300,6063:300,6064:300,6065:300,6066:300,6067:300,6068:300,5438:750,5439:1000,5440:750,5441:1000,5424:750,5425:1000,5431:750,5432:1000,5406:750,5407:1000,5230:750,5231:1000,5232:750,5233:1000,5234:750,5235:1000,5236:750,5237:1000,5238:750,5239:1000,5240:750,5241:1000,5242:750,5243:1000,20761:50000.
+-	pointshop	happycostumejob	-1,orphandonation,14680:500,14681:500,14682:500,14683:500,14684:500,14685:500,14686:500,14687:500,14688:500,14689:500,14690:500,14691:500,14692:500,14693:500,14694:500,14695:500,14696:500,14697:500,14698:500,14699:500,14700:500.
+
+-	shop	happyhatshop	-1,14718:15000,14723:100000,14726:75000,2208:3000,2220:3000,2210:7500,2216:7500,2222:7500,2224:7500,2226:7500,2244:7500,2228:10000,2232:10000,2201:15000,2203:15000,2205:15000,2212:15000,2238:15000,2260:15000,2262:15000,5512:30000,5545:30000,5581:30000,5745:30000,5569:30000,5589:30000,5663:30000,5514:30000,5740:30000,5677:30000,5549:30000,5599:30000.
+
+va_orpha,242,369,4	script	Happy Girl#orphanage	717,{
+	if (firstjob ==0 && BaseLevel >= 99 && maxorphan ==0){
+		emotion ET_SPARK;
+		mes "[Happy Girl]";
+		mes "WHAT!? YOU GOT THAT STRONG WITHOUT EVER CHANGING JOBS?";
+		next;
+		if (PC_DIE_COUNTER !=0){
+		set finaljob,1;
+		set maxorphan,1;
+		emotion ET_SPARK;
+		mes "[Happy Girl]";
+		mes "Too bad you died on the way! I'd be impressed otherwise!";
+		close;
+		}
+		if (PC_DIE_COUNTER ==0){
+		getitem 18740,1;
+		set finaljob,1;
+		set maxorphan,1;
+		emotion ET_SPARK;
+		mes "[Happy Girl]";
+		mes "You deserve a unique power that can make you feel incredible! Great work!";
+		close;
+		}
+}
+	if (orphanhat >0){
+		emotion ET_SPARK;
+		mes "[Happy Girl]";
+		mes "Are you looking for new hats? You've come to the right place! You can buy hats for zeny, costumes for donation points or try your luck for special slotted hats for some good zeny!";
+		next;
+		switch(select("I want new hats!:I want new costumes!:I want Job Costumes!:What Do you sell?:I don't like hats.")) {
+			case 1:
+			mes "[Happy Girl]";
+			mes "Maybe you can find something you like!";
+			next;
+			callshop "happyhatshop",1;
+			break;
+			case 2:
+			mes "[Happy Girl]";
+			mes "You can get special gifts for donating to the Orphanage!";
+			mes "You have " + orphandonation + " points!";
+			next;
+			callshop "happycostumeshop",1;
+			break;
+			case 3:
+			mes "[Happy Girl]";
+			mes "These costumes are for specific jobs!";
+			mes "You have " + orphandonation + " points!";
+			next;
+			callshop "happycostumejob",1;
+			break;
+			case 4:
+			mes "[Happy Girl]";
+			mes "Well...For zeny you can buy our regular hats and zodiac Diadems. They have fixed bonuses and look cool.";
+			next;
+			mes "[Happy Girl]";
+			mes "From the boxes, you can get SLOTTED variations of those hats, as for the Zodiac variations? Not only they have a special look, but they give bonuses based on refine.";
+			next;
+			mes "[Happy Girl]";
+			mes "As for the costumes... you can pay points for them directly, or try your luck on the cheap buying some spares we packed for gifting. It's up to you.";
+			close;
+			break;
+			case 5:
+			emotion ET_CRY;
+			mes "[Happy Girl]";
+			mes "What? That's Impossible!";
+			close;
+			break;
+	}
+	}
+	if (orphanhat ==0){
+		emotion ET_SPARK;
+		mes "[Happy Girl]";
+		mes "I have never seen you here before, that means you need a gift!";
+		next;
+		getitem 19632,1;
+		set orphanhat, 1;
+		emotion ET_SPARK;
+		mes "[Happy Girl]";
+		mes "You can get boxes with a special hat inside from me! Just let me know. I'll take donation points as payment!";
+		close;
+}
+}
+
+va_orpha,386,190,3	script	Angry Alchemist#orphanage	748,{
+		emotion ET_SCRATCH;
+		mes "[Angry Alchemist]";
+		mes "Have you heard about those Blast Jugglers? Apparently it's one of the specializations from the Rogue Guild.";
+		next;
+		mes "[Angry Alchemist]";
+		mes "I've been told that they steal the capabilities with alchemy and traps to make special new tools and create new ways to use it in combat.";
+		next;
+		mes "[Angry Alchemist]";
+		mes "Quite a crazy new concept if you ask me, they probably have ZERO of our safety protocols in place.";
+		next;
+		mes "[Angry Alchemist]";
+		mes "They should be taken down, that's dangerous and might be a repeat of the mistakes from the Alchemists of the Fortress.";
+		close;
+		
+}
+
+va_orpha,376,191,5	script	Hungry Ninja#orphanage	636,{
+		emotion ET_CRY;
+		mes "[Hungry Ninja]";
+		mes "I'm sooooo hungry... why is my food taking so long?";
+		next;
+		mes "[Hungry Ninja]";
+		mes "I had a small practice fight with one Satsujin, he apparently could vanish in thin air and appear constantly, barraging me with spells and weapon attacks.";
+		next;
+		emotion ET_SWEAT;
+		mes "[Hungry Ninja]";
+		mes "I know they are pretty good at misdirection and indirect combat, but that was ridiculous, I was completely outmatched.";
+		next;
+		mes "[Hungry Ninja]";
+		mes "I guess that's what you get when you allow Ninjas and Assassins to work together on their art...";
+		next;
+		emotion ET_GO;
+		mes "[Hungry Ninja]";
+		mes "NOW WHERE IS MY FOOD!!!???";
+		close;
+		
+}
+
+
+-	shop	toolorphanshop	-1,501:25,1750:100,502:100,503:300,504:1500,505:1000,506:200,545:200,546:1000,547:3000,601:100,602:500,611:200,645:1000,656:3000,657:7500,12209:20000,643:5000,540:1000.
+
+va_orpha,375,205,4	script	Lily#orphanage	74,{
+		mes "[Tool Dealer Lily]";
+		mes "Welcome to the Orphanage's Tool Shop!";
+		next;
+		switch(select("Buy/Sell Items:Where can i get equipment?:Nevermind")) {
+			case 1:
+			mes "[Tool Dealer Lily]";
+			mes "Feel free to check our stock! Keep in mind it's fixed!";
+			close2;
+			callshop "toolorphanshop",0;
+			break;
+			case 2:
+			mes "[Tool Dealer Lily]";
+			mes "You can get equipment from the Howard brothers, they are in the backroom, past the main corridor!";
+			close;
+			break;
+			case 3:
+			emotion ET_THANKS;
+			mes "[Tool Dealer Lily]";
+			mes "Take care!";
+			close;
+			break;
+		
+}
+}
+
+va_orpha,221,174,3	script	Wandering Minstrel#orphanage	625,{
+	set .@npc$, "[Wandering Minstrel]";
+	emotion ET_QUESTION;
+	cutin "nines01",2;
+	mes .@npc$;
+	mes "You are " + strcharinfo(0) + ", right? ";
+	mes "I can let you know what's going on right now.";
+	next;
+	switch(select("No Thanks:Who are you?:What happened to Satan Morroc?:Any new places that have been explored?:Any essential geo-political changes?")) {
+	case 1:
+		emotion ET_THINK;
+		mes .@npc$;
+		mes "If you have questions, ask them.";
+		close2;
+		cutin "",255;
+		end;
+		break;
+	case 2:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "I'm Newoz, the Minstrel, I travel around the world in search of new stories for my songs.";
+		next;
+		mes .@npc$;
+		mes "Due to this, I know quite a bit about the situations of the world and what's going on.";
+		next;
+		mes .@npc$;
+		mes "People usually treat me well, since the Orphans all seem to have simply vanished for 5 years, they love to hear my updates.";
+		next;
+		mes .@npc$;
+		mes "It's crucial to understand the world you live in.";
+		close2;
+		cutin "",255;
+		end;
+		break;
+	case 3:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "When Satan Morroc was resurrected, he completely destroyed Morroc and fled to the Dimensional Gorge, a space where time is compressed and completely changed.";
+		next;
+		mes .@npc$;
+		mes "A massive group of adventurers also went there to fight him. They used everything they could. Job Guilds were forced to use their trump cards such as the Guillotine Crosses and Rune Knights.";
+		next;
+		mes .@npc$;
+		mes "However, the fight was harsh. So brutal in fact that many people died during it. The amount of negative energy was increasing, and the burden, heavy.";
+		next;
+		mes .@npc$;
+		mes "Eventually, the energy the fight liberated has caused a massive cataclysm in the universe. I'm honestly not sure he was defeated but...it seems like it.";
+		next;
+		mes .@npc$;
+		mes "The Dimensional Gorge has been permanently closed for 5 years now. The desert is as it had been before. You can still find small monuments near the Gorge location, in honor of those fallen.";
+		next;
+		mes .@npc$;
+		mes "The explosion also caused the strange energy of The Marks and The Shadows, that now affects you and other Orphans. Apparently they are small fragments from his soul.";
+		next;
+		mes .@npc$;
+		mes "Nobody has any idea how to remove them, but they seem to have a bigger purpose... I guess we eventually will have to deal with it.";
+		next;
+		mes .@npc$;
+		mes "It's important that you understand this situation and learn to adapt to it. As reality might be harder to handle now.";
+		close2;
+		cutin "",255;
+		end;
+		break;
+	case 4:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Well...the forests near Comodo... the snow fields around Lutie...some dead lands near Rachel... actual field exploration has grown indeed.";
+		next;
+		mes .@npc$;
+		mes "If you're looking for tough monsters however, there are quite a few places we have found. You might wish to check for details on your map and inquire the locals near those places.";
+		next;
+		mes .@npc$;
+		mes "Some people are specially curious about Varmundt's Mansion, since it's master exists in both past, present and future at the same time, in 3 different bodies.";
+		next;
+		mes .@npc$;
+		mes "Some new places have also been found, such as a faceworm nest  right behind Payon's Archer Village, or a Waterfall Cave near Malaya... Have you heard about Malaya?";
+		close2;
+		cutin "",255;
+		end;
+		break;
+	case 5:
+		emotion ET_SCRATCH;
+		switch(select("What happened in Rune-Midgard?:What happened in Schwarzwald?:What happened in Arunafeltz?:What happened in the Eastern Islands?:What happened on the Snow Fields?")) {
+			case 1:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Well...since King Tristram III was found dead in Nameless Island, The royal families needed a new king, among the royal families, Nihil Miseria Heine was declared the best choice.";
+			next;
+			mes .@npc$;
+			mes "There was a massive coronation banquet and everything went according to plan, Nihil is considered to be the most determined king in history.";
+			next;
+			mes .@npc$;
+			mes "There are some people who are not very happy with it. But this happens with every king I guess... Regardless, the king has a special unit of Judges to take care of any evil that may be a threat.";
+			next;
+			mes .@npc$;
+			mes "The Judges apparently come from the same training regiment of the Rebellions and Gunslingers, but have a sworn oath of loyalty to the royal family. Seeing one around is always an event. And bad news.";
+			next;
+			mes .@npc$;
+			mes "Other than that... There's a new Luxury bathhouse in Comodo, the guests there can be quite annoying or straight up murderous sometimes. Oh those entitled people...";
+			next;
+			mes .@npc$;
+			mes "Payon has  been explored quite heavily as well, as they found an ancient temple to rival Geffenia under the castle...not to mention a scary Faceworm nest near the Archer Village.";
+			next;
+			mes .@npc$;
+			mes "Funnily enough, the Ant Hell insects have been working with a new species of Scarabas and have made a gigantic insect society. It's a very dangerous place so I'd avoid it.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 2:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Oh... that's a VERY interesting story to tell.";
+			next;
+			mes .@npc$;
+			mes "A group of adventurers finally unmasked Rekenber and its exploits. They had a secret lab where they used people as test subjects for rune experiments.";
+			next;
+			mes .@npc$;
+			mes "These runes were then used by the Knights, responsibly of course, to help with fighting and they even made a new rank, the Rune Knights, wielders of magic and Dragons.";
+			next;
+			mes .@npc$;
+			mes "Not only that.These Runes were correctly studied and helped develop new progress for our world, including unlocking power limits and finding magic areas.";
+			next;
+			mes .@npc$;
+			mes "Only one rune can be used a time, unlike what Rekenber was doing, infusing people with a load of them...those bastards...crazy.";
+			next;
+			mes .@npc$;
+			mes "So the Rekenber corporation is no more. There are rumors about them operating underground, but there's no proof anywhere. Lighthalzen unfortunately... is a dead city nowadays.";
+			next;
+			mes .@npc$;
+			mes "Most of the experiments escaped and completely destroyed the city... At least the souls of those heroes from the past can now rest in peace.";
+			next;
+			mes .@npc$;
+			mes "Verus was also found underground, past Juperos...seems to be a ruined old city.";
+			next;
+			mes .@npc$;
+			mes "Other than that... The old Laboratory can be accessed by anyone brave enough to help cleaning it...just don't expect to find an army of clones there.";
+			next;
+			mes .@npc$;
+			mes "Varmundt, one of the sages isolated by Rekenber and forced to work can now be contacted at his mansion. He is one of the leaders of the research regarding The Mark.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 3:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "That place always seem to be stuck in time, doesn't it?";
+			next;
+			mes .@npc$;
+			mes "Veins merchants have found an island near the shore. It has an active volcano and is called Dewata. It seems to be a very friendly place. Except for the volcano part.";
+			next;
+			mes .@npc$;
+			mes "Nameless Island is off limits. Someone in Veins saw a massive shadow laughing leaving that place and moving in direction of Lighthalzen shortly after Rekenber's Fall, I wonder why...";
+			next;
+			mes .@npc$;
+			mes "The temple of Rachel is doing their usual stuff, those people are very weird in my opinion...They do seem to have massively improved their ranks however and they have long chants everyday.";
+			next;
+			mes .@npc$;
+			mes "There was also found a Nomad Village across the abyssal canyon Northeast of Rachel... a lot of Orphans live there secluded from society.";
+			next;
+			mes .@npc$;
+			mes "Not much has changed there other than that... Not that i'm aware of.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 4:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Everyday we find new stories around those parts.";
+			next;
+			mes .@npc$;
+			mes "Gonryun has fallen from the sky and sunk... It was a tragedy, a lot of people died... the Tsunami it caused also flooded Louyang and the place is completely underwater.";
+			next;
+			mes .@npc$;
+			mes "Amatsu is prospering as usual, they stopped trying to hide the dungeon's secrets and have many festivals around there.";
+			next;
+			mes .@npc$;
+			mes "Malaya is a nice port town with beautiful vistas. It does seem to carry some weird secrets but the Waterfall caves are a very nice place to visit at least once in life.";
+			next;
+			mes .@npc$;
+			mes "Moscovia didn't really change at all. Only issue is that the Whale Island never again came close, so it's forever lost and there's no word about it.";
+			next;
+			mes .@npc$;
+			mes "Ayothaya is same as always, except for it's dungeon. It seems the temple has awakened some spirits from eons past.";
+			next;
+			mes .@npc$;
+			mes "We also found an Island full of cat-people. It was so weird we're never going back there. Seems like a terrible idea.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 5:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Well...Lutie stills a nice welcoming town, and the Toy Factory is working as expected... It's the fields that have been checked.";
+			next;
+			mes .@npc$;
+			mes "There was an avalanche and a small mountain has collapsed to the east... showing a whole network of new fields and places to check. Even a Crystal Cave!";
+			next;
+			mes .@npc$;
+			mes "There's a place called Dicastes Diel to the north that seems to be an ancient race's lost city. The people there seem very skilled and study time travel.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+		}
+	}
+	}
+	
+
+// Stylist setlook LOOK_CLOTHES_COLOR,??;
+
+va_orpha,303,192,2	script	Stylist Shalosh#orphanage	10041,{
+	set .@npc$, "[Stylist Shalosh]";
+	cutin "shaloshi01",2;
+	mes "Hello Orphan.";
+	mes "What kind of service are you looking for?";
+	next;
+	switch(select("Change Hairstyle:Change Clothes Color:Tell me about yourself: Nothing.")) {
+	case 1:
+	mes .@npc$;
+	mes "Feel free to choose.";
+	next;
+	setarray .@Styles[1],
+		getbattleflag("max_hair_style"),
+		getbattleflag("max_hair_color");
+	setarray .@Look[1],
+		LOOK_HAIR,
+		LOOK_HAIR_COLOR;
+	set .@s, select("Hairstyle:Hair Color");
+	set .@Revert, getlook(.@Look[.@s]);
+	set .@Style,1;
+	while(1) {
+		setlook .@Look[.@s], .@Style;
+		message strcharinfo(0),"This is style #"+.@Style+".";
+		set .@menu$, "Next (^FF0000"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000):Previous (^FF0000"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000):Revert to original (^FF0000"+.@Revert+"^000000):Done";
+		switch(select(.@menu$)) {
+		case 1:
+			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
+			break;
+		case 2:
+			set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
+			break;
+		case 3:
+			set .@Style, .@Revert;
+			setlook .@Look[.@s], .@Revert;
+			break;
+		case 4:
+		mes .@npc$;
+		mes "Looking good. I guess.";
+		close2;
+		cutin "",255;
+		end;
+		}
+	}
+	case 2:
+	if (merchantjob ==1){
+	mes .@npc$;
+	mes "I can't change your clothes color as you are a merchant.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (firstjob ==0){
+	mes .@npc$;
+	mes "I can't change your clothes color before you change jobs.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes .@npc$;
+	mes "Hello Orphan.";
+	mes "I can imbue your appearance with the essence from runes.";
+	next;
+	mes .@npc$;
+	mes "Hello Orphan.";
+	mes "Any rune you equip will change your clothes color. You can then lock the color to keep it active while changing runes. So you can look as good as you wish.";
+	next;
+	mes .@npc$;
+	mes "This won't give you their power...but your enemies won't know it. Hehe.";
+	mes "What do you say?";
+	next;
+	switch(select("Please, toggle the lock on my current color.:I don't need it.")) {
+	case 1:
+	if (lockedcolor ==1){
+	set lockedcolor,0;
+	specialeffect2 768;
+	mes .@npc$;
+	mes "Your clothing color is now unlocked, when you change your runes, your colors will change.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	if (lockedcolor ==0){
+	set lockedcolor,1;
+	specialeffect2 768;
+	mes .@npc$;
+	mes "Your clothing color is now locked, when you change your runes, your colors will not change.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	case 2:
+	mes .@npc$;
+	mes "If you say so.";
+	close2;
+	cutin "",255;
+	end;
+}
+	case 3:
+	mes .@npc$;
+	mes "I once had a piece of Satan Morroc's Soul inside me. Now I don't. Master Windsor cleansed me.";
+	next;
+	mes .@npc$;
+	mes "Now I help him with this place. I'm Grateful. Ha. Ha.";
+	close2;
+	cutin "",255;
+	end;
+	case 4:
+	mes .@npc$;
+	mes "Fine.";
+	close2;
+	cutin "",255;
+	end;
+	}
+
+}
+
+
+va_orpha,267,319,4	script	Alfred, the Butler#orphanage	10057,{
+	cutin "verus_aures",2;
+	set .@npc$, "[Alfred]";
+	mes .@npc$;
+	mes "I'm Alfred, old Butler to Master Windsor, I'm responsible for providing support for everyone here.";
+	next;
+	mes .@npc$;
+	mes "These are some of the things I can help you with:";
+	next;
+	switch(select("Identify all my items please.:Can you hatch Pet eggs?:Change Pets/Summons visibility:Information Display:Chat Channels:Leave")) {
+	case 1:
+	identifyall;
+	specialeffect2 258;
+	mes .@npc$;
+	mes "I have identified all your items. Take care!";
+	close2;
+	cutin "",255;
+	end;
+	break;
+	case 2:
+	mes .@npc$;
+	mes "Of course! Here it is! Take good care of it ok?";
+	close2;
+	bpet;
+	cutin "",255;
+	break;
+	case 3:
+	mes .@npc$;
+	mes "Sometimes fighting with friends...or enemies can be a bit hard.";
+	mes "I can change what's visible or not for you.";
+	next;
+	mes .@npc$;
+	mes "This won't make your own pets and summons invisible ok? You must help each other.";
+	next;
+	L_petchange:
+	switch(select("Done, thanks.:Change Pets Visibility:Change Illusionist's Puppet Visibility:Change Summons Visibility:Change Dragons Visibility:Make All Invisible:Make All Visible")) {
+	case 1:
+	mes .@npc$;
+	mes "I hope you don't mind the changes!";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (petinvis ==1){
+	set inviscount, inviscount-1;
+	set petinvis, 0;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Pets are now visible.";
+	next;
+	goto L_petchange;
+	}
+	if (petinvis ==0){
+	set inviscount, inviscount+1;
+	set petinvis, 1;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Pets are now invisible.";
+	next;
+	goto L_petchange;
+	}
+	case 3:
+	if (pupinvis ==1){
+	set inviscount, inviscount-2;
+	set pupinvis, 0;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Puppets are now visible.";
+	next;
+	goto L_petchange;
+	}
+	if (pupinvis ==0){
+	set inviscount, inviscount+2;
+	set pupinvis, 1;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Puppets are now invisible.";
+	next;
+	goto L_petchange;
+	}
+	case 4:
+	if (suminvis ==1){
+	set inviscount, inviscount-4;
+	set suminvis, 0;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Summons are now visible.";
+	next;
+	goto L_petchange;
+	}
+	if (suminvis ==0){
+	set inviscount, inviscount+4;
+	set suminvis, 1;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Summons are now invisible.";
+	next;
+	goto L_petchange;
+	}
+	case 5:
+	if (drainvis ==1){
+	set inviscount, inviscount-8;
+	set drainvis, 0;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Dragons are now visible.";
+	next;
+	goto L_petchange;
+	}
+	if (drainvis ==0){
+	set inviscount, inviscount+8;
+	set drainvis, 1;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Dragons are now invisible.";
+	next;
+	goto L_petchange;
+	}
+	case 6:
+	set inviscount, 15;
+	set drainvis, 1;
+	set petinvis, 1;
+	set pupinvis, 1;
+	set suminvis, 1;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Followers are now invisible.";
+	next;
+	goto L_petchange;
+	case 7:
+	set inviscount, 0;
+	set drainvis, 0;
+	set petinvis, 0;
+	set pupinvis, 0;
+	set suminvis, 0;
+	atcommand "@hideslave " + inviscount;
+	mes .@npc$;
+	mes "All Followers are now visible.";
+	next;
+	goto L_petchange;
+	}
+	case 4:
+	mes .@npc$;
+	mes "Having information is essential, but sometimes you may not need it.";
+	mes "I can change what's shown to you. What kind of information do you want to toggle?";
+	next;
+	L_configchange:
+	switch(select("Done, thanks.:Experience Gain:Zeny Gain:Kill Steal Protection")) {
+	case 1:
+	mes .@npc$;
+	mes "Good luck around this world, Orphan. It's not gentle.";
+	close2;
+	cutin "",255;
+	end;
+	case 2:
+	if (expgains ==1){
+	set expgains, 0;
+	atcommand "@showexp";
+	mes .@npc$;
+	mes "Your experience gain is now being displayed.";
+	next;
+	goto L_configchange;
+	}
+	if (expgains ==0){
+	set expgains, 1;
+	atcommand "@showexp";
+	mes .@npc$;
+	mes "Your experience gain will not be displayed.";
+	next;
+	goto L_configchange;
+	}
+	case 3:
+	if (zenygains ==1){
+	set zenygains, 0;
+	atcommand "@showzeny";
+	mes .@npc$;
+	mes "Your zeny gain is now being displayed.";
+	next;
+	goto L_configchange;
+	}
+	if (zenygains ==0){
+	set zenygains, 1;
+	atcommand "@showzeny";
+	mes .@npc$;
+	mes "Your zeny gain will not be displayed.";
+	next;
+	goto L_configchange;
+	}
+	case 4:
+	if (ksprotect ==0){
+	set ksprotect, 1;
+	atcommand "@noks";
+	mes .@npc$;
+	mes "Kill-Steal Protection is now active. Keep in mind strangers won't be able to help you with dire situations.";
+	next;
+	goto L_configchange;
+	}
+	if (ksprotect ==1){
+	set ksprotect, 0;
+	atcommand "@noks";
+	mes .@npc$;
+	mes "Kill-Steal Protection is now inactive. At least now you can be helped in difficult situations.";
+	next;
+	goto L_configchange;
+	}
+}
+	case 5:
+	mes .@npc$;
+	mes "It's important to be connected with your friends and other Orphans.";
+	mes "Do you want to change some channel configurations?";
+	next;
+	mes .@npc$;
+	mes "You can use the channels to chat using the whisper box on the lower left part of the chat window, just add #Main for example.";
+	next;
+	mes .@npc$;
+	mes "To leave a channel you can type @channel leave #channelname, to join just use @channel join #channelname.";
+	next;
+	mes "The available channels are Main, Trade, Support, Portuguese and Spanish.";
+	close2;
+	cutin "",255;
+	break;
+	case 6:
+	mes .@npc$;
+	mes "Take care. I'll be here if you need assistance.";
+	close2;
+	cutin "",255;
+	break;
+}
+}
+
+//Achievement Collector
+
+va_orpha,296,185,5	script	Great Collector#orphanagecar	88,{
+
+	set .@npc$, "[Great Collector]";
+	mes .@npc$;
+	mes "Let's see if you deserve any new badges...";
+	next;
+	if (collector >=12){
+	mes .@npc$;
+	mes "Looks like you got all achievements from me! Great Work!";
+	next;
+	}
+	if (MaxWeight >= 50000 && weightachieve ==0){
+	achievementcomplete(200013);
+	mes .@npc$;
+	mes "You have a lot of weight capacity! Good work!";
+	set weightachieve, 1;
+	set collector,collector+1;
+	next;
+	}
+	if (Weight == 0 && Zeny ==0 && hippieachieve ==0){
+	achievementcomplete(200014);
+	mes .@npc$;
+	mes "You don't really carry stuff around do you? Good work!";
+	set hippieachieve, 1;
+	set collector,collector+1;
+	next;
+	}
+	if  (readparam(bFlee2) > 99 && fleeachieve ==0){
+	achievementcomplete(200015);
+	mes .@npc$;
+	mes "You have perfect evasion! Good work!";
+	set fleeachieve, 1;
+	set collector,collector+1;
+	next;
+	}
+	if  (MaxHP > 9000 && maxhpachieve ==0){
+	achievementcomplete(200016);
+	mes .@npc$;
+	mes "My scouter must be incorrect! Good work!";
+	set maxhpachieve, 1;
+	set collector,collector+1;
+	next;
+	}
+	if  (MaxHP == 1 && maxhpachieveb ==0){
+	achievementcomplete(200017);
+	mes .@npc$;
+	mes "A True Glass Cannon! Good work!";
+	set maxhpachieveb, 1;
+	set collector,collector+1;
+	next;
+	}
+	if  (MaxSP == 1 && maxspachieve ==0){
+	achievementcomplete(200018);
+	mes .@npc$;
+	mes "A True Glass Cannon! Good work!";
+	set maxspachieve, 1;
+	set collector,collector+1;
+	next;
+	}
+	if  (PC_DIE_COUNTER !=0 && diecountertotal ==0){
+	achievementcomplete(200019);
+	mes .@npc$;
+	mes "Welcome to the club friend! Hahaha!";
+	set diecountertotal, 1;
+	set collector,collector+1;
+	next;
+	}
+	if  (PC_DIE_COUNTER >=100 && diecountertotalb ==0){
+	achievementcomplete(200020);
+	mes .@npc$;
+	mes "Are you ok? Don't give up! Hahaha!";
+	set diecountertotalb, 1;
+	set collector,collector+1;
+	next;
+	}
+	if (hatpoints >=10 && hatachievea ==0){
+	achievementcomplete(200084);
+	mes .@npc$;
+	mes "You found 10 HATred quests! Good work!";
+	set hatachievea, 1;
+	set collector,collector+1;
+	next;
+	}
+	if (hatpoints >=45 && hatachieveb ==0){
+	achievementcomplete(200085);
+	mes .@npc$;
+	mes "You found 45 HATred quests! Half way there! Good work!";
+	set hatachieveb, 1;
+	set collector,collector+1;
+	next;
+	}
+	if (hatpoints >=90 && hatachievec ==0){
+	achievementcomplete(200086);
+	mes .@npc$;
+	mes "You found ALL HATred quests! Amazing! Good work!";
+	set hatachievec, 1;
+	set collector,collector+1;
+	next;
+	}
+	if (BaseLevel >=150 && PC_DIE_COUNTER ==0  && achievehardest ==0){
+	achievementcomplete(200099);
+	mes .@npc$;
+	mes "You actually did it? No way! I thought it was impossible! Great work!";
+	set achievehardest, 1;
+	set collector,collector+1;
+	next;
+	}
+	mes .@npc$;
+	mes "You need to work harder for me to grant you the remaining badges!";
+	close;
+}
+
+va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
+	set .@npc$, "[Skia Nerius]";
+	cutin "ep16_skia_nerius01",2;
+	mes .@npc$;
+	if (judgejob ==1){
+	mes "Hello There Magister! I can take you to the Headquarters if you wish. Or I can take you to different places around New-Midgard.";
+	next;
+	}
+	if (judgejob ==0){
+	mes "Hello There Orphan! I've been sent by the Prontera Royalty to assist in your travels. Do you want to visit some distant locations?";
+	next;
+	}
+	switch(select("Not Now.:Where can you take me?")) {
+	case 1:
+	emotion ET_OK;
+	mes .@npc$;
+	mes "As you wish sir!";
+	close2;
+	cutin "",255;
+	break;
+	case 2:
+	mes "The Teleport price for distant places is fixed at 1000z.";
+	mes "The Orphanage Investment Level of " + $orphanagelevel + " allows me access of these Teleport Locations:";
+	next;
+	cutin "",255;
+	//Sub Lv 70
+	if ($orphanagelevel >=60){
+	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Juperos:Kiel Hyre Factory:Thanatos Tower:Crystal Caves:Cancel")) {
+	case 1:
+	if (judgejob ==0){
+	mes "Sorry, I can't help you with this. Only Judges can use this particular service.";
+	close;
+	}
+	warp "prt_cas",94,262;
+	end;
+	case 2:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "pay_arche",48,136;
+	end;
+	case 3:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "prt_fild05",274,216;
+	end;
+	case 4:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "moc_fild19",107,99;
+	end;
+	case 5:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "gef_fild09",291,53;
+	end;
+	case 6:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "gef_fild10",57,328;
+	end;
+	case 7:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "mjolnir_02",84,359;
+	end;
+	case 8:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "prt_fild01",131,364;
+	end;
+	case 9:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "ein_fild10",170,37;
+	end;
+	case 10:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "um_fild03",333,353;
+	end;
+	case 11:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "glast_01",200,83;
+	end;
+	case 12:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "yuno_fild01",195,151;
+	end;
+	case 13:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "yuno_fild07",219,175;
+	end;
+	case 14:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "yuno_fild08",89,186;
+	end;
+	case 15:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "hu_fild01",141,157;
+	end;
+	case 16:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "snow_fild04",237,77;
+	end;
+	case 17:
+	mes .@npc$;
+	mes "Take Care!";
+	close;
+	}
+	}
+	//Sub Level 60
+	if ($orphanagelevel <=59){
+	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Cancel")) {
+	case 1:
+	if (judgejob ==0){
+	mes "Sorry, I can't help you with this. Only Judges can use this particular service.";
+	close;
+	}
+	warp "prt_cas",94,262;
+	end;
+	case 2:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "pay_arche",48,136;
+	end;
+	case 3:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "prt_fild05",274,216;
+	end;
+	case 4:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "moc_fild19",107,99;
+	end;
+	case 5:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "gef_fild09",291,53;
+	end;
+	case 6:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "gef_fild10",57,328;
+	end;
+	case 7:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "mjolnir_02",84,359;
+	end;
+	case 8:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "prt_fild01",131,364;
+	end;
+	case 9:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "ein_fild10",170,37;
+	end;
+	case 10:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "um_fild03",333,353;
+	end;
+	case 11:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "glast_01",200,83;
+	end;
+	case 12:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "yuno_fild01",195,151;
+	end;
+	case 13:
+	mes .@npc$;
+	mes "Take Care!";
+	close;
+	}
+	}
+	
+	}
+}

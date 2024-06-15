@@ -50,6 +50,7 @@
 #include "pc_groups.hpp"
 #include "pet.hpp"
 #include "quest.hpp"
+#include "skill.hpp"
 #include "script.hpp"
 #include "storage.hpp"
 #include "trade.hpp"
@@ -1237,7 +1238,7 @@ ACMD_FUNC(alive)
 		clif_displaymessage(fd, msg_txt(sd,667)); // You're not dead.
 		return -1;
 	}
-	clif_skill_nodamage(&sd->bl,&sd->bl,ALL_RESURRECTION,4,1);
+	clif_skill_nodamage(&sd->bl,&sd->bl,ALL_RESURRECTION,2,1);
 	clif_displaymessage(fd, msg_txt(sd,16)); // You've been revived! It's a miracle!
 	return 0;
 }
@@ -5563,8 +5564,8 @@ ACMD_FUNC(effect)
 		return -1;
 	}
 
-	if( type <= EF_NONE || type >= EF_MAX ){
-		sprintf(atcmd_output, msg_txt(sd,1152),EF_NONE+1,EF_MAX-1); // Please enter a valid effect id in the range from %d to %d.
+	if( type <= EF_NONE ){
+		sprintf(atcmd_output, msg_txt(sd,1152),EF_NONE+1); // Please enter a valid effect id in the range from %d to %d.
 		clif_displaymessage(fd, atcmd_output);
 		return -1;
 	}
@@ -7457,7 +7458,136 @@ ACMD_FUNC(mail)
 	mail_openmail(sd);
 	return 0;
 }
+// Sense skill to mobinfo
+void atcmd_mobinfo(struct map_session_data* sd, struct block_list* dst)
+{
+	unsigned char msize[SZ_ALL][7] = { "Small", "Medium", "Large" };
+	unsigned char mrace[RC_ALL][11] = { "Formless", "Undead", "Beast", "Plant", "Insect", "Fish", "Demon", "Demi-Human", "Angel", "Dragon", "Player" };
+	unsigned char melement[ELE_ALL][8] = { "Neutral", "Water", "Earth", "Fire", "Wind", "Poison", "Holy", "Dark", "Ghost", "Undead" };
+	char atcmd_output2[CHAT_SIZE_MAX];
+	struct item_data* item_data;
+	int i;
 
+	memset(atcmd_output, '\0', sizeof(atcmd_output));
+	memset(atcmd_output2, '\0', sizeof(atcmd_output2));
+
+	if (dst->type != BL_MOB)
+		return;
+
+	std::shared_ptr<s_mob_db> mob = mob_db.find(status_get_class(dst));
+	struct mob_data* md = map_id2md(dst->id);
+
+	if (mob == nullptr || md == NULL)
+		return;
+
+	t_exp base_exp = mob->base_exp;
+	t_exp job_exp = mob->job_exp;
+
+	if (pc_isvip(sd)) { // Display EXP rate increase for VIP
+		base_exp += (base_exp * battle_config.vip_base_exp_increase) / 100;
+		job_exp += (job_exp * battle_config.vip_job_exp_increase) / 100;
+	}
+#ifdef RENEWAL_EXP
+	if (battle_config.atcommand_mobinfo_type) {
+		int penalty = pc_level_penalty_mod(sd, PENALTY_EXP, mob);
+
+		base_exp = base_exp * penalty / 100;
+		job_exp = job_exp * penalty / 100;
+	}
+#endif
+	// stats
+	if (mob->get_bosstype() == BOSSTYPE_MVP)
+		sprintf(atcmd_output, msg_txt(sd, 1240), mob->name.c_str(), mob->jname.c_str(), mob->sprite.c_str(), mob->id); // MVP Monster: '%s'/'%s'/'%s' (%d)
+	else
+		sprintf(atcmd_output, msg_txt(sd, 1241), mob->name.c_str(), mob->jname.c_str(), mob->sprite.c_str(), mob->id); // Monster: '%s'/'%s'/'%s' (%d)
+	clif_displaymessage(sd->fd, atcmd_output);
+	sprintf(atcmd_output, "Lv:%d  HP:%d/%d  Base EXP:%llu  Job EXP:%llu  HIT:%d  FLEE:%d", mob->lv, md->status.hp, mob->status.max_hp, base_exp, job_exp, MOB_HIT(mob), MOB_FLEE(mob)); //  Lv:%d  HP:%d  Base EXP:%llu  Job EXP:%llu  HIT:%d  FLEE:%d
+	clif_displaymessage(sd->fd, atcmd_output);
+	sprintf(atcmd_output, msg_txt(sd, 1243), //  DEF:%d  MDEF:%d  STR:%d  AGI:%d  VIT:%d  INT:%d  DEX:%d  LUK:%d
+		mob->status.def, mob->status.mdef, mob->status.str, mob->status.agi,
+		mob->status.vit, mob->status.int_, mob->status.dex, mob->status.luk);
+	clif_displaymessage(sd->fd, atcmd_output);
+
+	sprintf(atcmd_output, msg_txt(sd, 1244), //  ATK:%d~%d  Range:%d~%d~%d  Size:%s  Race: %s  Element: %s (Lv:%d)
+		mob->status.batk + mob->status.rhw.atk, mob->status.batk + mob->status.rhw.atk2, mob->status.rhw.range,
+		mob->range2, mob->range3, msize[mob->status.size],
+		mrace[mob->status.race], melement[mob->status.def_ele], mob->status.ele_lv);
+	clif_displaymessage(sd->fd, atcmd_output);
+	// drops
+	clif_displaymessage(sd->fd, msg_txt(sd, 1245)); //  Drops:
+	strcpy(atcmd_output, " ");
+	unsigned int j = 0;
+	int drop_modifier = 100;
+	struct item item_tmp;
+#ifdef RENEWAL_DROP
+	if (battle_config.atcommand_mobinfo_type) {
+		drop_modifier = pc_level_penalty_mod(sd, PENALTY_DROP, mob);
+	}
+#endif
+
+	for (i = 0; i < MAX_MOB_DROP_TOTAL; i++) {
+		if (mob->dropitem[i].nameid == 0 || mob->dropitem[i].rate < 1 || (item_data = itemdb_exists(mob->dropitem[i].nameid)) == NULL)
+			continue;
+
+		memset(&item_tmp, 0, sizeof(item_tmp));
+		item_tmp.nameid = mob->dropitem[i].nameid;
+		item_tmp.amount = 1;
+		item_tmp.identify = itemdb_isidentified(mob->dropitem[i].nameid);
+
+		int droprate = mob_getdroprate(&sd->bl, mob, mob->dropitem[i].rate, drop_modifier);
+
+		sprintf(atcmd_output2, " - %s  %02.02f%%", itemdb_getItemLink(&item_tmp).c_str(), (float)droprate / 100);
+
+		strcat(atcmd_output, atcmd_output2);
+		if (++j % 3 == 0) {
+			clif_displaymessage(sd->fd, atcmd_output);
+			strcpy(atcmd_output, " ");
+		}
+	}
+	if (j == 0)
+		clif_displaymessage(sd->fd, msg_txt(sd, 1246)); // This monster has no drops.
+	else if (j % 3 != 0)
+		clif_displaymessage(sd->fd, atcmd_output);
+	// mvp
+	if (mob->get_bosstype() == BOSSTYPE_MVP) {
+		float mvppercent, mvpremain;
+		sprintf(atcmd_output, msg_txt(sd, 1247), mob->mexp); //  MVP Bonus EXP:%llu
+		clif_displaymessage(sd->fd, atcmd_output);
+		strcpy(atcmd_output, msg_txt(sd, 1248)); //  MVP Items:
+		mvpremain = 100.0; //Remaining drop chance for official mvp drop mode
+		j = 0;
+		for (i = 0; i < MAX_MVP_DROP_TOTAL; i++) {
+			if (mob->mvpitem[i].nameid == 0 || (item_data = itemdb_exists(mob->mvpitem[i].nameid)) == NULL)
+				continue;
+
+			memset(&item_tmp, 0, sizeof(item_tmp));
+			item_tmp.nameid = mob->mvpitem[i].nameid;
+			item_tmp.amount = 1;
+			item_tmp.identify = itemdb_isidentified(mob->mvpitem[i].nameid);
+
+			//Because if there are 3 MVP drops at 50%, the first has a chance of 50%, the second 25% and the third 12.5%
+			mvppercent = (float)mob->mvpitem[i].rate * mvpremain / 10000.0f;
+			if (battle_config.item_drop_mvp_mode == 0) {
+				mvpremain -= mvppercent;
+			}
+			if (mvppercent > 0) {
+				j++;
+				if (j == 1) {
+					sprintf(atcmd_output2, " %s  %02.02f%%", itemdb_getItemLink(&item_tmp).c_str(), mvppercent);
+				}
+				else {
+					sprintf(atcmd_output2, " - %s  %02.02f%%", itemdb_getItemLink(&item_tmp).c_str(), mvppercent);
+				}
+				strcat(atcmd_output, atcmd_output2);
+			}
+		}
+		if (j == 0)
+			clif_displaymessage(sd->fd, msg_txt(sd, 1249)); // This monster has no MVP prizes.
+		else
+			clif_displaymessage(sd->fd, atcmd_output);
+	}
+	return;
+}
 /*==========================================
  * Show Monster DB Info   v 1.0
  * originally by [Lupus]
@@ -7552,13 +7682,21 @@ ACMD_FUNC(mobinfo)
 		for (i = 0; i < MAX_MOB_DROP_TOTAL; i++) {
 			if (mob->dropitem[i].nameid == 0 || mob->dropitem[i].rate < 1 || (item_data = itemdb_exists(mob->dropitem[i].nameid)) == NULL)
 				continue;
+			struct item item_tmp;
+			memset(&item_tmp, 0, sizeof(item_tmp));
+			item_tmp.nameid = mob->dropitem[i].nameid;
+			item_tmp.amount = 1;
+			item_tmp.identify = itemdb_isidentified(mob->dropitem[i].nameid);
+			
 
 			int droprate = mob_getdroprate( &sd->bl, mob, mob->dropitem[i].rate, drop_modifier );
 
-			if (item_data->slots)
+			/*if (item_data->slots)
 				sprintf(atcmd_output2, " - %s[%d]  %02.02f%%", item_data->ename.c_str(), item_data->slots, (float)droprate / 100);
 			else
-				sprintf(atcmd_output2, " - %s  %02.02f%%", item_data->ename.c_str(), (float)droprate / 100);
+				sprintf(atcmd_output2, " - %s  %02.02f%%", item_data->ename.c_str(), (float)droprate / 100);*/
+			sprintf(atcmd_output2, " - %s  %02.02f%%", itemdb_getItemLink(&item_tmp).c_str(), (float)droprate / 100);
+
 			strcat(atcmd_output, atcmd_output2);
 			if (++j % 3 == 0) {
 				clif_displaymessage(fd, atcmd_output);
@@ -7580,6 +7718,12 @@ ACMD_FUNC(mobinfo)
 			for (i = 0; i < MAX_MVP_DROP_TOTAL; i++) {
 				if (mob->mvpitem[i].nameid == 0 || (item_data = itemdb_exists(mob->mvpitem[i].nameid)) == NULL)
 					continue;
+				
+				struct item item_tmp;
+				memset(&item_tmp, 0, sizeof(item_tmp));
+				item_tmp.nameid = mob->mvpitem[i].nameid;
+				item_tmp.amount = 1;
+				item_tmp.identify = itemdb_isidentified(mob->mvpitem[i].nameid);
 				//Because if there are 3 MVP drops at 50%, the first has a chance of 50%, the second 25% and the third 12.5%
 				mvppercent = (float)mob->mvpitem[i].rate * mvpremain / 10000.0f;
 				if(battle_config.item_drop_mvp_mode == 0) {
@@ -7588,15 +7732,16 @@ ACMD_FUNC(mobinfo)
 				if (mvppercent > 0) {
 					j++;
 					if (j == 1) {
-						if (item_data->slots)
+						/*if (item_data->slots)
 							sprintf(atcmd_output2, " %s[%d]  %02.02f%%", item_data->ename.c_str(), item_data->slots, mvppercent);
 						else
-							sprintf(atcmd_output2, " %s  %02.02f%%", item_data->ename.c_str(), mvppercent);
+							sprintf(atcmd_output2, " %s  %02.02f%%", item_data->ename.c_str(), mvppercent);*/
 					} else {
-						if (item_data->slots)
+						/*if (item_data->slots)
 							sprintf(atcmd_output2, " - %s[%d]  %02.02f%%", item_data->ename.c_str(), item_data->slots, mvppercent);
 						else
-							sprintf(atcmd_output2, " - %s  %02.02f%%", item_data->ename.c_str(), mvppercent);
+							sprintf(atcmd_output2, " - %s  %02.02f%%", item_data->ename.c_str(), mvppercent);*/
+						sprintf(atcmd_output2, " - %s  %02.02f%%", itemdb_getItemLink(&item_tmp).c_str(), mvppercent);
 					}
 					strcat(atcmd_output, atcmd_output2);
 				}
@@ -8282,6 +8427,30 @@ ACMD_FUNC(me)
 	return 0;
 
 }
+/*=====================================
+ * Hide pet and or homun of others players
+ * Usage: @hideslave 
+ * 0 disable, 1 for pet, 2 for homun, 3 for both
+ *-------------------------------------*/
+ACMD_FUNC(hideslave)
+{
+	int option=0;
+	nullpo_retr(-1, sd);
+
+	if (!message || !*message || (option = atoi(message)) < 0 || option > 16 ) {
+		clif_displaymessage(fd, "Please choose an option value (usage: @hideslave <0=disable,1=pet,2=homun,4=abr and summon>,,8=Mercenary)");
+		clif_displaymessage(fd, "You can add options to hide several type : @hideslave 3 would hide pet and homun, @hideslave 15 everything");
+		return -1;
+	}
+
+	sd->state.hideslave = option;
+	clif_refresh(sd);
+	clif_displaymessage(fd, "Display settings for slaves changed.");
+	return 0;
+}
+
+
+
 
 /*==========================================
  * @size
@@ -10706,6 +10875,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(whereis),
 		ACMD_DEF(mapflag),
 		ACMD_DEF(me),
+		ACMD_DEF(hideslave),
 		ACMD_DEF(monsterignore),
 		ACMD_DEF(fakename),
 		ACMD_DEF(size),

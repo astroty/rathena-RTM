@@ -1,0 +1,41 @@
+//===== rAthena Script =======================================
+//= Custom Maps Monster Spawn Script
+//===== Current Version: =====================================
+//= 1.0
+//===== Description: =========================================
+//= Spawns monsters around the World
+//==================================================
+// grey Forest - 01-02
+//==================================================
+
+//==================================================
+// Kafra Storage
+//==================================================
+
+fro_fild01,0,0	monster	Magetin	2662,12,5000
+fro_fild01,0,0	monster	Baby Molinet	2663,12,5000
+fro_fild01,0,0	monster	Adult Molinet	2664,3,5000
+//
+fro_fild02,0,0	monster	Rocky Boy	2665,5,5000
+fro_fild02,0,0	monster	Bubble Girl	2666,5,5000
+fro_fild02,0,0	monster	Adult Molinet	2664,2,5000
+fro_fild02,0,0,1,1	boss_monster	Rockullanux	2667,1,600000,2500000,0
+//
+fro_fild03,0,0	monster	Rocky Boy	2665,12,5000
+fro_fild03,0,0	monster	Bubble Girl	2666,12,5000
+fro_fild03,0,0	monster	Adult Molinet	2664,3,5000
+//
+ast_dun01,0,0	monster	Moon Guardian	2668,3,5000
+ast_dun01,0,0	monster	Sun Guardian	2669,3,5000
+ast_dun01,0,0	monster	Doomfist 	2671,1,5000
+//
+ast_dun02,0,0	monster	Moon Guardian	2668,25,5000
+ast_dun02,0,0	monster	Sun Guardian	2669,15,5000
+ast_dun02,0,0	monster	Meteor Golem 	2670,15,5000
+ast_dun02,0,0	monster	Doomfist 	2671,5,5000
+//
+ast_dun03,0,0	monster	Moon Guardian	2668,3,5000
+ast_dun03,0,0	monster	Sun Guardian	2669,3,5000
+ast_dun03,0,0	monster	Meteor Golem 	2670,2,5000
+ast_dun03,0,0	monster	Doomfist 	2671,1,5000
+ast_dun03,0,0,1,1	boss_monster	Star Scourge	2672,1,1900000,5400000,0

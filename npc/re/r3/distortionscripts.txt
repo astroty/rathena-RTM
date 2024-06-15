@@ -1,0 +1,463 @@
+jor_core,1,1,4	script	BufffJorBoss#1	CLEAR_NPC,{
+OnNPCKillEvent:
+if( killedrid == 2653 ){
+	announce "Power flows from the shattered heart through the core...",bc_blue|bc_area;
+	addrid(1);
+	specialeffect2 1239;
+	specialeffect2 1144;
+	sc_start SC_LHZ_DUN_N4,30000,10,10000;
+	end;
+}
+}
+
+rachelnm,1,1,4	script	DoT#1	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "DoT#1::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer5000:
+	addrid(1);
+	percentheal -3,0;
+	specialeffect2 1747;
+	initnpctimer;
+	end;
+}
+rachelnm	mapflag	hidemobhpbar
+
+rachelnm,37,79,1	script	rachelnm#Protection1	-1,9,9,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"rachelnm",144,141;
+    end;
+}
+
+tha_para01,173,288,1	script	Gate of Paradise#thanatos	10043,{
+		if(countitem(7436) < 1) goto L_noitems;
+		if(countitem(7437) < 1) goto L_noitems;
+		if(countitem(7438) < 1) goto L_noitems;
+		if(countitem(7439) < 1) goto L_noitems;
+		delitem 7436,1;
+		delitem 7437,1;
+		delitem 7438,1;
+		delitem 7439,1;
+		mes "The Gate opens your path to paradise.";
+		close2;
+		warp "tha_para08",140,205;
+		end;
+	L_noitems:
+		mes "The gate rejects your touch.";
+		close;
+}
+
+tha_para06,18,19,1	script	Light#thanatos1	10043,{
+		if(countitem(7436) > 0) goto L_noitems;
+		getitem 7436,1;
+		mes "The Anger of Thanatos .";
+		close;
+	L_noitems:
+		mes "The Fragment is bound to you.";
+		close;
+}
+
+tha_para04,23,155,1	script	Light#thanatos2	10043,{
+		if(countitem(7437) > 0) goto L_noitems;
+		getitem 7437,1;
+		mes "The Horror of Thanatos.";
+		close;
+	L_noitems:
+		mes "The Fragment is bound to you.";
+		close;
+}
+
+tha_para05,100,99,1	script	Light#thanatos3	10043,{
+		if(countitem(7438) > 0) goto L_noitems;
+		getitem 7438,1;
+		mes "The Resentment of Thanatos.";
+		close;
+	L_noitems:
+		mes "The Fragment is bound to you.";
+		close;
+}
+
+tha_para07,151,21,1	script	Light#thanatos4	10043,{
+		if(countitem(7439) > 0) goto L_noitems;
+		getitem 7439,1;
+		mes "The Regret of Thanatos.";
+		close;
+	L_noitems:
+		mes "The Fragment is bound to you.";
+		close;
+}
+
+tha_para08,1,1,4	script	ThanatosSpawns#1	CLEAR_NPC,{
+OnNPCKillEvent:
+if( killedrid == 2649 )
+	announce "Thanatos has fallen in battle and his soul is now free. The Paradise will banish everyone in 15 seconds.",bc_blue|bc_map;
+	initnpctimer;
+    end;
+OnTimer15000:
+	addrid(1);
+	warp "tha_t01",149,100;
+	stopnpctimer
+	end;
+}
+
+-	script	Respawn#abyss_04	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "abyss_04"){
+	warp "Save",0,0;
+	end;
+	}
+}
+
+-	script	ReginleifSh#odin_past	,{
+OnPCDieEvent:
+if (strcharinfo(3) == "odin_past"){
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	soundeffect "randgris_die.wav", 0;
+	announce strcharinfo(0) + " has died and a Shadow of Reginleif has come to take it to Valhalla!",bc_blue|bc_map;
+	monster .@map$,.@x,.@y,"Shadow of Reginleif",2036,1,"ReginleifSh#odin_past::OnShadowFDeath";
+	initnpctimer;
+	end;
+OnTimer15000:
+	mapannounce "odin_past","The Shadow of Reginleif has returned to the skies. The Soul is unworthy.",bc_blue;
+	killmonster "odin_past", "ReginleifSh#odin_past::OnShadowFDeath";
+	stopnpctimer;
+	end;
+OnShadowFDeath:
+	announce "The Shadow of Reginleif has been vanquished.",bc_blue|bc_area;
+	stopnpctimer;
+	end;
+}
+}
+
+iz_dun05,1,1,4	script	Flush#1	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "Flush#1::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer4250:
+    mapannounce "iz_dun05","The Shrine Tide pushes violently anyone not sitting and holding on!",bc_map;
+    end;
+OnTimer5000:
+	addrid(1);
+	if ( Sitting == 1 ){
+	specialeffect2 942;
+	end;
+	}else{
+	if (HP <10){
+	end;
+	}
+	warp "iz_dun05",0,0;
+	specialeffect2 942;
+	end;
+	}
+OnTimer60000:
+    initnpctimer;
+    mapannounce "iz_dun05","The Shrine Tide is growing once again!",bc_map;
+    end;
+}
+
+
+alde_dun03,1,1,4	script	Clock#1	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "Clock#1::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer10000:
+    addrid(1);
+    if (rand(1,4) == 1){
+	sc_end SC_QUAGMIRE;
+	sc_end SC_SPEEDUP1;
+	sc_end SC_STOP;
+    sc_start SC_DECREASEAGI,20000,10,10000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,4) == 2){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_SPEEDUP1;
+	sc_end SC_STOP;
+    sc_start SC_QUAGMIRE,10000,5,10000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,4) == 3){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_QUAGMIRE;
+	sc_end SC_STOP;
+    sc_start SC_SPEEDUP1,20000,50,100000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,4) == 4){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_QUAGMIRE;
+	sc_end SC_SPEEDUP1;
+    sc_start SC_STOP,5000,1,10000;
+    mapannounce "alde_dun03","The clock spins randomly...",bc_map;
+	end;
+    }
+    end;
+OnTimer20000:
+    initnpctimer;
+    mapannounce "alde_dun03","The clock is ticking...",bc_map;
+    end;
+}
+
+alde_dun04,1,1,4	script	Clock#2	CLEAR_NPC,{
+
+OnInit:
+    donpcevent "Clock#2::OnEnable";
+OnEnable:
+    initnpctimer;
+    end;
+OnTimer10000:
+    addrid(1);
+    if (rand(1,3) == 1){
+	sc_end SC_QUAGMIRE;
+	sc_end SC_SPEEDUP1;
+	sc_end SC_STOP;
+    sc_start SC_DECREASEAGI,20000,10,10000;
+    mapannounce "alde_dun04","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,3) == 1){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_SPEEDUP1;
+	sc_end SC_STOP;
+    sc_start SC_QUAGMIRE,10000,5,10000;
+    mapannounce "alde_dun04","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,3) == 1){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_QUAGMIRE;
+	sc_end SC_STOP;
+    sc_start SC_SPEEDUP1,20000,50,100000;
+    mapannounce "alde_dun04","The clock spins randomly...",bc_map;
+	end;
+    }
+    if (rand(1,2) == 1){
+	sc_end SC_DECREASEAGI;
+	sc_end SC_QUAGMIRE;
+	sc_end SC_SPEEDUP1;
+    sc_start SC_STOP,3000,1,10000;
+    mapannounce "alde_dun04","The clock spins randomly...",bc_map;
+	end;
+    }
+    end;
+OnTimer20000:
+    initnpctimer;
+    mapannounce "alde_dun04","The clock is ticking...",bc_map;
+    end;
+}
+
+//Doomed Swords Quest
+
+prt_prison,55,144,6	script	Familiar Blacksmith#doomedswords	10141,{
+	set .@npc$, "[Familiar Blacksmith]";
+	if (doomsword ==1){
+	mes "^6666CCAn empty husk with no soul.";
+	close;
+	}
+	mes .@npc$;
+	mes "...My Soul... Bound...";
+	next;
+	mes .@npc$;
+	mes "Free...forge....sword...";
+	next;
+	mes .@npc$;
+	mes "Where...family...you....sword? ";
+	next;
+	mes .@npc$;
+	mes "...<ITEM>Mysteltainn<INFO>1138</INFO></ITEM>...<ITEM>Ogretooth<INFO>1224</INFO></ITEM>...<ITEM>Executioner<INFO>1169</INFO></ITEM>...";
+	next;
+	mes .@npc$;
+	mes "...100...<ITEM>Bloody Edge<INFO>7024</INFO></ITEM>...1...<ITEM>Old Hilt<INFO>7022</INFO></ITEM>...";
+	next;
+	mes .@npc$;
+	mes "...One Sword...freedom...";
+	next;
+	switch(select("Mysteltainn:Ogretooth:Executioner:Who Are you?:Nevermind")) {
+	case 1:
+		if(countitem(7024) < 100) goto L_noitems;
+		if(countitem(7022) < 1) goto L_noitems;
+		mes .@npc$;
+		mes "Finally...free...here...sword...";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Who are you...?";
+		next;
+		mes .@npc$;
+		mes "Your voice... my child...";
+		next;
+		specialeffect 215;
+		specialeffect 210;
+		mes .@npc$;
+		mes "..." + strcharinfo(0) + "?";
+		next;
+		set doomsword,1;
+		specialeffect2 210;
+		delitem 7024,100;
+		delitem 7022,1;
+		getitem 1138,1;
+		mes "^6666CCThe Spirit leaves the husk forever to rest.";
+		close;
+	L_noitems:
+		mes "You don't have all required items.";
+		close;
+	case 2:
+		if(countitem(7024) < 100) goto L_noitems2;
+		if(countitem(7022) < 1) goto L_noitems2;
+		mes .@npc$;
+		mes "Finally...free...here...sword...";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Who are you...?";
+		next;
+		mes .@npc$;
+		mes "Your voice... my child...";
+		next;
+		specialeffect 215;
+		specialeffect 210;
+		mes .@npc$;
+		mes "..." + strcharinfo(0) + "?";
+		next;
+		set doomsword,1;
+		specialeffect2 210;
+		delitem 7024,100;
+		delitem 7022,1;
+		getitem 1224,1;
+		mes "^6666CCThe Spirit leaves the husk forever to rest.";
+		close;
+	L_noitems2:
+		mes "You don't have all required items.";
+		close;
+	case 3:
+		if(countitem(7024) < 100) goto L_noitems3;
+		if(countitem(7022) < 1) goto L_noitems3;
+		mes .@npc$;
+		mes "Finally...free...here...sword...";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Who are you...?";
+		next;
+		mes .@npc$;
+		mes "Your voice... my child...";
+		next;
+		specialeffect 215;
+		specialeffect 210;
+		mes .@npc$;
+		mes "..." + strcharinfo(0) + "?";
+		next;
+		set doomsword,1;
+		specialeffect2 210;
+		delitem 7024,100;
+		delitem 7022,1;
+		getitem 1169,1;
+		mes "^6666CCThe Spirit leaves the husk forever to rest.";
+		close;
+	L_noitems3:
+		mes "You don't have all required items.";
+		close;
+	case 4:
+		mes .@npc$;
+		mes "It hurts...please...";
+		next;
+		mes "...250...<ITEM>Bloody Edge<INFO>7024</INFO></ITEM>...2...<ITEM>Old Hilt<INFO>7022</INFO></ITEM>...";
+		next;
+		mes "...<ITEM>Tartaros<INFO>1193</INFO></ITEM>...";
+		next;
+		switch(select("Tartaros:Nevermind")) {
+		case 1:
+		if(countitem(7024) < 250) goto L_noitems4;
+		if(countitem(7022) < 2) goto L_noitems4;
+		mes .@npc$;
+		mes "Finally...free...here...sword...darkness";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Who are you...?";
+		next;
+		mes .@npc$;
+		mes "Your voice... my child...";
+		next;
+		specialeffect 215;
+		specialeffect 210;
+		mes .@npc$;
+		mes "..." + strcharinfo(0) + "?";
+		next;
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Wait...Father?";
+		next;
+		mes .@npc$;
+		mes "Thank you my child. I'm free.";
+		next;
+		mes .@npc$;
+		mes "My prison is over. You have become a fine hero.";
+		next;
+		mes .@npc$;
+		mes "Save this forsaken world. You are my hope.";
+		next;
+		emotion ET_CRY, playerattached();
+		mes "[^6666CC" + strcharinfo(0) + "^000000]";
+		mes "Rest in peace...father.";
+		next;
+		set doomsword,1;
+		specialeffect2 210;
+		delitem 7024,250;
+		delitem 7022,2;
+		getitem 1193,1;
+		mes "^6666CCThe Spirit leaves the husk forever to rest.";
+		close;
+	L_noitems4:
+		mes "You don't have all required items.";
+		close;
+		case 2:
+		end;
+		}
+	case 5:
+	end;
+	}
+}
+
+jor_nest01,282,177,1	script	Jornest#Protection1	-1,5,5,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"jor_nest01",116,182;
+    end;
+}
+
+jor_nest01,29,78,1	script	Jornest#Protection2	-1,5,5,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"jor_nest01",168,91;
+    end;
+}
+
+jor_nest02,101,197,1	script	Jornest#Protection3	-1,5,5,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"jor_nest02",107,100;
+    end;
+}
+
+jor_nest02,140,280,1	script	Jornest#Protection4	-1,5,5,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"jor_nest02",107,100;
+    end;
+}
+
+jor_core,101,27,1	script	Jornest#Protection5	-1,5,5,{
+    end;
+    OnTouchNPC:
+    unitwarp 0,"jor_core",102,76;
+    end;
+}

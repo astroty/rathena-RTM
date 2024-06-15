@@ -1,0 +1,3673 @@
+//===== rAthena Script ======================================= 
+//= Kafras (Cities/Dungeons/Fields)
+//===== By: ================================================== 
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: =========================================
+
+//============================================================ 
+
+front_out,232,180,4	script	Kafra#front	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "I'm the only Kafra working in Maroll.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location, for 1000z.";
+		next;
+		switch(select("Orphanage:Nomad Village:Cancel")) {
+			case 1:
+			if (zeny < 1000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 1000;
+				warp "va_orpha",261,302;
+				end;
+				break;
+			case 2:
+			if (zeny < 1000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 1000;
+				warp "nomadvill",141,146;
+				end;
+				break;
+			case 3:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+dewata,198,184,4	script	Kafra#dew	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Comodo:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 3:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+prontera,156,182,4	script	Kafra#Prontera	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	if (achiev10 ==0 ){
+		achievementcomplete(200046);
+		set achiev10,1;
+		}
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Guild Menu:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Yuno:Umbala:Einbroch:Hugel:Lighthalzen:Rachel:Nomad Village:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "payon",170,95;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 7:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			case 8:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 9:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "einbroch",232,197;
+				end;
+				break;
+			case 10:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 11:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "lighthalzen",158,92;
+				end;
+				break;
+			case 12:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "rachel",133,140;
+				end;
+				break;
+			case 13:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "nomadvill",141,146;
+				end;
+				break;
+			case 14:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+	if (getskilllv("GD_KAFRACONTRACT") < 1) {
+	mes "[Kafra]";
+	mes "I can't provide you with Guild Services, sorry!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
+	case 1:
+	if (getskilllv("GD_GUILD_STORAGE") < 1) {
+	mes "You don't have access to the guild storage, sorry!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	next;
+	mes "[Kafra Service]";
+	mes "The Storage won't open if someone is using it or you don't have permission ok?";	
+	close2;
+	cutin "",255;
+	guildopenstorage();
+	end;
+	case 2:
+	close2;
+	cutin "",255;
+	callshop "toolorphanshop",0;
+	end;
+	case 3:
+	close2;
+	cutin "",255;
+	percentheal 100,100;
+	specialeffect2 EF_HEAL2;
+	end;
+	case 4:
+	mes "[Kafra Service]";
+	mes "The War of Emperium is not happening right now.";
+	cutin "",255;
+	close;
+	case 5:
+		mes "[Kafra Service]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	case 6:
+		mes "[Kafra Service]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+payon,178,103,4	script	Kafra#Payon	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Alberta:Geffen:Aldebaran:Comodo:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 7:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 8:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+morocc,161,98,4	script	Kafra#Morroc	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "payon",170,95;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 7:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 8:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 9:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+geffen,120,67,4	script	Kafra#gef	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "payon",170,95;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 7:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 8:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 9:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+alberta,113,60,4	script	Kafra#alb	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "payon",170,95;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 7:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 8:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 9:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+izlude,128,146,4	script	Kafra#izl	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "payon",170,95;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 7:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 8:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 9:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+
+aldebaran,145,113,4	script	Kafra#adb	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Geffen:Yuno:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			case 5:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+xmas,149,132,4	script	Kafra#xmas	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Yuno:Hugel:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 3:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+comodo,209,143,4	script	Kafra#cmd	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "payon",170,95;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			case 6:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 7:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+yuno,169,80,4	script	Kafra#yuno	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	if (achiev9 ==0 ){
+		achievementcomplete(200047);
+		set achiev9,1;
+		}
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Guild Menu:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Aldebaran:Einbroch:Hugel:Lighthalzen:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "einbroch",232,197;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 5:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "lighthalzen",158,92;
+				end;
+				break;
+			case 6:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break;
+	case 5:
+	if (getskilllv("GD_KAFRACONTRACT") < 1) {
+	mes "[Kafra]";
+	mes "I can't provide you with Guild Services, sorry!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
+	case 1:
+	if (getskilllv("GD_GUILD_STORAGE") < 1) {
+	mes "You don't have access to the guild storage, sorry!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	next;
+	mes "[Kafra Service]";
+	mes "The Storage won't open if someone is using it or you don't have permission ok?";	
+	close2;
+	cutin "",255;
+	guildopenstorage();
+	end;
+	case 2:
+	close2;
+	cutin "",255;
+	callshop "toolorphanshop",0;
+	end;
+	case 3:
+	close2;
+	cutin "",255;
+	percentheal 100,100;
+	specialeffect2 EF_HEAL2;
+	end;
+	case 4:
+	mes "[Kafra Service]";
+	mes "The War of Emperium is not happening right now.";
+	cutin "",255;
+	close;
+	case 5:
+		mes "[Kafra Service]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	case 6:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+amatsu,206,112,4	script	Kafra#ama	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Alberta:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 4:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+umbala,99,154,4	script	Kafra#umb	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Comodo:Niflheim:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "niflheim",193,186;
+				end;
+				break;
+			case 4:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+niflheim,196,188,4	script	Kafra#nif	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	if (achievnif ==0 ){
+		achievementcomplete(200049);
+		set achievnif,1;
+		}
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Umbala:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "umbala",96,153;
+				end;
+				break;
+			case 2:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+ayothaya,216,184,4	script	Kafra#ayo	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Alberta:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 4:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+malaya,236,201,4	script	Kafra#mal	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Alberta:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 4:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+
+einbroch,233,216,4	script	Kafra#einb	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Yuno:Aldebaran:Hugel:Lighthalzen:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "lighthalzen",158,92;
+				end;
+				break;
+			case 5:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+einbech,189,139,4	script	Kafra#bech	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Yuno:Aldebaran:Hugel:Lighthalzen:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "lighthalzen",158,92;
+				end;
+				break;
+			case 5:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+lighthalzen,154,98,4	script	Kafra#lhz	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Yuno:Aldebaran:Hugel:Einbroch:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "hugel",98,147;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "einbroch",232,197;
+				end;
+				break;
+			case 5:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+hugel,101,147,4	script	Kafra#hug	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Yuno:Aldebaran:Einbroch:Lighthalzen:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "yuno",157,123;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "aldebaran",140,113;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "einbroch",232,197;
+				end;
+				break;
+			case 4:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "lighthalzen",158,92;
+				end;
+				break;
+			case 5:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+rachel,139,144,4	script	Kafra#rch	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	if (achiev1rac ==0 ){
+		achievementcomplete(200048);
+		set achiev1rac,1;
+		}
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Use Guild Menu:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Nomad Village:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "nomadvill",141,146;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+	if (getskilllv("GD_KAFRACONTRACT") < 1) {
+	mes "[Kafra]";
+	mes "I can't provide you with Guild Services, sorry!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
+	case 1:
+	if (getskilllv("GD_GUILD_STORAGE") < 1) {
+	mes "You don't have access to the guild storage, sorry!";
+	close2;
+	cutin "",255;
+	end;
+	}
+	next;
+	mes "[Kafra Service]";
+	mes "The Storage won't open if someone is using it or you don't have permission ok?";	
+	close2;
+	cutin "",255;
+	guildopenstorage();
+	end;
+	case 2:
+	close2;
+	cutin "",255;
+	callshop "toolorphanshop",0;
+	end;
+	case 3:
+	close2;
+	cutin "",255;
+	percentheal 100,100;
+	specialeffect2 EF_HEAL2;
+	end;
+	case 4:
+	mes "[Kafra Service]";
+	mes "The War of Emperium is not happening right now.";
+	cutin "",255;
+	close;
+	case 5:
+		mes "[Kafra Service]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	case 6:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+mora,56,149,4	script	Kafra#mora	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	if (achiev14 ==0 ){
+		achievementcomplete(200052);
+		set achiev14,1;
+		}
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Comodo:Geffen:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "comodo",204,138;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "geffen",119,59;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			case 3:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+moscovia,227,196,4	script	Kafra#mosk	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "These destinations are available from this location.";
+		next;
+		switch(select("Prontera:Izlude:Alberta:Cancel")) {
+			case 1:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "prontera",156,179;
+				end;
+				break;
+			mes "[Kafra]";
+			mes "Sorry, You don't have enough zeny.";
+			
+			case 2:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "izlude",128,137;
+				end;
+				break;
+			case 3:
+			if (zeny < 3000){
+				mes "[Kafra]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, zeny - 3000;
+				warp "alberta",115,57;
+				end;
+				break;
+			case 4:
+				mes "[Kafra]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				close;
+				break;
+		}
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}
+
+nomadvill,152,149,4	script	Kafra#nomad	117,{
+	cutin "kafra_01",2;
+	emotion ET_DELIGHT;
+	if (achiev13 ==0 ){
+		achievementcomplete(200051);
+		set achiev13,1;
+		}
+	mes "[Kafra Service]";
+	mes "Hello " + strcharinfo(0) + " !";
+	mes "It's good to see you here.";
+	mes "Do you need any Kafra services?";
+	next;
+	switch(select("Save:Use Storage:Teleport to Orphanage:Refill Elixir:Nothing")) {
+	case 1:
+		mes "[Kafra]";
+		mes "Your Save Point has been set at your current location!";
+		next;
+		 getmapxy(.@map$,.@x,.@y,BL_PC);
+		savepoint .@map$,.@x,.@y;
+		mes "[Kafra]";
+		mes "Thanks for visiting!";
+		close2;
+		cutin "",255;
+		break;
+	case 2:
+		mes "[Kafra]";
+		mes "I'll access your Storage for you.";
+		mes "Thank you for hiring our services!";
+		close2;
+		openstorage;
+		cutin "",255;
+		break;
+	case 3:
+		mes "[Kafra]";
+		mes "Good Luck Orphan!";
+		close2;
+		cutin "",255;
+		warp "va_orpha",266,308;
+		end;
+		break;
+	case 4:
+    specialeffect2 305;
+    mes .@npc$;
+    if(countitem(520) >= 1) {
+    set .elixir, countitem(520);
+    delitem 520,.elixir;
+    }
+    getitem 520,2;
+    if (getequipid(EQI_ACC_L) == 2935){
+    getitem 520,1;
+    }
+	 if (getequipid(EQI_GARMENT) == 2576){
+    getitem 520,3;
+    }
+	 if (getequipid(EQI_HEAD_TOP) == 18533){
+	getitem 520,2;
+    }
+	 if (getequipid(EQI_ARMOR) == 2386){
+	getitem 520,6;
+    }
+	 if (bonuselixir ==1) {
+	getitem 520,1;
+    }
+	mes "[Kafra]";
+    mes "I have refilled your Kafra Elixir. Take Care!";
+	 if (getequipid(EQI_ACC_L) == 2935){
+	mes "I added +1 extra due to that cool Badge!";
+	 }
+	  if (getequipid(EQI_GARMENT) == 2576){
+	mes "I added +3 extra due to that large backpack you're carrying!";
+	 }
+	if (getequipid(EQI_HEAD_TOP) == 18533){
+	mes "I added +2 extra due to that sweet hat!";
+	}
+	if (getequipid(EQI_ARMOR) == 2386){
+	mes "I added +6 extra since those robes have so many pockets!";
+	}
+	if (bonuselixir == 1){
+	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+	 }
+	close2;
+    cutin "",255;
+    break; 
+	case 5:
+		mes "[Kafra]";
+		mes "Let me know if you change your mind!";
+		mes "Thanks for your patronage!";
+		cutin "",255;
+		close;
+		break;
+	}
+	cutin "",255;
+	end;
+}

@@ -118,12 +118,6 @@ payon,158,246,3	script	Guardsman#payon	708,3,3,{
 OnTouch_:
 	mes "[Guardsman]";
 	mes "This is the Central Palace of Payon. This place is open to the public, but in accordance with our laws, you must behave in an orderly fashion once inside.";
-	next;
-	mes "[Guardsman]";
-	mes "In the interest of protecting the peace, we will disarm your equipment once you enter.";
-	mes "Your cooperation is";
-	mes "much appreciated.";
-	nude;
 	close;
 }
 
@@ -465,10 +459,7 @@ payon_in01,180,7,2	script	Waitress#payon	90,{
 	close;
 }
 
-payon_in03,96,116,3	script	Chief Guardsman#payon	708,3,3,{
-	end;
-
-OnTouch_:
+payon_in03,96,116,3	script	Chief Guardsman#payon	708,{
 	mes "[Chief Guardsman]";
 	mes "What brings";
 	mes "you here? ";
@@ -476,10 +467,6 @@ OnTouch_:
 	mes "[Chief Guardsman]";
 	mes "I can see that you are not one of the Payon locals. I would just like to remind you to conduct yourself in an orderly manner. Remember,";
 	mes "you are a guest here.";
-	next;
-	mes "[Chief Guardsman]";
-	mes "In the interest of protecting the public peace, I will disarm your equipment. Thank you for your cooperation.";
-	nude;
 	close;
 }
 
@@ -829,21 +816,7 @@ payon_in01,47,59,2	script	Archer Wolt#payon	88,{
 	close;
 }
 
-payon_in03,99,190,4	script	Chief#payon	107,2,2,{
-	end;
-
-OnTouch_:
-	if (BaseLevel < 30) {
-		mes "[Guard]";
-		mes "Hey...";
-		mes "Hey...!";
-		mes "Show your respect";
-		mes "to our chief!";
-		close;
-	}
-	if (BaseLevel > 30) {
-		set .@oldman_random,rand(1,2);
-		if (.@oldman_random == 1) {
+payon_in03,99,190,4	script	Chief#payon	107,{
 			mes "[Guard]";
 			mes "Hey...";
 			mes "Hey...!";
@@ -859,136 +832,8 @@ OnTouch_:
 			mes "It's been a long time";
 			mes "since I've spoken to";
 			mes "such young people.";
-			next;
-		}
-		switch(select("Please tell me about Payon.:Where are the guards from?:Please tell me about the cave. :What does an Archer do?:What does a Hunter do?")) {
-		case 1:
-			mes "[Chief]";
-			mes "Payon is the city of highlanders. As long as our history can relate, our city has been self-sufficient.";
-			next;
-			mes "[Chief]";
-			mes "Although our ancestors did not enjoy the benefits of cultural exchange with the Rune-Midgarts Kingdom as we do today, they knew how to make a living without";
-			mes "any help.";
-			next;
-			mes "[Chief]";
-			mes "Payon has developed its own cultures and ways. We've invented our own means to protect ourselves against the elements, and Payon men and women train as Archers and Hunters to defend themselves.";
-			next;
-			mes "[Chief]";
-			mes "I've heard of weak, cowardly";
-			mes "young people who fear the fields or dungeons filled with monsters. But to us, battle is a way of life.";
-			next;
-			mes "[Chief]";
-			mes "That is why his Majesty, King Tristram III wishes for us to train young people how to effectively fight against evil creatures.";
-			break;
-		case 2:
-			mes "[Chief]";
-			mes "Even since I was young,";
-			mes "Prontera has sent civil";
-			mes "servants and envoys to Payon.";
-			next;
-			mes "[Chief]";
-			mes "Royal troops, Kafra Ladies, Guards... At first, there was conflict brought about by differences in our customs";
-			mes "and cultures.";
-			next;
-			mes "[Chief]";
-			mes "However, as time passed,";
-			mes "we've been able to resolve such petty differences. I cannot deny that they've helped us speedily develop our trade with foreign nations.";
-			next;
-			mes "[Chief]";
-			mes "Now, people who used to be outsiders are now bonifide Payon citizens. When I was young, I would never imagined such a thing possible. Hahahaha~!";
-			next;
-			mes "[Chief]";
-			mes "It pleases me to see and meet with them. Even though have come from other places, they have a love for Payon that is as sincere as my own.";
-			break;
-		case 3:
-			mes "[Chief]";
-			mes "Ah...";
-			mes "I used to go to the cave";
-			mes "to the North sometimes. But it";
-			mes "is harder now than it was then.";
-			next;
-			mes "[Chief]";
-			mes "Evil creatures that I've never seen before endlessly respawn in that place. The monsters in Payon Cave today are different than the ones we used to fight with.";
-			next;
-			mes "[Chief]";
-			mes "Have you ever happened to see";
-			mes "the Zombies...? Some of them are warriors who entered the cave to protect this village, but never came back.";
-			next;
-			mes "[Chief]";
-			mes "Although they are a threat, some of those Undead are also victims of that cave. I'm too old to endure that kind of pain...";
-			next;
-			mes "[Chief]";
-			mes "I must do anything I can to stop the Undead, and release their souls from eternal anguish.";
-			break;
-		case 4:
-			mes "[Chief]";
-			mes "Ah, it is fortunate that archery is a specialty here in Payon. Because of the surrounding forest, we have an abundant supply of wood to create Bows.";
-			next;
-			mes "[Chief]";
-			mes "The forest also is a good training place for Archers to learn how to use their environment to impede the advance of their enemies while attacking from a safe distance.";
-			next;
-			mes "[Chief]";
-			mes "The forest can also be convenient in unexpected ways. When I was young, I ran out of arrows while fighting against monsters in the woods, but arrows dropped by other monsters saved my life! Mwahah!";
-			break;
-		case 5:
-			mes "[Chief]";
-			mes "As foreign cultures were introduced to Payon, changes have been brought about to our battle style.";
-			next;
-			mes "[Chief]";
-			mes "Technology, especially that of explosives, enabled new methods";
-			mes "of battle. We were no longer limited to the use of just bows and arrows.";
-			next;
-			mes "[Chief]";
-			mes "Trapping skills, which make";
-			mes "hunting monsters much easier, were developed enable here in Payon. Experts in the new skills were dubbed 'Hunters' by our previous Chief.";
-			next;
-			mes "[Chief]";
-			mes "Although highly effective, trapping is a really dangerous skill if not used properly. That's why we do not approve of the inexperienced becoming Hunters.";
-			next;
-			mes "[Chief]";
-			mes "However, we welcome people";
-			mes "who have proven to be capable to take the challenge of the Hunter class.";
-			break;
-		}
-		next;
-		mes "[Chief]";
-		mes "So tired...";
-		mes "I'd better rest.";
-		mes "Please, take care";
-		mes "of yourself.";
-		close;
-
-		//This actually never happens on iRO
-		//if (.@oldman_random == 2) {
-		//	mes "[Guard]";
-		//	mes "The Chief is";
-		//	mes "taking a rest.";
-		//	mes "Would you mind";
-		//	mes "coming back later?";
-		//}
+			close;
 	}
-	end;
-}
-
-payon_in03,102,185,5	script	Guard#payon	708,{
-	if (BaseLevel < 30) {
-		mes "[Guard]";
-		mes "Hey...!";
-		mes "You're not";
-		mes "allowed here!";
-		mes "Go back outside!";
-		close;
-	}
-	if (BaseLevel > 30) {
-		mes "[Guard]";
-		mes "I'm sorry,";
-		mes "but you're";
-		mes "not allowed here.";
-		mes "Please leave.";
-		close;
-	}
-	end;
-}
 
 // Payon Archer Village
 //============================================================

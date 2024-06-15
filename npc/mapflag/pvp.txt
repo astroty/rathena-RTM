@@ -180,3 +180,10 @@ pvp_2vs2	mapflag	nocostume
 turbo_e_4	mapflag	nocostume
 turbo_e_8	mapflag	nocostume
 turbo_e_16	mapflag	nocostume
+
+//
+
+pvp_2vs2	mapflag	pvp
+pvp_2vs2	mapflag	pvp
+
+//

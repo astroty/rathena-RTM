@@ -13,6 +13,11 @@
 //= 1.2 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
 //============================================================
 
+//New Dungeon Access
+ama_dun01,229,7,0	warp	ama_dun001	1,1,ama_fild01,174,327
+ama_fild01,174,330,0	warp	ama_dun002	1,1,ama_dun01,229,10
+
+
 ama_dun01,235,144,0	warp	ama_dun1-1	1,1,ama_dun02,33,40
 ama_dun02,30,40,0	warp	ama_dun1-2	1,1,ama_dun01,232,144
 ama_dun02,196,123,0	warp	ama_dun2-1	1,1,ama_dun03,120,12

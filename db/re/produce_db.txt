@@ -429,23 +429,23 @@
 
 //===== Guillotine Cross Poisons === ItemLv=25 =
 //-- Guillotine Antidote <-- GC_RESEARCHNEWPOISON Lv5, 1 White Herb, 1 Blue Herb, 2 Green Herb
-157,6128,25,2024,5,509,1,510,1,511,2
+157,6128,25,2024,5,6191,0,7931,0,713,1,511,1,972,1
 //-- Poison Paralysis <-- GC_RESEARCHNEWPOISON Lv1, 1 Medicine Bowl, 20 Poison Toad's Skin, 1 Poison Kit, 1 Poison Herb Amoena
-158,12717,25,2024,1,7134,1,7155,20,7931,1,7937,1
+158,12717,25,2024,1,6189,0,7931,0,713,1,7932,1,972,1
 //-- Poison Leech <-- GC_RESEARCHNEWPOISON Lv4, 1 Medicine Bowl, 1 Poison Kit, 1 Poison Herb Nerium, 1 Poison Herb Scopolia
-159,12718,25,2024,4,7134,1,7931,1,7932,1,7936,1
+159,12718,25,2024,4,6190,0,7931,0,713,1,7935,1,972,1
 //-- Poison Oblivion <-- GC_RESEARCHNEWPOISON Lv9, 1 Izidor, 10 Heart Of Mermaid, 1 Medicine Bowl, 1 Poison Kit
-160,12719,25,2024,9,709,1,950,10,7134,1,7931,1
+160,12719,25,2024,9,6192,0,7931,0,713,1,7937,1,7936,1,972,3
 //-- Poison Contamination <-- GC_RESEARCHNEWPOISON Lv3, 25 Decayed Nail, 1 Medicine Bowl, 1 Poison Kit, 1 Poison Herb Seratum
-161,12720,25,2024,3,957,25,7134,1,7931,1,7935,1
+161,12720,25,2024,3,6190,0,7931,0,713,1,7934,1,972,1
 //-- Poison Numb <-- GC_RESEARCHNEWPOISON Lv8, 1 Medicine Bowl, 10 Sticky Poison, 1 Poison Kit, 1 Poison Herb Nerium
-162,12721,25,2024,8,7134,1,7565,10,7931,1,7932,1
+162,12721,25,2024,8,6192,0,7931,0,713,1,7937,1,7932,1,972,2
 //-- Poison Fever <-- GC_RESEARCHNEWPOISON Lv2, 20 Anolian Skin, 1 Medicine Bowl, 1 Poison Kit, 1 Poison Herb Rantana
-163,12722,25,2024,2,7003,20,7134,1,7931,1,7933,1
+163,12722,25,2024,2,6189,0,7931,0,713,1,7933,1,972,1
 //-- Poison Laughing <-- GC_RESEARCHNEWPOISON Lv7, 10 Poison Spore, 1 Medicine Bowl, 1 Poison Kit, 1 Poison Herb Makulata
-164,12723,25,2024,7,7033,10,7134,1,7931,1,7934,1
+164,12723,25,2024,7,6192,0,7931,0,713,1,7937,1,972,3
 //-- Poison Fatigue <-- GC_RESEARCHNEWPOISON Lv6, 1 Izidor, 1 Medicine Bowl, 10 Sticky Poison, 1 Poison Kit
-165,12724,25,2024,6,709,1,7134,1,7565,10,7931,1
+165,12724,25,2024,6,6191,0,7931,0,713,1,7936,1,972,1
 //==============================================
 
 //==============================================
@@ -605,30 +605,30 @@
 //==============================================
 
 //---- Mix Cooking --- ItemLV=27 ---------------
-//-- Savage BBQ <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 1 Savage Meat, 1 Cooking Skewer, 1 Black Charcoal
-241,12429,27,2495,1,11022,0,6248,1,6249,1,6250,1,6251,1
-//-- Wug Blood Cocktail <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 3 Wolf Blood, 2 Cold Ice
-242,12430,27,2495,1,11022,0,6248,1,6252,3,6253,2
-//-- Minor Brisket <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 2 Beef Head Meat, 1 Large Cookpot
-243,12431,27,2495,1,11022,0,6248,1,6254,2,6255,1
-//-- Siroma Icetea <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 3 Ice Fragment, 2 Ice Crystal, 1 Comodo Tropic Fruit
-244,12432,27,2495,1,11022,0,6248,1,6256,3,6257,2,6258,1
-//-- Drocera Herb Stew <-- GN_MIX_COOKING Lv1, Mix Cook Book, 3 Red Herb, 3 White Herb, 3 Blue Herb, 1 Melange Pot, 1 Large Cookpot, 1 Drocera Tentacle
-245,12433,27,2495,1,11022,0,507,3,509,3,510,3,6248,1,6255,1,6259,3
-//-- Petti Tail Noodle <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 2 Petti Tail, 1 Fine Noodle, 1 Cool Gravy
-246,12434,27,2495,1,11022,0,6248,1,6260,2,6261,1,6262,1
+//-- Savage BBQ <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Large Pot, 1 Savage Meat 1 Black Charcoal
+241,13284,27,2495,1,11022,0,6255,0,6249,1,6251,1
+//-- Wug Blood Cocktail <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 1 Wolf Blood, 1 Cold Ice
+242,13285,27,2495,1,11022,0,6248,0,6252,1,6253,1
+//-- Minor Brisket <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 1 Beef Head Meat, 1 Savory Sauce
+243,13286,27,2495,1,11022,0,6255,0,6254,1,7454,1
+//-- Siroma Icetea <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Melange Pot, 1 Comodo Tropic Fruit, 1 Ice Crystal
+244,13287,27,2495,1,11022,0,6248,0,6258,1,6257,1
+//-- Drocera Herb Stew <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Large Cookpot, 1 Drocera Tentacle, 1 Cooking Oil
+245,13288,27,2495,1,11022,0,6255,0,6259,1,7457,1
+//-- Petti Tail Noodle <-- GN_MIX_COOKING Lv1, Mix Cook Book, 1 Large Cookpot, 1 Petti Tail, 1 Fine Noodle
+246,13289,27,2495,1,11022,0,6255,0,6260,1,6261,1
 
 //---- Create Bomb --- ItemLV=28 ---------------
-//-- Apple Bomb <-- GN_MAKEBOMB Lv1, Apple Bomb CB, 1 Apple, 1 Scell, 1 Detonator, 1 Gun Powder
-//247,13260,28,2496,1,6279,0,512,1,911,1,1051,1,6244,1
-//-- Coconut Bomb <-- GN_MAKEBOMB Lv1, Coconut Bomb CB, 1 Detonator, 1 Coconut Fruit, 2 Gun Powder
-//248,13261,28,2496,1,6281,0,1051,1,6263,1,6244,2
-//-- Melon Bomb <-- GN_MAKEBOMB Lv1, Melon Bomb CB, 1 Sticky Mucus, 1 Detonator, 2 Gun Powder, 1 Melon
-//249,13262,28,2496,1,6282,0,938,1,1051,1,6244,2,6264,1
-//-- Pineapple Bomb <-- GN_MAKEBOMB Lv1, Pinepple Bomb CB, 1 Cactus Needle, 1 Detonator, 3 Gun Powder, 1 Pineapple
-//250,13263,28,2496,1,6280,0,952,1,1051,1,6244,3,6265,1
-//-- Banana Bomb <-- GN_MAKEBOMB Lv1, Banana Bomb CB, 1 Banana, 1 Detonator, 4 Gun Powder, 1 Mould Powder
-//251,13264,28,2496,1,6283,0,513,1,1051,1,6244,4,7001,1
+//-- Apple Bomb <-- GN_MAKEBOMB Lv1, Apple Bomb CB, 1 Apple, 1 Gun Powder
+247,13260,28,2496,1,6279,0,512,1,6244,1
+//-- Coconut Bomb <-- GN_MAKEBOMB Lv1, Coconut Bomb CB, 1 Coconut Fruit, 2 Gun Powder
+248,13261,28,2496,1,6281,1,6263,1,6244,2
+//-- Melon Bomb <-- GN_MAKEBOMB Lv1, Melon Bomb CB, 3 Gun Powder, 1 Melon
+249,13262,28,2496,1,6282,0,6264,1,6244,3
+//-- Pineapple Bomb <-- GN_MAKEBOMB Lv1, Pinepple Bomb CB, 4 Gun Powder, 1 Pineapple
+250,13263,28,2496,1,6280,0,6265,1,6244,4
+//-- Banana Bomb <-- GN_MAKEBOMB Lv1, Banana Bomb CB, 1 Banana, 5 Gun Powder
+251,13264,28,2496,1,6283,0,513,1,6244,5
 
 //---- Special Pharmacy --- ItemLV=29 ----------
 //-- Seed Of Horny Plant <-- GN_S_PHARMACY Lv1, Plant Genetic Grow, 10 Prickly Fruit

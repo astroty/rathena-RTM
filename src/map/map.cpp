@@ -52,7 +52,7 @@
 
 using namespace rathena;
 
-char default_codepage[32] = "";
+char default_codepage[32] = "utf8";
 
 int map_server_port = 3306;
 char map_server_ip[64] = "127.0.0.1";
@@ -97,7 +97,7 @@ char log_db_pw[32] = "";
 char log_db_db[32] = "log";
 Sql* logmysql_handle;
 
-uint32 start_status_points = 48;
+uint32 start_status_points = 18;
 
 // DBMap declaration
 static DBMap* id_db=NULL; /// int id -> struct block_list*
@@ -448,7 +448,6 @@ int map_moveblock(struct block_list *bl, int x1, int y1, t_tick tick)
 	//		status_change_end(bl, SC_BLADESTOP, INVALID_TIMER); //Won't stop when you are knocked away, go figure...
 			status_change_end(bl, SC_TATAMIGAESHI, INVALID_TIMER);
 			status_change_end(bl, SC_MAGICROD, INVALID_TIMER);
-			status_change_end(bl, SC_SU_STOOP, INVALID_TIMER);
 			if (sc->data[SC_PROPERTYWALK] &&
 				sc->data[SC_PROPERTYWALK]->val3 >= skill_get_maxcount(sc->data[SC_PROPERTYWALK]->val1,sc->data[SC_PROPERTYWALK]->val2) )
 				status_change_end(bl,SC_PROPERTYWALK,INVALID_TIMER);
@@ -639,34 +638,36 @@ int map_foreachinrangeV(int (*func)(struct block_list*,va_list),struct block_lis
 	x1 = i16min(center->x + range, mapdata->xs - 1);
 	y1 = i16min(center->y + range, mapdata->ys - 1);
 
-	if ( type&~BL_MOB ) {
-		for( by = y0 / BLOCK_SIZE; by <= y1 / BLOCK_SIZE; by++ ) {
-			for( bx = x0 / BLOCK_SIZE; bx <= x1 / BLOCK_SIZE; bx++ ) {
-				for(bl = mapdata->block[ bx + by * mapdata->bxs ]; bl != NULL; bl = bl->next ) {
-					if( bl->type&type
+	if (type & ~BL_MOB) {
+		for (by = y0 / BLOCK_SIZE; by <= y1 / BLOCK_SIZE; by++) {
+			for (bx = x0 / BLOCK_SIZE; bx <= x1 / BLOCK_SIZE; bx++) {
+				for (bl = mapdata->block[bx + by * mapdata->bxs]; bl != NULL; bl = bl->next) {
+					if (bl->type & type
 						&& bl->x >= x0 && bl->x <= x1 && bl->y >= y0 && bl->y <= y1
 #ifdef CIRCULAR_AREA
 						&& check_distance_bl(center, bl, range)
 #endif
-						&& ( !wall_check || path_search_long(NULL, center->m, center->x, center->y, bl->x, bl->y, CELL_CHKWALL) )
-					  	&& bl_list_count < BL_LIST_MAX )
-						bl_list[ bl_list_count++ ] = bl;
+						&& (!wall_check || path_search_long(NULL, center->m, center->x, center->y, bl->x, bl->y, CELL_CHKWALL))
+						&& bl_list_count < BL_LIST_MAX)
+						bl_list[bl_list_count++] = bl;
 				}
 			}
 		}
 	}
 
-	if ( type&BL_MOB ) {
-		for( by = y0 / BLOCK_SIZE; by <= y1 / BLOCK_SIZE; by++ ) {
-			for( bx = x0 / BLOCK_SIZE; bx <= x1 / BLOCK_SIZE; bx++ ) {
-				for(bl = mapdata->block_mob[ bx + by * mapdata->bxs ]; bl != NULL; bl = bl->next ) {
-					if( bl->x >= x0 && bl->x <= x1 && bl->y >= y0 && bl->y <= y1
+	if (type & BL_MOB) {
+		for (by = y0 / BLOCK_SIZE; by <= y1 / BLOCK_SIZE; by++) {
+			for (bx = x0 / BLOCK_SIZE; bx <= x1 / BLOCK_SIZE; bx++) {
+				for (bl = mapdata->block_mob[bx + by * mapdata->bxs]; bl != NULL; bl = bl->next) {
+					if (bl->x >= x0 && bl->x <= x1 && bl->y >= y0 && bl->y <= y1
 #ifdef CIRCULAR_AREA
 						&& check_distance_bl(center, bl, range)
 #endif
-						&& ( !wall_check || path_search_long(NULL, center->m, center->x, center->y, bl->x, bl->y, CELL_CHKWALL) )
-					  	&& bl_list_count < BL_LIST_MAX )
-						bl_list[ bl_list_count++ ] = bl;
+						&& (!wall_check || path_search_long(NULL, center->m, center->x, center->y, bl->x, bl->y, CELL_CHKWALL))
+						&& bl_list_count < BL_LIST_MAX) {
+						if (type & BL_CHAT && center->id == bl->id) continue;
+						bl_list[bl_list_count++] = bl;
+					}
 				}
 			}
 		}

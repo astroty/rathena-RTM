@@ -135,11 +135,11 @@ Body:
   - Id: 26
     Option: ATTR_TOLERACE_WATER
     Script: |
-      bonus2 bSubEle,Ele_Water,getrandomoptinfo(ROA_VALUE);
+      skill "ALL_PRONTERA_RECALL",getrandomoptinfo(ROA_VALUE);
   - Id: 27
     Option: ATTR_TOLERACE_GROUND
     Script: |
-      bonus2 bSubEle,Ele_Earth,getrandomoptinfo(ROA_VALUE);
+      skill "ECLAGE_RECALL",getrandomoptinfo(ROA_VALUE);
   - Id: 28
     Option: ATTR_TOLERACE_FIRE
     Script: |
@@ -163,520 +163,519 @@ Body:
   - Id: 33
     Option: ATTR_TOLERACE_TELEKINESIS
     Script: |
-      bonus2 bSubEle,Ele_Ghost,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AB_DUPLELIGHT",getrandomoptinfo(ROA_VALUE);
   - Id: 34
     Option: ATTR_TOLERACE_UNDEAD
     Script: |
-      bonus2 bSubEle,Ele_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SP_SWHOO",getrandomoptinfo(ROA_VALUE);
   - Id: 35
     Option: ATTR_TOLERACE_ALLBUTNOTHING
     Script: |
-      for(.@i = Ele_Water; .@i < Ele_Undead; ++.@i)
-        bonus2 bSubEle,.@i,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SP_SPA",getrandomoptinfo(ROA_VALUE);
   - Id: 36
     Option: DAMAGE_PROPERTY_NOTHING_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Neutral,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RG_BACKSTAP",getrandomoptinfo(ROA_VALUE);
   - Id: 37
     Option: DAMAGE_PROPERTY_NOTHING_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Neutral,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GC_ROLLINGCUTTER",getrandomoptinfo(ROA_VALUE);
   - Id: 38
     Option: DAMAGE_PROPERTY_WATER_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Water,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GC_CROSSRIPPERSLASHER",getrandomoptinfo(ROA_VALUE);
   - Id: 39
     Option: DAMAGE_PROPERTY_WATER_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Water,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AC_DOUBLE",getrandomoptinfo(ROA_VALUE);
   - Id: 40
     Option: DAMAGE_PROPERTY_GROUND_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Earth,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AC_SHOWER",getrandomoptinfo(ROA_VALUE);
   - Id: 41
     Option: DAMAGE_PROPERTY_GROUND_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Earth,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_KOUENKA",getrandomoptinfo(ROA_VALUE);
   - Id: 42
     Option: DAMAGE_PROPERTY_FIRE_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Fire,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_HUUJIN",getrandomoptinfo(ROA_VALUE);
   - Id: 43
     Option: DAMAGE_PROPERTY_FIRE_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Fire,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_HYOUSENSOU",getrandomoptinfo(ROA_VALUE);
   - Id: 44
     Option: DAMAGE_PROPERTY_WIND_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Wind,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"TF_POISON",getrandomoptinfo(ROA_VALUE);
   - Id: 45
     Option: DAMAGE_PROPERTY_WIND_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Wind,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KO_HAPPOKUNAI",getrandomoptinfo(ROA_VALUE);
   - Id: 46
     Option: DAMAGE_PROPERTY_POISON_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Poison,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_KIRIKAGE",getrandomoptinfo(ROA_VALUE);
   - Id: 47
     Option: DAMAGE_PROPERTY_POISON_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Poison,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_AXETORNADO",getrandomoptinfo(ROA_VALUE);
   - Id: 48
     Option: DAMAGE_PROPERTY_SAINT_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Holy,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_AXEBOOMERANG",getrandomoptinfo(ROA_VALUE);
   - Id: 49
     Option: DAMAGE_PROPERTY_SAINT_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Holy,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",getrandomoptinfo(ROA_VALUE);
   - Id: 50
     Option: DAMAGE_PROPERTY_DARKNESS_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Dark,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_SONICBLOW",getrandomoptinfo(ROA_VALUE);
   - Id: 51
     Option: DAMAGE_PROPERTY_DARKNESS_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Dark,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_HUUMA",getrandomoptinfo(ROA_VALUE);
   - Id: 52
     Option: DAMAGE_PROPERTY_TELEKINESIS_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Ghost,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",getrandomoptinfo(ROA_VALUE);
   - Id: 53
     Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Ghost,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_KUNAI",getrandomoptinfo(ROA_VALUE);
   - Id: 54
     Option: DAMAGE_PROPERTY_UNDEAD_USER
     Script: |
-      bonus2 bSubDefEle,Ele_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MG_FIREBALL",getrandomoptinfo(ROA_VALUE);
   - Id: 55
     Option: DAMAGE_PROPERTY_UNDEAD_TARGET
     Script: |
-      bonus2 bAddEle,Ele_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",getrandomoptinfo(ROA_VALUE);
   - Id: 56
     Option: MDAMAGE_PROPERTY_NOTHING_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Neutral,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RK_SONICWAVE",getrandomoptinfo(ROA_VALUE);
   - Id: 57
     Option: MDAMAGE_PROPERTY_NOTHING_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Neutral,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SC_FEINTBOMB",getrandomoptinfo(ROA_VALUE);
   - Id: 58
     Option: MDAMAGE_PROPERTY_WATER_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Water,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AM_ACIDTERROR",getrandomoptinfo(ROA_VALUE);
   - Id: 59
     Option: MDAMAGE_PROPERTY_WATER_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Water,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AM_DEMONSTRATION",getrandomoptinfo(ROA_VALUE);
   - Id: 60
     Option: MDAMAGE_PROPERTY_GROUND_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Earth,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",getrandomoptinfo(ROA_VALUE);
   - Id: 61
     Option: MDAMAGE_PROPERTY_GROUND_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Earth,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_VULCANARM",getrandomoptinfo(ROA_VALUE);
   - Id: 62
     Option: MDAMAGE_PROPERTY_FIRE_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Fire,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"CR_SHIELDBOOMERANG",getrandomoptinfo(ROA_VALUE);
   - Id: 63
     Option: MDAMAGE_PROPERTY_FIRE_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Fire,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MG_FROSTDIVER",getrandomoptinfo(ROA_VALUE);
   - Id: 64
     Option: MDAMAGE_PROPERTY_WIND_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Wind,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RG_RAID",getrandomoptinfo(ROA_VALUE);
   - Id: 65
     Option: MDAMAGE_PROPERTY_WIND_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Wind,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_SKYNETBLOW",getrandomoptinfo(ROA_VALUE);
   - Id: 66
     Option: MDAMAGE_PROPERTY_POISON_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Poison,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KO_MAKIBISHI",getrandomoptinfo(ROA_VALUE);
   - Id: 67
     Option: MDAMAGE_PROPERTY_POISON_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Poison,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"ASC_METEORASSAULT",getrandomoptinfo(ROA_VALUE);
   - Id: 68
     Option: MDAMAGE_PROPERTY_SAINT_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Holy,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_CANNONSPEAR",getrandomoptinfo(ROA_VALUE);
   - Id: 69
     Option: MDAMAGE_PROPERTY_SAINT_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Holy,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_DRAGONCOMBO",getrandomoptinfo(ROA_VALUE);
   - Id: 70
     Option: MDAMAGE_PROPERTY_DARKNESS_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Dark,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_FALLENEMPIRE",getrandomoptinfo(ROA_VALUE);
   - Id: 71
     Option: MDAMAGE_PROPERTY_DARKNESS_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Dark,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_SPLASHER",getrandomoptinfo(ROA_VALUE);
   - Id: 72
     Option: MDAMAGE_PROPERTY_TELEKINESIS_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Ghost,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SO_POISON_BUSTER",getrandomoptinfo(ROA_VALUE);
   - Id: 73
     Option: MDAMAGE_PROPERTY_TELEKINESIS_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Ghost,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KO_JYUMONJIKIRI",getrandomoptinfo(ROA_VALUE);
   - Id: 74
     Option: MDAMAGE_PROPERTY_UNDEAD_USER
     Script: |
-      bonus2 bMagicSubDefEle,Ele_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"ASC_BREAKER",getrandomoptinfo(ROA_VALUE);
   - Id: 75
     Option: MDAMAGE_PROPERTY_UNDEAD_TARGET
     Script: |
-      bonus2 bMagicAddEle,Ele_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GC_COUNTERSLASH",getrandomoptinfo(ROA_VALUE);
   - Id: 76
     Option: BODY_ATTR_NOTHING
     Script: |
-      bonus bDefEle,Ele_Neutral;
+      bonus2 bSkillAtk,"DC_THROWARROW",getrandomoptinfo(ROA_VALUE);
   - Id: 77
     Option: BODY_ATTR_WATER
     Script: |
-      bonus bDefEle,Ele_Water;
+      bonus2 bSkillAtk,"KO_HUUMARANKA",getrandomoptinfo(ROA_VALUE);
   - Id: 78
     Option: BODY_ATTR_GROUND
     Script: |
-      bonus bDefEle,Ele_Earth;
+      bonus2 bSkillAtk,"NJ_KASUMIKIRI",getrandomoptinfo(ROA_VALUE);
   - Id: 79
     Option: BODY_ATTR_FIRE
     Script: |
-      bonus bDefEle,Ele_Fire;
+      bonus2 bHPDrainRate,500,getrandomoptinfo(ROA_VALUE);
   - Id: 80
     Option: BODY_ATTR_WIND
     Script: |
-      bonus bDefEle,Ele_Wind;
+      bonus bASPDCap,getrandomoptinfo(ROA_VALUE);
   - Id: 81
     Option: BODY_ATTR_POISON
     Script: |
-      bonus bDefEle,Ele_Poison;
+      bonus2 bSkillAtk,"GS_PIERCINGSHOT",getrandomoptinfo(ROA_VALUE);
   - Id: 82
     Option: BODY_ATTR_SAINT
     Script: |
-      bonus bDefEle,Ele_Holy;
+      bonus2 bSkillAtk,"GS_DUST",getrandomoptinfo(ROA_VALUE);
   - Id: 83
     Option: BODY_ATTR_DARKNESS
     Script: |
-      bonus bDefEle,Ele_Dark;
+      bonus2 bSkillAtk,"SU_PICKYPECK",getrandomoptinfo(ROA_VALUE);
   - Id: 84
     Option: BODY_ATTR_TELEKINESIS
     Script: |
-      bonus bDefEle,Ele_Ghost;
+      bonus2 bSkillAtk,"CH_PALMSTRIKE",getrandomoptinfo(ROA_VALUE);
   - Id: 85
     Option: BODY_ATTR_UNDEAD
     Script: |
-      bonus bDefEle,Ele_Undead;
+      skill "SU_ARCLOUSEDASH",getrandomoptinfo(ROA_VALUE);
   - Id: 87
     Option: RACE_TOLERACE_NOTHING
     Script: |
-      bonus2 bSubRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AB_JUDEX",getrandomoptinfo(ROA_VALUE);
   - Id: 88
     Option: RACE_TOLERACE_UNDEAD
     Script: |
-      bonus2 bSubRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WZ_WATERBALL",getrandomoptinfo(ROA_VALUE);
   - Id: 89
     Option: RACE_TOLERACE_ANIMAL
     Script: |
-      bonus2 bSubRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RA_AIMEDBOLT",getrandomoptinfo(ROA_VALUE);
   - Id: 90
     Option: RACE_TOLERACE_PLANT
     Script: |
-      bonus2 bSubRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",getrandomoptinfo(ROA_VALUE);
   - Id: 91
     Option: RACE_TOLERACE_INSECT
     Script: |
-      bonus2 bSubRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GS_TRACKING",getrandomoptinfo(ROA_VALUE);
   - Id: 92
     Option: RACE_TOLERACE_FISHS
     Script: |
-      bonus2 bSubRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_HESPERUSLIT",getrandomoptinfo(ROA_VALUE);
   - Id: 93
     Option: RACE_TOLERACE_DEVIL
     Script: |
-      bonus2 bSubRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SC_TRIANGLESHOT",getrandomoptinfo(ROA_VALUE);
   - Id: 94
     Option: RACE_TOLERACE_HUMAN
     Script: |
-      bonus2 bSubRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GN_DEMONIC_FIRE",getrandomoptinfo(ROA_VALUE);
   - Id: 95
     Option: RACE_TOLERACE_ANGEL
     Script: |
-      bonus2 bSubRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GN_SPORE_EXPLOSION",getrandomoptinfo(ROA_VALUE);
   - Id: 96
     Option: RACE_TOLERACE_DRAGON
     Script: |
-      bonus2 bSubRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_RAMPAGEBLASTER",getrandomoptinfo(ROA_VALUE);
   - Id: 97
     Option: RACE_DAMAGE_NOTHING
     Script: |
-      bonus2 bAddRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_TIGERCANNON",getrandomoptinfo(ROA_VALUE);
   - Id: 98
     Option: RACE_DAMAGE_UNDEAD
     Script: |
-      bonus2 bAddRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SR_GATEOFHELL",getrandomoptinfo(ROA_VALUE);
   - Id: 99
     Option: RACE_DAMAGE_ANIMAL
     Script: |
-      bonus2 bAddRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SO_EARTHGRAVE",getrandomoptinfo(ROA_VALUE);
   - Id: 100
     Option: RACE_DAMAGE_PLANT
     Script: |
-      bonus2 bAddRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GC_CROSSIMPACT",getrandomoptinfo(ROA_VALUE);
   - Id: 101
     Option: RACE_DAMAGE_INSECT
     Script: |
-      bonus2 bAddRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_SYURIKEN",getrandomoptinfo(ROA_VALUE);
   - Id: 102
     Option: RACE_DAMAGE_FISHS
     Script: |
-      bonus2 bAddRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WL_EARTHSTRAIN",getrandomoptinfo(ROA_VALUE);
   - Id: 103
     Option: RACE_DAMAGE_DEVIL
     Script: |
-      bonus2 bAddRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_PILEBUNKER",getrandomoptinfo(ROA_VALUE);
   - Id: 104
     Option: RACE_DAMAGE_HUMAN
     Script: |
-      bonus2 bAddRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GC_POISONINGWEAPON",getrandomoptinfo(ROA_VALUE);
   - Id: 105
     Option: RACE_DAMAGE_ANGEL
     Script: |
-      bonus2 bAddRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SO_CLOUD_KILL",getrandomoptinfo(ROA_VALUE);
   - Id: 106
     Option: RACE_DAMAGE_DRAGON
     Script: |
-      bonus2 bAddRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GN_HELLS_PLANT",getrandomoptinfo(ROA_VALUE);
   - Id: 107
     Option: RACE_MDAMAGE_NOTHING
     Script: |
-      bonus2 bMagicAddRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_MAGMA_ERUPTION",getrandomoptinfo(ROA_VALUE);
   - Id: 108
     Option: RACE_MDAMAGE_UNDEAD
     Script: |
-      bonus2 bMagicAddRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_POWERSWING",getrandomoptinfo(ROA_VALUE);
   - Id: 109
     Option: RACE_MDAMAGE_ANIMAL
     Script: |
-      bonus2 bMagicAddRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RL_HAMMER_OF_GOD",getrandomoptinfo(ROA_VALUE);
   - Id: 110
     Option: RACE_MDAMAGE_PLANT
     Script: |
-      bonus2 bMagicAddRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SP_CURSEEXPLOSION",getrandomoptinfo(ROA_VALUE);
   - Id: 111
     Option: RACE_MDAMAGE_INSECT
     Script: |
-      bonus2 bMagicAddRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SJ_NEWMOONKICK",getrandomoptinfo(ROA_VALUE);
   - Id: 112
     Option: RACE_MDAMAGE_FISHS
     Script: |
-      bonus2 bMagicAddRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SJ_FULLMOONKICK",getrandomoptinfo(ROA_VALUE);
   - Id: 113
     Option: RACE_MDAMAGE_DEVIL
     Script: |
-      bonus2 bMagicAddRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RK_HUNDREDSPEAR",getrandomoptinfo(ROA_VALUE);
   - Id: 114
     Option: RACE_MDAMAGE_HUMAN
     Script: |
-      bonus2 bMagicAddRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RL_H_MINE",getrandomoptinfo(ROA_VALUE);
   - Id: 115
     Option: RACE_MDAMAGE_ANGEL
     Script: |
-      bonus2 bMagicAddRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SU_SCRATCH",getrandomoptinfo(ROA_VALUE);
   - Id: 116
     Option: RACE_MDAMAGE_DRAGON
     Script: |
-      bonus2 bMagicAddRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_KAMAITACHI",getrandomoptinfo(ROA_VALUE);
   - Id: 117
     Option: RACE_CRI_PERCENT_NOTHING
     Script: |
-      bonus2 bCriticalAddRace,RC_Formless,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"SO_FIREWALK",getrandomoptinfo(ROA_VALUE);
   - Id: 118
     Option: RACE_CRI_PERCENT_UNDEAD
     Script: |
-      bonus2 bCriticalAddRace,RC_Undead,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"SO_DIAMONDDUST",getrandomoptinfo(ROA_VALUE);
   - Id: 119
     Option: RACE_CRI_PERCENT_ANIMAL
     Script: |
-      bonus2 bCriticalAddRace,RC_Brute,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"HW_NAPALMVULCAN",getrandomoptinfo(ROA_VALUE);
   - Id: 120
     Option: RACE_CRI_PERCENT_PLANT
     Script: |
-      bonus2 bCriticalAddRace,RC_Plant,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"HT_BLITZBEAT",getrandomoptinfo(ROA_VALUE);
   - Id: 121
     Option: RACE_CRI_PERCENT_INSECT
     Script: |
-      bonus2 bCriticalAddRace,RC_Insect,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"SN_FALCONASSAULT",getrandomoptinfo(ROA_VALUE);
   - Id: 122
     Option: RACE_CRI_PERCENT_FISHS
     Script: |
-      bonus2 bCriticalAddRace,RC_Fish,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"LG_BANISHINGPOINT",getrandomoptinfo(ROA_VALUE);
   - Id: 123
     Option: RACE_CRI_PERCENT_DEVIL
     Script: |
-      bonus2 bCriticalAddRace,RC_Demon,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"RL_R_TRIP",getrandomoptinfo(ROA_VALUE);
   - Id: 124
     Option: RACE_CRI_PERCENT_HUMAN
     Script: |
-      bonus2 bCriticalAddRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"CR_HOLYCROSS",getrandomoptinfo(ROA_VALUE);
   - Id: 125
     Option: RACE_CRI_PERCENT_ANGEL
     Script: |
-      bonus2 bCriticalAddRace,RC_Angel,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"WL_DRAINLIFE",getrandomoptinfo(ROA_VALUE);
   - Id: 126
     Option: RACE_CRI_PERCENT_DRAGON
     Script: |
-      bonus2 bCriticalAddRace,RC_Dragon,getrandomoptinfo(ROA_VALUE)/10;
+      bonus2 bSkillAtk,"HT_POWER",getrandomoptinfo(ROA_VALUE);
   - Id: 127
     Option: RACE_IGNORE_DEF_PERCENT_NOTHING
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Formless,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",getrandomoptinfo(ROA_VALUE);
   - Id: 128
     Option: RACE_IGNORE_DEF_PERCENT_UNDEAD
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KN_SPEARSTAB",getrandomoptinfo(ROA_VALUE);
   - Id: 129
     Option: RACE_IGNORE_DEF_PERCENT_ANIMAL
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Brute,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_EARTHDRIVE",getrandomoptinfo(ROA_VALUE);
   - Id: 130
     Option: RACE_IGNORE_DEF_PERCENT_PLANT
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Plant,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MC_MAMMONITE",getrandomoptinfo(ROA_VALUE);
   - Id: 131
     Option: RACE_IGNORE_DEF_PERCENT_INSECT
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Insect,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KN_BRANDISHSPEAR",getrandomoptinfo(ROA_VALUE);
   - Id: 132
     Option: RACE_IGNORE_DEF_PERCENT_FISHS
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Fish,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",getrandomoptinfo(ROA_VALUE);
   - Id: 133
     Option: RACE_IGNORE_DEF_PERCENT_DEVIL
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Demon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"CR_GRANDCROSS",getrandomoptinfo(ROA_VALUE);
   - Id: 134
     Option: RACE_IGNORE_DEF_PERCENT_HUMAN
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RA_ARROWSTORM",getrandomoptinfo(ROA_VALUE);
   - Id: 135
     Option: RACE_IGNORE_DEF_PERCENT_ANGEL
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Angel,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_BOOSTKNUCKLE",getrandomoptinfo(ROA_VALUE);
   - Id: 136
     Option: RACE_IGNORE_DEF_PERCENT_DRAGON
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",getrandomoptinfo(ROA_VALUE);
   - Id: 137
     Option: RACE_IGNORE_MDEF_PERCENT_NOTHING
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Formless,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",getrandomoptinfo(ROA_VALUE);
   - Id: 138
     Option: RACE_IGNORE_MDEF_PERCENT_UNDEAD
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",getrandomoptinfo(ROA_VALUE);
   - Id: 139
     Option: RACE_IGNORE_MDEF_PERCENT_ANIMAL
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Brute,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",getrandomoptinfo(ROA_VALUE);
   - Id: 140
     Option: RACE_IGNORE_MDEF_PERCENT_PLANT
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Plant,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WL_COMET",getrandomoptinfo(ROA_VALUE);
   - Id: 141
     Option: RACE_IGNORE_MDEF_PERCENT_INSECT
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Insect,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WL_TETRAVORTEX",getrandomoptinfo(ROA_VALUE);
   - Id: 142
     Option: RACE_IGNORE_MDEF_PERCENT_FISHS
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Fish,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"HT_CLAYMORETRAP",getrandomoptinfo(ROA_VALUE);
   - Id: 143
     Option: RACE_IGNORE_MDEF_PERCENT_DEVIL
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Demon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RL_FIRE_RAIN",getrandomoptinfo(ROA_VALUE);
   - Id: 144
     Option: RACE_IGNORE_MDEF_PERCENT_HUMAN
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",getrandomoptinfo(ROA_VALUE);
   - Id: 145
     Option: RACE_IGNORE_MDEF_PERCENT_ANGEL
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Angel,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"GN_CRAZYWEED",getrandomoptinfo(ROA_VALUE);
   - Id: 146
     Option: RACE_IGNORE_MDEF_PERCENT_DRAGON
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RA_CLUSTERBOMB",getrandomoptinfo(ROA_VALUE);
   - Id: 147
     Option: CLASS_DAMAGE_NORMAL_TARGET
     Script: |
-      bonus2 bAddClass,Class_Normal,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RA_ICEBOUNDTRAP",getrandomoptinfo(ROA_VALUE);
   - Id: 148
     Option: CLASS_DAMAGE_BOSS_TARGET
     Script: |
-      bonus2 bAddClass,Class_Boss,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RA_FIRINGTRAP",getrandomoptinfo(ROA_VALUE);
   - Id: 149
     Option: CLASS_DAMAGE_NORMAL_USER
     Script: |
-      bonus2 bSubClass,Class_Normal,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",getrandomoptinfo(ROA_VALUE);
   - Id: 150
     Option: CLASS_DAMAGE_BOSS_USER
     Script: |
-      bonus2 bSubClass,Class_Boss,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RK_IGNITIONBREAK",getrandomoptinfo(ROA_VALUE);
   - Id: 151
     Option: CLASS_MDAMAGE_NORMAL
     Script: |
-      bonus2 bMagicAddClass,Class_Normal,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SL_STIN",getrandomoptinfo(ROA_VALUE);
   - Id: 152
     Option: CLASS_MDAMAGE_BOSS
     Script: |
-      bonus2 bMagicAddClass,Class_Boss,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SL_SMA",getrandomoptinfo(ROA_VALUE);
   - Id: 153
     Option: CLASS_IGNORE_DEF_PERCENT_NORMAL
     Script: |
-      bonus2 bIgnoreDefClassRate,Class_Normal,getrandomoptinfo(ROA_VALUE);
+      bonus2 bIgnoreDefRaceRate,RC_All,getrandomoptinfo(ROA_VALUE);
   - Id: 154
     Option: CLASS_IGNORE_DEF_PERCENT_BOSS
     Script: |
-      bonus2 bIgnoreDefClassRate,Class_Boss,getrandomoptinfo(ROA_VALUE);
+      bonus2 bIgnoreDefRaceRate,RC_All,getrandomoptinfo(ROA_VALUE);
   - Id: 155
     Option: CLASS_IGNORE_MDEF_PERCENT_NORMAL
     Script: |
-      bonus2 bIgnoreMdefClassRate,Class_Normal,getrandomoptinfo(ROA_VALUE);
+      bonus2 bIgnoreMdefRaceRate,RC_All,getrandomoptinfo(ROA_VALUE);
   - Id: 156
     Option: CLASS_IGNORE_MDEF_PERCENT_BOSS
     Script: |
-      bonus2 bIgnoreMdefClassRate,Class_Boss,getrandomoptinfo(ROA_VALUE);
+      bonus2 bIgnoreMdefRaceRate,RC_All,getrandomoptinfo(ROA_VALUE);
   - Id: 157
     Option: DAMAGE_SIZE_SMALL_TARGET
     Script: |
-      bonus2 bAddSize,Size_Small,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_MOONSLASHER",getrandomoptinfo(ROA_VALUE);
   - Id: 158
     Option: DAMAGE_SIZE_MIDIUM_TARGET
     Script: |
-      bonus2 bAddSize,Size_Medium,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_OVERBRAND",getrandomoptinfo(ROA_VALUE);
   - Id: 159
     Option: DAMAGE_SIZE_LARGE_TARGET
     Script: |
-      bonus2 bAddSize,Size_Large,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RK_PHANTOMTHRUST",getrandomoptinfo(ROA_VALUE);
   - Id: 160
     Option: DAMAGE_SIZE_SMALL_USER
     Script: |
-      bonus2 bSubSize,Size_Small,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NC_FLAMELAUNCHER",getrandomoptinfo(ROA_VALUE);
   - Id: 161
     Option: DAMAGE_SIZE_MIDIUM_USER
     Script: |
-      bonus2 bSubSize,Size_Medium,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM",getrandomoptinfo(ROA_VALUE);
   - Id: 162
     Option: DAMAGE_SIZE_LARGE_USER
     Script: |
-      bonus2 bSubSize,Size_Large,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillCooldown,"CG_TAROTCARD",-getrandomoptinfo(ROA_VALUE);
   - Id: 163
     Option: DAMAGE_SIZE_PERFECT
     Script: |
@@ -768,27 +767,27 @@ Body:
   - Id: 187
     Option: MDAMAGE_SIZE_SMALL_TARGET
     Script: |
-      bonus2 bMagicAddSize,Size_Small,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WL_FROSTMISTY",getrandomoptinfo(ROA_VALUE);
   - Id: 188
     Option: MDAMAGE_SIZE_MIDIUM_TARGET
     Script: |
-      bonus2 bMagicAddSize,Size_Medium,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WZ_VERMILION",getrandomoptinfo(ROA_VALUE);
   - Id: 189
     Option: MDAMAGE_SIZE_LARGE_TARGET
     Script: |
-      bonus2 bMagicAddSize,Size_Large,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",getrandomoptinfo(ROA_VALUE);
   - Id: 190
     Option: MDAMAGE_SIZE_SMALL_USER
     Script: |
-      bonus2 bMagicSubSize,Size_Small,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillCooldown,"AM_CANNIBALIZE",-getrandomoptinfo(ROA_VALUE);
   - Id: 191
     Option: MDAMAGE_SIZE_MIDIUM_USER
     Script: |
-      bonus2 bMagicSubSize,Size_Medium,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillCooldown,"NJ_SHADOWJUMP",-getrandomoptinfo(ROA_VALUE);
   - Id: 192
     Option: MDAMAGE_SIZE_LARGE_USER
     Script: |
-      bonus2 bMagicSubSize,Size_Large,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillCooldown,"OB_AKAITSUKI",-getrandomoptinfo(ROA_VALUE);
   - Id: 193
     Option: ATTR_TOLERACE_ALL
     Script: |
@@ -796,91 +795,91 @@ Body:
   - Id: 194
     Option: RACE_WEAPON_TOLERACE_NOTHING
     Script: |
-      bonus3 bSubRace,RC_Formless,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"RL_SLUGSHOT",getrandomoptinfo(ROA_VALUE);
   - Id: 195
     Option: RACE_WEAPON_TOLERACE_UNDEAD
     Script: |
-      bonus3 bSubRace,RC_Undead,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"RL_FIREDANCE",getrandomoptinfo(ROA_VALUE);
   - Id: 196
     Option: RACE_WEAPON_TOLERACE_ANIMAL
     Script: |
-      bonus3 bSubRace,RC_Brute,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"RL_MASS_SPIRAL",getrandomoptinfo(ROA_VALUE);
   - Id: 197
     Option: RACE_WEAPON_TOLERACE_PLANT
     Script: |
-      bonus3 bSubRace,RC_Plant,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"CR_SHIELDCHARGE",getrandomoptinfo(ROA_VALUE);
   - Id: 198
     Option: RACE_WEAPON_TOLERACE_INSECT
     Script: |
-      bonus3 bSubRace,RC_Insect,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"RL_QD_SHOT",getrandomoptinfo(ROA_VALUE);
   - Id: 199
     Option: RACE_WEAPON_TOLERACE_FISHS
     Script: |
-      bonus3 bSubRace,RC_Fish,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"CH_CHAINCRUSH",getrandomoptinfo(ROA_VALUE);
   - Id: 200
     Option: RACE_WEAPON_TOLERACE_DEVIL
     Script: |
-      bonus3 bSubRace,RC_Demon,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"RL_D_TAIL",getrandomoptinfo(ROA_VALUE);
   - Id: 201
     Option: RACE_WEAPON_TOLERACE_HUMAN
     Script: |
-      bonus3 bSubRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillCooldown,"RL_D_TAIL",-getrandomoptinfo(ROA_VALUE);
   - Id: 202
     Option: RACE_WEAPON_TOLERACE_ANGEL
     Script: |
-      bonus3 bSubRace,RC_Angel,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillCooldown,"SA_ABRACADABRA",-getrandomoptinfo(ROA_VALUE);
   - Id: 203
     Option: RACE_WEAPON_TOLERACE_DRAGON
     Script: |
-      bonus3 bSubRace,RC_Dragon,getrandomoptinfo(ROA_VALUE),BF_WEAPON;
+      bonus2 bSkillAtk,"SR_KNUCKLEARROW",getrandomoptinfo(ROA_VALUE);
   - Id: 206
     Option: RACE_TOLERACE_PLAYER_HUMAN
     Script: |
-      bonus2 bSubRace,RC_Player_Human,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SJ_PROMINENCEKICK",getrandomoptinfo(ROA_VALUE);
   - Id: 207
     Option: RACE_TOLERACE_PLAYER_DORAM
     Script: |
-      bonus2 bSubRace,RC_Player_Doram,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RK_WINDCUTTER",getrandomoptinfo(ROA_VALUE);
   - Id: 208
     Option: RACE_DAMAGE_PLAYER_HUMAN
     Script: |
-      bonus2 bAddRace,RC_Player_Human,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_SHIELDPRESS",getrandomoptinfo(ROA_VALUE);
   - Id: 209
     Option: RACE_DAMAGE_PLAYER_DORAM
     Script: |
-      bonus2 bAddRace,RC_Player_Doram,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KN_SPEARBOOMERANG",getrandomoptinfo(ROA_VALUE);
   - Id: 210
     Option: RACE_MDAMAGE_PLAYER_HUMAN
     Script: |
-      bonus2 bMagicAddRace,RC_Player_Human,getrandomoptinfo(ROA_VALUE); 
+      bonus2 bSkillAtk,"SP_SHA",getrandomoptinfo(ROA_VALUE);
   - Id: 211
     Option: RACE_MDAMAGE_PLAYER_DORAM
     Script: |
-      bonus2 bMagicAddRace,RC_Player_Doram,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SJ_SOLARBURST",getrandomoptinfo(ROA_VALUE);
   - Id: 212
     Option: RACE_CRI_PERCENT_PLAYER_HUMAN
     Script: |
-      bonus2 bCriticalAddRace,RC_Player_Human,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LG_RAYOFGENESIS",getrandomoptinfo(ROA_VALUE);
   - Id: 213
     Option: RACE_CRI_PERCENT_PLAYER_DORAM
     Script: |
-      bonus2 bCriticalAddRace,RC_Player_Doram,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RK_DRAGONBREATH",getrandomoptinfo(ROA_VALUE);
   - Id: 214
     Option: RACE_IGNORE_DEF_PERCENT_PLAYER_HUMAN
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Player_Human,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"RA_WUGSTRIKE",getrandomoptinfo(ROA_VALUE);
   - Id: 215
     Option: RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_Player_Doram,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"LK_JOINTBEAT",getrandomoptinfo(ROA_VALUE);
   - Id: 216
     Option: RACE_IGNORE_MDEF_PERCENT_PLAYER_HUMAN
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Player_Human,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"TK_TURNKICK",getrandomoptinfo(ROA_VALUE);
   - Id: 217
     Option: RACE_IGNORE_MDEF_PERCENT_PLAYER_DORAM
     Script: |
-      bonus2 bIgnoreMdefRaceRate,RC_Player_Doram,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MG_NAPALMBEAT",getrandomoptinfo(ROA_VALUE);
   - Id: 218
     Option: REFLECT_DAMAGE_PERCENT
     Script: |
@@ -896,43 +895,43 @@ Body:
   - Id: 221
     Option: ADDSKILLMDAMAGE_NOTHING
     Script: |
-      bonus2 bMagicAtkEle,Ele_Neutral,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"PA_PRESSURE",getrandomoptinfo(ROA_VALUE);
   - Id: 222
     Option: ADDSKILLMDAMAGE_WATER
     Script: |
-      bonus2 bMagicAtkEle,Ele_Water,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"KO_BAKURETSU",getrandomoptinfo(ROA_VALUE);
   - Id: 223
     Option: ADDSKILLMDAMAGE_GROUND
     Script: |
-      bonus2 bMagicAtkEle,Ele_Earth,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SO_VARETYR_SPEAR",getrandomoptinfo(ROA_VALUE);
   - Id: 224
     Option: ADDSKILLMDAMAGE_FIRE
     Script: |
-      bonus2 bMagicAtkEle,Ele_Fire,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"NJ_ISSEN",getrandomoptinfo(ROA_VALUE);
   - Id: 225
     Option: ADDSKILLMDAMAGE_WIND
     Script: |
-      bonus2 bMagicAtkEle,Ele_Wind,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SM_BASH",getrandomoptinfo(ROA_VALUE);
   - Id: 226
     Option: ADDSKILLMDAMAGE_POISON
     Script: |
-      bonus2 bMagicAtkEle,Ele_Poison,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"BA_MUSICALSTRIKE",getrandomoptinfo(ROA_VALUE);
   - Id: 227
     Option: ADDSKILLMDAMAGE_SAINT
     Script: |
-      bonus2 bMagicAtkEle,Ele_Holy,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"SC_FATALMENACE",getrandomoptinfo(ROA_VALUE);
   - Id: 228
     Option: ADDSKILLMDAMAGE_DARKNESS
     Script: |
-      bonus2 bMagicAtkEle,Ele_Dark,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"MO_INVESTIGATE",getrandomoptinfo(ROA_VALUE);
   - Id: 229
     Option: ADDSKILLMDAMAGE_TELEKINESIS
     Script: |
-      bonus2 bMagicAtkEle,Ele_Ghost,getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"WL_HELLINFERNO",getrandomoptinfo(ROA_VALUE);
   - Id: 230
     Option: ADDSKILLMDAMAGE_UNDEAD
     Script: |
-      bonus2 bMagicAtkEle,Ele_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus bAtkRange,getrandomoptinfo(ROA_VALUE);
   - Id: 231
     Option: ADDSKILLMDAMAGE_ALL
     Script: |
@@ -940,43 +939,43 @@ Body:
   - Id: 232
     Option: ADDEXPPERCENT_KILLRACE_NOTHING
     Script: |
-      bonus2 bExpAddRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+      bonus bSpeedAddRate,getrandomoptinfo(ROA_VALUE);
   - Id: 233
     Option: ADDEXPPERCENT_KILLRACE_UNDEAD
     Script: |
-      bonus2 bExpAddRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+      bonus bDoubleAddRate,getrandomoptinfo(ROA_VALUE);
   - Id: 234
     Option: ADDEXPPERCENT_KILLRACE_ANIMAL
     Script: |
-      bonus2 bExpAddRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+      bonus bFixedCastrate,-(getrandomoptinfo(ROA_VALUE));
   - Id: 235
     Option: ADDEXPPERCENT_KILLRACE_PLANT
     Script: |
-      bonus2 bExpAddRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+      bonus bFixedCast,-(getrandomoptinfo(ROA_VALUE));
   - Id: 236
     Option: ADDEXPPERCENT_KILLRACE_INSECT
     Script: |
-      bonus2 bExpAddRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+      bonus bNoWeaponDamage,getrandomoptinfo(ROA_VALUE);
   - Id: 237
     Option: ADDEXPPERCENT_KILLRACE_FISHS
     Script: |
-      bonus2 bExpAddRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+      bonus bNoMagicDamage,getrandomoptinfo(ROA_VALUE);
   - Id: 238
     Option: ADDEXPPERCENT_KILLRACE_DEVIL
     Script: |
-      bonus2 bExpAddRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+      bonus bPerfectHitAddRate,getrandomoptinfo(ROA_VALUE);
   - Id: 239
     Option: ADDEXPPERCENT_KILLRACE_HUMAN
     Script: |
-      bonus2 bExpAddRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+      bonus bUseSPrate,-(getrandomoptinfo(ROA_VALUE));
   - Id: 240
     Option: ADDEXPPERCENT_KILLRACE_ANGEL
     Script: |
-      bonus2 bExpAddRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+      bonus bHPDrainValue,getrandomoptinfo(ROA_VALUE);
   - Id: 241
     Option: ADDEXPPERCENT_KILLRACE_DRAGON
     Script: |
-      bonus2 bExpAddRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+      bonus bSplashAddRange,getrandomoptinfo(ROA_VALUE);
   - Id: 242
     Option: ADDEXPPERCENT_KILLRACE_ALL
     Script: |

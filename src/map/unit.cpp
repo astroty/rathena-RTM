@@ -908,7 +908,7 @@ void unit_run_hit(struct block_list *bl, struct status_change *sc, struct map_se
 	status_change_end(bl, type, INVALID_TIMER);
 
 	if (type == SC_RUN) {
-		skill_blown(bl, bl, skill_get_blewcount(TK_RUN, lv), unit_getdir(bl), BLOWN_NONE);
+		skill_blown(bl, bl, 7, unit_getdir(bl), BLOWN_NONE);
 		clif_status_change(bl, EFST_TING, 0, 0, 0, 0, 0);
 	} else if (sd) {
 		clif_fixpos(bl);
@@ -1958,7 +1958,7 @@ int unit_skilluse_id2(struct block_list *src, int target_id, uint16 skill_id, ui
 #ifndef RENEWAL_CAST
 	casttime = skill_castfix_sc(src, casttime, skill_get_castnodex(skill_id));
 #else
-	casttime = skill_vfcastfix(src, casttime, skill_id, skill_lv);
+	casttime = (int)skill_vfcastfix(src, casttime, skill_id, skill_lv);
 #endif
 
 	if(!ud->state.running) // Need TK_RUN or WUGDASH handler to be done before that, see bugreport:6026
@@ -2181,7 +2181,7 @@ int unit_skilluse_pos2( struct block_list *src, short skill_x, short skill_y, ui
 #ifndef RENEWAL_CAST
 	casttime = skill_castfix_sc(src, casttime, skill_get_castnodex(skill_id));
 #else
-	casttime = skill_vfcastfix(src, casttime, skill_id, skill_lv );
+	casttime = (int)skill_vfcastfix(src, casttime, skill_id, skill_lv);
 #endif
 
 	ud->state.skillcastcancel = castcancel&&casttime>0?1:0;
@@ -2727,6 +2727,7 @@ static int unit_attack_timer_sub(struct block_list* src, int tid, t_tick tick)
 
 	if(sd && !check_distance_client_bl(src,target,range)) {
 		// Player tries to attack but target is too far, notify client
+		clif_fixpos(src);  // synchronize the player's position with the client
 		clif_movetoattack(sd,target);
 		return 1;
 	} else if(md && !check_distance_bl(src,target,range)) {

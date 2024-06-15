@@ -14,11 +14,11 @@
 //= 1.2 Updated to match the official script. [Euphy]
 //============================================================
 
-splendide,275,390,0	warp	bifrost_field0001	1,1,bif_fild01,316,50
-bif_fild01,318,48,0	warp	bifrost_field0002	1,1,splendide,271,382
-mora,182,74,0	warp	bifrost_field0003	1,1,bif_fild02,286,327
-mora,20,159,0	warp	bifrost_field0004	1,1,bif_fild02,99,308
-mora,56,25,0	warp	bifrost_field0005	1,1,bif_fild02,176,162
+//splendide,275,390,0	warp	bifrost_field0001	1,1,bif_fild01,316,50
+//bif_fild01,318,48,0	warp	bifrost_field0002	1,1,splendide,271,382
+//mora,182,74,0	warp	bifrost_field0003	1,1,bif_fild02,286,327
+//mora,20,159,0	warp	bifrost_field0004	1,1,bif_fild02,99,308
+//mora,56,25,0	warp	bifrost_field0005	1,1,bif_fild02,176,162
 
 -	script	bifrost_field0000	-1,{
 	mes "At the end of the small path through the bright flower garden";

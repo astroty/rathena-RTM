@@ -24,82 +24,43 @@
 //= 1.8 Correct Spawn by Navigation's mob data. [attackjom]
 //============================================================
 
-//==================================================
-// ein_fild01 - Spawns disabled on Renewal
-//==================================================
-
-//==================================================
-// ein_fild02 - Disabled on Renewal
-//==================================================
-
-//==================================================
-// ein_fild03 - Einbroch Field
-//==================================================
-ein_fild03,0,0	monster	Teddy Bear	1622,100,5000
-ein_fild03,0,0	monster	Venomous	1621,20,5000
-ein_fild03,0,0	monster	Noxious	1620,20,5000
-ein_fild03,0,0	monster	Pitman	1616,20,5000
-ein_fild03,0,0	monster	Yellow Plant	1081,15,60000,30000
-ein_fild03,0,0	monster	Green Plant	1080,15,60000,30000
-
-//==================================================
-// ein_fild04 - Einbroch Field
-//==================================================
-ein_fild04,0,0	monster	Venomous	1621,124,5000
-ein_fild04,0,0	monster	Noxious	1620,37,5000
-ein_fild04,0,0	monster	Teddy Bear	1622,24,5000
-ein_fild04,0,0	monster	Demon Pungus	1378,18,5000
-ein_fild04,0,0	monster	Pitman	1616,12,5000
-ein_fild04,0,0	monster	Red Plant	1078,10,60000,30000
-ein_fild04,0,0	monster	Yellow Plant	1081,10,60000,30000
-ein_fild04,0,0	monster	Green Plant	1080,10,60000,30000
-
-//==================================================
-// ein_fild05 - Einbroch Field
-//==================================================
-ein_fild05,0,0	monster	Noxious	1620,100,5000
-ein_fild05,0,0	monster	Venomous	1621,30,5000
-ein_fild05,0,0	monster	Teddy Bear	1622,20,5000
-ein_fild05,0,0	monster	Demon Pungus	1378,15,5000
-ein_fild05,0,0	monster	Pitman	1616,10,5000
-
-//==================================================
-// ein_fild06 - Einbroch Field
-//==================================================
-ein_fild06,0,0	monster	Holden	1628,100,5000
-ein_fild06,0,0	monster	Metaling	1613,30,5000
-ein_fild06,0,0	monster	Red Plant	1078,10,120000,60000
-ein_fild06,0,0	monster	Yellow Plant	1081,10,120000,60000
-
-//==================================================
-// ein_fild07 - Einbroch Field
-//==================================================
-ein_fild07,0,0	monster	Metaling	1613,109,5000
-ein_fild07,0,0	monster	Porcellio	1619,36,5000
-ein_fild07,0,0	monster	Holden	1628,12,5000
-ein_fild07,0,0	monster	Ungoliant	1618,1,86400000,86000000
-ein_fild07,0,0	monster	Red Plant	1078,10,120000,60000
-ein_fild07,0,0	monster	Yellow Plant	1081,10,120000,60000
-ein_fild07,0,0	monster	Red Mushroom	1085,12,120000,60000
-
-//==================================================
-// ein_fild08 - Einbroch Field
-//==================================================
-ein_fild08,0,0	monster	Metaling	1613,139,5000
-ein_fild08,0,0	monster	Porcellio	1619,41,5000
-ein_fild08,0,0	monster	Red Plant	1078,10,120000,60000
-ein_fild08,0,0	monster	Yellow Plant	1081,10,120000,60000
-ein_fild08,0,0	monster	Red Mushroom	1085,13,120000,60000
-
-//==================================================
-// ein_fild09 - Einbroch Field
-//==================================================
-ein_fild09,0,0	monster	Porcellio	1619,97,5000
-ein_fild09,0,0	monster	Metaling	1613,41,5000
-ein_fild09,0,0	monster	Red Plant	1078,10,120000,60000
-ein_fild09,0,0	monster	Yellow Plant	1081,10,120000,60000
-ein_fild09,0,0	monster	Red Mushroom	1085,13,120000,60000
-
-//==================================================
-// ein_fild10 - Disabled on Renewal
-//==================================================
+ein_fild01,0,0	monster	Porcellio	1619,50,5000
+ein_fild01,0,0	monster	Holden	1628,20,5000
+ein_fild01,0,0	monster	Roadie	2590,3,5000
+//
+ein_fild02,0,0	monster	Porcellio	1619,20,5000
+ein_fild02,0,0	monster	Holden	1628,50,5000
+ein_fild02,0,0	monster	Roadie	2590,3,5000
+//
+ein_fild03,0,0	monster	Porcellio	1619,20,5000
+ein_fild03,0,0	monster	Metaling	1613,50,5000
+ein_fild03,0,0	monster	Roadie	2590,3,5000
+//
+ein_fild05,0,0	monster	Holden	1628,20,5000
+ein_fild05,0,0	monster	Metaling	1613,50,5000
+ein_fild05,0,0	monster	Roadie	2590,3,5000
+//
+ein_fild04,0,0	monster	Holden	1628,60,5000
+ein_fild04,0,0	monster	Metaling	1613,30,5000
+ein_fild04,0,0	monster	Porcellio	1619,20,5000
+ein_fild04,0,0	monster	Roadie	2590,5,5000
+//
+ein_fild06,0,0	monster	Porcellio	1619,50,5000
+ein_fild06,0,0	monster	Metaling	1613,20,5000
+ein_fild06,0,0	monster	Roadie	2590,3,5000
+/////////////////
+ein_fild07,0,0	monster	Driller	1380,50,5000
+ein_fild07,0,0	monster	Demon Pungus	1378,20,5000
+ein_fild07,0,0	monster	Mecha Spider	3741,3,5000
+//
+ein_fild08,0,0	monster	Driller	1380,20,5000
+ein_fild08,0,0	monster	Demon Pungus	1378,50,5000
+ein_fild08,0,0	monster	Mecha Spider	3741,3,5000
+//
+ein_fild09,0,0	monster	Noxious	1620,50,5000
+ein_fild09,0,0	monster	Demon Pungus	1378,20,5000
+ein_fild09,0,0	monster	Mecha Spider	3741,3,5000
+//
+ein_fild10,0,0	monster	Noxious	1620,50,5000
+ein_fild10,0,0	monster	Driller	1380,20,5000
+ein_fild10,0,0	monster	Mecha Spider	3741,3,5000

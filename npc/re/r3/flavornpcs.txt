@@ -1,0 +1,55 @@
+//====================rAthena Script=======================================
+//=                  ___   __  __                                          
+//=            _____/   | / /_/ /_  ___  ____  ____ _                      
+//=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
+//=          / /  / ___ / /_/ / / /  __/ / / / /_/ /                       
+//=         /_/  /_/  |_\\__/_/ /_/\\___/_/ /_/\\__,_/                     
+//=                                                                        
+//================http://rathena.org/board/ ===============================
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//Flavor Npcs.
+//===== Comments: =========================================
+//====================================================
+yuno_fild08,92,188,4	script	Kiel Scholar#flavor	10057,{
+
+	set .@npc$, "[Kiel Scholar]";
+	mes .@npc$;
+	mes "Hello there. Behind this small building is where the old Kiel Factory was located.";
+	next;	
+	mes .@npc$;
+	mes "The place has been long abandoned and in case you wish to enter, do keep an eye out for the monsters inside.";
+	next;
+	mes .@npc$;
+	mes "Specially that weird Junkman... It really makes things a bit harder to kill, it was fixing those robots!";
+	close;
+}
+
+moc_prydb1,97,110,6	script	Scared Orphan#flavor	644,{
+
+	set .@npc$, "[Scared Orphan]";
+	emotion ET_QUESTION;
+	mes .@npc$;
+	mes "Who is that strange guy on the right room?";
+	next;	
+	mes .@npc$;
+	mes "When I got close to him he started offering a lot of dangerous stuff!";
+	close;
+}
+
+arena_room,99,65,5	script	Arena Financer#flavor	10057,{
+
+	set .@npc$, "[Arena Financer]";
+	mes .@npc$;
+	mes "Hello Gladiator.";
+	next;	
+	mes .@npc$;
+	mes "The Arena is not ready yet. It'll be added post launch.";
+	next;
+	mes .@npc$;
+	mes "You can probably find information about it with Ornstein!";
+	close;
+}

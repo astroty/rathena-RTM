@@ -1,0 +1,756 @@
+//===== By: ===============================================================
+//= Ornstein
+//===== Current Version: ==================================================
+//= 1.0
+//===== Description: ======================================================
+//= Flavor and Basic NPCs - Varmundt, Old Payon, Nameless, Nomad Village and Mora
+//===== Comments: =========================================
+//====================================================
+
+// Nomad Village
+/////OST - The Hu
+
+nomadvill,141,150,4	script	Nomad Leader#nomadvill	777,{
+	set .@npc$, "[Nomad Leader]";
+	mes .@npc$;
+	mes "Welcome to our village young Orphan. This place is filled with people like you. A place where you can rest and think.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "I'm the leader of the village, and as the people here say themselves, our names are irrelevant, we abandoned them long ago.";
+	next;
+	mes .@npc$;
+	mes "Just like the people of the cities have forgotten us, we broke all bounds with those people.";
+	next;
+	mes .@npc$;
+	mes "Anyone is welcome here. Orphans, Bandits, Bounty Hunters, Murderers... as long as they respect the peace and calm of our village.";
+	close;
+}
+
+nomadvill,167,135,4	script	Nomad Girl#nomadvill	478,{//talk about village
+	set .@npc$, "[Nomad Girl]";
+	mes .@npc$;
+	mes "I'm glad i found this place... it's been a small issue since Orphans also seem to come here to avoid the cities...";
+	next;	
+	mes .@npc$;
+	mes "...but I can't really judge them. I did the same long ago for my own reasons.";
+	next;
+	emotion ET_OK;
+	mes .@npc$;
+	mes "Everyone deserves a place to belong.";
+	close;
+}
+nomadvill,189,150,4	script	Nomad Man#nomadvill	476,{ //Talk about veins
+	set .@npc$, "[Nomad Man]";
+	mes .@npc$;
+	mes "The way those Orphans revolted in veins... what the people of veins did to them...";
+	next;	
+	mes .@npc$;
+	mes "That kind of stuff should never happen.";
+	next;
+	mes .@npc$;
+	mes "Imagine being so hated by your people that you setup a chain of shadows, to explode and kill everyone on the city in an instant?";
+	next;
+	mes .@npc$;
+	mes "Most of those people instantly lost all hope... So they can't just be revived or go back to a Kafra... they are gone for good.";
+	next;
+	mes .@npc$;
+	mes "Those Orphans were being poorly treated but... that's crazy! The world really is full of darkness.";
+	emotion ET_SHY;
+	close;
+}
+nomadvill,112,168,4	script	Nomad Keeper#nomadvill	581,{ //Healer
+	set .@npc$, "[Nomad Keeper]";
+	mes .@npc$;
+	mes "Hello there. Don't worry about anything. I can take care of any wounds you may have.";
+	next;	
+	emotion ET_BEST;
+	percentheal 100,100;
+	specialeffect2 EF_HEAL2;
+	mes .@npc$;
+	mes "Please be careful out there!";
+	close;
+}
+nomadvill,87,51,4	script	Nomad Woman#nomadvill	475,{ //Hates his life choices
+	set .@npc$, "[Nomad Woman]";
+	mes .@npc$;
+	mes "I made so many wrong choices in life... I had no other alternative than to come here.";
+	next;	
+	mes .@npc$;
+	mes "This place may mean freedom, but it's a prison for my Soul!";
+	next;
+	mes .@npc$;
+	mes "I miss my family... I shouldn't have killed them for so little reason...I should have controlled my anger...";
+	emotion ET_KEK;
+	close;
+}
+nomadvill,147,96,6	script	Nomad Vagabond#nomadvill	571,{ //Talks about vagabond powers
+	set .@npc$, "[Nomad Vagabond]";
+	mes .@npc$;
+	mes "I see you're an Orphan, like me.";
+	next;	
+	mes .@npc$;
+	mes "Time might have frozen for us for some years, but that's no reason not to work hard now. We got years to catch up on!";
+	next;
+	mes .@npc$;
+	mes "Being a Vagabond really helped me. I can push my power to the limit without wasting time or energy with specific arts or preparation.";
+	next;	
+	mes .@npc$;
+	mes "You don't need skills if your power can overwhelm enemies, right? Heh";
+	emotion ET_MERONG;
+	close;
+}
+nomadvill,181,110,4	script	Nomad Smith#nomadvill	731,{ //Sells Equips
+	set .@npc$, "[Nomad Smith]";
+	repairall;
+	mes .@npc$;
+	mes "I can take care of your equipment here! We help everyone we can!";
+	close2;
+	refineui();
+	end;
+}
+nomadvill,229,205,2	script	Nomad Boy#nomadvill	538,{ //Lore Talks
+	set .@npc$, "[Nomad Boy]";
+	mes .@npc$;
+	mes "I don't like this place... It's cold, It's dirty! I wanna go back home!";
+	emotion ET_CRY;
+	close;
+}
+nomadvill,227,207,6	script	Nomad Grandpa#nomadvill	534,{ //Lore Talks
+	set .@npc$, "[Nomad Grandpa]";
+	mes .@npc$;
+	mes "Don't be like this... We can't go back but this place will take care of us.";
+	next;	
+	mes .@npc$;
+	mes "I'm sure we can make this place a good home. Most people here seem to be doing their best.";
+	next;
+	mes .@npc$;
+	mes "Veins is no longer an option for us... would you rather go to Rachel and meet those crazy cultists?";
+	emotion ET_PROFUSELY_SWEAT;
+	close;
+}
+nomadvill,226,80,4	script	Nomad Guard#nomadvill	540,{ //Entrance Lore Talks
+	set .@npc$, "[Nomad Guard]";
+	mes .@npc$;
+	mes "This is the nomad village. It's pretty fixed for a nomad place, if you ask me.";
+	next;	
+	mes .@npc$;
+	mes "This place is a safe haven for anyone. Regardless of your past, we don't judge, we don't care.";
+	next;
+	mes .@npc$;
+	mes "Leave your life and your name behind, as here, it has no value. Only your actions as part of us.";
+	close;
+}
+nomadvill,133,143,5	script	Resting Knight#nomadvill	418,{ //Likes the village
+	set .@npc$, "[Resting Knight]";
+	mes .@npc$;
+	mes "This place is not so bad after all. People provided me with clean water and some food. I could help them a bit to pay back.";
+	next;	
+	mes .@npc$;
+	mes "It's a long walk from anywhere safe. But it's quite a nice spot for a village.";
+	next;
+	mes .@npc$;
+	mes "Oh, don't even mention Rachel, that place is nuts! And absolutely not safe!";
+	emotion ET_HNG;
+	close;
+}
+nomadvill,189,182,4	script	Strong Monk#nomadvill	808,{ //Helps with village work
+	set .@npc$, "[Strong Monk]";
+	mes .@npc$;
+	mes "This people took care of me. I got attacked by a weird ghost tree outside the village.";
+	next;	
+	mes .@npc$;
+	mes "That tree couldn't move, but it could throw a ton of fire magic at me! It hit pretty hard!";
+	next;
+	mes .@npc$;
+	mes "So now i'm helping them with the work around here as thanks for saving me.";
+	emotion ET_BEST;
+	close;
+}
+nomadvill,158,185,4	script	Veins Survivor#nomadvill	807,{ //Pays honor to survivors
+	set .@npc$, "[Veins Survivor]";
+	mes .@npc$;
+	mes "The way those Orphans attacked us... that was not human.";
+	next;	
+	mes .@npc$;
+	mes "Still I can't hate them for it... They suffered for weeks. I've never seen people being treated that badly!";
+	next;
+	mes .@npc$;
+	mes "I pay my respects in this altar for those souls every day...It's what I should do for my people.";
+	emotion ET_PROFUSELY_SWEAT;
+	close;
+}
+nomadvill,159,181,4	script	Altar#nomadvill	CLEAR_NPC,{ //altar in name of the dead
+	set .@npc$, "[Altar]";
+	mes .@npc$;
+	mes "In memory of everyone who lost their lives in Veins.";
+	next;	
+	mes .@npc$;
+	mes "May the gods provide peace to the Orphans, who were both cursed and hated by their own people...";
+	next;
+	if (achiev18 ==0 ){
+	achievementcomplete(200080);
+	set achiev18,1;
+	}
+	mes .@npc$;
+	mes "...and peace to the people who betrayed their own in their hardest moment and paid for it.";
+	close;
+}
+
+///Mora, Raffle Village - Most People are plants.
+///OST - Black Mage Village- FF9
+
+mora,111,84,4	script	Little Green#mora	516,{ //Happy kid
+	set .@npc$, "[Little Green]";
+	mes .@npc$;
+	mes "Hello there big one! I can use my herbs to heal you... wait a second...";
+	next;	
+	emotion ET_BEST;
+	percentheal 100,100;
+	specialeffect2 EF_HEAL2;
+	mes .@npc$;
+	mes "There you go! All set, try not to get hurt!";
+	close;
+}
+
+mora,144,98,4	script	Mora Guard#mora	10217,{ //Guard of lore
+	set .@npc$, "[Mora Guard]";
+	mes .@npc$;
+	mes "Our village is pretty hidden due to some terrible people out there.";
+	next;	
+	mes .@npc$;
+	mes "If you cause trouble I won't hesitate in attacking you! You won't like me when I'm mad!";
+	next;
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "...I'd grow and turn green... But Since I'm already green... I'll probably just grow...maybe.";
+	close;
+}
+mora,100,117,6	script	Mora Shop#mora	10220,{ //sell equip
+	set .@npc$, "[Mora Looter]";
+	mes .@npc$;
+	mes "Welcome to the shop. We have many items we absolutely crafted here and didn't find or steal from other villages!";
+	close2;
+	callshop "tribeweaps",0;
+	end;
+}
+
+mora,138,110,4	script	Mora Shop#mora2	524,{ //sell equip
+	set .@npc$, "[Mora Looter]";
+	mes .@npc$;
+	mes "Welcome to the Armor shop. We have many items we literally stole from people!";
+	close2;
+	callshop "tribearmor",0;
+	end;
+}
+mora,157,23,4	script	Mora Villager#mora	525,{ //Talker npc
+	set .@npc$, "[Mora Villager]";
+	mes .@npc$;
+	mes "Hello there, what do you think about the Splendide Forest?";
+	next;	
+	mes .@npc$;
+	mes "It may be located in a pretty hidden place, but it's monsters can be quite scary!";
+	next;
+	emotion ET_SHY;
+	mes .@npc$;
+	mes "That Black Tendrillion can be pretty dangerous with its lightning quick movement! Be careful out there!";
+	close;
+}
+mora,182,169,4	script	Mora Tool Dealer#mora	10225,{ //sell consumb.
+	set .@npc$, "[Nomad Tool Dealer]";
+	mes .@npc$;
+	mes "You can buy potions and support items here! Please, take this stuff and go! Leave your money here!";
+	close2;
+	callshop "toolorphanshop",0;
+	end;
+}
+mora,131,179,4	script	Village Chief#mora	517,{ //Village Chief
+	set .@npc$, "[The Dry Leaf]";
+	mes .@npc$;
+	mes "I'm Dry Leaf, the oldest mora villager. This is a sacred place, and I expect you to treat it as such.";
+	next;
+	emotion ET_THINK;
+	mes .@npc$;
+	mes "Most plant don't move or talk, but some do. You humans need to learn to respect us and understand us.";
+	next;
+	mes .@npc$;
+	mes "The village portal is invisible to the naked eyes, and If you could find use that means you have a good heart.";
+	next;
+	mes .@npc$;
+	mes "Or you carry that Mark...which seems to be the case.";
+	close;
+}
+
+mora,108,167,4	script	Mora Villager#mora2	10226,{ //Villager
+	set .@npc$, "[Mora Villager]";
+	emotion ET_HELP;
+	mes .@npc$;
+	mes "Ahhh! A talking human!!!?";
+	next;
+	mes .@npc$;
+	mes "Just kidding. I know SOME of you can talk.";
+	close;
+}
+
+mora,93,94,4	script	Swordsman#mora	953,{ //Traveling Swordsman
+	set .@npc$, "[Traveling Swordsman]";
+	mes .@npc$;
+	mes "Interesting how friendly these...things...are.";
+	next;
+	mes .@npc$;
+	mes "I can't believe how organized they are with how confused they look.";
+	next;
+	mes .@npc$;
+	mes "I might even convince them to give me one of those Green Items...";
+	close;
+}
+
+mora,60,28,4	script	Lost Guy#mora	50,{ //Lost Guy
+	set .@npc$, "[Lost Guy]";
+	mes .@npc$;
+	mes "I was trying to reach comodo after crossing south of the Kobold Village...";
+	next;
+	mes .@npc$;
+	mes "And somehow I found this place! A whole village!";
+	next;
+	emotion ET_PROFUSELY_SWEAT;
+	mes .@npc$;
+	mes "Good thing they are nice. What if I've ended up in that Dragon Nest that is somewhere around here?";
+	close;
+	}
+
+mora,129,96,4	script	Mora Girl#mora	518,{ //Lore
+	set .@npc$, "[Mora Girl]";
+	mes .@npc$;
+	mes "Hello there Human! How is the village for you?";
+	next;
+	switch(select("I like this place.:I'm a bit shocked.:You guys are weird.:Ah! A talking plant!")) {
+	case 1:
+	mes .@npc$;
+	mes "Most people do, because you can take your time and enjoy the sunlight all day long without worry...";
+	close;
+	end;
+	case 2:
+	mes .@npc$;
+	mes "It happens, you'll get used to it. Some people even live here and help us with the basic tasks.";
+	close;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "Says the tall thing with some random fur in weird places that has a big head and talks all the time.";
+	close;
+	end;
+	case 4:
+	emotion ET_Smile;
+	mes .@npc$;
+	mes "Ahh!!! A talking idiot!!!";
+	close;
+	end;
+	}
+}
+
+-	itemshop	mvpshardshop	-1,7615,664:1,14735:1,14714:1,14728:1,14731:5,14732:10,14733:25,14734:50,6226:3,6290:3,6906:3,23080:3,607:2,608:1,31729:100,31488:1000.
+
+mora,110,179,5	script	Master Raffle#moraMVP	522,{
+
+	set .@npc$, "[Master Raffle]";
+	mes .@npc$;
+	mes "<ITEM>MVP Shards<INFO>7615</INFO></ITEM>.";
+	next;
+	mes .@npc$;
+	mes "Do you have them?";
+	next;
+	mes .@npc$;
+	mes "Everyone here thinks I'm a true master warrior. Give me those and I can show people and pretend I got them myself~~~~~~";
+	next;
+	mes .@npc$;
+	mes "I'll make it worth your time!";
+	next;
+	callshop "mvpshardshop",1;
+	cutin "",255;
+	end;
+	}
+
+// Old Payon
+
+payon_old,83,127,6	script	Old Woman#oldpayon	78,{ 
+	set .@npc$, "[Old Woman]";
+	mes .@npc$;
+	mes "This strange mirror brings and takes some adventurers around.";
+	next;
+	Emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "The Kafra Corporation must be working hard into this new fancy stuff.";
+	close;
+}
+
+payon_old,29,173,6	script	Blacksmith#oldpayon	52,{ 
+	set .@npc$, "[Blacksmith]";
+	mes .@npc$;
+	mes "The Faceworms from the Forest are pretty aggressive.";
+	next;
+	mes .@npc$;
+	mes "Good thing we have a lot of adventurers coming and going who are willing to help us.";
+	close;
+}
+
+payon_old,24,157,6	script	Guard#oldpayon	708,{ 
+	set .@npc$, "[Guard]";
+	mes .@npc$;
+	mes "The Castle area is locked in preparation for the War of Emperium.";
+	next;
+	mes .@npc$;
+	mes "I can't let you go through the gate, sorry friend.";
+	close;
+}
+
+payon_old,100,115,4	script	Adventurer#oldpayon	118,{ 
+	set .@npc$, "[Thief]";
+	mes .@npc$;
+	mes "We must hunt those skeletons on the cave! I wonder when will the path be cleared for us?";
+	close;
+}
+
+payon_old,98,113,6	script	Adventurer#oldpayon2	123,{ 
+	set .@npc$, "[Mage]";
+	mes .@npc$;
+	mes "I can probably use my Fire Wall to keep the enemies away, you guys watch out!";
+	close;
+}
+
+payon_old,102,112,2	script	Adventurer#oldpayon3	504,{ 
+	set .@npc$, "[Merchant]";
+	emotion ET_HELP;
+	mes .@npc$;
+	mes "Any Acolytes around? We need an Acolyte for our Payon Cave Party!";
+	close;
+}
+
+payon_old,170,134,2	script	Innkeeper#oldpayon	89,{ 
+	set .@npc$, "[Innkeeper]";
+	mes .@npc$;
+	mes "We are fully booked now, sorry!";
+	close;
+}
+
+payon_old,86,35,7	script	Guard#oldpayon2	708,{ 
+	set .@npc$, "[Guard]";
+	mes .@npc$;
+	mes "The fields south of here can take you to Alberta.";
+	next;
+	mes .@npc$;
+	mes "It's not a long journey, but there are some Willows and Wolves on the way. Be Careful!";
+	close;
+}
+
+payon_old,185,70,3	script	Guard#oldpayon3	708,{ 
+	set .@npc$, "[Guard]";
+	mes .@npc$;
+	mes "There's a large group of Faceworms to the north. They may decide to come south to attack adventurers.";
+	next;
+	mes .@npc$;
+	mes "For this reason I can't let anyone through, Chief Irine's orders.";
+	close;
+}
+
+payon_old,177,183,3	script	Guard#oldpayon4	708,{ 
+	set .@npc$, "[Guard]";
+	mes .@npc$;
+	mes "I'm sorry but only Chaos and Iris can go through this area.";
+	next;
+	mes .@npc$;
+	mes "The Archer Village had some strange attacks from the Faceworms recently, it's a big risk to let unprepared people in.";
+	close;
+}
+
+payon_old,65,162,3	script	Engineer#oldpayon	851,{ 
+	set .@npc$, "[Engineer]";
+	mes .@npc$;
+	mes "I've come from Einbroch by request of Chief Irine.";
+	next;
+	mes .@npc$;
+	mes "He wants to expand the village into a small city. I'm here considering possible ways we can do it.";
+	close;
+}
+
+payon_old,96,165,3	script	Chief Irine#oldpayon	684,{ 
+	set .@npc$, "[Chief Irine]";
+	cutin "sara_elder_irine1",2;
+	mes .@npc$;
+	mes "Payon is a peaceful village. The Adventurers are also always willing to help us.";
+	next;
+	mes .@npc$;
+	mes "Iris and Chaos are on active duty in protecting us from the Faceworms from the forest to the Northeast. If you see them, give my regards.";
+	close2;
+	cutin "",255;
+	end;
+}
+
+payon_old,171,180,5	script	Chaos#oldpayon	683,{ 
+	set .@npc$, "[Chaos]";
+	cutin "h_chaos01",2;
+	if (chaosremembers ==0){
+	mes .@npc$;
+	mes "You new around here? Haven't seen you before...";
+	next;
+	mes "[^6666CC" + strcharinfo(0) + "^000000]";
+	mes "You...could say so.";
+	next;
+	mes .@npc$;
+	mes "You sure seems like an outsider...but your eyes...they look familiar.";
+	next;
+	emotion ET_SCRATCH;
+	mes .@npc$;
+	mes "Eh, nevermind...";
+	next;
+	set chaosremembers,1;
+	}
+	if (achiev19 ==0 ){
+	achievementcomplete(200081);
+	set achiev19,1;
+	}
+	mes .@npc$;
+	mes "I'm taking a short rest here before we go back there and try to find the Faceworm Queen.";
+	next;
+	emotion ET_KEK;
+	mes .@npc$;
+	mes "Hey Iris! Get me one of those Red Potions, will you?";
+	close2;
+	cutin "",255;
+	end;
+}
+
+payon_old,175,178,3	script	Iris#oldpayon	666,{ 
+	set .@npc$, "[Iris]";
+	cutin "h_iris02",2;
+	mes .@npc$;
+	mes "Damn Chaos, let's just go already!";
+	next;
+	emotion ET_COMEON;
+	mes .@npc$;
+	mes "You promised Sarah some new hats remember?";
+	close2;
+	cutin "",255;
+	end;
+}
+
+payon_old,149,43,3	script	Sarah#oldpayon	668,{ 
+	set .@npc$, "[Sarah]";
+	cutin "sara_9sara1",2;
+	if (achiev20 ==0 ){
+	achievementcomplete(200082);
+	set achiev20,1;
+	}
+	mes .@npc$;
+	mes "Hey There! Wanna check my hats?";
+	next;
+	mes .@npc$;
+	mes "Chaos brings me some hats everytime he leaves on a hunt, wanna take a look?";
+	next;
+	switch(select("Sure, show me!:Why are you selling those?:Nevermind"))
+	{
+	case 1:
+	if ( hatpoints <1){
+	emotion ET_SWEAT;
+	mes .@npc$;
+	mes "Ehh...I actually don't have any here with me right now. Why don't you come back later?";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes "Chaos has visited " + hatpoints +" places on his travels, I'm sure as he travels more he'll bring cooler hats for you to buy!";
+	next;
+	mes "These items belong -ONLY TO YOU- ok? You can't go around re-selling them. That could mess up my profits!";
+	close2;
+	cutin "",255;
+	if ( hatpoints <11){
+	callshop "sarahhats1",1;
+	end;
+	}
+	if ( hatpoints <21){
+	callshop "sarahhats2",1;
+	end;
+	}
+	if ( hatpoints <31){
+	callshop "sarahhats3",1;
+	end;
+	}
+	if ( hatpoints <41){
+	callshop "sarahhats4",1;
+	end;
+	}
+	if ( hatpoints <51){
+	callshop "sarahhats5",1;
+	end;
+	}
+	if ( hatpoints <61){
+	callshop "sarahhats6",1;
+	end;
+	}
+	if ( hatpoints <71){
+	callshop "sarahhats7",1;
+	end;
+	}
+	if ( hatpoints <82){
+	callshop "sarahhats8",1;
+	end;
+	}
+	if ( hatpoints >81){
+	callshop "sarahhats9",1;
+	end;
+	}
+	case 2:
+	mes .@npc$;
+	mes "Chaos and Iris are not really rich, So they bring me cool hats they find on their trips to be sold.";
+	next;
+	mes .@npc$;
+	mes "They are nice' people, so I want to help them as much as possible! Why don't you buy one or two?";
+	close2;
+	cutin "",255;
+	end;
+	case 3:
+	mes .@npc$;
+	mes "Come back soon! I need to make some money for my friends!";
+	close2;
+	cutin "",255;
+	end;
+}
+}
+
+-	shop	sarahhats1	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000.
+-	shop	sarahhats2	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500.
+-	shop	sarahhats3	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000.
+-	shop	sarahhats4	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000,25106:15000,25131:15000,25139:15000,25177:15000,25179:15000,25180:15000.
+-	shop	sarahhats5	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000,25106:15000,25131:15000,25139:15000,25177:15000,25179:15000,25180:15000,25104:20000,25110:20000,25123:20000,25128:20000,25129:20000,25137:20000,25140:20000,25141:20000,25146:20000,25150:20000,25166:20000,25167:20000,25168:20000,25169:20000,25170:20000,25172:20000,25173:20000,25182:20000,25183:20000,25185:20000.
+-	shop	sarahhats6	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000,25106:15000,25131:15000,25139:15000,25177:15000,25179:15000,25180:15000,25104:20000,25110:20000,25123:20000,25128:20000,25129:20000,25137:20000,25140:20000,25141:20000,25146:20000,25150:20000,25166:20000,25167:20000,25168:20000,25169:20000,25170:20000,25172:20000,25173:20000,25182:20000,25183:20000,25185:20000,25102:35000,25105:35000,25108:35000,25109:35000,25126:35000,25127:35000,25142:35000,25144:35000,25147:35000,25151:35000,25152:35000,25163:35000,25176:35000,25178:35000.
+-	shop	sarahhats7	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000,25106:15000,25131:15000,25139:15000,25177:15000,25179:15000,25180:15000,25104:20000,25110:20000,25123:20000,25128:20000,25129:20000,25137:20000,25140:20000,25141:20000,25146:20000,25150:20000,25166:20000,25167:20000,25168:20000,25169:20000,25170:20000,25172:20000,25173:20000,25182:20000,25183:20000,25185:20000,25102:35000,25105:35000,25108:35000,25109:35000,25126:35000,25127:35000,25142:35000,25144:35000,25147:35000,25151:35000,25152:35000,25163:35000,25176:35000,25178:35000,25103:50000,25122:50000,25124:50000,25125:50000,25134:50000,25143:50000,25145:50000,25148:50000,25153:50000,25155:50000,25161:50000,25174:50000,25175:50000,25181:50000,25184:50000.
+-	shop	sarahhats8	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000,25106:15000,25131:15000,25139:15000,25177:15000,25179:15000,25180:15000,25104:20000,25110:20000,25123:20000,25128:20000,25129:20000,25137:20000,25140:20000,25141:20000,25146:20000,25150:20000,25166:20000,25167:20000,25168:20000,25169:20000,25170:20000,25172:20000,25173:20000,25182:20000,25183:20000,25185:20000,25102:35000,25105:35000,25108:35000,25109:35000,25126:35000,25127:35000,25142:35000,25144:35000,25147:35000,25151:35000,25152:35000,25163:35000,25176:35000,25178:35000,25103:50000,25122:50000,25124:50000,25125:50000,25134:50000,25143:50000,25145:50000,25148:50000,25153:50000,25155:50000,25161:50000,25174:50000,25175:50000,25181:50000,25184:50000,25130:100000,25132:100000,25135:100000,25154:100000,25156:100000,25157:100000,25171:100000,25186:100000.
+-	shop	sarahhats9	-1,25101:5000,25111:5000,25113:5000,25115:5000,25117:5000,25112:7500,25114:7500,25116:7500,25118:7500,25136:7500,25162:7500,25107:10000,25119:10000,25120:10000,25121:10000,25138:10000,25164:10000,25165:10000,25106:15000,25131:15000,25139:15000,25177:15000,25179:15000,25180:15000,25104:20000,25110:20000,25123:20000,25128:20000,25129:20000,25137:20000,25140:20000,25141:20000,25146:20000,25150:20000,25166:20000,25167:20000,25168:20000,25169:20000,25170:20000,25172:20000,25173:20000,25182:20000,25183:20000,25185:20000,25102:35000,25105:35000,25108:35000,25109:35000,25126:35000,25127:35000,25142:35000,25144:35000,25147:35000,25151:35000,25152:35000,25163:35000,25176:35000,25178:35000,25103:50000,25122:50000,25124:50000,25125:50000,25134:50000,25143:50000,25145:50000,25148:50000,25153:50000,25155:50000,25161:50000,25174:50000,25175:50000,25181:50000,25184:50000,25130:100000,25132:100000,25135:100000,25154:100000,25156:100000,25157:100000,25171:100000,25186:100000,25133:500000,25149:500000,25158:500000,25159:500000,25160:500000,25187:500000,25188:500000,25189:500000,25190:500000.
+
+//Nameless Island Distort
+
+nameless_i,167,194,3	script	King Tristram III#namelessdst	108,{ 
+	set .@npc$, "[King Tristram III]";
+	mes .@npc$;
+	mes "Hello Young One.";
+	next;
+	mes .@npc$;
+	mes "The people in this island are very gentle. I'm glad to see they are taking good care of those in need.";
+	close;
+}
+
+nameless_i,164,196,4	script	King's Guard#namelessdst1	105,{ 
+
+}
+
+
+nameless_i,169,196,4	script	King's Guard#namelessdst2	105,{ 
+
+}
+
+nameless_i,169,199,4	script	King's Guard#namelessdst3	105,{ 
+
+}
+
+nameless_i,164,199,4	script	King's Guard#namelessdst4	105,{ 
+
+}
+
+nameless_i,161,191,5	script	Bishop Hibram#namelessdst	60,{ 
+	set .@npc$, "[Bishop Hibram]";
+	mes .@npc$;
+	mes "Our king has come to provide aid to us.";
+	next;
+	mes .@npc$;
+	mes "The entire island is happy. It's a good moment!";
+	close;
+}
+
+nameless_i,230,230,3	script	Repentant#namelessdst	688,{ 
+	set .@npc$, "[Repentant]";
+	mes .@npc$;
+	mes "I was a criminal in the past. They gave me a new life here. Finally I can restart.";
+	close;
+}
+
+nameless_i,173,258,5	script	Woman#namelessdst	701,{ 
+	set .@npc$, "[Woman]";
+	mes .@npc$;
+	mes "The people in this island are all nice. You have nothing to worry about. Not here.";
+	close;
+}
+
+nameless_i,94,255,4	script	Kid#namelessdst	706,{ 
+	set .@npc$, "[Kid]";
+	mes .@npc$;
+	mes "I wanna travel to Veins! My father is working there!";
+	close;
+}
+
+nameless_i,91,253,5	script	Grandma#namelessdst	575,{ 
+	set .@npc$, "[Grandma]";
+	mes .@npc$;
+	mes "Your dad is coming back near the end of the afternoon! He must ferry the people near the beach!";
+	close;
+}
+
+nameless_i,119,174,3	script	Dude#namelessdsta	694,{ 
+	set .@npc$, "[Dude]";
+	mes .@npc$;
+	mes "...Zzzz";
+	close;
+}
+
+nameless_i,250,127,3	script	Monk#namelessdstb	120,{ 
+	set .@npc$, "[Monk]";
+	mes .@npc$;
+	mes "I'm feeding the people. Get in line please.";
+	close;
+}
+
+nameless_i,247,122,7	script	Man#namelessdstc	534,{ 
+	set .@npc$, "[Man]";
+	mes .@npc$;
+	mes "Oh, I'm so hungry!";
+	close;
+}
+
+nameless_i,252,121,1	script	Woman#namelessdstd	537,{ 
+	set .@npc$, "[Woman]";
+	mes .@npc$;
+	mes "Thank you so much for the food sir!";
+	close;
+}
+
+nameless_i,249,119,7	script	Young Man#namelessdst	476,{ 
+	set .@npc$, "[Young Man]";
+	mes .@npc$;
+	mes "The food is not the best, but they really do their best here.";
+	close;
+}
+
+nameless_i,124,91,5	script	King Tristram III#namelessdst2	108,{ 
+	set .@npc$, "[King Tristram III]";
+	mes .@npc$;
+	mes "I have just arrived on the island.";
+	next;
+	mes .@npc$;
+	mes "Where are my servants? Come talk to your King...he...he...he...";
+	close;
+}
+
+nameless_i,124,86,4	script	#namelessdst4a	687,{ 
+
+}
+
+nameless_i,121,84,4	script	#namelessdst4b	689,{ 
+
+}
+
+nameless_i,117,84,1	script	#namelessdst4c	697,{ 
+
+}
+
+nameless_i,122,100,1	script	#namelessdst4d	699,{ 
+
+}

@@ -1,0 +1,186 @@
+va_orpha,28,255,3	script	Shadow Assistant#recycle	726,{
+	set .@npc$, "[Chief Cammy]";
+	mes .@npc$;
+	mes "I can give you a <ITEM>Jewel Shadowdecon<INFO>23080</INFO></ITEM>!";
+	mes "In exchange for ^FF0000250^000000 Shadow Ores!";
+	next;
+	mes .@npc$;
+	mes "I can also trade 10 of those for an Elunium or Oridecon!";
+	next;
+	switch(select("Jewel Shadowdecon!:Elunium!:Oridecon!:Nope")) {
+	case 1:
+		if(countitem(25728) < 250) goto L_noitems;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		mes "Everyone gotta do their part!";
+		delitem 25728,250;
+		getitem 23080,1;
+		close;
+	L_noitems:
+		mes "You don't have all required items. Sorry!";
+		close;
+	case 2:
+		if(countitem(25728) < 10) goto L_noitems2;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		mes "Everyone gotta do their part!";
+		delitem 25728,5;
+		getitem 985,1;
+		close;
+	L_noitems2:
+		mes "You don't have all required items. Sorry!";
+		close;
+	case 3:
+		if(countitem(25728) < 10) goto L_noitems3;
+		mes .@npc$;
+		mes "Here, you can have it!";
+		mes "Come back if you ever want another!";
+		mes "Everyone gotta do their part!";
+		delitem 25728,5;
+		getitem 984,1;
+		close;
+	L_noitems3:
+		mes "You don't have all required items. Sorry!";
+		close;
+	case 4:
+		mes .@npc$;
+		mes "See you around!";
+		close;
+	}
+}
+
+////////////////////////Recycler//////////////////////////////      
+va_orpha,31,250,3	script	Shadow Recycler#recycle2	666,{
+	cutin "h_iris01",2;
+	if (irisunlock ==1){
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Iris?";
+	next;
+	mes "[Iris]";
+	mes "Uh, yes? What is it? Did I break any wrong items?";
+	next;
+	emotion ET_PROFUSELY_SWEAT, playerattached();
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Oh no! I just wanted to tell you something.";
+	next;
+	emotion ET_QUESTION;
+	mes "[Iris]";
+	mes "What is it? Are you ok?";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "Chaos asked me to tell you he is fine. He won't come back. But he's fine.";
+	next;
+	emotion ET_SURPRISE;
+	mes "[Iris]";
+	mes "Did you talk to him? Where is he?";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "I...can't say sorry. But he is fine and asked you to be strong for him.";
+	next;
+	mes "[^000099" + strcharinfo(0) + "^000000]";
+	mes "And he misses you.";
+	next;
+	mes "[Iris]";
+	mes "Thanks for your words. I hope to see him again someday.";
+	next;
+	getitem 24246,1;
+	set irisunlock,2;
+	mes "[Iris]";
+	mes "Take this as my thanks. Put it to good use. Chaos used this to help him all the time. Take Care.";
+	close2;
+	cutin "",255;
+	end;
+	}
+	mes "[Iris]";
+	mes "Hey Orphan! I'm helping the people in the orphanage too!";
+	mes "Some Shadow Pieces you may have found on your journey may not have much use for you...";
+	next;
+	mes "[Iris]";
+	mes "I can also convert any unused Runes and Manuals...they do have quite a bit of energy on them you know?";
+	next;
+	mes "[Iris]";
+	mes "Why don't you let me recycle some of them for ^0055FFShadowdecons^000000!?";
+	mes "I also will provide you some extra ^0055FFShadow Ores^000000!";
+	next;
+	if (select("Convert", "Information") == 1) {
+		close2;
+			cutin "",255;
+			callshop "recycle",2;
+            npcshopattach "recycle";
+            end;
+	}else{
+            next;
+			cutin "h_iris02",2;
+			mes "[Iris]";
+			mes "I've been studying magic with Fenrir for a long time!";
+			mes "I can break down your unused Shadow Gear into Shadowdecons";
+			next;
+			emotion ET_SCRATCH;
+			mes "[Iris]";
+			mes "I'll take any items you give me, but not from favorite tab ok?";
+			next;
+			mes "[Iris]";
+			mes "This way you can refine the ones you wanna use!";
+			mes "What do you say?";
+			close2;
+			cutin "",255;
+			end;
+	}
+	end;
+
+OnSellItem:
+    mes "[Iris]";
+    .@qtd = 0;
+    for(.@i = 0; .@i < getarraysize(@sold_nameid); .@i++){
+        if(getiteminfo(@sold_nameid[.@i],2) != 12){
+            mes " ~ ^0055FF"+getitemname(@sold_nameid[.@i])+"^000000 isn't a shadow equipment!";
+            close;
+        }else{
+            //.@aux = inarray(.lista[0], @sold_nameid[.@i]);
+            //if(.@aux == -1){
+            //    mes " ~ "+countitem(@sold_nameid[.@i])+"x ^0055FF"+getitemname(@sold_nameid[.@i])+"^000000 não é um shadow item válido.";
+            //    close;
+            //}
+
+            mes " ->"+@sold_quantity[.@i]+"x ^0055FF"+getitemname(@sold_nameid[.@i])+"^000000 Shadow Piece";
+
+            .@qtd += @sold_quantity[.@i];
+        }
+    }
+    mes "[Iris]";
+    mes "Are you sure you want to exchange  "+.@qtd+" shadow item(s) for ^0055FF"+.@qtd+" "+getitemname(25729)+"^000000?";
+    next;
+    if(select("Yes:No") == 2){
+		cutin "h_iris02",2;
+        mes "[Iris]";
+		mes "Very well, Better be sure right?";
+        close2;
+		cutin "",255;
+			end;
+    }
+    for(.@i = 0; .@i < getarraysize(@sold_nameid); .@i++){
+        delitemidx @sold_idx[.@i];
+    }
+	cutin "h_iris02",2;
+    mes "[Iris]";
+	mes "Excellent! Comeback anytime!";
+    getitem 25729,.@qtd;
+	getitem 25728,.@qtd;
+    specialeffect2 1232;
+    close2;
+	cutin "",255;
+	end;
+
+//= Configurações do script
+OnInit:
+	// Lista de shadow item
+    // Cuidado, listas muito grandes podem acusar "infinity loop" e travar o script
+	setarray .lista,24687, 24250, 24251, 24252, 24253, 24254, 24255, 24256, 24257, 24258, 24259, 24260, 24261, 24262, 24263, 24264, 24265, 24266, 24267, 24268, 24269, 24270, 24271, 24272, 24273, 24274, 24275, 24276, 24277, 24278, 24279, 24280, 24281, 24282, 24283, 24284, 24285, 24286, 24287, 24288, 24289, 24290, 24291, 24292, 24293, 24294, 24295, 24296, 24297, 24298, 24299, 24300, 24301, 24302, 24303, 24304, 24305, 24306, 24307, 24308, 24309, 24310, 24311, 24312, 24313, 24314, 24315, 24316, 24317, 24318, 24319, 24320, 24321, 24322, 24323, 24324, 24325, 24326, 24327, 24328, 24329, 24330, 24331, 24332, 24333, 24334, 24335, 24336, 24337, 24338, 24339, 24340, 24341, 24342, 24343, 24344, 24345, 24346, 24347, 24348, 24349, 24350, 24351, 24352, 24353, 24354, 24355, 24356, 24357, 24358, 24359, 24360, 24361, 24362, 24363, 24364, 24365, 24366, 24367, 24368, 24369, 24370, 24371, 24372, 24373, 24528, 24529, 24530, 24531, 24399, 24400, 24401, 24402, 24374, 24375, 24376, 24377, 24379, 24380, 24381, 24382, 24383, 24384, 24385, 24386, 24387, 24388, 24389, 24390, 24391, 24392, 24393, 24394, 24395, 24396, 24397, 24398, 24403, 24404, 24405, 24406, 24407, 24408, 24409, 24410, 24411, 24412, 24413, 24414, 24415, 24416, 24417, 24418, 24419, 24420, 24421, 24423, 24424, 24425, 24426, 24427, 24428, 24429, 24430, 24431, 24432, 24433, 24434, 24435, 24436, 24437, 24438, 24439, 24452, 24453, 24454, 24455, 24456, 24457, 24458, 24459, 24689, 24687, 24690, 24692, 24694, 24693, 24695, 24697, 24696, 24698, 24699, 24670, 24512, 24513, 24514, 24515, 24532, 24533, 24534, 24535, 24504, 24505, 24506, 24507, 24508, 24509, 24510, 24511, 24520, 24521, 24522, 24523, 24524, 24525, 24526, 24527, 24440, 24441, 24442, 24443, 24444, 24445, 24446, 24447, 24448, 24449, 24450, 24451, 24472, 24473, 24474, 24475, 24536, 24537, 24538, 24539, 24540, 24541, 24542, 24543, 24544, 24545, 24546, 24547, 24476, 24477, 24478, 24479, 24548, 24549, 24550, 24551, 24552, 24553, 24554, 24555, 24556, 24557, 24558, 24559, 24484, 24485, 24486, 24487, 24560, 24561, 24562, 24563, 24564, 24565, 24566, 24567, 24568, 24569, 24570, 24571, 24480, 24481, 24482, 24483, 24572, 24573, 24574, 24575, 24576, 24577, 24578, 24579, 24580, 24581, 24582, 24583, 24460, 24461, 24462, 24463, 24584, 24585, 24586, 24587, 24588, 24589, 24590, 24591, 24592, 24593, 24594, 24595, 24468, 24469, 24470, 24471, 24596, 24597, 24598, 24599, 24600, 24601, 24602, 24603, 24604, 24605, 24606, 24607, 24464, 24465, 24466, 24467, 24608, 24609, 24610, 24611, 24612, 24613, 24614, 24615, 24616, 24617, 24618, 24619, 24488, 24489, 24490, 24491, 24620, 24621, 24622, 24623, 24624, 24625, 24626, 24627, 24628, 24629, 24630, 24631, 24500, 24501, 24502, 24503, 24632, 24633, 24634, 24635, 24636, 24637, 24638, 24639, 24640, 24641, 24642, 24643, 24532, 24533, 24534, 24535, 24644, 24645, 24646, 24647, 24648, 24649, 24650, 24651, 24652, 24653, 24654, 24655, 24516, 24517, 24518, 24519, 24656, 24657, 24658, 24659, 24660, 24661, 24662, 24663, 24664, 24665, 24666, 24667, 24492, 24493, 24494, 24495, 24668, 24669, 24670, 24671, 24672, 24673, 24674, 24675, 24676, 24677, 24678, 24679, 24496, 24497, 24498, 24499, 24701, 24702, 24703, 24704, 24705, 24706, 24707, 24708, 24709, 24710, 24711, 24712, 24713, 24714, 24715, 24722, 24723, 24724, 24725, 24726, 24727, 24728, 24729, 24730, 24731, 24732, 24733, 24734, 24735, 24736, 24737, 24738, 24740, 24741, 24742, 24743, 24744, 24745, 24746, 24747, 24748, 24749, 24750 ;
+    .size = getarraysize(.lista);
+
+	end;
+}
+
+-	shop	recycle	FAKE_NPC,909:-1

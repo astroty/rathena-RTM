@@ -44,116 +44,387 @@ Body:
   - Job: Novice
     Tree:
       - Name: NV_BASIC
-        MaxLevel: 9
-      - Name: NV_FIRSTAID
         MaxLevel: 1
-      - Name: NV_TRICKDEAD
+      - Name: ALL_FULL_THROTTLE
         MaxLevel: 1
-        Exclude: true
-      - Name: WE_CALLBABY
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: TF_HIDING
         MaxLevel: 1
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: AL_HEAL
+        MaxLevel: 3
+        Requires:
+          - Name: NV_BASIC
+            Level: 1
+      - Name: AL_INCAGI
+        MaxLevel: 1
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: BS_GREED
+        MaxLevel: 1
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: WZ_ESTIMATION
+        MaxLevel: 1
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
   - Job: Swordman
+    Inherit:
+      Novice: true
+    Tree:
+      - Name: KN_CAVALIERMASTERY
+        MaxLevel: 10
+      - Name: LG_SHIELDPRESS
+        MaxLevel: 10
+        Requires:
+          - Name: KN_CAVALIERMASTERY
+            Level: 1
+      - Name: RK_WINDCUTTER
+        MaxLevel: 5
+        Requires:
+          - Name: LG_SHIELDPRESS
+            Level: 1
+      - Name: KN_SPEARBOOMERANG
+        MaxLevel: 5
+        Requires:
+          - Name: LG_SHIELDPRESS
+            Level: 1
+      - Name: SM_RECOVERY
+        MaxLevel: 10
+      - Name: SR_GENTLETOUCH_REVITALIZE
+        MaxLevel: 5
+        Requires:
+          - Name: SM_RECOVERY
+            Level: 1
+      - Name: SR_CRESCENTELBOW
+        MaxLevel: 5
+        Requires:
+          - Name: SM_RECOVERY
+            Level: 1
+      - Name: TK_SPTIME
+        MaxLevel: 10
+      - Name: MG_SRECOVERY
+        MaxLevel: 10
+      - Name: SP_SHA
+        MaxLevel: 5
+        Requires:
+          - Name: TK_SPTIME
+            Level: 1
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: CR_SPEARQUICKEN
+        MaxLevel: 10
+        Requires:
+          - Name: TK_SPTIME
+            Level: 1
+          - Name: SM_RECOVERY
+            Level: 1
+  - Job: Mage
+    Inherit:
+      Novice: true
+    Tree:
+      - Name: AM_BIOETHICS
+        MaxLevel: 1
+      - Name: CG_MARIONETTE
+        MaxLevel: 5
+        Requires:
+          - Name: AM_RESURRECTHOMUN
+            Level: 1
+      - Name: AM_REST
+        MaxLevel: 1
+        Requires:
+          - Name: AM_BIOETHICS
+            Level: 1
+          - Name: MG_SOULSTRIKE
+            Level: 1
+      - Name: AM_CALLHOMUN
+        MaxLevel: 1
+        Requires:
+          - Name: AM_REST
+            Level: 1
+      - Name: AM_RESURRECTHOMUN
+        MaxLevel: 5
+        Requires:
+          - Name: AM_CALLHOMUN
+            Level: 1
+      - Name: MG_SOULSTRIKE
+        MaxLevel: 10
+      - Name: PR_LEXDIVINA
+        MaxLevel: 2
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 3
+      - Name: WL_FROSTMISTY
+        MaxLevel: 3
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 3
+      - Name: KO_GENWAKU
+        MaxLevel: 5
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 3
+      - Name: OB_AKAITSUKI
+        MaxLevel: 5
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 3
+      - Name: WZ_VERMILION
+        MaxLevel: 3
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 3
+      - Name: NJ_SHADOWJUMP
+        MaxLevel: 3
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 3
+      - Name: AM_CANNIBALIZE
+        MaxLevel: 5
+        Requires:
+          - Name: CG_MARIONETTE
+            Level: 5
+          - Name: MG_SOULSTRIKE
+            Level: 10
+          - Name: PR_LEXDIVINA
+            Level: 2
+          - Name: KO_GENWAKU
+            Level: 5
+          - Name: WZ_VERMILION
+            Level: 3
+          - Name: WL_FROSTMISTY
+            Level: 3
+          - Name: OB_AKAITSUKI
+            Level: 5
+          - Name: NJ_SHADOWJUMP
+            Level: 3
+          - Name: AM_RESURRECTHOMUN
+            Level: 5
+  - Job: Archer
+    Inherit:
+      Novice: true
+    Tree:
+      - Name: TK_HPTIME
+        MaxLevel: 7
+      - Name: NJ_NINPOU
+        MaxLevel: 7
+      - Name: LK_JOINTBEAT
+        MaxLevel: 7
+        Requires:
+          - Name: TK_HPTIME
+            Level: 1
+      - Name: LK_HEADCRUSH
+        MaxLevel: 7
+        Requires:
+          - Name: LK_JOINTBEAT
+            Level: 1
+      - Name: TK_READYTURN
+        MaxLevel: 1
+        Requires:
+          - Name: NJ_NINPOU
+            Level: 1
+          - Name: TK_HPTIME
+            Level: 1
+      - Name: TK_TURNKICK
+        MaxLevel: 7
+        Requires:
+          - Name: TK_READYTURN
+            Level: 1
+      - Name: MG_NAPALMBEAT
+        MaxLevel: 7
+        Requires:
+          - Name: NJ_NINPOU
+            Level: 1
+      - Name: PA_PRESSURE
+        MaxLevel: 7
+        Requires:
+          - Name: MG_NAPALMBEAT
+            Level: 1      
+      - Name: KO_BAKURETSU
+        MaxLevel: 7
+        Requires:
+          - Name: TK_TURNKICK
+            Level: 1
+          - Name: LK_HEADCRUSH
+            Level: 1
+      - Name: ST_REJECTSWORD
+        MaxLevel: 7
+        Requires:
+          - Name: TK_TURNKICK
+            Level: 1
+          - Name: PA_PRESSURE
+            Level: 1
+      - Name: SR_GENTLETOUCH_CURE
+        MaxLevel: 7
+        Requires:
+          - Name: ST_REJECTSWORD
+            Level: 1
+      - Name: NJ_ISSEN
+        MaxLevel: 7
+        Requires:
+          - Name: KO_BAKURETSU
+            Level: 1
+      - Name: SO_VARETYR_SPEAR   # Job Level 50 requirement
+        MaxLevel: 7
+        Requires:
+          - Name: NJ_ISSEN
+            Level: 1
+          - Name: SR_GENTLETOUCH_CURE
+            Level: 1
+  - Job: Acolyte
     Inherit:
       Novice: true
     Tree:
       - Name: SM_SWORD
         MaxLevel: 10
-      - Name: SM_TWOHAND
+      - Name: MO_SPIRITSRECOVERY
+        MaxLevel: 10
+      - Name: AC_CONCENTRATION
         MaxLevel: 10
         Requires:
           - Name: SM_SWORD
             Level: 1
-      - Name: SM_RECOVERY
-        MaxLevel: 10
+          - Name: MO_SPIRITSRECOVERY
+            Level: 1
+      - Name: PR_GLORIA
+        MaxLevel: 5
+        Requires:
+          - Name: BA_MUSICALSTRIKE
+            Level: 1
+          - Name: RK_DEATHBOUND
+            Level: 1
+      - Name: NJ_NEN
+        MaxLevel: 5
+        Requires:
+          - Name: AC_CONCENTRATION
+            Level: 1
+      - Name: RK_DEATHBOUND
+        MaxLevel: 5
+        Requires:
+          - Name: NJ_NEN
+            Level: 1
       - Name: SM_BASH
         MaxLevel: 10
-      - Name: SM_PROVOKE
-        MaxLevel: 10
-      - Name: SM_MAGNUM
-        MaxLevel: 10
+        Requires:
+          - Name: SM_SWORD
+            Level: 1
+      - Name: TK_JUMPKICK
+        MaxLevel: 5
         Requires:
           - Name: SM_BASH
-            Level: 5
-      - Name: SM_ENDURE
+            Level: 1
+      - Name: SC_FATALMENACE
         MaxLevel: 10
         Requires:
-          - Name: SM_PROVOKE
-            Level: 5
-      - Name: SM_MOVINGRECOVERY
+          - Name: TK_JUMPKICK
+            Level: 1
+      - Name: MO_INVESTIGATE
+        MaxLevel: 10
+        Requires:
+          - Name: SC_FATALMENACE
+            Level: 1
+          - Name: RK_DEATHBOUND
+            Level: 1
+      - Name: NC_COLDSLOWER
+        MaxLevel: 5
+        Requires:
+          - Name: WL_HELLINFERNO
+            Level: 1
+      - Name: BA_MUSICALSTRIKE
+        MaxLevel: 10
+        Requires:
+          - Name: NC_COLDSLOWER
+            Level: 1
+      - Name: WL_HELLINFERNO
+        Requires:
+          - Name: MO_SPIRITSRECOVERY
+            Level: 1
+        MaxLevel: 10
+      - Name: AB_ANCILLA
         MaxLevel: 1
-      - Name: SM_FATALBLOW
-        MaxLevel: 1
-      - Name: SM_AUTOBERSERK
-        MaxLevel: 1
-  - Job: Mage
+        Requires:
+          - Name: PR_GLORIA
+            Level: 1
+          - Name: MO_INVESTIGATE
+            Level: 1
+  - Job: Merchant
     Inherit:
       Novice: true
     Tree:
+      - Name: MC_INCCARRY
+        MaxLevel: 10
+      - Name: MC_PUSHCART
+        MaxLevel: 10
+      - Name: MC_VENDING
+        MaxLevel: 10
+  - Job: Thief
+    Inherit:
+      Novice: true
+    Tree:
+      - Name: TF_MISS
+        MaxLevel: 10
+      - Name: RG_BACKSTAP
+        MaxLevel: 10
+      - Name: SM_RECOVERY
+        MaxLevel: 10
+      - Name: GC_ROLLINGCUTTER
+        MaxLevel: 5
+      - Name: GC_CROSSRIPPERSLASHER
+        MaxLevel: 5
+        Requires:
+          - Name: GC_ROLLINGCUTTER
+            Level: 1
+      - Name: TF_POISON
+        MaxLevel: 10
+      - Name: AS_ENCHANTPOISON
+        MaxLevel: 10
+        Requires:
+          - Name: TF_POISON
+            Level: 1
+      - Name: TF_DETOXIFY
+        MaxLevel: 1
+        Requires:
+          - Name: AS_ENCHANTPOISON
+            Level: 1
+      - Name: TK_SPTIME
+        MaxLevel: 10    
       - Name: MG_SRECOVERY
         MaxLevel: 10
-      - Name: MG_SIGHT
+      - Name: SA_FREECAST
         MaxLevel: 1
-      - Name: MG_NAPALMBEAT
-        MaxLevel: 10
-      - Name: MG_SAFETYWALL
-        MaxLevel: 10
         Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 7
-          - Name: MG_SOULSTRIKE
-            Level: 5
-      - Name: MG_SOULSTRIKE
-        MaxLevel: 10
-        Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 4
-      - Name: MG_COLDBOLT
-        MaxLevel: 10
-      - Name: MG_FROSTDIVER
-        MaxLevel: 10
-        Requires:
-          - Name: MG_COLDBOLT
-            Level: 5
-      - Name: MG_STONECURSE
-        MaxLevel: 10
-      - Name: MG_FIREBALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_FIREBOLT
-            Level: 4
-      - Name: MG_FIREWALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_FIREBALL
-            Level: 5
-          - Name: MG_SIGHT
+          - Name: SA_AUTOSPELL
             Level: 1
-      - Name: MG_FIREBOLT
-        MaxLevel: 10
-      - Name: MG_LIGHTNINGBOLT
-        MaxLevel: 10
-      - Name: MG_THUNDERSTORM
+      - Name: SA_AUTOSPELL
         MaxLevel: 10
         Requires:
-          - Name: MG_LIGHTNINGBOLT
-            Level: 4
-      - Name: MG_ENERGYCOAT
-        MaxLevel: 1
-  - Job: Archer
-    Inherit:
-      Novice: true
-    Tree:
-      - Name: AC_OWL
-        MaxLevel: 10
-      - Name: AC_VULTURE
+          - Name: NJ_KOUENKA
+            Level: 1
+          - Name: NJ_HYOUSENSOU
+            Level: 1
+          - Name: NJ_HUUJIN
+            Level: 1
+      - Name: NJ_KOUENKA
         MaxLevel: 10
         Requires:
-          - Name: AC_OWL
-            Level: 3
-      - Name: AC_CONCENTRATION
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: NJ_HYOUSENSOU
         MaxLevel: 10
         Requires:
-          - Name: AC_VULTURE
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: NJ_HUUJIN
+        MaxLevel: 10
+        Requires:
+          - Name: MG_SRECOVERY
             Level: 1
       - Name: AC_DOUBLE
         MaxLevel: 10
@@ -161,238 +432,92 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: AC_DOUBLE
-            Level: 5
-      - Name: AC_MAKINGARROW
-        MaxLevel: 1
-      - Name: AC_CHARGEARROW
-        MaxLevel: 1
-  - Job: Acolyte
-    Inherit:
-      Novice: true
-    Tree:
-      - Name: AL_DP
-        MaxLevel: 10
-      - Name: AL_DEMONBANE
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_RUWACH
-        MaxLevel: 1
-      - Name: AL_PNEUMA
-        MaxLevel: 1
-        Requires:
-          - Name: AL_WARP
-            Level: 4
-      - Name: AL_TELEPORT
-        MaxLevel: 2
-        Requires:
-          - Name: AL_RUWACH
             Level: 1
-      - Name: AL_WARP
-        MaxLevel: 4
-        Requires:
-          - Name: AL_TELEPORT
-            Level: 2
-      - Name: AL_HEAL
-        MaxLevel: 10
-      - Name: AL_INCAGI
-        MaxLevel: 10
-        Requires:
-          - Name: AL_HEAL
-            Level: 3
-      - Name: AL_DECAGI
-        MaxLevel: 10
-        Requires:
-          - Name: AL_INCAGI
-            Level: 1
-      - Name: AL_HOLYWATER
-        MaxLevel: 1
-      - Name: AL_CRUCIS
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DEMONBANE
-            Level: 3
-      - Name: AL_ANGELUS
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_BLESSING
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 5
-      - Name: AL_CURE
-        MaxLevel: 1
-        Requires:
-          - Name: AL_HEAL
-            Level: 2
-      - Name: AL_HOLYLIGHT
-        MaxLevel: 1
-  - Job: Merchant
-    Inherit:
-      Novice: true
-    Tree:
-      - Name: MC_INCCARRY
-        MaxLevel: 10
-      - Name: MC_DISCOUNT
-        MaxLevel: 10
-        Requires:
-          - Name: MC_INCCARRY
-            Level: 3
-      - Name: MC_OVERCHARGE
-        MaxLevel: 10
-        Requires:
-          - Name: MC_DISCOUNT
-            Level: 3
-      - Name: MC_PUSHCART
-        MaxLevel: 10
-        Requires:
-          - Name: MC_INCCARRY
-            Level: 5
-      - Name: MC_IDENTIFY
-        MaxLevel: 1
-      - Name: MC_VENDING
-        MaxLevel: 10
-        Requires:
-          - Name: MC_PUSHCART
-            Level: 3
-      - Name: MC_MAMMONITE
-        MaxLevel: 10
-      - Name: MC_CARTREVOLUTION
-        MaxLevel: 1
-      - Name: MC_CHANGECART
-        MaxLevel: 1
-      - Name: MC_LOUD
-        MaxLevel: 1
-      - Name: ALL_BUYING_STORE
-        MaxLevel: 1
-        Requires:
-          - Name: MC_VENDING
-            Level: 1
-      - Name: MC_CARTDECORATE
-        MaxLevel: 1
-  - Job: Thief
-    Inherit:
-      Novice: true
-    Tree:
-      - Name: TF_DOUBLE
-        MaxLevel: 10
-      - Name: TF_MISS
-        MaxLevel: 10
-      - Name: TF_STEAL
-        MaxLevel: 10
-      - Name: TF_HIDING
-        MaxLevel: 10
-        Requires:
-          - Name: TF_STEAL
-            Level: 5
-      - Name: TF_POISON
-        MaxLevel: 10
-      - Name: TF_DETOXIFY
-        MaxLevel: 1
-        Requires:
-          - Name: TF_POISON
-            Level: 3
-      - Name: TF_SPRINKLESAND
-        MaxLevel: 1
-      - Name: TF_BACKSLIDING
-        MaxLevel: 1
-      - Name: TF_PICKSTONE
-        MaxLevel: 1
-      - Name: TF_THROWSTONE
-        MaxLevel: 1
   - Job: Knight
     Inherit:
       Novice: true
       Swordman: true
     Tree:
-      - Name: KN_SPEARMASTERY
-        MaxLevel: 10
-      - Name: KN_PIERCE
+      - Name: SJ_SUNSTANCE
+        MaxLevel: 1
+      - Name: SJ_STARSTANCE
+        MaxLevel: 1
+      - Name: SU_ARCLOUSEDASH
+        MaxLevel: 1
+      - Name: SJ_SOLARBURST
         MaxLevel: 10
         Requires:
-          - Name: KN_SPEARMASTERY
+          - Name: SJ_SUNSTANCE
             Level: 1
-      - Name: KN_BRANDISHSPEAR
+      - Name: LG_RAYOFGENESIS
         MaxLevel: 10
         Requires:
-          - Name: KN_RIDING
+          - Name: SJ_SOLARBURST
             Level: 1
-          - Name: KN_SPEARSTAB
-            Level: 3
-      - Name: KN_SPEARSTAB
-        MaxLevel: 10
-        Requires:
-          - Name: KN_PIERCE
-            Level: 5
-      - Name: KN_SPEARBOOMERANG
+      - Name: SR_LIGHTNINGWALK
         MaxLevel: 5
         Requires:
-          - Name: KN_PIERCE
-            Level: 3
-      - Name: KN_TWOHANDQUICKEN
+          - Name: SJ_SUNSTANCE
+            Level: 1
+          - Name: SJ_STARSTANCE
+            Level: 1
+      - Name: AB_LAUDAAGNUS
         MaxLevel: 10
         Requires:
-          - Name: SM_TWOHAND
+          - Name: SR_LIGHTNINGWALK
             Level: 1
-      - Name: KN_AUTOCOUNTER
-        MaxLevel: 5
-        Requires:
-          - Name: SM_TWOHAND
-            Level: 1
-      - Name: KN_BOWLINGBASH
+      - Name: RA_WUGSTRIKE
         MaxLevel: 10
         Requires:
-          - Name: SM_BASH
-            Level: 10
-          - Name: SM_MAGNUM
-            Level: 3
-          - Name: SM_TWOHAND
-            Level: 5
-          - Name: KN_TWOHANDQUICKEN
-            Level: 10
-          - Name: KN_AUTOCOUNTER
-            Level: 5
-      - Name: KN_RIDING
-        MaxLevel: 1
-        Requires:
-          - Name: SM_ENDURE
+          - Name: SJ_STARSTANCE
             Level: 1
-      - Name: KN_CAVALIERMASTERY
+      - Name: RK_DRAGONBREATH
+        MaxLevel: 10
+        Requires:
+          - Name: RA_WUGSTRIKE
+            Level: 1
+      - Name: NC_HOVERING
         MaxLevel: 5
         Requires:
-          - Name: KN_RIDING
+          - Name: RK_DRAGONBREATH
             Level: 1
-      - Name: KN_CHARGEATK
-        MaxLevel: 1
-      - Name: KN_ONEHAND
-        MaxLevel: 1
+          - Name: AB_LAUDAAGNUS
+            Level: 1
+      - Name: HP_ASSUMPTIO
+        MaxLevel: 10
         Requires:
-          - Name: KN_TWOHANDQUICKEN
-            Level: 10
+          - Name: LG_RAYOFGENESIS
+            Level: 1
+          - Name: AB_LAUDAAGNUS
+            Level: 1
+      - Name: AB_VITUPERATUM
+        MaxLevel: 5
+        Requires:
+          - Name: HP_ASSUMPTIO
+            Level: 1
+          - Name: NC_HOVERING
+            Level: 1
   - Job: Priest
     Inherit:
       Novice: true
-      Acolyte: true
+      Thief: true
     Tree:
       - Name: MG_SRECOVERY
         MaxLevel: 10
       - Name: MG_SAFETYWALL
-        MaxLevel: 10
+        MaxLevel: 4
         Requires:
           - Name: PR_ASPERSIO
-            Level: 4
+            Level: 1
           - Name: PR_SANCTUARY
-            Level: 3
+            Level: 1
       - Name: ALL_RESURRECTION
         MaxLevel: 4
         Requires:
           - Name: PR_STRECOVERY
             Level: 1
           - Name: MG_SRECOVERY
-            Level: 4
+            Level: 1
       - Name: PR_MACEMASTERY
         MaxLevel: 10
       - Name: PR_IMPOSITIO
@@ -401,21 +526,21 @@ Body:
         MaxLevel: 3
         Requires:
           - Name: PR_IMPOSITIO
-            Level: 2
+            Level: 1
       - Name: PR_ASPERSIO
         MaxLevel: 5
         Requires:
           - Name: AL_HOLYWATER
             Level: 1
           - Name: PR_IMPOSITIO
-            Level: 3
+            Level: 1
       - Name: PR_BENEDICTIO
         MaxLevel: 5
         Requires:
           - Name: PR_GLORIA
-            Level: 3
+            Level: 1
           - Name: PR_ASPERSIO
-            Level: 5
+            Level: 1
       - Name: PR_SANCTUARY
         MaxLevel: 10
         Requires:
@@ -426,21 +551,25 @@ Body:
       - Name: PR_STRECOVERY
         MaxLevel: 1
       - Name: PR_KYRIE
-        MaxLevel: 10
+        MaxLevel: 5
         Requires:
+          - Name: CR_DEFENDER
+            Level: 1
+          - Name: AB_RENOVATIO
+            Level: 1
           - Name: AL_ANGELUS
-            Level: 2
+            Level: 1
       - Name: PR_MAGNIFICAT
         MaxLevel: 5
       - Name: PR_GLORIA
         MaxLevel: 5
         Requires:
           - Name: PR_KYRIE
-            Level: 4
+            Level: 1
           - Name: PR_MAGNIFICAT
-            Level: 3
+            Level: 1
       - Name: PR_LEXDIVINA
-        MaxLevel: 10
+        MaxLevel: 2
         Requires:
           - Name: AL_RUWACH
             Level: 1
@@ -450,12 +579,12 @@ Body:
           - Name: ALL_RESURRECTION
             Level: 1
           - Name: PR_LEXDIVINA
-            Level: 3
+            Level: 1
       - Name: PR_LEXAETERNA
         MaxLevel: 1
         Requires:
           - Name: PR_LEXDIVINA
-            Level: 5
+            Level: 1
       - Name: PR_MAGNUS
         MaxLevel: 10
         Requires:
@@ -464,13 +593,13 @@ Body:
           - Name: PR_LEXAETERNA
             Level: 1
           - Name: PR_TURNUNDEAD
-            Level: 3
+            Level: 1
       - Name: PR_REDEMPTIO
         MaxLevel: 1
   - Job: Wizard
     Inherit:
       Novice: true
-      Mage: true
+      Thief: true
     Tree:
       - Name: WZ_FIREPILLAR
         MaxLevel: 10
@@ -490,7 +619,7 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: WZ_SIGHTRASHER
-            Level: 2
+            Level: 1
           - Name: MG_THUNDERSTORM
             Level: 1
       - Name: WZ_JUPITEL
@@ -501,12 +630,12 @@ Body:
           - Name: MG_LIGHTNINGBOLT
             Level: 1
       - Name: WZ_VERMILION
-        MaxLevel: 10
+        MaxLevel: 3
         Requires:
           - Name: MG_THUNDERSTORM
             Level: 1
           - Name: WZ_JUPITEL
-            Level: 5
+            Level: 1
       - Name: WZ_WATERBALL
         MaxLevel: 5
         Requires:
@@ -532,7 +661,7 @@ Body:
           - Name: MG_FROSTDIVER
             Level: 1
           - Name: WZ_JUPITEL
-            Level: 3
+            Level: 1
       - Name: WZ_EARTHSPIKE
         MaxLevel: 5
         Requires:
@@ -542,7 +671,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WZ_EARTHSPIKE
-            Level: 3
+            Level: 1
       - Name: WZ_QUAGMIRE
         MaxLevel: 5
         Requires:
@@ -590,7 +719,7 @@ Body:
         MaxLevel: 3
         Requires:
           - Name: BS_SWORD
-            Level: 2
+            Level: 1
       - Name: BS_MACE
         MaxLevel: 3
         Requires:
@@ -605,7 +734,7 @@ Body:
         MaxLevel: 3
         Requires:
           - Name: BS_DAGGER
-            Level: 2
+            Level: 1
       - Name: BS_HILTBINDING
         MaxLevel: 1
       - Name: BS_FINDINGORE
@@ -633,26 +762,26 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: BS_HAMMERFALL
-            Level: 2
+            Level: 1
       - Name: BS_WEAPONPERFECT
         MaxLevel: 5
         Requires:
           - Name: BS_WEAPONRESEARCH
-            Level: 2
+            Level: 1
           - Name: BS_ADRENALINE
-            Level: 2
+            Level: 1
       - Name: BS_OVERTHRUST
         MaxLevel: 5
         Requires:
           - Name: BS_ADRENALINE
-            Level: 3
+            Level: 1
       - Name: BS_MAXIMIZE
         MaxLevel: 5
         Requires:
           - Name: BS_WEAPONPERFECT
-            Level: 3
+            Level: 1
           - Name: BS_OVERTHRUST
-            Level: 2
+            Level: 1
       - Name: BS_UNFAIRLYTRICK
         MaxLevel: 1
       - Name: BS_GREED
@@ -661,7 +790,7 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: BS_ADRENALINE
-            Level: 5
+            Level: 1
   - Job: Hunter
     Inherit:
       Novice: true
@@ -735,14 +864,14 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: HT_BLITZBEAT
-            Level: 5
+            Level: 1
       - Name: HT_BLITZBEAT
         MaxLevel: 5
         Requires:
           - Name: HT_FALCON
             Level: 1
       - Name: HT_DETECTING
-        MaxLevel: 4
+        MaxLevel: 3
         Requires:
           - Name: AC_CONCENTRATION
             Level: 1
@@ -761,7 +890,7 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: AC_DOUBLE
-            Level: 10
+            Level: 1
   - Job: Assassin
     Inherit:
       Novice: true
@@ -773,52 +902,86 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: AS_RIGHT
-            Level: 2
-      - Name: AS_KATAR
-        MaxLevel: 10
+            Level: 1
       - Name: AS_CLOAKING
         MaxLevel: 10
         Requires:
-          - Name: TF_HIDING
-            Level: 2
-      - Name: AS_SONICBLOW
+          - Name: MO_DODGE
+            Level: 1  
+      - Name: NJ_KUNAI
+        MaxLevel: 5
+      - Name: AB_EXPIATIO
+        MaxLevel: 5
+      - Name: MG_FIREBALL
+        MaxLevel: 10
+      - Name: AS_KATAR
+        MaxLevel: 10
+      - Name: AS_GRIMTOOTH
         MaxLevel: 10
         Requires:
           - Name: AS_KATAR
-            Level: 4
-      - Name: AS_GRIMTOOTH
+            Level: 1
+      - Name: AS_SONICBLOW
+        MaxLevel: 10
+        Requires:
+          - Name: AS_GRIMTOOTH
+            Level: 1      
+      - Name: MO_EXPLOSIONSPIRITS
         MaxLevel: 5
         Requires:
-          - Name: AS_CLOAKING
-            Level: 2
           - Name: AS_SONICBLOW
-            Level: 5
-      - Name: AS_ENCHANTPOISON
+            Level: 1
+      - Name: SM_SWORD
+        MaxLevel: 10
+      - Name: KO_HAPPOKUNAI
         MaxLevel: 10
         Requires:
-          - Name: TF_POISON
+          - Name: SM_SWORD
+            Level: 1
+      - Name: NJ_KIRIKAGE
+        MaxLevel: 10
+        Requires:
+          - Name: KO_HAPPOKUNAI
+            Level: 1
+      - Name: GC_HALLUCINATIONWALK
+        MaxLevel: 5
+        Requires:
+          - Name: NJ_KIRIKAGE
+            Level: 1
+      - Name: AM_AXEMASTERY
+        MaxLevel: 10
+      - Name: NC_AXETORNADO
+        MaxLevel: 10
+        Requires:
+          - Name: AM_AXEMASTERY
+            Level: 1
+      - Name: NC_AXEBOOMERANG
+        MaxLevel: 10
+        Requires:
+          - Name: NC_AXETORNADO
             Level: 1
       - Name: AS_POISONREACT
+        MaxLevel: 5
+        Requires:
+          - Name: NC_AXEBOOMERANG
+            Level: 1
+      - Name: MO_DODGE
+        MaxLevel: 10
+      - Name: NJ_HUUMA
         MaxLevel: 10
         Requires:
-          - Name: AS_ENCHANTPOISON
-            Level: 3
-      - Name: AS_VENOMDUST
+          - Name: MO_DODGE
+            Level: 1
+      - Name: SR_GENTLETOUCH_QUIET
         MaxLevel: 10
         Requires:
-          - Name: AS_ENCHANTPOISON
-            Level: 5
-      - Name: AS_SPLASHER
-        MaxLevel: 10
+          - Name: NJ_HUUMA
+            Level: 1
+      - Name: BS_ADRENALINE2
+        MaxLevel: 5
         Requires:
-          - Name: AS_POISONREACT
-            Level: 5
-          - Name: AS_VENOMDUST
-            Level: 5
-      - Name: AS_SONICACCEL
-        MaxLevel: 1
-      - Name: AS_VENOMKNIFE
-        MaxLevel: 1
+          - Name: SR_GENTLETOUCH_QUIET
+            Level: 1
   - Job: Knight2
     Inherit:
       Novice: true
@@ -827,193 +990,50 @@ Body:
   - Job: Crusader
     Inherit:
       Novice: true
-      Swordman: true
+      Thief: true
     Tree:
-      - Name: KN_RIDING
-        MaxLevel: 1
+      - Name: AS_CLOAKING
+        MaxLevel: 10
+      - Name: ST_CHASEWALK
+        MaxLevel: 5
+      - Name: RG_TUNNELDRIVE
+        MaxLevel: 5
         Requires:
-          - Name: SM_ENDURE
+          - Name: TF_HIDING
             Level: 1
-      - Name: KN_CAVALIERMASTERY
+      - Name: NJ_KUNAI
         MaxLevel: 5
-        Requires:
-          - Name: KN_RIDING
-            Level: 1
-      - Name: KN_SPEARMASTERY
+      - Name: RG_RAID
         MaxLevel: 10
-      - Name: AL_CURE
-        MaxLevel: 1
-        Requires:
-          - Name: CR_TRUST
-            Level: 5
-      - Name: AL_DP
+      - Name: SM_SWORD
         MaxLevel: 10
-        Requires:
-          - Name: AL_CURE
-            Level: 1
-      - Name: AL_DEMONBANE
+      - Name: AC_OWL
         MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_HEAL
+      - Name: RA_RESEARCHTRAP
         MaxLevel: 10
-        Requires:
-          - Name: AL_DEMONBANE
-            Level: 5
-          - Name: CR_TRUST
-            Level: 10
-      - Name: CR_TRUST
+      - Name: MO_DODGE
         MaxLevel: 10
-      - Name: CR_AUTOGUARD
+      - Name: KO_HAPPOKUNAI
         MaxLevel: 10
-      - Name: CR_SHIELDCHARGE
+      - Name: CG_ARROWVULCAN
+        MaxLevel: 10
+      - Name: SR_KNUCKLEARROW
         MaxLevel: 5
-        Requires:
-          - Name: CR_AUTOGUARD
-            Level: 5
-      - Name: CR_SHIELDBOOMERANG
+      - Name: SC_FEINTBOMB
         MaxLevel: 5
-        Requires:
-          - Name: CR_SHIELDCHARGE
-            Level: 3
-      - Name: CR_REFLECTSHIELD
-        MaxLevel: 10
-        Requires:
-          - Name: CR_SHIELDBOOMERANG
-            Level: 3
-      - Name: CR_HOLYCROSS
-        MaxLevel: 10
-        Requires:
-          - Name: CR_TRUST
-            Level: 7
-      - Name: CR_GRANDCROSS
-        MaxLevel: 10
-        Requires:
-          - Name: CR_HOLYCROSS
-            Level: 6
-          - Name: CR_TRUST
-            Level: 10
-      - Name: CR_DEVOTION
+      - Name: GC_HALLUCINATIONWALK
         MaxLevel: 5
-        Requires:
-          - Name: CR_REFLECTSHIELD
-            Level: 5
-          - Name: CR_GRANDCROSS
-            Level: 4
-      - Name: CR_PROVIDENCE
-        MaxLevel: 5
-        Requires:
-          - Name: AL_DP
-            Level: 5
-          - Name: AL_HEAL
-            Level: 5
-      - Name: CR_DEFENDER
-        MaxLevel: 5
-        Requires:
-          - Name: CR_SHIELDBOOMERANG
-            Level: 1
-      - Name: CR_SPEARQUICKEN
+      - Name: NJ_KIRIKAGE
         MaxLevel: 10
-        Requires:
-          - Name: KN_SPEARMASTERY
-            Level: 10
-      - Name: CR_SHRINK
-        MaxLevel: 1
+      - Name: AS_POISONREACT
+        MaxLevel: 5
+      - Name: MO_EXPLOSIONSPIRITS
+        MaxLevel: 5
   - Job: Monk
     Inherit:
       Novice: true
-      Acolyte: true
+      Thief: true
     Tree:
-      - Name: MO_IRONHAND
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DEMONBANE
-            Level: 10
-          - Name: AL_DP
-            Level: 10
-      - Name: MO_SPIRITSRECOVERY
-        MaxLevel: 5
-        Requires:
-          - Name: MO_BLADESTOP
-            Level: 2
-      - Name: MO_CALLSPIRITS
-        MaxLevel: 5
-        Requires:
-          - Name: MO_IRONHAND
-            Level: 2
-      - Name: MO_ABSORBSPIRITS
-        MaxLevel: 1
-        Requires:
-          - Name: MO_CALLSPIRITS
-            Level: 5
-      - Name: MO_TRIPLEATTACK
-        MaxLevel: 10
-        Requires:
-          - Name: MO_DODGE
-            Level: 5
-      - Name: MO_BODYRELOCATION
-        MaxLevel: 1
-        Requires:
-          - Name: MO_EXTREMITYFIST
-            Level: 3
-          - Name: MO_SPIRITSRECOVERY
-            Level: 2
-          - Name: MO_STEELBODY
-            Level: 3
-      - Name: MO_DODGE
-        MaxLevel: 10
-        Requires:
-          - Name: MO_IRONHAND
-            Level: 5
-          - Name: MO_CALLSPIRITS
-            Level: 5
-      - Name: MO_INVESTIGATE
-        MaxLevel: 5
-        Requires:
-          - Name: MO_CALLSPIRITS
-            Level: 5
-      - Name: MO_FINGEROFFENSIVE
-        MaxLevel: 5
-        Requires:
-          - Name: MO_INVESTIGATE
-            Level: 3
-      - Name: MO_STEELBODY
-        MaxLevel: 5
-        Requires:
-          - Name: MO_COMBOFINISH
-            Level: 3
-      - Name: MO_BLADESTOP
-        MaxLevel: 5
-        Requires:
-          - Name: MO_DODGE
-            Level: 5
-      - Name: MO_EXPLOSIONSPIRITS
-        MaxLevel: 5
-        Requires:
-          - Name: MO_ABSORBSPIRITS
-            Level: 1
-      - Name: MO_EXTREMITYFIST
-        MaxLevel: 5
-        Requires:
-          - Name: MO_EXPLOSIONSPIRITS
-            Level: 3
-          - Name: MO_FINGEROFFENSIVE
-            Level: 3
-      - Name: MO_CHAINCOMBO
-        MaxLevel: 5
-        Requires:
-          - Name: MO_TRIPLEATTACK
-            Level: 5
-      - Name: MO_COMBOFINISH
-        MaxLevel: 5
-        Requires:
-          - Name: MO_CHAINCOMBO
-            Level: 3
-      - Name: MO_KITRANSLATION
-        MaxLevel: 1
-      - Name: MO_BALKYOUNG
-        MaxLevel: 1
   - Job: Sage
     Inherit:
       Novice: true
@@ -1037,14 +1057,14 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: SA_ADVANCEDBOOK
-            Level: 2
+            Level: 1
       - Name: SA_MAGICROD
-        MaxLevel: 5
+        MaxLevel: 1
         Requires:
           - Name: SA_ADVANCEDBOOK
-            Level: 4
+            Level: 1
       - Name: SA_SPELLBREAKER
-        MaxLevel: 5
+        MaxLevel: 1
         Requires:
           - Name: SA_MAGICROD
             Level: 1
@@ -1057,74 +1077,74 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: SA_FREECAST
-            Level: 4
+            Level: 1
       - Name: SA_FLAMELAUNCHER
         MaxLevel: 5
         Requires:
           - Name: MG_FIREBOLT
             Level: 1
           - Name: SA_ADVANCEDBOOK
-            Level: 5
+            Level: 1
       - Name: SA_FROSTWEAPON
         MaxLevel: 5
         Requires:
           - Name: MG_COLDBOLT
             Level: 1
           - Name: SA_ADVANCEDBOOK
-            Level: 5
+            Level: 1
       - Name: SA_LIGHTNINGLOADER
         MaxLevel: 5
         Requires:
           - Name: MG_LIGHTNINGBOLT
             Level: 1
           - Name: SA_ADVANCEDBOOK
-            Level: 5
+            Level: 1
       - Name: SA_SEISMICWEAPON
         MaxLevel: 5
         Requires:
           - Name: MG_STONECURSE
             Level: 1
           - Name: SA_ADVANCEDBOOK
-            Level: 5
+            Level: 1
       - Name: SA_DRAGONOLOGY
         MaxLevel: 5
         Requires:
           - Name: SA_ADVANCEDBOOK
-            Level: 9
+            Level: 1
       - Name: SA_VOLCANO
         MaxLevel: 5
         Requires:
           - Name: SA_FLAMELAUNCHER
-            Level: 2
+            Level: 1
       - Name: SA_DELUGE
         MaxLevel: 5
         Requires:
           - Name: SA_FROSTWEAPON
-            Level: 2
+            Level: 1
       - Name: SA_VIOLENTGALE
         MaxLevel: 5
         Requires:
           - Name: SA_LIGHTNINGLOADER
-            Level: 2
+            Level: 1
       - Name: SA_LANDPROTECTOR
         MaxLevel: 5
         Requires:
           - Name: SA_VOLCANO
-            Level: 3
+            Level: 1
           - Name: SA_DELUGE
-            Level: 3
+            Level: 1
           - Name: SA_VIOLENTGALE
-            Level: 3
+            Level: 1
       - Name: SA_DISPELL
         MaxLevel: 5
         Requires:
           - Name: SA_SPELLBREAKER
-            Level: 3
+            Level: 1
       - Name: SA_ABRACADABRA
         MaxLevel: 10
         Requires:
           - Name: SA_AUTOSPELL
-            Level: 5
+            Level: 1
           - Name: SA_DISPELL
             Level: 1
           - Name: SA_LANDPROTECTOR
@@ -1144,106 +1164,89 @@ Body:
       Novice: true
       Thief: true
     Tree:
-      - Name: SM_SWORD
-        MaxLevel: 10
-      - Name: AC_VULTURE
-        MaxLevel: 10
-      - Name: AC_DOUBLE
-        MaxLevel: 10
-        Requires:
-          - Name: AC_VULTURE
-            Level: 10
-      - Name: HT_REMOVETRAP
-        MaxLevel: 1
-        Requires:
-          - Name: AC_DOUBLE
-            Level: 5
-      - Name: RG_SNATCHER
-        MaxLevel: 10
-        Requires:
-          - Name: TF_STEAL
-            Level: 1
-      - Name: RG_STEALCOIN
-        MaxLevel: 10
-        Requires:
-          - Name: RG_SNATCHER
-            Level: 4
-      - Name: RG_BACKSTAP
-        MaxLevel: 10
-        Requires:
-          - Name: RG_STEALCOIN
-            Level: 4
+      - Name: ST_CHASEWALK
+        MaxLevel: 5
       - Name: RG_TUNNELDRIVE
         MaxLevel: 5
         Requires:
           - Name: TF_HIDING
             Level: 1
       - Name: RG_RAID
-        MaxLevel: 5
-        Requires:
-          - Name: RG_BACKSTAP
-            Level: 2
-          - Name: RG_TUNNELDRIVE
-            Level: 2
-      - Name: RG_STRIPWEAPON
-        MaxLevel: 5
-        Requires:
-          - Name: RG_STRIPARMOR
-            Level: 5
-      - Name: RG_STRIPSHIELD
-        MaxLevel: 5
-        Requires:
-          - Name: RG_STRIPHELM
-            Level: 5
-      - Name: RG_STRIPARMOR
-        MaxLevel: 5
-        Requires:
-          - Name: RG_STRIPSHIELD
-            Level: 5
-      - Name: RG_STRIPHELM
-        MaxLevel: 5
-        Requires:
-          - Name: RG_STEALCOIN
-            Level: 2
-      - Name: RG_INTIMIDATE
-        MaxLevel: 5
-        Requires:
-          - Name: RG_BACKSTAP
-            Level: 4
-          - Name: RG_RAID
-            Level: 5
-      - Name: RG_GRAFFITI
-        MaxLevel: 1
-        Requires:
-          - Name: RG_FLAGGRAFFITI
-            Level: 5
-      - Name: RG_FLAGGRAFFITI
-        MaxLevel: 5
-        Requires:
-          - Name: RG_CLEANER
-            Level: 1
-      - Name: RG_CLEANER
-        MaxLevel: 1
-        Requires:
-          - Name: RG_GANGSTER
-            Level: 1
-      - Name: RG_GANGSTER
-        MaxLevel: 1
-        Requires:
-          - Name: RG_STRIPSHIELD
-            Level: 3
-      - Name: RG_COMPULSION
-        MaxLevel: 5
-        Requires:
-          - Name: RG_GANGSTER
-            Level: 1
-      - Name: RG_PLAGIARISM
         MaxLevel: 10
         Requires:
-          - Name: RG_INTIMIDATE
-            Level: 5
-      - Name: RG_CLOSECONFINE
-        MaxLevel: 1
+          - Name: RG_TUNNELDRIVE
+            Level: 1  
+      - Name: MG_FROSTDIVER
+        MaxLevel: 10
+      - Name: AB_EXPIATIO
+        MaxLevel: 5
+      - Name: MG_FIREBALL
+        MaxLevel: 10
+      - Name: AC_OWL
+        MaxLevel: 10
+      - Name: CG_ARROWVULCAN
+        MaxLevel: 10
+        Requires:
+          - Name: AC_OWL
+            Level: 1
+      - Name: GS_GLITTERING
+        MaxLevel: 5
+      - Name: NC_VULCANARM
+        MaxLevel: 5
+        Requires:
+          - Name: GS_GLITTERING
+            Level: 1
+      - Name: SM_SWORD
+        MaxLevel: 10
+      - Name: KN_BOWLINGBASH
+        MaxLevel: 5
+        Requires:
+          - Name: SM_SWORD
+            Level: 1
+      - Name: RK_SONICWAVE
+        MaxLevel: 10
+        Requires:
+          - Name: KN_BOWLINGBASH
+            Level: 1
+      - Name: SR_KNUCKLEARROW
+        MaxLevel: 5
+        Requires:
+          - Name: RK_SONICWAVE
+            Level: 1
+      - Name: RA_RESEARCHTRAP
+        MaxLevel: 10
+      - Name: SC_FEINTBOMB
+        MaxLevel: 5
+        Requires:
+          - Name: RA_RESEARCHTRAP
+            Level: 1
+      - Name: AM_ACIDTERROR
+        MaxLevel: 10
+        Requires:
+          - Name: RA_RESEARCHTRAP
+            Level: 1
+      - Name: AM_DEMONSTRATION
+        MaxLevel: 5
+        Requires:
+          - Name: RA_RESEARCHTRAP
+            Level: 1
+      - Name: AL_DP
+        MaxLevel: 10
+      - Name: CR_SHIELDBOOMERANG
+        MaxLevel: 10
+        Requires:
+          - Name: AL_DP
+            Level: 1
+      - Name: CR_REFLECTSHIELD
+        MaxLevel: 10
+        Requires:
+          - Name: AL_DP
+            Level: 1
+      - Name: CR_DEVOTION
+        MaxLevel: 5
+        Requires:
+          - Name: AL_DP
+            Level: 1
   - Job: Alchemist
     Inherit:
       Novice: true
@@ -1257,52 +1260,52 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: AM_LEARNINGPOTION
-            Level: 5
+            Level: 1
       - Name: AM_DEMONSTRATION
         MaxLevel: 5
         Requires:
           - Name: AM_PHARMACY
-            Level: 4
+            Level: 1
       - Name: AM_ACIDTERROR
         MaxLevel: 5
         Requires:
           - Name: AM_PHARMACY
-            Level: 5
+            Level: 1
       - Name: AM_POTIONPITCHER
         MaxLevel: 5
         Requires:
           - Name: AM_PHARMACY
-            Level: 3
+            Level: 1
       - Name: AM_CANNIBALIZE
         MaxLevel: 5
         Requires:
           - Name: AM_PHARMACY
-            Level: 6
+            Level: 1
       - Name: AM_SPHEREMINE
         MaxLevel: 5
         Requires:
           - Name: AM_PHARMACY
-            Level: 2
+            Level: 1
       - Name: AM_CP_WEAPON
         MaxLevel: 5
         Requires:
           - Name: AM_CP_ARMOR
-            Level: 3
+            Level: 1
       - Name: AM_CP_SHIELD
         MaxLevel: 5
         Requires:
           - Name: AM_CP_HELM
-            Level: 3
+            Level: 1
       - Name: AM_CP_ARMOR
         MaxLevel: 5
         Requires:
           - Name: AM_CP_SHIELD
-            Level: 3
+            Level: 1
       - Name: AM_CP_HELM
         MaxLevel: 5
         Requires:
           - Name: AM_PHARMACY
-            Level: 2
+            Level: 1
       - Name: AM_BIOETHICS
         MaxLevel: 1
       - Name: AM_CALLHOMUN
@@ -1315,6 +1318,8 @@ Body:
         Requires:
           - Name: AM_BIOETHICS
             Level: 1
+          - Name: MG_SOULSTRIKE
+            Level: 1
       - Name: AM_RESURRECTHOMUN
         MaxLevel: 5
         Requires:
@@ -1326,22 +1331,22 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: AM_PHARMACY
-            Level: 10
+            Level: 1
       - Name: AM_TWILIGHT2
         MaxLevel: 1
         Requires:
           - Name: AM_PHARMACY
-            Level: 10
+            Level: 1
       - Name: AM_TWILIGHT3
         MaxLevel: 1
         Requires:
           - Name: AM_PHARMACY
-            Level: 10
+            Level: 1
      # - Name: AM_TWILIGHT4
        # MaxLevel: 1
        # Requires:
          # - Name: AM_PHARMACY
-           # Level: 10
+           # Level: 1
   - Job: Bard
     Inherit:
       Novice: true
@@ -1353,7 +1358,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: BA_MUSICALLESSON
-            Level: 3
+            Level: 1
       - Name: BA_DISSONANCE
         MaxLevel: 5
         Requires:
@@ -1370,22 +1375,22 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: BA_DISSONANCE
-            Level: 3
+            Level: 1
       - Name: BA_ASSASSINCROSS
         MaxLevel: 10
         Requires:
           - Name: BA_DISSONANCE
-            Level: 3
+            Level: 1
       - Name: BA_POEMBRAGI
         MaxLevel: 10
         Requires:
           - Name: BA_DISSONANCE
-            Level: 3
+            Level: 1
       - Name: BA_APPLEIDUN
         MaxLevel: 10
         Requires:
           - Name: BA_DISSONANCE
-            Level: 3
+            Level: 1
       - Name: BD_ADAPTATION
         MaxLevel: 1
       - Name: BD_ENCORE
@@ -1397,12 +1402,12 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: BA_WHISTLE
-            Level: 10
+            Level: 1
       - Name: BD_RICHMANKIM
         MaxLevel: 5
         Requires:
           - Name: BD_SIEGFRIED
-            Level: 3
+            Level: 1
       - Name: BD_ETERNALCHAOS
         MaxLevel: 1
         Requires:
@@ -1412,17 +1417,17 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: BA_APPLEIDUN
-            Level: 10
+            Level: 1
       - Name: BD_RINGNIBELUNGEN
         MaxLevel: 5
         Requires:
           - Name: BD_DRUMBATTLEFIELD
-            Level: 3
+            Level: 1
       - Name: BD_ROKISWEIL
         MaxLevel: 1
         Requires:
           - Name: BA_ASSASSINCROSS
-            Level: 10
+            Level: 1
       - Name: BD_INTOABYSS
         MaxLevel: 1
         Requires:
@@ -1432,7 +1437,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: BA_POEMBRAGI
-            Level: 10
+            Level: 1
       - Name: BA_PANGVOICE
         MaxLevel: 1
   - Job: Dancer
@@ -1446,7 +1451,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: DC_DANCINGLESSON
-            Level: 3
+            Level: 1
       - Name: DC_UGLYDANCE
         MaxLevel: 5
         Requires:
@@ -1463,22 +1468,22 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: DC_UGLYDANCE
-            Level: 3
+            Level: 1
       - Name: DC_DONTFORGETME
         MaxLevel: 10
         Requires:
           - Name: DC_UGLYDANCE
-            Level: 3
+            Level: 1
       - Name: DC_FORTUNEKISS
         MaxLevel: 10
         Requires:
           - Name: DC_UGLYDANCE
-            Level: 3
+            Level: 1
       - Name: DC_SERVICEFORYOU
         MaxLevel: 10
         Requires:
           - Name: DC_UGLYDANCE
-            Level: 3
+            Level: 1
       - Name: BD_ADAPTATION
         MaxLevel: 1
       - Name: BD_ENCORE
@@ -1490,12 +1495,12 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: DC_HUMMING
-            Level: 10
+            Level: 1
       - Name: BD_RICHMANKIM
         MaxLevel: 5
         Requires:
           - Name: BD_SIEGFRIED
-            Level: 3
+            Level: 1
       - Name: BD_ETERNALCHAOS
         MaxLevel: 1
         Requires:
@@ -1505,17 +1510,17 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: DC_SERVICEFORYOU
-            Level: 10
+            Level: 1
       - Name: BD_RINGNIBELUNGEN
         MaxLevel: 5
         Requires:
           - Name: BD_DRUMBATTLEFIELD
-            Level: 3
+            Level: 1
       - Name: BD_ROKISWEIL
         MaxLevel: 1
         Requires:
           - Name: DC_DONTFORGETME
-            Level: 10
+            Level: 1
       - Name: BD_INTOABYSS
         MaxLevel: 1
         Requires:
@@ -1525,7 +1530,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: DC_FORTUNEKISS
-            Level: 10
+            Level: 1
       - Name: DC_WINKCHARM
         MaxLevel: 1
   - Job: Crusader2
@@ -1537,428 +1542,195 @@ Body:
     Inherit:
       Novice: true
     Tree:
-      - Name: SM_SWORD
-        MaxLevel: 10
-      - Name: SM_RECOVERY
-        MaxLevel: 10
-      - Name: SM_BASH
-        MaxLevel: 10
-      - Name: SM_PROVOKE
-        MaxLevel: 10
-      - Name: SM_MAGNUM
+      - Name: MO_CALLSPIRITS
+        MaxLevel: 2 
+      - Name: GS_CHAINACTION
         MaxLevel: 10
         Requires:
-          - Name: SM_BASH
-            Level: 5
-      - Name: SM_ENDURE
+          - Name: MO_CALLSPIRITS
+            Level: 1
+      - Name: MO_IRONHAND
         MaxLevel: 10
         Requires:
-          - Name: SM_PROVOKE
-            Level: 5
-      - Name: MG_SRECOVERY
+          - Name: MO_CALLSPIRITS
+            Level: 1
+      - Name: HP_MANARECHARGE
         MaxLevel: 10
+        Requires:
+          - Name: MO_CALLSPIRITS
+            Level: 1
+      - Name: LK_AURABLADE
+        MaxLevel: 10
+        Requires:
+          - Name: MO_IRONHAND
+            Level: 1
+          - Name: GS_CHAINACTION
+            Level: 1
+      - Name: RL_FALLEN_ANGEL
+        MaxLevel: 5
+        Requires:
+          - Name: HP_MANARECHARGE
+            Level: 1
+          - Name: CH_SOULCOLLECT
+            Level: 1
+      - Name: RL_FIREDANCE
+        MaxLevel: 10
+        Requires:
+          - Name: RL_FALLEN_ANGEL
+            Level: 1
+      - Name: RL_MASS_SPIRAL
+        MaxLevel: 5
+        Requires:
+          - Name: HP_MANARECHARGE
+            Level: 1
+      - Name: CR_SHIELDCHARGE
+        MaxLevel: 10
+        Requires:
+          - Name: RL_MASS_SPIRAL
+            Level: 1
+      - Name: RL_SLUGSHOT
+        MaxLevel: 10
+        Requires:
+          - Name: RL_MASS_SPIRAL
+            Level: 1
+      - Name: CH_SOULCOLLECT
+        MaxLevel: 10
+        Requires:
+          - Name: MO_CALLSPIRITS
+            Level: 1
+      - Name: SR_GENTLETOUCH_ENERGYGAIN
+        MaxLevel: 10
+        Requires:
+          - Name: CH_SOULCOLLECT
+            Level: 1
+      - Name: MO_FINGEROFFENSIVE
+        MaxLevel: 5
+        Requires:
+          - Name: SR_GENTLETOUCH_ENERGYGAIN
+            Level: 1
       - Name: MG_SIGHT
         MaxLevel: 1
-      - Name: MG_NAPALMBEAT
-        MaxLevel: 10
-      - Name: MG_SAFETYWALL
-        MaxLevel: 10
         Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 7
-          - Name: MG_SOULSTRIKE
-            Level: 5
-      - Name: MG_SOULSTRIKE
-        MaxLevel: 10
-        Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 4
-      - Name: MG_COLDBOLT
-        MaxLevel: 10
-      - Name: MG_FROSTDIVER
-        MaxLevel: 10
-        Requires:
-          - Name: MG_COLDBOLT
-            Level: 5
-      - Name: MG_STONECURSE
-        MaxLevel: 10
-      - Name: MG_FIREBALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_FIREBOLT
-            Level: 4
-      - Name: MG_FIREWALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_FIREBALL
-            Level: 5
-          - Name: MG_SIGHT
+          - Name: GS_CHAINACTION
             Level: 1
-      - Name: MG_FIREBOLT
-        MaxLevel: 10
-      - Name: MG_LIGHTNINGBOLT
-        MaxLevel: 10
-      - Name: MG_THUNDERSTORM
-        MaxLevel: 10
-        Requires:
-          - Name: MG_LIGHTNINGBOLT
-            Level: 4
-      - Name: AL_DP
-        MaxLevel: 10
-      - Name: AL_DEMONBANE
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_RUWACH
-        MaxLevel: 1
-      - Name: AL_PNEUMA
-        MaxLevel: 1
-        Requires:
-          - Name: AL_WARP
-            Level: 4
-      - Name: AL_TELEPORT
-        MaxLevel: 2
-        Requires:
-          - Name: AL_RUWACH
+          - Name: HP_MANARECHARGE
             Level: 1
-      - Name: AL_WARP
-        MaxLevel: 4
+      - Name: RL_C_MARKER
+        MaxLevel: 5
         Requires:
-          - Name: AL_TELEPORT
-            Level: 2
-      - Name: AL_HEAL
-        MaxLevel: 10
-      - Name: AL_INCAGI
-        MaxLevel: 10
-        Requires:
-          - Name: AL_HEAL
-            Level: 3
-      - Name: AL_DECAGI
-        MaxLevel: 10
-        Requires:
-          - Name: AL_INCAGI
+          - Name: GS_CHAINACTION
             Level: 1
-      - Name: AL_HOLYWATER
-        MaxLevel: 1
-      - Name: AL_CRUCIS
-        MaxLevel: 10
+      - Name: RL_QD_SHOT
+        MaxLevel: 3
         Requires:
-          - Name: AL_DEMONBANE
-            Level: 3
-      - Name: AL_ANGELUS
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_BLESSING
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 5
-      - Name: AL_CURE
-        MaxLevel: 1
-        Requires:
-          - Name: AL_HEAL
-            Level: 2
-      - Name: MC_INCCARRY
-        MaxLevel: 10
-      - Name: MC_DISCOUNT
-        MaxLevel: 10
-        Requires:
-          - Name: MC_INCCARRY
-            Level: 3
-      - Name: MC_OVERCHARGE
-        MaxLevel: 10
-        Requires:
-          - Name: MC_DISCOUNT
-            Level: 3
-      - Name: MC_PUSHCART
-        MaxLevel: 10
-        Requires:
-          - Name: MC_INCCARRY
-            Level: 5
-      - Name: MC_IDENTIFY
-        MaxLevel: 1
-      - Name: MC_VENDING
-        MaxLevel: 10
-        Requires:
-          - Name: MC_PUSHCART
-            Level: 3
-      - Name: MC_MAMMONITE
-        MaxLevel: 10
-      - Name: AC_OWL
-        MaxLevel: 10
-      - Name: AC_VULTURE
-        MaxLevel: 10
-        Requires:
-          - Name: AC_OWL
-            Level: 3
-      - Name: AC_CONCENTRATION
-        MaxLevel: 10
-        Requires:
-          - Name: AC_VULTURE
+          - Name: RL_C_MARKER
             Level: 1
-      - Name: TF_DOUBLE
-        MaxLevel: 10
-      - Name: TF_MISS
-        MaxLevel: 10
-      - Name: TF_STEAL
-        MaxLevel: 10
-      - Name: TF_HIDING
+      - Name: CH_CHAINCRUSH
         MaxLevel: 10
         Requires:
-          - Name: TF_STEAL
-            Level: 5
-      - Name: TF_POISON
-        MaxLevel: 10
-      - Name: TF_DETOXIFY
-        MaxLevel: 1
-        Requires:
-          - Name: TF_POISON
-            Level: 3
-      - Name: ALL_BUYING_STORE
-        MaxLevel: 1
-        Requires:
-          - Name: MC_VENDING
+          - Name: RL_QD_SHOT
             Level: 1
-      - Name: MC_CARTDECORATE
-        MaxLevel: 1
+      - Name: RL_D_TAIL
+        MaxLevel: 5 
+        Requires:
+          - Name: RL_SLUGSHOT
+            Level: 1
+          - Name: CR_SHIELDCHARGE
+            Level: 1
   - Job: Gunslinger
     Inherit:
       Novice: true
     Tree:
-      - Name: GS_GLITTERING
-        MaxLevel: 5
-      - Name: GS_FLING
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 1
-      - Name: GS_TRIPLEACTION
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 1
-      - Name: GS_BULLSEYE
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 5
-      - Name: GS_MADNESSCANCEL
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 4
-      - Name: GS_ADJUSTMENT
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 4
-      - Name: GS_INCREASING
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 2
-      - Name: GS_MAGICALBULLET
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 1
-      - Name: GS_CRACKER
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 1
-      - Name: GS_SINGLEACTION
+      - Name: PR_MACEMASTERY
         MaxLevel: 10
-      - Name: GS_SNAKEEYE
-        MaxLevel: 10
-      - Name: GS_CHAINACTION
-        MaxLevel: 10
-        Requires:
-          - Name: GS_SINGLEACTION
-            Level: 1
-      - Name: GS_TRACKING
-        MaxLevel: 10
-        Requires:
-          - Name: GS_SINGLEACTION
-            Level: 5
-      - Name: GS_DISARM
+      - Name: KN_PIERCE
         MaxLevel: 5
         Requires:
-          - Name: GS_TRACKING
-            Level: 7
-      - Name: GS_PIERCINGSHOT
+          - Name: LK_SPIRALPIERCE
+            Level: 1
+      - Name: LK_SPIRALPIERCE
+        MaxLevel: 10
+        Requires:
+          - Name: PR_MACEMASTERY
+            Level: 1
+      - Name: MG_SRECOVERY
+        MaxLevel: 10
+      - Name: SN_SIGHT
+        MaxLevel: 10
+        Requires:
+          - Name: SL_KAITE
+            Level: 1
+          - Name: RK_IGNITIONBREAK
+            Level: 1
+      - Name: SL_STIN
         MaxLevel: 5
         Requires:
-          - Name: GS_TRACKING
-            Level: 5
-      - Name: GS_RAPIDSHOWER
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: SL_SMA
         MaxLevel: 10
         Requires:
-          - Name: GS_CHAINACTION
-            Level: 3
-      - Name: GS_DESPERADO
+          - Name: SL_STIN
+            Level: 1
+      - Name: LK_PARRYING
         MaxLevel: 10
         Requires:
-          - Name: GS_RAPIDSHOWER
-            Level: 5
-      - Name: GS_GATLINGFEVER
+          - Name: SA_FLAMELAUNCHER
+            Level: 1
+      - Name: SL_KAITE
+        MaxLevel: 3
+        Requires:
+          - Name: SL_SMA
+            Level: 1
+          - Name: LK_PARRYING
+            Level: 1
+      - Name: SA_FLAMELAUNCHER
         MaxLevel: 10
         Requires:
-          - Name: GS_RAPIDSHOWER
-            Level: 7
-          - Name: GS_DESPERADO
-            Level: 5
-      - Name: GS_DUST
+          - Name: MG_SRECOVERY
+            Level: 1
+          - Name: PR_MACEMASTERY
+            Level: 1
+      - Name: RK_IGNITIONBREAK
         MaxLevel: 10
         Requires:
-          - Name: GS_SINGLEACTION
-            Level: 5
-      - Name: GS_FULLBUSTER
-        MaxLevel: 10
-        Requires:
-          - Name: GS_DUST
-            Level: 3
-      - Name: GS_SPREADATTACK
-        MaxLevel: 10
-        Requires:
-          - Name: GS_SINGLEACTION
-            Level: 5
-      - Name: GS_GROUNDDRIFT
-        MaxLevel: 10
-        Requires:
-          - Name: GS_SPREADATTACK
-            Level: 7
+          - Name: KN_PIERCE
+            Level: 1
+          - Name: LK_PARRYING
+            Level: 1
   - Job: Ninja
     Inherit:
       Novice: true
     Tree:
-      - Name: NJ_TOBIDOUGU
+      - Name: TF_MISS
         MaxLevel: 10
-      - Name: NJ_SYURIKEN
+      - Name: MC_INCCARRY
         MaxLevel: 10
-        Requires:
-          - Name: NJ_TOBIDOUGU
-            Level: 1
-      - Name: NJ_KUNAI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_SYURIKEN
-            Level: 5
-      - Name: NJ_HUUMA
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_TOBIDOUGU
-            Level: 5
-          - Name: NJ_KUNAI
-            Level: 5
-      - Name: NJ_ZENYNAGE
+      - Name: MG_SRECOVERY
         MaxLevel: 10
+      - Name: SM_RECOVERY
+        MaxLevel: 10
+      - Name: SM_SWORD
+        MaxLevel: 10
+      - Name: MO_DODGE
+        MaxLevel: 10
+      - Name: AL_PNEUMA
+        MaxLevel: 8
         Requires:
-          - Name: NJ_TOBIDOUGU
+          - Name: TF_MISS
             Level: 10
-          - Name: NJ_HUUMA
-            Level: 5
-      - Name: NJ_TATAMIGAESHI
-        MaxLevel: 5
-      - Name: NJ_KASUMIKIRI
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_SHADOWJUMP
-            Level: 1
-      - Name: NJ_SHADOWJUMP
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_TATAMIGAESHI
-            Level: 1
-      - Name: NJ_KIRIKAGE
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_KASUMIKIRI
-            Level: 5
-      - Name: NJ_UTSUSEMI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_SHADOWJUMP
-            Level: 5
-      - Name: NJ_BUNSINJYUTSU
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_UTSUSEMI
-            Level: 4
-          - Name: NJ_KIRIKAGE
-            Level: 3
-          - Name: NJ_NEN
-            Level: 1
-      - Name: NJ_NINPOU
-        MaxLevel: 10
-      - Name: NJ_KOUENKA
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_NINPOU
-            Level: 1
-      - Name: NJ_KAENSIN
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_KOUENKA
-            Level: 5
-      - Name: NJ_BAKUENRYU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
+          - Name: MC_INCCARRY
             Level: 10
-          - Name: NJ_KAENSIN
-            Level: 7
-      - Name: NJ_HYOUSENSOU
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_NINPOU
-            Level: 1
-      - Name: NJ_SUITON
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_HYOUSENSOU
-            Level: 5
-      - Name: NJ_HYOUSYOURAKU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
+          - Name: MG_SRECOVERY
             Level: 10
-          - Name: NJ_SUITON
-            Level: 7
-      - Name: NJ_HUUJIN
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_NINPOU
-            Level: 1
-      - Name: NJ_RAIGEKISAI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_HUUJIN
-            Level: 5
-      - Name: NJ_KAMAITACHI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
+          - Name: SM_RECOVERY
             Level: 10
-          - Name: NJ_RAIGEKISAI
-            Level: 5
-      - Name: NJ_NEN
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
-            Level: 5
-      - Name: NJ_ISSEN
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_TOBIDOUGU
-            Level: 7
-          - Name: NJ_KIRIKAGE
-            Level: 5
-          - Name: NJ_NEN
-            Level: 1
+          - Name: SM_SWORD
+            Level: 10
+          - Name: MO_DODGE
+            Level: 10
+      - Name: LK_BERSERK
+        MaxLevel: 1
   - Job: Novice_High
     Inherit:
       Novice: true
@@ -1969,23 +1741,23 @@ Body:
   - Job: Swordman_High
     Inherit:
       Novice: true
-      Swordman: true
+      Thief: true
   - Job: Mage_High
     Inherit:
       Novice: true
-      Mage: true
+      Thief: true
   - Job: Archer_High
     Inherit:
       Novice: true
-      Archer: true
+      Thief: true
   - Job: Acolyte_High
     Inherit:
       Novice: true
-      Acolyte: true
+      Thief: true
   - Job: Merchant_High
     Inherit:
       Novice: true
-      Merchant: true
+      Thief: true
   - Job: Thief_High
     Inherit:
       Novice: true
@@ -1993,317 +1765,155 @@ Body:
   - Job: Lord_Knight
     Inherit:
       Novice: true
-      Swordman: true
-      Knight: true
+      Thief: true
+      Assassin: true
     Tree:
       - Name: LK_AURABLADE
         MaxLevel: 5
         Requires:
           - Name: SM_MAGNUM
-            Level: 5
+            Level: 1
           - Name: SM_TWOHAND
-            Level: 5
+            Level: 1
       - Name: LK_PARRYING
         MaxLevel: 10
         Requires:
           - Name: SM_TWOHAND
-            Level: 10
+            Level: 1
           - Name: SM_PROVOKE
-            Level: 5
+            Level: 1
           - Name: KN_TWOHANDQUICKEN
-            Level: 3
+            Level: 1
       - Name: LK_CONCENTRATION
         MaxLevel: 5
         Requires:
           - Name: SM_RECOVERY
-            Level: 5
+            Level: 1
           - Name: KN_SPEARMASTERY
-            Level: 5
+            Level: 1
           - Name: KN_RIDING
             Level: 1
       - Name: LK_TENSIONRELAX
         MaxLevel: 1
         Requires:
           - Name: SM_RECOVERY
-            Level: 10
+            Level: 1
           - Name: SM_PROVOKE
-            Level: 5
+            Level: 1
           - Name: SM_ENDURE
-            Level: 3
-      - Name: LK_BERSERK   # Job Level 50 requirement
-        MaxLevel: 1
-        JobLevel: 50
+            Level: 1
       - Name: LK_SPIRALPIERCE
         MaxLevel: 5
         Requires:
           - Name: KN_SPEARMASTERY
-            Level: 5
+            Level: 1
           - Name: KN_PIERCE
-            Level: 5
+            Level: 1
           - Name: KN_SPEARSTAB
-            Level: 5
+            Level: 1
           - Name: KN_RIDING
             Level: 1
       - Name: LK_HEADCRUSH
         MaxLevel: 5
         Requires:
           - Name: KN_SPEARMASTERY
-            Level: 9
+            Level: 1
           - Name: KN_RIDING
             Level: 1
       - Name: LK_JOINTBEAT
         MaxLevel: 10
         Requires:
           - Name: KN_CAVALIERMASTERY
-            Level: 3
+            Level: 1
           - Name: LK_HEADCRUSH
-            Level: 3
-  - Job: High_Priest
-    Inherit:
-      Novice: true
-      Acolyte: true
-      Priest: true
-    Tree:
-      - Name: PR_SLOWPOISON
-        MaxLevel: 4
-      - Name: HP_ASSUMPTIO
-        MaxLevel: 5
-        Requires:
-          - Name: AL_ANGELUS
             Level: 1
-          - Name: MG_SRECOVERY
-            Level: 3
-          - Name: PR_IMPOSITIO
-            Level: 3
-      - Name: HP_BASILICA
-        MaxLevel: 5
-        Requires:
-          - Name: PR_GLORIA
-            Level: 2
-          - Name: MG_SRECOVERY
-            Level: 1
-          - Name: PR_KYRIE
-            Level: 3
-      - Name: HP_MEDITATIO
-        MaxLevel: 10
-        Requires:
-          - Name: PR_ASPERSIO
-            Level: 3
-          - Name: MG_SRECOVERY
-            Level: 5
-          - Name: PR_LEXDIVINA
-            Level: 5
-      - Name: HP_MANARECHARGE
-        MaxLevel: 5
-        Requires:
-          - Name: PR_MACEMASTERY
-            Level: 10
-          - Name: AL_DEMONBANE
-            Level: 10
-  - Job: High_Wizard
-    Inherit:
-      Novice: true
-      Mage: true
-      Wizard: true
-    Tree:
-      - Name: HW_SOULDRAIN
-        MaxLevel: 10
-        Requires:
-          - Name: MG_SRECOVERY
-            Level: 5
-          - Name: MG_SOULSTRIKE
-            Level: 7
-      - Name: HW_MAGICCRASHER
-        MaxLevel: 1
-        Requires:
-          - Name: MG_SRECOVERY
-            Level: 1
-      - Name: HW_MAGICPOWER
-        MaxLevel: 10
-      - Name: HW_NAPALMVULCAN
-        MaxLevel: 5
-        Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 5
-      - Name: HW_GANBANTEIN
-        MaxLevel: 1
-        Requires:
-          - Name: WZ_ESTIMATION
-            Level: 1
-          - Name: WZ_ICEWALL
-            Level: 1
-      - Name: HW_GRAVITATION
-        MaxLevel: 5
-        Requires:
-          - Name: HW_MAGICCRASHER
-            Level: 1
-          - Name: HW_MAGICPOWER
-            Level: 10
-          - Name: WZ_QUAGMIRE
-            Level: 1
-  - Job: Whitesmith
-    Inherit:
-      Novice: true
-      Merchant: true
-      Blacksmith: true
-    Tree:
-      - Name: WS_MELTDOWN
-        MaxLevel: 10
-        Requires:
-          - Name: BS_SKINTEMPER
-            Level: 3
-          - Name: BS_HILTBINDING
-            Level: 1
-          - Name: BS_WEAPONRESEARCH
-            Level: 5
-          - Name: BS_OVERTHRUST
-            Level: 3
-     # - Name: WS_CREATECOIN
-       # MaxLevel: 3
-       # Requires:
-         # - Name: BS_SKINTEMPER
-           # Level: 5
-         # - Name: BS_IRON
-           # Level: 5
-         # - Name: BS_ENCHANTEDSTONE
-           # Level: 3
-         # - Name: BS_ORIDEOCON
-           # Level: 2
-     # - Name: WS_CREATENUGGET
-       # MaxLevel: 3
-       # Requires:
-         # - Name: BS_ORIDEOCON
-           # Level: 3
-         # - Name: BS_FINDINGORE
-           # Level: 1
-         # - Name: BS_WEAPONRESEARCH
-           # Level: 5
-      - Name: WS_CARTBOOST
-        MaxLevel: 1
-        Requires:
-          - Name: MC_PUSHCART
-            Level: 5
-          - Name: MC_CARTREVOLUTION
-            Level: 1
-          - Name: MC_CHANGECART
-            Level: 1
-          - Name: BS_HILTBINDING
-            Level: 1
-     # - Name: WS_SYSTEMCREATE
-       # MaxLevel: 1
-       # Requires:
-         # - Name: BS_WEAPONRESEARCH
-           # Level: 10
-         # - Name: BS_WEAPONPERFECT
-           # Level: 3
-      - Name: WS_WEAPONREFINE
-        MaxLevel: 10
-        Requires:
-          - Name: BS_WEAPONRESEARCH
-            Level: 10
-      - Name: WS_CARTTERMINATION
-        MaxLevel: 10
-        Requires:
-          - Name: MC_MAMMONITE
-            Level: 10
-          - Name: BS_HAMMERFALL
-            Level: 5
-          - Name: WS_CARTBOOST
-            Level: 1
-      - Name: WS_OVERTHRUSTMAX
-        MaxLevel: 5
-        Requires:
-          - Name: BS_OVERTHRUST
-            Level: 5
-  - Job: Sniper
-    Inherit:
-      Novice: true
-      Archer: true
-      Hunter: true
-    Tree:
-      - Name: SN_SIGHT
-        MaxLevel: 10
-        Requires:
-          - Name: AC_OWL
-            Level: 10
-          - Name: AC_VULTURE
-            Level: 10
-          - Name: AC_CONCENTRATION
-            Level: 10
-          - Name: HT_FALCON
-            Level: 1
-      - Name: SN_FALCONASSAULT
-        MaxLevel: 5
-        Requires:
-          - Name: HT_STEELCROW
-            Level: 3
-          - Name: AC_VULTURE
-            Level: 5
-          - Name: HT_BLITZBEAT
-            Level: 5
-          - Name: HT_FALCON
-            Level: 1
-      - Name: SN_SHARPSHOOTING
-        MaxLevel: 5
-        Requires:
-          - Name: AC_CONCENTRATION
-            Level: 10
-          - Name: AC_DOUBLE
-            Level: 5
-      - Name: SN_WINDWALK
-        MaxLevel: 10
-        Requires:
-          - Name: AC_CONCENTRATION
-            Level: 9
   - Job: Assassin_Cross
     Inherit:
       Novice: true
       Thief: true
       Assassin: true
     Tree:
-      - Name: ASC_KATAR
-        MaxLevel: 5
-        Requires:
-          - Name: TF_DOUBLE
-            Level: 5
-          - Name: AS_KATAR
-            Level: 7
-      - Name: ASC_EDP
-        MaxLevel: 5
-        Requires:
-          - Name: ASC_CDP
-            Level: 1
+      - Name: KO_JYUMONJIKIRI
+        MaxLevel: 10
       - Name: ASC_BREAKER
         MaxLevel: 10
+      - Name: GC_WEAPONBLOCKING
+        MaxLevel: 10
+      - Name: GC_COUNTERSLASH
+        MaxLevel: 5
         Requires:
-          - Name: TF_DOUBLE
-            Level: 5
-          - Name: AS_CLOAKING
-            Level: 3
-          - Name: AS_ENCHANTPOISON
-            Level: 6
-          - Name: TF_POISON
-            Level: 5
+          - Name: GC_WEAPONBLOCKING
+            Level: 1
+      - Name: GC_DARKCROW
+        MaxLevel: 5
+  - Job: High_Wizard
+    Inherit:
+      Novice: true
+      Thief: true
+      Thief_High: true
+      Assassin: true
+    Tree:
+      - Name: SR_SKYNETBLOW
+        MaxLevel: 5
+      - Name: SO_PSYCHIC_WAVE
+        MaxLevel: 10
+      - Name: KO_MAKIBISHI
+        MaxLevel: 5
+      - Name: NJ_UTSUSEMI
+        MaxLevel: 5
+      - Name: TK_SEVENWIND
+        MaxLevel: 7
+  - Job: Whitesmith
+    Inherit:
+      Novice: true
+      Thief: true
+      Assassin: true
+    Tree:
+      - Name: AS_SPLASHER
+        MaxLevel: 10
+      - Name: GC_VENOMIMPRESS
+        MaxLevel: 5
+      - Name: SO_POISON_BUSTER
+        MaxLevel: 10
+      - Name: SC_DEADLYINFECT
+        MaxLevel: 5
+      - Name: GC_DARKCROW
+        MaxLevel: 5
+  - Job: Sniper
+    Inherit:
+      Novice: true
+      Thief: true
+      Rogue: true
+    Tree:
+      - Name: GS_GATLINGFEVER
+        MaxLevel: 5
+      - Name: RA_AIMEDBOLT
+        MaxLevel: 10
+      - Name: SN_SHARPSHOOTING
+        MaxLevel: 10
+      - Name: GS_TRACKING
+        MaxLevel: 5
+      - Name: LK_CONCENTRATION
+        MaxLevel: 5
+  - Job: High_Priest
+    Inherit:
+      Novice: true
+      Thief: true
+      Assassin: true
+    Tree:
       - Name: ASC_METEORASSAULT
+        MaxLevel: 5
+      - Name: LG_CANNONSPEAR
+        MaxLevel: 5
+      - Name: SR_DRAGONCOMBO
+        MaxLevel: 10
+      - Name: SR_FALLENEMPIRE
         MaxLevel: 10
         Requires:
-          - Name: AS_RIGHT
-            Level: 3
-          - Name: AS_KATAR
-            Level: 5
-          - Name: AS_SONICBLOW
-            Level: 5
-          - Name: ASC_BREAKER
+          - Name: SR_DRAGONCOMBO
             Level: 1
-      - Name: ASC_CDP
-        MaxLevel: 1
-        Requires:
-          - Name: TF_POISON
-            Level: 10
-          - Name: TF_DETOXIFY
-            Level: 1
-          - Name: AS_ENCHANTPOISON
-            Level: 5
+      - Name: GC_DARKCROW
+        MaxLevel: 5
   - Job: Lord_Knight2
     Inherit:
       Novice: true
@@ -2313,210 +1923,151 @@ Body:
   - Job: Paladin
     Inherit:
       Novice: true
-      Swordman: true
+      Thief: true
       Crusader: true
     Tree:
-      - Name: PA_PRESSURE
+      - Name: NJ_UTSUSEMI
         MaxLevel: 5
-        Requires:
-          - Name: SM_ENDURE
-            Level: 5
-          - Name: CR_TRUST
-            Level: 5
-          - Name: CR_SHIELDCHARGE
-            Level: 2
-      - Name: PA_SACRIFICE
+      - Name: TK_SEVENWIND
+        MaxLevel: 7
+      - Name: ASC_METEORASSAULT
         MaxLevel: 5
-        Requires:
-          - Name: SM_ENDURE
-            Level: 1
-          - Name: CR_DEVOTION
-            Level: 3
-      - Name: PA_GOSPEL
+      - Name: AS_SPLASHER
         MaxLevel: 10
-        Requires:
-          - Name: CR_TRUST
-            Level: 8
-          - Name: AL_DP
-            Level: 3
-          - Name: AL_DEMONBANE
-            Level: 5
-      - Name: PA_SHIELDCHAIN
+      - Name: GC_VENOMIMPRESS
         MaxLevel: 5
-        Requires:
-          - Name: CR_SHIELDBOOMERANG
-            Level: 5
+      - Name: KO_JYUMONJIKIRI
+        MaxLevel: 10
+      - Name: ASC_BREAKER
+        MaxLevel: 10
+      - Name: RK_SONICWAVE
+        MaxLevel: 10
+      - Name: SN_SHARPSHOOTING
+        MaxLevel: 10
+      - Name: KN_AUTOCOUNTER
+        MaxLevel: 5
+      - Name: SC_TRIANGLESHOT
+        MaxLevel: 10
+      - Name: GN_SPORE_EXPLOSION
+        MaxLevel: 10
+      - Name: LK_CONCENTRATION
+        MaxLevel: 5
+      - Name: GC_DARKCROW
+        MaxLevel: 5
+      - Name: AB_JUDEX
+        MaxLevel: 10
+      - Name: GS_GLITTERING
+        MaxLevel: 5
+      - Name: LG_CANNONSPEAR
+        MaxLevel: 5
   - Job: Champion
     Inherit:
       Novice: true
-      Acolyte: true
+      Thief: true
       Monk: true
     Tree:
-      - Name: CH_PALMSTRIKE
-        MaxLevel: 5
-        Requires:
-          - Name: MO_IRONHAND
-            Level: 7
-          - Name: MO_CALLSPIRITS
-            Level: 5
-      - Name: CH_TIGERFIST
-        MaxLevel: 5
-        Requires:
-          - Name: MO_IRONHAND
-            Level: 5
-          - Name: MO_TRIPLEATTACK
-            Level: 5
-          - Name: MO_COMBOFINISH
-            Level: 3
-      - Name: CH_CHAINCRUSH
+      - Name: BA_MUSICALLESSON
         MaxLevel: 10
         Requires:
-          - Name: MO_IRONHAND
-            Level: 5
-          - Name: MO_CALLSPIRITS
-            Level: 5
-          - Name: CH_TIGERFIST
-            Level: 2
-      - Name: CH_SOULCOLLECT
-        MaxLevel: 1
+          - Name: DC_THROWARROW
+            Level: 1
+          - Name: NJ_KUNAI
+            Level: 1
+      - Name: NJ_KASUMIKIRI
+        MaxLevel: 5
         Requires:
-          - Name: MO_EXPLOSIONSPIRITS
-            Level: 5
+          - Name: BA_MUSICALLESSON
+            Level: 1
+      - Name: RG_TUNNELDRIVE
+        MaxLevel: 5
+        Requires:
+          - Name: NJ_KASUMIKIRI
+            Level: 1
+      - Name: NJ_KUNAI
+        MaxLevel: 5
+        Requires:
+          - Name: BS_STEEL
+            Level: 1
+      - Name: BS_STEEL
+        MaxLevel: 10
+        Requires:
+          - Name: RG_BACKSTAP
+            Level: 1
+      - Name: DC_THROWARROW
+        MaxLevel: 10
+        Requires:
+          - Name: BS_STEEL
+            Level: 1
+      - Name: RA_CAMOUFLAGE
+        MaxLevel: 5
+        Requires:
+          - Name: KO_HUUMARANKA
+            Level: 1
+          - Name: NJ_KASUMIKIRI
+            Level: 1
+      - Name: NJ_BUNSINJYUTSU
+        MaxLevel: 5
+        Requires:
+          - Name: RA_CAMOUFLAGE
+            Level: 1
+      - Name: SR_GENTLETOUCH_CHANGE
+        MaxLevel: 5
+        Requires:
+          - Name: KO_HUUMARANKA
+            Level: 1
+      - Name: KO_HUUMARANKA
+        MaxLevel: 5
+        Requires:
+          - Name: BA_MUSICALLESSON
+            Level: 1
   - Job: Professor
     Inherit:
       Novice: true
-      Mage: true
-      Sage: true
+      Thief: true
+      Rogue: true
     Tree:
-      - Name: PF_HPCONVERSION
+      - Name: AB_JUDEX
+        MaxLevel: 10
+      - Name: SA_DELUGE
         MaxLevel: 5
-        Requires:
-          - Name: MG_SRECOVERY
-            Level: 1
-          - Name: SA_MAGICROD
-            Level: 1
-      - Name: PF_SOULCHANGE
-        MaxLevel: 1
-        Requires:
-          - Name: SA_MAGICROD
-            Level: 3
-          - Name: SA_SPELLBREAKER
-            Level: 2
-      - Name: PF_SOULBURN
+      - Name: WZ_WATERBALL
         MaxLevel: 5
-        Requires:
-          - Name: SA_CASTCANCEL
-            Level: 5
-          - Name: SA_MAGICROD
-            Level: 3
-          - Name: SA_DISPELL
-            Level: 3
-      - Name: PF_MINDBREAKER
-        MaxLevel: 5
-        Requires:
-          - Name: MG_SRECOVERY
-            Level: 3
-          - Name: PF_SOULBURN
-            Level: 2
-      - Name: PF_MEMORIZE
-        MaxLevel: 1
-        Requires:
-          - Name: SA_ADVANCEDBOOK
-            Level: 5
-          - Name: SA_FREECAST
-            Level: 5
-          - Name: SA_AUTOSPELL
-            Level: 1
-      - Name: PF_FOGWALL
-        MaxLevel: 1
-        Requires:
-          - Name: SA_DELUGE
-            Level: 2
-          - Name: SA_VIOLENTGALE
-            Level: 2
-      - Name: PF_SPIDERWEB
-        MaxLevel: 1
-        Requires:
-          - Name: SA_DRAGONOLOGY
-            Level: 4
       - Name: PF_DOUBLECASTING
-        MaxLevel: 5
-        Requires:
-          - Name: SA_AUTOSPELL
-            Level: 1
+        MaxLevel: 10
+      - Name: KO_KAIHOU
+        MaxLevel: 10
   - Job: Stalker
     Inherit:
       Novice: true
       Thief: true
       Rogue: true
     Tree:
-      - Name: ST_CHASEWALK
+      - Name: KN_AUTOCOUNTER
         MaxLevel: 5
-        Requires:
-          - Name: TF_HIDING
-            Level: 5
-          - Name: RG_TUNNELDRIVE
-            Level: 3
-      - Name: ST_REJECTSWORD
+      - Name: LG_FORCEOFVANGUARD
         MaxLevel: 5
-      - Name: ST_PRESERVE
-        MaxLevel: 1
-        Requires:
-          - Name: RG_PLAGIARISM
-            Level: 10
-      - Name: ST_FULLSTRIP
+      - Name: LG_RAGEBURST
+        MaxLevel: 10
+      - Name: SC_TRIANGLESHOT
+        MaxLevel: 10
+      - Name: LK_CONCENTRATION
         MaxLevel: 5
-        Requires:
-          - Name: RG_STRIPWEAPON
-            Level: 5
   - Job: Creator
     Inherit:
       Novice: true
-      Merchant: true
-      Alchemist: true
+      Thief: true
+      Rogue: true
     Tree:
-     # - Name: CR_ALCHEMY
-       # MaxLevel: 5
-       # Requires:
-         # - Name: AM_PHARMACY
-           # Level: 5
-     # - Name: CR_SYNTHESISPOTION
-       # MaxLevel: 5
-       # Requires:
-         # - Name: AM_PHARMACY
-           # Level: 6
-         # - Name: ST_REJECTSWORD
-           # Level: 2
       - Name: CR_SLIMPITCHER
-        MaxLevel: 10
-        Requires:
-          - Name: AM_POTIONPITCHER
-            Level: 5
-      - Name: CR_FULLPROTECTION
+        MaxLevel: 3
+      - Name: HT_ANKLESNARE
         MaxLevel: 5
-        Requires:
-          - Name: AM_CP_WEAPON
-            Level: 5
-          - Name: AM_CP_SHIELD
-            Level: 5
-          - Name: AM_CP_ARMOR
-            Level: 5
-          - Name: AM_CP_HELM
-            Level: 5
-      - Name: CR_ACIDDEMONSTRATION
+      - Name: GN_DEMONIC_FIRE
         MaxLevel: 10
-        Requires:
-          - Name: AM_DEMONSTRATION
-            Level: 5
-          - Name: AM_ACIDTERROR
-            Level: 5
-     # - Name: CR_CULTIVATION
-       # MaxLevel: 2
-     # - Name: AM_TWILIGHT4
-       # MaxLevel: 1
-       # Requires:
-         # - Name: AM_PHARMACY
-           # Level: 10
+      - Name: GN_SPORE_EXPLOSION
+        MaxLevel: 10
+      - Name: RA_FIRINGTRAP
+        MaxLevel: 5
   - Job: Clown
     Inherit:
       Novice: true
@@ -2527,57 +2078,57 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: AC_SHOWER
-            Level: 5
+            Level: 1
           - Name: BA_MUSICALSTRIKE
             Level: 1
           - Name: AC_DOUBLE
-            Level: 5
+            Level: 1
       - Name: CG_MOONLIT
         MaxLevel: 5
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 5
+            Level: 1
           - Name: BA_MUSICALLESSON
-            Level: 7
+            Level: 1
       - Name: CG_MARIONETTE
         MaxLevel: 1
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 10
+            Level: 1
           - Name: BA_MUSICALLESSON
-            Level: 5
+            Level: 1
      # - Name: CG_LONGINGFREEDOM   # Replaced with Skilled Special Singer
        # MaxLevel: 5
        # Requires:
          # - Name: BA_MUSICALLESSON
-           # Level: 10
+           # Level: 1
          # - Name: CG_MARIONETTE
            # Level: 1
          # - Name: BA_DISSONANCE
-           # Level: 3
+           # Level: 1
       - Name: CG_SPECIALSINGER
         MaxLevel: 1
         Requires:
           - Name: BA_MUSICALLESSON
-            Level: 10
+            Level: 1
           - Name: CG_MARIONETTE
             Level: 1
           - Name: BA_DISSONANCE
-            Level: 3
+            Level: 1
       - Name: CG_HERMODE
         MaxLevel: 5
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 10
+            Level: 1
           - Name: BA_MUSICALLESSON
-            Level: 10
+            Level: 1
       - Name: CG_TAROTCARD
-        MaxLevel: 5
+        MaxLevel: 4
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 10
+            Level: 1
           - Name: BA_DISSONANCE
-            Level: 3
+            Level: 1
   - Job: Gypsy
     Inherit:
       Novice: true
@@ -2588,57 +2139,57 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: AC_SHOWER
-            Level: 5
+            Level: 1
           - Name: DC_THROWARROW
             Level: 1
           - Name: AC_DOUBLE
-            Level: 5
+            Level: 1
       - Name: CG_MOONLIT
         MaxLevel: 5
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 5
+            Level: 1
           - Name: DC_DANCINGLESSON
-            Level: 7
+            Level: 1
       - Name: CG_MARIONETTE
         MaxLevel: 1
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 10
+            Level: 1
           - Name: DC_DANCINGLESSON
-            Level: 5
+            Level: 1
      # - Name: CG_LONGINGFREEDOM   # Replaced with Skilled Special Singer
        # MaxLevel: 5
        # Requires:
          # - Name: DC_DANCINGLESSON
-           # Level: 10
+           # Level: 1
          # - Name: CG_MARIONETTE
            # Level: 1
          # - Name: DC_UGLYDANCE
-           # Level: 3
+           # Level: 1
       - Name: CG_SPECIALSINGER
         MaxLevel: 1
         Requires:
           - Name: DC_DANCINGLESSON
-            Level: 10
+            Level: 1
           - Name: CG_MARIONETTE
             Level: 1
           - Name: DC_UGLYDANCE
-            Level: 3
+            Level: 1
       - Name: CG_HERMODE
         MaxLevel: 5
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 10
+            Level: 1
           - Name: DC_DANCINGLESSON
-            Level: 10
+            Level: 1
       - Name: CG_TAROTCARD
-        MaxLevel: 5
+        MaxLevel: 4
         Requires:
           - Name: AC_CONCENTRATION
-            Level: 10
+            Level: 1
           - Name: DC_UGLYDANCE
-            Level: 3
+            Level: 1
   - Job: Paladin2
     Inherit:
       Novice: true
@@ -2648,22 +2199,126 @@ Body:
   - Job: Baby
     Tree:
       - Name: NV_BASIC
-        MaxLevel: 9
-      - Name: NV_FIRSTAID
         MaxLevel: 1
-      - Name: NV_TRICKDEAD
+      - Name: ALL_FULL_THROTTLE
         MaxLevel: 1
-        Exclude: true
-      - Name: WE_BABY
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: TF_HIDING
         MaxLevel: 1
-      - Name: WE_CALLPARENT
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: AL_HEAL
+        MaxLevel: 3
+        Requires:
+          - Name: NV_BASIC
+            Level: 1
+      - Name: AL_INCAGI
         MaxLevel: 1
-      - Name: WE_CHEERUP
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: BS_GREED
         MaxLevel: 1
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
+      - Name: WZ_ESTIMATION
+        MaxLevel: 1
+        Requires:
+          - Name: AL_HEAL
+            Level: 1
   - Job: Baby_Swordman
     Inherit:
-      Baby: true
-      Swordman: true
+      Novice: true
+    Tree:
+      - Name: SA_ABRACADABRA
+        MaxLevel: 10
+        Requires:
+          - Name: HW_MAGICCRASHER
+            Level: 1
+      - Name: RG_PLAGIARISM
+        MaxLevel: 10
+        Requires:
+          - Name: HW_MAGICCRASHER
+            Level: 1
+      - Name: ST_PRESERVE
+        MaxLevel: 1
+        Requires:
+          - Name: RG_PLAGIARISM
+            Level: 3
+      - Name: CG_TAROTCARD
+        MaxLevel: 4
+        Requires:
+          - Name: SA_ABRACADABRA
+            Level: 1
+      - Name: HW_MAGICCRASHER
+        MaxLevel: 5
+      - Name: SG_KNOWLEDGE
+        MaxLevel: 10
+        Requires:
+          - Name: SG_FRIEND
+            Level: 1
+      - Name: SG_FRIEND
+        MaxLevel: 10
+        Requires:
+          - Name: HW_MAGICCRASHER
+            Level: 1
+  - Job: Baby_Acolyte
+    Inherit:
+      Novice: true
+    Tree:
+      - Name: NV_TRANSCENDENCE
+        MaxLevel: 10
+      - Name: NV_BREAKTHROUGH
+        MaxLevel: 10
+        Requires:
+          - Name: NV_TRANSCENDENCE
+            Level: 1
+      - Name: SJ_LIGHTOFSUN
+        MaxLevel: 5
+        Requires:
+          - Name: NV_TRANSCENDENCE
+            Level: 1
+      - Name: RL_AM_BLAST
+        MaxLevel: 5
+        Requires:
+          - Name: TK_RUN
+            Level: 1
+      - Name: GS_PIERCINGSHOT
+        MaxLevel: 10
+        Requires:
+          - Name: SJ_LIGHTOFSUN
+            Level: 1
+      - Name: GS_DUST
+        MaxLevel: 10
+        Requires:
+          - Name: GS_PIERCINGSHOT
+            Level: 1
+      - Name: CH_PALMSTRIKE
+        MaxLevel: 10
+        Requires:
+          - Name: SU_PICKYPECK
+            Level: 1
+          - Name: SU_BUNCHOFSHRIMP
+            Level: 1
+      - Name: SU_PICKYPECK
+        MaxLevel: 5
+        Requires:
+          - Name: GS_DUST
+            Level: 1
+      - Name: TK_RUN
+        MaxLevel: 5
+        Requires:
+          - Name: NV_BREAKTHROUGH
+            Level: 1
+      - Name: SU_BUNCHOFSHRIMP
+        MaxLevel: 5
+        Requires:
+          - Name: RL_AM_BLAST
+            Level: 1
   - Job: Baby_Mage
     Inherit:
       Baby: true
@@ -2672,10 +2327,6 @@ Body:
     Inherit:
       Baby: true
       Archer: true
-  - Job: Baby_Acolyte
-    Inherit:
-      Baby: true
-      Acolyte: true
   - Job: Baby_Merchant
     Inherit:
       Baby: true
@@ -2727,7 +2378,7 @@ Body:
   - Job: Baby_Monk
     Inherit:
       Baby: true
-      Acolyte: true
+      Thief: true
       Monk: true
   - Job: Baby_Sage
     Inherit:
@@ -2749,7 +2400,7 @@ Body:
        # MaxLevel: 1
        # Requires:
          # - Name: AM_PHARMACY
-           # Level: 10
+           # Level: 1
   - Job: Baby_Bard
     Inherit:
       Baby: true
@@ -2769,260 +2420,130 @@ Body:
     Inherit:
       Baby: true
     Tree:
-      - Name: SM_SWORD
-        MaxLevel: 10
-      - Name: SM_RECOVERY
-        MaxLevel: 10
-      - Name: SM_BASH
-        MaxLevel: 10
-      - Name: SM_PROVOKE
-        MaxLevel: 10
-      - Name: SM_MAGNUM
-        MaxLevel: 10
-        Requires:
-          - Name: SM_BASH
-            Level: 5
-      - Name: SM_ENDURE
-        MaxLevel: 10
-        Requires:
-          - Name: SM_PROVOKE
-            Level: 5
-      - Name: MG_SRECOVERY
-        MaxLevel: 10
-      - Name: MG_SIGHT
-        MaxLevel: 1
-      - Name: MG_NAPALMBEAT
-        MaxLevel: 10
-      - Name: MG_SAFETYWALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 7
-          - Name: MG_SOULSTRIKE
-            Level: 5
-      - Name: MG_SOULSTRIKE
-        MaxLevel: 10
-        Requires:
-          - Name: MG_NAPALMBEAT
-            Level: 4
-      - Name: MG_COLDBOLT
-        MaxLevel: 10
-      - Name: MG_FROSTDIVER
-        MaxLevel: 10
-        Requires:
-          - Name: MG_COLDBOLT
-            Level: 5
-      - Name: MG_STONECURSE
-        MaxLevel: 10
-      - Name: MG_FIREBALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_FIREBOLT
-            Level: 4
-      - Name: MG_FIREWALL
-        MaxLevel: 10
-        Requires:
-          - Name: MG_FIREBALL
-            Level: 5
-          - Name: MG_SIGHT
-            Level: 1
-      - Name: MG_FIREBOLT
-        MaxLevel: 10
-      - Name: MG_LIGHTNINGBOLT
-        MaxLevel: 10
-      - Name: MG_THUNDERSTORM
-        MaxLevel: 10
-        Requires:
-          - Name: MG_LIGHTNINGBOLT
-            Level: 4
-      - Name: AL_DP
+      - Name: DC_DANCINGLESSON
         MaxLevel: 10
       - Name: AL_DEMONBANE
         MaxLevel: 10
+      - Name: BS_SKINTEMPER
+        MaxLevel: 5
         Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_RUWACH
-        MaxLevel: 1
-      - Name: AL_PNEUMA
-        MaxLevel: 1
-        Requires:
-          - Name: AL_WARP
-            Level: 4
-      - Name: AL_TELEPORT
-        MaxLevel: 2
-        Requires:
-          - Name: AL_RUWACH
+          - Name: SU_SCRATCH
             Level: 1
-      - Name: AL_WARP
-        MaxLevel: 4
-        Requires:
-          - Name: AL_TELEPORT
-            Level: 2
-      - Name: AL_HEAL
-        MaxLevel: 10
-      - Name: AL_INCAGI
-        MaxLevel: 10
-        Requires:
-          - Name: AL_HEAL
-            Level: 3
-      - Name: AL_DECAGI
-        MaxLevel: 10
-        Requires:
-          - Name: AL_INCAGI
-            Level: 1
-      - Name: AL_HOLYWATER
+      - Name: MG_ENERGYCOAT
         MaxLevel: 1
-      - Name: AL_CRUCIS
+        Requires:
+          - Name: LG_HESPERUSLIT
+            Level: 1
+          - Name: NJ_SYURIKEN
+            Level: 1
+      - Name: NJ_SYURIKEN
         MaxLevel: 10
         Requires:
           - Name: AL_DEMONBANE
-            Level: 3
-      - Name: AL_ANGELUS
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 3
-      - Name: AL_BLESSING
-        MaxLevel: 10
-        Requires:
-          - Name: AL_DP
-            Level: 5
-      - Name: AL_CURE
-        MaxLevel: 1
-        Requires:
-          - Name: AL_HEAL
-            Level: 2
-      - Name: MC_INCCARRY
-        MaxLevel: 10
-      - Name: MC_DISCOUNT
-        MaxLevel: 10
-        Requires:
-          - Name: MC_INCCARRY
-            Level: 3
-      - Name: MC_OVERCHARGE
-        MaxLevel: 10
-        Requires:
-          - Name: MC_DISCOUNT
-            Level: 3
-      - Name: MC_PUSHCART
-        MaxLevel: 10
-        Requires:
-          - Name: MC_INCCARRY
-            Level: 5
-      - Name: MC_IDENTIFY
-        MaxLevel: 1
-      - Name: MC_VENDING
-        MaxLevel: 10
-        Requires:
-          - Name: MC_PUSHCART
-            Level: 3
-      - Name: MC_MAMMONITE
-        MaxLevel: 10
-      - Name: AC_OWL
-        MaxLevel: 10
-      - Name: AC_VULTURE
-        MaxLevel: 10
-        Requires:
-          - Name: AC_OWL
-            Level: 3
-      - Name: AC_CONCENTRATION
-        MaxLevel: 10
-        Requires:
-          - Name: AC_VULTURE
             Level: 1
-      - Name: TF_DOUBLE
-        MaxLevel: 10
-      - Name: TF_MISS
-        MaxLevel: 10
-      - Name: TF_STEAL
-        MaxLevel: 10
-      - Name: TF_HIDING
+      - Name: LG_HESPERUSLIT
         MaxLevel: 10
         Requires:
-          - Name: TF_STEAL
-            Level: 5
-      - Name: TF_POISON
-        MaxLevel: 10
-      - Name: TF_DETOXIFY
-        MaxLevel: 1
-        Requires:
-          - Name: TF_POISON
-            Level: 3
-      - Name: ALL_BUYING_STORE
-        MaxLevel: 1
-        Requires:
-          - Name: MC_VENDING
+          - Name: DC_DANCINGLESSON
             Level: 1
-      - Name: MC_CARTDECORATE
-        MaxLevel: 1
+      - Name: SU_SCRATCH
+        MaxLevel: 10
+        Requires:
+          - Name: MG_ENERGYCOAT
+            Level: 1
+      - Name: HT_POWER
+        MaxLevel: 10
+        Requires:
+          - Name: SU_SCRATCH
+            Level: 1
+      - Name: LG_EARTHDRIVE
+        MaxLevel: 10
+        Requires:
+          - Name: SU_SCRATCH
+            Level: 1
+      - Name: CR_PROVIDENCE
+        MaxLevel: 10
+        Requires:
+          - Name: BS_SKINTEMPER
+            Level: 1
+      - Name: PR_REDEMPTIO
+        MaxLevel: 5
+        Requires:
+          - Name: BS_SKINTEMPER
+            Level: 1
   - Job: Taekwon
     Inherit:
       Novice: true
     Tree:
-      - Name: TK_RUN
+      - Name: TF_MISS
         MaxLevel: 10
-      - Name: TK_READYSTORM
-        MaxLevel: 1
-        Requires:
-          - Name: TK_STORMKICK
-            Level: 1
-      - Name: TK_STORMKICK
-        MaxLevel: 7
-      - Name: TK_READYDOWN
-        MaxLevel: 1
-        Requires:
-          - Name: TK_DOWNKICK
-            Level: 1
-      - Name: TK_DOWNKICK
-        MaxLevel: 7
-      - Name: TK_READYTURN
-        MaxLevel: 1
-        Requires:
-          - Name: TK_TURNKICK
-            Level: 1
-      - Name: TK_TURNKICK
-        MaxLevel: 7
-      - Name: TK_READYCOUNTER
-        MaxLevel: 1
-        Requires:
-          - Name: TK_COUNTER
-            Level: 1
-      - Name: TK_COUNTER
-        MaxLevel: 7
-      - Name: TK_DODGE
-        MaxLevel: 1
-        Requires:
-          - Name: TK_JUMPKICK
-            Level: 7
-      - Name: TK_JUMPKICK
-        MaxLevel: 7
-      - Name: TK_HPTIME
+      - Name: RG_BACKSTAP
         MaxLevel: 10
+      - Name: SM_RECOVERY
+        MaxLevel: 10
+      - Name: GC_ROLLINGCUTTER
+        MaxLevel: 5
+      - Name: GC_CROSSRIPPERSLASHER
+        MaxLevel: 5
+        Requires:
+          - Name: GC_ROLLINGCUTTER
+            Level: 1
+      - Name: TF_POISON
+        MaxLevel: 10
+      - Name: AS_ENCHANTPOISON
+        MaxLevel: 10
+        Requires:
+          - Name: TF_POISON
+            Level: 1
+      - Name: TF_DETOXIFY
+        MaxLevel: 1
+        Requires:
+          - Name: AS_ENCHANTPOISON
+            Level: 1
       - Name: TK_SPTIME
+        MaxLevel: 10    
+      - Name: MG_SRECOVERY
         MaxLevel: 10
-      - Name: TK_POWER
-        MaxLevel: 5
-      - Name: TK_SEVENWIND
-        MaxLevel: 7
-        Requires:
-          - Name: TK_HPTIME
-            Level: 5
-          - Name: TK_SPTIME
-            Level: 5
-          - Name: TK_POWER
-            Level: 5
-      - Name: TK_HIGHJUMP
-        MaxLevel: 5
-      - Name: TK_MISSION
+      - Name: SA_FREECAST
         MaxLevel: 1
         Requires:
-          - Name: TK_POWER
-            Level: 5
+          - Name: SA_AUTOSPELL
+            Level: 1
+      - Name: SA_AUTOSPELL
+        MaxLevel: 10
+        Requires:
+          - Name: NJ_KOUENKA
+            Level: 1
+          - Name: NJ_HYOUSENSOU
+            Level: 1
+          - Name: NJ_HUUJIN
+            Level: 1
+      - Name: NJ_KOUENKA
+        MaxLevel: 10
+        Requires:
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: NJ_HYOUSENSOU
+        MaxLevel: 10
+        Requires:
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: NJ_HUUJIN
+        MaxLevel: 10
+        Requires:
+          - Name: MG_SRECOVERY
+            Level: 1
+      - Name: AC_DOUBLE
+        MaxLevel: 10
+      - Name: AC_SHOWER
+        MaxLevel: 10
+        Requires:
+          - Name: AC_DOUBLE
+            Level: 1
   - Job: Star_Gladiator
     Inherit:
       Novice: true
-      Taekwon: true
+      Thief: true
     Tree:
       - Name: SG_FEEL
         MaxLevel: 3
@@ -3035,12 +2556,12 @@ Body:
         MaxLevel: 3
         Requires:
           - Name: SG_FEEL
-            Level: 2
+            Level: 1
       - Name: SG_STAR_WARM
         MaxLevel: 3
         Requires:
           - Name: SG_FEEL
-            Level: 3
+            Level: 1
       - Name: SG_SUN_COMFORT
         MaxLevel: 4
         Requires:
@@ -3050,12 +2571,12 @@ Body:
         MaxLevel: 4
         Requires:
           - Name: SG_FEEL
-            Level: 2
+            Level: 1
       - Name: SG_STAR_COMFORT
         MaxLevel: 4
         Requires:
           - Name: SG_FEEL
-            Level: 3
+            Level: 1
       - Name: SG_HATE
         MaxLevel: 3
       - Name: SG_SUN_ANGER
@@ -3067,12 +2588,12 @@ Body:
         MaxLevel: 3
         Requires:
           - Name: SG_HATE
-            Level: 2
+            Level: 1
       - Name: SG_STAR_ANGER
         MaxLevel: 3
         Requires:
           - Name: SG_HATE
-            Level: 3
+            Level: 1
       - Name: SG_SUN_BLESS
         MaxLevel: 5
         Requires:
@@ -3084,16 +2605,16 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: SG_FEEL
-            Level: 2
+            Level: 1
           - Name: SG_HATE
-            Level: 2
+            Level: 1
       - Name: SG_STAR_BLESS
         MaxLevel: 5
         Requires:
           - Name: SG_FEEL
-            Level: 3
+            Level: 1
           - Name: SG_HATE
-            Level: 3
+            Level: 1
       - Name: SG_DEVIL
         MaxLevel: 10
       - Name: SG_FRIEND
@@ -3104,149 +2625,68 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: SG_KNOWLEDGE
-            Level: 9
+            Level: 1
   - Job: Star_Gladiator2
     Inherit:
       Novice: true
-      Taekwon: true
+      Thief: true
       Star_Gladiator: true
   - Job: Soul_Linker
     Inherit:
       Novice: true
-      Taekwon: true
+      Thief: true
     Tree:
-      - Name: SL_ALCHEMIST
-        MaxLevel: 5
-      - Name: SL_MONK
-        MaxLevel: 5
-      - Name: SL_STAR
-        MaxLevel: 5
-      - Name: SL_SAGE
-        MaxLevel: 5
-      - Name: SL_CRUSADER
-        MaxLevel: 5
-      - Name: SL_SUPERNOVICE
+      - Name: GS_MADNESSCANCEL
         MaxLevel: 5
         Requires:
-          - Name: SL_STAR
+          - Name: GS_SNAKEEYE
             Level: 1
-      - Name: SL_KNIGHT
+          - Name: SP_SOULENERGY
+            Level: 1
+      - Name: AB_EXPIATIO
+        MaxLevel: 5
+      - Name: SP_SOULENERGY
         MaxLevel: 5
         Requires:
-          - Name: SL_CRUSADER
+          - Name: SP_SPA
             Level: 1
-      - Name: SL_WIZARD
+      - Name: GS_SNAKEEYE
         MaxLevel: 5
         Requires:
-          - Name: SL_SAGE
+          - Name: SP_SPA
             Level: 1
-      - Name: SL_PRIEST
-        MaxLevel: 5
-        Requires:
-          - Name: SL_MONK
-            Level: 1
-      - Name: SL_BARDDANCER
-        MaxLevel: 5
-      - Name: SL_ROGUE
-        MaxLevel: 5
-        Requires:
-          - Name: SL_ASSASIN
-            Level: 1
-      - Name: SL_ASSASIN
-        MaxLevel: 5
-      - Name: SL_BLACKSMITH
-        MaxLevel: 5
-        Requires:
-          - Name: SL_ALCHEMIST
-            Level: 1
-      - Name: SL_HUNTER
-        MaxLevel: 5
-        Requires:
-          - Name: SL_BARDDANCER
-            Level: 1
-      - Name: SL_SOULLINKER
-        MaxLevel: 5
-        Requires:
-          - Name: SL_STAR
-            Level: 1
-      - Name: SL_KAIZEL
-        MaxLevel: 7
-        Requires:
-          - Name: SL_PRIEST
-            Level: 1
-      - Name: SL_KAAHI
-        MaxLevel: 7
-        Requires:
-          - Name: SL_PRIEST
-            Level: 1
-          - Name: SL_CRUSADER
-            Level: 1
-          - Name: SL_MONK
-            Level: 1
-      - Name: SL_KAUPE
-        MaxLevel: 3
-        Requires:
-          - Name: SL_ROGUE
-            Level: 1
-          - Name: SL_ASSASIN
-            Level: 1
-      - Name: SL_KAITE
-        MaxLevel: 7
-        Requires:
-          - Name: SL_WIZARD
-            Level: 1
-          - Name: SL_SAGE
-            Level: 1
-      - Name: SL_KAINA
-        MaxLevel: 7
-        Requires:
-          - Name: TK_SPTIME
-            Level: 1
-      - Name: SL_STIN
-        MaxLevel: 7
-        Requires:
-          - Name: SL_WIZARD
-            Level: 1
-      - Name: SL_STUN
-        MaxLevel: 7
-        Requires:
-          - Name: SL_WIZARD
-            Level: 1
-      - Name: SL_SMA
+      - Name: AB_DUPLELIGHT
         MaxLevel: 10
         Requires:
-          - Name: SL_STIN
-            Level: 7
-          - Name: SL_STUN
-            Level: 7
-      - Name: SL_SWOO
-        MaxLevel: 7
-        Requires:
-          - Name: SL_PRIEST
+          - Name: GS_SNAKEEYE
             Level: 1
-      - Name: SL_SKE
-        MaxLevel: 3
-        Requires:
-          - Name: SL_KNIGHT
-            Level: 1
-      - Name: SL_SKA
-        MaxLevel: 3
-        Requires:
-          - Name: SL_MONK
-            Level: 1
-      - Name: SL_HIGH
+      - Name: PF_SOULCHANGE
         MaxLevel: 5
         Requires:
-          - Name: SL_SUPERNOVICE
-            Level: 5
-     # - Name: SL_DEATHKNIGHT
-       # MaxLevel: 5
-     # - Name: SL_COLLECTOR
-       # MaxLevel: 5
-     # - Name: SL_NINJA
-       # MaxLevel: 5
-     # - Name: SL_GUNNER
-       # MaxLevel: 5
+          - Name: SU_STOOP
+            Level: 1
+      - Name: SP_SOULREAPER
+        MaxLevel: 10
+        Requires:
+          - Name: GS_MAGICALBULLET
+            Level: 1
+      - Name: GS_MAGICALBULLET
+        MaxLevel: 5
+        Requires:
+          - Name: SP_SPA
+            Level: 1
+      - Name: SP_SPA
+        MaxLevel: 5
+      - Name: SP_SWHOO
+        MaxLevel: 10
+        Requires:
+          - Name: SP_SOULENERGY
+            Level: 1
+      - Name: SU_STOOP
+        MaxLevel: 5
+        Requires:
+          - Name: SP_SPA
+            Level: 1
   - Job: Gangsi
     Inherit:
       Novice: true
@@ -3576,129 +3016,147 @@ Body:
   - Job: Genetic
     Inherit:
       Novice: true
-      Merchant: true
-      Alchemist: true
+      Thief: true
+      Rogue: true
     Tree:
-     # - Name: AM_TWILIGHT4
-       # MaxLevel: 1
-       # Requires:
-         # - Name: AM_PHARMACY
-           # Level: 10
-      - Name: GN_TRAINING_SWORD
+      - Name: NC_TRAININGAXE
         MaxLevel: 5
-      - Name: GN_REMODELING_CART
-        MaxLevel: 5
-      - Name: GN_CART_TORNADO
+      - Name: MC_INCCARRY
         MaxLevel: 10
         Requires:
-          - Name: GN_REMODELING_CART
+          - Name: RA_ICEBOUNDTRAP
             Level: 1
-      - Name: GN_CARTCANNON
-        MaxLevel: 5
-        Requires:
-          - Name: GN_REMODELING_CART
-            Level: 2
-      - Name: GN_CARTBOOST
-        MaxLevel: 5
-        Requires:
-          - Name: GN_REMODELING_CART
-            Level: 3
-      - Name: GN_THORNS_TRAP
-        MaxLevel: 5
-        Requires:
-          - Name: GN_S_PHARMACY
-            Level: 2
-      - Name: GN_BLOOD_SUCKER
-        MaxLevel: 5
-        Requires:
-          - Name: GN_S_PHARMACY
-            Level: 3
-      - Name: GN_SPORE_EXPLOSION
+      - Name: AM_LEARNINGPOTION
         MaxLevel: 10
-        Requires:
-          - Name: GN_S_PHARMACY
-            Level: 4
-      - Name: GN_WALLOFTHORN
+      - Name: HT_CLAYMORETRAP
         MaxLevel: 5
         Requires:
-          - Name: GN_THORNS_TRAP
-            Level: 3
-      - Name: GN_CRAZYWEED
-        MaxLevel: 10
-        Requires:
-          - Name: GN_WALLOFTHORN
-            Level: 3
-      - Name: GN_DEMONIC_FIRE
+          - Name: NC_TRAININGAXE
+            Level: 1
+      - Name: RA_ICEBOUNDTRAP
         MaxLevel: 5
         Requires:
-          - Name: GN_SPORE_EXPLOSION
-            Level: 3
+          - Name: HT_CLAYMORETRAP
+            Level: 1
       - Name: GN_FIRE_EXPANSION
         MaxLevel: 5
         Requires:
-          - Name: GN_DEMONIC_FIRE
-            Level: 3
-      - Name: GN_HELLS_PLANT
-        MaxLevel: 5
-        Requires:
-          - Name: GN_BLOOD_SUCKER
-            Level: 3
-      - Name: GN_MANDRAGORA
-        MaxLevel: 5
-        Requires:
-          - Name: GN_HELLS_PLANT
-            Level: 3
-     # - Name: GN_SLINGITEM
-       # MaxLevel: 1
-       # Requires:
-         # - Name: GN_CHANGEMATERIAL
-           # Level: 1
-      - Name: GN_CHANGEMATERIAL
+          - Name: AM_LEARNINGPOTION
+            Level: 1
+      - Name: GN_SLINGITEM
         MaxLevel: 1
+        Requires:
+          - Name: GN_FIRE_EXPANSION
+            Level: 1
       - Name: GN_MIX_COOKING
         MaxLevel: 2
         Requires:
-          - Name: GN_S_PHARMACY
+          - Name: GN_SLINGITEM
             Level: 1
-     # - Name: GN_MAKEBOMB
-       # MaxLevel: 2
-       # Requires:
-         # - Name: GN_MIX_COOKING
-           # Level: 1
-      - Name: GN_S_PHARMACY
+      - Name: GN_CRAZYWEED
         MaxLevel: 10
-      - Name: GN_ILLUSIONDOPING
+        Requires:
+          - Name: GN_FIRE_EXPANSION
+            Level: 1
+      - Name: CR_FULLPROTECTION
         MaxLevel: 5
         Requires:
-          - Name: GN_S_PHARMACY
+          - Name: GN_CRAZYWEED
             Level: 1
-      - Name: ALL_FULL_THROTTLE
+      - Name: RA_CLUSTERBOMB
+        MaxLevel: 10
+        Requires:
+          - Name: HT_CLAYMORETRAP
+            Level: 1
+      - Name: RA_DETONATOR
+        MaxLevel: 1
+        Requires:
+          - Name: RA_CLUSTERBOMB
+            Level: 1
+      - Name: RL_FIRE_RAIN
+        MaxLevel: 10
+        Requires:
+          - Name: CR_FULLPROTECTION
+            Level: 1
+          - Name: RA_DETONATOR
+            Level: 1
+      - Name: CR_ACIDDEMONSTRATION
+        MaxLevel: 10
+        Requires:
+          - Name: RL_FIRE_RAIN
+            Level: 1
+  - Job: Ranger
+    Inherit:
+      Novice: true
+      Thief: true
+      Rogue: true
+    Tree:
+      - Name: HP_MEDITATIO
+        MaxLevel: 10
+      - Name: SN_WINDWALK
+        MaxLevel: 10
+      - Name: NC_BOOSTKNUCKLE
         MaxLevel: 5
+        Requires:
+          - Name: SN_WINDWALK
+            Level: 1
+      - Name: RA_ARROWSTORM
+        MaxLevel: 10
+        Requires:
+          - Name: NC_BOOSTKNUCKLE
+            Level: 1
+      - Name: LG_EXEEDBREAK
+        MaxLevel: 5
+        Requires:
+          - Name: RA_ARROWSTORM
+            Level: 1
+      - Name: HW_SOULDRAIN
+        MaxLevel: 10
+        Requires:
+          - Name: HP_MEDITATIO
+            Level: 1
+      - Name: PF_HPCONVERSION
+        MaxLevel: 5
+        Requires:
+          - Name: HW_SOULDRAIN
+            Level: 1
+      - Name: PF_MEMORIZE
+        MaxLevel: 3
+        Requires:
+          - Name: PF_HPCONVERSION
+            Level: 1
+      - Name: PF_FOGWALL
+        MaxLevel: 1
+      - Name: NC_SILVERSNIPER
+        MaxLevel: 5
+      - Name: LG_INSPIRATION
+        MaxLevel: 5
+      - Name: WL_RADIUS
+        MaxLevel: 3
+        Requires:
+          - Name: NC_SILVERSNIPER
+            Level: 1
+      - Name: RA_FEARBREEZE
+        MaxLevel: 5
+        Requires:
+          - Name: WL_RADIUS
+            Level: 1
+      - Name: RA_UNLIMIT
+        MaxLevel: 5
+        Requires:
+          - Name: PF_MEMORIZE
+            Level: 1
+          - Name: LG_EXEEDBREAK
+            Level: 1
+          - Name: RA_FEARBREEZE
+            Level: 1
   - Job: Genetic_T
     Inherit:
       Novice: true
-      Merchant: true
-      Alchemist: true
+      Thief: true
+      Rogue: true
       Creator: true
       Genetic: true
-    # Tree:
-     # - Name: AM_TWILIGHT4
-       # MaxLevel: 1
-       # Requires:
-         # - Name: AM_PHARMACY
-           # Level: 10
-     # - Name: CR_CULTIVATION
-       # MaxLevel: 2
-     # - Name: GN_SLINGITEM
-       # MaxLevel: 1
-       # Requires:
-         # - Name: GN_CHANGEMATERIAL
-           # Level: 1
-     # - Name: GN_MAKEBOMB
-       # MaxLevel: 2
-       # Requires:
-         # - Name: GN_MIX_COOKING
-           # Level: 1
   - Job: Baby_Genetic
     Inherit:
       Baby: true
@@ -3710,7 +3168,7 @@ Body:
        # MaxLevel: 1
        # Requires:
          # - Name: AM_PHARMACY
-           # Level: 10
+           # Level: 1
      # - Name: GN_SLINGITEM
        # MaxLevel: 1
        # Requires:
@@ -3724,626 +3182,195 @@ Body:
   - Job: Rune_Knight
     Inherit:
       Novice: true
-      Swordman: true
-      Knight: true
+      Thief: true
+      Assassin: true
     Tree:
-      - Name: RK_ENCHANTBLADE
-        MaxLevel: 10
-        Requires:
-          - Name: RK_RUNEMASTERY
-            Level: 2
-      - Name: RK_SONICWAVE
-        MaxLevel: 10
-        Requires:
-          - Name: RK_ENCHANTBLADE
-            Level: 3
-      - Name: RK_DEATHBOUND
-        MaxLevel: 10
-        Requires:
-          - Name: KN_AUTOCOUNTER
-            Level: 1
-          - Name: RK_ENCHANTBLADE
-            Level: 2
-      - Name: RK_HUNDREDSPEAR
-        MaxLevel: 10
-        Requires:
-          - Name: RK_PHANTOMTHRUST
-            Level: 3
-      - Name: RK_WINDCUTTER
+      - Name: SR_SKYNETBLOW
         MaxLevel: 5
-        Requires:
-          - Name: RK_ENCHANTBLADE
-            Level: 5
-      - Name: RK_IGNITIONBREAK
-        MaxLevel: 5
-        Requires:
-          - Name: RK_SONICWAVE
-            Level: 2
-          - Name: RK_DEATHBOUND
-            Level: 5
-          - Name: RK_WINDCUTTER
-            Level: 3
-      - Name: RK_DRAGONTRAINING
-        MaxLevel: 5
-        Requires:
-          - Name: KN_CAVALIERMASTERY
-            Level: 1
-      - Name: RK_DRAGONBREATH
+      - Name: SO_PSYCHIC_WAVE
         MaxLevel: 10
-        Requires:
-          - Name: RK_DRAGONTRAINING
-            Level: 2
-      - Name: RK_DRAGONHOWLING
+      - Name: ASC_METEORASSAULT
         MaxLevel: 5
-        Requires:
-          - Name: RK_DRAGONTRAINING
-            Level: 2
-      - Name: RK_RUNEMASTERY
-        MaxLevel: 10
-      - Name: RK_PHANTOMTHRUST
+      - Name: LG_CANNONSPEAR
         MaxLevel: 5
-        Requires:
-          - Name: KN_BRANDISHSPEAR
-            Level: 2
-      - Name: RK_DRAGONBREATH_WATER
+      - Name: AS_SPLASHER
         MaxLevel: 10
-        Requires:
-          - Name: RK_DRAGONTRAINING
-            Level: 2
-      - Name: ALL_FULL_THROTTLE
+      - Name: GC_VENOMIMPRESS
+        MaxLevel: 5
+      - Name: KO_JYUMONJIKIRI
+        MaxLevel: 10
+      - Name: ASC_BREAKER
+        MaxLevel: 10
+      - Name: SC_TRIANGLESHOT
+        MaxLevel: 10
+      - Name: LK_CONCENTRATION
+        MaxLevel: 5
+      - Name: GC_DARKCROW
+        MaxLevel: 5
+      - Name: ASC_EDP
         MaxLevel: 5
   - Job: Warlock
-    Inherit:
-      Novice: true
-      Mage: true
-      Wizard: true
-    Tree:
-      - Name: WL_WHITEIMPRISON
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SOULEXPANSION
-            Level: 3
-      - Name: WL_SOULEXPANSION
-        MaxLevel: 5
-        Requires:
-          - Name: WL_DRAINLIFE
-            Level: 1
-      - Name: WL_FROSTMISTY
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SUMMONWB
-            Level: 1
-      - Name: WL_JACKFROST
-        MaxLevel: 5
-        Requires:
-          - Name: WL_FROSTMISTY
-            Level: 2
-      - Name: WL_MARSHOFABYSS
-        MaxLevel: 5
-        Requires:
-          - Name: WZ_QUAGMIRE
-            Level: 1
-      - Name: WL_RECOGNIZEDSPELL
-        MaxLevel: 5
-        Requires:
-          - Name: WL_WHITEIMPRISON
-            Level: 1
-          - Name: WL_STASIS
-            Level: 1
-          - Name: WL_RELEASE
-            Level: 2
-      - Name: WL_SIENNAEXECRATE
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SUMMONSTONE
-            Level: 1
-      - Name: WL_RADIUS
-        MaxLevel: 3
-      - Name: WL_STASIS
-        MaxLevel: 5
-        Requires:
-          - Name: WL_DRAINLIFE
-            Level: 1
-      - Name: WL_DRAINLIFE
-        MaxLevel: 5
-        Requires:
-          - Name: WL_RADIUS
-            Level: 1
-      - Name: WL_CRIMSONROCK
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SUMMONFB
-            Level: 1
-      - Name: WL_HELLINFERNO
-        MaxLevel: 5
-        Requires:
-          - Name: WL_CRIMSONROCK
-            Level: 2
-      - Name: WL_COMET
-        MaxLevel: 5
-        Requires:
-          - Name: WL_HELLINFERNO
-            Level: 3
-      - Name: WL_CHAINLIGHTNING
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SUMMONBL
-            Level: 1
-      - Name: WL_EARTHSTRAIN
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SIENNAEXECRATE
-            Level: 2
-      - Name: WL_TETRAVORTEX
-        MaxLevel: 10
-        Requires:
-          - Name: WL_JACKFROST
-            Level: 5
-          - Name: WL_HELLINFERNO
-            Level: 5
-          - Name: WL_CHAINLIGHTNING
-            Level: 5
-          - Name: WL_EARTHSTRAIN
-            Level: 5
-      - Name: WL_SUMMONFB
-        MaxLevel: 2
-        Requires:
-          - Name: WZ_METEOR
-            Level: 1
-      - Name: WL_SUMMONBL
-        MaxLevel: 2
-        Requires:
-          - Name: WZ_VERMILION
-            Level: 1
-      - Name: WL_SUMMONWB
-        MaxLevel: 2
-        Requires:
-          - Name: WZ_STORMGUST
-            Level: 1
-      - Name: WL_SUMMONSTONE
-        MaxLevel: 2
-        Requires:
-          - Name: WZ_HEAVENDRIVE
-            Level: 1
-      - Name: WL_RELEASE
-        MaxLevel: 2
-      - Name: WL_READING_SB
-        MaxLevel: 1
-      - Name: WL_FREEZE_SP
-        MaxLevel: 10
-      - Name: WL_TELEKINESIS_INTENSE
-        MaxLevel: 5
-        Requires:
-          - Name: WL_SOULEXPANSION
-            Level: 5
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
-  - Job: Ranger
-    Inherit:
-      Novice: true
-      Archer: true
-      Hunter: true
-    Tree:
-      - Name: RA_ARROWSTORM
-        MaxLevel: 10
-        Requires:
-          - Name: RA_AIMEDBOLT
-            Level: 5
-      - Name: RA_FEARBREEZE
-        MaxLevel: 5
-        Requires:
-          - Name: RA_ARROWSTORM
-            Level: 5
-          - Name: RA_CAMOUFLAGE
-            Level: 1
-      - Name: RA_RANGERMAIN
-        MaxLevel: 10
-      - Name: RA_AIMEDBOLT
-        MaxLevel: 10
-        Requires:
-          - Name: HT_ANKLESNARE
-            Level: 5
-      - Name: RA_DETONATOR
-        MaxLevel: 1
-        Requires:
-          - Name: RA_CLUSTERBOMB
-            Level: 3
-      - Name: RA_ELECTRICSHOCKER
-        MaxLevel: 5
-        Requires:
-          - Name: HT_SHOCKWAVE
-            Level: 5
-      - Name: RA_CLUSTERBOMB
-        MaxLevel: 5
-        Requires:
-          - Name: RA_RESEARCHTRAP
-            Level: 3
-      - Name: RA_WUGMASTERY
-        MaxLevel: 1
-      - Name: RA_WUGRIDER
-        MaxLevel: 3
-        Requires:
-          - Name: RA_WUGMASTERY
-            Level: 1
-      - Name: RA_WUGDASH
-        MaxLevel: 1
-        Requires:
-          - Name: RA_WUGRIDER
-            Level: 1
-      - Name: RA_WUGSTRIKE
-        MaxLevel: 5
-        Requires:
-          - Name: RA_TOOTHOFWUG
-            Level: 1
-      - Name: RA_WUGBITE
-        MaxLevel: 5
-        Requires:
-          - Name: RA_WUGSTRIKE
-            Level: 1
-      - Name: RA_TOOTHOFWUG
-        MaxLevel: 10
-        Requires:
-          - Name: RA_WUGMASTERY
-            Level: 1
-      - Name: RA_SENSITIVEKEEN
-        MaxLevel: 5
-        Requires:
-          - Name: RA_TOOTHOFWUG
-            Level: 3
-      - Name: RA_CAMOUFLAGE
-        MaxLevel: 5
-        Requires:
-          - Name: RA_RANGERMAIN
-            Level: 1
-      - Name: RA_RESEARCHTRAP
-        MaxLevel: 10
-        Requires:
-          - Name: HT_CLAYMORETRAP
-            Level: 1
-          - Name: HT_REMOVETRAP
-            Level: 1
-      - Name: RA_MAGENTATRAP
-        MaxLevel: 1
-        Requires:
-          - Name: RA_RESEARCHTRAP
-            Level: 1
-      - Name: RA_COBALTTRAP
-        MaxLevel: 1
-        Requires:
-          - Name: RA_RESEARCHTRAP
-            Level: 1
-      - Name: RA_MAIZETRAP
-        MaxLevel: 1
-        Requires:
-          - Name: RA_RESEARCHTRAP
-            Level: 1
-      - Name: RA_VERDURETRAP
-        MaxLevel: 1
-        Requires:
-          - Name: RA_RESEARCHTRAP
-            Level: 1
-      - Name: RA_FIRINGTRAP
-        MaxLevel: 5
-        Requires:
-          - Name: RA_DETONATOR
-            Level: 1
-      - Name: RA_ICEBOUNDTRAP
-        MaxLevel: 5
-        Requires:
-          - Name: RA_DETONATOR
-            Level: 1
-      - Name: RA_UNLIMIT
-        MaxLevel: 5
-        Requires:
-          - Name: RA_FEARBREEZE
-            Level: 5
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
-  - Job: Arch_Bishop
-    Inherit:
-      Novice: true
-      Acolyte: true
-      Priest: true
-    Tree:
-      - Name: AB_JUDEX
-        MaxLevel: 10
-        Requires:
-          - Name: PR_TURNUNDEAD
-            Level: 1
-      - Name: AB_ANCILLA
-        MaxLevel: 1
-        Requires:
-          - Name: AB_CLEMENTIA
-            Level: 3
-      - Name: AB_ADORAMUS
-        MaxLevel: 10
-        Requires:
-          - Name: PR_MAGNUS
-            Level: 1
-          - Name: AB_JUDEX
-            Level: 5
-          - Name: AB_ANCILLA
-            Level: 1
-      - Name: AB_CLEMENTIA
-        MaxLevel: 3
-        Requires:
-          - Name: AL_BLESSING
-            Level: 1
-      - Name: AB_CANTO
-        MaxLevel: 3
-        Requires:
-          - Name: AL_INCAGI
-            Level: 1
-      - Name: AB_CHEAL
-        MaxLevel: 3
-        Requires:
-          - Name: AL_HEAL
-            Level: 1
-      - Name: AB_EPICLESIS
-        MaxLevel: 5
-        Requires:
-          - Name: AB_ANCILLA
-            Level: 1
-          - Name: AB_HIGHNESSHEAL
-            Level: 1
-      - Name: AB_PRAEFATIO
-        MaxLevel: 10
-        Requires:
-          - Name: PR_KYRIE
-            Level: 1
-      - Name: AB_ORATIO
-        MaxLevel: 10
-        Requires:
-          - Name: AB_PRAEFATIO
-            Level: 5
-      - Name: AB_LAUDAAGNUS
-        MaxLevel: 4
-        Requires:
-          - Name: PR_STRECOVERY
-            Level: 1
-      - Name: AB_LAUDARAMUS
-        MaxLevel: 4
-        Requires:
-          - Name: AB_LAUDAAGNUS
-            Level: 2
-     # - Name: AB_EUCHARISTICA
-       # MaxLevel: 10
-       # Requires:
-         # - Name: AB_EPICLESIS
-           # Level: 1
-         # - Name: AB_EXPIATIO
-           # Level: 1
-      - Name: AB_RENOVATIO
-        MaxLevel: 4
-        Requires:
-          - Name: AB_CHEAL
-            Level: 3
-      - Name: AB_HIGHNESSHEAL
-        MaxLevel: 5
-        Requires:
-          - Name: AB_RENOVATIO
-            Level: 1
-      - Name: AB_CLEARANCE
-        MaxLevel: 5
-        Requires:
-          - Name: AB_LAUDARAMUS
-            Level: 2
-      - Name: AB_EXPIATIO
-        MaxLevel: 5
-        Requires:
-          - Name: AB_ORATIO
-            Level: 5
-          - Name: AB_DUPLELIGHT
-            Level: 5
-      - Name: AB_DUPLELIGHT
-        MaxLevel: 10
-        Requires:
-          - Name: PR_ASPERSIO
-            Level: 1
-      - Name: AB_SILENTIUM
-        MaxLevel: 5
-        Requires:
-          - Name: AB_CLEARANCE
-            Level: 1
-      - Name: AB_SECRAMENT
-        MaxLevel: 5
-        Requires:
-          - Name: AB_EPICLESIS
-            Level: 1
-          - Name: AB_EXPIATIO
-            Level: 1
-      - Name: AB_OFFERTORIUM
-        MaxLevel: 5
-        Requires:
-          - Name: AB_HIGHNESSHEAL
-            Level: 2
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
-      - Name: AB_VITUPERATUM
-        MaxLevel: 5
-        Requires:
-          - Name: AB_EPICLESIS
-            Level: 1
-          - Name: AB_EXPIATIO
-            Level: 1
-      - Name: AB_CONVENIO
-        MaxLevel: 1
-        Requires:
-          - Name: AB_ANCILLA
-            Level: 1
-          - Name: AB_ORATIO
-            Level: 5
-  - Job: Mechanic
-    Inherit:
-      Novice: true
-      Merchant: true
-      Blacksmith: true
-    Tree:
-      - Name: NC_MADOLICENCE
-        MaxLevel: 5
-      - Name: NC_BOOSTKNUCKLE
-        MaxLevel: 5
-        Requires:
-          - Name: NC_MADOLICENCE
-            Level: 1
-      - Name: NC_PILEBUNKER
-        MaxLevel: 3
-        Requires:
-          - Name: NC_BOOSTKNUCKLE
-            Level: 2
-      - Name: NC_VULCANARM
-        MaxLevel: 3
-        Requires:
-          - Name: NC_BOOSTKNUCKLE
-            Level: 2
-      - Name: NC_FLAMELAUNCHER
-        MaxLevel: 3
-        Requires:
-          - Name: NC_VULCANARM
-            Level: 1
-      - Name: NC_COLDSLOWER
-        MaxLevel: 3
-        Requires:
-          - Name: NC_VULCANARM
-            Level: 3
-      - Name: NC_ARMSCANNON
-        MaxLevel: 5
-        Requires:
-          - Name: NC_FLAMELAUNCHER
-            Level: 2
-          - Name: NC_COLDSLOWER
-            Level: 2
-      - Name: NC_ACCELERATION
-        MaxLevel: 3
-        Requires:
-          - Name: NC_MADOLICENCE
-            Level: 1
-      - Name: NC_HOVERING
-        MaxLevel: 1
-        Requires:
-          - Name: NC_ACCELERATION
-            Level: 1
-      - Name: NC_F_SIDESLIDE
-        MaxLevel: 1
-        Requires:
-          - Name: NC_HOVERING
-            Level: 1
-      - Name: NC_B_SIDESLIDE
-        MaxLevel: 1
-        Requires:
-          - Name: NC_HOVERING
-            Level: 1
-      - Name: NC_MAINFRAME
-        MaxLevel: 4
-        Requires:
-          - Name: NC_MADOLICENCE
-            Level: 4
-      - Name: NC_SELFDESTRUCTION
-        MaxLevel: 3
-        Requires:
-          - Name: NC_MAINFRAME
-            Level: 2
-      - Name: NC_SHAPESHIFT
-        MaxLevel: 4
-        Requires:
-          - Name: NC_MAINFRAME
-            Level: 2
-      - Name: NC_EMERGENCYCOOL
-        MaxLevel: 1
-        Requires:
-          - Name: NC_SELFDESTRUCTION
-            Level: 2
-      - Name: NC_INFRAREDSCAN
-        MaxLevel: 1
-        Requires:
-          - Name: NC_SHAPESHIFT
-            Level: 2
-      - Name: NC_ANALYZE
-        MaxLevel: 3
-        Requires:
-          - Name: NC_INFRAREDSCAN
-            Level: 1
-      - Name: NC_MAGNETICFIELD
-        MaxLevel: 3
-        Requires:
-          - Name: NC_EMERGENCYCOOL
-            Level: 1
-      - Name: NC_NEUTRALBARRIER
-        MaxLevel: 3
-        Requires:
-          - Name: NC_MAGNETICFIELD
-            Level: 2
-      - Name: NC_STEALTHFIELD
-        MaxLevel: 3
-        Requires:
-          - Name: NC_ANALYZE
-            Level: 3
-          - Name: NC_NEUTRALBARRIER
-            Level: 2
-      - Name: NC_REPAIR
-        MaxLevel: 5
-        Requires:
-          - Name: NC_MADOLICENCE
-            Level: 2
-      - Name: NC_TRAININGAXE
-        MaxLevel: 10
-      - Name: NC_RESEARCHFE
-        MaxLevel: 5
-      - Name: NC_AXEBOOMERANG
-        MaxLevel: 5
-        Requires:
-          - Name: NC_TRAININGAXE
-            Level: 1
-      - Name: NC_POWERSWING
-        MaxLevel: 10
-        Requires:
-          - Name: NC_AXEBOOMERANG
-            Level: 3
-      - Name: NC_AXETORNADO
-        MaxLevel: 5
-        Requires:
-          - Name: NC_TRAININGAXE
-            Level: 1
-      - Name: NC_SILVERSNIPER
-        MaxLevel: 5
-        Requires:
-          - Name: NC_RESEARCHFE
-            Level: 2
-      - Name: NC_MAGICDECOY
-        MaxLevel: 5
-        Requires:
-          - Name: NC_SILVERSNIPER
-            Level: 2
-      - Name: NC_DISJOINT
-        MaxLevel: 1
-        Requires:
-          - Name: NC_SILVERSNIPER
-            Level: 1
-      - Name: NC_MAGMA_ERUPTION
-        MaxLevel: 5
-        Requires:
-          - Name: NC_RESEARCHFE
-            Level: 1
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
-  - Job: Guillotine_Cross
     Inherit:
       Novice: true
       Thief: true
       Assassin: true
     Tree:
-      - Name: GC_VENOMIMPRESS
+      - Name: GN_TRAINING_SWORD
         MaxLevel: 5
-      - Name: GC_CROSSIMPACT
+      - Name: SP_SOULCURSE
+        MaxLevel: 10
+        Requires:
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: SP_CURSEEXPLOSION
+        MaxLevel: 10
+        Requires:
+          - Name: SP_SOULCURSE
+            Level: 1
+      - Name: SJ_LUNARSTANCE
         MaxLevel: 5
         Requires:
-          - Name: AS_SONICBLOW
-            Level: 10
-      - Name: GC_DARKILLUSION
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: SJ_NEWMOONKICK
         MaxLevel: 5
         Requires:
-          - Name: GC_CROSSIMPACT
-            Level: 3
+          - Name: SJ_LUNARSTANCE
+            Level: 1
+      - Name: SJ_FULLMOONKICK
+        MaxLevel: 5
+        Requires:
+          - Name: SJ_NEWMOONKICK
+            Level: 1
+      - Name: KO_MEIKYOUSISUI
+        MaxLevel: 5
+      - Name: RL_FLICKER
+        MaxLevel: 1
+        Requires:
+          - Name: KO_MEIKYOUSISUI
+            Level: 1
+      - Name: RL_B_TRAP
+        MaxLevel: 5
+        Requires:
+          - Name: RL_FLICKER
+            Level: 1
+      - Name: RL_H_MINE
+        MaxLevel: 10
+        Requires:
+          - Name: RL_B_TRAP
+            Level: 1
+      - Name: RK_HUNDREDSPEAR
+        MaxLevel: 10
+        Requires:
+          - Name: RL_H_MINE
+            Level: 1
+          - Name: SJ_FULLMOONKICK
+            Level: 1
+      - Name: SO_DIAMONDDUST
+        MaxLevel: 10
+        Requires:
+          - Name: KO_MEIKYOUSISUI
+            Level: 1
+      - Name: NJ_KAMAITACHI
+        MaxLevel: 10
+        Requires:
+          - Name: KO_MEIKYOUSISUI
+            Level: 1
+      - Name: HW_NAPALMVULCAN
+        MaxLevel: 10
+        Requires:
+          - Name: KO_MEIKYOUSISUI
+            Level: 1
+      - Name: SO_FIREWALK
+        MaxLevel: 10
+        Requires:
+          - Name: KO_MEIKYOUSISUI
+            Level: 1
+  - Job: Guillotine_Cross
+    Inherit:
+      Novice: true
+      Thief: true
+      High_Priest: true
+    Tree:
+      - Name: GN_TRAINING_SWORD
+        MaxLevel: 5
+      - Name: RL_BANISHING_BUSTER
+        MaxLevel: 5
+        Requires:
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: PA_SACRIFICE
+        MaxLevel: 10
+        Requires:
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: RL_R_TRIP
+        MaxLevel: 10
+        Requires:
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: GC_CLOAKINGEXCEED
+        MaxLevel: 5
+        Requires:
+          - Name: RL_BANISHING_BUSTER
+            Level: 1
+      - Name: CR_HOLYCROSS
+        MaxLevel: 10
+        Requires:
+          - Name: LG_BANISHINGPOINT
+            Level: 1
+      - Name: HT_FALCON
+        MaxLevel: 1
+      - Name: HT_BLITZBEAT
+        MaxLevel: 5
+        Requires:
+          - Name: HT_FALCON
+            Level: 1
+      - Name: HT_STEELCROW
+        MaxLevel: 10
+        Requires:
+          - Name: HT_BLITZBEAT
+            Level: 1
+      - Name: WS_OVERTHRUSTMAX
+        MaxLevel: 5
+        Requires:
+          - Name: HT_FALCON
+            Level: 1
+      - Name: HT_DETECTING
+        MaxLevel: 3
+        Requires:
+          - Name: HT_FALCON
+            Level: 1
+      - Name: LG_BANISHINGPOINT
+        MaxLevel: 10
+        Requires:
+          - Name: RL_R_TRIP
+            Level: 1
+      - Name: WL_DRAINLIFE
+        MaxLevel: 5
+        Requires:
+          - Name: PA_SACRIFICE
+            Level: 1
+      - Name: SN_FALCONASSAULT
+        MaxLevel: 5
+        Requires:
+          - Name: HT_STEELCROW
+            Level: 1
+      - Name: MO_BODYRELOCATION 
+        MaxLevel: 5
+        Requires:
+          - Name: SN_FALCONASSAULT
+            Level: 1
+          - Name: CR_HOLYCROSS
+            Level: 1
+  - Job: Mechanic
+    Inherit:
+      Novice: true
+      Thief: true
+      Assassin: true
+    Tree:
+      - Name: NC_TRAININGAXE
+        MaxLevel: 5
       - Name: GC_RESEARCHNEWPOISON
         MaxLevel: 10
       - Name: GC_CREATENEWPOISON
@@ -4357,103 +3384,167 @@ Body:
           - Name: GC_RESEARCHNEWPOISON
             Level: 5
       - Name: GC_POISONINGWEAPON
-        MaxLevel: 5
+        MaxLevel: 10
         Requires:
           - Name: GC_CREATENEWPOISON
             Level: 1
-      - Name: GC_WEAPONBLOCKING
-        MaxLevel: 5
-        Requires:
-          - Name: AS_LEFT
-            Level: 5
-      - Name: GC_COUNTERSLASH
+      - Name: GC_VENOMPRESSURE
         MaxLevel: 10
         Requires:
-          - Name: GC_WEAPONBLOCKING
-            Level: 1
-      - Name: GC_WEAPONCRUSH
-        MaxLevel: 5
-        Requires:
-          - Name: GC_WEAPONBLOCKING
-            Level: 1
-      - Name: GC_VENOMPRESSURE
-        MaxLevel: 5
-        Requires:
           - Name: GC_POISONINGWEAPON
-            Level: 3
-          - Name: GC_WEAPONBLOCKING
             Level: 1
       - Name: GC_POISONSMOKE
         MaxLevel: 5
         Requires:
-          - Name: GC_POISONINGWEAPON
-            Level: 5
           - Name: GC_VENOMPRESSURE
-            Level: 5
-      - Name: GC_CLOAKINGEXCEED
+            Level: 1
+      - Name: SO_CLOUD_KILL
+        MaxLevel: 10
+        Requires:
+          - Name: GC_CREATENEWPOISON
+            Level: 1
+      - Name: GN_HELLS_PLANT
         MaxLevel: 5
         Requires:
-          - Name: AS_CLOAKING
-            Level: 3
+          - Name: GC_POISONSMOKE
+            Level: 1
+      - Name: NC_MAGMA_ERUPTION
+        MaxLevel: 10
+        Requires:
+          - Name: NC_TRAININGAXE
+            Level: 1
+      - Name: GN_MANDRAGORA
+        MaxLevel: 5
+        Requires:
+          - Name: NC_TRAININGAXE
+            Level: 1
+      - Name: BS_OVERTHRUST
+        MaxLevel: 5
+        Requires:
+          - Name: GN_MANDRAGORA
+            Level: 1
+      - Name: NC_POWERSWING
+        MaxLevel: 10
+        Requires:
+          - Name: NC_MAGMA_ERUPTION
+            Level: 1
+      - Name: RL_HAMMER_OF_GOD
+        MaxLevel: 10
+        Requires:
+          - Name: NC_POWERSWING
+            Level: 1
+      - Name: ASC_EDP
+        MaxLevel: 10
+        Requires:
+          - Name: GN_HELLS_PLANT
+            Level: 1
+          - Name: RL_HAMMER_OF_GOD
+            Level: 1
+  - Job: Arch_Bishop
+    Inherit:
+      Novice: true
+      Thief: true
+      Assassin: true
+    Tree:
+      - Name: ASC_KATAR
+        MaxLevel: 5
+      - Name: BS_MAXIMIZE
+        MaxLevel: 5
+      - Name: PR_IMPOSITIO
+        MaxLevel: 5
+        Requires:
+          - Name: BS_MAXIMIZE
+            Level: 1
+      - Name: PR_LEXAETERNA
+        MaxLevel: 1
+        Requires:
+          - Name: BS_MAXIMIZE
+            Level: 1
+      - Name: SR_RAISINGDRAGON
+        MaxLevel: 10
+        Requires:
+          - Name: BS_MAXIMIZE
+            Level: 1
+      - Name: MG_STONECURSE
+        MaxLevel: 10
+        Requires:
+          - Name: PR_IMPOSITIO
+            Level: 1
+      - Name: SR_TIGERCANNON
+        MaxLevel: 10
+        Requires:
+          - Name: ASC_KATAR
+            Level: 1
+      - Name: SR_GATEOFHELL
+        MaxLevel: 10
+        Requires:
+          - Name: ASC_KATAR
+            Level: 1
+          - Name: SR_FALLENEMPIRE
+            Level: 1
+      - Name: SR_RAMPAGEBLASTER
+        MaxLevel: 5
+        Requires:
+          - Name: SR_RAISINGDRAGON
+            Level: 1
+      - Name: SO_EARTHGRAVE
+        MaxLevel: 5
+        Requires:
+          - Name: ASC_KATAR
+            Level: 1
+      - Name: GC_CROSSIMPACT
+        MaxLevel: 5
+        Requires:
+          - Name: ASC_KATAR
+            Level: 1
       - Name: GC_PHANTOMMENACE
         MaxLevel: 1
         Requires:
-          - Name: GC_DARKILLUSION
-            Level: 5
-          - Name: GC_CLOAKINGEXCEED
-            Level: 5
-      - Name: GC_HALLUCINATIONWALK
+          - Name: GC_CROSSIMPACT
+            Level: 1
+      - Name: WZ_QUAGMIRE
         MaxLevel: 5
+        Requires:
+          - Name: MG_STONECURSE
+            Level: 1
+      - Name: NC_PILEBUNKER
+        MaxLevel: 10
         Requires:
           - Name: GC_PHANTOMMENACE
             Level: 1
-      - Name: GC_ROLLINGCUTTER
-        MaxLevel: 5
+      - Name: WL_EARTHSTRAIN
+        MaxLevel: 10
         Requires:
-          - Name: AS_SONICBLOW
-            Level: 10
-      - Name: GC_CROSSRIPPERSLASHER
-        MaxLevel: 5
-        Requires:
-          - Name: GC_ROLLINGCUTTER
+          - Name: NC_PILEBUNKER
             Level: 1
-      - Name: GC_DARKCROW
-        MaxLevel: 5
-        Requires:
-          - Name: GC_DARKILLUSION
-            Level: 5
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
+          - Name: WZ_QUAGMIRE
+            Level: 1
   - Job: Rune_Knight_T
     Inherit:
       Novice: true
-      Swordman: true
-      Knight: true
-      Lord_Knight: true
+      Thief: true
+      Assassin: true
       Rune_Knight: true
     Tree:
-      - Name: LK_BERSERK   # Remove the JobLevel condition from inherit. Rune Knights dont require job level 50.
-        MaxLevel: 1
-        JobLevel: 0
   - Job: Warlock_T
     Inherit:
       Novice: true
-      Mage: true
-      Wizard: true
+      Thief: true
+      Assassin: true
       High_Wizard: true
       Warlock: true
   - Job: Ranger_T
     Inherit:
       Novice: true
-      Archer: true
-      Hunter: true
+      Thief: true
+      Rogue: true
       Sniper: true
       Ranger: true
   - Job: Arch_Bishop_T
     Inherit:
       Novice: true
-      Acolyte: true
-      Priest: true
+      Thief: true
+      Assassin: true
       High_Priest: true
       Arch_Bishop: true
     # Tree:
@@ -4467,8 +3558,8 @@ Body:
   - Job: Mechanic_T
     Inherit:
       Novice: true
-      Merchant: true
-      Blacksmith: true
+      Thief: true
+      Assassin: true
       Whitesmith: true
       Mechanic: true
   - Job: Guillotine_Cross_T
@@ -4481,284 +3572,76 @@ Body:
   - Job: Royal_Guard
     Inherit:
       Novice: true
-      Swordman: true
+      Thief: true
       Crusader: true
     Tree:
-      - Name: LG_CANNONSPEAR
+      - Name: NJ_UTSUSEMI
         MaxLevel: 5
-        Requires:
-          - Name: LG_PINPOINTATTACK
-            Level: 1
-      - Name: LG_BANISHINGPOINT
+      - Name: TK_SEVENWIND
+        MaxLevel: 7
+      - Name: ASC_METEORASSAULT
+        MaxLevel: 5
+      - Name: AS_SPLASHER
         MaxLevel: 10
-        Requires:
-          - Name: KN_SPEARMASTERY
-            Level: 1
-      - Name: LG_TRAMPLE
-        MaxLevel: 3
-      - Name: LG_SHIELDPRESS
+      - Name: GC_VENOMIMPRESS
+        MaxLevel: 5
+      - Name: KO_JYUMONJIKIRI
         MaxLevel: 10
-        Requires:
-          - Name: CR_SHIELDCHARGE
-            Level: 3
-      - Name: LG_REFLECTDAMAGE
-        MaxLevel: 5
-        Requires:
-          - Name: CR_REFLECTSHIELD
-            Level: 5
-      - Name: LG_PINPOINTATTACK
-        MaxLevel: 5
-        Requires:
-          - Name: LG_BANISHINGPOINT
-            Level: 5
-      - Name: LG_FORCEOFVANGUARD
-        MaxLevel: 5
-      - Name: LG_RAGEBURST
-        MaxLevel: 1
-        Requires:
-          - Name: LG_FORCEOFVANGUARD
-            Level: 1
-      - Name: LG_SHIELDSPELL
-        MaxLevel: 3
-        Requires:
-          - Name: LG_SHIELDPRESS
-            Level: 3
-          - Name: LG_EARTHDRIVE
-            Level: 2
-      - Name: LG_EXEEDBREAK
-        MaxLevel: 5
-        Requires:
-          - Name: LG_BANISHINGPOINT
-            Level: 3
-      - Name: LG_OVERBRAND
-        MaxLevel: 5
-        Requires:
-          - Name: LG_PINPOINTATTACK
-            Level: 1
-          - Name: LG_MOONSLASHER
-            Level: 3
-      - Name: LG_PRESTIGE
-        MaxLevel: 5
-        Requires:
-          - Name: LG_TRAMPLE
-            Level: 3
-      - Name: LG_BANDING
-        MaxLevel: 5
-        Requires:
-          - Name: LG_PINPOINTATTACK
-            Level: 3
-          - Name: LG_RAGEBURST
-            Level: 1
-      - Name: LG_MOONSLASHER
-        MaxLevel: 5
-        Requires:
-          - Name: KN_SPEARMASTERY
-            Level: 1
-      - Name: LG_RAYOFGENESIS
+      - Name: ASC_BREAKER
         MaxLevel: 10
-        Requires:
-          - Name: CR_GRANDCROSS
-            Level: 5
-      - Name: LG_PIETY
+      - Name: SL_KAAHI
+        MaxLevel: 10
+      - Name: SN_SHARPSHOOTING
+        MaxLevel: 10
+      - Name: KN_AUTOCOUNTER
         MaxLevel: 5
-        Requires:
-          - Name: CR_TRUST
-            Level: 3
-      - Name: LG_EARTHDRIVE
+      - Name: SC_TRIANGLESHOT
+        MaxLevel: 10
+      - Name: GN_SPORE_EXPLOSION
+        MaxLevel: 10
+      - Name: LK_CONCENTRATION
         MaxLevel: 5
-        Requires:
-          - Name: LG_REFLECTDAMAGE
-            Level: 3
-      - Name: LG_HESPERUSLIT
+      - Name: GC_DARKCROW
         MaxLevel: 5
-        Requires:
-          - Name: LG_PRESTIGE
-            Level: 3
-          - Name: LG_BANDING
-            Level: 3
-      - Name: LG_INSPIRATION
-        MaxLevel: 5
-        Requires:
-          - Name: LG_SHIELDSPELL
-            Level: 3
-          - Name: LG_RAYOFGENESIS
-            Level: 4
-          - Name: LG_PIETY
-            Level: 5
-      - Name: LG_KINGS_GRACE
-        MaxLevel: 5
-        Requires:
-          - Name: LG_REFLECTDAMAGE
-            Level: 5
-      - Name: ALL_FULL_THROTTLE
+      - Name: ASC_EDP
         MaxLevel: 5
   - Job: Sorcerer
     Inherit:
       Novice: true
-      Mage: true
-      Sage: true
+      Thief: true
+      Rogue: true
     Tree:
-      - Name: SO_FIREWALK
+      - Name: SL_KAAHI
+        MaxLevel: 10
+      - Name: HW_MAGICPOWER
+        MaxLevel: 10
+      - Name: AB_EPICLESIS
+        MaxLevel: 5 
+      - Name: NJ_BAKUENRYU
+        MaxLevel: 10
+      - Name: NJ_RAIGEKISAI
+        MaxLevel: 10
+      - Name: NJ_HYOUSYOURAKU
+        MaxLevel: 10
+      - Name: WZ_HEAVENDRIVE
+        MaxLevel: 10
+      - Name: WL_COMET
         MaxLevel: 5
-        Requires:
-          - Name: SA_VOLCANO
-            Level: 1
-      - Name: SO_ELECTRICWALK
+      - Name: SL_KAIZEL
         MaxLevel: 5
-        Requires:
-          - Name: SA_VIOLENTGALE
-            Level: 1
-      - Name: SO_SPELLFIST
+      - Name: SA_CASTCANCEL
+        MaxLevel: 5
+      - Name: WL_TETRAVORTEX
         MaxLevel: 10
         Requires:
-          - Name: SA_AUTOSPELL
-            Level: 4
-      - Name: SO_EARTHGRAVE
-        MaxLevel: 5
-        Requires:
-          - Name: WZ_EARTHSPIKE
-            Level: 5
-      - Name: SO_DIAMONDDUST
-        MaxLevel: 5
-        Requires:
-          - Name: SA_DELUGE
-            Level: 3
-      - Name: SO_POISON_BUSTER
-        MaxLevel: 5
-        Requires:
-          - Name: SO_CLOUD_KILL
-            Level: 2
-      - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 5
-        Requires:
-          - Name: SA_DISPELL
-            Level: 2
-      - Name: SO_CLOUD_KILL
-        MaxLevel: 5
-        Requires:
+          - Name: NJ_RAIGEKISAI
+            Level: 1
+          - Name: NJ_BAKUENRYU
+            Level: 1
           - Name: WZ_HEAVENDRIVE
-            Level: 5
-      - Name: SO_STRIKING
-        MaxLevel: 5
-        Requires:
-          - Name: SA_FLAMELAUNCHER
             Level: 1
-          - Name: SA_FROSTWEAPON
+          - Name: NJ_HYOUSYOURAKU
             Level: 1
-          - Name: SA_LIGHTNINGLOADER
-            Level: 1
-          - Name: SA_SEISMICWEAPON
-            Level: 1
-      - Name: SO_WARMER
-        MaxLevel: 5
-        Requires:
-          - Name: SA_VOLCANO
-            Level: 1
-          - Name: SA_VIOLENTGALE
-            Level: 1
-      - Name: SO_VACUUM_EXTREME
-        MaxLevel: 5
-        Requires:
-          - Name: SA_LANDPROTECTOR
-            Level: 2
-      - Name: SO_VARETYR_SPEAR
-        MaxLevel: 10
-        Requires:
-          - Name: SA_SEISMICWEAPON
-            Level: 1
-          - Name: SA_VIOLENTGALE
-            Level: 4
-      - Name: SO_ARRULLO
-        MaxLevel: 5
-        Requires:
-          - Name: SO_WARMER
-            Level: 2
-      - Name: SO_EL_CONTROL
-        MaxLevel: 4
-        Requires:
-          - Name: SO_EL_ANALYSIS
-            Level: 1
-      - Name: SO_SUMMON_AGNI
-        MaxLevel: 3
-        Requires:
-          - Name: SO_WARMER
-            Level: 3
-          - Name: SO_EL_CONTROL
-            Level: 1
-      - Name: SO_SUMMON_AQUA
-        MaxLevel: 3
-        Requires:
-          - Name: SO_DIAMONDDUST
-            Level: 3
-          - Name: SO_EL_CONTROL
-            Level: 1
-      - Name: SO_SUMMON_VENTUS
-        MaxLevel: 3
-        Requires:
-          - Name: SO_VARETYR_SPEAR
-            Level: 3
-          - Name: SO_EL_CONTROL
-            Level: 1
-      - Name: SO_SUMMON_TERA
-        MaxLevel: 3
-        Requires:
-          - Name: SO_EARTHGRAVE
-            Level: 3
-          - Name: SO_EL_CONTROL
-            Level: 1
-      - Name: SO_EL_ACTION
-        MaxLevel: 1
-        Requires:
-          - Name: SO_EL_CONTROL
-            Level: 3
-      - Name: SO_EL_ANALYSIS
-        MaxLevel: 2
-        Requires:
-          - Name: SA_FLAMELAUNCHER
-            Level: 1
-          - Name: SA_FROSTWEAPON
-            Level: 1
-          - Name: SA_LIGHTNINGLOADER
-            Level: 1
-          - Name: SA_SEISMICWEAPON
-            Level: 1
-      - Name: SO_EL_SYMPATHY
-        MaxLevel: 5
-        Requires:
-          - Name: SO_EL_CONTROL
-            Level: 3
-      - Name: SO_EL_CURE
-        MaxLevel: 1
-        Requires:
-          - Name: SO_EL_SYMPATHY
-            Level: 1
-      - Name: SO_FIRE_INSIGNIA
-        MaxLevel: 3
-        Requires:
-          - Name: SO_SUMMON_AGNI
-            Level: 3
-      - Name: SO_WATER_INSIGNIA
-        MaxLevel: 3
-        Requires:
-          - Name: SO_SUMMON_AQUA
-            Level: 3
-      - Name: SO_WIND_INSIGNIA
-        MaxLevel: 3
-        Requires:
-          - Name: SO_SUMMON_VENTUS
-            Level: 3
-      - Name: SO_EARTH_INSIGNIA
-        MaxLevel: 3
-        Requires:
-          - Name: SO_SUMMON_TERA
-            Level: 3
-      - Name: SO_ELEMENTAL_SHIELD
-        MaxLevel: 5
-        Requires:
-          - Name: SO_EL_CONTROL
-            Level: 3
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
   - Job: Minstrel
     Inherit:
       Novice: true
@@ -4786,12 +3669,12 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: WM_REVERBERATION
-            Level: 5
+            Level: 1
       - Name: WM_REVERBERATION
         MaxLevel: 5
         Requires:
           - Name: BA_DISSONANCE
-            Level: 5
+            Level: 1
      # - Name: WM_DOMINION_IMPULSE
        # MaxLevel: 1
        # Requires:
@@ -4801,7 +3684,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: BA_MUSICALSTRIKE
-            Level: 5
+            Level: 1
       - Name: WM_POEMOFNETHERWORLD
         MaxLevel: 5
         Requires:
@@ -4811,12 +3694,12 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WM_POEMOFNETHERWORLD
-            Level: 3
+            Level: 1
       - Name: WM_DEADHILLHERE
         MaxLevel: 5
         Requires:
           - Name: WM_SIRCLEOFNATURE
-            Level: 3
+            Level: 1
       - Name: WM_LULLABY_DEEPSLEEP
         MaxLevel: 5
         Requires:
@@ -4864,9 +3747,9 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WM_SATURDAY_NIGHT_FEVER
-            Level: 3
+            Level: 1
           - Name: WM_MELODYOFSINK
-            Level: 3
+            Level: 1
       - Name: WM_SATURDAY_NIGHT_FEVER
         MaxLevel: 5
         Requires:
@@ -4902,9 +3785,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WM_LESSON
-            Level: 2
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
+            Level: 1
   - Job: Wanderer
     Inherit:
       Novice: true
@@ -4932,12 +3813,12 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: WM_REVERBERATION
-            Level: 5
+            Level: 1
       - Name: WM_REVERBERATION
         MaxLevel: 5
         Requires:
           - Name: DC_UGLYDANCE
-            Level: 5
+            Level: 1
      # - Name: WM_DOMINION_IMPULSE
        # MaxLevel: 1
        # Requires:
@@ -4947,7 +3828,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: DC_THROWARROW
-            Level: 5
+            Level: 1
       - Name: WM_POEMOFNETHERWORLD
         MaxLevel: 5
         Requires:
@@ -4957,12 +3838,12 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WM_POEMOFNETHERWORLD
-            Level: 3
+            Level: 1
       - Name: WM_DEADHILLHERE
         MaxLevel: 5
         Requires:
           - Name: WM_SIRCLEOFNATURE
-            Level: 3
+            Level: 1
       - Name: WM_LULLABY_DEEPSLEEP
         MaxLevel: 5
         Requires:
@@ -5010,9 +3891,9 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WM_SATURDAY_NIGHT_FEVER
-            Level: 3
+            Level: 1
           - Name: WM_MELODYOFSINK
-            Level: 3
+            Level: 1
       - Name: WM_SATURDAY_NIGHT_FEVER
         MaxLevel: 5
         Requires:
@@ -5048,150 +3929,36 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WM_LESSON
-            Level: 2
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
+            Level: 1
   - Job: Sura
     Inherit:
       Novice: true
-      Acolyte: true
-      Monk: true
+      Thief: true
+      Rogue: true
     Tree:
-      - Name: SR_DRAGONCOMBO
+      - Name: SA_DELUGE
+        MaxLevel: 5
+      - Name: WZ_WATERBALL
+        MaxLevel: 5
+      - Name: SN_SHARPSHOOTING
         MaxLevel: 10
-        Requires:
-          - Name: MO_TRIPLEATTACK
-            Level: 5
-      - Name: SR_SKYNETBLOW
+      - Name: GS_TRACKING
         MaxLevel: 5
-        Requires:
-          - Name: SR_DRAGONCOMBO
-            Level: 3
-      - Name: SR_EARTHSHAKER
-        MaxLevel: 5
-        Requires:
-          - Name: SR_DRAGONCOMBO
-            Level: 3
-      - Name: SR_FALLENEMPIRE
+      - Name: SC_TRIANGLESHOT
         MaxLevel: 10
-        Requires:
-          - Name: SR_DRAGONCOMBO
-            Level: 3
-      - Name: SR_TIGERCANNON
-        MaxLevel: 10
-        Requires:
-          - Name: SR_FALLENEMPIRE
-            Level: 3
-      - Name: SR_RAMPAGEBLASTER
+      - Name: KN_AUTOCOUNTER
         MaxLevel: 5
-        Requires:
-          - Name: SR_EARTHSHAKER
-            Level: 2
-      - Name: SR_CRESCENTELBOW
+      - Name: CR_SLIMPITCHER
+        MaxLevel: 3
+      - Name: GN_DEMONIC_FIRE
         MaxLevel: 5
-        Requires:
-          - Name: SR_WINDMILL
-            Level: 1
-      - Name: SR_CURSEDCIRCLE
+      - Name: AS_SPLASHER
+        MaxLevel: 10  
+      - Name: LK_CONCENTRATION
         MaxLevel: 5
-        Requires:
-          - Name: MO_BLADESTOP
-            Level: 2
-      - Name: SR_LIGHTNINGWALK
+      - Name: GC_DARKCROW
         MaxLevel: 5
-        Requires:
-          - Name: SR_WINDMILL
-            Level: 1
-      - Name: SR_KNUCKLEARROW
-        MaxLevel: 10
-        Requires:
-          - Name: SR_LIGHTNINGWALK
-            Level: 1
-      - Name: SR_WINDMILL
-        MaxLevel: 1
-        Requires:
-          - Name: SR_CURSEDCIRCLE
-            Level: 1
-      - Name: SR_RAISINGDRAGON
-        MaxLevel: 10
-        Requires:
-          - Name: MO_CALLSPIRITS
-            Level: 5
-          - Name: SR_POWERVELOCITY
-            Level: 1
-      - Name: SR_ASSIMILATEPOWER
-        MaxLevel: 1
-        Requires:
-          - Name: MO_ABSORBSPIRITS
-            Level: 1
-          - Name: SR_POWERVELOCITY
-            Level: 1
-      - Name: SR_POWERVELOCITY
-        MaxLevel: 1
-        Requires:
-          - Name: MO_CALLSPIRITS
-            Level: 5
-      - Name: SR_GATEOFHELL
-        MaxLevel: 10
-        Requires:
-          - Name: SR_RAMPAGEBLASTER
-            Level: 1
-          - Name: SR_TIGERCANNON
-            Level: 5
-      - Name: SR_GENTLETOUCH_QUIET
-        MaxLevel: 5
-      - Name: SR_GENTLETOUCH_CURE
-        MaxLevel: 5
-        Requires:
-          - Name: SR_GENTLETOUCH_QUIET
-            Level: 1
-      - Name: SR_GENTLETOUCH_ENERGYGAIN
-        MaxLevel: 5
-        Requires:
-          - Name: SR_GENTLETOUCH_CURE
-            Level: 1
-      - Name: SR_GENTLETOUCH_CHANGE
-        MaxLevel: 5
-        Requires:
-          - Name: SR_GENTLETOUCH_QUIET
-            Level: 1
-          - Name: SR_GENTLETOUCH_CURE
-            Level: 1
-          - Name: SR_GENTLETOUCH_ENERGYGAIN
-            Level: 3
-      - Name: SR_GENTLETOUCH_REVITALIZE
-        MaxLevel: 5
-        Requires:
-          - Name: SR_GENTLETOUCH_QUIET
-            Level: 1
-          - Name: SR_GENTLETOUCH_CURE
-            Level: 1
-          - Name: SR_GENTLETOUCH_ENERGYGAIN
-            Level: 3
-      - Name: SR_HOWLINGOFLION
-        MaxLevel: 5
-        Requires:
-          - Name: SR_ASSIMILATEPOWER
-            Level: 1
-          - Name: SR_RIDEINLIGHTNING
-            Level: 3
-      - Name: SR_RIDEINLIGHTNING
-        MaxLevel: 5
-        Requires:
-          - Name: MO_FINGEROFFENSIVE
-            Level: 3
-      - Name: SR_FLASHCOMBO
-        MaxLevel: 5
-        Requires:
-          - Name: SR_DRAGONCOMBO
-            Level: 3
-          - Name: SR_FALLENEMPIRE
-            Level: 3
-          - Name: SR_TIGERCANNON
-            Level: 5
-          - Name: SR_SKYNETBLOW
-            Level: 1
-      - Name: ALL_FULL_THROTTLE
+      - Name: ASC_EDP
         MaxLevel: 5
   - Job: Shadow_Chaser
     Inherit:
@@ -5199,133 +3966,97 @@ Body:
       Thief: true
       Rogue: true
     Tree:
-      - Name: SC_FATALMENACE
+      - Name: SA_MAGICROD
+        MaxLevel: 1
+      - Name: PR_STRECOVERY
+        MaxLevel: 1
+      - Name: CR_DEFENDER
+        MaxLevel: 5
+        Requires:
+          - Name: PR_STRECOVERY
+            Level: 1
+      - Name: AB_RENOVATIO
+        MaxLevel: 5
+        Requires:
+          - Name: PR_STRECOVERY
+            Level: 1
+      - Name: AL_ANGELUS
+        MaxLevel: 5
+        Requires:
+          - Name: PR_STRECOVERY
+            Level: 1
+      - Name: PR_KYRIE
+        MaxLevel: 5
+        Requires:
+          - Name: CR_DEFENDER
+            Level: 1
+          - Name: AL_ANGELUS
+            Level: 1
+          - Name: AB_RENOVATIO
+            Level: 1
+      - Name: LG_SHIELDSPELL
+        MaxLevel: 3
+        Requires:
+          - Name: CR_DEFENDER
+            Level: 1
+          - Name: AL_ANGELUS
+            Level: 1
+          - Name: AB_RENOVATIO
+            Level: 1
+      - Name: SA_LANDPROTECTOR
         MaxLevel: 10
         Requires:
+          - Name: PR_KYRIE
+            Level: 1
+          - Name: LG_SHIELDSPELL
+            Level: 1
+      - Name: KN_SPEARSTAB
+        MaxLevel: 5
+        Requires:
+          - Name: SA_MAGICROD
+            Level: 1
+      - Name: RG_INTIMIDATE
+        MaxLevel: 5
+        Requires:
+          - Name: SA_MAGICROD
+            Level: 1
+      - Name: MC_MAMMONITE
+        MaxLevel: 5
+        Requires:
+          - Name: SA_MAGICROD
+            Level: 1
+      - Name: KN_BRANDISHSPEAR
+        MaxLevel: 10
+        Requires:
+          - Name: KN_SPEARSTAB
+            Level: 1
           - Name: RG_INTIMIDATE
-            Level: 5
-      - Name: SC_REPRODUCE
+            Level: 1
+          - Name: MC_MAMMONITE
+            Level: 1
+      - Name: PA_SHIELDCHAIN
         MaxLevel: 10
         Requires:
-          - Name: RG_PLAGIARISM
-            Level: 5
-      - Name: SC_AUTOSHADOWSPELL
+          - Name: KN_SPEARSTAB
+            Level: 1
+          - Name: RG_INTIMIDATE
+            Level: 1
+          - Name: MC_MAMMONITE
+            Level: 1
+      - Name: CR_GRANDCROSS
         MaxLevel: 10
         Requires:
-          - Name: SC_REPRODUCE
-            Level: 5
-      - Name: SC_SHADOWFORM
-        MaxLevel: 5
-        Requires:
-          - Name: RG_TUNNELDRIVE
-            Level: 3
-      - Name: SC_TRIANGLESHOT
-        MaxLevel: 10
-        Requires:
-          - Name: AC_DOUBLE
-            Level: 7
-      - Name: SC_BODYPAINT
-        MaxLevel: 5
-      - Name: SC_INVISIBILITY
-        MaxLevel: 5
-        Requires:
-          - Name: SC_AUTOSHADOWSPELL
-            Level: 7
-          - Name: SC_DEADLYINFECT
-            Level: 5
-          - Name: SC_UNLUCKY
-            Level: 3
-      - Name: SC_DEADLYINFECT
-        MaxLevel: 5
-        Requires:
-          - Name: SC_AUTOSHADOWSPELL
-            Level: 5
-          - Name: SC_SHADOWFORM
-            Level: 3
-      - Name: SC_ENERVATION
-        MaxLevel: 3
-        Requires:
-          - Name: SC_BODYPAINT
+          - Name: PA_SHIELDCHAIN
             Level: 1
-      - Name: SC_GROOMY
-        MaxLevel: 3
+          - Name: KN_BRANDISHSPEAR
+            Level: 1
+      - Name: MO_EXTREMITYFIST
+        MaxLevel: 1
         Requires:
-          - Name: SC_BODYPAINT
+          - Name: CR_GRANDCROSS
             Level: 1
-      - Name: SC_IGNORANCE
-        MaxLevel: 3
-        Requires:
-          - Name: SC_BODYPAINT
+          - Name: SA_LANDPROTECTOR
             Level: 1
-      - Name: SC_LAZINESS
-        MaxLevel: 3
-        Requires:
-          - Name: SC_ENERVATION
-            Level: 1
-          - Name: SC_GROOMY
-            Level: 1
-          - Name: SC_IGNORANCE
-            Level: 1
-      - Name: SC_UNLUCKY
-        MaxLevel: 3
-        Requires:
-          - Name: SC_LAZINESS
-            Level: 1
-          - Name: SC_WEAKNESS
-            Level: 1
-      - Name: SC_WEAKNESS
-        MaxLevel: 3
-        Requires:
-          - Name: SC_ENERVATION
-            Level: 1
-          - Name: SC_GROOMY
-            Level: 1
-          - Name: SC_IGNORANCE
-            Level: 1
-      - Name: SC_STRIPACCESSARY
-        MaxLevel: 5
-        Requires:
-          - Name: RG_STRIPWEAPON
-            Level: 1
-      - Name: SC_MANHOLE
-        MaxLevel: 3
-        Requires:
-          - Name: RG_FLAGGRAFFITI
-            Level: 1
-      - Name: SC_DIMENSIONDOOR
-        MaxLevel: 3
-        Requires:
-          - Name: SC_MANHOLE
-            Level: 1
-      - Name: SC_CHAOSPANIC
-        MaxLevel: 3
-        Requires:
-          - Name: SC_MANHOLE
-            Level: 1
-      - Name: SC_MAELSTROM
-        MaxLevel: 3
-        Requires:
-          - Name: SC_UNLUCKY
-            Level: 3
-          - Name: SC_CHAOSPANIC
-            Level: 3
-      - Name: SC_BLOODYLUST
-        MaxLevel: 3
-        Requires:
-          - Name: SC_DIMENSIONDOOR
-            Level: 3
-      - Name: SC_FEINTBOMB
-        MaxLevel: 10
-        Requires:
-          - Name: SC_DIMENSIONDOOR
-            Level: 3
-      - Name: SC_ESCAPE
-        MaxLevel: 5
-        Requires:
-          - Name: SC_TRIANGLESHOT
-            Level: 2
-      - Name: ALL_FULL_THROTTLE
-        MaxLevel: 5
   - Job: Royal_Guard_T
     Inherit:
       Novice: true
@@ -5336,8 +4067,8 @@ Body:
   - Job: Sorcerer_T
     Inherit:
       Novice: true
-      Mage: true
-      Sage: true
+      Thief: true
+      Rogue: true
       Professor: true
       Sorcerer: true
   - Job: Minstrel_T
@@ -5352,11 +4083,11 @@ Body:
        # MaxLevel: 5
        # Requires:
          # - Name: BA_MUSICALLESSON
-           # Level: 10
+           # Level: 1
          # - Name: CG_MARIONETTE
            # Level: 1
          # - Name: BA_DISSONANCE
-           # Level: 3
+           # Level: 1
      # - Name: WM_DOMINION_IMPULSE
        # MaxLevel: 1
        # Requires:
@@ -5374,11 +4105,11 @@ Body:
        # MaxLevel: 5
        # Requires:
          # - Name: DC_DANCINGLESSON
-           # Level: 10
+           # Level: 1
          # - Name: CG_MARIONETTE
            # Level: 1
          # - Name: DC_UGLYDANCE
-           # Level: 3
+           # Level: 1
      # - Name: WM_DOMINION_IMPULSE
        # MaxLevel: 1
        # Requires:
@@ -5387,9 +4118,8 @@ Body:
   - Job: Sura_T
     Inherit:
       Novice: true
-      Acolyte: true
-      Monk: true
-      Champion: true
+      Thief: true
+      Rogue: true
       Sura: true
   - Job: Shadow_Chaser_T
     Inherit:
@@ -5401,8 +4131,8 @@ Body:
   - Job: Rune_Knight2
     Inherit:
       Novice: true
-      Swordman: true
-      Knight: true
+      Thief: true
+      Assassin: true
       Rune_Knight: true
   - Job: Rune_Knight_T2
     Inherit:
@@ -5451,8 +4181,8 @@ Body:
   - Job: Mechanic_T2
     Inherit:
       Novice: true
-      Merchant: true
-      Blacksmith: true
+      Thief: true
+      Assassin: true
       Whitesmith: true
       Mechanic: true
   - Job: Baby_Rune_Knight
@@ -5584,7 +4314,7 @@ Body:
           - Name: AL_HOLYWATER
             Level: 1
           - Name: PR_IMPOSITIO
-            Level: 3
+            Level: 1
       - Name: PR_SANCTUARY
         MaxLevel: 10
         Requires:
@@ -5598,7 +4328,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: PR_SANCTUARY
-            Level: 7
+            Level: 1
       - Name: WZ_FIREPILLAR
         MaxLevel: 10
         Requires:
@@ -5615,7 +4345,7 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: WZ_SIGHTRASHER
-            Level: 2
+            Level: 1
           - Name: MG_THUNDERSTORM
             Level: 1
       - Name: WZ_JUPITEL
@@ -5626,12 +4356,12 @@ Body:
           - Name: MG_LIGHTNINGBOLT
             Level: 1
       - Name: WZ_VERMILION
-        MaxLevel: 10
+        MaxLevel: 3
         Requires:
           - Name: MG_THUNDERSTORM
             Level: 1
           - Name: WZ_JUPITEL
-            Level: 5
+            Level: 1
       - Name: WZ_WATERBALL
         MaxLevel: 5
         Requires:
@@ -5657,7 +4387,7 @@ Body:
           - Name: MG_FROSTDIVER
             Level: 1
           - Name: WZ_JUPITEL
-            Level: 3
+            Level: 1
       - Name: WZ_EARTHSPIKE
         MaxLevel: 5
         Requires:
@@ -5667,7 +4397,7 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: WZ_EARTHSPIKE
-            Level: 3
+            Level: 1
       - Name: WZ_QUAGMIRE
         MaxLevel: 5
         Requires:
@@ -5699,22 +4429,22 @@ Body:
           - Name: TF_POISON
             Level: 1
       - Name: AS_POISONREACT
-        MaxLevel: 10
+        MaxLevel: 5
         Requires:
           - Name: AS_ENCHANTPOISON
-            Level: 3
+            Level: 1
       - Name: AS_VENOMDUST
         MaxLevel: 10
         Requires:
           - Name: AS_ENCHANTPOISON
-            Level: 5
+            Level: 1
       - Name: AS_SPLASHER
         MaxLevel: 10
         Requires:
           - Name: AS_POISONREACT
-            Level: 5
+            Level: 1
           - Name: AS_VENOMDUST
-            Level: 5
+            Level: 1
       - Name: RG_SNATCHER
         MaxLevel: 10
         Requires:
@@ -5724,24 +4454,24 @@ Body:
         MaxLevel: 10
         Requires:
           - Name: RG_SNATCHER
-            Level: 4
+            Level: 1
       - Name: RG_BACKSTAP
         MaxLevel: 10
         Requires:
           - Name: RG_STEALCOIN
-            Level: 4
+            Level: 1
       - Name: RG_TUNNELDRIVE
         MaxLevel: 5
         Requires:
           - Name: TF_HIDING
             Level: 1
       - Name: RG_RAID
-        MaxLevel: 5
+        MaxLevel: 10
         Requires:
           - Name: RG_BACKSTAP
-            Level: 2
+            Level: 1
           - Name: RG_TUNNELDRIVE
-            Level: 2
+            Level: 1
       - Name: AM_AXEMASTERY
         MaxLevel: 10
       - Name: CR_TRUST
@@ -5752,34 +4482,34 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: CR_AUTOGUARD
-            Level: 5
+            Level: 1
       - Name: CR_SHIELDBOOMERANG
-        MaxLevel: 5
+        MaxLevel: 10
         Requires:
           - Name: CR_SHIELDCHARGE
-            Level: 3
+            Level: 1
       - Name: CR_HOLYCROSS
         MaxLevel: 10
         Requires:
           - Name: CR_TRUST
-            Level: 7
+            Level: 1
       - Name: MO_IRONHAND
         MaxLevel: 10
         Requires:
           - Name: AL_DEMONBANE
-            Level: 10
+            Level: 1
           - Name: AL_DP
-            Level: 10
+            Level: 1
       - Name: MO_CALLSPIRITS
-        MaxLevel: 5
+        MaxLevel: 2
         Requires:
           - Name: MO_IRONHAND
-            Level: 2
+            Level: 1
       - Name: MO_ABSORBSPIRITS
         MaxLevel: 1
         Requires:
           - Name: MO_CALLSPIRITS
-            Level: 5
+            Level: 1
       - Name: MO_EXPLOSIONSPIRITS
         MaxLevel: 5
         Requires:
@@ -5794,9 +4524,9 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: MO_EXPLOSIONSPIRITS
-            Level: 5
+            Level: 1
       - Name: NV_BREAKTHROUGH
-        MaxLevel: 5
+        MaxLevel: 1
       - Name: NV_HELPANGEL
         MaxLevel: 1
       - Name: NV_TRANSCENDENCE
@@ -5811,355 +4541,152 @@ Body:
       Novice: true
       Ninja: true
     Tree:
-      - Name: KO_YAMIKUMO
-        MaxLevel: 1
-        Requires:
-          - Name: NJ_KIRIKAGE
-            Level: 5
       - Name: KO_RIGHT
         MaxLevel: 5
       - Name: KO_LEFT
         MaxLevel: 5
-      - Name: KO_JYUMONJIKIRI
+      - Name: GN_TRAINING_SWORD
+        MaxLevel: 5
+      - Name: AM_LEARNINGPOTION
+        MaxLevel: 10
+      - Name: SA_ADVANCEDBOOK
+        MaxLevel: 10
+      - Name: KN_TWOHANDQUICKEN
         MaxLevel: 10
         Requires:
-          - Name: KO_YAMIKUMO
-            Level: 1
-      - Name: KO_SETSUDAN
-        MaxLevel: 5
-        Requires:
-          - Name: KO_JYUMONJIKIRI
-            Level: 2
-      - Name: KO_BAKURETSU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_KUNAI
-            Level: 5
-      - Name: KO_HAPPOKUNAI
-        MaxLevel: 5
-        Requires:
-          - Name: KO_BAKURETSU
-            Level: 1
-      - Name: KO_MUCHANAGE
-        MaxLevel: 10
-        Requires:
-          - Name: KO_MAKIBISHI
-            Level: 3
-      - Name: KO_HUUMARANKA
-        MaxLevel: 10
-        Requires:
-          - Name: NJ_HUUMA
-            Level: 5
-      - Name: KO_MAKIBISHI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_ZENYNAGE
-            Level: 1
-      - Name: KO_MEIKYOUSISUI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
+          - Name: AM_LEARNINGPOTION
             Level: 10
-      - Name: KO_ZANZOU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_UTSUSEMI
-            Level: 1
-      - Name: KO_KYOUGAKU
-        MaxLevel: 5
-        Requires:
-          - Name: KO_GENWAKU
-            Level: 2
-      - Name: KO_JYUSATSU
-        MaxLevel: 5
-        Requires:
-          - Name: KO_KYOUGAKU
-            Level: 3
-      - Name: KO_KAHU_ENTEN
-        MaxLevel: 1
-      - Name: KO_HYOUHU_HUBUKI
-        MaxLevel: 1
-      - Name: KO_KAZEHU_SEIRAN
-        MaxLevel: 1
-      - Name: KO_DOHU_KOUKAI
-        MaxLevel: 1
-      - Name: KO_KAIHOU
-        MaxLevel: 1
-        Requires:
-          - Name: KO_KAHU_ENTEN
-            Level: 1
-          - Name: KO_HYOUHU_HUBUKI
-            Level: 1
-          - Name: KO_KAZEHU_SEIRAN
-            Level: 1
-          - Name: KO_DOHU_KOUKAI
-            Level: 1
-      - Name: KO_ZENKAI
-        MaxLevel: 1
-        Requires:
-          - Name: KO_KAIHOU
-            Level: 1
-          - Name: KO_IZAYOI
-            Level: 1
-      - Name: KO_GENWAKU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_UTSUSEMI
-            Level: 1
-      - Name: KO_IZAYOI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
+          - Name: SA_ADVANCEDBOOK
+            Level: 10
+          - Name: GN_TRAINING_SWORD
             Level: 5
-      - Name: KG_KAGEHUMI
-        MaxLevel: 5
+      - Name: RK_ENCHANTBLADE
+        MaxLevel: 10
         Requires:
-          - Name: KO_ZANZOU
-            Level: 1
-      - Name: KG_KYOMU
-        MaxLevel: 5
+          - Name: KO_RIGHT
+            Level: 5
+          - Name: KO_LEFT
+            Level: 5
+          - Name: GN_TRAINING_SWORD
+            Level: 5
+      - Name: SM_TWOHAND
+        MaxLevel: 10
         Requires:
-          - Name: KG_KAGEHUMI
-            Level: 2
-      - Name: KG_KAGEMUSYA
-        MaxLevel: 5
+          - Name: RK_ENCHANTBLADE
+            Level: 10
+          - Name: KN_TWOHANDQUICKEN
+            Level: 10
+      - Name: MG_SAFETYWALL
+        MaxLevel: 4
         Requires:
-          - Name: KG_KYOMU
-            Level: 3
+          - Name: SM_TWOHAND
+            Level: 10
   - Job: Oboro
     Inherit:
       Novice: true
       Ninja: true
     Tree:
-      - Name: KO_YAMIKUMO
-        MaxLevel: 1
-        Requires:
-          - Name: NJ_KIRIKAGE
-            Level: 5
       - Name: KO_RIGHT
         MaxLevel: 5
       - Name: KO_LEFT
         MaxLevel: 5
-      - Name: KO_JYUMONJIKIRI
+      - Name: GN_TRAINING_SWORD
+        MaxLevel: 5
+      - Name: AM_LEARNINGPOTION
+        MaxLevel: 10
+      - Name: SA_ADVANCEDBOOK
+        MaxLevel: 10
+      - Name: KN_TWOHANDQUICKEN
         MaxLevel: 10
         Requires:
-          - Name: KO_YAMIKUMO
+          - Name: AM_LEARNINGPOTION
             Level: 1
-      - Name: KO_SETSUDAN
-        MaxLevel: 5
-        Requires:
-          - Name: KO_JYUMONJIKIRI
-            Level: 2
-      - Name: KO_BAKURETSU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_KUNAI
-            Level: 5
-      - Name: KO_HAPPOKUNAI
-        MaxLevel: 5
-        Requires:
-          - Name: KO_BAKURETSU
+          - Name: SA_ADVANCEDBOOK
             Level: 1
-      - Name: KO_MUCHANAGE
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: RK_ENCHANTBLADE
         MaxLevel: 10
         Requires:
-          - Name: KO_MAKIBISHI
-            Level: 3
-      - Name: KO_HUUMARANKA
+          - Name: KO_RIGHT
+            Level: 1
+          - Name: KO_LEFT
+            Level: 1
+          - Name: GN_TRAINING_SWORD
+            Level: 1
+      - Name: SM_TWOHAND
         MaxLevel: 10
         Requires:
-          - Name: NJ_HUUMA
-            Level: 5
-      - Name: KO_MAKIBISHI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_ZENYNAGE
+          - Name: RK_ENCHANTBLADE
             Level: 1
-      - Name: KO_MEIKYOUSISUI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
-            Level: 10
-      - Name: KO_ZANZOU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_UTSUSEMI
+          - Name: KN_TWOHANDQUICKEN
             Level: 1
-      - Name: KO_KYOUGAKU
-        MaxLevel: 5
+      - Name: MG_SAFETYWALL
+        MaxLevel: 4
         Requires:
-          - Name: KO_GENWAKU
-            Level: 2
-      - Name: KO_JYUSATSU
-        MaxLevel: 5
-        Requires:
-          - Name: KO_KYOUGAKU
-            Level: 3
-      - Name: KO_KAHU_ENTEN
-        MaxLevel: 1
-      - Name: KO_HYOUHU_HUBUKI
-        MaxLevel: 1
-      - Name: KO_KAZEHU_SEIRAN
-        MaxLevel: 1
-      - Name: KO_DOHU_KOUKAI
-        MaxLevel: 1
-      - Name: KO_KAIHOU
-        MaxLevel: 1
-        Requires:
-          - Name: KO_KAHU_ENTEN
+          - Name: SM_TWOHAND
             Level: 1
-          - Name: KO_HYOUHU_HUBUKI
-            Level: 1
-          - Name: KO_KAZEHU_SEIRAN
-            Level: 1
-          - Name: KO_DOHU_KOUKAI
-            Level: 1
-      - Name: KO_ZENKAI
-        MaxLevel: 1
-        Requires:
-          - Name: KO_KAIHOU
-            Level: 1
-          - Name: KO_IZAYOI
-            Level: 1
-      - Name: KO_GENWAKU
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_UTSUSEMI
-            Level: 1
-      - Name: KO_IZAYOI
-        MaxLevel: 5
-        Requires:
-          - Name: NJ_NINPOU
-            Level: 5
-      - Name: OB_ZANGETSU
-        MaxLevel: 5
-        Requires:
-          - Name: KO_GENWAKU
-            Level: 1
-      - Name: OB_OBOROGENSOU
-        MaxLevel: 5
-        Requires:
-          - Name: OB_AKAITSUKI
-            Level: 3
-      - Name: OB_AKAITSUKI
-        MaxLevel: 5
-        Requires:
-          - Name: OB_ZANGETSU
-            Level: 2
   - Job: Rebellion
     Inherit:
       Novice: true
       Gunslinger: true
     Tree:
-      - Name: RL_RICHS_COIN
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 5
-      - Name: RL_MASS_SPIRAL
-        MaxLevel: 5
-        Requires:
-          - Name: GS_PIERCINGSHOT
-            Level: 1
-      - Name: RL_BANISHING_BUSTER
+      - Name: KN_SPEARMASTERY
+        MaxLevel: 10
+      - Name: GS_SINGLEACTION
+        MaxLevel: 10
+      - Name: LG_MOONSLASHER
         MaxLevel: 10
         Requires:
-          - Name: RL_S_STORM
+          - Name: KN_SPEARMASTERY
             Level: 1
-      - Name: RL_B_TRAP
+      - Name: RK_PHANTOMTHRUST
         MaxLevel: 5
         Requires:
-          - Name: RL_FLICKER
+          - Name: LG_MOONSLASHER
             Level: 1
-      - Name: RL_FLICKER
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 1
-      - Name: RL_S_STORM
-        MaxLevel: 5
-        Requires:
-          - Name: GS_DISARM
-            Level: 1
-          - Name: GS_DUST
-            Level: 1
-      - Name: RL_E_CHAIN
+      - Name: LG_OVERBRAND
         MaxLevel: 10
         Requires:
-          - Name: GS_GLITTERING
+          - Name: LG_MOONSLASHER
             Level: 1
-          - Name: GS_CHAINACTION
-            Level: 10
-      - Name: RL_QD_SHOT
-        MaxLevel: 1
+      - Name: GC_DARKILLUSION
+        MaxLevel: 5
         Requires:
-          - Name: GS_CHAINACTION
+          - Name: LG_OVERBRAND
             Level: 1
-      - Name: RL_C_MARKER
-        MaxLevel: 1
-        Requires:
-          - Name: GS_GLITTERING
-            Level: 1
-      - Name: RL_FIREDANCE
+      - Name: WM_SEVERE_RAINSTORM
         MaxLevel: 10
         Requires:
-          - Name: GS_DESPERADO
+          - Name: GC_DARKILLUSION
             Level: 1
-      - Name: RL_H_MINE
-        MaxLevel: 5
-        Requires:
-          - Name: GS_GROUNDDRIFT
-            Level: 1
-      - Name: RL_P_ALTER
-        MaxLevel: 5
-        Requires:
-          - Name: RL_RICHS_COIN
-            Level: 1
-      - Name: RL_FALLEN_ANGEL
-        MaxLevel: 1
-        Requires:
-          - Name: GS_DESPERADO
-            Level: 10
-      - Name: RL_R_TRIP
+      - Name: KG_KAGEMUSYA
         MaxLevel: 10
         Requires:
-          - Name: RL_FIRE_RAIN
+          - Name: KG_KYOMU
             Level: 1
-      - Name: RL_D_TAIL
+      - Name: TK_HIGHJUMP
+        MaxLevel: 5
+        Requires:
+          - Name: KG_KAGEMUSYA
+            Level: 1
+      - Name: NC_FLAMELAUNCHER
         MaxLevel: 10
         Requires:
-          - Name: RL_C_MARKER
+          - Name: KG_KYOMU
             Level: 1
-          - Name: RL_H_MINE
-            Level: 3
-      - Name: RL_FIRE_RAIN
+      - Name: KG_KYOMU
         MaxLevel: 5
         Requires:
-          - Name: GS_GATLINGFEVER
+          - Name: GS_SINGLEACTION
             Level: 1
-      - Name: RL_HEAT_BARREL
-        MaxLevel: 5
-        Requires:
-          - Name: RL_RICHS_COIN
-            Level: 1
-      - Name: RL_AM_BLAST
-        MaxLevel: 5
-        Requires:
-          - Name: RL_MASS_SPIRAL
-            Level: 1
-      - Name: RL_SLUGSHOT
-        MaxLevel: 5
-        Requires:
-          - Name: RL_BANISHING_BUSTER
-            Level: 3
-      - Name: RL_HAMMER_OF_GOD
+      - Name: PR_SANCTUARY
         MaxLevel: 10
         Requires:
-          - Name: RL_RICHS_COIN
+          - Name: TK_HIGHJUMP
             Level: 1
-          - Name: RL_AM_BLAST
-            Level: 3
-  - Job: Summoner
+      - Name: GN_BLOOD_SUCKER
+        MaxLevel: 5
     Tree:
       - Name: SU_BASIC_SKILL
         MaxLevel: 1
@@ -6182,7 +4709,7 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: SU_SCRATCH
-            Level: 3
+            Level: 1
       - Name: SU_LOPE
         MaxLevel: 3
         Requires:
@@ -6192,12 +4719,12 @@ Body:
         MaxLevel: 1
         Requires:
           - Name: SU_LOPE
-            Level: 3
+            Level: 1
       - Name: SU_POWEROFLAND
         MaxLevel: 1
         Requires:
           - Name: SU_CN_POWDERING
-            Level: 3
+            Level: 1
       - Name: SU_SV_STEMSPEAR
         MaxLevel: 5
         Requires:
@@ -6207,27 +4734,27 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: SU_CN_METEOR
-            Level: 3
+            Level: 1
       - Name: SU_CN_METEOR
         MaxLevel: 5
         Requires:
           - Name: SU_SV_ROOTTWIST
-            Level: 3
+            Level: 1
       - Name: SU_SV_ROOTTWIST
         MaxLevel: 5
         Requires:
           - Name: SU_SV_STEMSPEAR
-            Level: 3
+            Level: 1
       - Name: SU_POWEROFLIFE
         MaxLevel: 1
         Requires:
           - Name: SU_LUNATICCARROTBEAT
-            Level: 3
+            Level: 1
       - Name: SU_SCAROFTAROU
         MaxLevel: 5
         Requires:
           - Name: SU_ARCLOUSEDASH
-            Level: 3
+            Level: 1
       - Name: SU_PICKYPECK
         MaxLevel: 5
         Requires:
@@ -6237,32 +4764,32 @@ Body:
         MaxLevel: 5
         Requires:
           - Name: SU_PICKYPECK
-            Level: 3
+            Level: 1
       - Name: SU_LUNATICCARROTBEAT
         MaxLevel: 5
         Requires:
           - Name: SU_SCAROFTAROU
-            Level: 3
+            Level: 1
       - Name: SU_POWEROFSEA
         MaxLevel: 1
         Requires:
           - Name: SU_TUNAPARTY
-            Level: 3
+            Level: 1
       - Name: SU_TUNABELLY
         MaxLevel: 5
         Requires:
           - Name: SU_BUNCHOFSHRIMP
-            Level: 3
+            Level: 1
       - Name: SU_TUNAPARTY
         MaxLevel: 5
         Requires:
           - Name: SU_TUNABELLY
-            Level: 3
+            Level: 1
       - Name: SU_BUNCHOFSHRIMP
         MaxLevel: 5
         Requires:
           - Name: SU_FRESHSHRIMP
-            Level: 3
+            Level: 1
       - Name: SU_FRESHSHRIMP
         MaxLevel: 5
         Requires:
@@ -6278,13 +4805,13 @@ Body:
         BaseLevel: 100
         Requires:
           - Name: SU_HISS
-            Level: 5
+            Level: 1
       - Name: SU_SVG_SPIRIT
         MaxLevel: 5
         BaseLevel: 100
         Requires:
           - Name: SU_POWEROFFLOCK
-            Level: 5
+            Level: 1
       - Name: SU_HISS
         MaxLevel: 5
         BaseLevel: 100
@@ -6296,7 +4823,7 @@ Body:
         BaseLevel: 100
         Requires:
           - Name: SU_MEOWMEOW
-            Level: 5
+            Level: 1
       - Name: SU_GROOMING
         MaxLevel: 5
         BaseLevel: 100
@@ -6308,31 +4835,31 @@ Body:
         BaseLevel: 100
         Requires:
           - Name: SU_GROOMING
-            Level: 5
+            Level: 1
       - Name: SU_SHRIMPARTY
         MaxLevel: 5
         BaseLevel: 100
         Requires:
           - Name: SU_PURRING
-            Level: 5
+            Level: 1
       - Name: SU_SPIRITOFLIFE
         MaxLevel: 1
         BaseLevel: 100
         Requires:
           - Name: SU_SVG_SPIRIT
-            Level: 5
+            Level: 1
       - Name: SU_MEOWMEOW
         MaxLevel: 5
         BaseLevel: 100
         Requires:
           - Name: SU_CHATTERING
-            Level: 5
+            Level: 1
       - Name: SU_SPIRITOFLAND
         MaxLevel: 1
         BaseLevel: 100
         Requires:
           - Name: SU_NYANGGRASS
-            Level: 5
+            Level: 1
       - Name: SU_CHATTERING
         MaxLevel: 5
         BaseLevel: 100
@@ -6344,7 +4871,7 @@ Body:
         BaseLevel: 100
         Requires:
           - Name: SU_SHRIMPARTY
-            Level: 5
+            Level: 1
       - Name: WE_CALLBABY
         MaxLevel: 1
   - Job: Baby_Summoner
@@ -6384,8 +4911,8 @@ Body:
       Star_Gladiator: true
   - Job: Baby_Soul_Linker
     Inherit:
-      Baby: true
-      Taekwon: true
+      Novice: true
+      Thief: true
       Soul_Linker: true
   - Job: Baby_Gunslinger
     Inherit:
@@ -6404,221 +4931,37 @@ Body:
   - Job: Star_Emperor
     Inherit:
       Novice: true
-      Taekwon: true
-      Star_Gladiator: true
+      Thief: true
+      Assassin: true
     Tree:
-      - Name: SJ_LIGHTOFMOON
+      - Name: SR_SKYNETBLOW
         MaxLevel: 5
-        Requires:
-          - Name: SJ_FULLMOONKICK
-            Level: 3
-      - Name: SJ_LUNARSTANCE
-        MaxLevel: 3
-        Requires:
-          - Name: SJ_DOCUMENT
-            Level: 1
-      - Name: SJ_FULLMOONKICK
+      - Name: SO_PSYCHIC_WAVE
         MaxLevel: 10
-        Requires:
-          - Name: SJ_NEWMOONKICK
-            Level: 7
-      - Name: SJ_LIGHTOFSTAR
+      - Name: ASC_METEORASSAULT
         MaxLevel: 5
-        Requires:
-          - Name: SJ_FALLINGSTAR
-            Level: 3
-      - Name: SJ_STARSTANCE
-        MaxLevel: 3
-        Requires:
-          - Name: SJ_DOCUMENT
-            Level: 1
-      - Name: SJ_NEWMOONKICK
-        MaxLevel: 7
-        Requires:
-          - Name: SJ_LUNARSTANCE
-            Level: 1
-      - Name: SJ_FLASHKICK
-        MaxLevel: 7
-        Requires:
-          - Name: SJ_STARSTANCE
-            Level: 1
-      - Name: SJ_STAREMPEROR
+      - Name: LG_CANNONSPEAR
         MaxLevel: 5
-        Requires:
-          - Name: SJ_NOVAEXPLOSING
-            Level: 5
-          - Name: SJ_UNIVERSESTANCE
-            Level: 3
-      - Name: SJ_NOVAEXPLOSING
-        MaxLevel: 5
-        Requires:
-          - Name: SJ_UNIVERSESTANCE
-            Level: 1
-      - Name: SJ_UNIVERSESTANCE
-        MaxLevel: 3
-        Requires:
-          - Name: SJ_LUNARSTANCE
-            Level: 3
-          - Name: SJ_STARSTANCE
-            Level: 3
-          - Name: SJ_SUNSTANCE
-            Level: 3
-      - Name: SJ_FALLINGSTAR
+      - Name: AS_SPLASHER
         MaxLevel: 10
-        Requires:
-          - Name: SJ_FLASHKICK
-            Level: 7
-      - Name: SJ_GRAVITYCONTROL
-        MaxLevel: 1
-        Requires:
-          - Name: SJ_UNIVERSESTANCE
-            Level: 1
-      - Name: SJ_BOOKOFDIMENSION
+      - Name: GC_VENOMIMPRESS
         MaxLevel: 5
-        Requires:
-          - Name: SJ_STAREMPEROR
-            Level: 3
-          - Name: SJ_DOCUMENT
-            Level: 3
-      - Name: SJ_BOOKOFCREATINGSTAR
-        MaxLevel: 5
-        Requires:
-          - Name: SJ_STAREMPEROR
-            Level: 3
-          - Name: SJ_DOCUMENT
-            Level: 3
-      - Name: SJ_DOCUMENT
-        MaxLevel: 3
-        Requires:
-          - Name: SG_FEEL
-            Level: 3
-          - Name: SG_HATE
-            Level: 3
-      - Name: SJ_PURIFY
-        MaxLevel: 1
-        Requires:
-          - Name: SG_DEVIL
-            Level: 10
-      - Name: SJ_LIGHTOFSUN
-        MaxLevel: 5
-        Requires:
-          - Name: SJ_SOLARBURST
-            Level: 3
-      - Name: SJ_SUNSTANCE
-        MaxLevel: 3
-        Requires:
-          - Name: SJ_DOCUMENT
-            Level: 1
-      - Name: SJ_SOLARBURST
+      - Name: KO_JYUMONJIKIRI
         MaxLevel: 10
-        Requires:
-          - Name: SJ_PROMINENCEKICK
-            Level: 7
-      - Name: SJ_PROMINENCEKICK
-        MaxLevel: 7
-        Requires:
-          - Name: SJ_SUNSTANCE
-            Level: 1
+      - Name: ASC_BREAKER
+        MaxLevel: 10
+      - Name: SC_TRIANGLESHOT
+        MaxLevel: 10
+      - Name: LK_CONCENTRATION
+        MaxLevel: 5
+      - Name: GC_DARKCROW
+        MaxLevel: 5
+      - Name: ASC_EDP
+        MaxLevel: 5
   - Job: Soul_Reaper
     Inherit:
       Novice: true
-      Taekwon: true
-      Soul_Linker: true
     Tree:
-      - Name: SP_SOULGOLEM
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULREVOLVE
-            Level: 2
-      - Name: SP_SOULSHADOW
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULUNITY
-            Level: 5
-      - Name: SP_SOULFALCON
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULREVOLVE
-            Level: 2
-      - Name: SP_SOULFAIRY
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULUNITY
-            Level: 5
-      - Name: SP_CURSEEXPLOSION
-        MaxLevel: 10
-        Requires:
-          - Name: SP_SOULCURSE
-            Level: 3
-      - Name: SP_SOULCURSE
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULREAPER
-            Level: 3
-      - Name: SP_SPA
-        MaxLevel: 10
-        Requires:
-          - Name: SP_SHA
-            Level: 1
-      - Name: SP_SHA
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULREAPER
-            Level: 3
-      - Name: SP_SWHOO
-        MaxLevel: 10
-        Requires:
-          - Name: SP_SPA
-            Level: 3
-      - Name: SP_SOULUNITY
-        MaxLevel: 7
-        Requires:
-          - Name: SP_SOULENERGY
-            Level: 3
-      - Name: SP_SOULDIVISION
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SPA
-            Level: 5
-          - Name: SP_SHA
-            Level: 5
-      - Name: SP_SOULREAPER
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULCOLLECT
-            Level: 1
-      - Name: SP_SOULREVOLVE
-        MaxLevel: 3
-        Requires:
-          - Name: SP_SOULENERGY
-            Level: 3
-          - Name: SP_KAUTE
-            Level: 3
-      - Name: SP_SOULCOLLECT
-        MaxLevel: 5
-      - Name: SP_SOULEXPLOSION
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULGOLEM
-            Level: 1
-          - Name: SP_SOULSHADOW
-            Level: 1
-          - Name: SP_SOULFALCON
-            Level: 1
-          - Name: SP_SOULFAIRY
-            Level: 1
-          - Name: SP_CURSEEXPLOSION
-            Level: 2
-      - Name: SP_SOULENERGY
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULCOLLECT
-            Level: 1
-      - Name: SP_KAUTE
-        MaxLevel: 5
-        Requires:
-          - Name: SP_SOULENERGY
-            Level: 1
   - Job: Baby_Star_Emperor
     Inherit:
       Baby: true
@@ -6627,8 +4970,8 @@ Body:
       Star_Emperor: true
   - Job: Baby_Soul_Reaper
     Inherit:
-      Baby: true
-      Taekwon: true
+      Novice: true
+      Thief: true
       Soul_Linker: true
       Soul_Reaper: true
   - Job: Star_Emperor2

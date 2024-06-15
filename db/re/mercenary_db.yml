@@ -611,3 +611,327 @@ Body:
     Skills:
       - Name: MER_INVINCIBLEOFF2
         MaxLevel: 1
+  - Id: 2013
+    AegisName: C2_DRACO
+    Name: Draco
+    Level: 50
+    Hp: 5000
+    Sp: 250
+    Attack: 260
+    Attack2: 460
+    Defense: 25
+    MagicDefense: 25
+    Str: 60
+    Agi: 50
+    Vit: 45
+    Int: 25
+    Dex: 85
+    Luk: 30
+    AttackRange: 6
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1000
+    AttackMotion: 950
+    DamageMotion: 300
+    Skills:
+      - Name: MER_SIGHT
+        MaxLevel: 1
+      - Name: MER_SCAPEGOAT
+        MaxLevel: 1
+      - Name: MS_BASH
+        MaxLevel: 5
+  - Id: 1465
+    AegisName: G_PETIT
+    Name: Petite
+    Level: 60
+    Hp: 7000
+    Sp: 30
+    Attack: 230
+    Attack2: 240
+    Defense: 45
+    MagicDefense: 35
+    Str: 50
+    Agi: 40
+    Vit: 55
+    Int: 35
+    Dex: 95
+    Luk: 35
+    AttackRange: 6
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Holy
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1000
+    AttackMotion: 1150
+    DamageMotion: 400
+    Skills:
+      - Name: MER_REGAIN
+        MaxLevel: 1
+      - Name: MER_RECUPERATE
+        MaxLevel: 1
+      - Name: MER_BENEDICTION
+        MaxLevel: 1
+  - Id: 2605
+    AegisName: C3_ZOMBIE_MASTER
+    Name: Novus
+    Level: 75
+    Hp: 9700
+    Sp: 50
+    Attack: 260
+    Attack2: 270
+    Defense: 85
+    MagicDefense: 45
+    Str: 50
+    Agi: 40
+    Vit: 55
+    Int: 45
+    Dex: 135
+    Luk: 35
+    AttackRange: 6
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Water
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 700
+    AttackMotion: 750
+    DamageMotion: 200
+    Skills:
+      - Name: MER_TENDER
+        MaxLevel: 1
+      - Name: MER_DECAGI
+        MaxLevel: 1
+      - Name: MER_LEXDIVINA
+        MaxLevel: 1
+  - Id: 2606
+    AegisName: C4_ZOMBIE
+    Name: Enchanted Dragon
+    Level: 80
+    Hp: 14000
+    Sp: 50
+    Attack: 700
+    Attack2: 500
+    Defense: 95
+    MagicDefense: 45
+    Str: 50
+    Agi: 40
+    Vit: 95
+    Int: 45
+    Dex: 155
+    Luk: 35
+    AttackRange: 6
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Dragon
+    Element: Fire
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1900
+    AttackMotion: 2250
+    DamageMotion: 200
+    Skills:
+      - Name: MER_KYRIE
+        MaxLevel: 1
+      - Name: MS_BASH
+        MaxLevel: 1
+  - Id: 2607
+    AegisName: C5_ZAKUDAM
+    Name: Ferus
+    Level: 90
+    Hp: 12500
+    Sp: 25
+    Attack: 510
+    Attack2: 400
+    Defense: 80
+    MagicDefense: 32
+    Str: 5
+    Agi: 22
+    Vit: 65
+    Int: 45
+    Dex: 145
+    Luk: 15
+    AttackRange: 6
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Water
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1100
+    AttackMotion: 1250
+    DamageMotion: 300
+    Skills:
+      - Name: ML_SPIRALPIERCE
+        MaxLevel: 1
+  - Id: 2608
+    AegisName: C1_YOYO
+    Name: Acidus
+    Level: 90
+    Hp: 11000
+    Sp: 50
+    Attack: 470
+    Attack2: 300
+    Defense: 90
+    MagicDefense: 41
+    Str: 70
+    Agi: 40
+    Vit: 65
+    Int: 45
+    Dex: 175
+    Luk: 35
+    AttackRange: 12
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Fire
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 500
+    AttackMotion: 650
+    DamageMotion: 300
+    Skills:
+      - Name: MER_REGAIN
+        MaxLevel: 1
+      - Name: MER_RECUPERATE
+        MaxLevel: 1
+  - Id: 2609
+    AegisName: C2_YOYO
+    Name: Hydrolancer
+    Level: 100
+    Hp: 15000
+    Sp: 50
+    Attack: 790
+    Attack2: 700
+    Defense: 35
+    MagicDefense: 25
+    Str: 70
+    Agi: 40
+    Vit: 65
+    Int: 5
+    Dex: 195
+    Luk: 35
+    AttackRange: 12
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Dark
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1300
+    AttackMotion: 1450
+    DamageMotion: 300
+    Skills:
+      - Name: MS_MAGNUM
+        MaxLevel: 1
+  - Id: 2610
+    AegisName: C3_WORM_TAIL
+    Name: Detale
+    Level: 120
+    Hp: 30000
+    Sp: 45
+    Attack: 870
+    Attack2: 800
+    Defense: 120
+    MagicDefense: 82
+    Str: 70
+    Agi: 43
+    Vit: 65
+    Int: 12
+    Dex: 235
+    Luk: 35
+    AttackRange: 12
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Dragon
+    Element: Earth
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1800
+    AttackMotion: 1950
+    DamageMotion: 300
+    Skills:
+      - Name: MER_PROVOKE
+        MaxLevel: 1
+      - Name: MER_SCAPEGOAT
+        MaxLevel: 1
+  - Id: 2611
+    AegisName: C4_WOOTAN_FIGHTER
+    Name: Nydhogg
+    Level: 120
+    Hp: 23700
+    Sp: 70
+    Attack: 990
+    Attack2: 800
+    Defense: 40
+    MagicDefense: 52
+    Str: 100
+    Agi: 70
+    Vit: 75
+    Int: 55
+    Dex: 225
+    Luk: 115
+    AttackRange: 12
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Dragon
+    Element: Dark
+    ElementLevel: 1
+    WalkSpeed: 150
+    AttackDelay: 1596
+    AttackMotion: 1620
+    DamageMotion: 864
+    Skills:
+      - Name: ML_SPIRALPIERCE
+        MaxLevel: 2
+      - Name: MS_MAGNUM
+        MaxLevel: 2
+  - Id: 2612
+    AegisName: C5_WOOD_GOBLIN
+    Name: Bone Detale
+    Level: 130
+    Hp: 50000
+    Sp: 80
+    Attack: 1250
+    Attack2: 1300
+    Defense: 140
+    MagicDefense: 25
+    Str: 50
+    Agi: 43
+    Vit: 65
+    Int: 12
+    Dex: 235
+    Luk: 35
+    AttackRange: 12
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Dragon
+    Element: Undead
+    ElementLevel: 1
+    WalkSpeed: 160
+    AttackDelay: 2300
+    AttackMotion: 2250
+    DamageMotion: 350
+    Skills:
+      - Name: MER_PROVOKE
+        MaxLevel: 1
+      - Name: MER_SCAPEGOAT
+        MaxLevel: 1
+      - Name: ML_SPIRALPIERCE
+        MaxLevel: 3

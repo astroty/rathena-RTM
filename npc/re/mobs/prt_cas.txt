@@ -6,5 +6,4 @@
 //= 1.0 First version. [Capuche]
 //============================================================
 
-// Prontera Castle - GLASS_PLATE
-prt_cas,367,138,16,22	monster	Plate	3455,15
+
