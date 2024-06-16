@@ -37577,7 +37577,7 @@ Body:
   - Id: 24088
     AegisName: Medic_Manual_
     Name: Medic ManualX
-    Type: Card
+    Type: Shadowgear
     Buy: 5000
     Weight: 100
     Locations:
