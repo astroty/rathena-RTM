@@ -314,7 +314,7 @@ public:
 extern SkillDatabase skill_db;
 
 #define MAX_SQUARE_LAYOUT		7	// 15*15 unit placement maximum
-#define MAX_SKILL_UNIT_LAYOUT	(48+MAX_SQUARE_LAYOUT)	// 47 special ones + the square ones
+#define MAX_SKILL_UNIT_LAYOUT	(56+MAX_SQUARE_LAYOUT)	// 47 special ones + the square ones
 #define MAX_SKILL_UNIT_LAYOUT2	17
 #define MAX_SKILL_UNIT_COUNT	((MAX_SQUARE_LAYOUT*2+1)*(MAX_SQUARE_LAYOUT*2+1))
 struct s_skill_unit_layout {

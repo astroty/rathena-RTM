@@ -1456,7 +1456,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case TF_POISON:
 	case AS_SPLASHER:
 		if ((sc->data[SC_EDP]))
-			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);				 												
 		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
 			&& sd && skill_id == TF_POISON
 			)
@@ -1973,7 +1973,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				break;
 			}
 			if (ammo_id == 13247) {
-				sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000);
+				sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000); 
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -3777,7 +3777,7 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 
 		if (tsc && tsc->data[SC_MAGICROD] && src == dsrc) {
 			int sp = skill_get_sp(skill_id, skill_lv);
-#ifndef RENEWAL
+#ifndef RENEWAL 
 			clif_skill_nodamage(bl, bl, SA_MAGICROD, skill_lv, 1);
 #endif
 			dmg.damage = dmg.damage2 = 0;
@@ -3945,7 +3945,7 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, GS_DISARM, -2, DMG_SINGLE);
 		break;
 	case CG_ARROWVULCAN:
-		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, AC_SHOWER, -2, DMG_MULTI_HIT);
+		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, AC_SHOWER, -2, DMG_MULTI_HIT); 
 		break;
 	case GN_SLINGITEM_RANGEMELEEATK:
 		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, GN_SLINGITEM, -2, DMG_SINGLE);
@@ -5450,7 +5450,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 				skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 			}
 			else if (sd)
-				skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+				skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag); 
 			}
 		}
 	break;
@@ -5511,7 +5511,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	break;
 	case MO_FINGEROFFENSIVE:
 	{
-
+		
 		struct block_list* mbl = bl; // For NJ_ISSEN
 		short x, y, i = -4; // Move 2 cells (From target)
 		short dir = map_calc_dir(src, bl->x, bl->y);
@@ -6030,7 +6030,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case SP_SOULEXPLOSION:
 		if (!(tsc && (tsc->data[SC_SPIRIT] || tsc->data[SC_SOULGOLEM] || tsc->data[SC_SOULSHADOW] || tsc->data[SC_SOULFALCON] || tsc->data[SC_SOULFAIRY])) || tstatus->hp < 10 * tstatus->max_hp / 100) { // Requires target to have a soul link and more then 10% of MaxHP.
 			// With this skill requiring a soul link, and the target to have more then 10% if MaxHP, I wonder
-			// if the cooldown still happens after it fails. Need a confirm. [Rytech]
+			// if the cooldown still happens after it fails. Need a confirm. [Rytech] 
 			if (sd)
 				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 			break;
@@ -6716,7 +6716,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 					src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
 				flag |= 1; // Don't consume requirement
 				tsc->data[SC_H_MINE]->val3 = 1; // Mark the SC end because not expired
-				status_change_end(bl, SC_H_MINE, INVALID_TIMER);
+				status_change_end(bl, SC_H_MINE, INVALID_TIMER);	
 
 			}
 		}
@@ -6786,7 +6786,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 	case SJ_FALLINGSTAR_ATK:
-		if (sd) { // If a player used the skill it will search for targets marked by that player.
+		if (sd) { // If a player used the skill it will search for targets marked by that player. 
 			if (tsc && tsc->data[SC_FLASHKICK] && tsc->data[SC_FLASHKICK]->val4 == 1) { // Mark placed by a player.
 				int8 i = 0;
 
@@ -7725,7 +7725,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		skill_addtimerskill(src, tick + 100, bl->id, 0, 0, skill_id, skill_lv, BF_WEAPON, flag);
 		break;
-
 
 	case SO_STRIKING:
 		if (battle_check_target(src, bl, BCT_SELF | BCT_PARTY) > 0) {
@@ -9212,7 +9211,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		int x, y, dir = unit_getdir(src);
 		struct map_data* mapdata = &map[src->m];
 
-		//Fails on noteleport maps, except for GvG and BG maps [Skotlex]
+		//Fails on noteleport maps, except for GvG and BG maps [Skotlex]								 
 		if (mapdata->flag[MF_NOTELEPORT] || mapdata_flag_gvg2(mapdata))
 			{
 			clif_skill_nodamage(src, bl, TK_HIGHJUMP, skill_lv, 1);
@@ -9241,7 +9240,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 
 	case SA_CASTCANCEL:
 	case SO_SPELLFIST:
-		sc_start(src, src, SC_SUFFRAGIUM, 100, skill_lv, 3000);
+		sc_start(src, src, SC_SUFFRAGIUM, 100, skill_lv, 3000);												 
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		unit_skillcastcancel(src, 1);
 		if (sd) {
@@ -12195,7 +12194,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			// Detonate RL_H_MINE
 			if ((i = pc_checkskill(sd, RL_H_MINE)))
-				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag|BCT_ENEMY|SD_SPLASH, skill_castend_damage_id);
+				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag | BCT_ENEMY | SD_SPLASH, skill_castend_damage_id);
 				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			sd->flicker = false;
 		}
