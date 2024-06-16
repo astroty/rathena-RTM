@@ -117,6 +117,18 @@ end;
 	end;
 }
 
+-	script	loginshowexpzeny	,{
+	OnPCLoginEvent:
+	if (expgains == 0) {
+		atcommand "@showexp";
+	}
+
+	if (zenygains == 0) {
+		atcommand "@showzeny";
+	}
+	end;
+}
+
 
 ///Merchant License
 
