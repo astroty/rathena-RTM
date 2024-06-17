@@ -2,13 +2,14 @@
 Description=Rathena Login Server
 After=network-online.target remote-fs.target nss-lookup.target
 Wants=network-online.target
+#You might wanna edit the next line if your units are running in different servers instead of all in a single server.
 Requires=char-rathena.service map-rathena.service
 
 [Service]  
 EnvironmentFile=/etc/systemd/system/variables.txt
 Type=single
 PIDFile=/run/map-serv.pid
-User=rathena
+User=${DEFAULTUSER}
 WorkingDirectory=${SERVERLOCATION}
 ExecStart=${SERVERLOCATION}/login-server
 # optional items below
