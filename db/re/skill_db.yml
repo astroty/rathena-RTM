@@ -167,7 +167,7 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    Range: -1
+    Range: 1
     Hit: Multi_Hit
     HitCount: 2
     Element: Weapon
@@ -199,8 +199,6 @@ Body:
         - Level: 10
           Amount: 28
       HpRateCost: 5
-      Weapon:
-        1hSword: true
   - Id: 6
     Name: SM_PROVOKE
     Description: Provoke

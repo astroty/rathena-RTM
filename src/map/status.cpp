@@ -2393,8 +2393,6 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			sc_start4(src,target,SC_PROVOKE,100,10,1,0,0,0);
 		if (sc->data[SC_BERSERK] && status->hp <= 100)
 			status_change_end(target, SC_BERSERK, INVALID_TIMER);
-		if (sc->data[SC_NEN] && status->hp <= 100)
-			status_change_end(target, SC_NEN, INVALID_TIMER);
 		if( sc->data[SC_RAISINGDRAGON] && status->hp <= 1000 )
 			status_change_end(target, SC_RAISINGDRAGON, INVALID_TIMER);
 		if (sc->data[SC_SATURDAYNIGHTFEVER] && status->hp <= 100)
