@@ -15,6 +15,7 @@ ExecStart=${SERVERLOCATION}/login-server
 # optional items below
 Restart=always
 RestartSec=3
+LimitCORE=${DEBUG}
 
 [Install]
 WantedBy=multi-user.target
