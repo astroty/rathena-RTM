@@ -1,0 +1,42 @@
+///Shadow Coffers Trader System
+///Made by MrKen
+
+va_orpha,28,253,5	script	Shadowmaster#orphanage	120,{
+	mes "[Shadow Master]";
+	mes "Here you can exchange your Shadowdecons and Shadow Ores for Shadow Coffers.";
+	next;
+	switch(select("Open the Shops:Leave the Menu")){
+		case 1:
+		switch(select("Shadow Ore:Shadowdecon:Distortion Shards")){
+		case 1:
+		mes "[Shadow Master]";
+		mes "Ok, I will now open the Shadow Ore Shop!.";
+		close2;
+		callshop "shadowore",1;
+		end;
+		break;
+		case 2:
+		mes "[Shadow Master]";
+		mes "Ok, I will now open the Shadowdecon Shop!.";
+		close2;
+		callshop "shadowdecon",1;
+		end;
+		break;
+		case 3:
+		mes "[Shadow Master]";
+		mes "Ok, I will now open the Shard Shop!.";
+		close2;
+		callshop "shards",1;
+		end;
+		break;
+		}
+		case 2:
+		mes "[Shadow Master]";
+		mes "Ok, see you around!.";
+		close;
+	}
+}
+
+-	itemshop	shadowore	-1,25728,14735:8,14731:8,14732:8.
+-	itemshop	shadowdecon	-1,25729,14733:8,14734:8.
+-	itemshop	shards		-1,7360,14731:100,14732:125,14733:150,14734:200.
