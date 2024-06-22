@@ -4,6 +4,8 @@
 [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](https://travis-ci.org/rathena/rathena) [![Build status](https://ci.appveyor.com/api/projects/status/8574b8nlwd57loda/branch/master?svg=true)](https://ci.appveyor.com/project/rAthenaAPI/rathena/branch/master) [![Total alerts](https://img.shields.io/lgtm/alerts/g/rathena/rathena.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/rathena/rathena/alerts/) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/rathena/rathena.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/rathena/rathena/context:cpp) ![GitHub](https://img.shields.io/github/license/rathena/rathena.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/rathena/rathena.svg)
 > rAthena is a collaborative software development project revolving around the creation of a robust massively multiplayer online role playing game (MMORPG) server package. Written in C, the program is very versatile and provides NPCs, warps and modifications. The project is jointly managed by a group of volunteers located around the world as well as a tremendous community providing QA and support. rAthena is a continuation of the eAthena project.
 
+> This is a fork of rAthena intending to continue Project Return to Morroc. Therefore it contains many modifications that make it incompatible with clients that aren't made expecifically to work with it.
+
 [Forum](https://rathena.org/board)|[Discord](https://rathena.org/discord)|[Wiki](https://github.com/rathena/rathena/wiki)|[FluxCP](https://github.com/rathena/FluxCP)|[Crowdfunding](https://rathena.org/board/crowdfunding/)|[Fork and Pull Request Q&A](https://rathena.org/board/topic/86913-pull-request-qa/)
 --------|--------|--------|--------|--------|--------
 
@@ -56,7 +58,7 @@ Database | [MySQL Workbench 5 or newer](http://www.mysql.com/downloads/workbench
 If you're having problems with starting your server, the first thing you should
 do is check what's happening on your consoles. More often that not, all support issues
 can be solved simply by looking at the error messages given. Check out the [wiki](https://github.com/rathena/rathena/wiki)
-or [forums](https://rathena.org/forum) if you need more support on troubleshooting.
+if you need more support on troubleshooting.
 
 ## 4. More Documentation
 rAthena has a large collection of help files and sample NPC scripts located in the /doc/
@@ -65,8 +67,5 @@ group permissions, item bonuses, and packet structures, among many other topics.
 recommend that all users take the time to look over this directory before asking for
 assistance elsewhere.
 
-## 5. How to Contribute
-Details on how to contribute to rAthena can be found in [CONTRIBUTING.md](https://github.com/rathena/rathena/blob/master/.github/CONTRIBUTING.md)!
-
-## 6. License
-Copyright (c) rAthena Development Team - Licensed under [GNU General Public License v3.0](https://github.com/rathena/rathena/blob/master/LICENSE)
+## 5. License
+This fork is Licensed under [GNU AFFERO GENERAL PUBLIC LICENSE v3.0](https://github.com/astroty/rathena-RTM/blob/PRM/LICENSE)
