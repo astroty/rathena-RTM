@@ -2181,7 +2181,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Pink_Shirt
-        Rate: 1500
+        Rate: 700
         RandomOptionGroup: armor
       - Item: Legacy_of_Blessing_A
         Rate: 850
@@ -2268,10 +2268,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Dark_Beak
-        Rate: 1100
+        Rate: 750
         RandomOptionGroup: scythe
       - Item: Web_Bow
-        Rate: 1100
+        Rate: 750
         RandomOptionGroup: bow
       - Item: Legacy_of_Blessing_S
         Rate: 850
@@ -2282,7 +2282,7 @@ Body:
       - Item: Pure_GoldMVP
         Rate: 10
       - Item: Slime_Ring
-        Rate: 750
+        Rate: 450
         RandomOptionGroup: accessory
   - Id: 1054
     AegisName: THIEF_BUG__
@@ -7706,7 +7706,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Black_Shirt
-        Rate: 1200
+        Rate: 700
         RandomOptionGroup: armor
       - Item: Legacy_of_Blessing_G
         Rate: 850
@@ -74424,15 +74424,15 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Run_Shoes
-        Rate: 1000
+        Rate: 800
         RandomOptionGroup: shoes
       - Item: Undershirt
-        Rate: 900
+        Rate: 700
         RandomOptionGroup: garment
       - Item: Legacy_Adv_Coffer
         Rate: 500
       - Item: Black_Wing
-        Rate: 750
+        Rate: 650
         RandomOptionGroup: dagger
       - Item: HD_Elunium
         Rate: 75
