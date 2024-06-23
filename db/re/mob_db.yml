@@ -74421,7 +74421,7 @@ Body:
       - Item: Ora_Ora
         Rate: 10000
       - Item: Fulbuk_Card
-        Rate: 100
+        Rate: 150
         StealProtected: true
       - Item: Run_Shoes
         Rate: 800
