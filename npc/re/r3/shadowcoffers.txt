@@ -159,7 +159,7 @@ va_orpha,299,306,3	script	Fluffers#shadowapprentice	1019,{
 		end;
 		break;
 		case 7:
-		callshop "ht",1;
+		callshop "htssg",1;
 		end;
 		break;
 		case 8:
