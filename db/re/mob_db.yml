@@ -7774,7 +7774,7 @@ Body:
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Medic_Manual
-        Rate: 600
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Dark_Tights
         Rate: 600
