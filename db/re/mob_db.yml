@@ -41982,7 +41982,7 @@ Body:
       - Item: Queen_WingMVP
         Rate: 10
       - Item: Scaraba_Tower
-        Rate: 300
+        Rate: 200
         RandomOptionGroup: shield
   - Id: 2085
     AegisName: ANTLER_SCARABA
