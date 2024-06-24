@@ -4047,7 +4047,7 @@ Body:
         Rate: 300
         RandomOptionGroup: dagger
       - Item: Nest_Fiber
-        Rate: 300
+        Rate: 200
         RandomOptionGroup: bow
       - Item: Berkano_Rune_of_Beginning
         Rate: 250
@@ -7046,7 +7046,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Old_Anklet
-        Rate: 300
+        Rate: 250
         RandomOptionGroup: accessory
       - Item: Insect_Peeling
         Rate: 10000
@@ -41970,7 +41970,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: ArchBlack_Shoes
-        Rate: 150
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Dark_Tights
         Rate: 300
@@ -42079,13 +42079,13 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Nest_Fiber
-        Rate: 600
+        Rate: 400
         RandomOptionGroup: bow
       - Item: Carapace_Armor
-        Rate: 600
+        Rate: 450
         RandomOptionGroup: armor
       - Item: Hagalaz_Rune_of_Transf
-        Rate: 550
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Maya_CrownMVP
         Rate: 10

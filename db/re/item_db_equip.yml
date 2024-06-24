@@ -9987,7 +9987,7 @@ Body:
     Type: Weapon
     SubType: 2hSpear
     Buy: 500
-    Sell: 250
+    Sell: 125
     Weight: 900
     Attack: 25
     Range: 3
@@ -14501,7 +14501,7 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 500
-    Sell: 250
+    Sell: 125
     Weight: 50
     Attack: 5
     MagicAttack: 5
@@ -21756,6 +21756,7 @@ Body:
     Type: Weapon
     SubType: Whip
     Buy: 500
+    Sell: 100
     Weight: 500
     Attack: 13
     MagicAttack: 13
@@ -21766,6 +21767,7 @@ Body:
       SuperNovice: true
     Classes:
       Baby: true
+    Gender: Female
     Locations:
       Both_Hand: true
     WeaponLevel: 2
@@ -29498,6 +29500,7 @@ Body:
     Name: Dark Tights
     Type: Armor
     Buy: 500
+    Sell: 150
     Weight: 300
     Defense: 8
     Slots: 1
@@ -30157,6 +30160,7 @@ Body:
     Name: Carapace Armor
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 1000
     Defense: 30
     Slots: 1
@@ -36127,6 +36131,7 @@ Body:
     Name: Old Anklet
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 100
     Slots: 1
     Jobs:
@@ -61803,6 +61808,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 800
+    Sell: 100
     Weight: 800
     Attack: 14
     Range: 1
@@ -69262,6 +69268,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 500
+    Sell: 100
     Weight: 1500
     Attack: 12
     Range: 3
@@ -77795,6 +77802,7 @@ Body:
     Name: Insect Wings
     Type: Armor
     Buy: 500
+    Sell: 75
     Weight: 250
     Defense: 5
     Slots: 1
@@ -110834,6 +110842,7 @@ Body:
     Name: ArchBlack Shoes
     Type: Armor
     Buy: 1000
+    Sell: 250
     Weight: 250
     Defense: 3
     Locations:
@@ -116279,6 +116288,7 @@ Body:
     Name: Quick Swarming A
     Type: Shadowgear
     Buy: 1000
+    Sell: 250
     Weight: 100
     Locations:
       Shadow_Armor: true
@@ -116293,6 +116303,7 @@ Body:
     Name: Quick Swarming G
     Type: Shadowgear
     Buy: 1000
+    Sell: 250
     Weight: 100
     Locations:
       Shadow_Shield: true
@@ -116307,6 +116318,7 @@ Body:
     Name: Quick Swarming S
     Type: Shadowgear
     Buy: 1000
+    Sell: 250
     Weight: 100
     Locations:
       Shadow_Shoes: true
@@ -116321,6 +116333,7 @@ Body:
     Name: Quick Swarming P
     Type: Shadowgear
     Buy: 1000
+    Sell: 250
     Weight: 100
     Locations:
       Shadow_Left_Accessory: true
