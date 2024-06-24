@@ -42068,7 +42068,7 @@ Body:
       Detector: true
     Drops:
       - Item: Quick_Swarming_P
-        Rate: 300
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Insect_Peeling
         Rate: 10000
@@ -42079,13 +42079,13 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Nest_Fiber
-        Rate: 200
+        Rate: 600
         RandomOptionGroup: bow
       - Item: Carapace_Armor
-        Rate: 200
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Hagalaz_Rune_of_Transf
-        Rate: 50
+        Rate: 550
         RandomOptionGroup: manual
       - Item: Maya_CrownMVP
         Rate: 10
