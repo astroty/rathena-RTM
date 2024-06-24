@@ -4041,13 +4041,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Joker_Calm
-        Rate: 1500
+        Rate: 450
         RandomOptionGroup: deck
       - Item: Light_Vortex
-        Rate: 950
+        Rate: 300
         RandomOptionGroup: dagger
       - Item: Nest_Fiber
-        Rate: 950
+        Rate: 300
         RandomOptionGroup: bow
       - Item: Berkano_Rune_of_Beginning
         Rate: 550
@@ -4504,10 +4504,10 @@ Body:
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Harpoon
-        Rate: 1050
+        Rate: 450
         RandomOptionGroup: spear
       - Item: Carapace_Armor
-        Rate: 1250
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Soldier_Andre_Card
         Rate: 100
@@ -4517,10 +4517,10 @@ Body:
       - Item: Queen_WingMVP
         Rate: 10
       - Item: Insect_Wings
-        Rate: 1250
+        Rate: 450
         RandomOptionGroup: garment
       - Item: Dawnstar
-        Rate: 950
+        Rate: 300
         RandomOptionGroup: whip
   - Id: 1106
     AegisName: DESERT_WOLF
@@ -7046,7 +7046,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Old_Anklet
-        Rate: 1000
+        Rate: 450
         RandomOptionGroup: accessory
       - Item: Insect_Peeling
         Rate: 10000
@@ -7054,10 +7054,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Joker_Calm
-        Rate: 1000
+        Rate: 450
         RandomOptionGroup: deck
       - Item: ArchBlack_Shoes
-        Rate: 700
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Maya_CrownMVP
         Rate: 10
@@ -7769,15 +7769,15 @@ Body:
         Rate: 150
         StealProtected: true
       - Item: Old_Anklet
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: accessory
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Medic_Manual
-        Rate: 900
+        Rate: 600
         RandomOptionGroup: manual
       - Item: Dark_Tights
-        Rate: 1000
+        Rate: 600
         RandomOptionGroup: armor
   - Id: 1177
     AegisName: ZENORC
@@ -41970,10 +41970,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: ArchBlack_Shoes
-        Rate: 700
+        Rate: 450
         RandomOptionGroup: shoes
       - Item: Dark_Tights
-        Rate: 1000
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Elunium
         Rate: 150
