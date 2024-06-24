@@ -4041,16 +4041,16 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Joker_Calm
-        Rate: 1500
+        Rate: 300
         RandomOptionGroup: deck
       - Item: Light_Vortex
-        Rate: 950
+        Rate: 300
         RandomOptionGroup: dagger
       - Item: Nest_Fiber
-        Rate: 950
+        Rate: 200
         RandomOptionGroup: bow
       - Item: Berkano_Rune_of_Beginning
-        Rate: 550
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Maya_CrownMVP
         Rate: 10
@@ -4504,10 +4504,10 @@ Body:
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Harpoon
-        Rate: 1050
+        Rate: 325
         RandomOptionGroup: spear
       - Item: Carapace_Armor
-        Rate: 1250
+        Rate: 450
         RandomOptionGroup: armor
       - Item: Soldier_Andre_Card
         Rate: 100
@@ -4517,10 +4517,10 @@ Body:
       - Item: Queen_WingMVP
         Rate: 10
       - Item: Insect_Wings
-        Rate: 1250
+        Rate: 400
         RandomOptionGroup: garment
       - Item: Dawnstar
-        Rate: 950
+        Rate: 300
         RandomOptionGroup: whip
   - Id: 1106
     AegisName: DESERT_WOLF
@@ -7046,7 +7046,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Old_Anklet
-        Rate: 1000
+        Rate: 250
         RandomOptionGroup: accessory
       - Item: Insect_Peeling
         Rate: 10000
@@ -7054,10 +7054,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Joker_Calm
-        Rate: 1000
+        Rate: 300
         RandomOptionGroup: deck
       - Item: ArchBlack_Shoes
-        Rate: 700
+        Rate: 150
         RandomOptionGroup: shoes
       - Item: Maya_CrownMVP
         Rate: 10
@@ -7769,15 +7769,15 @@ Body:
         Rate: 150
         StealProtected: true
       - Item: Old_Anklet
-        Rate: 800
+        Rate: 300
         RandomOptionGroup: accessory
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Medic_Manual
-        Rate: 900
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Dark_Tights
-        Rate: 1000
+        Rate: 300
         RandomOptionGroup: armor
   - Id: 1177
     AegisName: ZENORC
@@ -12672,16 +12672,16 @@ Body:
       - Item: MVP_Reward_Box
         Rate: 50
       - Item: Quick_Swarming_A
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: shadow
       - Item: Quick_Swarming_G
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: shadow
       - Item: Quick_Swarming_S
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: shadow
       - Item: Quick_Swarming_P
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: shadow
       - Item: Mother's_Nightmare
         Rate: 500
@@ -41970,10 +41970,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: ArchBlack_Shoes
-        Rate: 700
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Dark_Tights
-        Rate: 1000
+        Rate: 300
         RandomOptionGroup: armor
       - Item: Elunium
         Rate: 150
@@ -41982,7 +41982,7 @@ Body:
       - Item: Queen_WingMVP
         Rate: 10
       - Item: Scaraba_Tower
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: shield
   - Id: 2085
     AegisName: ANTLER_SCARABA
@@ -42068,7 +42068,7 @@ Body:
       Detector: true
     Drops:
       - Item: Quick_Swarming_P
-        Rate: 300
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Insect_Peeling
         Rate: 10000
@@ -42079,13 +42079,13 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Nest_Fiber
-        Rate: 200
+        Rate: 400
         RandomOptionGroup: bow
       - Item: Carapace_Armor
-        Rate: 200
+        Rate: 450
         RandomOptionGroup: armor
       - Item: Hagalaz_Rune_of_Transf
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Maya_CrownMVP
         Rate: 10
