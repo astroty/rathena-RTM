@@ -1,0 +1,227 @@
+///Shadow Coffers Trader System
+///Made by MrKen
+
+-	itemshop	shadowore	-1,25728,14702:8,14735:8,14731:8,14732:8.
+-	itemshop	shadowdecon	-1,25729,14733:8,14734:8,14715:50.
+-	itemshop	shards		-1,7360,14731:100,14732:125,14733:150,14734:200.
+-	shop	zenycoff	-1,14717:1000,14706:5000,14713:7500,14705:10000,14727:12500,14730:15000,14714:20000.
+-	shop	poringssg	-1,24694:2000,24693:2000,24695:2000,24697:2000.
+-	shop	insectssg	-1,24270:3000,24271:3000,24272:3000,24273:3000.
+-	shop	elessg		-1,24278:4000,24279:4000,24280:4000,24281:4000,24282:4000,24283:4000,24284:4000,24285:4000,24286:4000,24287:4000,24288:4000,24289:4000,24290:4000,24291:4000,24292:4000,24293:4000,24322:4000,24323:4000,24324:4000,24325:4000.
+-	shop	elessg2		-1,24298:8000,24299:8000,24300:8000,24301:8000.
+-	shop	gobssg		-1,24512:5000,24513:5000,24514:5000,24515:5000.
+-	shop	cleanssg	-1,24306:10000,24307:10000,24308:10000,24309:10000.
+-	shop	speedssg	-1,24330:9000,24331:9000,24332:9000,24333:9000.
+-	shop	aspdssg		-1,24334:15000,24335:15000,24336:15000,24337:15000.
+-	shop	defssg		-1,24338:10000,24339:10000,24340:10000,24341:10000.
+-	shop	toyssg		-1,24342:15000,24343:15000,24344:15000,24345:10000.
+-	shop	pollssg		-1,24346:5000,24347:5000,24348:5000,24349:5000.
+-	shop	drgssg		-1,24350:10000,24351:10000,24352:10000,24353:10000.
+-	shop	fctssg		-1,24354:15000,24355:15000,24356:15000,24357:15000.
+-	shop	drkssg		-1,24374:10000,24375:10000,24376:10000,24377:10000,24379:10000,24380:10000,24381:10000,24382:10000.
+-	shop	acssg		-1,24383:15000,24384:15000,24385:15000,24386:15000.
+-	shop	htssg		-1,24391:10000,24392:10000,24393:10000,24394:10000.
+-	shop	ntssg		-1,24395:10000,24396:10000,24397:10000,24398:10000.
+-	shop	resssg		-1,24403:20000,24404:20000,24405:20000,24406:20000.
+-	shop	spssg		-1,24411:20000,24412:20000,24413:20000,24414:20000.
+-	shop	szdefssg	-1,24415:25000,24416:25000,24417:25000,24418:25000.
+-	shop	szatkssg	-1,24419:25000,24420:25000,24421:25000,24423:25000.
+-	shop	szmatkssg	-1,24424:25000,24425:25000,24426:25000,24427:25000.
+-	shop	szallssg	-1,24428:30000,24429:30000,24430:30000,24431:30000.
+-	shop	defpssg		-1,24432:50000,24433:50000,24434:50000,24435:50000.
+-	shop	mdefpssg	-1,24436:50000,24437:50000,24438:50000,24439:50000.
+-	shop	timessg		-1,24440:60000,24441:60000,24442:60000,24443:60000.
+-	shop	rflssg		-1,24444:70000,24445:70000,24446:70000,24447:70000.
+-	shop	tonkssg		-1,24452:80000,24453:80000,24454:80000,24455:80000.
+-	shop	brkssg		-1,24448:100000,24449:100000,24450:100000,24451:100000.
+
+va_orpha,299,304,5	script	Shadowmaster#orphanage	120,{
+	mes "[Shadow Master]";
+	mes "Here you can exchange your Shadowdecons and Shadow Ores for Shadow Coffers.";
+	mes "Or you can check my Apprentice for antique Coffers or My Set Colletion.";
+	next;
+	switch(select("Open the Shops:Leave the Menu")){
+		case 1:
+		switch(select("Shadow Ore:Shadowdecon:Distortion Shards")){
+		case 1:
+		mes "[Shadow Master]";
+		mes "Ok, I will now open the Shadow Ore Shop!.";
+		close2;
+		callshop "shadowore",1;
+		end;
+		break;
+		case 2:
+		mes "[Shadow Master]";
+		mes "Ok, I will now open the Shadowdecon Shop!.";
+		close2;
+		callshop "shadowdecon",1;
+		end;
+		break;
+		case 3:
+		mes "[Shadow Master]";
+		mes "Ok, I will now open the Shard Shop!.";
+		close2;
+		callshop "shards",1;
+		end;
+		break;
+		}
+		case 2:
+		mes "[Shadow Master]";
+		mes "Ok, see you around!.";
+		close;
+	}
+}
+
+va_orpha,299,306,3	script	Fluffers#shadowapprentice	1019,{
+	set .@npc$,	"[Fluffers the Shadow Apprentice]";
+	mes .@npc$;
+	mes "Sup Bucko, you coming over to see my Master's collection? *bok-bok-bok*";
+	mes "It might or might not be cheap. Depending on what you are looking for. *bok-bok-bok*";
+	next;
+	switch(select("Check the Collection:Leave")){
+	case 1:
+		switch(select("Coffers:Shadow Sets Part One:Shadow Sets Part Two:Shadow Sets Part Three")){
+	case 1:
+		mes "There you go Bucko. *bok-bok-bok*";
+		close2;
+		callshop "zenycoff",1;
+		end;
+		break;
+	case 2:
+	mes .@npc$;
+	mes "Hope you have money Bucko. *bok-bok-bok*";
+	close2;
+		switch(select("Poring:DMG vs Elements:DMG vs All Elements:DMG vs Dark/Holy:ATK:Clean:Poison Chance:Movement Speed:ASPD")){
+		case 1:
+		callshop "poringssg",1;
+		end;
+		break;
+		case 2:
+		callshop "elessg",1;
+		end;
+		break;
+		case 3:
+		callshop "elessg2",1;
+		end;
+		break;
+		case 4:
+		callshop "drkssg",1;
+		end;
+		break;
+		case 5:
+		callshop "gobssg",1;
+		end;
+		break;
+		case 6:
+		callshop "cleanssg",1;
+		end;
+		break;
+		case 7:
+		callshop "pollssg",1;
+		end;
+		break;
+		case 8:
+		callshop "speedssg",1;
+		end;
+		break;
+		case 9:
+		callshop "aspdssg",1;
+		end;
+		break;
+	}
+	case 3:
+	mes .@npc$;
+	mes "Hope you have more money Bucko. *bok-bok-bok*.";
+	close2;
+		switch(select("DEF:MDEF:Recover on Kill:Fixed Cast Time:After Cast Delay:Auto Cast:Hit/Perfect Hit:Phoenix:SP Reduction")){
+		case 1:
+		callshop "defssg",1;
+		end;
+		break;
+		case 2:
+		callshop "drgssg",1;
+		end;
+		break;
+		case 3:
+		callshop "toyssg",1;
+		end;
+		break;
+		case 4:
+		callshop "fctssg",1;
+		end;
+		break;
+		case 5:
+		callshop "insectssg",1;
+		end;
+		break;
+		case 6:
+		callshop "acssg",1;
+		end;
+		break;
+		case 7:
+		callshop "htssg",1;
+		end;
+		break;
+		case 8:
+		callshop "resssg",1;
+		end;
+		break;
+		case 9:
+		callshop "spssg",1;
+		end;
+		break;
+	}
+	case 4:
+	mes .@npc$;
+	mes "Hope you have much more money Bucko. *bok-bok-bok*";
+	mes "Because those pockets seems a bit small. *bok-bok-bok*";
+	close2;
+		switch(select("Size DEF:Size Phys:Size Magic:Size All:DEF Pierce:MDEF Pierce:Timeless Set:Reflect Set:Yggdrasil Set:Berserker Set")){
+		case 1:
+		callshop "szdefssg",1;
+		end;
+		break;
+		case 2:
+		callshop "szatkssg",1;
+		end;
+		break;
+		case 3:
+		callshop "szmatkssg",1;
+		end;
+		break;
+		case 4:
+		callshop "szallssg",1;
+		end;
+		break;
+		case 5:
+		callshop "defpssg",1;
+		end;
+		break;
+		case 6:
+		callshop "mdefpssg",1;
+		end;
+		break;
+		case 7:
+		callshop "timessg",1;
+		end;
+		break;
+		case 8:
+		callshop "rflssg",1;
+		end;
+		break;
+		case 9:
+		callshop "tonkssg",1;
+		end;
+		break;
+		case 10:
+		callshop "brkssg",1;
+		end;
+		break;
+	}
+	}
+	case 2:
+	mes .@npc$;
+	mes "See you next time Bucko. *bok-bok-bok*";
+	close;
+}
+}

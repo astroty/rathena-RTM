@@ -52,51 +52,51 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
       - Slot: 3
         Options:
           - Option: ADDEXPPERCENT_KILLRACE_INSECT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
           - Option: ADDEXPPERCENT_KILLRACE_FISHS
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
           - Option: HEAL_MODIFY_PERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
   - Id: 2
@@ -105,55 +105,55 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ITEMDEFPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 4000
           - Option: VAR_MDEFPOWER
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 4000
           - Option: VAR_PLUSAVOIDSUCCESSVALUE
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 4000
       - Slot: 3
         Options:
           - Option: ADDEXPPERCENT_KILLRACE_INSECT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
           - Option: ADDEXPPERCENT_KILLRACE_FISHS
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
           - Option: HEAL_MODIFY_PERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
   - Id: 3
@@ -162,51 +162,51 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_AVOIDSUCCESSVALUE
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
           - Option: VAR_PLUSAVOIDSUCCESSVALUE
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
       - Slot: 3
         Options:
           - Option: VAR_HPACCELERATION
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 1000
           - Option: VAR_SPACCELERATION
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: BODY_ATTR_FIRE
-            MinValue: 2
+            MinValue: 5
             MaxValue: 5
             Chance: 1000
           - Option: ADDEXPPERCENT_KILLRACE_PLANT
@@ -219,47 +219,47 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
       - Slot: 2
         Options:
           - Option: ADDEXPPERCENT_KILLRACE_NOTHING
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
           - Option: VAR_PLUSASPDPERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
       - Slot: 3
         Options:
           - Option: DEC_SPELL_CAST_TIME
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: DEC_SPELL_DELAY_TIME
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: BODY_ATTR_WIND
@@ -342,55 +342,55 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_CRITICALSUCCESSVALUE
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: VAR_HITSUCCESSVALUE
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 3000
           - Option: ADDEXPPERCENT_KILLRACE_HUMAN
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
       - Slot: 3
         Options:
           - Option: ADDSKILLMDAMAGE_ALL
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: DAMAGE_SIZE_PERFECT
@@ -439,59 +439,59 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_CRITICALSUCCESSVALUE
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: VAR_HITSUCCESSVALUE
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 3000
           - Option: ADDEXPPERCENT_KILLRACE_HUMAN
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
       - Slot: 3
         Options:
           - Option: ADDSKILLMDAMAGE_ALL
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: DAMAGE_SIZE_PERFECT
@@ -540,55 +540,55 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: DEC_SPELL_DELAY_TIME
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: VAR_HITSUCCESSVALUE
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 3000
           - Option: ADDEXPPERCENT_KILLRACE_HUMAN
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
       - Slot: 3
         Options:
           - Option: ADDSKILLMDAMAGE_ALL
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: DAMAGE_SIZE_PERFECT
@@ -612,11 +612,11 @@ Body:
             MaxValue: 200
             Chance: 4000
           - Option: ADDEXPPERCENT_KILLRACE_INSECT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 4000
           - Option: ADDEXPPERCENT_KILLRACE_FISHS
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 4000
           - Option: ADDEXPPERCENT_KILLRACE_DEVIL
@@ -637,55 +637,55 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_CRITICALSUCCESSVALUE
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: VAR_HITSUCCESSVALUE
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 3000
           - Option: ADDEXPPERCENT_KILLRACE_HUMAN
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
       - Slot: 3
         Options:
           - Option: DAMAGE_CRI_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: DAMAGE_SIZE_PERFECT
@@ -734,59 +734,59 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_CRITICALSUCCESSVALUE
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: VAR_HITSUCCESSVALUE
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 3000
           - Option: ADDEXPPERCENT_KILLRACE_HUMAN
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
       - Slot: 3
         Options:
           - Option: DAMAGE_CRI_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: REFLECT_DAMAGE_PERCENT
@@ -829,63 +829,63 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_CRITICALSUCCESSVALUE
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: VAR_HITSUCCESSVALUE
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 3000
           - Option: ADDEXPPERCENT_KILLRACE_HUMAN
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 3000
       - Slot: 3
         Options:
           - Option: ADDSKILLMDAMAGE_ALL
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 4000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 2000
           - Option: ADDSKILLMDAMAGE_UNDEAD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 1000
       - Slot: 4
@@ -928,23 +928,23 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 7
             MaxValue: 7
             Chance: 5000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 7
             MaxValue: 7
             Chance: 5000
       - Slot: 2
         Options:
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 7
             MaxValue: 7
             Chance: 10000
       - Slot: 3
         Options: 
           - Option: BODY_ATTR_WIND
-            MinValue: 1
+            MinValue: 7
             MaxValue: 7
             Chance: 1000
   - Id: 14
@@ -953,47 +953,47 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 5000
       - Slot: 3
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
   - Id: 15
@@ -1661,13 +1661,13 @@ Body:
       - Slot: 1
         Options:
           - Option: BODY_ATTR_UNDEAD
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
   - Id: 17
@@ -1676,13 +1676,13 @@ Body:
       - Slot: 1
         Options:
           - Option: BODY_ATTR_UNDEAD
-            MinValue: 4
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 4
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
   - Id: 18
@@ -1691,27 +1691,27 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 2000
   - Id: 19
@@ -1720,43 +1720,43 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
       - Slot: 2
         Options:
           - Option: MELEE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 4000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 4000
           - Option: VAR_MAGICATKPERCENT
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 2000
           - Option: DAMAGE_CRI_TARGET
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 4000
       - Slot: 3
         Options:
           - Option: VAR_PLUSASPD
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 3000
           - Option: DEC_SPELL_DELAY_TIME
@@ -1764,7 +1764,7 @@ Body:
             MaxValue: 5
             Chance: 1000
           - Option: VAR_CRITICALSUCCESSVALUE
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 3000
   - Id: 20
@@ -1773,55 +1773,55 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 2
             MaxValue: 2
             Chance: 2000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
           - Option: VAR_MAXSPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
           - Option: VAR_ATTPOWER
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_ATTMPOWER
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
       - Slot: 3
         Options:
           - Option: DEC_SPELL_DELAY_TIME
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: VAR_PLUSASPDPERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: BODY_ATTR_WIND
@@ -1829,11 +1829,11 @@ Body:
             MaxValue: 1
             Chance: 1000
           - Option: VAR_PLUSAVOIDSUCCESSVALUE
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 1000
           - Option: VAR_PLUSASPDPERCENT
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: BODY_ATTR_WIND
@@ -1841,19 +1841,19 @@ Body:
             MaxValue: 1
             Chance: 1000
           - Option: VAR_HPACCELERATION
-            MinValue: 10
+            MinValue: 20
             MaxValue: 20
             Chance: 1000
           - Option: VAR_SPACCELERATION
-            MinValue: 5
+            MinValue: 15
             MaxValue: 15
             Chance: 1000
           - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
           - Option: ADDEXPPERCENT_KILLRACE_NOTHING
-            MinValue: 5
+            MinValue: 10
             MaxValue: 10
             Chance: 1000
       - Slot: 4
@@ -2492,39 +2492,39 @@ Body:
       - Slot: 1
         Options:
           - Option: VAR_STRAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_AGIAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_VITAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_INTAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_DEXAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
           - Option: VAR_LUKAMOUNT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 2000
       - Slot: 2
         Options:
           - Option: ATTR_TOLERACE_WATER
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 10000
       - Slot: 3
         Options:
           - Option: ATTR_TOLERACE_GROUND
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 10000
   - Id: 22
@@ -2559,13 +2559,13 @@ Body:
       - Slot: 2
         Options:
           - Option: ATTR_TOLERACE_WATER
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 10000
       - Slot: 3
         Options:
           - Option: ATTR_TOLERACE_GROUND
-            MinValue: 1
+            MinValue: 10
             MaxValue: 10
             Chance: 10000
             

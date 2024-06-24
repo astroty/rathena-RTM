@@ -2089,7 +2089,7 @@ Body:
       Splash: true
     Flags:
       TargetTrap: true
-    Range: 4
+    Range: 3
     Hit: Single
     SplashArea: 2
     HitCount: 1
