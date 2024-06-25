@@ -70,7 +70,7 @@
 15447:15449:15451:15453,{ bonus bMaxHPrate,10; bonus bMaxSPrate,10; bonus bHealPower2,25; bonus bMaxHP,2*(readparam(bVit)); bonus2 bSubEle,Ele_Neutral,10; skill "SM_MOVINGRECOVERY",1; }
 15448:15450:15452:15454,{ bonus bMaxHPrate,10; bonus bMaxSPrate,10; bonus bHealPower2,25; bonus bMaxHP,2*(readparam(bVit)); bonus2 bSubEle,Ele_Neutral,10; skill "SM_MOVINGRECOVERY",1; }
 15455:15449:15451:15453,{ bonus bMaxHPrate,10; bonus bMaxSPrate,10; bonus bSPrecovRate,50; bonus2 bSubEle,Ele_Neutral,10; skill "SM_MOVINGRECOVERY",1; bonus2 bSkillHeal,"AL_HEAL",20; bonus2 bSkillHeal,"CR_SLIMPITCHER",20; bonus2 bSkillHeal,"AB_CHEAL",20; bonus2 bSkillHeal,"AM_POTIONPITCHER",20; }
-15456:15450:15452:15453,{ bonus bSPrecovRate,50; bonus2 bSubEle,Ele_Neutral,10; skill "SM_MOVINGRECOVERY",1; bonus2 bSkillHeal,"AL_HEAL",20; bonus2 bSkillHeal,"CR_SLIMPITCHER",20; bonus2 bSkillHeal,"AB_CHEAL",20; bonus2 bSkillHeal,"AM_POTIONPITCHER",20; }
+15456:15450:15452:15454,{ bonus bSPrecovRate,50; bonus2 bSubEle,Ele_Neutral,10; skill "SM_MOVINGRECOVERY",1; bonus2 bSkillHeal,"AL_HEAL",20; bonus2 bSkillHeal,"CR_SLIMPITCHER",20; bonus2 bSkillHeal,"AB_CHEAL",20; bonus2 bSkillHeal,"AM_POTIONPITCHER",20; }
 1573:2334,{ bonus bMdef,8; bonus bMaxSPRate,10; bonus bInt,4; }
 16100:16101:16102,{ bonus bNoKnockback; bonus2 bAddSize,Size_All,5; bonus2 bMagicAddSize,Size_All,5; bonus bAllStats,1; }
 16159:16160,{ bonus bMatkRate,1; bonus bFixedCastrate,-25; }
