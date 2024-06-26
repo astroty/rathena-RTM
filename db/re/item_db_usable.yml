@@ -31379,6 +31379,7 @@ Body:
     Name: Legacy Adv Coffer
     Type: Usable
     Buy: 2000
+    Sell: 200
     Weight: 1000
     Flags:
       Container: true

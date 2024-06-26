@@ -145,7 +145,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 9
     Range: 1
@@ -237,7 +237,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 20
     Range: 1
@@ -1012,7 +1012,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 13
     Range: 1
@@ -1726,7 +1726,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 8
     MagicAttack: 1
@@ -1994,7 +1994,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 9
     Range: 2
@@ -2238,7 +2238,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 20
     MagicAttack: 5
@@ -2811,7 +2811,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 13
     Range: 2
@@ -3628,7 +3628,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 600
     Attack: 5
     Range: 1
@@ -3734,7 +3734,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 600
     Attack: 2
     MagicAttack: 10
@@ -3846,7 +3846,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 600
     Attack: 8
     Range: 1
@@ -3958,7 +3958,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 600
     Attack: 10
     Range: 1
@@ -4177,7 +4177,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 600
     Attack: 9
     MagicAttack: 3
@@ -5250,7 +5250,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 600
     Attack: 7
     Defense: 5
@@ -9461,7 +9461,7 @@ Body:
     Type: Weapon
     SubType: 1hSpear
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1000
     Attack: 12
     MagicAttack: 3
@@ -9513,7 +9513,7 @@ Body:
     Type: Weapon
     SubType: 2hSpear
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 1500
     Attack: 16
     MagicAttack: 5
@@ -11569,7 +11569,7 @@ Body:
     Type: Weapon
     SubType: 1hSpear
     Buy: 500
-    Sell: 250
+    Sell: 50
     Weight: 1000
     Attack: 15
     Range: 3
@@ -12033,7 +12033,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 2000
     Attack: 12
     Range: 1
@@ -13357,7 +13357,7 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 200
     Attack: 1
     MagicAttack: 1
@@ -13384,7 +13384,7 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 50
     Attack: 5
     MagicAttack: 5
@@ -13442,7 +13442,7 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 200
     Attack: 2
     MagicAttack: 1
@@ -13496,7 +13496,7 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 500
-    Sell: 250
+    Sell: 100
     Weight: 200
     Attack: 1
     MagicAttack: 1
@@ -17551,6 +17551,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 500
+    Sell: 100
     Weight: 1500
     Attack: 5
     Range: 3
@@ -17914,6 +17915,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 500
+    Sell: 50
     Weight: 1500
     Attack: 8
     Range: 3
@@ -19039,6 +19041,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 500
+    Sell: 100
     Weight: 1500
     Attack: 7
     Range: 3
@@ -24319,6 +24322,7 @@ Body:
     Type: Armor
     View: 1
     Buy: 500
+    Sell: 100
     Weight: 1000
     Defense: 10
     Slots: 1
@@ -24385,6 +24389,7 @@ Body:
     Type: Armor
     View: 1
     Buy: 500
+    Sell: 100
     Weight: 800
     Defense: 5
     Slots: 1
@@ -24623,6 +24628,7 @@ Body:
     Type: Armor
     View: 1
     Buy: 500
+    Sell: 100
     Weight: 1000
     Defense: 15
     Slots: 1
@@ -24855,6 +24861,7 @@ Body:
     Type: Armor
     View: 1
     Buy: 500
+    Sell: 100
     Weight: 500
     Defense: 2
     Slots: 1
@@ -25452,6 +25459,7 @@ Body:
     Type: Armor
     View: 1
     Buy: 500
+    Sell: 100
     Weight: 800
     Defense: 8
     Jobs:
@@ -28572,6 +28580,7 @@ Body:
     Type: Armor
     View: 62
     Buy: 500
+    Sell: 100
     Weight: 300
     Defense: 4
     Slots: 1
@@ -28801,6 +28810,7 @@ Body:
     Type: Armor
     View: 76
     Buy: 500
+    Sell: 69
     Weight: 100
     Defense: 3
     Locations:
@@ -28970,6 +28980,7 @@ Body:
     Name: Cotton Shirt
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 1000
     Defense: 3
     Slots: 1
@@ -29004,6 +29015,7 @@ Body:
     Name: Red Tunic
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 2000
     Defense: 10
     Slots: 1
@@ -29041,6 +29053,7 @@ Body:
     Name: Adventurer's Suit
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 2000
     Defense: 5
     Slots: 1
@@ -29177,6 +29190,7 @@ Body:
     Name: Padded Armor
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 3000
     Defense: 22
     Slots: 1
@@ -29340,6 +29354,7 @@ Body:
     Name: Silk Robe
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 1000
     Defense: 1
     Slots: 1
@@ -30084,6 +30099,7 @@ Body:
     Name: Mage Coat
     Type: Armor
     Buy: 500
+    Sell: 200
     Weight: 1000
     Defense: 5
     Slots: 1
@@ -31068,6 +31084,7 @@ Body:
     Name: Sandals
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 250
     Defense: 2
     Slots: 1
@@ -31137,6 +31154,7 @@ Body:
     Name: Boots
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 750
     Defense: 7
     Slots: 1
@@ -33093,6 +33111,7 @@ Body:
     Name: Hood
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 250
     Defense: 2
     Slots: 1
@@ -33128,6 +33147,7 @@ Body:
     Name: Muffler
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 500
     Defense: 5
     Slots: 1
@@ -33162,6 +33182,7 @@ Body:
     Name: Manteau
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 750
     Defense: 7
     Slots: 1
@@ -37994,6 +38015,7 @@ Body:
     Name: Bloodstone Ring
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 100
     Slots: 1
     Locations:
@@ -38019,6 +38041,7 @@ Body:
     Name: Soulstone Ring
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 100
     Slots: 1
     Locations:
@@ -38045,6 +38068,7 @@ Body:
     Name: Mindstone Ring
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 100
     Slots: 1
     Locations:
@@ -38099,6 +38123,7 @@ Body:
     Name: Pendant of Harmony
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 100
     Slots: 1
     Locations:
@@ -42913,6 +42938,7 @@ Body:
     Type: Armor
     View: 101
     Buy: 500
+    Sell: 100
     Weight: 300
     Defense: 10
     Locations:
@@ -61471,6 +61497,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 300
+    Sell: 25
     Weight: 600
     Attack: 13
     MagicAttack: 10
@@ -68302,6 +68329,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 1000
+    Sell: 125
     Weight: 1000
     Attack: 5
     MagicAttack: 13
@@ -71711,6 +71739,7 @@ Body:
     Name: TTomb Suit
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 2000
     Defense: 10
     Slots: 1
@@ -71731,6 +71760,7 @@ Body:
     Name: TTomb Shoes
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 500
     Defense: 4
     Slots: 1
@@ -71750,6 +71780,7 @@ Body:
     Name: TTomb Cape
     Type: Armor
     Buy: 500
+    Sell: 100
     Weight: 500
     Defense: 4
     Slots: 1
@@ -79185,6 +79216,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 500
+    Sell: 75
     Weight: 1500
     Attack: 10
     MagicAttack: 12
@@ -111753,7 +111785,7 @@ Body:
     Name: Evasion Manual
     Type: Shadowgear
     Buy: 5000
-    Sell: 500
+    Sell: 200
     Weight: 100
     Locations:
       Shadow_Right_Accessory: true
@@ -112081,6 +112113,7 @@ Body:
     Name: Vanish Manual
     Type: Shadowgear
     Buy: 5000
+    Sell: 1000
     Weight: 100
     Locations:
       Shadow_Right_Accessory: true
@@ -113493,6 +113526,7 @@ Body:
     Name: Blink Manual
     Type: Shadowgear
     Buy: 5000
+    Sell: 1000
     Weight: 100
     Locations:
       Shadow_Right_Accessory: true
@@ -113817,6 +113851,7 @@ Body:
     Name: Portal Manual
     Type: Shadowgear
     Buy: 5000
+    Sell: 1000
     Weight: 100
     Locations:
       Shadow_Right_Accessory: true
@@ -116120,6 +116155,7 @@ Body:
     Name: Legacy of Coins A
     Type: Shadowgear
     Buy: 500
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Armor: true
@@ -116134,6 +116170,7 @@ Body:
     Name: Legacy of Coins G
     Type: Shadowgear
     Buy: 500
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Shield: true
@@ -116148,6 +116185,7 @@ Body:
     Name: Legacy of Coins S
     Type: Shadowgear
     Buy: 500
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Shoes: true
@@ -116162,6 +116200,7 @@ Body:
     Name: Legacy of Coins P
     Type: Shadowgear
     Buy: 500
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Left_Accessory: true
@@ -123659,7 +123698,7 @@ Body:
     Name: Poring Warrior Gloves
     Type: Shadowgear
     Buy: 500
-    Sell: 250
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Shield: true
@@ -123674,7 +123713,7 @@ Body:
     Name: Poring Warrior Armor
     Type: Shadowgear
     Buy: 500
-    Sell: 250
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Armor: true
@@ -123689,7 +123728,7 @@ Body:
     Name: Poring Warrior Shoes
     Type: Shadowgear
     Buy: 500
-    Sell: 250
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Shoes: true
@@ -123719,7 +123758,7 @@ Body:
     Name: Poring Warrior Pendant
     Type: Shadowgear
     Buy: 500
-    Sell: 250
+    Sell: 75
     Weight: 100
     Locations:
       Shadow_Left_Accessory: true
@@ -133596,6 +133635,7 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 500
+    Sell: 50
     Weight: 700
     Attack: 10
     MagicAttack: 10
@@ -146755,6 +146795,7 @@ Body:
     Name: Old Tomb Ring
     Type: Armor
     Buy: 100
+    Sell: 10
     Weight: 100
     Slots: 1
     Locations:
