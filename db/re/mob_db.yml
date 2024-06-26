@@ -5673,7 +5673,7 @@ Body:
     Ai: 21
     Drops:
       - Item: Distortion_Essence
-        Rate: 430
+        Rate: 860
       - Item: Joker_Card
         Rate: 100
         StealProtected: true
@@ -9533,7 +9533,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 425
+        Rate: 850
       - Item: Infinite_Butterfly
         Rate: 150
         RandomOptionGroup: garment
@@ -12933,7 +12933,7 @@ Body:
       Detector: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 445
+        Rate: 890
       - Item: Owl_Baron_Card
         Rate: 100
         StealProtected: true
@@ -14095,7 +14095,7 @@ Body:
       Detector: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 435
+        Rate: 870
       - Item: Owl_Duke_Card
         Rate: 100
         StealProtected: true
@@ -29663,7 +29663,7 @@ Body:
       SkillImmune: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 50
+        Rate: 200
       - Item: Elixir_Badge
         Rate: 50
         RandomOptionGroup: accessory
@@ -37339,7 +37339,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 440
+        Rate: 880
       - Item: Chakra_Ring
         Rate: 100
         RandomOptionGroup: accessory
@@ -37379,7 +37379,7 @@ Body:
     Class: Boss
     Drops:
       - Item: Distortion_Essence
-        Rate: 445
+        Rate: 900
       - Item: ThornLife_Card
         Rate: 100
         StealProtected: true
@@ -44383,7 +44383,7 @@ Body:
       Detector: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 475
+        Rate: 1000
       - Item: Aspect_Horror_Card
         Rate: 100
         StealProtected: true
@@ -49875,7 +49875,7 @@ Body:
       KnockBackImmune: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 485
+        Rate: 1020
       - Item: Aspect_Torment_Card
         Rate: 100
         StealProtected: true
@@ -56450,7 +56450,7 @@ Body:
       - Item: Necklace_of_Oblivion
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 50
+        Rate: 150
       - Item: Cold_Heart
         Rate: 50
         RandomOptionGroup: accessory
@@ -56659,7 +56659,7 @@ Body:
       - Item: Necklace_of_Oblivion
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 400
+        Rate: 1000
       - Item: Cold_Heart
         Rate: 200
         RandomOptionGroup: accessory
@@ -57030,7 +57030,7 @@ Body:
       - Item: Growth_Shadow_Coffer
         Rate: 100
       - Item: Distortion_Essence
-        Rate: 425
+        Rate: 1100
       - Item: Nauthiz_Rune_of_Desires
         Rate: 200
         RandomOptionGroup: manual
@@ -57082,7 +57082,7 @@ Body:
         Rate: 200
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 500
+        Rate: 1700
       - Item: Assassin_Dagger
         Rate: 500
         RandomOptionGroup: dagger
@@ -57184,7 +57184,7 @@ Body:
       Looter: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 465
+        Rate: 980
       - Item: Aspect_Lies_Card
         Rate: 100
         StealProtected: true
@@ -66611,7 +66611,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shoes
       - Item: Distortion_Essence
-        Rate: 425
+        Rate: 850
       - Item: Hagalaz_Rune_of_Transf
         Rate: 200
         RandomOptionGroup: manual
@@ -66658,7 +66658,7 @@ Body:
       - Item: White_Token
         Rate: 1000
       - Item: Distortion_Essence
-        Rate: 450
+        Rate: 900
       - Item: Lost_Cause_A
         Rate: 100
         RandomOptionGroup: shadow
@@ -66697,7 +66697,7 @@ Body:
     Ai: 04
     Drops:
       - Item: Distortion_Essence
-        Rate: 450
+        Rate: 900
       - Item: SouthSca_Card
         Rate: 100
         StealProtected: true
@@ -66745,7 +66745,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 475
+        Rate: 950
       - Item: White_Token
         Rate: 5000
       - Item: Lost_Cause_G
@@ -66794,7 +66794,7 @@ Body:
       - Item: Black_Token
         Rate: 5000
       - Item: Distortion_Essence
-        Rate: 475
+        Rate: 950
       - Item: Lost_Cause_P
         Rate: 100
         RandomOptionGroup: shadow
