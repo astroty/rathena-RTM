@@ -7625,7 +7625,7 @@ Body:
       bonus bDex,1;
   - Id: 4352
     AegisName: Forgt_Egnigem_Card
-    Name: Forgt Egnigem Card
+    Name: Forgt Egnigem Card #DK Rework
     Type: Card
     Buy: 20
     Weight: 10
@@ -7634,9 +7634,14 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
-    Script: |
-      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SM_BASH",1,1000;
-      bonus bStr,1;
+    Script: |  #Small buff. Boosts Vengeance damage, lowers cooldown, and provides STR/PEN. Leech 5% of damage if worn by a dark knight.
+      bonus2 bSkillAtk,"SM_BASH",10;
+      bonus2 bSkillCooldown,"SM_BASH",-250;
+      bonus2 bIgnoreDefRaceRate,RC_All,5;
+      bonus bStr,3;
+      if (BaseClass == Job_Acolyte) {
+         bonus2 bHPDrainRate,1000,5;
+        }
   - Id: 4353
     AegisName: Removal_Card
     Name: Remover Card
@@ -35775,17 +35780,21 @@ Body:
       bonus bMatk,.@r;
   - Id: 13645
     AegisName: FallenLK_Card
-    Name: FallenLK Card
+    Name: FallenLK Card #DK Rework this card was a throw away garment card for a underused skill. repurposed into a special effect card.
     Type: Card
     Buy: 20
     Weight: 10
     Locations:
-      Garment: true
+      Right_Hand: true #Changed from garment to right hand for sword equipping.
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillAtk,"KO_BAKURETSU",15;
+      if(getequipid(EQI_HAND_R) == 1139) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,250;
+         bonus2 bSkillCooldown,"SM_BASH",750;
+         bonus bMaxHPrate,-10;
+        }
   - Id: 13646
     AegisName: FallenRK_Card
     Name: FallenRK Card
@@ -36732,7 +36741,7 @@ Body:
       bonus2 bIgnoreMdefClassRate,Class_Boss,10;
   - Id: 13720
     AegisName: B_Thanatos_Card
-    Name: B Thanatos Card
+    Name: B Thanatos Card #DK Rework
     Type: Card
     Buy: 20
     Weight: 10
@@ -36741,9 +36750,14 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
-    Script: |
-      bonus2 bSkillAtk,"MO_INVESTIGATE",25;
-      bonus bMaxHPrate,-50;
+    Script: | #Reworked to fit the avenged tartaros changes. Boosts Fatal Menace potential and combos with the sword when refined +9.
+      bonus2 bSkillAtk,"SC_FATALMENACE",25;
+      bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
+      bonus2 bSkillCooldown,"SM_BASH",500;
+      bonus bMaxHPrate,-25;
+      if(getequipid(EQI_HAND_R) == 1174 && getrefine() >= 9) {
+         skill "PF_HPCONVERSION",5;
+        }
   - Id: 13721
     AegisName: Detector_Card
     Name: Detector Card

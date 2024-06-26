@@ -1437,7 +1437,7 @@ Body:
       bonus bNoWalkDelay;
   - Id: 1139
     AegisName: Tyrfing
-    Name: Tyrfing
+    Name: Tyrfing #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -1462,14 +1462,38 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,100;
+    Script: |  #A lethal life draining blade. You must rapidly feed it victims before it kills you, the owner. Massive refine investment, unique card combo.
+      bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
+      bonus2 bHPLossRate,200,1000;
       bonus bMaxHPrate,25;
+      bonus bSpeedRate,20;
       .@r = getrefine();
-      bonus2 bSkillAtk,"SM_BASH",5*(.@r);
+      if (.@r >= 3) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
+         bonus2 bHPLossRate,600,900;
+         bonus2 bSkillCooldown,"SM_BASH",-1000;
+         }
+      if (.@r >= 6) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
+         bonus2 bHPLossRate,700,800;
+         bonus2 bSkillCooldown,"SM_BASH",-1000;
+         }
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"MO_INVESTIGATE",90;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
+         bonus2 bHPLossRate,800,800;
+         bonus2 bSkillCooldown,"SM_BASH",-2000;
+         }
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"MO_INVESTIGATE",10;
+         bonus2 bHPDrainRate,1000,10;
+         }
+      bonus2 bSkillAtk,"MO_INVESTIGATE",5*(.@r);
+      bonus2 bSkillUseSP,"MO_INVESTIGATE",-10000;
+      bonus2 bHPDrainRate,1000,10;
       bonus bNoRegen,1;
       bonus bNoRegen,2;
-      bonus bSPGainValue,25;
+      bonus bHPDrainValue,25;
   - Id: 1140
     AegisName: Black_Rapier
     Name: Black Rapier
@@ -1832,7 +1856,7 @@ Body:
       bonus bAtkRate,4;
   - Id: 1150
     AegisName: Relic_Claymore
-    Name: Relic Claymore
+    Name: Relic Claymore #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -1857,12 +1881,18 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,250;
+    Script: |  #Made it more of a poison themed weapon. Small % life leech added and high refine bonus damage. Increased veng cooldown until +9
       bonus bHPDrainValue,100;
+      bonus4 bAutoSpellOnSkill,"SM_BASH","NPC_CLOUD_KILL",1,1000;
       bonus bShortWeaponDamageReturn,5;
-      bonus2 bSkillCooldown,"SM_BASH",1000;
+      bonus2 bHPDrainRate,1000,1;
+      bonus2 bSkillCooldown,"SM_BASH",2000;
       bonus bAtkEle,Ele_Poison;
+      .@r = getrefine();
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"NPC_CLOUD_KILL",300;
+         bonus2 bSkillCooldown,"SM_BASH",-2000;
+         }
   - Id: 1151
     AegisName: Slayer
     Name: Slayer
@@ -2654,7 +2684,7 @@ Body:
       bonus bMaxHPRate,.@r;
   - Id: 1174
     AegisName: AvengedTartaros
-    Name: AvengedTartaros
+    Name: AvengedTartaros #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -2678,26 +2708,43 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,1000;
-      bonus bHPrecovRate,2000;
-      bonus bUseSPrate,10000;
-      bonus bAspd,-10;
-      bonus bMaxSPrate,-99;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .heart, countitem(12333);
-        delitem 12333,.heart;
-      }
-      percentheal -99,-99;
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .heart, countitem(12333);
-        delitem 12333,.heart;
-      }
-      percentheal -99,-99;
+    Script: |  # Massively altered. Is now a combo sword with broken thanatos card. Heavily invests into Fatal Menace procs and SP management.
+      bonus2 bIgnoreDefRaceRate,RC_All,20;
+      bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+      bonus2 bSkillCooldown,"SM_BASH",800;
+      bonus bReduceDamageReturn,100;
+      bonus bHPDrainValue,150;
+      bonus bSPDrainValue,15;
+      bonus bAspd,-20;
+      .@r = getrefine();
+      if (.@r >= 3) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+         bonus2 bSkillUseSP,"SM_BASH",-100;
+         }
+      if (.@r >= 6) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+         bonus2 bSkillUseSP,"SM_BASH",-100;
+         }
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"SC_FATALMENACE",90;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+         bonus2 bSkillCooldown,"SM_BASH",-300;
+         bonus2 bSkillUseSP,"SM_BASH",-100;
+         bonus2 bSPLossRate,400,8000;
+         }
+      if (.@r >= 10) {
+         bonus bMaxHPrate,15;
+         bonus bMaxSPrate,10;
+         }
+      bonus bHitRate,1*.@r;
+      skill "LK_PARRYING",.@r;
+      bonus2 bHPDrainRate,1000,2*.@r;
+      bonus2 bSkillAtk,"SC_FATALMENACE",15;
+      bonus2 bSkillAtk,"SC_FATALMENACE",2*.@r;
+      bonus2 bSkillAtk,"SM_BASH",2*.@r;
+      bonus2 bSkillUseSP,"SM_BASH",-200;
+      bonus2 bSkillUseSP,"SC_FATALMENACE",-10000;
+      bonus2 bSPLossRate,250,15000;
   - Id: 1175
     AegisName: Atlas_Weapon
     Name: Atlas Weapon
@@ -3051,18 +3098,18 @@ Body:
       bonus2 bAddEff,Eff_Burning,200*.@r;
   - Id: 1185
     AegisName: Sea_King
-    Name: Sea King
+    Name: Sea King #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
     Sell: 250
     Weight: 2000
-    Attack: 10
-    MagicAttack: 25
+    Attack: 30 # from 10 to 30
+    MagicAttack: 30 #25 to 30
     Range: 2
-    Slots: 2
-    Jobs:
-      All: true
+    Slots: 3 # slots increased from 2 to 3
+    Jobs: #DK sword, reworked permissions to equip // acolyte is DK.
+      Acolyte: true
       Archer: false
       Gunslinger: false
       KagerouOboro: false
@@ -3075,23 +3122,27 @@ Body:
       SuperNovice: false
       Wizard: false
     Locations:
-      Right_Hand: true
+      Both_Hand: true #2handed sword
     WeaponLevel: 3
-    EquipLevelMin: 100
+    EquipLevelMin: 85 #req level adjusted to be usable pre-100
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
+    Script: | #reworked to fit the more auxiliry skills of DK. Heavy refine investment. An experimental knight sword implementation
       bonus2 bIgnoreDefRaceRate,RC_All,15;
-      bonus bAtkEle,Ele_Water;
+      bonus4 bAutoSpellOnSkill,"RK_DEATHBOUND","NPC_IGNITIONBREAK",5,1000;
+      bonus4 bAutoSpellOnSkill,"PR_GLORIA","NPC_DRAGONFEAR",5,1000;
+      bonus2 bSkillAtk,"WL_HELLINFERNO",200;
+      bonus2 bSkillAtk,"NC_COLDSLOWER",200;
+      bonus2 bHPDrainRate,1000,5;
       .@r = getrefine();
-      bonus2 bAddEle,Ele_Fire,25;
-      bonus2 bMagicAddEle,Ele_Fire,25;
-      bonus2 bIgnoreDefRaceRate,RC_All,2*(.@r);
-      bonus2 bIgnoreMdefClassRate,Class_Normal,2*(.@r);
-      bonus2 bIgnoreMdefClassRate,Class_Boss,2*(.@r);
-      bonus bInt,5;
-      bonus bMatkRate,5;
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"NPC_IGNITIONBREAK",90;
+         bonus2 bSkillAtk,"WL_HELLINFERNO",100;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",400;
+         }
+      skill "WL_HELLINFERNO",.@r;
+      skill "NC_COLDSLOWER",(.@r)/2;
   - Id: 1186
     AegisName: Lingering_Sadness
     Name: Lingering Sadness
@@ -3352,7 +3403,7 @@ Body:
       bonus2 bMagicAddEle,Ele_Dark,2*.@;
   - Id: 1193
     AegisName: Tartaros
-    Name: Tartaros
+    Name: Tartaros #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -3377,14 +3428,18 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,120;
-      bonus2 bHPDrainRate,1000,10;
-      bonus2 bSkillUseSP,"AB_ANCILLA",-10000;
-      bonus2 bSkillCooldown,"WL_HELLINFERNO",-5000;
+    Script: | #The staple DK knight sword. Reworked to be a very good defensive option,with heavy invest. high drain rate and weapon blocking
+      bonus2 bIgnoreDefRaceRate,RC_All,10;
+      .@r = getrefine();
+      if (.@r >= 8) bonus2 bSkillAtk,"SM_BASH",88;
+      if (.@r >= 10) bonus2 bSkillAtk,"SM_BASH",100;
+      skill "GC_COUNTERSLASH",(.@r)/2;
+      skill "SM_BASH",10;
+      bonus4 bAutoSpellOnSkill,"AC_CONCENTRATION","GC_WEAPONBLOCKING",5,1000;
+      bonus2 bHPDrainRate,1000,50;
       bonus bHPrecovRate,500;
       skill "SM_MOVINGRECOVERY",1;
-      bonus bMaxHPrate,15;
+      bonus bMaxHPrate,25;
   - Id: 1194
     AegisName: Royal_Saber
     Name: Royal Saber
@@ -66879,7 +66934,7 @@ Body:
       bonus bUseSPrate,-5;
   - Id: 13410
     AegisName: OrphanCurse
-    Name: OrphanCurse
+    Name: OrphanCurse #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 200
@@ -66899,7 +66954,7 @@ Body:
       Both_Hand: true
     WeaponLevel: 1
     EquipLevelMin: 1
-    EquipLevelMax: 30
+    EquipLevelMax: 150 #So you aren't homeless and fatherless after job changing
     Flags:
       DropEffect: RED_PILLAR
     Trade:
@@ -66910,14 +66965,18 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,100;
+    Script: |  #Added Vengeance 1 so you aren't AAing on dk like a mistake, veng dmg boost and small hp drain
+      skill "SM_BASH",1;
+      bonus2 bSkillAtk,"SM_BASH",5;
+      .@r = getrefine();
+      skill "LK_PARRYING",.@r;
       bonus bAtkEle,Ele_Dark;
       bonus2 bExpAddClass,Class_All,10;
-      bonus bHPrecovRate,40;
+      bonus bHPDrainValue,15;
+      bonus bHPrecovRate,60;
   - Id: 13411
     AegisName: Darkness_Metal_S
-    Name: Darkness Metal S
+    Name: Darkness Metal S #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -66942,42 +67001,58 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,5;
+    Script: |  #Turned it into an actual electrically charged raiding claymore, heavy refine bonus. pairs with gwisin warrior cards and tiny life steal
+      bonus2 bSkillCooldown,"TK_JUMPKICK",-800;
+      bonus2 bSkillAtk,"TK_JUMPKICK",200;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","BA_MUSICALSTRIKE",1,1000;
+      if (.@r >= 9) bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",150;
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",150;
+         bonus2 bSkillAtk,"TK_JUMPKICK",100;
+         }
+      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SO_PSYCHIC_WAVE",1,1000;
+      bonus2 bHPDrainRate,1000,1;
       bonus bHPrecovRate,20*.@r;
   - Id: 13412
     AegisName: Twin_Edge_B
-    Name: Twin Edge of Naght Sieger
+    Name: Twin Edge of Naght Sieger #DK Rework this replaced the Sea_King drop.
     Type: Weapon
     SubType: 1hSword
     Buy: 20
     Weight: 1500
-    Attack: 150
-    Range: 1
+    Attack: 10
+    MagicAttack: 25
+    Range: 2
     Slots: 3
     Jobs:
-      Alchemist: true
-      Assassin: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      Rogue: true
-      Swordman: true
-      Thief: true
-    Classes:
-      All_Upper: true
+      All: true
+      Archer: false
+      Gunslinger: false
+      KagerouOboro: false
+      Mage: false
+      Monk: false
+      Ninja: false
+      Novice: false
+      Rebellion: false
+      Summoner: false
+      SuperNovice: false
+      Wizard: false
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 75
+    WeaponLevel: 3
+    EquipLevelMin: 100
     Refineable: true
     Script: |
+      bonus2 bIgnoreDefRaceRate,RC_All,15;
       bonus bAtkEle,Ele_Water;
-      skill "MG_FROSTDIVER",5;
-      autobonus "{ bonus bIgnoreDefClass,Class_Normal; }",50,5000,BF_NORMAL,"{ specialeffect2 EF_ENHANCE; }";
+      .@r = getrefine();
+      bonus2 bAddEle,Ele_Fire,25;
+      bonus2 bMagicAddEle,Ele_Fire,25;
+      bonus2 bIgnoreDefRaceRate,RC_All,2*(.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Normal,2*(.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,2*(.@r);
+      bonus bInt,5;
+      bonus bMatkRate,5;
   - Id: 13413
     AegisName: Twin_Edge_R
     Name: Twin Edge of Naght Sieger
