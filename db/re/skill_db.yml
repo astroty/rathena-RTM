@@ -163,13 +163,13 @@ Body:
     MaxLevel: 10
   - Id: 5
     Name: SM_BASH
-    Description: Vengeance
+    Description: Vengeance #DK Rework
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
     Range: 1
-    Hit: Multi_Hit
-    HitCount: 2
+    Hit: Single
+    HitCount: 1
     Element: Weapon
     CopyFlags:
       Skill:
@@ -177,28 +177,28 @@ Body:
         Reproduce: true
     Cooldown: 1000
     Requires:
-      SpCost:
+      HpCost: #Flat SP cost -> Flat HP cost
         - Level: 1
           Amount: 10
         - Level: 2
-          Amount: 12
-        - Level: 3
-          Amount: 14
-        - Level: 4
-          Amount: 16
-        - Level: 5
-          Amount: 18
-        - Level: 6
           Amount: 20
+        - Level: 3
+          Amount: 30
+        - Level: 4
+          Amount: 40
+        - Level: 5
+          Amount: 50
+        - Level: 6
+          Amount: 60
         - Level: 7
-          Amount: 22
+          Amount: 70
         - Level: 8
-          Amount: 24
+          Amount: 80
         - Level: 9
-          Amount: 26
+          Amount: 90
         - Level: 10
-          Amount: 28
-      HpRateCost: 5
+          Amount: 100
+      HpRateCost: 10 #5% HP -> 10% HP
   - Id: 6
     Name: SM_PROVOKE
     Description: Provoke
@@ -2608,7 +2608,7 @@ Body:
     SplashArea: 18
     CastCancel: true
     AfterCastActDelay: 1000
-    Cooldown: 60000
+    Cooldown: 40000 #adjusted to be faster than the duration. better uptime
     Duration1:
       - Level: 1
         Time: 20000
@@ -7302,7 +7302,7 @@ Body:
     Type: Weapon
   - Id: 266
     Name: MO_INVESTIGATE
-    Description: Night Menace
+    Description: Night Menace #DK Rework
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
@@ -7311,38 +7311,38 @@ Body:
     Flags:
       TargetTrap: true
     Range: 2
-    Hit: Multi_Hit
-    HitCount: 2
+    Hit: Single
+    HitCount: 1 #GetRekt
     Element: Weapon
     CopyFlags:
       Skill:
         Plagiarism: true
         Reproduce: true
     AfterCastActDelay: 500
-    Cooldown: 5000
+    Cooldown: 3500 #5 Second CD -> 3.5 Second CD
     Requires:
-      SpCost:
+      HpCost: #Flat SP Cost -> Flat HP Cost
         - Level: 1
-          Amount: 40
+          Amount: 70
         - Level: 2
-          Amount: 42
+          Amount: 100
         - Level: 3
-          Amount: 44
+          Amount: 150
         - Level: 4
-          Amount: 46
+          Amount: 200
         - Level: 5
-          Amount: 48
+          Amount: 250
         - Level: 6
-          Amount: 50
+          Amount: 300
         - Level: 7
-          Amount: 52
+          Amount: 350
         - Level: 8
-          Amount: 54
+          Amount: 400
         - Level: 9
-          Amount: 56
+          Amount: 450
         - Level: 10
-          Amount: 58
-      HpRateCost: 20
+          Amount: 700
+      HpRateCost: 30 #20% HP -> 30% HP
   - Id: 267
     Name: MO_FINGEROFFENSIVE
     Description: Trigger Heart
@@ -8667,12 +8667,12 @@ Body:
     TargetType: Attack
     Range: 9
     Hit: Single
-    HitCount: 2
+    HitCount: 3 #Adjusted to make pressing the skill aside from HP fluctuation a bit more appealing.
     Element: Weapon
     CastTime: 500
-    AfterCastActDelay: 1500
-    Cooldown: 10000
-    FixedCastTime: 250
+    AfterCastActDelay: 0 #Reduced from 1.5 seconds to 0.
+    Cooldown: 11000 #Cooldown increased by 1 second
+    FixedCastTime: 0 #reduced from .25 seconds to 0. fixed cast times on melee is crazy
     Requires:
       SPRateCost:
         - Level: 1
@@ -10190,7 +10190,7 @@ Body:
       SpiritSphereCost: 3
   - Id: 373
     Name: PF_HPCONVERSION
-    Description: Bloody Quiver
+    Description: Bloody Quiver #DK Rework this skill is part of the avenged tartaros + broken thana refinement combo.
     MaxLevel: 5
     Type: Magic
     TargetType: Self
@@ -10200,9 +10200,9 @@ Body:
       AlterRangeRadius: true
     Hit: Single
     HitCount: 1
-    AfterCastActDelay: 2000
+    AfterCastActDelay: 0 #Let's be real, nobody used it cause of the after delay. This is general QoL. Sinners will get soul change added to their tree.
     Requires:
-      HpRateCost: 10
+      HpRateCost: 50 #10 -> 50. Along with no aftercast delay removal, this is to fit in line with the DK rework. 
       SpCost:
         - Level: 1
           Amount: 1
@@ -10240,7 +10240,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    FixedCastTime: 3000
+    FixedCastTime: 0 #Who the heck wants to wait 3 seconds for SP mid combat? Changed from 3 second fixed cast to 0.
     Requires:
       SpCost: 5
   - Id: 375
@@ -18252,22 +18252,22 @@ Body:
     Hit: Single
     HitCount: 1
     Knockback: 5
-    AfterCastActDelay: 3000
-    Duration1: 5000
-    Duration2: 5000
+    AfterCastActDelay: 0 #skill did nothing and locked the caster. aftercast reduced from 3000 to 0
+    Duration1: 500 #reduced from 5 seconds to 0.5. now functions as a counter window rather than a self-silence
+    Duration2: 500 #reduced from 5 seconds to 0.5 seconds. You can now act out of deathbound after pressing it.
     Cooldown: 5000
     Requires:
-      SpCost:
+      HpRateCost: #SPcost ->HPRateCost. This is to fit in line with other melee abilities costing HP, and this one is more HP control.
         - Level: 1
-          Amount: 50
+          Amount: -20
         - Level: 2
-          Amount: 60
+          Amount: -30
         - Level: 3
-          Amount: 65
+          Amount: -40
         - Level: 4
-          Amount: 70
+          Amount: -60
         - Level: 5
-          Amount: 75
+          Amount: -80
   - Id: 2004
     Name: RK_HUNDREDSPEAR
     Description: Million Stab
@@ -19194,7 +19194,7 @@ Body:
           Amount: 100
   - Id: 2212
     Name: WL_HELLINFERNO
-    Description: Conflagration
+    Description: Conflagration #DK Rework
     MaxLevel: 10
     Type: Magic
     TargetType: Attack
@@ -19202,7 +19202,7 @@ Body:
       Splash: true
     Range: 11
     Hit: Single
-    HitCount: 1
+    HitCount: 10 #1 hit 2 procs -> 10 hits 20 procs // yep
     Element: DARK
     CopyFlags:
       Skill:
@@ -19217,11 +19217,11 @@ Body:
       - Level: 4
         Area: 1
       - Level: 5
-        Area: 2
+        Area: 5 #from 2 to 5, real splash hours
     CastCancel: true
     CastTime: 250
     AfterCastActDelay: 500
-    Duration1: 5000
+    Duration1: 10000 #5 seconds -> 10 this is for hit procs iirc
     Duration2:
       - Level: 1
         Time: 1750
@@ -19244,27 +19244,27 @@ Body:
       - Level: 10
         Time: 4000
     Cooldown: 10000
-    FixedCastTime: 250
+    FixedCastTime: 0 #cast times reduced for application purposes
     Requires:
-      HpRateCost:
+      HpRateCost: #modified costs to be more static
         - Level: 1
-          Amount: -9
+          Amount: -10
         - Level: 2
-          Amount: -18
+          Amount: -20
         - Level: 3
-          Amount: -27
+          Amount: -30
         - Level: 4
-          Amount: -36
+          Amount: -40
         - Level: 5
-          Amount: -45
+          Amount: -50
         - Level: 6
-          Amount: -54
+          Amount: -60
         - Level: 7
-          Amount: -63
+          Amount: -70
         - Level: 8
-          Amount: -72
+          Amount: -80
         - Level: 9
-          Amount: -81
+          Amount: -85
         - Level: 10
           Amount: -90
       SpCost:
@@ -22163,18 +22163,18 @@ Body:
         Area: 2
       - Level: 5
         Area: 3
-    CastTime: 3000
-    AfterCastActDelay:
+    CastTime: 0 #cast reduced, the skill barely did anything warranting the spell aesthetic. original is 3 seconds
+    AfterCastActDelay: #delay reduced, skill didnt provide enough output to prone the user. original level 5 is 2.5 seconds
       - Level: 1
         Time: 500
       - Level: 2
-        Time: 1000
+        Time: 400
       - Level: 3
-        Time: 1500
+        Time: 300
       - Level: 4
-        Time: 2000
+        Time: 200
       - Level: 5
-        Time: 2500
+        Time: 100
     Duration1:
       - Level: 1
         Time: 5000
@@ -22189,8 +22189,8 @@ Body:
     Duration2: 10000
     Cooldown: 10000
     Requires:
-      HpRateCost: -25
-      SpCost: 100
+      HpRateCost: -10 #Adjusted from 25 to 10
+      SpCost: 30 #Adjusted from 100 to 30
   - Id: 2261
     Name: NC_ARMSCANNON
     Description: Arm Cannon
@@ -23016,7 +23016,7 @@ Body:
       SpCost: 10
   - Id: 2284
     Name: SC_FATALMENACE
-    Description: Fatal Menace
+    Description: Fatal Menace #DK Rework
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
@@ -23029,52 +23029,32 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    SplashArea:
-      - Level: 1
-        Area: 1
-      - Level: 2
-        Area: 1
-      - Level: 3
-        Area: 1
-      - Level: 4
-        Area: 1
-      - Level: 5
-        Area: 1
-      - Level: 6
-        Area: 2
-      - Level: 7
-        Area: 2
-      - Level: 8
-        Area: 2
-      - Level: 9
-        Area: 2
-      - Level: 10
-        Area: 3
+    SplashArea: 3 #Static 3
     AfterCastActDelay: 500
-    Cooldown: 4000
+    Cooldown: 3000 #Lowered by 1 second
     Requires:
-      HpRateCost: 10
-      SpCost:
+      HpRateCost: 20 #10% HP -> 20% HP
+      HpCost: #Flat SP cost -> Flat HP cost
         - Level: 1
-          Amount: 50
+          Amount: 40
         - Level: 2
-          Amount: 55
+          Amount: 50
         - Level: 3
           Amount: 60
         - Level: 4
-          Amount: 65
-        - Level: 5
           Amount: 70
-        - Level: 6
-          Amount: 75
-        - Level: 7
+        - Level: 5
           Amount: 80
+        - Level: 6
+          Amount: 100
+        - Level: 7
+          Amount: 250
         - Level: 8
-          Amount: 85
+          Amount: 300
         - Level: 9
-          Amount: 90
+          Amount: 350
         - Level: 10
-          Amount: 95
+          Amount: 400
   - Id: 2285
     Name: SC_REPRODUCE
     Description: Reproduce
@@ -27331,13 +27311,13 @@ Body:
           Amount: 130
   - Id: 2449
     Name: SO_PSYCHIC_WAVE
-    Description: Samsara Burst
+    Description: Samsara Burst #DK Rework 
     MaxLevel: 10
     Type: Magic
     TargetType: Ground
     Range: 9
     Hit: Single
-    HitCount: -2
+    HitCount: 10 #Adjusted for general QoL. This skill is used for the Knight Sword "Darkness Metal"
     Element: Weapon
     CopyFlags:
       Skill:

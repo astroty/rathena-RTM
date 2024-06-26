@@ -16985,7 +16985,7 @@ Body:
         RandomOptionGroup: armor
   - Id: 1401
     AegisName: SHINOBI
-    Name: Corrupted Shinobi
+    Name: Corrupted Shinobi #DK Rework
     Level: 94
     Hp: 12100
     BaseExp: 5030
@@ -17031,9 +17031,9 @@ Body:
         RandomOptionGroup: shadow
       - Item: Pethro_Rune_of_Occult
         Rate: 200
-        RandomOptionGroup: manual
-      - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+      - Item: Sea_King #Added the new DK sword as a drop.
+        Rate: 200
+        RandomOptionGroup: spear
   - Id: 1402
     AegisName: POISON_TOAD
     Name: Verporte
@@ -19916,7 +19916,7 @@ Body:
       Detector: true
   - Id: 1492
     AegisName: INCANTATION_SAMURAI
-    Name: Incantation Samurai
+    Name: Incantation Samurai #DK Rework
     Level: 95
     Hp: 100000
     BaseExp: 50000
@@ -19966,8 +19966,9 @@ Body:
       - Item: Incant_Samurai_Card
         Rate: 300
         StealProtected: true
-      - Item: Last_Sam_Coffer
-        Rate: 3000
+      - Item: Sea_King #Added new DK sword as a drop.
+        Rate: 1000
+        RandomOptionGroup: spear
       - Item: Enriched_Oridecon
         Rate: 2500
   - Id: 1493
@@ -62893,7 +62894,7 @@ Body:
         Rate: 100
   - Id: 2713
     AegisName: C5_PHEN
-    Name: Siren
+    Name: Siren #DK Included Sea_King replacement
     Level: 114
     Hp: 42400
     BaseExp: 18000
@@ -62933,7 +62934,7 @@ Body:
       - Item: Siren_Card
         Rate: 100
         StealProtected: true
-      - Item: Sea_King
+      - Item: Twin_Edge_B #DK Rework replaced Sea_King drop
         Rate: 100
         RandomOptionGroup: sword
       - Item: Tide_Caller
