@@ -31633,7 +31633,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 650
+        Rate: 2400
       - Item: Aunoe_Card
         Rate: 100
         StealProtected: true
@@ -31675,7 +31675,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 655
+        Rate: 2440
       - Item: Panat_Card
         Rate: 100
         StealProtected: true
@@ -35973,7 +35973,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Distortion_Essence
-        Rate: 745
+        Rate: 3700
       - Item: Conquest_Incarnate_Card
         Rate: 100
         StealProtected: true
@@ -36023,7 +36023,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Distortion_Essence
-        Rate: 745
+        Rate: 3700
       - Item: Famine_Incarnate_Card
         Rate: 100
         StealProtected: true
@@ -36077,7 +36077,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Distortion_Essence
-        Rate: 745
+        Rate: 3700
       - Item: War_Incarnate_Card
         Rate: 100
         StealProtected: true
@@ -36128,7 +36128,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Distortion_Essence
-        Rate: 745
+        Rate: 3700
       - Item: Death_Incarnate_Card
         Rate: 100
         StealProtected: true
@@ -59684,7 +59684,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 730
+        Rate: 2920
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Empathy_Card
@@ -59733,7 +59733,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 730
+        Rate: 2920
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Smile_Card
@@ -59782,7 +59782,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 730
+        Rate: 2920
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Happiness_Card
@@ -59831,7 +59831,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 730
+        Rate: 2920
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Prayer_Card
@@ -59884,7 +59884,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 740
+        Rate: 3050
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Anger_T_Card
@@ -59928,7 +59928,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 740
+        Rate: 3050
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Horror_T_Card
@@ -59972,7 +59972,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 740
+        Rate: 3050
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Resent_T_Card
@@ -60017,7 +60017,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 740
+        Rate: 3050
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Regret_T_Card
@@ -60127,7 +60127,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 750
+        Rate: 5000
       - Item: Angel_Genesis_Card
         Rate: 100
         StealProtected: true
@@ -60184,7 +60184,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 750
+        Rate: 5000
       - Item: Demon_Apoca_Card
         Rate: 100
         StealProtected: true
@@ -60240,7 +60240,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 750
+        Rate: 5000
       - Item: Heartless_Card
         Rate: 100
         StealProtected: true
@@ -65670,7 +65670,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 725
+        Rate: 2700
       - Item: Emperium_Armor
         Rate: 100
         RandomOptionGroup: armor
@@ -65717,7 +65717,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 730
+        Rate: 2720
       - Item: Enriched_Elunium
         Rate: 200
       - Item: Emperium_Boots
@@ -65762,7 +65762,7 @@ Body:
       NoRandomWalk: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 735
+        Rate: 2730
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Enriched_Elunium
@@ -65814,7 +65814,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 740
+        Rate: 2740
       - Item: Enriched_Oridecon
         Rate: 200
       - Item: Emperium_Manteau
@@ -65866,7 +65866,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Distortion_Essence
-        Rate: 745
+        Rate: 2750
       - Item: Jewel_Shadowdecon
         Rate: 200
       - Item: Gu_Chamberlain_Card
@@ -65917,7 +65917,7 @@ Body:
       - Item: HD_Bradium
         Rate: 200
       - Item: Distortion_Essence
-        Rate: 745
+        Rate: 2770
       - Item: Unleashed_Manual
         Rate: 200
         RandomOptionGroup: manual
@@ -66026,7 +66026,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 725
+        Rate: 2770
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Detector_Card
@@ -75774,7 +75774,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 730
+        Rate: 3480
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Jewel_Elunium
@@ -83023,7 +83023,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 670
+        Rate: 2779
       - Item: Ascended_F_Card
         Rate: 100
         StealProtected: true
@@ -83065,7 +83065,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 665
+        Rate: 2680
       - Item: Dominated_F_Card
         Rate: 100
         StealProtected: true
@@ -83107,7 +83107,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 665
+        Rate: 2680
       - Item: Doomed_F_Card
         Rate: 100
         StealProtected: true
@@ -83151,7 +83151,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 665
+        Rate: 2680
       - Item: Ritual_Priest_Card
         Rate: 100
         StealProtected: true
@@ -83212,7 +83212,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 670
+        Rate: 2900
       - Item: Fake_Pope_Card
         Rate: 100
         StealProtected: true
