@@ -2982,7 +2982,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 550
+        Rate: 1430
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Sword_Fish_Card
@@ -4630,7 +4630,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 530
+        Rate: 1380
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Deviace_Card
@@ -8934,7 +8934,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 600
+        Rate: 1300
       - Item: Bloody_Edge
         Rate: 1000
       - Item: 2nd_Shadow_Coffer
@@ -8984,7 +8984,7 @@ Body:
       - Item: Bloody_Edge
         Rate: 1000
       - Item: Distortion_Essence
-        Rate: 600
+        Rate: 1300
       - Item: Ogretooth_Card
         Rate: 100
         StealProtected: true
@@ -9039,7 +9039,7 @@ Body:
       - Item: Bloody_Edge
         Rate: 1000
       - Item: Distortion_Essence
-        Rate: 600
+        Rate: 1300
       - Item: Distortion_Shard
         Rate: 10000
       - Item: 2nd_Shadow_Coffer
@@ -18302,7 +18302,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 570
+        Rate: 1480
       - Item: KK_Armor
         Rate: 200
         RandomOptionGroup: armor
@@ -18753,7 +18753,7 @@ Body:
     Ai: 05
     Drops:
       - Item: Distortion_Essence
-        Rate: 600
+        Rate: 1800
       - Item: Temporal_Manteau
         Rate: 100
         RandomOptionGroup: shadow
@@ -19157,7 +19157,7 @@ Body:
     Ai: 04
     Drops:
       - Item: Distortion_Essence
-        Rate: 580
+        Rate: 1740
       - Item: Temporal_Manteau
         Rate: 100
         RandomOptionGroup: shadow
@@ -19867,7 +19867,7 @@ Body:
       Detector: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 615
+        Rate: 1845
       - Item: Darkness_Armguard
         Rate: 200
         RandomOptionGroup: shield
@@ -22623,7 +22623,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 540
+        Rate: 1404
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Bubble_Spirit_Card
@@ -22988,7 +22988,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 620
+        Rate: 1730
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Deviling_Card
@@ -25197,7 +25197,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Distortion_Essence
-        Rate: 575
+        Rate: 1200
       - Item: Isaz_Rune_of_Deception
         Rate: 200
         RandomOptionGroup: manual
@@ -30083,7 +30083,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 550
+        Rate: 1650
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Bo_Acidus_Card
@@ -30170,7 +30170,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 615
+        Rate: 1960
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Holy_Skogul_Card
@@ -30227,7 +30227,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 605
+        Rate: 1930
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Holy_Frus_Card
@@ -35240,7 +35240,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 585
+        Rate: 1520
       - Item: WK_Armor
         Rate: 200
         RandomOptionGroup: armor
@@ -38298,7 +38298,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 505
+        Rate: 800
       - Item: Dand_Cult_Card
         Rate: 100
         StealProtected: true
@@ -40104,7 +40104,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 520
+        Rate: 1000
       - Item: Dand_Mast_Card
         Rate: 100
         StealProtected: true
@@ -40269,7 +40269,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 640
+        Rate: 2100
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Sh_Reginleif_Card
@@ -40768,7 +40768,7 @@ Body:
     Class: Boss
     Drops:
       - Item: Distortion_Essence
-        Rate: 1000
+        Rate: 3000
       - Item: Witch_Sign
         Rate: 200
         RandomOptionGroup: accessory
@@ -46431,7 +46431,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 5000
       - Item: Distortion_Essence
-        Rate: 100
+        Rate: 300
       - Item: Kraken_Leg_Card
         Rate: 100
         StealProtected: true
@@ -49942,7 +49942,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 505
+        Rate: 820
       - Item: Royal_Jelly
         Rate: 100
       - Item: Blackguard_Manteau
@@ -52926,7 +52926,7 @@ Body:
       StatusImmune: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 575
+        Rate: 1200
       - Item: FallenWK_Card
         Rate: 100
         StealProtected: true
@@ -54892,7 +54892,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 560
+        Rate: 1100
       - Item: Ring_of_W_L
         Rate: 150
         RandomOptionGroup: accessory
@@ -54942,7 +54942,7 @@ Body:
         Rate: 150
         RandomOptionGroup: accessory
       - Item: Distortion_Essence
-        Rate: 565
+        Rate: 1150
       - Item: Distortion_Shard
         Rate: 10000
       - Item: 2nd_Shadow_Coffer
@@ -54986,7 +54986,7 @@ Body:
       Mvp: true
     Drops:
       - Item: Distortion_Essence
-        Rate: 5000
+        Rate: 7500
       - Item: CorruptionRoot_Card
         Rate: 200
         StealProtected: true
@@ -61964,7 +61964,7 @@ Body:
     Ai: 09
     Drops:
       - Item: Distortion_Essence
-        Rate: 550
+        Rate: 1430
       - Item: Spec_RaydricA_Card
         Rate: 100
         StealProtected: true
@@ -62018,7 +62018,7 @@ Body:
     Ai: 09
     Drops:
       - Item: Distortion_Essence
-        Rate: 560
+        Rate: 1456
       - Item: Spec_Raydric_Card
         Rate: 100
         StealProtected: true
@@ -62927,7 +62927,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 570
+        Rate: 1490
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Siren_Card
@@ -67764,7 +67764,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 535
+        Rate: 1605
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Bo_Ferus_Card
@@ -67826,7 +67826,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 530
+        Rate: 1325
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Red_Hover_Card
@@ -67879,7 +67879,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 535
+        Rate: 1350
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Red_Machina_Card
@@ -67934,7 +67934,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 545
+        Rate: 1380
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Red_Terminus_Card
@@ -70611,7 +70611,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 560
+        Rate: 1680
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Ab_Mimic_Card
@@ -72936,7 +72936,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 615
+        Rate: 1722
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Old_Cookie_Card
@@ -72990,7 +72990,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 605
+        Rate: 1694
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Brok_Cruiser_Card
@@ -73044,7 +73044,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 610
+        Rate: 1708
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Lost_Gift_Card
@@ -76554,7 +76554,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 630
+        Rate: 1701
       - Item: Mind_Vessel_Card
         Rate: 100
         StealProtected: true
@@ -76603,7 +76603,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 635
+        Rate: 1715
       - Item: Lab_Cleaner_Card
         Rate: 100
         StealProtected: true
@@ -77672,7 +77672,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 520
+        Rate: 880
       - Item: Blackguard Mail
         Rate: 200
         RandomOptionGroup: armor
@@ -77727,7 +77727,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 510
+        Rate: 840
       - Item: Blackguard Boots
         Rate: 200
         RandomOptionGroup: shoes
@@ -80123,7 +80123,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Distortion_Essence
-        Rate: 645
+        Rate: 1742
       - Item: DR815_Card
         Rate: 100
         StealProtected: true
@@ -80952,7 +80952,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 515
+        Rate: 860
       - Item: Elunium
         Rate: 200
       - Item: Lucifer_LamentMVP
@@ -81148,7 +81148,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Distortion_Essence
-        Rate: 560
+        Rate: 1100
       - Item: C_Prontera_Army_Cap
         Rate: 50
       - Item: Death_Hand
