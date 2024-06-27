@@ -3148,13 +3148,14 @@ Body:
          bonus2 bSkillAtk,"NPC_IGNITIONBREAK",90;
          bonus2 bSkillAtk,"WL_HELLINFERNO",75;
          bonus2 bSkillAtk,"NC_COLDSLOWER",400;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-500;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-5000;
          }
       if (.@r >= 10) {
          bonus2 bSkillAtk,"WL_HELLINFERNO",100;
          bonus2 bSkillAtk,"NC_COLDSLOWER",75;
-         bonus2 bSkillCooldown,"WL_HELLINFERNO",-500;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-500;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-5000;
          }         
       skill "WL_HELLINFERNO",.@r;
       skill "NC_COLDSLOWER",(.@r)/2;
