@@ -19202,7 +19202,7 @@ Body:
       Splash: true
     Range: 11
     Hit: Single
-    HitCount: 10 #1 hit 2 procs -> 10 hits 20 procs // yep
+    HitCount: 5 #1 hit 2 procs -> 10 hits 20 procs // yep
     Element: DARK
     CopyFlags:
       Skill:

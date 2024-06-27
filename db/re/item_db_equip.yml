@@ -3125,22 +3125,37 @@ Body:
       Both_Hand: true #2handed sword
     WeaponLevel: 3
     EquipLevelMin: 85 #req level adjusted to be usable pre-100
-    Refineable: true
+    Refineable: true 
     Flags:
       DropEffect: RED_PILLAR
     Script: | #reworked to fit the more auxiliry skills of DK. Heavy refine investment. An experimental knight sword implementation
       bonus2 bIgnoreDefRaceRate,RC_All,15;
       bonus4 bAutoSpellOnSkill,"RK_DEATHBOUND","NPC_IGNITIONBREAK",5,1000;
       bonus4 bAutoSpellOnSkill,"PR_GLORIA","NPC_DRAGONFEAR",5,1000;
-      bonus2 bSkillAtk,"WL_HELLINFERNO",200;
-      bonus2 bSkillAtk,"NC_COLDSLOWER",200;
+      bonus2 bSkillAtk,"WL_HELLINFERNO",25;
+      bonus2 bSkillAtk,"NC_COLDSLOWER",25;
       bonus2 bHPDrainRate,1000,5;
       .@r = getrefine();
+      if (.@r >= 3) {
+         bonus2 bSkillAtk,"WL_HELLINFERNO",50;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",75;
+         }
+      if (.@r >= 6) {
+         bonus2 bSkillAtk,"WL_HELLINFERNO",50;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",100;
+         }         
       if (.@r >= 9) {
          bonus2 bSkillAtk,"NPC_IGNITIONBREAK",90;
-         bonus2 bSkillAtk,"WL_HELLINFERNO",100;
+         bonus2 bSkillAtk,"WL_HELLINFERNO",75;
          bonus2 bSkillAtk,"NC_COLDSLOWER",400;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-500;
          }
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"WL_HELLINFERNO",100;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",75;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-500;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-500;
+         }         
       skill "WL_HELLINFERNO",.@r;
       skill "NC_COLDSLOWER",(.@r)/2;
   - Id: 1186
