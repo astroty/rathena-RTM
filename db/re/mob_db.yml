@@ -18313,7 +18313,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: First_Dagger_Sin
-        Rate: 100
+        Rate: 266
         RandomOptionGroup: dagger
       - Item: Transforming_UrnMVP
         Rate: 10
@@ -18755,10 +18755,10 @@ Body:
       - Item: Distortion_Essence
         Rate: 1800
       - Item: Temporal_Manteau
-        Rate: 100
+        Rate: 466
         RandomOptionGroup: shadow
       - Item: Witch_Sign
-        Rate: 25
+        Rate: 166
         RandomOptionGroup: accessory
       - Item: Abyss_Raydric_Card
         Rate: 100
@@ -19159,10 +19159,10 @@ Body:
       - Item: Distortion_Essence
         Rate: 1740
       - Item: Temporal_Manteau
-        Rate: 100
+        Rate: 466
         RandomOptionGroup: shadow
       - Item: Witch_Sign
-        Rate: 25
+        Rate: 166
         RandomOptionGroup: accessory
       - Item: Abyss_RaydricA_Card
         Rate: 100
@@ -19869,7 +19869,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 1845
       - Item: Darkness_Armguard
-        Rate: 200
+        Rate: 400
         RandomOptionGroup: shield
       - Item: C_Dark_Stall
         Rate: 25
@@ -19881,7 +19881,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Second_Dagger_Sin
-        Rate: 100
+        Rate: 333
         RandomOptionGroup: dagger
       - Item: Cup_of_BloodMVP
         Rate: 10
@@ -35245,7 +35245,7 @@ Body:
         Rate: 200
         RandomOptionGroup: armor
       - Item: Algiz_Rune_of_Ward
-        Rate: 200
+        Rate: 233
         RandomOptionGroup: manual
       - Item: Elunium
         Rate: 250
@@ -40770,7 +40770,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 3000
       - Item: Witch_Sign
-        Rate: 200
+        Rate: 466
         RandomOptionGroup: accessory
       - Item: Abyss_Lord_Card
         Rate: 200
@@ -40778,7 +40778,7 @@ Body:
       - Item: Seed_Of_Yggdrasil
         Rate: 9000
       - Item: Darkness_Armguard
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shield
       - Item: C_Requiem_Crown_of_Light_and_Dark
         Rate: 80
@@ -55054,22 +55054,22 @@ Body:
         Rate: 1500
         RandomOptionGroup: garment
       - Item: Temp_STR_Boots
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shoes
       - Item: Temp_INT_Boots
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shoes
       - Item: Temp_AGI_Boots
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shoes
       - Item: Temp_VIT_Boots
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shoes
       - Item: Temp_DEX_Boots
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shoes
       - Item: Temp_LUK_Boots
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shoes
       - Item: MVP_Reward_Box
         Rate: 6000
@@ -61969,13 +61969,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Temp_STR_Boots
-        Rate: 50
+        Rate: 133
         RandomOptionGroup: shoes
       - Item: Temp_INT_Boots
-        Rate: 50
+        Rate: 133
         RandomOptionGroup: shoes
       - Item: Temp_AGI_Boots
-        Rate: 50
+        Rate: 133
         RandomOptionGroup: shoes
       - Item: Distortion_Shard
         Rate: 10000
@@ -61984,7 +61984,7 @@ Body:
       - Item: C_Fate_Of_Black_Hand
         Rate: 25
       - Item: Angel_Slayer_Arrow
-        Rate: 50
+        Rate: 333
       - Item: Transforming_UrnMVP
         Rate: 10
   - Id: 2691
@@ -62027,13 +62027,13 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Temp_VIT_Boots
-        Rate: 50
+        Rate: 133
         RandomOptionGroup: shoes
       - Item: Temp_DEX_Boots
-        Rate: 50
+        Rate: 133
         RandomOptionGroup: shoes
       - Item: Temp_LUK_Boots
-        Rate: 50
+        Rate: 133
         RandomOptionGroup: shoes
       - Item: C_Fate_Of_Black_Hand
         Rate: 25
