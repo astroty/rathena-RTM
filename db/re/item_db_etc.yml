@@ -12542,8 +12542,7 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
-      bonus2 bSkillAtk,"NC_AXETORNADO",50;
+      bonus4 bAutoSpellOnSkill,"GC_ROLLINGCUTTER","NC_AXETORNADO",getskilllv("NC_AXETORNADO"),1000;
   - Id: 4698
     AegisName: Dataring_Card
     Name: Dataring Card
