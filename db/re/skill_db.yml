@@ -20168,7 +20168,6 @@ Body:
     AfterCastActDelay: 250
     Cooldown: 500
     Requires:
-      SpRateCost: 10
       SpCost:
         - Level: 1
           Amount: 60
@@ -23973,7 +23972,6 @@ Body:
           Amount: 75
         - Level: 10
           Amount: 80
-      SpRateCost: 3
   - Id: 2309
     Name: LG_TRAMPLE
     Description: Trample
@@ -35609,7 +35607,7 @@ Body:
     Hit: Single
     HitCount: 1
     Duration1: 10000
-    Cooldown: 1500
+    Cooldown: 500
     Requires:
       SpCost:
         - Level: 1

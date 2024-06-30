@@ -4562,7 +4562,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 							skillratio += 3 * (sstatus->luk);
 						break;
 		case GC_COUNTERSLASH:																						 
-			skillratio += 100 + 10 * skill_lv + 1 * sstatus->agi;
+			skillratio += 100 + 50 * skill_lv + 1 * sstatus->agi;
 			break;
 		case GC_VENOMPRESSURE:
 			skillratio += 150 + 40 * skill_lv + 2 * (sstatus->int_);
@@ -4711,9 +4711,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (tsc && tsc->data[SC_JYUMONJIKIRI])
 				skillratio +=50 + (sstatus->dex);
 			if(sd && sd->status.weapon == W_DOUBLE_DD)
-				skillratio += 100 + 45 * skill_lv + 2 * (sstatus->agi);
+				skillratio += 100 + 65 * skill_lv + 2 * (sstatus->agi);
 			else
-				skillratio += 100 + 30 * skill_lv + 2 * (sstatus->agi);
+				skillratio += 100 + 50 * skill_lv + 2 * (sstatus->agi);
 			break;
 		case LG_SHIELDPRESS:
 			skillratio += 10 + 5 * skill_lv;
@@ -5094,7 +5094,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 45 * skill_lv + 3 * sstatus->int_;
 		break;;
 		case RL_R_TRIP:
-			skillratio += 10 + 15 * skill_lv + 1 * sstatus->str;
+			skillratio += 50 + 15 * skill_lv + 1 * sstatus->str;
 			if (sc && sc->data[SC_ROLLINGCUTTER])
 			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 10;
 			break;
