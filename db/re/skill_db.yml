@@ -177,27 +177,27 @@ Body:
         Reproduce: true
     Cooldown: 1000
     Requires:
-      HpCost: #Flat SP cost -> Flat HP cost
+      SpCost: #Changed back to SP costs from flat HP
         - Level: 1
-          Amount: 10
+          Amount: 5
         - Level: 2
-          Amount: 20
+          Amount: 10
         - Level: 3
-          Amount: 30
+          Amount: 15
         - Level: 4
-          Amount: 40
+          Amount: 20
         - Level: 5
-          Amount: 50
+          Amount: 25
         - Level: 6
-          Amount: 60
+          Amount: 30
         - Level: 7
-          Amount: 70
+          Amount: 35
         - Level: 8
-          Amount: 80
+          Amount: 40
         - Level: 9
-          Amount: 90
+          Amount: 45
         - Level: 10
-          Amount: 100
+          Amount: 50
       HpRateCost: 10 #5% HP -> 10% HP
   - Id: 6
     Name: SM_PROVOKE
@@ -7321,27 +7321,27 @@ Body:
     AfterCastActDelay: 500
     Cooldown: 3500 #5 Second CD -> 3.5 Second CD
     Requires:
-      HpCost: #Flat SP Cost -> Flat HP Cost
+      SpCost: #Re-added SP costs due to balancing issues.
         - Level: 1
-          Amount: 70
+          Amount: 25
         - Level: 2
-          Amount: 100
+          Amount: 30
         - Level: 3
-          Amount: 150
+          Amount: 35
         - Level: 4
-          Amount: 200
+          Amount: 40
         - Level: 5
-          Amount: 250
+          Amount: 45
         - Level: 6
-          Amount: 300
+          Amount: 50
         - Level: 7
-          Amount: 350
+          Amount: 55
         - Level: 8
-          Amount: 400
+          Amount: 60
         - Level: 9
-          Amount: 450
+          Amount: 65
         - Level: 10
-          Amount: 700
+          Amount: 70
       HpRateCost: 30 #20% HP -> 30% HP
   - Id: 267
     Name: MO_FINGEROFFENSIVE
@@ -8671,7 +8671,7 @@ Body:
     Element: Weapon
     CastTime: 500
     AfterCastActDelay: 0 #Reduced from 1.5 seconds to 0.
-    Cooldown: 11000 #Cooldown increased by 1 second
+    Cooldown: 10000 #Cooldown changed back to 10s 
     FixedCastTime: 0 #reduced from .25 seconds to 0. fixed cast times on melee is crazy
     Requires:
       SPRateCost:
@@ -11603,15 +11603,15 @@ Body:
       SpCost: 1
   - Id: 421
     Name: TK_JUMPKICK
-    Description: Devil Raid
+    Description: Devil Raid #DK Rework
     MaxLevel: 5
     Type: Weapon
     TargetType: Attack
     DamageFlags:
       NoDamage: true
     Range: 6
-    Hit: Multi_Hit
-    HitCount: 2
+    Hit: Single
+    HitCount: 1 #Fixed hit count to 1 from 2
     Element: Weapon
     CopyFlags:
       Skill:
@@ -23034,27 +23034,27 @@ Body:
     Cooldown: 3000 #Lowered by 1 second
     Requires:
       HpRateCost: 20 #10% HP -> 20% HP
-      HpCost: #Flat SP cost -> Flat HP cost
+      SpCost: #Changed back to SP cost from flat HP
         - Level: 1
-          Amount: 40
+          Amount: 35
         - Level: 2
-          Amount: 50
+          Amount: 40
         - Level: 3
-          Amount: 60
+          Amount: 45
         - Level: 4
-          Amount: 70
+          Amount: 50
         - Level: 5
-          Amount: 80
+          Amount: 55
         - Level: 6
-          Amount: 100
+          Amount: 60
         - Level: 7
-          Amount: 250
+          Amount: 65
         - Level: 8
-          Amount: 300
+          Amount: 70
         - Level: 9
-          Amount: 350
+          Amount: 75
         - Level: 10
-          Amount: 400
+          Amount: 80
   - Id: 2285
     Name: SC_REPRODUCE
     Description: Reproduce
@@ -30836,7 +30836,7 @@ Body:
           Amount: 50
   - Id: 2600
     Name: SP_CURSEEXPLOSION
-    Description: Darkness Falls
+    Description: Darkness Falls #DK Rework
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
@@ -30847,14 +30847,14 @@ Body:
       Splash: true
     Range: 9
     Hit: Multi_Hit
-    HitCount: -4
+    HitCount: 5 #While this is relative to the DK rework changes, it's honestly QoL in general for the skill. Satsujins will thank
     Element: Dark
     SplashArea: 3
     CastCancel: true
-    CastTime: 500
+    CastTime: 200 #Improved Cast Time 
     AfterCastActDelay: 500
     Cooldown: 1000
-    FixedCastTime: 300
+    FixedCastTime: 0 #Improved cast time 300 -> 0
     Requires:
       SpCost:
         - Level: 1
@@ -30894,11 +30894,11 @@ Body:
     HitCount: 1
     SplashArea: 3
     CastCancel: true
-    CastTime: 1000
+    CastTime: 100 #Improved Cast Time
     AfterCastActDelay: 500
     Duration1: 20000
     Cooldown: 5000
-    FixedCastTime: 500
+    FixedCastTime: 0 #Improved Cast Time
     Requires:
       SpCost: 70
       SpRateCost: -10

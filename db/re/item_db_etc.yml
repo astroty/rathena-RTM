@@ -7630,7 +7630,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Right_Hand: true #Fixed Card Location
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -35789,11 +35789,19 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
-    Script: |
+    Script: | #Unique card for Tyrfing. Description is intentionally vague in-game.
       if(getequipid(EQI_HAND_R) == 1139) {
-         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,250;
-         bonus2 bSkillCooldown,"SM_BASH",750;
-         bonus bMaxHPrate,-10;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-2000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-2000;
+         bonus2 bSkillCooldown,"BA_MUSICALSTRIKE",-2000;
+         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",25;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",25;
+         bonus2 bSkillAtk,"NPC_EVILLAND",225;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",25;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",25;
+         bonus2 bSkillAtk,"MO_INVESTIGATE",15;
+         bonus2 bSkillCooldown,"SM_BASH",100;
+         bonus bMaxHPrate,-25;
         }
   - Id: 13646
     AegisName: FallenRK_Card
@@ -36746,14 +36754,14 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Right_Hand: true #Fixed Card Location
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: | #Reworked to fit the avenged tartaros changes. Boosts Fatal Menace potential and combos with the sword when refined +9.
       bonus2 bSkillAtk,"SC_FATALMENACE",25;
       bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
-      bonus2 bSkillCooldown,"SM_BASH",500;
+      bonus2 bSkillCooldown,"SM_BASH",700;
       bonus bMaxHPrate,-25;
       if(getequipid(EQI_HAND_R) == 1174 && getrefine() >= 9) {
          skill "PF_HPCONVERSION",5;

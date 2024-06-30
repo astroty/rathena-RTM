@@ -1462,38 +1462,62 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |  #A lethal life draining blade. You must rapidly feed it victims before it kills you, the owner. Massive refine investment, unique card combo.
-      bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
-      bonus2 bHPLossRate,200,1000;
-      bonus bMaxHPrate,25;
+    Script: |  #Reworked x2. A demonic dark blade that belows out in insatiable lust for blood. Huge refine bonuses. Unique card combo.
+      bonus2 bSkillCooldown,"BA_MUSICALSTRIKE",500;
+      bonus2 bSkillCooldown,"SC_FATALMENACE",500;
+      bonus2 bSkillCooldown,"WL_HELLINFERNO",500;
+      bonus2 bSkillCooldown,"TK_JUMPKICK",500;
+      bonus2 bHPLossRate,500,1000;
       bonus bSpeedRate,20;
       .@r = getrefine();
       if (.@r >= 3) {
-         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
+         bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SP_CURSEEXPLOSION",10,1000;
+         bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","NPC_DARKCROSS",10,1000;
+         bonus4 bAutoSpellOnSkill,"SC_FATALMENACE","NPC_GRANDDARKNESS",10,1000;
+         bonus4 bAutoSpellOnSkill,"WL_HELLINFERNO","NPC_BLOODDRAIN",5,1000;
+         bonus2 bSkillCooldown,"SM_BASH",500;
          bonus2 bHPLossRate,600,900;
-         bonus2 bSkillCooldown,"SM_BASH",-1000;
          }
       if (.@r >= 6) {
-         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",200;
+         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",100;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",200;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",200;
+         bonus2 bSkillCooldown,"SM_BASH",500;
          bonus2 bHPLossRate,700,800;
-         bonus2 bSkillCooldown,"SM_BASH",-1000;
          }
       if (.@r >= 9) {
-         bonus2 bSkillAtk,"MO_INVESTIGATE",90;
-         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,700;
-         bonus2 bHPLossRate,800,800;
-         bonus2 bSkillCooldown,"SM_BASH",-2000;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
+         bonus4 bAutoSpellOnSkill,"NC_COLDSLOWER","NPC_EVILLAND",7,1000;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",90;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",90;;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",100;
+         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",175;
+         bonus2 bSkillCooldown,"SM_BASH",500;
+         bonus2 bHPLossRate,800,700;
          }
       if (.@r >= 10) {
-         bonus2 bSkillAtk,"MO_INVESTIGATE",10;
+         bonus2 bSkillAtk,"NPC_EVILLAND",50;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",50;
+         bonus2 bSkillAtk,"MO_INVESTIGATE",15;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",20;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",75;
          bonus2 bHPDrainRate,1000,10;
+         skill "AL_INCAGI",10;
+         bonus bAspd,20;
          }
       bonus2 bSkillAtk,"MO_INVESTIGATE",5*(.@r);
+      bonus2 bSkillAtk,"NPC_BLOODDRAIN",20*(.@r);
+      bonus2 bSkillAtk,"NPC_GRANDDARKNESS",5*(.@r);
+      bonus2 bSkillAtk,"NPC_DARKCROSS",5*(.@r);
+      bonus2 bSkillAtk,"NPC_EVILLAND",5*(.@r);
       bonus2 bSkillUseSP,"MO_INVESTIGATE",-10000;
-      bonus2 bHPDrainRate,1000,10;
       bonus bNoRegen,1;
       bonus bNoRegen,2;
       bonus bHPDrainValue,25;
+      bonus bSPGainValue,25;
   - Id: 1140
     AegisName: Black_Rapier
     Name: Black Rapier
@@ -2710,7 +2734,6 @@ Body:
       DropEffect: RED_PILLAR
     Script: |  # Massively altered. Is now a combo sword with broken thanatos card. Heavily invests into Fatal Menace procs and SP management.
       bonus2 bIgnoreDefRaceRate,RC_All,20;
-      bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
       bonus2 bSkillCooldown,"SM_BASH",800;
       bonus bReduceDamageReturn,100;
       bonus bHPDrainValue,150;
@@ -2718,16 +2741,16 @@ Body:
       bonus bAspd,-20;
       .@r = getrefine();
       if (.@r >= 3) {
-         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
          bonus2 bSkillUseSP,"SM_BASH",-100;
          }
       if (.@r >= 6) {
-         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
          bonus2 bSkillUseSP,"SM_BASH",-100;
          }
       if (.@r >= 9) {
          bonus2 bSkillAtk,"SC_FATALMENACE",90;
-         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,500;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
          bonus2 bSkillCooldown,"SM_BASH",-300;
          bonus2 bSkillUseSP,"SM_BASH",-100;
          bonus2 bSPLossRate,400,8000;
@@ -2735,6 +2758,7 @@ Body:
       if (.@r >= 10) {
          bonus bMaxHPrate,15;
          bonus bMaxSPrate,10;
+         bonus bSPrecovRate,25;
          }
       bonus bHitRate,1*.@r;
       skill "LK_PARRYING",.@r;
@@ -3447,8 +3471,11 @@ Body:
     Script: | #The staple DK knight sword. Reworked to be a very good defensive option,with heavy invest. high drain rate and weapon blocking
       bonus2 bIgnoreDefRaceRate,RC_All,10;
       .@r = getrefine();
-      if (.@r >= 8) bonus2 bSkillAtk,"SM_BASH",88;
-      if (.@r >= 10) bonus2 bSkillAtk,"SM_BASH",100;
+      bonus2 bSkillAtk,"SM_BASH",9*(.@r);
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"SM_BASH",100;
+         bonus2 bSkillCooldown,"SM_BASH",200;
+         }
       skill "GC_COUNTERSLASH",(.@r)/2;
       skill "SM_BASH",10;
       bonus4 bAutoSpellOnSkill,"AC_CONCENTRATION","GC_WEAPONBLOCKING",5,1000;
