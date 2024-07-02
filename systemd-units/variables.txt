@@ -1,7 +1,0 @@
-#Place this at /etc/systemd/system/variables.txt
-
-#Where your rathenaserver is located
-SERVERLOCATION=/srv/rathena
-#What user will be running rathena (please create the user first and give it proper permissions)
-DEFAULTUSER=rathena
-DEBUG=infinity
