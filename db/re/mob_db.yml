@@ -8936,16 +8936,16 @@ Body:
       - Item: Distortion_Essence
         Rate: 1300
       - Item: Bloody_Edge
-        Rate: 1000
+        Rate: 2000
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Union_Manual
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Old_Hilt
-        Rate: 5
+        Rate: 200
       - Item: Bride_VeilMVP
         Rate: 10
   - Id: 1204
@@ -8982,21 +8982,21 @@ Body:
       KnockBackImmune: true
     Drops:
       - Item: Bloody_Edge
-        Rate: 1000
+        Rate: 2000
       - Item: Distortion_Essence
         Rate: 1300
       - Item: Ogretooth_Card
         Rate: 100
         StealProtected: true
       - Item: Uruz_Rune_of_Freedom
-        Rate: 200
+        Rate: 300
         RandomOptionGroup: manual
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Old_Hilt
-        Rate: 5
+        Rate: 200
       - Item: Bride_VeilMVP
         Rate: 10
   - Id: 1205
@@ -9037,7 +9037,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Bloody_Edge
-        Rate: 1000
+        Rate: 2000
       - Item: Distortion_Essence
         Rate: 1300
       - Item: Distortion_Shard
@@ -9045,7 +9045,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Old_Hilt
-        Rate: 5
+        Rate: 200
       - Item: Bride_VeilMVP
         Rate: 10
   - Id: 1206
@@ -10595,14 +10595,14 @@ Body:
       KnockBackImmune: true
     Drops:
       - Item: Bloody_Edge
-        Rate: 500
+        Rate: 5000
       - Item: PrincessTiara_Card
-        Rate: 100
+        Rate: 300
         StealProtected: true
       - Item: Old_Hilt
-        Rate: 20
+        Rate: 2500
       - Item: C_Good_Wedding_Veil
-        Rate: 25
+        Rate: 500
   - Id: 1245
     AegisName: GOBLINE_XMAS
     Name: Knight Sakray
@@ -10647,7 +10647,7 @@ Body:
         Rate: 300
         StealProtected: true
       - Item: Old_Hilt
-        Rate: 500
+        Rate: 5000
       - Item: Bloody_Edge
         Rate: 10000
       - Item: MVP_Reward_Box
@@ -22992,13 +22992,13 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Deviling_Card
-        Rate: 100
+        Rate: 200
         StealProtected: true
       - Item: Ominous_Lament
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: scythe
       - Item: Vorpal_Dagger
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: dagger
       - Item: Jewel_Shadowdecon
         Rate: 100
@@ -25194,12 +25194,12 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Shield_Ring
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: accessory
       - Item: Distortion_Essence
         Rate: 1200
       - Item: Isaz_Rune_of_Deception
-        Rate: 200
+        Rate: 300
         RandomOptionGroup: manual
       - Item: Distortion_Shard
         Rate: 10000
@@ -26273,13 +26273,13 @@ Body:
       - Item: HD_Bradium
         Rate: 10000
       - Item: World_Eater_Garb
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: armor
       - Item: Jormungandr_Promise
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: dagger
       - Item: Jormungandr_Fang
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: manual
   - Id: 1666
     AegisName: POTON_CANON_2
@@ -35978,10 +35978,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Sword_of_Conquest
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: sword
       - Item: Surt_Shawl
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Perfect_TuxedoMVP
         Rate: 10
@@ -36028,13 +36028,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Bow of Famine
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: bow
       - Item: Axe_Famine
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: axe
       - Item: Surt_Shoes
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Perfect_TuxedoMVP
         Rate: 10
@@ -36082,10 +36082,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Black_War
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: dagger
       - Item: Diabolus_Robes
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: armor
       - Item: Perfect_TuxedoMVP
         Rate: 10
@@ -36133,7 +36133,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Diabolus_Armor
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: armor
       - Item: Perfect_TuxedoMVP
         Rate: 10
@@ -52931,7 +52931,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Spiral_Dancer_Spear
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: spear
       - Item: Distortion_Shard
         Rate: 10000
@@ -54894,7 +54894,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 1100
       - Item: Ring_of_W_L
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: accessory
       - Item: 2nd_Shadow_Coffer
         Rate: 300
@@ -54939,7 +54939,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Ring_of_B_S
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: accessory
       - Item: Distortion_Essence
         Rate: 1150
@@ -60129,16 +60129,16 @@ Body:
       - Item: Distortion_Essence
         Rate: 5000
       - Item: Angel_Genesis_Card
-        Rate: 100
+        Rate: 300
         StealProtected: true
       - Item: Genesis_Bright
-        Rate: 50
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Genesis_Raid
-        Rate: 50
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Genesis_Sky
-        Rate: 50
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Enriched_Oridecon
         Rate: 100
@@ -60186,16 +60186,16 @@ Body:
       - Item: Distortion_Essence
         Rate: 5000
       - Item: Demon_Apoca_Card
-        Rate: 100
+        Rate: 300
         StealProtected: true
       - Item: Apocalype_Scale
-        Rate: 50
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Apocalype_Occult
-        Rate: 50
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Apocalype_Hell
-        Rate: 50
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Jewel_Elunium
         Rate: 25
@@ -60242,14 +60242,14 @@ Body:
       - Item: Distortion_Essence
         Rate: 5000
       - Item: Heartless_Card
-        Rate: 100
+        Rate: 300
         StealProtected: true
       - Item: Jewel_Shadowdecon
         Rate: 10000
       - Item: 4th_Shadow_Coffer
         Rate: 600
       - Item: World_Eater_Garb
-        Rate: 10
+        Rate: 300
         RandomOptionGroup: armor
   - Id: 2653
     AegisName: C3_SNAKE
@@ -60282,13 +60282,13 @@ Body:
       KnockBackImmune: true
     Drops:
       - Item: Serpent_Heart_Card
-        Rate: 100
+        Rate: 300
         StealProtected: true
       - Item: SkyspearCOrb
-        Rate: 100
+        Rate: 600
         RandomOptionGroup: dracoorb
       - Item: SkyspearCOrb
-        Rate: 10
+        Rate: 300
         RandomOptionGroup: dracomvp
   - Id: 2654
     AegisName: C4_SMOKIE
@@ -60362,13 +60362,13 @@ Body:
       - Item: Dream_Shard
         Rate: 5000
       - Item: Eyes_Hearts
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Dream_Armor
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: armor
       - Item: Dream_Pouch
-        Rate: 100
+        Rate: 1000
   - Id: 2656
     AegisName: C1_SLEEPER
     Name: Converted Zealot
@@ -60413,13 +60413,13 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Eyes_Souls
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Dream_Shoes
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: manual
       - Item: Dream_Pouch
-        Rate: 100
+        Rate: 1000
   - Id: 2657
     AegisName: C2_SKOGUL
     Name: Godly Seeker
@@ -60464,22 +60464,22 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Fate_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Flaming_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Frozen_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Wind_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Nature_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Eyes_Njord
-        Rate: 5
+        Rate: 50
         RandomOptionGroup: manual
   - Id: 2658
     AegisName: C3_SKELETON_GENERAL
@@ -60525,22 +60525,22 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Fate_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Flaming_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Frozen_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Wind_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Nature_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Dream_Manteau
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: garment
   - Id: 2659
     AegisName: C4_SKELETON_GENERAL
@@ -60652,22 +60652,22 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Fate_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Flaming_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Frozen_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Wind_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Nature_Weaver
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Dream_Ring
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: manual
   - Id: 2661
     AegisName: C1_SIROMA
@@ -61049,31 +61049,31 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Apus_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Caelum_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Orion_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Cygnus_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Auriga_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Volan_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Lacerta_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Scutum_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
       - Item: Fornax_Moon
-        Rate: 25
+        Rate: 200
         RandomOptionGroup: astrologika
   - Id: 2669
     AegisName: C4_SEDORA
@@ -61111,19 +61111,19 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Galactic_Dust
-        Rate: 25
+        Rate: 1000
       - Item: Star_Piece
         Rate: 10000
       - Item: Star_Scale_Sh
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: shield
       - Item: Galaxy_Armor
-        Rate: 50
+        Rate: 350
         RandomOptionGroup: armor
       - Item: Twinkling_StarMVP
         Rate: 10
       - Item: Astro_Coffer
-        Rate: 200
+        Rate: 500
   - Id: 2670
     AegisName: C5_SCORPION
     Name: Meteor Golem
@@ -61160,19 +61160,19 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Galactic_Dust
-        Rate: 25
+        Rate: 1000
       - Item: Star_Piece
         Rate: 10000
       - Item: Starlight_Katar
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: katar
       - Item: Galaxy_Shoes
-        Rate: 50
+        Rate: 350
         RandomOptionGroup: shoes
       - Item: Twinkling_StarMVP
         Rate: 10
       - Item: Astro_Coffer
-        Rate: 200
+        Rate: 500
   - Id: 2671
     AegisName: C1_SAVAGE_BABE
     Name: Doomfist
@@ -61207,27 +61207,27 @@ Body:
       ChangeChase: true
     Drops:
       - Item: Doomfist_C
-        Rate: 100
+        Rate: 200
         StealProtected: true
       - Item: Jewel_Elunium
         Rate: 50
       - Item: Star_Piece
         Rate: 10000
       - Item: Galactic_Dust
-        Rate: 50
+        Rate: 2000
       - Item: Cannon_Dagger
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: dagger
       - Item: Galaxy_Garment
-        Rate: 50
+        Rate: 350
         RandomOptionGroup: garment
       - Item: Swordwhip
-        Rate: 25
+        Rate: 250
         RandomOptionGroup: whip
       - Item: Twinkling_StarMVP
         Rate: 10
       - Item: Astro_Coffer
-        Rate: 200
+        Rate: 500
   - Id: 2672
     AegisName: C2_SAVAGE
     Name: Star Scourge
@@ -61279,18 +61279,18 @@ Body:
       - Item: Jewel_Shadowdecon
         Rate: 10000
       - Item: Galactic_Dust
-        Rate: 5000
+        Rate: 10000
       - Item: Galaxy_Armor
-        Rate: 1000
+        Rate: 1500
         RandomOptionGroup: armor
       - Item: Galaxy_Shoes
-        Rate: 1000
+        Rate: 1500
         RandomOptionGroup: shoes
       - Item: Galaxy_Garment
-        Rate: 1000
+        Rate: 1500
         RandomOptionGroup: garment
       - Item: Swordwhip
-        Rate: 500
+        Rate: 750
         RandomOptionGroup: whip
   - Id: 2673
     AegisName: C3_SAVAGE
@@ -65672,7 +65672,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 2700
       - Item: Emperium_Armor
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: armor
       - Item: 4th_Shadow_Coffer
         Rate: 300
@@ -65721,7 +65721,7 @@ Body:
       - Item: Enriched_Elunium
         Rate: 200
       - Item: Emperium_Boots
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: shoes
       - Item: 4th_Shadow_Coffer
         Rate: 300
@@ -65770,9 +65770,9 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Absolute_Arrow
-        Rate: 50
+        Rate: 250
       - Item: Emperium_Ring
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: accessory
       - Item: Gu_Defender_Card
         Rate: 100
@@ -65818,7 +65818,7 @@ Body:
       - Item: Enriched_Oridecon
         Rate: 200
       - Item: Emperium_Manteau
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: garment
       - Item: 4th_Shadow_Coffer
         Rate: 300
@@ -65861,7 +65861,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: King_of_Diamonds
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: deck
       - Item: 4th_Shadow_Coffer
         Rate: 300
@@ -65912,14 +65912,14 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Guiding_Dagger
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: dagger
       - Item: HD_Bradium
         Rate: 200
       - Item: Distortion_Essence
         Rate: 2770
       - Item: Unleashed_Manual
-        Rate: 200
+        Rate: 400
         RandomOptionGroup: manual
       - Item: Gu_Master_Card
         Rate: 100
@@ -65965,7 +65965,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 10000
       - Item: Guiding_Dagger
-        Rate: 300
+        Rate: 600
         RandomOptionGroup: dagger
       - Item: Emperium_Armor
         Rate: 1000
@@ -65983,7 +65983,7 @@ Body:
         Rate: 200
         StealProtected: true
       - Item: Silver_Bullet
-        Rate: 500
+        Rate: 1000
   - Id: 2791
     AegisName: C3_ISILLA
     Name: Detector
@@ -66084,7 +66084,7 @@ Body:
         Rate: 10000
         RandomOptionGroup: shoes
       - Item: Isaz Rune of Challenge
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: shadow
       - Item: Emperium_Manteau
         Rate: 10000
@@ -72943,13 +72943,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Abandoned_Guardian
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: sword
       - Item: Carrot_In_Mouth
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Unknown_Glove
-        Rate: 25
+        Rate: 100
         RandomOptionGroup: armor
       - Item: Old_PuppetMVP
         Rate: 10
@@ -72997,13 +72997,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Overseer_XBow
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: bow
       - Item: Toast_in_Mouth
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Unknown_Glove
-        Rate: 25
+        Rate: 100
         RandomOptionGroup: armor
       - Item: Old_PuppetMVP
         Rate: 10
@@ -73051,13 +73051,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: 10_of_Diamonds
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: deck
       - Item: Donut_In_Mouth
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: manual
       - Item: Unknown_Glove
-        Rate: 25
+        Rate: 100
         RandomOptionGroup: armor
       - Item: Old_PuppetMVP
         Rate: 10
@@ -73289,13 +73289,13 @@ Body:
       - Item: Enriched_Elunium
         Rate: 10000
       - Item: Celine_Kimi_Robes
-        Rate: 500
+        Rate: 750
         RandomOptionGroup: armor
       - Item: Puppet_Hand
-        Rate: 500
+        Rate: 750
         RandomOptionGroup: dagger
       - Item: Vorpal_Dagger
-        Rate: 1500
+        Rate: 1750
         RandomOptionGroup: dagger
       - Item: MVP_Reward_Box
         Rate: 6250
@@ -75847,10 +75847,10 @@ Body:
         Rate: 300
         StealProtected: true
       - Item: Demon_God_Armguard
-        Rate: 1000
+        Rate: 1500
         RandomOptionGroup: manual
       - Item: Isaz Rune of Challenge
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Godslayer_A
         Rate: 25
@@ -81054,7 +81054,7 @@ Body:
         Rate: 10000
     Drops:
       - Item: Golden_G_Shield
-        Rate: 500
+        Rate: 1000
         RandomOptionGroup: shield
       - Item: Death_Hand
         Rate: 1500
@@ -81152,14 +81152,14 @@ Body:
       - Item: C_Prontera_Army_Cap
         Rate: 50
       - Item: Death_Hand
-        Rate: 150
+        Rate: 300
         RandomOptionGroup: shadow
       - Item: Distortion_Shard
         Rate: 10000
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Guardian_Axe
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: axe
       - Item: Cursed_MedallionMVP
         Rate: 10
