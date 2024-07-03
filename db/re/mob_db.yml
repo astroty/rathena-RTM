@@ -59691,13 +59691,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Mercury_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Venus_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Mars_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
   - Id: 2642
     AegisName: C2_STEEL_CHONCHON
@@ -59740,13 +59740,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Mars_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Saturn_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Jupiter_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
   - Id: 2643
     AegisName: C3_STAPO
@@ -59789,13 +59789,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Saturn_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Jupiter_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Neptune_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
   - Id: 2644
     AegisName: C4_STALACTIC_GOLEM
@@ -59838,13 +59838,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Neptune_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Mercury_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
       - Item: Venus_Cape
-        Rate: 25
+        Rate: 300
         RandomOptionGroup: garment
   - Id: 2645
     AegisName: C5_STAINER
@@ -59891,7 +59891,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Devil_Fang
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: dagger
   - Id: 2646
     AegisName: C1_SPORE
@@ -59935,7 +59935,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Alto_Flagelo
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: bow
   - Id: 2647
     AegisName: C2_SOLIDER
@@ -59979,7 +59979,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Kaiser_Lance
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: spear
   - Id: 2648
     AegisName: C3_SOLDIER_SKELETON
@@ -60024,7 +60024,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Lingering_Sadness
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: sword
   - Id: 2649
     AegisName: C4_SOLDIER_SKELETON
