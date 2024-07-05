@@ -332,21 +332,21 @@ Body:
             Level: 1
           - Name: RK_DEATHBOUND
             Level: 1
-      - Name: NC_COLDSLOWER
+      - Name: DK_SWORDFLURRY #New skill
         MaxLevel: 5
         Requires:
-          - Name: WL_HELLINFERNO
+          - Name: MO_SPIRITSRECOVERY
             Level: 1
       - Name: BA_MUSICALSTRIKE
         MaxLevel: 10
         Requires:
-          - Name: NC_COLDSLOWER
+          - Name: DK_SWORDFLURRY #New skill
             Level: 1
       - Name: WL_HELLINFERNO
+        MaxLevel: 10
         Requires:
           - Name: MO_SPIRITSRECOVERY
             Level: 1
-        MaxLevel: 10
       - Name: AB_ANCILLA
         MaxLevel: 1
         Requires:

@@ -3866,6 +3866,11 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 	case PA_GOSPEL: //Should look like Holy Cross [Skotlex]
 		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, CR_HOLYCROSS, -1, DMG_SPLASH);
 		break;
+	case DK_SWORDFLURRY: // New DK Skills
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 3, RG_BACKSTAP, skill_lv, dmg_type); //Steals the physical animation for bash
+		clif_specialeffect(bl, 567, AREA); // For skill visuals
+		clif_showscript(src, "Sword Flurry !!", AREA); // Added to display the proper name callout when stealing bash vx
+		break;
 		//Skills that need be passed as a normal attack for the client to display correctly.
 	case HVAN_EXPLOSION:
 	case NPC_SELFDESTRUCTION:
@@ -5159,6 +5164,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case SM_BASH:
 	case MS_BASH:
 	case MC_MAMMONITE:
+	case DK_SWORDFLURRY: // New DK Skills
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
 	case TF_DOUBLE:
 	case AC_DOUBLE:
 	case MA_DOUBLE:
@@ -12191,11 +12199,11 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			// Detonate RL_B_TRAP
 			if (pc_checkskill(sd, RL_B_TRAP))
 				map_foreachinallrange(skill_bind_trap, src, AREA_SIZE, BL_SKILL, src);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
+				sc_start(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			// Detonate RL_H_MINE
 			if ((i = pc_checkskill(sd, RL_H_MINE)))
 				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag | BCT_ENEMY | SD_SPLASH, skill_castend_damage_id);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
+				sc_start(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			sd->flicker = false;
 		}
 		break;
@@ -16502,7 +16510,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		if (sc->data[SC_QD_SHOT_READY])
 			break;
 	case CH_TIGERFIST:
-		if (!(sc && sc->data[SC_COMBO] && sc->data[SC_COMBO]->val1 == MO_COMBOFINISH))
+		if (!sc)
 			return false;
 		break;
 	case CH_CHAINCRUSH:
@@ -18233,9 +18241,9 @@ int skill_delayfix(struct block_list* bl, uint16 skill_id, uint16 skill_lv)
 	case SR_FALLENEMPIRE:
 	case SJ_PROMINENCEKICK:
 	case LG_HESPERUSLIT:
-		//If delay not specified, it will be 1000 - 4*agi - 2*dex
+		//If delay not specified, it will be 100 - 4*agi - 2*dex
 		if (time == 0)
-			time = 1000;
+			time = 100;
 		time -= (2 * status_get_agi(bl) + 1 * status_get_dex(bl));
 		break;
 #ifndef RENEWAL

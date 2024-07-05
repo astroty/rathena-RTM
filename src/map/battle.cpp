@@ -3925,6 +3925,18 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case MC_MAMMONITE:
 			skillratio += 100 + 30 * skill_lv + 2 * (sstatus->dex);
 			break;
+		case DK_SWORDFLURRY: //New DK Skill
+#ifdef RENEWAL
+			skillratio += 150 + 10 * skill_lv + (sstatus->dex);
+			if (sc && sc->data[SC_NEN])
+				skillratio += 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_OVERBRANDREADY])
+				skillratio += 65 * skill_lv + (3 * (sstatus->str));
+			break;
+#else
+			skillratio += 75 * skill_lv;
+#endif
+			break;
 		case HT_POWER:
 			skillratio += 50 + 15 * skill_lv + (2 * sstatus->dex) + (5 * (pc_checkskill(sd, BS_SKINTEMPER)));
 			if (sc && sc->data[SC_ASPERSIO])
@@ -4166,11 +4178,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case MO_INVESTIGATE:
 #ifdef RENEWAL
-			skillratio += 150 + 10 * skill_lv + (sstatus->vit);
+			skillratio += 150 + 50 * skill_lv + (sstatus->dex);
 			if (sc && sc->data[SC_NEN])
 				skillratio += 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
 			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 65 * skill_lv + (3 * (sstatus->str));
+				skillratio += 95 * skill_lv + (5 * (sstatus->str));
 			break;
 #else
 			skillratio += 75 * skill_lv;
@@ -4231,13 +4243,15 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case CH_TIGERFIST:
 #ifdef RENEWAL
-			skillratio += 400 + 150 * skill_lv;
-			RE_LVL_DMOD(100);
+			skillratio += 150 + 10 * skill_lv + (sstatus->vit);
+			if (sc && sc->data[SC_NEN])
+				skillratio += 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_OVERBRANDREADY])
+				skillratio += 65 * skill_lv + (3 * (sstatus->str));
+			break;
 #else
-			skillratio += -60 + 100 * skill_lv;
+			skillratio += 75 * skill_lv;
 #endif
-			if (sc->data[SC_GT_ENERGYGAIN])
-				skillratio += skillratio * 50 / 100;
 			break;
 		case CH_CHAINCRUSH:
 #ifdef RENEWAL
@@ -4562,7 +4576,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 							skillratio += 3 * (sstatus->luk);
 						break;
 		case GC_COUNTERSLASH:																						 
-			skillratio += 100 + 50 * skill_lv + 1 * sstatus->agi;
+			skillratio += 100 + 10 * skill_lv + 1 * sstatus->agi;
 			break;
 		case GC_VENOMPRESSURE:
 			skillratio += 150 + 40 * skill_lv + 2 * (sstatus->int_);
@@ -4692,9 +4706,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
 			break;
 		case SC_FATALMENACE:
-			skillratio += 150 + 10 * skill_lv + (sstatus->vit);
+			skillratio += 160 + 40 * skill_lv + (sstatus->vit);
 			if (sc && sc->data[SC_NEN])
-			skillratio += 30 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			skillratio += 35 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
 			if (sc && sc->data[SC_OVERBRANDREADY])
 			skillratio += 50 * skill_lv + (3 *(sstatus->str));
 			break;
@@ -4711,9 +4725,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (tsc && tsc->data[SC_JYUMONJIKIRI])
 				skillratio +=50 + (sstatus->dex);
 			if(sd && sd->status.weapon == W_DOUBLE_DD)
-				skillratio += 100 + 65 * skill_lv + 2 * (sstatus->agi);
+				skillratio += 100 + 45 * skill_lv + 2 * (sstatus->agi);
 			else
-				skillratio += 100 + 50 * skill_lv + 2 * (sstatus->agi);
+				skillratio += 100 + 30 * skill_lv + 2 * (sstatus->agi);
 			break;
 		case LG_SHIELDPRESS:
 			skillratio += 10 + 5 * skill_lv;
@@ -5094,7 +5108,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 45 * skill_lv + 3 * sstatus->int_;
 		break;;
 		case RL_R_TRIP:
-			skillratio += 50 + 15 * skill_lv + 1 * sstatus->str;
+			skillratio += 10 + 15 * skill_lv + 1 * sstatus->str;
 			if (sc && sc->data[SC_ROLLINGCUTTER])
 			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 10;
 			break;

@@ -38390,3 +38390,34 @@ Body:
     SplashArea: 15
     Duration1: 10000
     Cooldown: 600000
+  - Id: 777
+    Name: DK_SWORDFLURRY #New DK Skills
+    Description: Sword Flurry
+    MaxLevel: 5
+    TargetType: Attack
+    DamageFlags:
+      IgnoreFlee: true
+    Flags:
+      TargetTrap: true
+    Range: 2
+    Hit: Multi_Hit
+    HitCount: -3
+    Element: Weapon
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+    AfterCastActDelay: 100
+    Cooldown: 3500
+    Requires:
+      SpCost:
+        - Level: 1
+          Amount: 25
+        - Level: 2
+          Amount: 30
+        - Level: 3
+          Amount: 35
+        - Level: 4
+          Amount: 40
+        - Level: 5
+          Amount: 45
+      HpRateCost: 30
