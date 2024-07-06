@@ -161,7 +161,7 @@ Body:
       - Item: C_Poring_Muffler
         Rate: 75
       - Item: GigallopyMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 1003
 #    AegisName: THIEF_BUG_AGG
 #    Name: Test Egg
@@ -682,7 +682,7 @@ Body:
       - Item: Dark_Arrow
         Rate: 500
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 1017
 #    AegisName: THIEF_BUG_FEMALE
 #    Name: Thief Bug Female
@@ -991,7 +991,7 @@ Body:
         Rate: 650
         RandomOptionGroup: sword
       - Item: Lost_TrophyMVP
-        Rate: 10
+        Rate: 50
   - Id: 1024
     AegisName: WORM_TAIL
     Name: Wormtail
@@ -1073,7 +1073,7 @@ Body:
         Rate: 1500
         RandomOptionGroup: dagger
       - Item: Rabbit_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: OrphanClothes
         Rate: 1500
         RandomOptionGroup: armor
@@ -1120,7 +1120,7 @@ Body:
         Rate: 850
         RandomOptionGroup: shadow
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
       - Item: Burial_Charm
         Rate: 300
         RandomOptionGroup: accessory
@@ -1200,7 +1200,7 @@ Body:
         Rate: 1375
         RandomOptionGroup: dagger
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1029
     AegisName: ISIS
     Name: Isis
@@ -1248,7 +1248,7 @@ Body:
         Rate: 750
         RandomOptionGroup: garment
       - Item: Bandage_GodsMVP
-        Rate: 10
+        Rate: 50
       - Item: Burial_Bow
         Rate: 400
         RandomOptionGroup: bow
@@ -1389,7 +1389,7 @@ Body:
       - Item: First_Rune_Coffer
         Rate: 500
       - Item: Rabbit_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: OrphanCape
         Rate: 1500
         RandomOptionGroup: garment
@@ -1474,7 +1474,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Dream_StoneMVP
-        Rate: 10
+        Rate: 50
   - Id: 1035
     AegisName: HUNTER_FLY
     Name: Hunter Fly
@@ -1587,7 +1587,7 @@ Body:
       - Item: Enriched_Elunium
         Rate: 75
       - Item: Massive_CleaverMVP
-        Rate: 10
+        Rate: 50
   - Id: 1038
     AegisName: OSIRIS
     Name: Osiris
@@ -1739,7 +1739,7 @@ Body:
       - Item: Stone_Heart
         Rate: 10000
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
   - Id: 1041
     AegisName: MUMMY
     Name: Mummy
@@ -1782,7 +1782,7 @@ Body:
         Rate: 750
         RandomOptionGroup: shoes
       - Item: Bandage_GodsMVP
-        Rate: 10
+        Rate: 50
       - Item: Mimic_Codex
         Rate: 900
         RandomOptionGroup: codex
@@ -1828,7 +1828,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Massive_CleaverMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 1043
 #    AegisName: SEAHORES
 #    Name: Seahorse
@@ -1900,7 +1900,7 @@ Body:
         Rate: 550
         RandomOptionGroup: manual
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 1045
     AegisName: MARC
     Name: Marc
@@ -1943,7 +1943,7 @@ Body:
         Rate: 425
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 1046
     AegisName: DOPPELGANGER
     Name: Lost Swordsman
@@ -2187,7 +2187,7 @@ Body:
         Rate: 850
         RandomOptionGroup: shadow
       - Item: Pure_GoldMVP
-        Rate: 10
+        Rate: 50
   - Id: 1052
     AegisName: ROCKER
     Name: Rocker
@@ -2280,7 +2280,7 @@ Body:
         Rate: 275
         RandomOptionGroup: manual
       - Item: Pure_GoldMVP
-        Rate: 10
+        Rate: 50
       - Item: Slime_Ring
         Rate: 450
         RandomOptionGroup: accessory
@@ -2333,7 +2333,7 @@ Body:
       - Item: Oridecon
         Rate: 150
       - Item: Pure_GoldMVP
-        Rate: 10
+        Rate: 50
   - Id: 1055
     AegisName: MUKA
     Name: Muka
@@ -2639,7 +2639,7 @@ Body:
       - Item: Oridecon
         Rate: 200
       - Item: Torn_CapeMVP
-        Rate: 10
+        Rate: 50
       - Item: Halloween_Coin
         Rate: 200
   - Id: 1062
@@ -2765,7 +2765,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Dream_StoneMVP
-        Rate: 10
+        Rate: 50
       - Item: Heart_Card
         Rate: 750
       - Item: Heart_Card
@@ -2824,7 +2824,7 @@ Body:
         Rate: 725
         RandomOptionGroup: dagger
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 1066
     AegisName: VADON
     Name: Vadon
@@ -2904,7 +2904,7 @@ Body:
         Rate: 850
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 1068
     AegisName: HYDRA
     Name: Hydra
@@ -2998,7 +2998,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Perfect_ShrimpMVP
-        Rate: 10
+        Rate: 50
   - Id: 1070
     AegisName: KUKRE
     Name: Kukre
@@ -3083,7 +3083,7 @@ Body:
       - Item: Pirate_Treasure
         Rate: 10000
       - Item: Broken_FlintlockMVP
-        Rate: 10
+        Rate: 50
   - Id: 1072
     AegisName: KAHO
     Name: Kaho
@@ -3835,7 +3835,7 @@ Body:
       - Item: First_Rune_Coffer
         Rate: 1000
       - Item: GigallopyMVP
-        Rate: 10
+        Rate: 50
       - Item: Cantrips_Codex
         Rate: 900
   - Id: 1091
@@ -4053,9 +4053,9 @@ Body:
         Rate: 250
         RandomOptionGroup: manual
       - Item: Maya_CrownMVP
-        Rate: 10
+        Rate: 50
       - Item: Queen_WingMVP
-        Rate: 10
+        Rate: 50
   - Id: 1096
     AegisName: ANGELING
     Name: Angeling
@@ -4192,7 +4192,7 @@ Body:
       - Item: Elunium
         Rate: 300
       - Item: Broken_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1099
     AegisName: ARGIOPE
     Name: Argiope
@@ -4329,7 +4329,7 @@ Body:
         Rate: 350
         RandomOptionGroup: manual
       - Item: Baphomet_PuppetMVP
-        Rate: 10
+        Rate: 100
   - Id: 1102
     AegisName: BATHORY
     Name: Bathory
@@ -4380,7 +4380,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shield
       - Item: Melting_ClockMVP
-        Rate: 10
+        Rate: 50
       - Item: Duel_Lance
         Rate: 200
         RandomOptionGroup: spear
@@ -4513,9 +4513,9 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Maya_CrownMVP
-        Rate: 10
+        Rate: 50
       - Item: Queen_WingMVP
-        Rate: 10
+        Rate: 50
       - Item: Insect_Wings
         Rate: 400
         RandomOptionGroup: garment
@@ -4643,7 +4643,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Perfect_ShrimpMVP
-        Rate: 10
+        Rate: 50
   - Id: 1109
     AegisName: DEVIRUCHI
     Name: Deviruchi
@@ -4692,7 +4692,7 @@ Body:
         Rate: 150
         RandomOptionGroup: garment
       - Item: Torn_CapeMVP
-        Rate: 10
+        Rate: 50
       - Item: Halloween_Coin
         Rate: 200
   - Id: 1110
@@ -4787,7 +4787,7 @@ Body:
         Rate: 1050
         RandomOptionGroup: dagger
       - Item: Torn_CapeMVP
-        Rate: 10
+        Rate: 50
       - Item: Rotten_Cutter
         Rate: 100
         RandomOptionGroup: sword
@@ -4899,7 +4899,7 @@ Body:
       - Item: C_Rainbow_Poring_Hat
         Rate: 75
       - Item: GigallopyMVP
-        Rate: 10
+        Rate: 50
   - Id: 1114
     AegisName: DUSTINESS
     Name: Dustiness
@@ -5072,7 +5072,7 @@ Body:
         Rate: 200
         RandomOptionGroup: shadow
       - Item: Dark_WaterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1118
     AegisName: FLORA
     Name: Flora
@@ -5240,7 +5240,7 @@ Body:
       - Item: Elunium
         Rate: 100
       - Item: Corrupted_GoldMVP
-        Rate: 10
+        Rate: 50
       - Item: Worker_Boots
         Rate: 500
         RandomOptionGroup: shoes
@@ -5585,7 +5585,7 @@ Body:
         Rate: 50
         RandomOptionGroup: accessory
       - Item: Ancient_SlabMVP
-        Rate: 10
+        Rate: 50
   - Id: 1130
     AegisName: JAKK
     Name: Jakk
@@ -5636,7 +5636,7 @@ Body:
         Rate: 1050
         RandomOptionGroup: garment
       - Item: Torn_CapeMVP
-        Rate: 10
+        Rate: 50
       - Item: Night_Boots
         Rate: 100
         RandomOptionGroup: shoes
@@ -5691,7 +5691,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Lich_WandMVP
-        Rate: 10
+        Rate: 50
   - Id: 1132
     AegisName: KHALITZBURG
     Name: Khalitzburg
@@ -5739,7 +5739,7 @@ Body:
         Rate: 25
         RandomOptionGroup: katar
       - Item: Toy_CrownMVP
-        Rate: 10
+        Rate: 50
   - Id: 1133
     AegisName: KOBOLD_1
     Name: Axe Kobold
@@ -6063,7 +6063,7 @@ Body:
         Rate: 250
         RandomOptionGroup: manual
       - Item: Broken_ScepterMVP
-        Rate: 10
+        Rate: 50
       - Item: Fire_Cantrips
         Rate: 800
   - Id: 1141
@@ -6108,7 +6108,7 @@ Body:
         Rate: 850
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 1142
     AegisName: MARINE_SPHERE
     Name: Marine Sphere
@@ -6240,7 +6240,7 @@ Body:
         Rate: 850
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 1145
     AegisName: MARTIN
     Name: Martin
@@ -6291,7 +6291,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Corrupted_GoldMVP
-        Rate: 10
+        Rate: 50
   - Id: 1146
     AegisName: MATYR
     Name: Matyr
@@ -6334,7 +6334,7 @@ Body:
         Rate: 1000
         RandomOptionGroup: armor
       - Item: Broken_ScepterMVP
-        Rate: 10
+        Rate: 50
       - Item: Strafe_Bow
         Rate: 1000
         RandomOptionGroup: bow
@@ -6448,7 +6448,7 @@ Body:
       - Item: Cardinal_Jewel_
         Rate: 65
       - Item: Dream_StoneMVP
-        Rate: 10
+        Rate: 50
       - Item: Gambler_Clothes
         Rate: 500
         RandomOptionGroup: armor
@@ -6502,7 +6502,7 @@ Body:
         Rate: 300
         RandomOptionGroup: manual
       - Item: Bandage_GodsMVP
-        Rate: 10
+        Rate: 50
   - Id: 1150
     AegisName: MOONLIGHT
     Name: Moonlight Flower
@@ -6614,7 +6614,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Corrupted_GoldMVP
-        Rate: 10
+        Rate: 50
   - Id: 1152
     AegisName: ORC_SKELETON
     Name: Orc Skeleton
@@ -6662,7 +6662,7 @@ Body:
         Rate: 350
         RandomOptionGroup: manual
       - Item: Orc_KoinMVP
-        Rate: 10
+        Rate: 50
   - Id: 1153
     AegisName: ORC_ZOMBIE
     Name: Orc Zombie
@@ -6707,7 +6707,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Orc_KoinMVP
-        Rate: 10
+        Rate: 50
   - Id: 1154
     AegisName: PASANA
     Name: Pasana
@@ -6756,7 +6756,7 @@ Body:
         Rate: 800
         RandomOptionGroup: sword
       - Item: Broken_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1155
     AegisName: PETIT
     Name: Land Petite
@@ -7060,9 +7060,9 @@ Body:
         Rate: 150
         RandomOptionGroup: shoes
       - Item: Maya_CrownMVP
-        Rate: 10
+        Rate: 50
       - Item: Queen_WingMVP
-        Rate: 10
+        Rate: 50
   - Id: 1161
     AegisName: PLANKTON
     Name: Plankton
@@ -7194,7 +7194,7 @@ Body:
         Rate: 25
         RandomOptionGroup: dagger
       - Item: Toy_CrownMVP
-        Rate: 10
+        Rate: 50
   - Id: 1164
     AegisName: REQUIEM
     Name: Requiem
@@ -7239,7 +7239,7 @@ Body:
         Rate: 1000
         RandomOptionGroup: dagger
       - Item: Broken_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1165
     AegisName: SAND_MAN
     Name: Sandman
@@ -7280,7 +7280,7 @@ Body:
         Rate: 900
         RandomOptionGroup: armor
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
   - Id: 1166
     AegisName: SAVAGE
     Name: Savage
@@ -7444,7 +7444,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Corrupted_GoldMVP
-        Rate: 10
+        Rate: 50
       - Item: Smoking_Katar
         Rate: 400
         RandomOptionGroup: katar
@@ -7490,7 +7490,7 @@ Body:
         Rate: 1300
         RandomOptionGroup: armor
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
       - Item: Laguz_Rune_of_Dreams
         Rate: 350
         RandomOptionGroup: manual
@@ -7716,7 +7716,7 @@ Body:
       - Item: Elunium
         Rate: 50
       - Item: Pure_GoldMVP
-        Rate: 10
+        Rate: 50
   - Id: 1176
     AegisName: VITATA
     Name: Vitata
@@ -7756,9 +7756,9 @@ Body:
       - Item: Mother's_Nightmare
         Rate: 150
       - Item: Maya_CrownMVP
-        Rate: 10
+        Rate: 50
       - Item: Queen_WingMVP
-        Rate: 10
+        Rate: 50
       - Item: Quick_Swarming_S
         Rate: 550
         RandomOptionGroup: shadow
@@ -7823,7 +7823,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Orc_KoinMVP
-        Rate: 10
+        Rate: 50
   - Id: 1178
     AegisName: ZEROM
     Name: Zerom
@@ -7868,7 +7868,7 @@ Body:
         Rate: 1200
         RandomOptionGroup: dagger
       - Item: Broken_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1179
     AegisName: WHISPER
     Name: Whisper
@@ -7920,7 +7920,7 @@ Body:
         Rate: 100
         RandomOptionGroup: manual
       - Item: Dark_WaterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1180
     AegisName: NINE_TAIL
     Name: Nine Tails
@@ -7973,7 +7973,7 @@ Body:
         Rate: 550
         RandomOptionGroup: bow
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
       - Item: C_Fox
         Rate: 25
 #  - Id: 1181
@@ -8163,7 +8163,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Mark_of_SorrowMVP
-        Rate: 10
+        Rate: 50
       - Item: Halloween_Coin
         Rate: 1000
   - Id: 1186
@@ -8248,7 +8248,7 @@ Body:
         Rate: 1300
         RandomOptionGroup: garment
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1189
     AegisName: ORC_ARCHER
     Name: Orc Archer
@@ -8439,7 +8439,7 @@ Body:
         Rate: 200
         RandomOptionGroup: shadow
       - Item: Dark_WaterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1193
     AegisName: ALARM
     Name: Alarm
@@ -8493,7 +8493,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Melting_ClockMVP
-        Rate: 10
+        Rate: 50
       - Item: Ticking_Timer
         Rate: 100
         RandomOptionGroup: armor
@@ -8709,7 +8709,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Dark_WaterMVP
-        Rate: 10
+        Rate: 50
       - Item: Cursed_Mark
         Rate: 100
         RandomOptionGroup: dagger
@@ -8947,7 +8947,7 @@ Body:
       - Item: Old_Hilt
         Rate: 200
       - Item: Bride_VeilMVP
-        Rate: 10
+        Rate: 100
   - Id: 1204
     AegisName: TIRFING
     Name: Ogretooth
@@ -8998,7 +8998,7 @@ Body:
       - Item: Old_Hilt
         Rate: 200
       - Item: Bride_VeilMVP
-        Rate: 10
+        Rate: 100
   - Id: 1205
     AegisName: EXECUTIONER
     Name: Executioner
@@ -9047,7 +9047,7 @@ Body:
       - Item: Old_Hilt
         Rate: 200
       - Item: Bride_VeilMVP
-        Rate: 10
+        Rate: 100
   - Id: 1206
     AegisName: ANOLIAN
     Name: Anolian
@@ -9174,7 +9174,7 @@ Body:
         Rate: 200
         RandomOptionGroup: scythe
       - Item: Toy_CrownMVP
-        Rate: 10
+        Rate: 50
   - Id: 1209
     AegisName: CRAMP
     Name: Cramp
@@ -9357,7 +9357,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Faceworm_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: Midnight_Armor
         Rate: 100
         RandomOptionGroup: armor
@@ -9410,7 +9410,7 @@ Body:
       - Item: Enriched_Elunium
         Rate: 150
       - Item: Lost_TrophyMVP
-        Rate: 10
+        Rate: 50
   - Id: 1214
     AegisName: CHOCO
     Name: Choco
@@ -9543,7 +9543,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Lich_WandMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 1217
 #    AegisName: ORC_WARRIOR
 #  - Id: 1218
@@ -9638,7 +9638,7 @@ Body:
         Rate: 100
         RandomOptionGroup: sword
       - Item: Toy_CrownMVP
-        Rate: 10
+        Rate: 50
   - Id: 1220
     AegisName: M_DESERT_WOLF
     Name: Desert Wolf
@@ -10177,7 +10177,7 @@ Body:
         Rate: 1000
         RandomOptionGroup: shield
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 1233
 #    AegisName: CONCEIVE_PECOPECO
 #    Name: Peco Peco
@@ -10516,7 +10516,7 @@ Body:
         Rate: 750
         RandomOptionGroup: spear
       - Item: GigallopyMVP
-        Rate: 10
+        Rate: 50
   - Id: 1243
     AegisName: SASQUATCH
     Name: Sasquatch
@@ -10560,7 +10560,7 @@ Body:
       - Item: Scarlet_Jewel
         Rate: 75
       - Item: Permafrost_CrMVP
-        Rate: 10
+        Rate: 50
   - Id: 1244
     AegisName: JAKK_XMAS
     Name: Princess Tiara
@@ -10702,7 +10702,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Music_BoxMVP
-        Rate: 10
+        Rate: 50
   - Id: 1247
     AegisName: ANTONIO
     Name: Antonio
@@ -10753,7 +10753,7 @@ Body:
         Rate: 50
         RandomOptionGroup: shadow
       - Item: Music_BoxMVP
-        Rate: 10
+        Rate: 50
   - Id: 1248
     AegisName: CRUISER
     Name: Cruiser
@@ -10800,7 +10800,7 @@ Body:
       - Item: Gift_Box
         Rate: 300
       - Item: Music_BoxMVP
-        Rate: 10
+        Rate: 50
   - Id: 1249
     AegisName: MYSTCASE
     Name: Myst Case
@@ -10852,7 +10852,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Music_BoxMVP
-        Rate: 10
+        Rate: 50
       - Item: Toy_Ring
         Rate: 100
         RandomOptionGroup: accessory
@@ -10906,7 +10906,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Music_BoxMVP
-        Rate: 10
+        Rate: 50
       - Item: C_Black_Cat_Hood
         Rate: 25
   - Id: 1251
@@ -11504,7 +11504,7 @@ Body:
         Rate: 200
         RandomOptionGroup: shadow
       - Item: Dark_WaterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1264
     AegisName: MERMAN
     Name: Merman
@@ -11552,7 +11552,7 @@ Body:
       - Item: HD_Oridecon
         Rate: 100
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
       - Item: Coral_Sword
         Rate: 300
         RandomOptionGroup: sword
@@ -11791,7 +11791,7 @@ Body:
       - Item: C_Triangular_Roof_Hat
         Rate: 50
       - Item: Melting_ClockMVP
-        Rate: 10
+        Rate: 50
       - Item: Power_Cantrips
         Rate: 100
   - Id: 1270
@@ -11842,7 +11842,7 @@ Body:
       - Item: C_C_Tower_Manager_Incom
         Rate: 25
       - Item: Melting_ClockMVP
-        Rate: 10
+        Rate: 50
   - Id: 1271
     AegisName: ALLIGATOR
     Name: Alligator
@@ -11990,7 +11990,7 @@ Body:
         Rate: 300
         RandomOptionGroup: axe
       - Item: Lost_TrophyMVP
-        Rate: 10
+        Rate: 50
       - Item: Oridecon
         Rate: 150
   - Id: 1274
@@ -12138,7 +12138,7 @@ Body:
         Rate: 25
         RandomOptionGroup: dagger
       - Item: Toy_CrownMVP
-        Rate: 10
+        Rate: 50
   - Id: 1277
     AegisName: GREATEST_GENERAL
     Name: Greatest General
@@ -12230,7 +12230,7 @@ Body:
       - Item: HD_Elunium
         Rate: 100
       - Item: Dream_StoneMVP
-        Rate: 10
+        Rate: 50
       - Item: Stone_Spear
         Rate: 250
         RandomOptionGroup: spear
@@ -12735,7 +12735,7 @@ Body:
         Rate: 400
         RandomOptionGroup: spear
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1291
     AegisName: WRAITH_DEAD
     Name: Wraith Dead
@@ -12949,7 +12949,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Lich_WandMVP
-        Rate: 10
+        Rate: 50
   - Id: 1296
     AegisName: KOBOLD_LEADER
     Name: Kobold Leader
@@ -13053,7 +13053,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Bandage_GodsMVP
-        Rate: 10
+        Rate: 50
       - Item: Abandoned_Sword
         Rate: 400
         RandomOptionGroup: sword
@@ -13292,7 +13292,7 @@ Body:
         Rate: 50
         RandomOptionGroup: shield
       - Item: Dark_WaterMVP
-        Rate: 10
+        Rate: 50
   - Id: 1303
     AegisName: GIANT_HONET
     Name: Giant Hornet
@@ -13510,7 +13510,7 @@ Body:
       - Item: Legacy_Adv_Coffer
         Rate: 300
       - Item: Cute_BellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1308
     AegisName: PANZER_GOBLIN
     Name: Panzer Goblin
@@ -13784,7 +13784,7 @@ Body:
       - Item: Growth_Shadow_Coffer
         Rate: 500
       - Item: Top_SecretMVP
-        Rate: 10
+        Rate: 50
       - Item: Death_Rune_Dagger
         Rate: 100
         RandomOptionGroup: manual
@@ -13834,7 +13834,7 @@ Body:
         Rate: 200
         RandomOptionGroup: dagger
       - Item: Unbreakable_ShellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1315
     AegisName: ASSULTER
     Name: Assaulter
@@ -13883,7 +13883,7 @@ Body:
       - Item: Legacy_Adv_Coffer
         Rate: 300
       - Item: Unbreakable_ShellMVP
-        Rate: 10
+        Rate: 50
       - Item: Whirlwind_Kunai
         Rate: 100
       - Item: Slash_Cantrips
@@ -13934,7 +13934,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Unbreakable_ShellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1317
     AegisName: FUR_SEAL
     Name: Seal
@@ -14018,7 +14018,7 @@ Body:
         Rate: 200
         RandomOptionGroup: armor
       - Item: Unbreakable_ShellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1319
     AegisName: FREEZER
     Name: Freezer
@@ -14061,7 +14061,7 @@ Body:
         Rate: 200
         RandomOptionGroup: shoes
       - Item: Unbreakable_ShellMVP
-        Rate: 10
+        Rate: 50
   - Id: 1320
     AegisName: OWL_DUKE
     Name: Owl Duke
@@ -14113,7 +14113,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Lich_WandMVP
-        Rate: 10
+        Rate: 50
   - Id: 1321
     AegisName: DRAGON_TAIL
     Name: Dragon Tail
@@ -15400,7 +15400,7 @@ Body:
       - Item: Piece_Of_Crest2
         Rate: 2500
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
       - Item: Lost_Tech_A
         Rate: 50
         RandomOptionGroup: shadow
@@ -15468,7 +15468,7 @@ Body:
       - Item: HD_Elunium
         Rate: 500
       - Item: Asgard_F_RuneMVP
-        Rate: 10
+        Rate: 50
   - Id: 1367
     AegisName: BLAZZER
     Name: Blazer
@@ -15516,7 +15516,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Asgard_F_RuneMVP
-        Rate: 10
+        Rate: 50
   - Id: 1368
     AegisName: GEOGRAPHER
     Name: Geographer
@@ -15648,7 +15648,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 1371
     AegisName: FAKE_ANGEL
     Name: False Angel
@@ -15690,7 +15690,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
       - Item: Unholy_Halo
         Rate: 100
         RandomOptionGroup: manual
@@ -15844,7 +15844,7 @@ Body:
         Rate: 150
         RandomOptionGroup: dagger
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 1375
     AegisName: THE_PAPER
     Name: The Paper
@@ -15892,7 +15892,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+        Rate: 50
   - Id: 1376
     AegisName: HARPY
     Name: Harpy
@@ -15985,7 +15985,7 @@ Body:
       - Item: Dark_Arrow
         Rate: 50
       - Item: Melting_ClockMVP
-        Rate: 10
+        Rate: 50
   - Id: 1378
     AegisName: DEMON_PUNGUS
     Name: Demon Pungus
@@ -16077,7 +16077,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Asgard_F_RuneMVP
-        Rate: 10
+        Rate: 50
   - Id: 1380
     AegisName: DRILLER
     Name: Driller
@@ -16243,7 +16243,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Asgard_F_RuneMVP
-        Rate: 10
+        Rate: 50
   - Id: 1384
     AegisName: DELETER
     Name: Deleter
@@ -16543,7 +16543,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 1391
     AegisName: GALAPAGO
     Name: Galapago
@@ -16809,7 +16809,7 @@ Body:
         Rate: 250
         RandomOptionGroup: dagger
       - Item: Demonic_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Trail_Cinders
@@ -16902,7 +16902,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dagger
       - Item: Ice_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 1399
     AegisName: EVENT_BAPHO
     Name: Baphomet's X
@@ -17033,7 +17033,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+        Rate: 50
   - Id: 1402
     AegisName: POISON_TOAD
     Name: Verporte
@@ -17122,7 +17122,7 @@ Body:
       - Item: Fire_Arrow
         Rate: 50
       - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+        Rate: 50
       - Item: Tsukuyomi_Mail
         Rate: 100
         RandomOptionGroup: armor
@@ -17173,7 +17173,7 @@ Body:
       - Item: Royal_Jelly
         Rate: 100
       - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+        Rate: 50
   - Id: 1405
     AegisName: TENGU
     Name: Tengu
@@ -17224,7 +17224,7 @@ Body:
       - Item: Elunium
         Rate: 100
       - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+        Rate: 50
   - Id: 1406
     AegisName: KAPHA
     Name: Kapha
@@ -17450,7 +17450,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: SoulinaboxMVP
-        Rate: 10
+        Rate: 50
       - Item: Afterlife_Scythe
         Rate: 100
         RandomOptionGroup: scythe
@@ -17545,7 +17545,7 @@ Body:
       - Item: C_Leopard_Ear_Hat
         Rate: 25
       - Item: Tiger_PantiesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1416
     AegisName: WICKED_NYMPH
     Name: Nymph Spirit
@@ -17590,7 +17590,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: SoulinaboxMVP
-        Rate: 10
+        Rate: 50
   - Id: 1417
     AegisName: ZIPPER_BEAR
     Name: Zipper Bear
@@ -18070,7 +18070,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: DangerousSackMVP
-        Rate: 10
+        Rate: 100
       - Item: Arrow_Cantrips
         Rate: 75
   - Id: 1431
@@ -18316,7 +18316,7 @@ Body:
         Rate: 400
         RandomOptionGroup: dagger
       - Item: Transforming_UrnMVP
-        Rate: 10
+        Rate: 50
   - Id: 1439
     AegisName: G_HIGH_ORC
     Name: High Orc
@@ -18770,7 +18770,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Cup_of_BloodMVP
-        Rate: 10
+        Rate: 50
   - Id: 1454
     AegisName: G_TRI_JOINT
     Name: Tri Joint
@@ -19174,7 +19174,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Cup_of_BloodMVP
-        Rate: 10
+        Rate: 50
   - Id: 1468
     AegisName: G_REQUIEM
     Name: Requim
@@ -19415,7 +19415,7 @@ Body:
       - Item: Tatters_Clothes
         Rate: 10000
       - Item: Tiger_PantiesMVP
-        Rate: 10
+        Rate: 50
       - Item: Rachel_Jewel_
         Rate: 100
         RandomOptionGroup: dagger
@@ -19884,7 +19884,7 @@ Body:
         Rate: 500
         RandomOptionGroup: dagger
       - Item: Cup_of_BloodMVP
-        Rate: 10
+        Rate: 50
   - Id: 1491
     AegisName: G_DOKEBI
     Name: Dokebi
@@ -20814,7 +20814,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: SoulinaboxMVP
-        Rate: 10
+        Rate: 50
   - Id: 1513
     AegisName: CIVIL_SERVANT
     Name: Mao Guai
@@ -21132,7 +21132,7 @@ Body:
       - Item: Ectoplasm
         Rate: 10000
       - Item: SoulinaboxMVP
-        Rate: 10
+        Rate: 50
   - Id: 1520
     AegisName: BOILED_RICE
     Name: Boiled Rice
@@ -22636,7 +22636,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Perfect_ShrimpMVP
-        Rate: 10
+        Rate: 50
   - Id: 1572
     AegisName: G_DROPS
     Name: Calmaring
@@ -22751,7 +22751,7 @@ Body:
         Rate: 150
         RandomOptionGroup: shield
       - Item: DangerousSackMVP
-        Rate: 10
+        Rate: 100
       - Item: Rosevine
         Rate: 100
         RandomOptionGroup: whip
@@ -23003,7 +23003,7 @@ Body:
       - Item: Jewel_Shadowdecon
         Rate: 100
       - Item: Old_PuppetMVP
-        Rate: 10
+        Rate: 50
   - Id: 1583
     AegisName: TAO_GUNKA
     Name: Tao Gunka
@@ -23111,7 +23111,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Ancient_SlabMVP
-        Rate: 10
+        Rate: 50
       - Item: Spiked_Sandals
         Rate: 100
         RandomOptionGroup: shoes
@@ -24067,7 +24067,7 @@ Body:
       - Item: Elunium
         Rate: 100
       - Item: GrinderMVP
-        Rate: 10
+        Rate: 50
   - Id: 1615
     AegisName: OBSIDIAN
     Name: Obsidian
@@ -24112,7 +24112,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: GrinderMVP
-        Rate: 10
+        Rate: 50
   - Id: 1616
     AegisName: PITMAN
     Name: Pitman
@@ -24160,7 +24160,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: GrinderMVP
-        Rate: 10
+        Rate: 50
       - Item: Darkness_Metal_S
         Rate: 100
         RandomOptionGroup: sword
@@ -24219,7 +24219,7 @@ Body:
       - Item: Elunium
         Rate: 100
       - Item: GrinderMVP
-        Rate: 10
+        Rate: 50
   - Id: 1618
     AegisName: UNGOLIANT
     Name: Ungoliant
@@ -24432,7 +24432,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Music_BoxMVP
-        Rate: 10
+        Rate: 50
       - Item: C_Drooping_Panda
         Rate: 25
   - Id: 1623
@@ -24871,7 +24871,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Ancient_SlabMVP
-        Rate: 10
+        Rate: 50
   - Id: 1633
     AegisName: BEHOLDER
     Name: Beholder
@@ -24946,7 +24946,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Miniature_KnightMVP
-        Rate: 10
+        Rate: 50
   - Id: 1635
     AegisName: EREMES
     Name: Eremes Guile
@@ -25206,7 +25206,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Cursed_MedallionMVP
-        Rate: 10
+        Rate: 50
   - Id: 1641
     AegisName: G_EREMES
     Name: Assassin Cross Eremes
@@ -26216,7 +26216,7 @@ Body:
         Rate: 200
         RandomOptionGroup: katar
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
   - Id: 1665
     AegisName: POTON_CANON_1
     Name: Jormungandr
@@ -26391,7 +26391,7 @@ Body:
         Rate: 200
         RandomOptionGroup: sword
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
   - Id: 1669
     AegisName: DIMIK
     Name: Dimik
@@ -26440,7 +26440,7 @@ Body:
         Rate: 200
         RandomOptionGroup: axe
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
       - Item: Algiz_Rune_of_Shield
         Rate: 200
         RandomOptionGroup: manual
@@ -26681,7 +26681,7 @@ Body:
         Rate: 200
         RandomOptionGroup: dagger
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
   - Id: 1676
     AegisName: VENATU_1
     Name: Venatu
@@ -26967,7 +26967,7 @@ Body:
         Rate: 150
         RandomOptionGroup: axe
       - Item: Top_SecretMVP
-        Rate: 10
+        Rate: 50
       - Item: Growth_Shadow_Coffer
         Rate: 500
   - Id: 1683
@@ -27134,7 +27134,7 @@ Body:
       - Item: Fallen_Tribe_Coffer
         Rate: 500
       - Item: Lost_TrophyMVP
-        Rate: 10
+        Rate: 50
   - Id: 1687
     AegisName: GREEN_IGUANA
     Name: Grove
@@ -27640,7 +27640,7 @@ Body:
       - Item: C_Dragon_Cintamani_Hat3
         Rate: 25
       - Item: Dark_Red_ScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: Coat_of_Riches
         Rate: 100
         RandomOptionGroup: armor
@@ -27873,7 +27873,7 @@ Body:
         Rate: 25
         RandomOptionGroup: shield
       - Item: Skeletal_ShardMVP
-        Rate: 10
+        Rate: 50
   - Id: 1705
     AegisName: THA_DESPERO
     Name: Thanatos Despero
@@ -27920,7 +27920,7 @@ Body:
       - Item: C_Tha_Despero_Mask
         Rate: 75
       - Item: Skeletal_ShardMVP
-        Rate: 10
+        Rate: 50
   - Id: 1706
     AegisName: THA_MAERO
     Name: Thanatos Maero
@@ -27967,7 +27967,7 @@ Body:
       - Item: C_Maero_Thanatos_Mask
         Rate: 75
       - Item: Skeletal_ShardMVP
-        Rate: 10
+        Rate: 50
   - Id: 1707
     AegisName: THA_DOLOR
     Name: Thanatos Dolor
@@ -28014,7 +28014,7 @@ Body:
       - Item: C_Dolor_Thanatos
         Rate: 75
       - Item: Skeletal_ShardMVP
-        Rate: 10
+        Rate: 50
   - Id: 1708
     AegisName: THANATOS
     Name: Memory of Thanatos
@@ -28320,7 +28320,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Dark_Red_ScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: AcidusSOrb
         Rate: 10
         RandomOptionGroup: dracomvp
@@ -28372,7 +28372,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Dark_Red_ScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: FerusSOrb
         Rate: 10
         RandomOptionGroup: dracomvp
@@ -28465,7 +28465,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Dark_Red_ScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: AcidusSOrb
         Rate: 100
         RandomOptionGroup: dracoorb
@@ -28519,7 +28519,7 @@ Body:
       - Item: C_Baby_Dragon_Hat
         Rate: 45
       - Item: Dark_Red_ScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: FerusSOrb
         Rate: 100
         RandomOptionGroup: dracoorb
@@ -28669,7 +28669,7 @@ Body:
         Rate: 200
         RandomOptionGroup: dagger
       - Item: Dark_Red_ScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: HydroSOrb
         Rate: 100
         RandomOptionGroup: dracoorb
@@ -29171,7 +29171,7 @@ Body:
         Rate: 200
         RandomOptionGroup: accessory
       - Item: Essence_KnowledgeMVP
-        Rate: 10
+        Rate: 50
   - Id: 1736
     AegisName: ALIOT
     Name: Aliot
@@ -29217,7 +29217,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Essence_KnowledgeMVP
-        Rate: 10
+        Rate: 50
       - Item: Robotic_Armguard
         Rate: 100
         RandomOptionGroup: manual
@@ -29265,7 +29265,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Essence_KnowledgeMVP
-        Rate: 10
+        Rate: 50
   - Id: 1738
     AegisName: CONSTANT
     Name: Constant
@@ -29678,7 +29678,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Morroc_EyeMVP
-        Rate: 10
+        Rate: 50
   - Id: 1751
     AegisName: RANDGRIS
     Name: Valkyrie Randgris
@@ -29790,7 +29790,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Valhalla_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 1753
     AegisName: FRUS
     Name: Frus
@@ -29834,7 +29834,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Valhalla_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 1754
     AegisName: SKEGGIOLD
     Name: Skeggiold
@@ -29882,7 +29882,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Valhalla_FlowerMVP
-        Rate: 10
+        Rate: 50
       - Item: 10_of_Hearts
         Rate: 100
         RandomOptionGroup: deck
@@ -30105,7 +30105,7 @@ Body:
         Rate: 10
         RandomOptionGroup: dracomvp
       - Item: Dragonic_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 1760
     AegisName: G_FERUS_
     Name: Ferus
@@ -30189,7 +30189,7 @@ Body:
         Rate: 50
         RandomOptionGroup: armor
       - Item: Odin_WillMVP
-        Rate: 10
+        Rate: 50
   - Id: 1762
     AegisName: G_FRUS
     Name: Holy Frus
@@ -30246,7 +30246,7 @@ Body:
         Rate: 50
         RandomOptionGroup: armor
       - Item: Odin_WillMVP
-        Rate: 10
+        Rate: 50
   - Id: 1763
     AegisName: G_SKEGGIOLD
     Name: Skeggiold
@@ -30353,7 +30353,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Valhalla_FlowerMVP
-        Rate: 10
+        Rate: 50
       - Item: Sealed_Codex
         Rate: 200
         RandomOptionGroup: codex
@@ -30523,7 +30523,7 @@ Body:
         Rate: 50
         RandomOptionGroup: bow
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
       - Item: Follower_Ring
         Rate: 100
         RandomOptionGroup: accessory
@@ -30572,7 +30572,7 @@ Body:
         Rate: 50
         RandomOptionGroup: sword
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
       - Item: Murder_KnifeDag
         Rate: 100
         RandomOptionGroup: dagger
@@ -30618,7 +30618,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1772
     AegisName: ISILLA
     Name: Isilla
@@ -30662,7 +30662,7 @@ Body:
       - Item: Silver_Arrow
         Rate: 50
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1773
     AegisName: HODREMLIN
     Name: Hodremlin
@@ -30712,7 +30712,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1774
     AegisName: SEEKER
     Name: Seeker
@@ -30762,7 +30762,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1775
     AegisName: SNOWIER
     Name: Snowier
@@ -30805,7 +30805,7 @@ Body:
         Rate: 150
         RandomOptionGroup: armor
       - Item: Ice_DragonScaleMVP
-        Rate: 10
+        Rate: 50
   - Id: 1776
     AegisName: SIROMA
     Name: Siroma
@@ -30854,7 +30854,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Ice_DragonScaleMVP
-        Rate: 10
+        Rate: 50
   - Id: 1777
     AegisName: ICE_TITAN
     Name: Ice Titan
@@ -30908,7 +30908,7 @@ Body:
       - Item: Elunium
         Rate: 100
       - Item: Ice_DragonScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: Stalactite_Spear
         Rate: 50
         RandomOptionGroup: spear
@@ -30958,7 +30958,7 @@ Body:
       - Item: Freezing_Arrow
         Rate: 50
       - Item: Ice_DragonScaleMVP
-        Rate: 10
+        Rate: 50
   - Id: 1779
     AegisName: KTULLANUX
     Name: Ktullanux
@@ -31134,7 +31134,7 @@ Body:
       - Item: Steel_Arrow
         Rate: 50
       - Item: Tiger_PantiesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1783
     AegisName: GALION
     Name: Galion
@@ -31178,7 +31178,7 @@ Body:
         Rate: 300
         RandomOptionGroup: garment
       - Item: Tiger_PantiesMVP
-        Rate: 10
+        Rate: 50
   - Id: 1784
     AegisName: STAPO
     Name: Stapo
@@ -31228,7 +31228,7 @@ Body:
         Rate: 300
         RandomOptionGroup: katar
       - Item: Massive_CleaverMVP
-        Rate: 10
+        Rate: 50
   - Id: 1785
     AegisName: ATROCE
     Name: Atroce
@@ -32807,7 +32807,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Demonic_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: Ring_of_Ressonprm
         Rate: 100
         RandomOptionGroup: accessory
@@ -32922,7 +32922,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Demonic_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: Ring_of_flameprm
         Rate: 100
         RandomOptionGroup: accessory
@@ -33121,7 +33121,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Corrupted_GoldMVP
-        Rate: 10
+        Rate: 50
   - Id: 1839
     AegisName: BYORGUE
     Name: Byrogue
@@ -33169,7 +33169,7 @@ Body:
       - Item: Shadowdecon
         Rate: 150
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
   - Id: 1840
     AegisName: GOLDEN_SAVAGE
     Name: Golden Savage
@@ -33499,7 +33499,7 @@ Body:
         Rate: 450
         RandomOptionGroup: spear
       - Item: Baphomet_PuppetMVP
-        Rate: 10
+        Rate: 100
       - Item: Unbreakable_Focus
         Rate: 300
         RandomOptionGroup: accessory
@@ -34094,7 +34094,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Tainted_BeadsMVP
-        Rate: 10
+        Rate: 50
       - Item: Bradium
         Rate: 100
   - Id: 1865
@@ -34139,7 +34139,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Tainted_BeadsMVP
-        Rate: 10
+        Rate: 50
       - Item: Ragged_Manteau
         Rate: 100
         RandomOptionGroup: garment
@@ -34187,7 +34187,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Tainted_BeadsMVP
-        Rate: 10
+        Rate: 50
   - Id: 1867
     AegisName: BANSHEE
     Name: Banshee
@@ -34235,7 +34235,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Tainted_BeadsMVP
-        Rate: 10
+        Rate: 50
   - Id: 1868
     AegisName: G_BANSHEE
     Name: Banshee
@@ -34316,7 +34316,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Tainted_BeadsMVP
-        Rate: 10
+        Rate: 50
   - Id: 1870
     AegisName: NECROMANCER
     Name: Necromancer
@@ -34370,7 +34370,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Tainted_BeadsMVP
-        Rate: 10
+        Rate: 50
   - Id: 1871
     AegisName: FALLINGBISHOP
     Name: Fallen Bishop
@@ -34739,7 +34739,7 @@ Body:
       - Item: Elunium
         Rate: 200
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 1881
     AegisName: LES
     Name: Fairy Les
@@ -34917,7 +34917,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Strange_FruitMVP
-        Rate: 10
+        Rate: 50
   - Id: 1885
     AegisName: GOPINICH
     Name: Enchanted Dragon
@@ -34967,7 +34967,7 @@ Body:
         Rate: 10
         RandomOptionGroup: dracomvp
       - Item: Strange_FruitMVP
-        Rate: 10
+        Rate: 50
   - Id: 1886
     AegisName: G_MAVKA
     Name: Mavka
@@ -35196,7 +35196,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Mark_of_SorrowMVP
-        Rate: 10
+        Rate: 50
       - Item: C_Tare_Neko_Cru
         Rate: 25
       - Item: Black_Hole_Sun
@@ -35254,7 +35254,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Transforming_UrnMVP
-        Rate: 10
+        Rate: 50
   - Id: 1894
     AegisName: POURING
     Name: Pouring
@@ -35984,7 +35984,7 @@ Body:
         Rate: 300
         RandomOptionGroup: garment
       - Item: Perfect_TuxedoMVP
-        Rate: 10
+        Rate: 50
   - Id: 1919
     AegisName: MOROCC_2
     Name: Famine Incarnate
@@ -36037,7 +36037,7 @@ Body:
         Rate: 300
         RandomOptionGroup: shoes
       - Item: Perfect_TuxedoMVP
-        Rate: 10
+        Rate: 50
   - Id: 1920
     AegisName: MOROCC_3
     Name: War Incarnate
@@ -36088,7 +36088,7 @@ Body:
         Rate: 300
         RandomOptionGroup: armor
       - Item: Perfect_TuxedoMVP
-        Rate: 10
+        Rate: 50
   - Id: 1921
     AegisName: MOROCC_4
     Name: Death Incarnate
@@ -36136,7 +36136,7 @@ Body:
         Rate: 300
         RandomOptionGroup: armor
       - Item: Perfect_TuxedoMVP
-        Rate: 10
+        Rate: 50
   - Id: 1922
     AegisName: G_MOROCC_1
     Name: Shadow of Morocc
@@ -36593,7 +36593,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Valhalla_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 1934
     AegisName: BLUE_FLOWER
     Name: Blue Flower
@@ -37774,7 +37774,7 @@ Body:
       - Item: Growth_Shadow_Coffer
         Rate: 425
       - Item: Orc_KoinMVP
-        Rate: 10
+        Rate: 50
       - Item: 7_of_Hearts
         Rate: 500
         RandomOptionGroup: deck
@@ -38045,7 +38045,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
       - Item: Piece_Of_Crest3
         Rate: 2500
       - Item: Piece_Of_Crest4
@@ -38308,7 +38308,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dagger
       - Item: Sweet_CandyMVP
-        Rate: 10
+        Rate: 50
   - Id: 1986
     AegisName: TATACHO
     Name: Tatacho
@@ -38352,7 +38352,7 @@ Body:
         Rate: 300
         RandomOptionGroup: axe
       - Item: Permafrost_CrMVP
-        Rate: 10
+        Rate: 50
   - Id: 1987
     AegisName: CENTIPEDE
     Name: Centipede
@@ -38475,7 +38475,7 @@ Body:
         Rate: 300
         RandomOptionGroup: dagger
       - Item: Permafrost_CrMVP
-        Rate: 10
+        Rate: 50
   - Id: 1990
     AegisName: HARDROCK_MOMMOTH
     Name: Hardrock Mammoth
@@ -38618,7 +38618,7 @@ Body:
         Rate: 300
         RandomOptionGroup: accessory
       - Item: Strange_FruitMVP
-        Rate: 10
+        Rate: 50
   - Id: 1993
     AegisName: NAGA
     Name: Naga
@@ -38662,7 +38662,7 @@ Body:
       - Item: Elunium
         Rate: 300
       - Item: Empty_HoneypotMVP
-        Rate: 10
+        Rate: 50
   - Id: 1994
     AegisName: LUCIOLA_VESPA
     Name: Luciola Vespa
@@ -38709,7 +38709,7 @@ Body:
         Rate: 500
         RandomOptionGroup: shoes
       - Item: Empty_HoneypotMVP
-        Rate: 10
+        Rate: 50
   - Id: 1995
     AegisName: PINGUICULA
     Name: Pinguicula
@@ -38832,7 +38832,7 @@ Body:
         Rate: 300
         RandomOptionGroup: shield
       - Item: Permafrost_CrMVP
-        Rate: 10
+        Rate: 50
   - Id: 1998
     AegisName: G_HILLSRION
     Name: Hillslion
@@ -39351,7 +39351,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shield
       - Item: Dragon_HeadMVP
-        Rate: 10
+        Rate: 50
       - Item: DracoSOrb
         Rate: 100
         RandomOptionGroup: dracoorb
@@ -39600,7 +39600,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 2020
     AegisName: RHYNCHO
     Name: Rhyncho
@@ -39644,7 +39644,7 @@ Body:
       - Item: Elunium
         Rate: 200
       - Item: Valhalla_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 2021
     AegisName: PHYLLA
     Name: Phylla
@@ -39849,7 +39849,7 @@ Body:
       - Item: Bradium
         Rate: 150
       - Item: GrinderMVP
-        Rate: 10
+        Rate: 50
   - Id: 2025
     AegisName: MYSTCASE_EVENT
     Name: Wild Gift Box
@@ -39941,7 +39941,7 @@ Body:
         Rate: 100
         RandomOptionGroup: axe
       - Item: Sweet_CandyMVP
-        Rate: 10
+        Rate: 50
   - Id: 2027
     AegisName: G_DARK_SHADOW
     Name: Spectre Shadow
@@ -40122,7 +40122,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shield
       - Item: Sweet_CandyMVP
-        Rate: 10
+        Rate: 50
   - Id: 2032
     AegisName: GUARDIAN_FOREST
     Name: Forest Guardian
@@ -40282,7 +40282,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Odin_WillMVP
-        Rate: 10
+        Rate: 50
   - Id: 2037
     AegisName: VALKYRIE_A
     Name: Valkyrie Reginleif
@@ -41008,7 +41008,7 @@ Body:
       - Item: Halloween_Coin
         Rate: 1500
       - Item: Broken_ShieldMVP
-        Rate: 10
+        Rate: 50
   - Id: 2060
     AegisName: M_ALICE
     Name: Alice
@@ -41379,7 +41379,7 @@ Body:
         Rate: 300
         RandomOptionGroup: dagger
       - Item: Strange_FruitMVP
-        Rate: 10
+        Rate: 50
   - Id: 2069
     AegisName: IARA
     Name: Iara
@@ -41506,7 +41506,7 @@ Body:
       - Item: Enriched_Oridecon
         Rate: 150
       - Item: Crystal_RoseMVP
-        Rate: 10
+        Rate: 50
   - Id: 2072
     AegisName: JAGUAR
     Name: Jaguar
@@ -41978,9 +41978,9 @@ Body:
       - Item: Elunium
         Rate: 150
       - Item: Maya_CrownMVP
-        Rate: 10
+        Rate: 50
       - Item: Queen_WingMVP
-        Rate: 10
+        Rate: 50
       - Item: Scaraba_Tower
         Rate: 200
         RandomOptionGroup: shield
@@ -42088,9 +42088,9 @@ Body:
         Rate: 250
         RandomOptionGroup: manual
       - Item: Maya_CrownMVP
-        Rate: 10
+        Rate: 50
       - Item: Queen_WingMVP
-        Rate: 10
+        Rate: 50
   - Id: 2087
     AegisName: QUEEN_SCARABA
     Name: Scaraba Queen
@@ -42307,7 +42307,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Ice_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 2093
     AegisName: BOTARING
     Name: Botaring
@@ -43695,7 +43695,7 @@ Body:
       - Item: Oridecon
         Rate: 300
       - Item: Empty_HoneypotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2133
     AegisName: ANGRA_MANTIS
     Name: Angra Mantis
@@ -43862,7 +43862,7 @@ Body:
       - Item: Enriched_Oridecon
         Rate: 50
       - Item: Strange_FruitMVP
-        Rate: 10
+        Rate: 50
   - Id: 2137
     AegisName: MIMING
     Name: Miming
@@ -44402,7 +44402,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shoes
       - Item: Morroc_EyeMVP
-        Rate: 10
+        Rate: 50
   - Id: 2156
     AegisName: LEAK
     Name: Phantom Shaman
@@ -44451,7 +44451,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Large_SkullMVP
-        Rate: 10
+        Rate: 50
       - Item: Forest_Ritual_Kn
         Rate: 100
         RandomOptionGroup: dagger
@@ -46090,7 +46090,7 @@ Body:
     Class: Boss
     Drops:
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
       - Item: Mistic_Frozen
         Rate: 10000
       - Item: Elunium
@@ -46222,7 +46222,7 @@ Body:
       - Item: Elunium
         Rate: 100
       - Item: Dragon_HeadMVP
-        Rate: 10
+        Rate: 50
   - Id: 2202
     AegisName: KRAKEN
     Name: Kraken
@@ -46363,7 +46363,7 @@ Body:
         Rate: 425
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
       - Item: Coral_Sword
         Rate: 300
         RandomOptionGroup: sword
@@ -46513,7 +46513,7 @@ Body:
         Rate: 425
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2209
     AegisName: E_THIEF_BUG
     Name: Thief Bug
@@ -48253,7 +48253,7 @@ Body:
         Rate: 200
         RandomOptionGroup: spear
       - Item: Soul_GearMVP
-        Rate: 10
+        Rate: 50
   - Id: 2253
     AegisName: DAEHYON
     Name: General Daehyon
@@ -48366,7 +48366,7 @@ Body:
       - Item: Last_Sam_Coffer
         Rate: 200
       - Item: Cursed_Sam_ScrollMVP
-        Rate: 10
+        Rate: 50
   - Id: 2255
     AegisName: KADES
     Name: Soul Cage Azrael
@@ -48466,7 +48466,7 @@ Body:
         Rate: 250
         RandomOptionGroup: manual
       - Item: Colorful_TowelMVP
-        Rate: 10
+        Rate: 50
   - Id: 2257
     AegisName: I_PIAMETTE
     Name: Piamette
@@ -49370,7 +49370,7 @@ Body:
         Rate: 1000
         RandomOptionGroup: shield
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
   - Id: 2290
     AegisName: J_THIEF_BUG
     Name: Thief Bug
@@ -49464,7 +49464,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: DangerousSackMVP
-        Rate: 10
+        Rate: 100
       - Item: Air_Raid_Katar
         Rate: 100
         RandomOptionGroup: katar
@@ -49949,7 +49949,7 @@ Body:
         Rate: 200
         RandomOptionGroup: garment
       - Item: Lucifer_LamentMVP
-        Rate: 10
+        Rate: 50
   - Id: 2311
     AegisName: MANANANGGAL
     Name: Manananggal
@@ -50001,7 +50001,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Dirty_SyringeMVP
-        Rate: 10
+        Rate: 50
   - Id: 2312
     AegisName: MANGKUKULAM
     Name: Mangkukulam
@@ -50056,7 +50056,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Dirty_SyringeMVP
-        Rate: 10
+        Rate: 50
   - Id: 2313
     AegisName: TIKBALANG
     Name: Tikbalang
@@ -50152,7 +50152,7 @@ Body:
       - Item: Oridecon
         Rate: 200
       - Item: Dirty_SyringeMVP
-        Rate: 10
+        Rate: 50
   - Id: 2315
     AegisName: WAKWAK
     Name: Wakwak
@@ -50200,7 +50200,7 @@ Body:
         Rate: 200
         RandomOptionGroup: codex
       - Item: Dirty_SyringeMVP
-        Rate: 10
+        Rate: 50
   - Id: 2316
     AegisName: JEJELING
     Name: Jejeling
@@ -50438,7 +50438,7 @@ Body:
         Rate: 300
         RandomOptionGroup: shadow
       - Item: Dragon_HeadMVP
-        Rate: 10
+        Rate: 50
       - Item: ExplosiveCOrb
         Rate: 10
         RandomOptionGroup: dracoorb
@@ -50498,7 +50498,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Dragon_HeadMVP
-        Rate: 10
+        Rate: 50
       - Item: NydhoggSOrb
         Rate: 10
         RandomOptionGroup: dracoorb
@@ -51981,7 +51981,7 @@ Body:
       - Item: Shadowdecon_Ore
         Rate: 400
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
   - Id: 2366
     AegisName: ANTIQUE_BOOK
     Name: Antique Book
@@ -52737,7 +52737,7 @@ Body:
       - Item: First_Rune_Coffer
         Rate: 500
       - Item: Rabbit_EggMVP
-        Rate: 10
+        Rate: 50
   - Id: 2406
     AegisName: WEAK_SKEL_SOLDIER
     Name: Weak Soldier Skeleton
@@ -52938,7 +52938,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Cursed_MedallionMVP
-        Rate: 10
+        Rate: 50
   - Id: 2416
     AegisName: L_EREMES
     Name: Assassin Eremes
@@ -54901,7 +54901,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Cursed_MedallionMVP
-        Rate: 10
+        Rate: 50
   - Id: 2474
     AegisName: MG_F_UNDEAD_KNIGHT
     Name: Fallen Rune Knight
@@ -54948,7 +54948,7 @@ Body:
       - Item: 2nd_Shadow_Coffer
         Rate: 300
       - Item: Cursed_MedallionMVP
-        Rate: 10
+        Rate: 50
   - Id: 2475
     AegisName: MG_CORRUPTION_ROOT
     Name: Corruption Root
@@ -55511,7 +55511,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Faceworm_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: Forest_Scream
         Rate: 100
         RandomOptionGroup: shoes
@@ -55629,7 +55629,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Faceworm_EggMVP
-        Rate: 10
+        Rate: 50
       - Item: Nest_Avenger
         Rate: 300
         RandomOptionGroup: axe
@@ -56065,7 +56065,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: SoulinaboxMVP
-        Rate: 10
+        Rate: 50
   - Id: 2543
     AegisName: PAYONSOLDIER
     Name: 1st Payon Soldier
@@ -56321,7 +56321,7 @@ Body:
         Rate: 350
         RandomOptionGroup: manual
       - Item: Torn_CapeMVP
-        Rate: 10
+        Rate: 50
       - Item: Silver_Crossbow
         Rate: 1000
         RandomOptionGroup: bow
@@ -56376,7 +56376,7 @@ Body:
         Rate: 800
         RandomOptionGroup: katar
       - Item: Colorful_TowelMVP
-        Rate: 10
+        Rate: 50
   - Id: 2552
     AegisName: GEFFEN_MAGE_3_2
     Name: Geffen Bully
@@ -56466,7 +56466,7 @@ Body:
         Rate: 50
         RandomOptionGroup: bow
       - Item: Loki_WhisperMVP
-        Rate: 10
+        Rate: 50
       - Item: Broken_Katar
         Rate: 100
         RandomOptionGroup: katar
@@ -56518,7 +56518,7 @@ Body:
         Rate: 800
         RandomOptionGroup: deck
       - Item: Colorful_TowelMVP
-        Rate: 10
+        Rate: 50
   - Id: 2555
     AegisName: GEFFEN_MAGE_5
     Name: Strange Wizard
@@ -56566,7 +56566,7 @@ Body:
         Rate: 800
         RandomOptionGroup: bow
       - Item: Colorful_TowelMVP
-        Rate: 10
+        Rate: 50
       - Item: Wind_Cantrips
         Rate: 800
   - Id: 2556
@@ -56620,7 +56620,7 @@ Body:
       - Item: Elunium
         Rate: 300
       - Item: Colorful_TowelMVP
-        Rate: 10
+        Rate: 50
   - Id: 2557
     AegisName: GEFFEN_MAGE_7
     Name: Shadow Chaser
@@ -56788,7 +56788,7 @@ Body:
       - Item: C_Ladys_Feather_Hat
         Rate: 50
       - Item: Colorful_TowelMVP
-        Rate: 10
+        Rate: 50
       - Item: Master_Revolver
         Rate: 800
         RandomOptionGroup: bow
@@ -57095,7 +57095,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Loki_WhisperMVP
-        Rate: 10
+        Rate: 50
   - Id: 2569
     AegisName: G_ANOPHELES
     Name: Anopheles
@@ -57200,7 +57200,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Morroc_EyeMVP
-        Rate: 10
+        Rate: 50
   - Id: 2572
     AegisName: G_CARAMEL
     Name: Caramel
@@ -57385,7 +57385,7 @@ Body:
       - Item: Thievery_Cantrips
         Rate: 800
       - Item: Strong_TongueMVP
-        Rate: 10
+        Rate: 50
   - Id: 2578
     AegisName: G_HORN
     Name: Horn
@@ -57464,7 +57464,7 @@ Body:
       - Item: Halloween_Coin
         Rate: 1500
       - Item: Broken_ShieldMVP
-        Rate: 10
+        Rate: 50
   - Id: 2580
     AegisName: G_KAHO
     Name: Magma Kaho
@@ -57513,7 +57513,7 @@ Body:
         Rate: 100
         RandomOptionGroup: shadow
       - Item: Asgard_F_RuneMVP
-        Rate: 10
+        Rate: 50
       - Item: Volcano_Axe
         Rate: 100
         RandomOptionGroup: axe
@@ -57934,7 +57934,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Ice_DragonScaleMVP
-        Rate: 10
+        Rate: 50
       - Item: Ring_of_White_Wi
         Rate: 100
         RandomOptionGroup: accessory
@@ -58841,7 +58841,7 @@ Body:
         Rate: 1000
         RandomOptionGroup: manual
       - Item: Rabbit_EggMVP
-        Rate: 10
+        Rate: 50
   - Id: 2620
     AegisName: C4_WANDER_MAN
     Name: Furious Wanderer
@@ -60776,7 +60776,7 @@ Body:
       - Item: C_Blue_Magicianhat
         Rate: 55
       - Item: Toxic_Stone_RotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2663
     AegisName: C3_SIDE_WINDER
     Name: Baby Molinet
@@ -60822,7 +60822,7 @@ Body:
         Rate: 450
         RandomOptionGroup: bow
       - Item: Toxic_Stone_RotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2664
     AegisName: C4_SHINOBI
     Name: Adult Molinet
@@ -60869,7 +60869,7 @@ Body:
         Rate: 450
         RandomOptionGroup: deck
       - Item: Toxic_Stone_RotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2665
     AegisName: C5_SHELTER
     Name: Rocky Boy
@@ -60914,7 +60914,7 @@ Body:
         Rate: 350
         RandomOptionGroup: dagger
       - Item: Toxic_Stone_RotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2666
     AegisName: C1_SHELLFISH
     Name: Bubble Girl
@@ -60959,7 +60959,7 @@ Body:
         Rate: 350
         RandomOptionGroup: spear
       - Item: Toxic_Stone_RotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2667
     AegisName: C2_SHECIL
     Name: Rockullanux
@@ -61121,7 +61121,7 @@ Body:
         Rate: 350
         RandomOptionGroup: armor
       - Item: Twinkling_StarMVP
-        Rate: 10
+        Rate: 50
       - Item: Astro_Coffer
         Rate: 500
   - Id: 2670
@@ -61170,7 +61170,7 @@ Body:
         Rate: 350
         RandomOptionGroup: shoes
       - Item: Twinkling_StarMVP
-        Rate: 10
+        Rate: 50
       - Item: Astro_Coffer
         Rate: 500
   - Id: 2671
@@ -61225,7 +61225,7 @@ Body:
         Rate: 250
         RandomOptionGroup: whip
       - Item: Twinkling_StarMVP
-        Rate: 10
+        Rate: 50
       - Item: Astro_Coffer
         Rate: 500
   - Id: 2672
@@ -61986,7 +61986,7 @@ Body:
       - Item: Angel_Slayer_Arrow
         Rate: 500
       - Item: Transforming_UrnMVP
-        Rate: 10
+        Rate: 50
   - Id: 2691
     AegisName: C2_RAYDRIC
     Name: Spectre Raydric
@@ -62038,7 +62038,7 @@ Body:
       - Item: C_Fate_Of_Black_Hand
         Rate: 25
       - Item: Transforming_UrnMVP
-        Rate: 10
+        Rate: 50
   - Id: 2692
     AegisName: C3_RAWREL
     Name: Laurell Weinder Ringlead
@@ -62943,7 +62943,7 @@ Body:
         Rate: 100
         RandomOptionGroup: deck
       - Item: Perfect_ShrimpMVP
-        Rate: 10
+        Rate: 50
   - Id: 2714
     AegisName: C1_PETIT
     Name: Swift Petite
@@ -65295,7 +65295,7 @@ Body:
       - Item: Halloween_Coin
         Rate: 1500
       - Item: Broken_ShieldMVP
-        Rate: 10
+        Rate: 50
   - Id: 2775
     AegisName: C2_LIVE_PEACH_TREE
     Name: Solid Enchanted Peach Tr
@@ -66308,7 +66308,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Royal_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 2798
     AegisName: C5_HORNET
     Name: Tornado Knight
@@ -66354,7 +66354,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Royal_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 2799
     AegisName: C1_HORN_SCARABA
     Name: Quake Knight
@@ -66402,7 +66402,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Royal_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 2800
     AegisName: C2_HORN
     Name: Tidal Knight
@@ -66448,7 +66448,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Royal_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 2801
     AegisName: C3_HODREMLIN
     Name: Umbral Knight
@@ -66508,7 +66508,7 @@ Body:
         Rate: 100
         RandomOptionGroup: sword
       - Item: Royal_ScepterMVP
-        Rate: 10
+        Rate: 50
   - Id: 2802
     AegisName: C4_HODE
     Name: King Schmidt
@@ -66621,7 +66621,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Old_Violet_PotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2804
     AegisName: C1_HILL_WIND_1
     Name: North Scavenger
@@ -66665,7 +66665,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Old_Violet_PotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2805
     AegisName: C2_HIGH_ORC
     Name: South Scavenger
@@ -66709,7 +66709,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Old_Violet_PotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2806
     AegisName: C3_HARPY
     Name: North Mercenary
@@ -66756,7 +66756,7 @@ Body:
       - Item: Expert_Cantrips
         Rate: 50
       - Item: Old_Violet_PotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2807
     AegisName: C4_HARPY
     Name: South Mercenary
@@ -66803,7 +66803,7 @@ Body:
       - Item: Expert_Cantrips
         Rate: 50
       - Item: Old_Violet_PotMVP
-        Rate: 10
+        Rate: 50
   - Id: 2808
     AegisName: C5_GREEN_IGUANA
     Name: Mark Bearer
@@ -67786,7 +67786,7 @@ Body:
         Rate: 100
         RandomOptionGroup: manual
       - Item: Dragonic_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 2833
     AegisName: C5_FARMILIAR
     Name: Red Hover
@@ -67839,7 +67839,7 @@ Body:
         Rate: 50
         RandomOptionGroup: shield
       - Item: Advanced_KeycaMVP
-        Rate: 10
+        Rate: 50
   - Id: 2834
     AegisName: C1_FAKE_ANGEL
     Name: Red Machina
@@ -67895,7 +67895,7 @@ Body:
         Rate: 100
         RandomOptionGroup: sword
       - Item: Advanced_KeycaMVP
-        Rate: 10
+        Rate: 50
   - Id: 2835
     AegisName: C2_FABRE
     Name: Red Terminus
@@ -67952,7 +67952,7 @@ Body:
         Rate: 50
         RandomOptionGroup: shoes
       - Item: Advanced_KeycaMVP
-        Rate: 10
+        Rate: 50
   - Id: 2836
     AegisName: C3_FABRE
     Name: Fabre Ringleader
@@ -70625,7 +70625,7 @@ Body:
       - Item: Enriched_Elunium
         Rate: 100
       - Item: Dragonic_SkullMVP
-        Rate: 10
+        Rate: 50
   - Id: 2904
     AegisName: C4_ANACONDAQ
     Name: Furious Anacondaq
@@ -71411,7 +71411,7 @@ Body:
         Rate: 200
         RandomOptionGroup: bow
       - Item: DangerousSackMVP
-        Rate: 10
+        Rate: 100
       - Item: Missing_Armguard
         Rate: 100
         RandomOptionGroup: manual
@@ -71597,7 +71597,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Mark_of_SorrowMVP
-        Rate: 10
+        Rate: 50
       - Item: Halloween_Coin
         Rate: 1000
   - Id: 2929
@@ -72301,7 +72301,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Alberta_RailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2952
     AegisName: LIKE_LOVE
     Name: Lost Codex
@@ -72349,7 +72349,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Alberta_RailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2953
     AegisName: CURSED_MEMORY
     Name: Maiden of Present
@@ -72393,7 +72393,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Alberta_RailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2954
     AegisName: COLORLESS_VOW
     Name: Maiden of Future
@@ -72440,7 +72440,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Alberta_RailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2955
     AegisName: OLD_FRIENDSHIP
     Name: Cavalier
@@ -72539,7 +72539,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Alberta_RailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2957
     AegisName: FORGOTTEN_NAME
     Name: Navigator
@@ -72603,7 +72603,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Alberta_RailMVP
-        Rate: 10
+        Rate: 50
   - Id: 2958
     AegisName: FATAL_DAYS
     Name: Paradox Amdarais
@@ -72858,7 +72858,7 @@ Body:
       - Item: Halloween_Coin
         Rate: 1500
       - Item: Broken_ShieldMVP
-        Rate: 10
+        Rate: 50
   - Id: 2988
     AegisName: XM_ANTONIO
     Name: Wicked Vice Plant Manage
@@ -72952,7 +72952,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Old_PuppetMVP
-        Rate: 10
+        Rate: 50
   - Id: 2990
     AegisName: XM_CRUISER
     Name: Broken Cruiser
@@ -73006,7 +73006,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Old_PuppetMVP
-        Rate: 10
+        Rate: 50
   - Id: 2991
     AegisName: XM_MYSTCASE
     Name: Lost Gift
@@ -73060,7 +73060,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Old_PuppetMVP
-        Rate: 10
+        Rate: 50
   - Id: 2992
     AegisName: XM_LUDE
     Name: Creepy Demon
@@ -73771,7 +73771,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3011
     AegisName: EP14_3_DEATH_A_MOB2
     Name: Amistr
@@ -73820,7 +73820,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3012
     AegisName: EP14_3_DEATH_A_MOB3
     Name: Vanilmirth
@@ -73870,7 +73870,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3013
     AegisName: EP14_3_DEATH_B_MOB1
     Name: Filir
@@ -73919,7 +73919,7 @@ Body:
         Rate: 100
         RandomOptionGroup: armor
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3014
     AegisName: EP14_3_DEATH_B_MOB2
     Name: Chaos Lif
@@ -73966,7 +73966,7 @@ Body:
         Rate: 100
         RandomOptionGroup: garment
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3015
     AegisName: EP14_3_DEATH_B_MOB3
     Name: Chaos Amistr
@@ -74016,7 +74016,7 @@ Body:
         Rate: 100
         RandomOptionGroup: garment
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3016
     AegisName: EP14_3_DEATH_C_MOB1
     Name: Chaos Vanilmirth
@@ -74066,7 +74066,7 @@ Body:
         Rate: 100
         RandomOptionGroup: garment
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3017
     AegisName: EP14_3_DEATH_C_MOB2
     Name: Chaos Filir
@@ -74113,7 +74113,7 @@ Body:
         Rate: 100
         RandomOptionGroup: garment
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3018
     AegisName: EP14_3_DEATH_C_MOB3
     Name: Broken Homunculus
@@ -74160,7 +74160,7 @@ Body:
       - Item: Last_Alchemist_Coffer
         Rate: 200
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
       - Item: Specialized_Cantrips
         Rate: 100
 #  - Id: 3019
@@ -74213,7 +74213,7 @@ Body:
       - Item: Last_Alchemist_Coffer
         Rate: 200
       - Item: Unique_EmbryoMVP
-        Rate: 10
+        Rate: 50
       - Item: Dangerous_Medal
         Rate: 100
         RandomOptionGroup: accessory
@@ -74437,7 +74437,7 @@ Body:
       - Item: HD_Elunium
         Rate: 75
       - Item: Pure_GoldMVP
-        Rate: 10
+        Rate: 50
       - Item: Kenaz_Rune_of_Torch
         Rate: 300
         RandomOptionGroup: manual
@@ -74595,7 +74595,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Demonic_EggMVP
-        Rate: 10
+        Rate: 50
   - Id: 3040
     AegisName: B_MOROCC_2
     Name: Volcano Agni
@@ -74648,7 +74648,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Demonic_EggMVP
-        Rate: 10
+        Rate: 50
   - Id: 3041
     AegisName: B_MOROCC_4
     Name: Hellfire Agni
@@ -74707,7 +74707,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Demonic_EggMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 3042
 #    AegisName: WATERMELON_17
 #  - Id: 3043
@@ -75789,7 +75789,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Perfect_TuxedoMVP
-        Rate: 10
+        Rate: 50
   - Id: 3097
     AegisName: MM_MOROCC_ADT
     Name: Emperor Morroc
@@ -76195,7 +76195,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Mark_of_SorrowMVP
-        Rate: 10
+        Rate: 50
       - Item: Showstopper
         Rate: 100
         RandomOptionGroup: garment
@@ -76251,7 +76251,7 @@ Body:
       - Item: 3rd_Shadow_Coffer
         Rate: 2500
       - Item: Mark_of_SorrowMVP
-        Rate: 10
+        Rate: 50
       - Item: Black_Hole_Sun
         Rate: 300
         RandomOptionGroup: whip
@@ -76567,7 +76567,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Strange_Metal_GMVP
-        Rate: 10
+        Rate: 50
   - Id: 3123
     AegisName: CHARLESTON2
     Name: Laboratory Cleaner
@@ -76613,7 +76613,7 @@ Body:
         Rate: 200
         RandomOptionGroup: dagger
       - Item: Strange_Metal_GMVP
-        Rate: 10
+        Rate: 50
   - Id: 3124
     AegisName: CHARLESTON3
     Name: Charleston
@@ -76939,7 +76939,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Essence_KnowledgeMVP
-        Rate: 10
+        Rate: 50
   - Id: 3154
     AegisName: RECON_ROBOT
     Name: Recon Robot
@@ -77682,7 +77682,7 @@ Body:
         Rate: 100
         RandomOptionGroup: sword
       - Item: Lucifer_LamentMVP
-        Rate: 10
+        Rate: 50
   - Id: 3194
     AegisName: MM_L_GIGAN1
     Name: Blackguard Knight
@@ -77735,7 +77735,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Lucifer_LamentMVP
-        Rate: 10
+        Rate: 50
   - Id: 3195
     AegisName: MM_L_GIGAN2
     Name: Large Gigantes
@@ -77850,7 +77850,7 @@ Body:
         Rate: 200
         RandomOptionGroup: shadow
       - Item: Volcanic_GemMVP
-        Rate: 10
+        Rate: 50
   - Id: 3198
     AegisName: MM_M_GALION
     Name: Ash Toad
@@ -77907,7 +77907,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Volcanic_GemMVP
-        Rate: 10
+        Rate: 50
       - Item: Old_King_Spear
         Rate: 100
         RandomOptionGroup: spear
@@ -77957,7 +77957,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Volcanic_GemMVP
-        Rate: 10
+        Rate: 50
       - Item: Dark_Flare
         Rate: 50
         RandomOptionGroup: manual
@@ -80048,7 +80048,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Essence_KnowledgeMVP
-        Rate: 10
+        Rate: 50
   - Id: 3251
     AegisName: GC109
     Name: Machine Component
@@ -80133,7 +80133,7 @@ Body:
         Rate: 200
         RandomOptionGroup: bow
       - Item: Strange_Metal_GMVP
-        Rate: 10
+        Rate: 50
   - Id: 3253
     AegisName: SYS_MSG
     Name: System message
@@ -80811,7 +80811,7 @@ Body:
       - Item: Pirate_Treasure
         Rate: 10000
       - Item: Broken_FlintlockMVP
-        Rate: 10
+        Rate: 50
       - Item: Corsair_Ring
         Rate: 300
         RandomOptionGroup: accessory
@@ -80858,7 +80858,7 @@ Body:
         Rate: 250
         RandomOptionGroup: manual
       - Item: Broken_FlintlockMVP
-        Rate: 10
+        Rate: 50
       - Item: Water_Cantrips
         Rate: 700
   - Id: 3447
@@ -80909,7 +80909,7 @@ Body:
       - Item: Pirate_Treasure
         Rate: 10000
       - Item: Broken_FlintlockMVP
-        Rate: 10
+        Rate: 50
   - Id: 3448
     AegisName: P_AMDARAIS
     Name: Minion Amdarais
@@ -80956,7 +80956,7 @@ Body:
       - Item: Elunium
         Rate: 200
       - Item: Lucifer_LamentMVP
-        Rate: 10
+        Rate: 50
   - Id: 3449
     AegisName: G_P_AMDARAIS
     Name: Bestia
@@ -81162,7 +81162,7 @@ Body:
         Rate: 300
         RandomOptionGroup: axe
       - Item: Cursed_MedallionMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 3453
 #    AegisName: LOST_LAMB
   - Id: 3454
@@ -81360,7 +81360,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Valkyrie_LegendMVP
-        Rate: 10
+        Rate: 50
   - Id: 3475
     AegisName: AS_WIND_GHOST
     Name: Sleipnir Avatar
@@ -81405,7 +81405,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Valkyrie_LegendMVP
-        Rate: 10
+        Rate: 50
   - Id: 3476
     AegisName: AS_ZOMBIE
     Name: Idun Avatar
@@ -81459,7 +81459,7 @@ Body:
       - Item: C_Celestial_Hat
         Rate: 25
       - Item: Valkyrie_LegendMVP
-        Rate: 10
+        Rate: 50
   - Id: 3477
     AegisName: AS_IMMORTAL_CORPS
     Name: Siegfried Avatar
@@ -81506,7 +81506,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Valkyrie_LegendMVP
-        Rate: 10
+        Rate: 50
   - Id: 3478
     AegisName: AS_ZOMBIE_SLAUGHTER
     Name: Dollocaris
@@ -81551,7 +81551,7 @@ Body:
         Rate: 150
         RandomOptionGroup: armor
       - Item: Mark_DespairMVP
-        Rate: 10
+        Rate: 50
   - Id: 3479
     AegisName: AS_ZOMBIE_MASTER
     Name: Depths Dollocaris
@@ -81599,7 +81599,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Mark_DespairMVP
-        Rate: 10
+        Rate: 50
   - Id: 3480
     AegisName: AS_CURSED_SOLDIER
     Name: Depths Mermaid
@@ -81644,7 +81644,7 @@ Body:
         Rate: 150
         RandomOptionGroup: shoes
       - Item: Mark_DespairMVP
-        Rate: 10
+        Rate: 50
   - Id: 3481
     AegisName: AS_EVIL_SHADOW1
     Name: Limacina
@@ -81692,7 +81692,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Mark_DespairMVP
-        Rate: 10
+        Rate: 50
       - Item: Blue_Valentine
         Rate: 100
         RandomOptionGroup: dagger
@@ -81753,7 +81753,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Mark_DespairMVP
-        Rate: 10
+        Rate: 50
       - Item: Despair_Innocence
         Rate: 100
         RandomOptionGroup: sword
@@ -81861,7 +81861,7 @@ Body:
       - Item: Enriched_Elunium
         Rate: 200
       - Item: Valkyrie_LegendMVP
-        Rate: 10
+        Rate: 50
   - Id: 3485
     AegisName: AS_D_CURSED_SOLDIER
     Name: Sarah Irine
@@ -82169,7 +82169,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
   - Id: 3497
     AegisName: DR_FABRE
     Name: Old Blue Bag
@@ -82217,7 +82217,7 @@ Body:
       - Item: Jellopy
         Rate: 10000
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
   - Id: 3498
     AegisName: DR_HORNET
     Name: Save Assistant
@@ -82270,7 +82270,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
   - Id: 3499
     AegisName: DR_RODA_FROG
     Name: Storage Assistant
@@ -82320,7 +82320,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
   - Id: 3500
     AegisName: DR_DESERT_WOLF_B
     Name: Warp Assistant
@@ -82367,7 +82367,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
   - Id: 3501
     AegisName: DR_SPORE
     Name: Mutated Kafra
@@ -82413,7 +82413,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
   - Id: 3502
     AegisName: DR_BASILISK1
     Name: Consumed Kafra
@@ -82461,7 +82461,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Kafra_CardMVP
-        Rate: 10
+        Rate: 50
       - Item: Kafra_Sandals
         Rate: 100
         RandomOptionGroup: shadow
@@ -82565,7 +82565,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Ice_FlowerMVP
-        Rate: 10
+        Rate: 50
       - Item: Diamond_Shield
         Rate: 100
         RandomOptionGroup: shield
@@ -82654,7 +82654,7 @@ Body:
       - Item: Cry_Seal
         Rate: 10000
       - Item: Ice_FlowerMVP
-        Rate: 10
+        Rate: 50
   - Id: 3507
     AegisName: DR_POM_SPIDER
     Name: Crystal Dolomedes
@@ -82704,7 +82704,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Ice_FlowerMVP
-        Rate: 10
+        Rate: 50
       - Item: Spider_Queen_Sh
         Rate: 100
         RandomOptionGroup: shoes
@@ -82765,7 +82765,7 @@ Body:
         Rate: 150
         RandomOptionGroup: sword
       - Item: Ice_FlowerMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 3509
 #    AegisName: MOON_RABBIT
 #  - Id: 3510
@@ -83547,7 +83547,7 @@ Body:
         Rate: 200
         RandomOptionGroup: manual
       - Item: Holy_ScripturesMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 3634
 #    AegisName: MYSTCASE_GIANT
 #  - Id: 3635
@@ -83596,7 +83596,7 @@ Body:
         Rate: 300
         RandomOptionGroup: katar
       - Item: Crystal_RoseMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 3637
 #    AegisName: MD_SKELETON_60
 #  - Id: 3638
@@ -83703,7 +83703,7 @@ Body:
         Rate: 300
         RandomOptionGroup: scythe
       - Item: Crystal_RoseMVP
-        Rate: 10
+        Rate: 50
   - Id: 3670
     AegisName: DELETER_2
     Name: Pitaya
@@ -83748,7 +83748,7 @@ Body:
         Rate: 300
         RandomOptionGroup: bow
       - Item: Crystal_RoseMVP
-        Rate: 10
+        Rate: 50
 #  - Id: 3671
 #    AegisName: JP_MAZEMOB_01
 #  - Id: 3672
@@ -84054,7 +84054,7 @@ Body:
         Rate: 100
         RandomOptionGroup: accessory
       - Item: Crystal_RoseMVP
-        Rate: 10
+        Rate: 50
   - Id: 3740
     AegisName: GASTER
     Name: Dark Rose Dragon
