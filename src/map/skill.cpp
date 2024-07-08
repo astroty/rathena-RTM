@@ -12199,11 +12199,11 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			// Detonate RL_B_TRAP
 			if (pc_checkskill(sd, RL_B_TRAP))
 				map_foreachinallrange(skill_bind_trap, src, AREA_SIZE, BL_SKILL, src);
-				sc_start(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
+				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			// Detonate RL_H_MINE
 			if ((i = pc_checkskill(sd, RL_H_MINE)))
 				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag | BCT_ENEMY | SD_SPLASH, skill_castend_damage_id);
-				sc_start(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
+				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			sd->flicker = false;
 		}
 		break;
