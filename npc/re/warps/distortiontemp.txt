@@ -975,7 +975,7 @@ dicast_in,387,208,4	script	Study Elevator#Sages	CLEAR_NPC,{
 }
 
 moc_fild14,345,198,4	script	Bifrost Stone Shard#Desert	10442,{
-	if (bifrostmirror >=1){
+	if (#bifrostmirror >=1){
 	mes "^6666CCYou found the Bifrost Mirror Shard here.";
 	close;
 	}
@@ -986,7 +986,7 @@ moc_fild14,345,198,4	script	Bifrost Stone Shard#Desert	10442,{
 	mes "^6666CCYou can feel the power of Asgard coursing through the object, reaching through time and space... Was it left here due to Morroc's Death?";
 	next;
 	achievementcomplete(200087);
-	set bifrostmirror, 1;
+	set #bifrostmirror, 1;
 	getitem 1632,1;
 	specialeffect2 EF_BRANDISHSPEAR;
 	specialeffect2 EF_BOWLINGSELF;
