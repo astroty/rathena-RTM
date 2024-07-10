@@ -9,8 +9,7 @@ va_orpha,196,278,4	script	Orphanage Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Leave Distortion :Stay")) {
 	case 1:
-	if (countitem(1632) < 1) {
-		
+	if (countitem(1632) > 0) {
 		if (#temporalwarp > 0) {
 			mes "The Bifrost Mirror shines brightly... And takes you to the real Varmundt's Mansion.";
 			next;
@@ -34,13 +33,13 @@ va_in01,196,278,4	script	Orphanage Distortion#warp2	4_ed_orb,{
 	next;
 	switch(select("Enter Distortion :Stay")) {
 	case 1:
-	if (countitem(1632) > 1){
-	if (#temporalwarp >0){
-	mes "The Bifrost Mirror shines brightly... And takes you to the Orphanage, created by Varmundt.";
-	next;
-	warp "va_orpha",196,284;
-	end;
-	}
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Mirror shines brightly... And takes you to the Orphanage, created by Varmundt.";
+			next;
+			warp "va_orpha",196,284;
+			end;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps by finding a Bifrost Mirror Shard...?";
 	close;
@@ -58,11 +57,13 @@ rachel,37,79,4	script	Nightmare Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp > 3){
-	mes "The Bifrost Shard's Eye of Balder shines brightly... And takes you into a strange dream.";
-	next;
-	warp "rachelnm",37,75;
-	end;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 3) {
+			mes "The Bifrost Shard's Eye of Balder shines brightly... And takes you into a strange dream.";
+			next;
+			warp "rachelnm",37,75;
+			end;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -158,18 +159,20 @@ grey_ft02,353,298,4	script	Lost Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >3){
-	mes "The Bifrost Shard's Eye of Balder shines brightly... And the spirits of the heroes who conquered Jormungand protect you.";
-	next;
-	mes "Auteur, the Dark Knight";
-	mes "Drachnid, the Gravekeeper";
-	mes "Grimoire, the Revenant";
-	mes "Hunter, the Sinner";
-	mes "Bearing the banner of Bossfight Cafe,";
-	mes "Guide you safely into the beast's lair...";
-	next;
-	warp "jor_nest01",283,176;
-	end;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 3) {
+			mes "The Bifrost Shard's Eye of Balder shines brightly... And the spirits of the heroes who conquered Jormungand protect you.";
+			next;
+			mes "Auteur, the Dark Knight";
+			mes "Drachnid, the Gravekeeper";
+			mes "Grimoire, the Revenant";
+			mes "Hunter, the Sinner";
+			mes "Bearing the banner of Bossfight Cafe,";
+			mes "Guide you safely into the beast's lair...";
+			next;
+			warp "jor_nest01",283,176;
+			end;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -200,11 +203,13 @@ tha_t01,149,105,4	script	Paradise Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >3){
-	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you somewhere bright.";
-	close2;
-	warp "tha_para01",75,372;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 3) {
+			mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you somewhere bright.";
+			close2;
+			warp "tha_para01",75,372;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -235,11 +240,13 @@ xmas_dun02,134,134,4	script	Factory Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >1){
-	mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 25 Years in the Future.";
-	close2;
-	warp "xmas_fut01",130,134;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 1) {
+			mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 25 Years in the Future.";
+			close2;
+			warp "xmas_fut01",130,134;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -270,11 +277,13 @@ odin_tem03,189,143,4	script	Temple Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 2000 Years in the Past.";
-	close2;
-	warp "odin_past",189,138;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 2000 Years in the Past.";
+			close2;
+			warp "odin_past",189,138;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -305,11 +314,13 @@ verus01,149,154,4	script	Laboratory Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 500 Years in the Past.";
-	close2;
-	warp "1@mcd",120,146;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 500 Years in the Past.";
+			close2;
+			warp "1@mcd",120,146;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -340,11 +351,13 @@ iz_dun04,245,269,4	script	Sea Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 1000 Years in the Past.";
-	close2;
-	warp "iz_dun05",248,226;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 1000 Years in the Past.";
+			close2;
+			warp "iz_dun05",248,226;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -377,11 +390,14 @@ prontera,53,118,4	script	City Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 99 Years in the Past.";
-	close2;
-	warp "prt_q",53,115;
-	break;
+	
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 99 Years in the Past.";
+			close2;
+			warp "prt_q",53,115;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -412,11 +428,13 @@ c_tower1,53,51,4	script	Clock Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >1){
-	mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 100 Years in the Future.";
-	close2;
-	warp "alde_dun03",25,268;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 1) {
+			mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 100 Years in the Future.";
+			close2;
+			warp "alde_dun03",25,268;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -449,11 +467,13 @@ abyss_03,98,103,4	script	Decay Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >3){
-	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you 5000 Years in the Future.";
-	close2;
-	warp "abyss_04",171,163;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 3) {
+			mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you 5000 Years in the Future.";
+			close2;
+			warp "abyss_04",171,163;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -485,11 +505,13 @@ assas_03,186,72,4	script	Desert Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 300 Years in the Past.";
-	close2;
-	warp "loki_tomb01",184,191;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 300 Years in the Past.";
+			close2;
+			warp "loki_tomb01",184,191;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -520,11 +542,13 @@ ein_fild04,362,111,4	script	Deadlands Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >1){
-	mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 100 Years in the Future.";
-	close2;
-	warp "ein_dead01",25,222;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 1) {
+			mes "The Bifrost Shard's Eye of Vali shines brightly... And sends you 100 Years in the Future.";
+			close2;
+			warp "ein_dead01",25,222;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -555,11 +579,13 @@ glast_01,200,349,4	script	Glast Heim Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 100 Years in the Past.";
-	close2;
-	warp "gl_knp01",149,24;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 100 Years in the Past.";
+			close2;
+			warp "gl_knp01",149,24;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -577,11 +603,13 @@ yuno_fild08,152,190,4	script	University Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >2){
-	mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you 15 years in the future.";
-	close2;
-	warp "khu_dun01",70,155;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 2) {
+			mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you 15 years in the future.";
+			close2;
+			warp "khu_dun01",70,155;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -612,11 +640,13 @@ gl_knp01,76,169,4	script	Abyssal Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >2){
-	mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you somewhere dark, 100 years in the future.";
-	close2;
-	warp "gl_cas01_",200,36;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 2) {
+			mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you somewhere dark, 100 years in the future.";
+			close2;
+			warp "gl_cas01_",200,36;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -660,11 +690,13 @@ morocc,24,283,4	script	Morroc Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 5 Years in the Past.";
-	close2;
-	warp "moc_dun01",35,283;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 5 Years in the Past.";
+			close2;
+			warp "moc_dun01",35,283;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -709,11 +741,13 @@ moc_dun01,159,180,4	script	Castle Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >2){
-	mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you 1 Hour in the Past.";
-	close2;
-	warp "moc_dun02",94,126;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 2) {
+			mes "The Bifrost Shard's Eye of Thor shines brightly... And sends you 1 Hour in the Past.";
+			close2;
+			warp "moc_dun02",94,126;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -731,11 +765,13 @@ moc_dun01,159,17,4	script	Gorge Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >3){
-	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you...Here. 5 Years in the Future.";
-	close2;
-	warp "moc_fild20",25,301;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 3) {
+			mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you...Here. 5 Years in the Future.";
+			close2;
+			warp "moc_fild20",25,301;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -767,11 +803,13 @@ ra_san01,139,145,4	script	Rachel Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >3){
-	mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you 10 Years in the Future.";
-	close2;
-	warp "ra_dun00",199,380;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 3) {
+			mes "The Bifrost Shard's Eye of Balder shines brightly... And sends you 10 Years in the Future.";
+			close2;
+			warp "ra_dun00",199,380;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -802,11 +840,13 @@ gefenia01,59,169,4	script	Geffen Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 200 Years in the Past.";
-	close2;
-	warp "gef_atow04",38,32;
-	break;
+	if (countitem(1632) > 0) {
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Shard's Eye of Vidar shines brightly... And sends you 200 Years in the Past.";
+			close2;
+			warp "gef_atow04",38,32;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;
@@ -958,7 +998,7 @@ moc_fild14,345,198,4	script	Bifrost Stone Shard#Desert	10442,{
 }
 
 pay_fild06,103,222,4	script	Bifrost Stone Shard#Vidar	10442,{
-	if (vidareye >=1){
+	if (#vidareye >=1){
 	mes "^6666CCYou found the Eye of Vidar here.";
 	close;
 	}
@@ -969,7 +1009,7 @@ pay_fild06,103,222,4	script	Bifrost Stone Shard#Vidar	10442,{
 	mes "^6666CCYou can feel the life of Vidar, Son of Odin, running through your fingers.";
 	next;
 	achievementcomplete(200088);
-	set vidareye, 1;
+	set #vidareye, 1;
 	getitem 1633,1;
 	specialeffect2 EF_BRANDISHSPEAR;
 	specialeffect2 EF_BOWLINGSELF;
@@ -981,7 +1021,7 @@ pay_fild06,103,222,4	script	Bifrost Stone Shard#Vidar	10442,{
 }
 
 hu_fild06,188,230,4	script	Bifrost Stone Shard#Vali	10442,{
-	if (valieye >=1){
+	if (#valieye >=1){
 	mes "^6666CCYou found the Eye of Vali here.";
 	close;
 	}
@@ -992,7 +1032,7 @@ hu_fild06,188,230,4	script	Bifrost Stone Shard#Vali	10442,{
 	mes "^6666CCYou can feel the life of Vali, Son of Odin, running through your fingers.";
 	next;
 	achievementcomplete(200089);
-	set valieye, 1;
+	set #valieye, 1;
 	getitem 1634,1;
 	specialeffect2 EF_BRANDISHSPEAR;
 	specialeffect2 EF_BOWLINGSELF;
@@ -1004,7 +1044,7 @@ hu_fild06,188,230,4	script	Bifrost Stone Shard#Vali	10442,{
 }
 
 ra_fild03,214,267,4	script	Bifrost Stone Shard#Thor	10442,{
-	if (thoreye >=1){
+	if (#thoreye >=1){
 	mes "^6666CCYou found the Eye of Thor here.";
 	close;
 	}
@@ -1015,7 +1055,7 @@ ra_fild03,214,267,4	script	Bifrost Stone Shard#Thor	10442,{
 	mes "^6666CCYou can feel the life of Thor, Son of Odin, running through your fingers.";
 	next;
 	achievementcomplete(200090);
-	set thoreye, 1;
+	set #thoreye, 1;
 	getitem 1635,1;
 	specialeffect2 EF_BRANDISHSPEAR;
 	specialeffect2 EF_BOWLINGSELF;
@@ -1027,7 +1067,7 @@ ra_fild03,214,267,4	script	Bifrost Stone Shard#Thor	10442,{
 }
 
 niflheim,289,262,4	script	Bifrost Stone Shard#Balder	10442,{
-	if (baldereye >=1){
+	if (#baldereye >=1){
 	mes "^6666CCYou found the Eye of Balder here.";
 	close;
 	}
@@ -1038,7 +1078,7 @@ niflheim,289,262,4	script	Bifrost Stone Shard#Balder	10442,{
 	mes "^6666CCYou can feel the life of Balder, Son of Odin, running through your fingers.";
 	next;
 	achievementcomplete(200091);
-	set baldereye, 1;
+	set #baldereye, 1;
 	getitem 1636,1;
 	specialeffect2 EF_BRANDISHSPEAR;
 	specialeffect2 EF_BOWLINGSELF;
@@ -1056,17 +1096,17 @@ dicast_in,359,214,5	script	Master of Vidar	4_ep17_tamarin,{
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (vidareye <=0){
+	if (#vidareye <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (vidareye >=2){
+	if (#vidareye >=2){
 	mes .@npc$;
 	mes "I have nothing else to do for you. May you use your new power with wisdom.";
 	close;
 	}	
-	if (vidareye >=1){
+	if (#vidareye >=1){
 	mes .@npc$;
 	mes "I can restore the power of your Eye of Vidar, and put it inside the Bifrost Mirror Shard... I require a donation of 25.000z for it, do you accept it?";
 	next;
@@ -1084,7 +1124,7 @@ dicast_in,359,214,5	script	Master of Vidar	4_ep17_tamarin,{
 	delitem 1632,1;
 	delitem 1633,1;
 	getitem2 1632,1,1,0,0,1633,0,0,0;
-	set vidareye, 2;
+	set #vidareye, 2;
 	set #temporalwarp, 1;
 	set zeny,zeny-25000;
 	mes .@npc$;
@@ -1109,17 +1149,17 @@ dicast_in,375,215,5	script	Master of Vali	4_m_tamarin,{
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (valieye <=0){
+	if (#valieye <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (valieye >=2){
+	if (#valieye >=2){
 	mes .@npc$;
 	mes "I have nothing else to do for you. May you use your new power with wisdom.";
 	close;
 	}	
-	if (valieye >=1){
+	if (#valieye >=1){
 	mes .@npc$;
 	mes "I can restore the power of your Eye of Vali, and put it inside the Bifrost Mirror Shard... I require a donation of 50.000z for it, do you accept it?";
 	next;
@@ -1142,7 +1182,7 @@ dicast_in,375,215,5	script	Master of Vali	4_m_tamarin,{
 	delitem 1632,1;
 	delitem 1634,1;
 	getitem2 1632,1,1,0,0,1633,1634,0,0;
-	set Valieye, 2;
+	set #Valieye, 2;
 	set #temporalwarp, 2;
 	set zeny,zeny-50000;
 	mes .@npc$;
@@ -1167,17 +1207,17 @@ dicast_in,375,201,1	script	Master of Thor	4_ep16_tamarin,{
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (thoreye <=0){
+	if (#thoreye <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (thoreye >=2){
+	if (#thoreye >=2){
 	mes .@npc$;
 	mes "I have nothing else to do for you. May you use your new power with wisdom.";
 	close;
 	}	
-	if (thoreye >=1){
+	if (#thoreye >=1){
 	mes .@npc$;
 	mes "I can restore the power of your Eye of Thor, and put it inside the Bifrost Mirror Shard... I require a donation of 100.000z for it, do you accept it?";
 	next;
@@ -1200,7 +1240,7 @@ dicast_in,375,201,1	script	Master of Thor	4_ep16_tamarin,{
 	delitem 1632,1;
 	delitem 1635,1;
 	getitem2 1632,1,1,0,0,1633,1634,1635,0;
-	set thoreye, 2;
+	set #thoreye, 2;
 	set #temporalwarp, 3;
 	set zeny,zeny-100000;
 	mes .@npc$;
@@ -1225,17 +1265,17 @@ dicast_in,359,201,8	script	Master of Balder	4_ep18_tamarin,{
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (baldereye <=0){
+	if (#baldereye <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
 	}
-	if (baldereye >=2){
+	if (#baldereye >=2){
 	mes .@npc$;
 	mes "I have nothing else to do for you. May you use your new power with wisdom.";
 	close;
 	}	
-	if (baldereye >=1){
+	if (#baldereye >=1){
 	mes .@npc$;
 	mes "I can restore the power of your Eye of Balder, and put it inside the Bifrost Mirror Shard... I require a donation of 300.000z for it, do you accept it?";
 	next;
@@ -1259,7 +1299,7 @@ dicast_in,359,201,8	script	Master of Balder	4_ep18_tamarin,{
 	delitem 1636,1;
 	getitem2 1632,1,1,0,0,1633,1634,1635,1636;
 	achievementcomplete(200092);
-	set baldereye, 2;
+	set #baldereye, 2;
 	set #temporalwarp, 4;
 	set zeny,zeny-300000;
 	mes .@npc$;
