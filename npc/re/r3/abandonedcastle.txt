@@ -10,7 +10,7 @@ prt_gld,160,97,4	script	War Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (temporalwarp >3){
+	if (#temporalwarp >3){
 	mes "The Bifrost Shard's Eye of Balder Shines Brightly...And sends you 50 Years in the Future.";
 	close2;
 	warp "guild_falld",174,15;
