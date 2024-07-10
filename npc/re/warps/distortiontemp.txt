@@ -9,11 +9,14 @@ va_orpha,196,278,4	script	Orphanage Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Leave Distortion :Stay")) {
 	case 1:
-	if (#temporalwarp >0){
-	mes "The Bifrost Mirror shines brightly... And takes you to the real Varmundt's Mansion.";
-	next;
-	warp "va_in01",196,284;
-	end;
+	if (countitem(1632) < 1) {
+		
+		if (#temporalwarp > 0) {
+			mes "The Bifrost Mirror shines brightly... And takes you to the real Varmundt's Mansion.";
+			next;
+			warp "va_in01",196,284;
+			end;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps by finding a Bifrost Mirror Shard...?";
 	close;
@@ -31,11 +34,13 @@ va_in01,196,278,4	script	Orphanage Distortion#warp2	4_ed_orb,{
 	next;
 	switch(select("Enter Distortion :Stay")) {
 	case 1:
+	if (countitem(1632) > 1){
 	if (#temporalwarp >0){
 	mes "The Bifrost Mirror shines brightly... And takes you to the Orphanage, created by Varmundt.";
 	next;
 	warp "va_orpha",196,284;
 	end;
+	}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps by finding a Bifrost Mirror Shard...?";
 	close;
@@ -53,7 +58,7 @@ rachel,37,79,4	script	Nightmare Distortion#warp1	4_ed_orb,{
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (#temporalwarp >3){
+	if (#temporalwarp > 3){
 	mes "The Bifrost Shard's Eye of Balder shines brightly... And takes you into a strange dream.";
 	next;
 	warp "rachelnm",37,75;
