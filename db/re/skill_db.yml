@@ -38421,3 +38421,35 @@ Body:
         - Level: 5
           Amount: 45
       HpRateCost: 30
+  - Id: 778
+    Name: DK_SCOURGE #New DK Skills
+    Description: Scourge
+    MaxLevel: 5
+    TargetType: Self
+    DamageFlags:
+      Splash: true  
+    Flags:
+      TargetTrap: true
+    Hit: Single
+    HitCount: 1
+    Element: Weapon
+    SplashArea: 3
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+    CastTime: 0
+    AfterCastActDelay: 200
+    Cooldown: 2500
+    Requires:
+      SpCost:
+        - Level: 1
+          Amount: 15
+        - Level: 2
+          Amount: 20
+        - Level: 3
+          Amount: 25
+        - Level: 4
+          Amount: 30
+        - Level: 5
+          Amount: 35
+      HpRateCost: 30         

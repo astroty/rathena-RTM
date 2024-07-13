@@ -1743,6 +1743,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_CURSE, 3 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 
+	case DK_SCOURGE: // New DK Skill
+		sc_start(src, bl, SC_BLEEDING, 20 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
+		break;
+
 	case WS_CARTTERMINATION:	// Cart termination
 		sc_start(src, bl, SC_STUN, 5 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
@@ -2621,7 +2625,10 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 		}
 		it.lock = false;
 		sd->state.autocast = 0;
+		if (skill_id == TK_JUMPKICK && skill == SO_PSYCHIC_WAVE)
+			clif_showscript(&sd->bl, "Devil Raid !!", AREA); // Override Text
 	}
+
 
 	if (sd && !sd->autobonus3.empty()) {
 		for (auto& it : sd->autobonus3) {
@@ -3867,9 +3874,18 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, CR_HOLYCROSS, -1, DMG_SPLASH);
 		break;
 	case DK_SWORDFLURRY: // New DK Skills
-		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 3, RG_BACKSTAP, skill_lv, dmg_type); //Steals the physical animation for bash
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 3, RG_BACKSTAP, skill_lv, dmg_type); //Steals the physical animation for basic attacking
 		clif_specialeffect(bl, 567, AREA); // For skill visuals
 		clif_showscript(src, "Sword Flurry !!", AREA); // Added to display the proper name callout when stealing bash vx
+		break;
+	case DK_SCOURGE: // New DK Skills
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 1, AC_SHOWER, skill_lv, dmg_type); //Steals the physical animation for basic attacking
+		clif_specialeffect(bl, 812, AREA); // For skill visuals
+		clif_showscript(src, "Scourge !!", AREA); // Added to display the proper name callout when stealing bash vx
+		break;
+	case TK_JUMPKICK: // Devil Raid
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 1, skill_id, skill_lv, dmg_type);
+		clif_showscript(src, "Devil Raid !!", AREA); // Override Text
 		break;
 		//Skills that need be passed as a normal attack for the client to display correctly.
 	case HVAN_EXPLOSION:
@@ -5571,6 +5587,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 		//Splash attack skills.
+	case DK_SCOURGE: // New DK Skills
+		skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
 	case AS_GRIMTOOTH:
 	case MC_CARTREVOLUTION:
 	case NPC_SPLASHATTACK:
@@ -8115,6 +8134,17 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 
 		//List of self skills that give damage around caster
+	case DK_SCOURGE: // New DK Skill
+		skill_area_temp[1] = 0;
+#if PACKETVER >= 20180207
+		clif_skill_nodamage(src, bl, SM_BASH, skill_lv, 1);
+		clif_specialeffect(src, 129, AREA); // For skill visuals
+		clif_showscript(src, "Scourge !!", AREA); // Added to display the proper name callout when stealing bash vx
+#else
+		clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SINGLE);
+#endif
+		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_SKILL, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		break;
 	case ASC_METEORASSAULT:
 	case GS_SPREADATTACK:
 	case RK_WINDCUTTER:
@@ -8243,6 +8273,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			skill_get_splash(skill_id, skill_lv), splash_target(src),
 			BF_MAGIC, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
 		break;
+
 
 	case HVAN_EXPLOSION:	//[orn]
 	case NPC_SELFDESTRUCTION:
@@ -12199,11 +12230,11 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			// Detonate RL_B_TRAP
 			if (pc_checkskill(sd, RL_B_TRAP))
 				map_foreachinallrange(skill_bind_trap, src, AREA_SIZE, BL_SKILL, src);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
+				sc_start(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			// Detonate RL_H_MINE
 			if ((i = pc_checkskill(sd, RL_H_MINE)))
 				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag | BCT_ENEMY | SD_SPLASH, skill_castend_damage_id);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
+				sc_start(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			sd->flicker = false;
 		}
 		break;

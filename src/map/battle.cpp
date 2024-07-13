@@ -3929,7 +3929,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 #ifdef RENEWAL
 			skillratio += 150 + 10 * skill_lv + (sstatus->dex);
 			if (sc && sc->data[SC_NEN])
-				skillratio += 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio += 40 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 65 * skill_lv + (3 * (sstatus->str));
 			break;
@@ -4576,7 +4576,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 							skillratio += 3 * (sstatus->luk);
 						break;
 		case GC_COUNTERSLASH:																						 
-			skillratio += 100 + 50 * skill_lv + 1 * sstatus->agi;
+			skillratio += 100 + 10 * skill_lv + 1 * sstatus->agi;
 			break;
 		case GC_VENOMPRESSURE:
 			skillratio += 150 + 40 * skill_lv + 2 * (sstatus->int_);
@@ -4725,9 +4725,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (tsc && tsc->data[SC_JYUMONJIKIRI])
 				skillratio +=50 + (sstatus->dex);
 			if(sd && sd->status.weapon == W_DOUBLE_DD)
-				skillratio += 100 + 65 * skill_lv + 2 * (sstatus->agi);
+				skillratio += 100 + 45 * skill_lv + 2 * (sstatus->agi);
 			else
-				skillratio += 100 + 50 * skill_lv + 2 * (sstatus->agi);
+				skillratio += 100 + 30 * skill_lv + 2 * (sstatus->agi);
 			break;
 		case LG_SHIELDPRESS:
 			skillratio += 10 + 5 * skill_lv;
@@ -5108,7 +5108,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 45 * skill_lv + 3 * sstatus->int_;
 		break;;
 		case RL_R_TRIP:
-			skillratio += 50 + 15 * skill_lv + 1 * sstatus->str;
+			skillratio += 10 + 15 * skill_lv + 1 * sstatus->str;
 			if (sc && sc->data[SC_ROLLINGCUTTER])
 			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 10;
 			break;
@@ -6698,6 +6698,18 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += 50 * skill_lv;
 						if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
 							skillratio += 10 * sd->spiritcharm;
+						break;
+					case DK_SCOURGE: //New DK Skill
+#ifdef RENEWAL
+						skillratio += 150 + 100 * skill_lv + (sstatus->str);
+						if (sc && sc->data[SC_NEN])
+							skillratio += 10 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+						if (sc && sc->data[SC_OVERBRANDREADY])
+							skillratio += 75 * skill_lv + (10 * (sstatus->int_));
+						break;
+#else
+						skillratio += 75 * skill_lv;
+#endif
 						break;
 					case AL_HOLYLIGHT:
 						skillratio += 30 * skill_lv + 2 * (sstatus->luk);

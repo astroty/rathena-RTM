@@ -2393,6 +2393,8 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			sc_start4(src,target,SC_PROVOKE,100,10,1,0,0,0);
 		if (sc->data[SC_BERSERK] && status->hp <= 100)
 			status_change_end(target, SC_BERSERK, INVALID_TIMER);
+		if (sc->data[SC_NEN] && status->hp <= 0)
+			status_change_end(target, SC_NEN, INVALID_TIMER);
 		if( sc->data[SC_RAISINGDRAGON] && status->hp <= 1000 )
 			status_change_end(target, SC_RAISINGDRAGON, INVALID_TIMER);
 		if (sc->data[SC_SATURDAYNIGHTFEVER] && status->hp <= 100)
@@ -5485,7 +5487,7 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 				val += (30+10*skill)*val/100;
 		}
 		if( (skill=pc_checkskill(sd,MO_SPIRITSRECOVERY)) > 0 )
-			val += skill*5 + skill*status->max_sp/100;
+			val += skill*5 + skill*status->max_sp/70;
 		sregen->sp = cap_value(val, 0, SHRT_MAX);
 	}
 
@@ -11735,7 +11737,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = 5 * val1;
 			break;
 		case SC_WEAPONBLOCKING:
-			val2 = 30 + 2 * val1; // Chance
+			val2 = 15 + 2 * val1; // Chance
 			val4 = tick / 5000;
 			tick_time = 5000; // [GodLesZ] tick time
 			break;
