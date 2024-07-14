@@ -29114,10 +29114,10 @@ Body:
         Rate: 300
         StealProtected: true
       - Item: Apex_Knife
-        Rate: 500
+        Rate: 1500
         RandomOptionGroup: dagger
       - Item: Strange_Metal_R
-        Rate: 1500
+        Rate: 2000
         RandomOptionGroup: accessory
       - Item: Yggdrasilberry
         Rate: 5000
@@ -67833,10 +67833,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: 9_of_Clubs
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: deck
       - Item: Electro_Buckler_
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: shield
       - Item: Advanced_KeycaMVP
         Rate: 10
@@ -67886,13 +67886,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Apex_Knife
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: dagger
       - Item: Electro_Buckler_
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: shield
       - Item: Nopaew_Lufrewop
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: sword
       - Item: Advanced_KeycaMVP
         Rate: 10
@@ -67943,13 +67943,13 @@ Body:
       - Item: Enriched_Elunium
         Rate: 150
       - Item: Metal_Boots_MKI
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Metal_Boots_MKII
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Metal_Boots_MKIII
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Advanced_KeycaMVP
         Rate: 10
