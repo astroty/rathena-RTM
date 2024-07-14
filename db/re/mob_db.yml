@@ -65861,7 +65861,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: King_of_Diamonds
-        Rate: 200
+        Rate: 600
         RandomOptionGroup: deck
       - Item: 4th_Shadow_Coffer
         Rate: 300
@@ -65870,7 +65870,7 @@ Body:
       - Item: Jewel_Shadowdecon
         Rate: 200
       - Item: Gu_Chamberlain_Card
-        Rate: 100
+        Rate: 300
         StealProtected: true
   - Id: 2789
     AegisName: C1_KARAKASA
