@@ -146,43 +146,38 @@ guild_falld,164,208,25,25	monster	Guild Warrior	2784,3,120000
 guild_falld,164,208,25,25	monster	Guild Support	2785,3,120000
 guild_falld,164,208,25,25	monster	Guild Defender	2786,3,120000
 guild_falld,164,208,25,25	monster	Guild Magician	2787,3,120000
-guild_falld,164,208,25,25	monster	Guild Chamberlain	2788,3,120000
+guild_falld,164,208,25,25	monster	Guild Chamberlain	2788,1,240000
 //
 guild_falld,45,64,10,10	monster	Guild Warrior	2784,1,120000
 guild_falld,45,64,10,10	monster	Guild Support	2785,1,120000
 guild_falld,45,64,10,10	monster	Guild Defender	2786,1,120000
 guild_falld,45,64,10,10	monster	Guild Magician	2787,1,120000
-guild_falld,45,64,10,10	monster	Guild Chamberlain	2788,1,120000
 //
 guild_falld,80,72,10,10	monster	Guild Warrior	2784,1,120000
 guild_falld,80,72,10,10	monster	Guild Support	2785,1,120000
 guild_falld,80,72,10,10	monster	Guild Defender	2786,1,120000
 guild_falld,80,72,10,10	monster	Guild Magician	2787,1,120000
-guild_falld,80,72,10,10 monster Guild Chamberlain	2788,1,120000
 //
 guild_falld,19,55,10,10	monster	Guild Warrior	2784,1,120000
 guild_falld,19,55,10,10	monster	Guild Support	2785,1,120000
 guild_falld,19,55,10,10	monster	Guild Defender	2786,1,120000
 guild_falld,19,55,10,10	monster	Guild Magician	2787,1,120000
-guild_falld,19,55,10,10 monster Guild Chamberlain	2788,1,120000
 //
 guild_falld,45,102,15,15	monster	Guild Warrior	2784,3,120000
 guild_falld,45,102,15,15	monster	Guild Support	2785,3,120000
 guild_falld,45,102,15,15	monster	Guild Defender	2786,3,120000
 guild_falld,45,102,15,15	monster	Guild Magician	2787,3,120000
-guild_falld,45,102,15,15	monster	Guild Chamberlain	2788,3,120000
+guild_falld,45,102,15,15	monster	Guild Chamberlain	2788,1,240000
 //
 guild_falld,84,116,10,10	monster	Guild Warrior	2784,1,120000
 guild_falld,84,116,10,10	monster	Guild Support	2785,1,120000
 guild_falld,84,116,10,10	monster	Guild Defender	2786,1,120000
 guild_falld,84,116,10,10	monster	Guild Magician	2787,1,120000
-guild_falld,84,116,10,10	monster	Guild Chamberlain	2788,1,120000
 //
 guild_falld,7,116,10,10	monster	Guild Warrior	2784,1,120000
 guild_falld,7,116,10,10	monster	Guild Support	2785,1,120000
 guild_falld,7,116,10,10	monster	Guild Defender	2786,1,120000
 guild_falld,7,116,10,10	monster	Guild Magician	2787,1,120000
-guild_falld,7,116,10,10	monster	Guild Chamberlain	2788,1,120000
 //
 //Pre-Cast
 //
