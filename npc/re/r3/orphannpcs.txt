@@ -1585,7 +1585,7 @@ va_orpha,276,342,4	script	Amadeus Windsor#orphanage	10085,{
 				if ($orphanfunds >= $orphanlvreq-1) {
 				set $orphanfunds,1;
 				set $orphanagelevel,$orphanagelevel+1;
-				set $orphanlvreq,$orphanlvreq+$orphanagelevel*10;
+				set $orphanlvreq,$orphanlvreq+$orphanagelevel*3;
 				announce "The Orphanage Level has Increased to Lv" + $orphanagelevel +"!!! The new amount required is " + $orphanlvreq + "000z!",0;
 				playbgmall "05","va_orpha";
 				addrid(0);
@@ -1655,7 +1655,7 @@ va_orpha,276,342,4	script	Amadeus Windsor#orphanage	10085,{
 				if ($orphanfunds >= $orphanlvreq-1) {
 				set $orphanfunds,1;
 				set $orphanagelevel,$orphanagelevel+1;
-				set $orphanlvreq,$orphanlvreq+$orphanagelevel*10;
+				set $orphanlvreq,$orphanlvreq+$orphanagelevel*3;
 				announce "The Orphanage Level has Increased to Lv" + $orphanagelevel +"!!! The new amount required is " + $orphanlvreq + "000z!",0;
 				playbgmall "05","va_orpha";
 				addrid(0);
