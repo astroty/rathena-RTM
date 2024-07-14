@@ -1661,13 +1661,13 @@ Body:
       - Slot: 1
         Options:
           - Option: BODY_ATTR_UNDEAD
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 3
             MaxValue: 3
             Chance: 5000
   - Id: 17
@@ -1676,13 +1676,13 @@ Body:
       - Slot: 1
         Options:
           - Option: BODY_ATTR_UNDEAD
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
       - Slot: 2
         Options:
           - Option: VAR_MAXHPPERCENT
-            MinValue: 1
+            MinValue: 5
             MaxValue: 5
             Chance: 5000
   - Id: 18
