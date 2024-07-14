@@ -129,6 +129,49 @@ end;
 	end;
 }
 
+-	script	bifrostmirrorfix	,{
+	OnPCLoginEvent:
+		switch(temporalwarp) {
+			case 1:
+			set #temporalwarp, 1;
+			break;
+
+			case 2:
+			set #temporalwarp, 1;
+			break;
+
+			case 3:
+			set #temporalwarp, 3;
+			break;
+
+			case 4:
+			set #temporalwarp, 4;
+			break;
+		}
+
+		if(thoreye >= 1) {
+			set #thoreye, 1;
+		}
+
+		if(valieye >= 1) {
+			set #valieye, 1;
+		}
+
+		if(vidareye >= 1) {
+			set #vidareye, 1;
+		}
+
+		if(baldereye >= 1) {
+			set #baldereye, 1;
+		}
+
+		if(bifrostmirror >= 1) {
+			set #bifrostmirror, 1;
+		}
+
+	end;
+}
+
 
 ///Merchant License
 
