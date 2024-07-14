@@ -65912,7 +65912,7 @@ Body:
       - Item: 4th_Shadow_Coffer
         Rate: 300
       - Item: Guiding_Dagger
-        Rate: 300
+        Rate: 500
         RandomOptionGroup: dagger
       - Item: HD_Bradium
         Rate: 200
@@ -65965,7 +65965,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 10000
       - Item: Guiding_Dagger
-        Rate: 600
+        Rate: 1500
         RandomOptionGroup: dagger
       - Item: Emperium_Armor
         Rate: 1000
