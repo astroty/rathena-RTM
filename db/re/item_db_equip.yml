@@ -109584,7 +109584,7 @@ Body:
     Weight: 200
     Slots: 2
     Locations:
-      Right_Accessory: true
+      Left_Accessory: true
     ArmorLevel: 1
     EquipLevelMin: 100
     Flags:
