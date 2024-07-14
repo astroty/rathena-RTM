@@ -72528,13 +72528,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Laceration
-        Rate: 300
+        Rate: 1000
         RandomOptionGroup: katar
       - Item: Old_Rose_Sandals
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: shoes
       - Item: Portal_Manual_Z
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: manual
       - Item: 3rd_Shadow_Coffer
         Rate: 300
