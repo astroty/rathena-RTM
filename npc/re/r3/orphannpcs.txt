@@ -1505,7 +1505,7 @@ va_orpha,383,205,4	script	Mary Cenia#orphanage	10122,{
 			break;
 		case 2:
 			mes .@npc$;
-			mes "I had a wonderful daughter called Egnigem, and those M*@¨#!@f*&¨%$# at Rekenber took her away and did horrible things, I'm F*$&#@ glad they got what they deserved!";
+			mes "I had a wonderful daughter called Egnigem, and those M*@ï¿½#!@f*&ï¿½%$# at Rekenber took her away and did horrible things, I'm F*$&#@ glad they got what they deserved!";
 			next;
 			mes .@npc$;
 			mes "Cooking makes me calm. Sometimes. So I cook for kids, since I can't throw plates at them.";
@@ -1620,7 +1620,7 @@ va_orpha,276,342,4	script	Amadeus Windsor#orphanage	10085,{
 				if ($orphanfunds >= $orphanlvreq-1) {
 				set $orphanfunds,1;
 				set $orphanagelevel,$orphanagelevel+1;
-				set $orphanlvreq,$orphanlvreq+$orphanagelevel*10;
+				set $orphanlvreq,$orphanlvreq+$orphanagelevel*3;
 				announce "The Orphanage Level has Increased to Lv" + $orphanagelevel +"!!! The new amount required is " + $orphanlvreq + "000z!",0;
 				playbgmall "05","va_orpha";
 				addrid(0);
