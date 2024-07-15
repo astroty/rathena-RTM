@@ -2095,7 +2095,7 @@ Body:
     HitCount: 1
     Element: Weapon
     Knockback: 7
-    Cooldown: 10000
+    Cooldown: 5000
     Requires:
       SpCost: 25
       Weapon:
@@ -2259,7 +2259,7 @@ Body:
         Reproduce: true
     AfterCastActDelay: 500
     Duration1: 1000
-    Cooldown: 3000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -6942,7 +6942,7 @@ Body:
         Plagiarism: true
         Reproduce: true
     AfterCastActDelay: 500
-    Cooldown: 3000
+    Cooldown: 2000
     Requires:
       SpCost: 15
       State: Shield
@@ -13167,7 +13167,7 @@ Body:
     CastTime: 400
     AfterCastActDelay: 1000
     FixedCastTime: 100
-    Cooldown: 5000
+    Cooldown: 4000
     Requires:
       SpRateCost: 12
       SpCost:
@@ -18215,7 +18215,7 @@ Body:
       Skill:
         Plagiarism: true
     AfterCastActDelay: 1000
-    Cooldown: 3000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1

@@ -2349,6 +2349,42 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_SP_SHA, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 2000);
 		break;
+	case CR_SHIELDBOOMERANG:
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		break;
+	case SC_TRIANGLESHOT:
+		if (sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+		}
+		break;
+	case PA_SHIELDCHAIN:
+		if (sc->data[SC_SPL_ATK]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		}
+		break;
+	case RK_SONICWAVE:
+		if (sc->data[SC_FORCEOFVANGUARD]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		}
+		break;
+	case KN_BOWLINGBASH:
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		break;
+	case KN_SPEARSTAB:
+		if (sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+		}
+		break;
+	case KN_BRANDISHSPEAR:
+		if (sc->data[SC_SPL_ATK]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		}
+		break;
 	} //end switch skill_id
 
 	if (md && battle_config.summons_trigger_autospells && md->master_id && md->special_state.ai)
@@ -5901,7 +5937,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case KN_SPEARSTAB:
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
-				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 3);
+				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 5);
 		}
 		if (skill_check_unit_movepos(5, src, bl->x, bl->y, 1, 1))
 			skill_blown(src, src, 1, (dir_ka + 4) % 8, BLOWN_NONE); // Target position is actually one cell next to the target
