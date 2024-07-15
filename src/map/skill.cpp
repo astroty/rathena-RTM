@@ -1744,7 +1744,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 	case DK_SCOURGE: // New DK Skill
-		sc_start(src, bl, SC_BLEEDING, 20 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 3000);
+		if (sd && skill_lv > 0 && pc_checkskill(sd, AB_ANCILLA) > 0) {
+			sc_start(src, bl, SC_BLEEDING, 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		}
 		break;
 
 	case WS_CARTTERMINATION:	// Cart termination

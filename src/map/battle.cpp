@@ -3911,9 +3911,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	switch(skill_id) {
 		case SM_BASH:
 		case MS_BASH:
-			skillratio += 100 +25 * skill_lv + sstatus->str;
-			if (sc && sc->data[SC_NEN])
-			skillratio += 10 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			skillratio += 100 + 25 * skill_lv + sstatus->str;
+			if (sc && sc->data[SC_NEN]) {
+				int hpScaling = 10 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				if (sd)
+					hpScaling = (hpScaling * sd->status.job_level) / pc_maxjoblv(sd);
+				skillratio += hpScaling;
+			}
 			break;
 		case SM_MAGNUM:
 		case MS_MAGNUM:
@@ -3928,8 +3932,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case DK_SWORDFLURRY: //New DK Skill
 #ifdef RENEWAL
 			skillratio += 150 + 10 * skill_lv + (sstatus->dex);
-			if (sc && sc->data[SC_NEN])
-				skillratio += 40 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_NEN]) {
+				int hpScaling = 40 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				if (sd)
+					hpScaling = (hpScaling * sd->status.job_level) / pc_maxjoblv(sd);
+				skillratio += hpScaling;
+			}
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 65 * skill_lv + (3 * (sstatus->str));
 			break;
@@ -4186,8 +4194,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case MO_INVESTIGATE:
 #ifdef RENEWAL
 			skillratio += 150 + 50 * skill_lv + (sstatus->dex);
-			if (sc && sc->data[SC_NEN])
-				skillratio += 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_NEN]) {
+				int hpScaling = 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				if (sd)
+					hpScaling = (hpScaling * sd->status.job_level) / pc_maxjoblv(sd);
+				skillratio += hpScaling;
+			}
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 95 * skill_lv + (5 * (sstatus->str));
 			break;
@@ -4716,8 +4728,14 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case SC_FATALMENACE:
 			skillratio += 160 + 40 * skill_lv + (sstatus->vit);
-			if (sc && sc->data[SC_NEN])
-			skillratio += 35 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+
+			if (sc && sc->data[SC_NEN]) {
+				int hpScaling = 35 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				if (sd)
+					skillratio += 35 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio += hpScaling;
+			}
+				
 			if (sc && sc->data[SC_OVERBRANDREADY])
 			skillratio += 50 * skill_lv + (3 *(sstatus->str));
 			break;
