@@ -36868,8 +36868,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bSpeedAddRate,-50;
-      bonus bUseSPrate,-40;
+      bonus bUseSPrate,-20;
+      bonus2 bAddRace,RC_All,5;
+      bonus2 bMagicAddRace,RC_All,5;
   - Id: 13730
     AegisName: Rekember_Core_Card
     Name: Rekember Core Card
@@ -36990,10 +36991,10 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bNoMagicDamage,5;
-      bonus bNoWeaponDamage,5;
-      bonus bNoMiscDamage,5;
-      bonus bUseSPrate,-20;
+      bonus bNoMagicDamage,10;
+      bonus bNoWeaponDamage,10;
+      bonus bNoMiscDamage,10;
+      bonus bUseSPrate,-35;
   - Id: 13740
     AegisName: Moon_Guardian_C
     Name: Moon Guardian C
