@@ -12014,18 +12014,21 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			//clif_skill_estimation(sd, bl);
 			// Sense skill to mobinfo
-			npc_event(sd, "illusionclones::OnClones", 0);
-			if (skill_check_unit_movepos(5, src, bl->x, bl->y, 0, 0)) {
-				clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
-				clif_blown(src);
-				if (!unit_blown_immune(bl, 0x1)) {
-					unit_movepos(bl, x, y, 0, 0);
-					if (bl->type == BL_PC && pc_issit((TBL_PC*)bl))
-						clif_sitting(bl); //Avoid sitting sync problem
-					clif_blown(bl);
-					map_foreachinallrange(unit_changetarget, src, AREA_SIZE, BL_CHAR, src, bl);
+			if (src->type == BL_PC)
+			{
+				npc_event(sd, "illusionclones::OnClones", 0);
+				if (skill_check_unit_movepos(5, src, bl->x, bl->y, 0, 0)) {
+					clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
+					clif_blown(src);
+					if (!unit_blown_immune(bl, 0x1)) {
+						unit_movepos(bl, x, y, 0, 0);
+						if (bl->type == BL_PC && pc_issit((TBL_PC*)bl))
+							clif_sitting(bl); //Avoid sitting sync problem
+						clif_blown(bl);
+						map_foreachinallrange(unit_changetarget, src, AREA_SIZE, BL_CHAR, src, bl);
+					}
 				}
-			}
+			}	
 		}
 		break;
 	case OB_AKAITSUKI:
