@@ -43,7 +43,7 @@
     set .elixir, countitem(520);
     delitem 520,.elixir;
     }
-    getitem 520,2;
+    getitem 520,3;
     if (getequipid(EQI_ACC_L) == 2935){
     getitem 520,1;
     }
