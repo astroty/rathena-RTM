@@ -29874,20 +29874,20 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Valkyrie_Armor
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: armor
       - Item: Berkano_Rune_of_Birth
-        Rate: 200
+        Rate: 400
         RandomOptionGroup: manual
       - Item: 3rd_Shadow_Coffer
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
       - Item: 10_of_Hearts
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: deck
       - Item: Sealed_Codex
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: codex
   - Id: 1755
     AegisName: SKEGGIOLD_
@@ -35864,7 +35864,7 @@ Body:
     MvpDrops:
       - Item: C_Greater_Horn
         Rate: 1500
-      - Item: Enriched_Oridecon
+      - Item: Jewel_Shadowdecon
         Rate: 10000
     Drops:
       - Item: MVP_Reward_Box
