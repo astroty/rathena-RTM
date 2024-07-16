@@ -59,6 +59,8 @@
 15141:20779:22075,{ .@r = getequiprefinerycnt(EQI_ARMOR)+getequiprefinerycnt(EQI_GARMENT)+getequiprefinerycnt(EQI_SHOES); bonus bMaxHP,1000; bonus bHealPower,min(5+.@r,30); bonus bHealPower2,min(5+.@r,30); }
 15186:19168,{ bonus2 bExpAddClass,Class_All,5; bonus2 bDropAddClass,Class_All,5; }
 15403:15404,{ bonus bMaxHPrate,-99; }
+15403:15403,{ bonus bMaxHPrate,-99; }
+15404:15404,{ bonus bMaxHPrate,-99; }
 15407:15408:15409,{ bonus2 bMagicAtkEle,Ele_Fire,20; bonus2 bMagicAtkEle,Ele_Water,20; bonus2 bMagicAtkEle,Ele_Earth,20; bonus2 bMagicAtkEle,Ele_Wind,20; bonus2 bIgnoreMdefClassRate,Class_Normal,10; bonus2 bIgnoreMdefClassRate,Class_Boss,10; bonus bInt,1; }
 15411:15412:15413,{ bonus bAllStats,2; skill "SM_MOVINGRECOVERY",1; bonus bHPrecovRate,50; bonus2 bSkillAtk,"KN_BRANDISHSPEAR",10; bonus2 bSkillAtk,"GC_VENOMPRESSURE",10; bonus2 bSkillAtk,"RK_DRAGONBREATH",10; }
 15416:15417,{ bonus bStr,2; bonus bMatkRate,3; bonus bAtkRate,3; }
