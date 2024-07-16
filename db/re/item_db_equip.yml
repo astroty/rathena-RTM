@@ -108628,7 +108628,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108651,7 +108651,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108674,7 +108674,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108698,7 +108698,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108721,7 +108721,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108744,7 +108744,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
