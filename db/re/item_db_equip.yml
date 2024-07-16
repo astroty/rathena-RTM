@@ -109676,6 +109676,9 @@ Body:
       bonus bDelayRate,-(5+.@r);
       bonus bAspdrate,5+.@r;
       bonus bVariableCastrate,-(5+.@r);
+      bonus2 bIgnoreDefRaceRate,RC_All,(5+.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Normal,(5+.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,(5+.@r);
   - Id: 22078
     AegisName: Paradox_Shoes
     Name: Paradox Shoes
