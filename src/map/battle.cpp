@@ -3852,6 +3852,37 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 	}
 }
 
+static int harvest_bonus_dmg_calc(block_list* src, uint16_t skill_id, uint16_t skill_lv, map_session_data* sd) {
+
+	int hpScaling = ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
+
+	switch (skill_id) {
+	case SM_BASH:
+		hpScaling = 10 * hpScaling;
+		break;
+	case MO_INVESTIGATE:
+		hpScaling = 50 * hpScaling;
+		break;
+	case TK_JUMPKICK:
+		break;
+	case RK_DEATHBOUND:
+		return 0;
+	case SC_FATALMENACE:
+		hpScaling = 35 * hpScaling;
+		break;
+	case NC_COLDSLOWER:
+		break;
+	case WL_HELLINFERNO:
+		hpScaling = ((status_get_max_hp(src)) / 200) * skill_lv;
+		break;
+	}
+
+	if (sd)
+		hpScaling = (hpScaling * sd->status.job_level) / pc_maxjoblv(sd);
+
+	return hpScaling;
+}
+
 /*======================================================
  * Calculate skill level ratios for weapon-based skills
  *------------------------------------------------------
@@ -3913,10 +3944,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case MS_BASH:
 			skillratio += 100 + 25 * skill_lv + sstatus->str;
 			if (sc && sc->data[SC_NEN]) {
-				int hpScaling = 10 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
-				if (sd)
-					hpScaling = (hpScaling * sd->status.job_level) / pc_maxjoblv(sd);
-				skillratio += hpScaling;
+				skillratio += harvest_bonus_dmg_calc(src, skill_id, skill_lv, sd);
 			}
 			break;
 		case SM_MAGNUM:
@@ -4195,10 +4223,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 #ifdef RENEWAL
 			skillratio += 150 + 50 * skill_lv + (sstatus->dex);
 			if (sc && sc->data[SC_NEN]) {
-				int hpScaling = 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
-				if (sd)
-					hpScaling = (hpScaling * sd->status.job_level) / pc_maxjoblv(sd);
-				skillratio += hpScaling;
+				skillratio += harvest_bonus_dmg_calc(src, skill_id, skill_lv, sd);
 			}
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 95 * skill_lv + (5 * (sstatus->str));
@@ -4405,7 +4430,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case TK_JUMPKICK:
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
 			if (sc && sc->data[SC_NEN])
-			skillratio += ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
+			skillratio += harvest_bonus_dmg_calc(src, skill_id, skill_lv, sd);
 			if (sc && sc->data[SC_GLORIA])
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
 			break;
@@ -4691,7 +4716,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case NC_COLDSLOWER:
 		skillratio += 50 + 5 * skill_lv + 3 * (sstatus->int_);
 		if (sc && sc->data[SC_NEN])
-			skillratio += ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
+			skillratio += harvest_bonus_dmg_calc(src, skill_id, skill_lv, sd);
 		if (sc && sc->data[SC_KAGEMUSYA])
 			skillratio += 2 * (sstatus->dex);
 		if (sc->data[SC_FIREWEAPON])
@@ -4730,10 +4755,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 160 + 40 * skill_lv + (sstatus->vit);
 
 			if (sc && sc->data[SC_NEN]) {
-				int hpScaling = 35 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
-				if (sd)
-					skillratio += 35 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
-				skillratio += hpScaling;
+				skillratio += harvest_bonus_dmg_calc(src, skill_id, skill_lv, sd);
 			}
 				
 			if (sc && sc->data[SC_OVERBRANDREADY])
@@ -7001,7 +7023,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case WL_HELLINFERNO:
 						skillratio += -90 + 50 * skill_lv + (status_get_max_hp(src) / 45) - (status_get_hp(src) / 45);
 						if (sc && sc->data[SC_NEN])
-						skillratio += ((status_get_max_hp(src)) / 200) * skill_lv;
+							skillratio += harvest_bonus_dmg_calc(src, skill_id, skill_lv, sd);
 						break;
 					case WL_COMET:
 						skillratio += -100 + 50 * skill_lv + 6 * (sstatus->int_);
