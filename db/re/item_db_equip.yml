@@ -74778,12 +74778,13 @@ Body:
     Slots: 4
     Locations:
       Right_Accessory: true
+      Left_Accessory: true
     ArmorLevel: 1
     EquipLevelMin: 110
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bMaxSPrate,-90;
+      bonus bMaxSPrate,-15;
       bonus bAtkRate,1;
   - Id: 15404
     AegisName: Tetra_Brooch
@@ -74794,12 +74795,13 @@ Body:
     Slots: 4
     Locations:
       Left_Accessory: true
+      Right_Accessory: true
     ArmorLevel: 1
     EquipLevelMin: 110
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bMaxSPrate,-90;
+      bonus bMaxSPrate,-15;
       bonus bMatkRate,1;
   - Id: 15405
     AegisName: Fafnir_Scale
