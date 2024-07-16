@@ -75043,7 +75043,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -75066,7 +75066,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -75089,7 +75089,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
