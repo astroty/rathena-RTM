@@ -19263,11 +19263,11 @@ Body:
       .@r = getrefine();
       bonus bMatk,2*.@r;
       bonus2 bSkillAtk,"MG_SOULSTRIKE",3*.@r;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",1,400;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",3,300;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",5,200;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",7,100;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",10,50;
+      bonus3 bAutoSpell,"MG_SOULSTRIKE",1,150;
+      bonus3 bAutoSpell,"MG_SOULSTRIKE",3,150;
+      bonus3 bAutoSpell,"MG_SOULSTRIKE",5,150;
+      bonus3 bAutoSpell,"MG_SOULSTRIKE",7,150;
+      bonus3 bAutoSpell,"MG_SOULSTRIKE",10,150;
     EquipScript: |
       sc_end SC_HOMUN_TIME;
     UnEquipScript: |
