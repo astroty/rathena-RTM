@@ -60360,7 +60360,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Dream_Shard
-        Rate: 5000
+        Rate: 10000
       - Item: Eyes_Hearts
         Rate: 250
         RandomOptionGroup: manual
@@ -60368,7 +60368,7 @@ Body:
         Rate: 500
         RandomOptionGroup: armor
       - Item: Dream_Pouch
-        Rate: 1000
+        Rate: 300
   - Id: 2656
     AegisName: C1_SLEEPER
     Name: Converted Zealot
@@ -60409,7 +60409,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Dream_Shard
-        Rate: 5000
+        Rate: 10000
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Eyes_Souls
@@ -60419,7 +60419,7 @@ Body:
         Rate: 500
         RandomOptionGroup: manual
       - Item: Dream_Pouch
-        Rate: 1000
+        Rate: 300
   - Id: 2657
     AegisName: C2_SKOGUL
     Name: Godly Seeker
@@ -60459,7 +60459,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Dream_Shard
-        Rate: 5000
+        Rate: 10000
       - Item: GodlySeek_Card
         Rate: 100
         StealProtected: true
@@ -60520,7 +60520,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Dream_Shard
-        Rate: 5000
+        Rate: 10000
       - Item: Burning_FurCard
         Rate: 100
         StealProtected: true
@@ -60542,6 +60542,8 @@ Body:
       - Item: Dream_Manteau
         Rate: 500
         RandomOptionGroup: garment
+      - Item: Dream_Pouch
+        Rate: 300
   - Id: 2659
     AegisName: C4_SKELETON_GENERAL
     Name: Desperate Njord
@@ -60647,7 +60649,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Dream_Shard
-        Rate: 5000
+        Rate: 10000
       - Item: TorturedMai_Card
         Rate: 100
         StealProtected: true
@@ -60669,6 +60671,8 @@ Body:
       - Item: Dream_Ring
         Rate: 500
         RandomOptionGroup: manual
+      - Item: Dream_Pouch
+        Rate: 300
   - Id: 2661
     AegisName: C1_SIROMA
     Name: Baroness of Blood
