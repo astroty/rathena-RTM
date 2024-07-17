@@ -6896,9 +6896,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 #endif
 						break;
 					case NJ_KAMAITACHI:
-						skillratio += 15 * skill_lv + 2 * (sstatus->int_);
+						skillratio += 25 * skill_lv + 2 * (sstatus->int_);
 						if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
-							skillratio += (2 * skill_lv) * sd->spiritcharm;
+							skillratio += (3 * skill_lv) * sd->spiritcharm;
 						if (sc->data[SC_WINDWEAPON])
 							skillratio += (sstatus->int_);
 						if (sc && sc->data[SC_OVERBRANDREADY])
