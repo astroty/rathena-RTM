@@ -65695,7 +65695,7 @@ Body:
         StealProtected: true
       - Item: Guiding_Dagger
         Rate: 300
-	RandomOptionGroup: dagger
+        RandomOptionGroup: dagger
   - Id: 2785
     AegisName: C2_KOBOLD_1
     Name: Guild Support
