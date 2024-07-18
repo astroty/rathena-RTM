@@ -56459,7 +56459,7 @@ Body:
         Rate: 50
         RandomOptionGroup: accessory
       - Item: Assassin_Dagger
-        Rate: 300
+        Rate: 150
         RandomOptionGroup: dagger
       - Item: Sowilo_Rune_of_Success
         Rate: 50
