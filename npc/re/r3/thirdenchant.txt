@@ -331,7 +331,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
         set .@Enchant,$RTMEnchant[.@RandoEnchant];
     else {
         set .@EnchantSelected,(select("Dream of Power:Dream of Speed:Dream of Life:Dream of Skills:Dream of Wisdom:Dream of Fate:Nightmare Slayer:Nightmare Watcher:Nightmare Keeper:Nightmare Visitor:Mindweaver Evasion:Mindweaver Precision:Mindweaver Efficiency:Mindweaver Striker:Mindweaver Piercer:Mindweaver Mobility:Mindweaver Vitality:Mindweaver Essence"));
-        set .@Enchant, (.@EnchantSelected - 1);
+        set .@Enchant, (.@EnchantSelected + 7365);
     }
 
     delequip .@Eq;
