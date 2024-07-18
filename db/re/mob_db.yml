@@ -26266,11 +26266,13 @@ Body:
         Rate: 10000
       - Item: C_Jormungandr_Shadow
         Rate: 1500
+      - Item: Jewel_Elunium
+        Rate: 10000
     Drops:
       - Item: Jormungandr_Card
         Rate: 300
         StealProtected: true
-      - Item: HD_Bradium
+      - Item: Jewel_Oridecon
         Rate: 10000
       - Item: World_Eater_Garb
         Rate: 1000
@@ -26281,6 +26283,8 @@ Body:
       - Item: Jormungandr_Fang
         Rate: 1000
         RandomOptionGroup: manual
+      - Item: Jewel_Shadowdecon
+        Rate: 10000
   - Id: 1666
     AegisName: POTON_CANON_2
     Name: Photon Cannon
@@ -60610,6 +60614,10 @@ Body:
         RandomOptionGroup: manual
       - Item: MVP_Reward_Box
         Rate: 10000
+      - Item: HD_Bradium
+        Rate: 10000
+      - Item: Jewel_Shadowdecon
+        Rate: 10000
   - Id: 2660
     AegisName: C5_SKEL_WORKER
     Name: Tortured Maiden
@@ -65963,9 +65971,14 @@ Body:
       KnockBackImmune: true
       StatusImmune: true
       Mvp: true
-    Drops:
-      - Item: HD_Oridecon
+    MvpDrops:
+      - Item: HD_Bradium
         Rate: 10000
+      - Item: Jewel_Elunium
+        Rate: 10000
+      - Item: Jewel_Oridecon
+        Rate: 10000
+    Drops:
       - Item: Distortion_Essence
         Rate: 10000
       - Item: Guiding_Dagger
@@ -65988,6 +66001,8 @@ Body:
         StealProtected: true
       - Item: Silver_Bullet
         Rate: 1000
+      - Item: Jewel_Shadowdecon
+        Rate: 10000
   - Id: 2791
     AegisName: C3_ISILLA
     Name: Detector
@@ -66074,9 +66089,9 @@ Body:
       StatusImmune: true
       Mvp: true
     MvpDrops:
-      - Item: HD_Elunium
+      - Item: HD_Bradium
         Rate: 10000
-      - Item: HD_Oridecon
+      - Item: Jewel_Elunium
         Rate: 10000
       - Item: C_SwordWing
         Rate: 1500
@@ -66096,9 +66111,9 @@ Body:
       - Item: Emperium_Ring
         Rate: 10000
         RandomOptionGroup: accessory
-      - Item: HD_Oridecon
+      - Item: Jewel_Oridecon
         Rate: 10000
-      - Item: HD_Elunium
+      - Item: Jewel_Shadowdecon
         Rate: 10000
       - Item: Soul_Ymir_Card
         Rate: 300
@@ -66557,11 +66572,13 @@ Body:
         Rate: 10000
       - Item: Costume_Drooping_Schmidt
         Rate: 1500
+      - Item: Jewel_Elunium
+        Rate: 10000
     Drops:
       - Item: MVP_Reward_Box
         Rate: 10000
-      - Item: HD_Bradium
-        Rate: 10000
+      - Item: Jewel_Oridecon
+        Rate: 23080
       - Item: Schmidt_Suit
         Rate: 500
         RandomOptionGroup: armor
@@ -66574,6 +66591,8 @@ Body:
       - Item: King_Schmidt_Card
         Rate: 300
         StealProtected: true
+      - Item: Jewel_Shadowdecon
+        Rate: 10000
   - Id: 2803
     AegisName: C5_HILL_WIND_1
     Name: Living Failure
@@ -75836,9 +75855,9 @@ Body:
       StatusImmune: true
       Mvp: true
     MvpDrops:
-      - Item: HD_Bradium
+      - Item: Jewel_Elunium
         Rate: 10000
-      - Item: Jewel_Shadowdecon
+      - Item: Jewel_Oridecon
         Rate: 10000
       - Item: C_Morocc_Kid_Servant
         Rate: 1500
@@ -83263,16 +83282,16 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
-      - Item: HD_Elunium
+      - Item: HD_Bradium
         Rate: 10000
-      - Item: HD_Oridecon
+      - Item: Jewel_Elunium
         Rate: 10000
       - Item: C_Freya_Crown
         Rate: 1500
     Drops:
-      - Item: HD_Oridecon
+      - Item: Jewel_Oridecon
         Rate: 10000
-      - Item: HD_Elunium
+      - Item: Jewel_Shadowdecon
         Rate: 10000
       - Item: Goddess_Freya_Card
         Rate: 300
