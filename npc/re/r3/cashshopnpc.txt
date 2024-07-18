@@ -504,15 +504,15 @@ va_orpha,272,367,4	script	Jack O'Morroc#halloween	10015,{
 		cutin "",255;
 		end;
 	}
-	switch(select("I want to deliver 100 coins.:Show me the Emblem rewards.:Nevermind.")) {
+	switch(select("I want to deliver 50 coins.:Show me the Emblem rewards.:Nevermind.")) {
 	case 1:
-	if(countitem(6658) < 100) goto L_noitems;
+	if(countitem(6658) < 50) goto L_noitems;
 	emotion ET_SPARK;
 	mes .@npc$;
 	mes "Excelennnnntt~~~Now go get more Coins before I bite your head off! Hehehehe!";
 	mes "So far, I gave-away "+$jackfill+" Emblems! Can you guys get to 5.000?";
 	set $jackfill,$jackfill+1;
-	delitem 6658,100;
+	delitem 6658,50;
 	getitem 6657,1;
 	specialeffect2 845;
 	close2;
