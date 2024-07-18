@@ -60074,16 +60074,16 @@ Body:
       StatusImmune: true
       Mvp: true
     MvpDrops:
-      - Item: Oridecon
+      - Item: HD_Bradium
         Rate: 10000
-      - Item: Elunium
+      - Item: Jewel_Elunium
         Rate: 10000
       - Item: Costume_Angelic_Light
         Rate: 1500
     Drops:
-      - Item: Oridecon
+      - Item: Jewel_Oridecon
         Rate: 10000
-      - Item: Elunium
+      - Item: Jewel_Shadowdecon
         Rate: 10000
       - Item: MVP_Reward_Box
         Rate: 7500
