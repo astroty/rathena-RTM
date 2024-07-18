@@ -1,3 +1,4 @@
+//!rathena
 /// Enchant System v1.0
 /// Made by Kai'va for Project Return to Morroc
 /// This is a paid script, it belongs to Ornstein.
@@ -51,7 +52,14 @@ rachelnm,1,1,3	script	#ConfEnchant	-1,{
     // Default: 100            //
     ////////////////////////////
 
-    set $RTMEQuantE,100;
+    set $RTMEQuantE,20;
+
+    /////////////////////////////////////////////////////
+    // Insert Quantity needed to select enchantment.  //
+    // Default: 100                                  //
+    //////////////////////////////////////////////////
+
+    set $RTMESelectQuantE, 200;
 
     ///////////////////////////////////////////////////
     //Insert Quantity needed to remove the enchant. //
@@ -136,7 +144,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
     mes "<ITEM>Dreams <INFO>7364</INFO></ITEM> can paint a new path.";
 	mes "<ITEM>Distortions <INFO>7360</INFO></ITEM> can clean an undesirable path.";
 	next;
-    set .@Menu$,"Enchant Equipment (100 Dream Shards):Remove Enchant (500 Distortion Shards)";
+    set .@Menu$,"Enchant Equipment (20 Dream Shards):Remove Enchant (500 Distortion Shards):Select Enchantment (200 Dream Shards)";
     if ($RTMEBulk == 1){
         set .@Menu$,.@Menu$+"::Enchant by Bulk";
     }
@@ -149,6 +157,12 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
     if (.@SelectM == 2){
         clear;
         set .@Remove,1;
+        goto L_Select;
+        end;
+    }
+    if (.@SelectM == 3){
+        clear;
+        set .@ShouldChoose,1;
         goto L_Select;
         end;
     }
@@ -252,6 +266,17 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
 
 
     L_Enchant:
+    if (.@ShouldChoose > 0) {
+        if (countitem($RTMECurrency) < $RTMESelectQuantE) {
+            clear;
+            mes "[Weaver]";
+            mes "You dont have enough currency.";
+            close2;
+		    cutin "",255;
+            end;
+        }
+    }
+
     if (countitem($RTMECurrency) < $RTMEQuantE){
         clear;
         mes "[Weaver]";
@@ -269,7 +294,14 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
 		cutin "",255;
         end;
     }
-    delitem $RTMECurrency,$RTMEQuantE;
+
+    if(.@ShouldChoose > 0) {
+        delitem $RTMECurrency,$RTMESelectQuantE;
+    }
+    else {
+        delitem $RTMECurrency,$RTMEQuantE;
+    }
+    
     set .@Refine,getequiprefinerycnt(.@Eq);
     set .@Math2,.@Refine*$RTMBoost;
     set .@Success,$RTMESuccess+.@Math2;
@@ -301,7 +333,13 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
     setarray .@RandomOptPARAM4[0],getequiprandomoption(.@Eq,4,ROA_PARAM);
     set .@ArraySize,(getarraysize($RTMEnchant[0])-1);
     set .@RandoEnchant,rand(0,.@ArraySize);
-    set .@Enchant,$RTMEnchant[.@RandoEnchant];
+
+    if (.@ShouldChoose == 0)
+        set .@Enchant,$RTMEnchant[.@RandoEnchant];
+    else {
+        set .@EnchantSelected,(select("Dream of Power:Dream of Speed:Dream of Life:Dream of Skills:Dream of Wisdom:Dream of Fate:Nightmare Slayer:Nightmare Watcher:Nightmare Keeper:Nightmare Visitor:Mindweaver Evasion:Mindweaver Precision:Mindweaver Efficiency:Mindweaver Striker:Mindweaver Piercer:Mindweaver Mobility:Mindweaver Vitality:Mindweaver Essence"));
+        set .@Enchant, (.@EnchantSelected + 7365);
+    }
 
     delequip .@Eq;
     getitem3 .@Item,1,1,.@Refine,0,.@ItemCard0,.@ItemCard1,.@Enchant,.@ItemCard3,.@RandomOptID0[0],.@RandomOptVAL0[0],.@RandomOptPARAM0[0];
