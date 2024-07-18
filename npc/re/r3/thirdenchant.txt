@@ -294,7 +294,14 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
 		cutin "",255;
         end;
     }
-    delitem $RTMECurrency,$RTMEQuantE;
+
+    if(.@ShouldChoose > 1) {
+        delitem $RTMECurrency,$RTMESelectQuantE;
+    }
+    else {
+        delitem $RTMECurrency,$RTMEQuantE;
+    }
+    
     set .@Refine,getequiprefinerycnt(.@Eq);
     set .@Math2,.@Refine*$RTMBoost;
     set .@Success,$RTMESuccess+.@Math2;
