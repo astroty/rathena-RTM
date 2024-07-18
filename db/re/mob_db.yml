@@ -30578,7 +30578,7 @@ Body:
       - Item: Holy_ScripturesMVP
         Rate: 10
       - Item: Murder_KnifeDag
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: dagger
   - Id: 1771
     AegisName: VANBERK
@@ -56459,7 +56459,7 @@ Body:
         Rate: 50
         RandomOptionGroup: accessory
       - Item: Assassin_Dagger
-        Rate: 50
+        Rate: 300
         RandomOptionGroup: dagger
       - Item: Sowilo_Rune_of_Success
         Rate: 50
@@ -65693,6 +65693,8 @@ Body:
       - Item: Gu_Warrior_Card
         Rate: 100
         StealProtected: true
+      - Item: Guiding_Dagger
+        Rate: 300
   - Id: 2785
     AegisName: C2_KOBOLD_1
     Name: Guild Support
@@ -66118,6 +66120,8 @@ Body:
       - Item: Soul_Ymir_Card
         Rate: 300
         StealProtected: true
+      - Item: Guiding_Dagger
+        Rate: 2000
   - Id: 2793
     AegisName: C5_INCREASE_SOIL
     Name: Elusive Mi Gao
