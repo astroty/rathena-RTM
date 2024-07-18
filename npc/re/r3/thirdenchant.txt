@@ -266,7 +266,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
 
 
     L_Enchant:
-    if (.@ShouldChoose > 1) {
+    if (.@ShouldChoose > 0) {
         if (countitem($RTMECurrency) < $RTMESelectQuantE) {
             clear;
             mes "[Weaver]";
@@ -295,7 +295,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
         end;
     }
 
-    if(.@ShouldChoose > 1) {
+    if(.@ShouldChoose > 0) {
         delitem $RTMECurrency,$RTMESelectQuantE;
     }
     else {
