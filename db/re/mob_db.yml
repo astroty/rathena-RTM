@@ -66123,6 +66123,7 @@ Body:
         StealProtected: true
       - Item: Guiding_Dagger
         Rate: 2000
+        RandomOptionGroup: dagger
   - Id: 2793
     AegisName: C5_INCREASE_SOIL
     Name: Elusive Mi Gao
