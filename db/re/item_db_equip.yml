@@ -74925,7 +74925,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -74948,7 +74948,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -74971,7 +74971,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108510,7 +108510,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108533,7 +108533,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108556,7 +108556,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108580,7 +108580,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108603,7 +108603,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108626,7 +108626,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -109558,6 +109558,9 @@ Body:
       bonus bDelayRate,-(5+.@r);
       bonus bAspdrate,5+.@r;
       bonus bVariableCastrate,-(5+.@r);
+      bonus2 bIgnoreDefRaceRate,RC_All,(5+.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Normal,(5+.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,(5+.@r);
   - Id: 22078
     AegisName: Paradox_Shoes
     Name: Paradox Shoes
