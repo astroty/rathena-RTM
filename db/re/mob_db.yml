@@ -66582,7 +66582,7 @@ Body:
       - Item: MVP_Reward_Box
         Rate: 10000
       - Item: Jewel_Oridecon
-        Rate: 23080
+        Rate: 10000
       - Item: Schmidt_Suit
         Rate: 500
         RandomOptionGroup: armor
