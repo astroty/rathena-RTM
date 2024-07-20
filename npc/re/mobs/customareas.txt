@@ -291,7 +291,11 @@ va_dun02,0,0	monster	Lost Traveler	2956,1,5000
 va_dun03,0,0	monster	Lost Traveler	2956,1,5000
 va_dun04,0,0	monster	Lost Traveler	2956,3,5000
 //
-va_dun02,0,0,0,0	monster	Navigator	2957,1,300000
+va_dun01,0,0,0,0	monster	Navigator	2957,1,10000
+va_dun02,0,0,0,0	monster	Navigator	2957,2,10000
+va_dun03,0,0,0,0	monster	Navigator	2957,4,10000
+va_dun04,0,0,0,0	monster	Navigator	2957,6,10000
+
 
 
 ///Old Glast Heim

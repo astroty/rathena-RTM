@@ -37162,7 +37162,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","SO_EARTHGRAVE",1,1000;
+      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","SO_EARTHGRAVE",getskilllv("AS_GRIMTOOTH")/2,1000;
   - Id: 14736
     AegisName: Weapon_Voucher
     Name: Weapon Voucher

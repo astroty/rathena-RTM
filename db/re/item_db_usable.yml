@@ -3486,8 +3486,7 @@ Body:
       NoAuction: true
     Script: |
       specialeffect2 1044;
-      set .RNG,(rand(1,10));
-      getitem 7364,.RNG;
+      getitem 7364,100;
   - Id: 9510
     AegisName: Enchant_Stone_Box17
     Name: Costume Enchant Stone Box 17

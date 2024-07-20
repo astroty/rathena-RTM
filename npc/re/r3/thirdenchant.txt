@@ -117,7 +117,7 @@ rachelnm,1,1,3	script	#ConfEnchant	-1,{
     end;
 }
 
--	itemshop	dreamshop	-1,7361,7365:100,15154:50,20783:50,22077:50,22079:50.
+-	itemshop	dreamshop	-1,7361,7365:250,15154:50,20783:50,22077:50,22079:50.
 
 va_orpha,259,378,5	script	Dream Box#weaverenc	10249,{
 	mes "You can take items from the box by using Distortion Essence.";
@@ -306,7 +306,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
     set .@Math2,.@Refine*$RTMBoost;
     set .@Success,$RTMESuccess+.@Math2;
     set .@RNG,(rand(1,100));
-    if (.@RNG <= .@Success){
+    if (.@RNG <= .@Success || .@ShouldChoose){
     L_Pity:
     set .@Item,getequipid(.@Eq);
     set .@ItemCard0,getequipcardid(.@Eq,0);
@@ -337,7 +337,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
     if (.@ShouldChoose == 0)
         set .@Enchant,$RTMEnchant[.@RandoEnchant];
     else {
-        set .@EnchantSelected,(select("Dream of Power:Dream of Speed:Dream of Life:Dream of Skills:Dream of Wisdom:Dream of Fate:Nightmare Slayer:Nightmare Watcher:Nightmare Keeper:Nightmare Visitor:Mindweaver Evasion:Mindweaver Precision:Mindweaver Efficiency:Mindweaver Striker:Mindweaver Piercer:Mindweaver Mobility:Mindweaver Vitality:Mindweaver Essence"));
+        set .@EnchantSelected,(select("Dream of Power:Dream of Speed:Dream of Life:Dream of Skills:Dream of Wisdom:Dream of Fate:Nightmare Slayer:Nightmare Watcher:Nightmare Keeper:Nightmare Visitor:Mindweaver Evasion:Mindweaver Precision:Mindweaver Efficiency:Mindweaver Striker:Mindweaver Piercer:Mindweaver Mobility:Mindweaver Vitality:Mindweaver Essence:Awakened Orphan:Eternal Orphan"));
         set .@Enchant, (.@EnchantSelected + 7365);
     }
 

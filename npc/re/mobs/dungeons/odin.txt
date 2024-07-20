@@ -19,17 +19,17 @@ odin_tem01,0,0	monster	Skogul	1752,35,5000
 odin_tem01,0,0	monster	Temple Watcher	1933,15,5000
 odin_tem01,0,0	monster	Shadow of Valkyries	1765,3,5000
 //
-odin_tem02,0,0	monster	Frus	1753,25,5000
-odin_tem02,0,0	monster	Skogul	1752,25,5000
+odin_tem02,0,0	monster	Frus	1753,20,5000
+odin_tem02,0,0	monster	Skogul	1752,20,5000
 odin_tem02,0,0	monster	Rhyncho	2020,20,5000
 odin_tem02,0,0	monster	Skeggiold	1754,3,5000
-odin_tem02,0,0	monster	Temple Watcher	1933,10,5000
+odin_tem02,0,0	monster	Temple Watcher	1933,20,5000
 odin_tem02,0,0	monster	Shadow of Valkyries	1765,3,5000
 //
 odin_tem03,0,0	monster	Frus	1753,3,5000
 odin_tem03,0,0	monster	Skogul	1752,3,5000
-odin_tem03,0,0	monster	Rhyncho	2020,25,5000
-odin_tem03,0,0	monster	Skeggiold	1754,10,5000
-odin_tem03,0,0	monster	Temple Watcher	1933,15,50000
-odin_tem03,0,0	monster	Shadow of Valkyries	1765,3,5000
+odin_tem03,0,0	monster	Rhyncho	2020,10,5000
+odin_tem03,0,0	monster	Skeggiold	1754,25,5000
+odin_tem03,0,0	monster	Temple Watcher	1933,5,50000
+odin_tem03,0,0	monster	Shadow of Valkyries	1765,5,5000
 odin_tem03,0,0,0,0	boss_monster	Valkyrie Randgris	1751,1,2700000,5400000,0

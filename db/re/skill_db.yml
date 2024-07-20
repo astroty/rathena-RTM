@@ -4761,12 +4761,9 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    CopyFlags:
-      Skill:
-        Plagiarism: true
-        Reproduce: true
     DamageFlags:
       Splash: true
+      Critical: true
     Flags:
       TargetTrap: true
       IgnoreHovering: true
@@ -4785,6 +4782,10 @@ Body:
     HitCount: -2
     Element: Weapon
     SplashArea: 1
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+        Reproduce: true
     AfterCastActDelay: 100
     Duration2: 1000
     Cooldown: 500
@@ -27067,12 +27068,16 @@ Body:
     MaxLevel: 5
     Type: Weapon
     TargetType: Ground
-    Range: 6
+    DamageFlags:
+      Splash: true
+      Critical: true
     Flags:
       IgnoreHovering: true
+    Range: 6
     Hit: Single
     HitCount: -4
     Element: Weapon
+    SplashArea: 2
     CopyFlags:
       Skill:
         Plagiarism: true

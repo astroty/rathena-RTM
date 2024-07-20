@@ -6,16 +6,13 @@ Wants=network-online.target
 Requires=map-rathena.service login-rathena.service
 
 [Service]
-EnvironmentFile=/etc/systemd/system/variables.txt
 Type=single
 PIDFile=/run/char-serv.pid
-User=${DEFAULTUSER}
-WorkingDirectory=${SERVERLOCATION}
-ExecStart=${SERVERLOCATION}/char-server
-# optional items below
+User=rathena
+ExecStart=${replacewithpath}/char-server
 Restart=always
 RestartSec=3
-LimitCORE=${DEBUG}
+LimitCORE=infinity
 
 [Install]
 WantedBy=multi-user.target
