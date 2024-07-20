@@ -2568,4 +2568,579 @@ Body:
             MinValue: 10
             MaxValue: 10
             Chance: 10000
-            
+  - Id: 23
+    Group: shadowfirst
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: DAMAGE_PROPERTY_NOTHING_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WIND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WATER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_GROUND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_FIRE
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WIND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_SAINT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DSKILLMDAMAGE_DARKNESS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_POISON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_NORMAL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_NORMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_BOSS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_BOSS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 24
+    Group: thiefskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: DAMAGE_PROPERTY_NOTHING_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WIND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 25
+    Group: jesterskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WATER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_GROUND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_FIRE
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 26
+    Group: dkskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: ADDSKILLMDAMAGE_WIND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_SAINT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DSKILLMDAMAGE_DARKNESS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_POISON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 27
+    Group: illuskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: MDAMAGE_SIZE_LARGE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 28
+    Group: judgeskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: RACE_WEAPON_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 29
+    Group: tricksterskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: CLASS_DAMAGE_NORMAL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_NORMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_BOSS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_BOSS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 30
+    Group: raiderskills
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: RACE_DAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
