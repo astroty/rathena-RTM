@@ -4032,7 +4032,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case AS_GRIMTOOTH:
 			skillratio += 30 + 10 * skill_lv + (sstatus->luk);
 			if (sc->data[SC_EXPLOSIONSPIRITS])
-				skillratio += 50;
+				skillratio += 100; //It's 50 but gets doubled with Katar equipped
 			break;
 		case AS_POISONREACT:
 			skillratio += 40 * skill_lv;
@@ -4043,7 +4043,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (tstatus->hp < tstatus->max_hp >> 1)
 				skillratio += skillratio / 2;
 			if (sc->data[SC_EXPLOSIONSPIRITS])
-				skillratio += 50;
+				skillratio += 100; //It's 50 but gets doubled with Katar equipped
 #else
 			skillratio += 300 + 40 * skill_lv;
 #endif
@@ -4552,9 +4552,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 2 * (sstatus->dex);
 			break;
 		case SO_EARTHGRAVE: // !TODO: Confirm formula
-						skillratio += 80 + 20 * skill_lv + 2 * sstatus->dex;
+						skillratio += 80 + 20 * skill_lv + 2 * sstatus->luk;
 						if (sc && sc->data[SC_MAXIMIZEPOWER])
-							skillratio += 2 * (sstatus->dex);
+							skillratio += 2 * (sstatus->luk);
 						break;
 		case WL_EARTHSTRAIN:
 						skillratio += 100 + 50 * skill_lv + 3 * sstatus->str;

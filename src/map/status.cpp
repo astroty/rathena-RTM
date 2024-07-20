@@ -11020,7 +11020,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 #endif
 		case SC_EXPLOSIONSPIRITS:
-			val2 = 10*val1; // Cri bonus
+			if (sd->status.weapon == W_KATAR)
+				val2 = 40*val1; // Cri bonus doubled
+			else
+			val2 = 20*val1; // Cri bonus
 			break;
 
 		case SC_ASPDPOTION0:
