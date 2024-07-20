@@ -425,10 +425,10 @@ Body:
             MinValue: 10
             MaxValue: 10
             Chance: 4000
-          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
-            MinValue: 2
-            MaxValue: 2
-            Chance: 4000
+          - Option: BODY_ATTR_FIRE
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
           - Option: ADDEXPPERCENT_KILLRACE_DRAGON
             MinValue: 1
             MaxValue: 1
