@@ -12529,7 +12529,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Head_Low: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
@@ -37136,7 +37136,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Head_Low: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
