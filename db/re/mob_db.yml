@@ -258,7 +258,7 @@ Body:
         Rate: 10000
       - Item: Lost_Attire_Pendant
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Farmiliar_Card
         Rate: 100
         StealProtected: true
@@ -1063,7 +1063,7 @@ Body:
         Rate: 10000
       - Item: Lost_Attire_Gloves
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Snake_Card
         Rate: 100
         StealProtected: true
@@ -1377,7 +1377,7 @@ Body:
     Drops:
       - Item: Lost_Attire_Shoes
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Rotten_Bandage
         Rate: 10000
       - Item: Verit_Card
@@ -52725,8 +52725,8 @@ Body:
     Ai: 17
     Drops:
       - Item: Lost_Attire_Armor
-        Rate: 1000
-        RandomOptionGroup: shadow
+        Rate: 850
+        RandomOptionGroup: shadowfirst
       - Item: Skel_Bone
         Rate: 10000
       - Item: Tomb_Skeleton_Card
@@ -58821,19 +58821,19 @@ Body:
       Aggressive: true
     Drops:
       - Item: Lost_Attire_Armor
-        Rate: 200
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Skel_Bone
         Rate: 10000
       - Item: Lost_Attire_Gloves
-        Rate: 1000
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Lost_Attire_Shoes
-        Rate: 1000
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Lost_Attire_Pendant
-        Rate: 1000
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Lost_Orphan_Coffer
         Rate: 500
       - Item: Tomb_SkeletonL_Card
