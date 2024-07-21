@@ -2671,7 +2671,7 @@ Body:
             MinValue: 5
             MaxValue: 5
             Chance: 1000
-          - Option: DSKILLMDAMAGE_DARKNESS
+          - Option: ADDSKILLMDAMAGE_DARKNESS
             MinValue: 5
             MaxValue: 5
             Chance: 1000
@@ -2928,7 +2928,7 @@ Body:
             MinValue: 5
             MaxValue: 5
             Chance: 1000
-          - Option: DSKILLMDAMAGE_DARKNESS
+          - Option: ADDSKILLMDAMAGE_DARKNESS
             MinValue: 5
             MaxValue: 5
             Chance: 1000
