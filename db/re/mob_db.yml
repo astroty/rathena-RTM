@@ -147,7 +147,7 @@ Body:
     Drops:
       - Item: Poring_Warrior_Gloves
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Jellopy
         Rate: 10000
       - Item: Apple
@@ -677,8 +677,8 @@ Body:
         Rate: 1500
         RandomOptionGroup: bow
       - Item: Legacy_of_Arrows_A
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Dark_Arrow
         Rate: 500
       - Item: Cute_BellMVP
@@ -1117,8 +1117,8 @@ Body:
         Rate: 1250
         RandomOptionGroup: shoes
       - Item: Legacy_of_Arrows_P
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Cute_BellMVP
         Rate: 10
       - Item: Burial_Charm
@@ -1194,8 +1194,8 @@ Body:
       - Item: Evil_Bone
         Rate: 10000
       - Item: Legacy_of_Arrows_G
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Bone_Dagger
         Rate: 1375
         RandomOptionGroup: dagger
@@ -1240,7 +1240,7 @@ Body:
         Rate: 10000
       - Item: Legacy_of_Coins_S
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Snake_Fork
         Rate: 750
         RandomOptionGroup: spear
@@ -1334,7 +1334,7 @@ Body:
         Rate: 10000
       - Item: Poring_Warrior_Shoes
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Poporing_Card
         Rate: 100
         StealProtected: true
@@ -1774,7 +1774,7 @@ Body:
         Rate: 10000
       - Item: Legacy_of_Coins_A
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Old_Tomb_Ring
         Rate: 750
         RandomOptionGroup: accessory
@@ -1894,8 +1894,8 @@ Body:
       - Item: Crystal_Blue
         Rate: 10000
       - Item: Legacy_of_Steel_G
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Laguz_Rune_of_Seas
         Rate: 550
         RandomOptionGroup: manual
@@ -1940,7 +1940,7 @@ Body:
         Rate: 950
         RandomOptionGroup: armor
       - Item: Deep_Dive_P
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
         Rate: 10
@@ -2184,8 +2184,8 @@ Body:
         Rate: 700
         RandomOptionGroup: armor
       - Item: Legacy_of_Blessing_A
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Pure_GoldMVP
         Rate: 10
   - Id: 1052
@@ -2274,8 +2274,8 @@ Body:
         Rate: 750
         RandomOptionGroup: bow
       - Item: Legacy_of_Blessing_S
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Nauthiz_Rune_of_Desires
         Rate: 275
         RandomOptionGroup: manual
@@ -2328,8 +2328,8 @@ Body:
         Rate: 550
         RandomOptionGroup: shield
       - Item: Legacy_of_Blessing_P
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Oridecon
         Rate: 150
       - Item: Pure_GoldMVP
@@ -2631,8 +2631,8 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Legacy_of_Magic_P
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Blood_Reaver
         Rate: 350
         RandomOptionGroup: scythe
@@ -2809,16 +2809,16 @@ Body:
         Rate: 850
         RandomOptionGroup: shoes
       - Item: Deep_Dive_A
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Deep_Dive_G
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Deep_Dive_S
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Deep_Dive_P
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Dagger_of_Hunters
         Rate: 725
@@ -2901,8 +2901,8 @@ Body:
         Rate: 1000
         RandomOptionGroup: shield
       - Item: Legacy_of_Steel_A
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Fish_TailMVP
         Rate: 10
   - Id: 1068
@@ -3817,16 +3817,16 @@ Body:
     Drops:
       - Item: Poring_Warrior_Gloves
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Poring_Warrior_Armor
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Poring_Warrior_Shoes
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Poring_Warrior_Pendant
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Mastering_Card
         Rate: 200
         StealProtected: true
@@ -4034,7 +4034,7 @@ Body:
     Drops:
       - Item: Quick_Swarming_A
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Andre_Card
@@ -4175,10 +4175,10 @@ Body:
       - Item: Sacred_Masque
         Rate: 10000
       - Item: Ancient_Tomb_S
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Ancient_Tomb_P
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Robes
         Rate: 975
@@ -4368,7 +4368,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Roaring_Gale_A
-        Rate: 50
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_A
         Rate: 50
@@ -4500,7 +4500,7 @@ Body:
     Drops:
       - Item: Quick_Swarming_G
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Harpoon
@@ -4684,8 +4684,8 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Legacy_of_Magic_S
-        Rate: 300
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Petite_DiablOfs_Wing
         Rate: 10000
       - Item: The_Cape
@@ -4778,8 +4778,8 @@ Body:
       - Item: Wing_Of_Red_Bat
         Rate: 10000
       - Item: Legacy_of_Magic_G
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Blood_Reaver
         Rate: 800
         RandomOptionGroup: dagger
@@ -4885,7 +4885,7 @@ Body:
     Drops:
       - Item: Poring_Warrior_Armor
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Jellopy
         Rate: 10000
       - Item: Orange
@@ -5622,8 +5622,8 @@ Body:
       - Item: Pumpkin_Head
         Rate: 10000
       - Item: Legacy_of_Magic_A
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: C_Pumpkin_Head
         Rate: 55
       - Item: C_Gothic_Pumpkin_Head
@@ -6054,7 +6054,7 @@ Body:
       - Item: Sacred_Masque
         Rate: 10000
       - Item: Ancient_Tomb_P
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Shoes
         Rate: 1000
@@ -6105,8 +6105,8 @@ Body:
         Rate: 550
         RandomOptionGroup: manual
       - Item: Legacy_of_Steel_S
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Fish_TailMVP
         Rate: 10
   - Id: 1142
@@ -6237,8 +6237,8 @@ Body:
       - Item: C_Colorful_Dancing_Octopus
         Rate: 60
       - Item: Legacy_of_Steel_P
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Fish_TailMVP
         Rate: 10
   - Id: 1145
@@ -6328,7 +6328,7 @@ Body:
       - Item: Mementos
         Rate: 10000
       - Item: Ancient_Tomb_S
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Robes
         Rate: 1000
@@ -6489,7 +6489,7 @@ Body:
         StealProtected: true
       - Item: Legacy_of_Coins_G
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Arbalest
         Rate: 750
         RandomOptionGroup: bow
@@ -6744,10 +6744,10 @@ Body:
       - Item: Sacred_Masque
         Rate: 10000
       - Item: Ancient_Tomb_A
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Ancient_Tomb_G
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Shawl
         Rate: 1000
@@ -7044,7 +7044,7 @@ Body:
     Drops:
       - Item: Quick_Swarming_A
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Old_Anklet
         Rate: 250
         RandomOptionGroup: accessory
@@ -7233,8 +7233,8 @@ Body:
       - Item: Mementos
         Rate: 10000
       - Item: Ancient_Tomb_A
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: D_Twilight
         Rate: 1000
         RandomOptionGroup: dagger
@@ -7709,8 +7709,8 @@ Body:
         Rate: 700
         RandomOptionGroup: armor
       - Item: Legacy_of_Blessing_G
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: C_Vicious_Stop_Bandage
         Rate: 75
       - Item: Elunium
@@ -7761,10 +7761,10 @@ Body:
         Rate: 10
       - Item: Quick_Swarming_S
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Quick_Swarming_P
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Vitata_Card
         Rate: 150
         StealProtected: true
@@ -7862,7 +7862,7 @@ Body:
       - Item: Mementos
         Rate: 10000
       - Item: Ancient_Tomb_G
-        Rate: 850
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: D_Sandstorm
         Rate: 1200
@@ -8242,8 +8242,8 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Legacy_of_Arrows_S
-        Rate: 850
-        RandomOptionGroup: shadow
+        Rate: 550
+        RandomOptionGroup: shadowfirst
       - Item: Scarlet_Cape
         Rate: 1300
         RandomOptionGroup: garment
@@ -8478,7 +8478,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Roaring_Gale_G
-        Rate: 50
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_G
         Rate: 50
@@ -10501,7 +10501,7 @@ Body:
         Rate: 10000
       - Item: Poring_Warrior_Pendant
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Grape
         Rate: 1000
       - Item: Marin_Card
@@ -11544,7 +11544,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Deep_Dive_G
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Algiz_Rune_of_Ward
         Rate: 350
@@ -11780,7 +11780,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Roaring_Gale_S
-        Rate: 50
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_S
         Rate: 50
@@ -12673,16 +12673,16 @@ Body:
         Rate: 50
       - Item: Quick_Swarming_A
         Rate: 450
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Quick_Swarming_G
         Rate: 450
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Quick_Swarming_S
         Rate: 450
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Quick_Swarming_P
         Rate: 450
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Mother's_Nightmare
         Rate: 500
       - Item: Maya_Puple_Card
@@ -13043,7 +13043,7 @@ Body:
         Rate: 300
       - Item: Legacy_of_Coins_P
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Weihna
         Rate: 300
         RandomOptionGroup: dagger
@@ -13825,7 +13825,7 @@ Body:
       - Item: Honey
         Rate: 50
       - Item: Harmony_Shell_A
-        Rate: 150
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Permeter_Card
         Rate: 100
@@ -13922,7 +13922,7 @@ Body:
       - Item: Turtle_Shell
         Rate: 10000
       - Item: Harmony_Shell_G
-        Rate: 150
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Solider_Card
         Rate: 100
@@ -14009,7 +14009,7 @@ Body:
       - Item: Turtle_Shell
         Rate: 10000
       - Item: Harmony_Shell_S
-        Rate: 150
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Heater_Card
         Rate: 100
@@ -14052,7 +14052,7 @@ Body:
       - Item: Turtle_Shell
         Rate: 10000
       - Item: Harmony_Shell_P
-        Rate: 150
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Freezer_Card
         Rate: 100
@@ -15448,22 +15448,22 @@ Body:
       - Item: Burning_Heart
         Rate: 10000
       - Item: Lava_Golem_Card
-        Rate: 100
+        Rate: 200
         StealProtected: true
       - Item: Meteor_Mail
         Rate: 200
         RandomOptionGroup: armor
       - Item: Scorching_Lava_A
-        Rate: 25
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Scorching_Lava_G
-        Rate: 25
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Scorching_Lava_S
-        Rate: 25
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Scorching_Lava_P
-        Rate: 25
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: HD_Elunium
         Rate: 500
@@ -15510,7 +15510,7 @@ Body:
         Rate: 200
         RandomOptionGroup: scythe
       - Item: Scorching_Lava_A
-        Rate: 100
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Kenaz_Rune_of_Flames
         Rate: 50
@@ -15971,7 +15971,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Roaring_Gale_P
-        Rate: 50
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_P
         Rate: 50
@@ -16074,7 +16074,7 @@ Body:
         Rate: 75
         RandomOptionGroup: manual
       - Item: Scorching_Lava_P
-        Rate: 100
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Asgard_F_RuneMVP
         Rate: 10
@@ -16240,7 +16240,7 @@ Body:
         Rate: 200
         RandomOptionGroup: dagger
       - Item: Scorching_Lava_G
-        Rate: 100
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Asgard_F_RuneMVP
         Rate: 10
@@ -19297,16 +19297,16 @@ Body:
         Rate: 50
       - Item: Legacy_of_Arrows_A
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Legacy_of_Arrows_G
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Legacy_of_Arrows_S
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Legacy_of_Arrows_P
         Rate: 850
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Legacy_Adv_Coffer
         Rate: 300
       - Item: HD_Oridecon
@@ -36722,17 +36722,17 @@ Body:
         Rate: 10000
     Drops:
       - Item: Poring_Warrior_Gloves
-        Rate: 550
-        RandomOptionGroup: shadow
+        Rate: 1100
+        RandomOptionGroup: shadowfirst
       - Item: Poring_Warrior_Armor
-        Rate: 550
-        RandomOptionGroup: shadow
+        Rate: 1100
+        RandomOptionGroup: shadowfirst
       - Item: Poring_Warrior_Shoes
-        Rate: 550
-        RandomOptionGroup: shadow
+        Rate: 1100
+        RandomOptionGroup: shadowfirst
       - Item: Poring_Warrior_Pendant
-        Rate: 550
-        RandomOptionGroup: shadow
+        Rate: 1100
+        RandomOptionGroup: shadowfirst
       - Item: King_Poring_Card
         Rate: 300
         StealProtected: true
@@ -41967,7 +41967,7 @@ Body:
     Drops:
       - Item: Quick_Swarming_S
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Insect_Peeling
         Rate: 10000
       - Item: HScaraba_Card
@@ -42073,7 +42073,7 @@ Body:
     Drops:
       - Item: Quick_Swarming_P
         Rate: 550
-        RandomOptionGroup: shadow
+        RandomOptionGroup: shadowfirst
       - Item: Insect_Peeling
         Rate: 10000
       - Item: Rake_Scaraba_Card
@@ -46364,7 +46364,7 @@ Body:
         Rate: 150
         StealProtected: true
       - Item: Deep_Dive_A
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
         Rate: 10
@@ -46514,7 +46514,7 @@ Body:
         Rate: 150
         RandomOptionGroup: garment
       - Item: Deep_Dive_S
-        Rate: 425
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Fish_TailMVP
         Rate: 10
@@ -57514,7 +57514,7 @@ Body:
         Rate: 50
         RandomOptionGroup: manual
       - Item: Scorching_Lava_S
-        Rate: 100
+        Rate: 550
         RandomOptionGroup: shadow
       - Item: Asgard_F_RuneMVP
         Rate: 10
