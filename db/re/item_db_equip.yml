@@ -109453,7 +109453,7 @@ Body:
     Buy: 2000
     Weight: 250
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
