@@ -140337,8 +140337,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bCritAtkRate,.@r;
-      bonus bCritical,.@r;
+      bonus bCritAtkRate,5+(2*(.@r));
+      bonus bCritical,5+(2*(.@r));
   - Id: 31212
     AegisName: Caelum_Moon
     Name: Caelum Moon
@@ -140375,8 +140375,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bShortAtkRate,.@r;
-      bonus bUseSPrate,-(.@r);
+      bonus bShortAtkRate,5+(.@r);
+      bonus bUseSPrate,-(5+(.@r));
   - Id: 31214
     AegisName: Apus_Moon
     Name: Apus Moon
@@ -140395,6 +140395,7 @@ Body:
     Script: |
       bonus bMdef,5;
       bonus bLongAtkRate,5;
+      bonus bUseSPrate,-5;
       bonus bAtkRange,1;
   - Id: 31215
     AegisName: Apus_Sun
@@ -140413,7 +140414,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bLongAtkRate,.@r;
+      bonus bLongAtkRate,5+(.@r);
+      bonus bUseSPrate,-(5+(.@r));
       bonus bAtkRange,1;
   - Id: 31216
     AegisName: Cygnus_Moon
@@ -140455,12 +140457,12 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus2 bSkillHeal,"AL_HEAL",.@r;
-      bonus2 bSkillHeal,"CR_SLIMPITCHER",.@r;
-      bonus2 bSkillHeal,"AB_CHEAL",.@r;
-      bonus2 bSkillHeal,"AM_POTIONPITCHER",.@r;
+      bonus2 bSkillHeal,"AL_HEAL",5+(2*(.@r));
+      bonus2 bSkillHeal,"CR_SLIMPITCHER",5+(2*(.@r));
+      bonus2 bSkillHeal,"AB_CHEAL",5+(2*(.@r));
+      bonus2 bSkillHeal,"AM_POTIONPITCHER",5+(2*(.@r));
       bonus2 bSkillUseSPrate,"AL_HEAL",50;
-      bonus bHealPower2,.@r;
+      bonus bHealPower2,5+(2*(.@r));
   - Id: 31218
     AegisName: Auriga_Moon
     Name: Auriga Moon
@@ -140478,9 +140480,7 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bMdef,5;
-      bonus bDelayRate,-5;
-      bonus bSpeedAddRate,5;
-      bonus bAspdRate,5;
+      bonus bAllStats,3;
   - Id: 31219
     AegisName: Auriga_Sun
     Name: Auriga Sun
@@ -140498,9 +140498,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bDelayRate,-(.@r);
-      bonus bSpeedAddRate,.@r;
-      bonus bAspdRate,.@r;
+      bonus bAllStats,5+(.@r);
   - Id: 31220
     AegisName: Volan_Moon
     Name: Volan Moon
@@ -140536,7 +140534,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus2 bHPDrainRate,(.@r)*10,.@r;
+      bonus2 bHPDrainRate,(5+(.@r))*10,5+(.@r);
   - Id: 31222
     AegisName: Lacerta_Moon
     Name: Lacerta Moon
@@ -140598,8 +140596,17 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bMdef,5;
-      bonus bNoWeaponDamage,5;
       bonus bMaxHPRate,5;
+      bonus2 bSubEle,Ele_Water,5;
+      bonus2 bSubEle,Ele_Fire,5;
+      bonus2 bSubEle,Ele_Wind,5;
+      bonus2 bSubEle,Ele_Earth,5;
+      bonus2 bSubEle,Ele_Holy,5;
+      bonus2 bSubEle,Ele_Dark,5;
+      bonus2 bSubEle,Ele_Poison,5;
+      bonus2 bSubEle,Ele_Ghost,5;
+      bonus2 bSubEle,Ele_Undead,5;
+      bonus2 bSubEle,Ele_Neutral,5;
   - Id: 31225
     AegisName: Scutum_Sun
     Name: Scutum Sun
@@ -140617,8 +140624,17 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bNoWeaponDamage,.@r;
-      bonus bMaxHPRate,.@r;
+      bonus bMaxHPRate,5+(.@r);
+      bonus2 bSubEle,Ele_Water,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Fire,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Wind,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Earth,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Holy,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Dark,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Poison,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Ghost,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Undead,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Neutral,5+(2*(.@r));
   - Id: 31226
     AegisName: Fornax_Moon
     Name: Fornax Moon
@@ -140637,8 +140653,7 @@ Body:
     Script: |
       bonus bMdef,5;
       bonus bMatkRate,5;
-      bonus bVariableCastrate,-5;
-      bonus bFixedCastrate,-5;
+      bonus bSPrecovRate,5;
   - Id: 31227
     AegisName: Fornax_Sun
     Name: Fornax Sun
@@ -140656,9 +140671,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bMatkRate,.@r;
-      bonus bVariableCastrate,-(.@r);
-      bonus bFixedCastrate,-(.@r);
+      bonus bMatkRate,5+(.@r);
+      bonus bSPrecovRate,5+(.@r);
   - Id: 31228
     AegisName: C_Long_Twin_YL
     Name: C Long Twin Yellow
