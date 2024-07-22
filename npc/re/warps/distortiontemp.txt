@@ -1,3 +1,4 @@
+//!rathena
 //Includes Dicastes Warps and NPCs + Temporal Portals
 //Temporal Dungeon Warps:
 
@@ -1091,7 +1092,7 @@ niflheim,289,262,4	script	Bifrost Stone Shard#Balder	10442,{
 
 dicast_in,359,214,5	script	Master of Vidar	4_ep17_tamarin,{
 	set .@npc$, "[Sage of Vidar]";
-	if (bifrostmirror <=0){
+	if (#bifrostmirror <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
@@ -1144,7 +1145,7 @@ dicast_in,359,214,5	script	Master of Vidar	4_ep17_tamarin,{
 
 dicast_in,375,215,5	script	Master of Vali	4_m_tamarin,{
 	set .@npc$, "[Sage of Vali]";
-	if (bifrostmirror <=0){
+	if (#bifrostmirror <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
@@ -1202,7 +1203,7 @@ dicast_in,375,215,5	script	Master of Vali	4_m_tamarin,{
 
 dicast_in,375,201,1	script	Master of Thor	4_ep16_tamarin,{
 	set .@npc$, "[Sage of Thor]";
-	if (bifrostmirror <=0){
+	if (#bifrostmirror <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
@@ -1260,7 +1261,7 @@ dicast_in,375,201,1	script	Master of Thor	4_ep16_tamarin,{
 
 dicast_in,359,201,8	script	Master of Balder	4_ep18_tamarin,{
 	set .@npc$, "[Sage of Balder]";
-	if (bifrostmirror <=0){
+	if (#bifrostmirror <=0){
 	mes .@npc$;
 	mes "Please don't waste my time. I'm working on Bifrost Mirror Shards...";
 	close;
