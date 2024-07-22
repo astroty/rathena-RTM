@@ -3,6 +3,38 @@
 // Structure of Database:
 // ID:ID:ID:ID,{ Script }
 
+
+13729:13729,{ bonus bUseSPrate,20; bonus2 bAddRace,RC_All,-5; bonus2 bMagicAddRace,RC_All,-5; }
+4059:4059,{ bonus2 bSkillCooldown,"KN_PIERCE",1000; }
+13562:13562,{ bonus bHPrecovRate,-50; bonus bSPrecovRate,-50; if (readparam(bVit) > 98) bonus bNoKnockback; bonus bMaxHPrate,-2; if (readparam(bStr) > 98) bonus bSplashAddRange,-1; bonus bMaxHPrate,-2; if (readparam(bInt) > 98) bonus bUseSPrate,10; bonus bMaxHPrate,-2; if (readparam(bDex) > 98) bonus bNoCastCancel; bonus bMaxHPrate,-2; if (readparam(bAgi) > 98) bonus bDoubleAddRate,-10; bonus bMaxHPrate,-2; if (readparam(bLuk) > 98) bonus2 bResEff,Eff_Bleeding,-10000; bonus bMaxHPrate,-2; if (readparam(bLuk) > 98) bonus2 bResEff,Eff_Stone,-10000; if (readparam(bLuk) > 98) bonus2 bResEff,Eff_Curse,-10000; }
+4507:4507,{ bonus2 bSkillAtk,"MG_SOULSTRIKE",-15; }
+4148:4148,{ bonus2 bSkillAtk,"NJ_KOUENKA",-10; bonus2 bSkillAtk,"NJ_HUUJIN",-10; bonus2 bSkillAtk,"NJ_HYOUSENSOU",-10; }
+13640:13640,{ bonus2 bSkillAtk,"TF_THROWSTONE",-500; bonus2 bSkillCooldown,"TF_THROWSTONE",-3000; }
+13626:13626,{ bonus2 bSkillCooldown,"TF_HIDING",500; }
+4291:4291,{ bonus2 bSkillCooldown,"RK_SONICWAVE",1000; }
+13658:13571,{ bonus2 bIgnoreDefRaceRate,RC_All,-15; bonus2 bIgnoreMdefClassRate,Class_Normal,-15; bonus2 bIgnoreMdefClassRate,Class_Boss,-15; }
+4431:4431,{ bonus2 bSkillCooldown,"NJ_BAKUENRYU",1000; }
+13711:13711,{ bonus bMaxHPrate,-25; }
+13549:13549,{ bonus bHPrecovRate,-50; bonus bSPrecovRate,-50; bonus bMaxSPrate,-1; bonus bMaxHPrate,-1; }
+27381:27381,{ bonus bFixedCast,400; }
+13710:13710,{ bonus bMaxSPrate,-25; }
+13558:13558,{ bonus2 bSkillCooldown,"KO_JYUMONJIKIRI",750; }
+4152:4152,{ bonus2 bSkillCooldown,"MG_FROSTDIVER",2000; }
+4316:4316,{ bonus2 bMagicAddRace,RC_Angel,-5; bonus2 bAddRace,RC_Angel,-5; }
+27321:27321,{ if (unchainedjob !=1){ bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",3480000; } }
+4040:4040,{ bonus2 bSkillCooldown,"AL_TELEPORT",10000; }
+4230:4230,{ bonus2 bSkillCooldown,"KO_MAKIBISHI",3000; }
+4697:4697,{ bonus2 bSkillCooldown,"NC_AXETORNADO",1000; bonus2 bSkillAtk,"NC_AXETORNADO",-50; }
+31023:31023,{ bonus2 bSkillAtk,"MG_SOULSTRIKE",-50; }
+13720:13720,{ bonus2 bSkillAtk,"MO_INVESTIGATE",-25; bonus bMaxHPrate,50; }
+4145:4145,{ bonus2 bSkillUseSPrate,"SP_SWHOO",200; bonus2 bSkillAtk,"SP_SWHOO",-50; }
+4147:4147,{ bonus2 bSkillCooldown,"LG_OVERBRAND",500; }
+13695:13695,{ bonus2 bExpAddClass,Class_All,-15; bonus2 bDropAddRace,RC_All,50; }
+27258:27258,{ bonus2 bSkillCooldown,"CG_ARROWVULCAN",500; }
+4601:4601,{ bonus bASPDCap,-2; bonus bMaxHPrate,10; bonus bMaxSPrate,10; }
+13730:13730,{ bonus bAllStats,-1; bonus bMaxHPrate,-5; bonus bMaxSPrate,-5; }
+13744:13744,{ bonus bASPDCap,-1; }
+13571:13571,{ bonus2 bIgnoreDefRaceRate,RC_All,-15; bonus2 bIgnoreMdefClassRate,Class_Normal,-15; bonus2 bIgnoreMdefClassRate,Class_Boss,-15; }
 1175:2133,{ bonus bAllStats,3; }
 1223:4121,{ bonus bFlee2,3; }
 1240:16154,{ bonus bHPrecovRate,100; bonus bSPrecovRate,100; bonus bAllStats,1; }
@@ -40,6 +72,7 @@
 13658:13655,{ bonus bMaxHPrate,5; bonus bMaxSPrate,5; }
 13658:13656,{ bonus bMaxHPrate,5; bonus bMaxSPrate,5; }
 13658:13657,{ bonus bMaxHPrate,5; bonus bMaxSPrate,5; }
+13658:13658,{ if (readparam(bStr) > 98) bonus2 bIgnoreDefRaceRate,RC_All,-15; if (readparam(bStr) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,-15; if (readparam(bStr) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,-15; if (readparam(bVit) > 98) bonus2 bIgnoreDefRaceRate,RC_All,-15; if (readparam(bVit) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,-15; if (readparam(bVit) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,-15; if (readparam(bAgi) > 98) bonus2 bIgnoreDefRaceRate,RC_All,-15; if (readparam(bAgi) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,-15; if (readparam(bAgi) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,-15; if (readparam(bDex) > 98) bonus2 bIgnoreDefRaceRate,RC_All,-15; if (readparam(bDex) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,-15; if (readparam(bDex) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,-15; if (readparam(bInt) > 98) bonus2 bIgnoreDefRaceRate,RC_All,-15; if (readparam(bInt) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,-15; if (readparam(bInt) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,-15; if (readparam(bLuk) > 98) bonus2 bIgnoreDefRaceRate,RC_All,-15; if (readparam(bLuk) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,-15; if (readparam(bLuk) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,-15; }
 13662:27259,{ bonus bAllStats,1; }
 13662:27260,{ bonus bAllStats,1; }
 13662:27261,{ bonus bAllStats,1; }
@@ -2176,6 +2209,7 @@
 5766:2270,{ bonus bShortWeaponDamageReturn,(getequiprefinerycnt(EQI_HEAD_TOP)/2); }
 18673:18607,{ bonus bHealPower,10; }
 19162:20819,{ bonus2 bCriticalAddRace,RC_Fish,50; bonus bAspdRate,10; }
+1916:1916,{}
 19162:15174,{ bonus2 bCriticalAddRace,RC_Fish,50; bonus bAspdRate,10; }
 19177:1730,{ bonus bLongAtkRate,45; }
 19177:1731,{ bonus bLongAtkRate,45; }

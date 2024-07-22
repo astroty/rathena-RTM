@@ -58213,7 +58213,7 @@ Body:
     View: 1888
     Buy: 500
     Weight: 100
-    Slots: 1
+    Slots: 2
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -58232,7 +58232,7 @@ Body:
     View: 1945
     Buy: 500
     Weight: 100
-    Slots: 1
+    Slots: 2
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -58251,7 +58251,7 @@ Body:
     View: 2004
     Buy: 2000
     Weight: 100
-    Slots: 1
+    Slots: 2
     Locations:
       Head_Mid: true
     ArmorLevel: 1
