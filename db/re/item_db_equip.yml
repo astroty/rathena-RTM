@@ -75441,7 +75441,7 @@ Body:
     Buy: 500
     Weight: 2000
     Defense: 45
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75464,7 +75464,7 @@ Body:
     Buy: 500
     Weight: 1500
     Defense: 30
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75487,7 +75487,7 @@ Body:
     Buy: 500
     Weight: 1000
     Defense: 10
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75510,7 +75510,7 @@ Body:
     Buy: 500
     Weight: 2000
     Defense: 40
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75533,7 +75533,7 @@ Body:
     Buy: 500
     Weight: 1500
     Defense: 20
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75555,7 +75555,7 @@ Body:
     Type: Armor
     Buy: 500
     Weight: 1000
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
