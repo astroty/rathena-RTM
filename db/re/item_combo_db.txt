@@ -24,7 +24,6 @@
 27321:27321,{ if (unchainedjob !=1){ bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",3480000; } }
 4040:4040,{ bonus2 bSkillCooldown,"AL_TELEPORT",10000; }
 4230:4230,{ bonus2 bSkillCooldown,"KO_MAKIBISHI",3000; }
-4697:4697,{ bonus2 bSkillCooldown,"NC_AXETORNADO",1000; bonus2 bSkillAtk,"NC_AXETORNADO",-50; }
 31023:31023,{ bonus2 bSkillAtk,"MG_SOULSTRIKE",-50; }
 13720:13720,{ bonus2 bSkillAtk,"MO_INVESTIGATE",-25; bonus bMaxHPrate,50; }
 4145:4145,{ bonus2 bSkillUseSPrate,"SP_SWHOO",200; bonus2 bSkillAtk,"SP_SWHOO",-50; }
