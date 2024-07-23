@@ -110,19 +110,19 @@ ast_dun03,80,125,5	script	Frozen Tides#astro	CLEAR_NPC,{
 	switch(select("What do you want from me exactly?:I have your items.:Not really.")) {
 	case 1:
 		mes "^FF0000100^000000 Galactic Dust."; //6467
-		mes "^FF00001000^000000 Star Pieces."; //6468
+		mes "^FF0000500^000000 Star Pieces."; //6468
 		mes "^FF000015^000000 Jewel Bradiums to bring it all together."; //1075
 		mes "^FF00001^000000 Moon of Serpens...of course."; //25500
 		close;
 		break;
 	case 2:
 		if(countitem(6467) < 100) goto L_noitems;
-		if(countitem(6468) < 1000) goto L_noitems;
+		if(countitem(6468) < 500) goto L_noitems;
 		if(countitem(6226) < 15) goto L_noitems;
 		if(countitem(25500) < 1) goto L_noitems;
 		mes "I missed my moon. You can have my sun...thank you...good bye.";
 		delitem 6467,100;
-		delitem 6468,1000;
+		delitem 6468,500;
 		delitem 6226,15;
 		delitem 25500,1;
 		getitem 25501,1;
