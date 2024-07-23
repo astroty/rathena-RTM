@@ -35965,24 +35965,24 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      if (readparam(bStr) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bStr) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bStr) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bVit) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bVit) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bVit) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bAgi) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bAgi) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bAgi) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bDex) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bDex) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bDex) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bInt) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bInt) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bInt) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bLuk) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bLuk) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bLuk) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
+      if (readparam(bStr) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bVit) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bAgi) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bDex) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bInt) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bLuk) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
   - Id: 13659
     AegisName: Haunting_Guise_Card
     Name: Haunting Guise Card
