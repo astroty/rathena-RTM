@@ -5540,6 +5540,11 @@ static void battle_calc_defense_reduction(struct Damage* wd, struct block_list *
 	short vit_def;
 	defType def1 = status_get_def(target); //Don't use tstatus->def1 due to skill timer reductions.
 	short def2 = tstatus->def2;
+	// Sinner Turret DEF Bypass - Noirua
+	if (status_get_class(src) == MOBID_SILVERSNIPER || status_get_class(target) == MOBID_SILVERSNIPER) {
+		def1 = 0;
+		def2 = 0;
+	}
 
 	if (sd) {
 		int i = sd->indexed_bonus.ignore_def_by_race[tstatus->race] + sd->indexed_bonus.ignore_def_by_race[RC_ALL];
