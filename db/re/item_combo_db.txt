@@ -387,6 +387,7 @@
 27347:27028,{ bonus2 bMagicAddEle,Ele_Earth,8; }
 27351:4582,{ bonus bMaxHPrate,5; }
 27352:4127,{ bonus bMaxSPrate,10; }
+24666:24667,{ bonus2 bIgnoreMdefRace,RC_All, 100; }
 27352:4166,{ bonus2 bAddClass,Class_All,10; }
 27354:4133,{ bonus2 bAddClass,Class_All,5; bonus2 bSubEle,Ele_Neutral,10; }
 27355:4633,{ bonus bLongAtkRate,5; }
