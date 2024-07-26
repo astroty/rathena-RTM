@@ -2668,7 +2668,7 @@ Body:
       DropEffect: RED_PILLAR
   - Id: 1771
     AegisName: Throwing_Dag
-    Name: Throwing Dag
+    Name: Corrupted Fang Knife
     Type: Ammo
     SubType: Kunai
     Buy: 100
@@ -33720,7 +33720,7 @@ Body:
       bonus bAtkEle,Ele_Neutral;
   - Id: 13294
     AegisName: Explosive_Kunai
-    Name: Explosive Kunai
+    Name: Steel Kunai
     Type: Ammo
     SubType: Kunai
     Buy: 10000
