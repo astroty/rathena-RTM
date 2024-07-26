@@ -115,7 +115,7 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 				cutin "",255;
 				break;
 		}
-		close2
+		close2;
 		break;
 	case 4:
 		switch(select("Morroc -Free:Other Locations:Frontier/Maroll - 1000z:Cancel")) {
