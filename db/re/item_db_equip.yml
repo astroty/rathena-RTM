@@ -61009,7 +61009,7 @@ Body:
       bonus bAtkEle,Ele_Dark;
   - Id: 13034
     AegisName: D_Twilight
-    Name: D Twilight
+    Name: Desert Twilight
     Type: Weapon
     SubType: Dagger
     Buy: 500
@@ -61047,7 +61047,7 @@ Body:
       bonus bFlee,5;
   - Id: 13035
     AegisName: D_Sandstorm
-    Name: D Sandstorm
+    Name: Desert Sandstorm
     Type: Weapon
     SubType: Dagger
     Buy: 500

@@ -4181,13 +4181,13 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Robes
-        Rate: 975
+        Rate: 400
         RandomOptionGroup: armor
       - Item: Sphinx_Shawl
-        Rate: 975
+        Rate: 400
         RandomOptionGroup: garment
       - Item: Sphinx_Shoes
-        Rate: 975
+        Rate: 400
         RandomOptionGroup: shoes
       - Item: Elunium
         Rate: 300
@@ -6057,7 +6057,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Shoes
-        Rate: 1000
+        Rate: 700
         RandomOptionGroup: shoes
       - Item: Dagaz_Rune_of_Light
         Rate: 250
@@ -6331,7 +6331,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Robes
-        Rate: 1000
+        Rate: 700
         RandomOptionGroup: armor
       - Item: Broken_ScepterMVP
         Rate: 10
@@ -6750,10 +6750,10 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Sphinx_Shawl
-        Rate: 1000
+        Rate: 700
         RandomOptionGroup: garment
       - Item: Relic_Claymore
-        Rate: 800
+        Rate: 500
         RandomOptionGroup: sword
       - Item: Broken_ScepterMVP
         Rate: 10
@@ -7236,7 +7236,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadowfirst
       - Item: D_Twilight
-        Rate: 1000
+        Rate: 500
         RandomOptionGroup: dagger
       - Item: Broken_ScepterMVP
         Rate: 10
@@ -7865,7 +7865,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: D_Sandstorm
-        Rate: 1200
+        Rate: 500
         RandomOptionGroup: dagger
       - Item: Broken_ScepterMVP
         Rate: 10
@@ -19044,33 +19044,6 @@ Body:
     AttackDelay: 2852
     AttackMotion: 1152
     DamageMotion: 840
-    Ai: 04
-  - Id: 1464
-    AegisName: G_PASANA
-    Name: Pasana
-    Level: 79
-    Hp: 3510
-    Attack: 438
-    Attack2: 40
-    Defense: 93
-    MagicDefense: 35
-    Str: 76
-    Agi: 36
-    Vit: 33
-    Int: 20
-    Dex: 80
-    Luk: 5
-    AttackRange: 1
-    SkillRange: 10
-    ChaseRange: 12
-    Size: Medium
-    Race: Demihuman
-    Element: Fire
-    ElementLevel: 2
-    WalkSpeed: 165
-    AttackDelay: 976
-    AttackMotion: 576
-    DamageMotion: 288
     Ai: 04
   - Id: 1465
     AegisName: G_PETIT
