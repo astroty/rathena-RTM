@@ -3078,7 +3078,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Sailor_Sword
-        Rate: 1000
+        Rate: 500
         RandomOptionGroup: sword
       - Item: Pirate_Treasure
         Rate: 10000
@@ -80889,7 +80889,7 @@ Body:
       - Item: Broken_FlintlockMVP
         Rate: 10
       - Item: Water_Cantrips
-        Rate: 700
+        Rate: 250
   - Id: 3447
     AegisName: P_SOLDIER_SKELETON
     Name: Drowned Spirit
@@ -80928,7 +80928,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Marauder_Sword
-        Rate: 750
+        Rate: 500
         RandomOptionGroup: sword
       - Item: Pirate_King_G
         Rate: 550

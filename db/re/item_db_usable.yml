@@ -45757,6 +45757,7 @@ Body:
     AegisName: Water_Cantrips
     Name: Water Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true
