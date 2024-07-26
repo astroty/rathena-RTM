@@ -98,7 +98,20 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 		mes "[Kafra Allysia]";
 		mes "Make sure to keep it organized!";
 		close2;
-		openstorage;
+		switch(select("Refill Elixir:Save:Use Storage:Teleport:Tell me about yourself:Nothing")) {
+			case 1:
+				openstorage;
+				break;
+			case 2:
+				openstorage2 1,STOR_MODE_GET|STOR_MODE_PUT;
+				break;
+			case 3:
+				openstorage2 2,STOR_MODE_GET|STOR_MODE_PUT;
+				break;
+			case 4:
+				openstorage2 3,STOR_MODE_GET|STOR_MODE_PUT;
+				break;
+		}
 		cutin "",255;
 		break;
 	case 4:
