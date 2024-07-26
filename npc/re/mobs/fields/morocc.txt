@@ -44,7 +44,7 @@ moc_fild02,0,0	monster	Giga Sandworm	1229,5,5000
 moc_fild04,0,0	monster	Hode	1127,60,5000
 moc_fild04,0,0	monster	Condor	1009,20,5000
 moc_fild04,0,0	monster	Eggyra	1116,50,5000
-moc_fild04,0,0	monster	Metaller	1058,10,5000
+moc_fild04,0,0	monster	Metaller	1058,30,5000
 //==================================================
 // moc_fild05 - Disabled on Episode 12.1
 //==================================================

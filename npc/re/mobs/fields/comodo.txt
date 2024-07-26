@@ -33,11 +33,11 @@ cmd_fild05,0,0	monster	Mutant Dragonoid	1262,7,5000
 //
 cmd_fild02,0,0	monster	Crab	1073,30,5000
 cmd_fild02,0,0	monster	Seal	1317,60,5000
-cmd_fild02,0,0	monster	Sea otter	1323,10,5000
+cmd_fild02,0,0	monster	Sea otter	1323,15,5000
 //
 cmd_fild04,0,0	monster	Crab	1073,60,5000
 cmd_fild04,0,0	monster	Seal	1317,30,5000
-cmd_fild04,0,0	monster	Sea otter	1323,10,5000
+cmd_fild04,0,0	monster	Sea otter	1323,15,5000
 
 
 
