@@ -42648,6 +42648,8 @@ Body:
     Weight: 10
     Locations:
       Head_Low: true
+      Head_Mid: true
+      Head_Top: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
