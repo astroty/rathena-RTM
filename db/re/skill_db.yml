@@ -31599,14 +31599,12 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Self
-    CopyFlags:
-      Skill:
-        Plagiarism: true
     DamageFlags:
       Splash: true
       IgnoreElement: true
-      IgnoreFlee: true
       IgnoreDefense: true
+      IgnoreFlee: true
+    Range: 9
     Hit: Single
     HitCount: -4
     Element: Weapon
@@ -31621,6 +31619,9 @@ Body:
         Area: 3
       - Level: 5
         Area: 4
+    CopyFlags:
+      Skill:
+        Plagiarism: true
     AfterCastActDelay: 500
     Cooldown: 2500
     Requires:

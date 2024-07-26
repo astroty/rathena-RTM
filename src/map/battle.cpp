@@ -2478,6 +2478,8 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 			// Cast range mimics NJ_SHADOWJUMP but damage is considered melee
 		case GC_CROSSIMPACT:
 		case RA_WUGSTRIKE:
+		case RG_BACKSTAP:
+		case SR_KNUCKLEARROW:
 			// Cast range is 7 cells and player jumps to target but skill is considered melee
 			return BF_SHORT;
 	}
