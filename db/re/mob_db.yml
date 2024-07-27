@@ -674,7 +674,7 @@ Body:
       - Item: C_Apple_Of_Archer
         Rate: 75
       - Item: Bone_Bow
-        Rate: 1500
+        Rate: 625
         RandomOptionGroup: bow
       - Item: Legacy_of_Arrows_A
         Rate: 550
@@ -1114,7 +1114,7 @@ Body:
       - Item: C_Munak_Turban
         Rate: 75
       - Item: Scarlet_Shoes
-        Rate: 1250
+        Rate: 600
         RandomOptionGroup: shoes
       - Item: Legacy_of_Arrows_P
         Rate: 550
@@ -1122,10 +1122,10 @@ Body:
       - Item: Cute_BellMVP
         Rate: 10
       - Item: Burial_Charm
-        Rate: 300
+        Rate: 250
         RandomOptionGroup: accessory
       - Item: Oathguard
-        Rate: 1250
+        Rate: 300
         RandomOptionGroup: whip
 #  - Id: 1027
 #    AegisName: RAPTICE
@@ -1197,7 +1197,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadowfirst
       - Item: Bone_Dagger
-        Rate: 1375
+        Rate: 550
         RandomOptionGroup: dagger
       - Item: Cute_BellMVP
         Rate: 10
@@ -7487,7 +7487,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Scarlet_Suit
-        Rate: 1300
+        Rate: 600
         RandomOptionGroup: armor
       - Item: Cute_BellMVP
         Rate: 10
@@ -7495,7 +7495,7 @@ Body:
         Rate: 350
         RandomOptionGroup: manual
       - Item: Moonlight_Dagger
-        Rate: 725
+        Rate: 500
         RandomOptionGroup: dagger
 #  - Id: 1171
 #    AegisName: SOLDIER_ANDRE
@@ -8245,7 +8245,7 @@ Body:
         Rate: 550
         RandomOptionGroup: shadowfirst
       - Item: Scarlet_Cape
-        Rate: 1300
+        Rate: 600
         RandomOptionGroup: garment
       - Item: Cute_BellMVP
         Rate: 10
@@ -12729,10 +12729,10 @@ Body:
       - Item: Evil_Bone
         Rate: 10000
       - Item: Bone_Scythe
-        Rate: 400
+        Rate: 700
         RandomOptionGroup: scythe
       - Item: Bone_Spear
-        Rate: 400
+        Rate: 700
         RandomOptionGroup: spear
       - Item: Cute_BellMVP
         Rate: 10
@@ -13502,10 +13502,10 @@ Body:
         Rate: 200
         StealProtected: true
       - Item: Adventurer_Backpack
-        Rate: 300
+        Rate: 500
         RandomOptionGroup: garment
       - Item: Moonlight_Dagger
-        Rate: 300
+        Rate: 1000
         RandomOptionGroup: dagger
       - Item: Legacy_Adv_Coffer
         Rate: 300
