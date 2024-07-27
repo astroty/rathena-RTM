@@ -75812,10 +75812,10 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Asgard_BrokenWall
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: shield
       - Item: Dandelion_Chains
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: accessory
       - Item: Perfect_TuxedoMVP
         Rate: 10
