@@ -9698,7 +9698,7 @@ Body:
       SpRateCost: -5
       Weapon:
         Mace: true
-        2hSword: true
+        1hSword: true
   - Id: 357
     Name: LK_CONCENTRATION
     Description: Ready to Rip
