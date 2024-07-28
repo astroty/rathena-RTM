@@ -15114,6 +15114,8 @@ Body:
     MaxLevel: 10
     Type: Magic
     TargetType: Attack
+    Flags:
+      IsAutoShadowSpell: true
     Range: 9
     Hit: Multi_Hit
     HitCount: -3
@@ -15386,6 +15388,8 @@ Body:
     Type: Magic
     Range: 9
     TargetType: Ground
+    Flags:
+      IsAutoShadowSpell: true
     Hit: Single
     HitCount: 1
     Element: Water
@@ -15576,6 +15580,8 @@ Body:
     MaxLevel: 10
     Type: Magic
     TargetType: Ground
+    Flags:
+      IsAutoShadowSpell: true
     Range: 9
     Hit: Single
     HitCount: -7
