@@ -3477,7 +3477,6 @@ Body:
          bonus2 bSkillAtk,"SM_BASH",100;
          bonus2 bSkillCooldown,"SM_BASH",200;
          }
-      skill "GC_COUNTERSLASH",(.@r)/2;
       skill "SM_BASH",10;
       bonus4 bAutoSpellOnSkill,"AC_CONCENTRATION","GC_WEAPONBLOCKING",5,1000;
       bonus2 bHPDrainRate,1000,5*(.@r);
