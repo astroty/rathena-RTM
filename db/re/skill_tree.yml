@@ -278,7 +278,7 @@ Body:
             Level: 1
           - Name: SR_GENTLETOUCH_CURE
             Level: 1
-  - Job: Acolyte
+  - Job: Acolyte #DK
     Inherit:
       Novice: true
     Tree:
@@ -332,21 +332,21 @@ Body:
             Level: 1
           - Name: RK_DEATHBOUND
             Level: 1
-      - Name: NC_COLDSLOWER
+      - Name: DK_SWORDFLURRY #DK
         MaxLevel: 5
         Requires:
-          - Name: WL_HELLINFERNO
+          - Name: DK_SCOURGE #DK 
             Level: 1
       - Name: BA_MUSICALSTRIKE
         MaxLevel: 10
         Requires:
-          - Name: NC_COLDSLOWER
+          - Name: DK_SWORDFLURRY #DK
             Level: 1
-      - Name: WL_HELLINFERNO
+      - Name: DK_SCOURGE #DK
+        MaxLevel: 5
         Requires:
           - Name: MO_SPIRITSRECOVERY
             Level: 1
-        MaxLevel: 10
       - Name: AB_ANCILLA
         MaxLevel: 1
         Requires:

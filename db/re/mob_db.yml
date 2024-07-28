@@ -17032,7 +17032,10 @@ Body:
       - Item: Pethro_Rune_of_Occult
         Rate: 200
         RandomOptionGroup: manual
-      - Item: Cursed_Sam_ScrollMVP
+      - Item: Sea_King #Added the new DK sword as a drop.
+        Rate: 200
+        RandomOptionGroup: spear
+      - Item: Cursed_Sam_ScrollMVP 
         Rate: 10
   - Id: 1402
     AegisName: POISON_TOAD
@@ -19968,6 +19971,9 @@ Body:
         StealProtected: true
       - Item: Last_Sam_Coffer
         Rate: 3000
+      - Item: Sea_King #Added new DK sword as a drop.
+        Rate: 1000
+        RandomOptionGroup: spear
       - Item: Enriched_Oridecon
         Rate: 2500
   - Id: 1493
@@ -62945,8 +62951,8 @@ Body:
       - Item: Siren_Card
         Rate: 100
         StealProtected: true
-      - Item: Sea_King
-        Rate: 200
+      - Item: Twin_Edge_B #DK Rework replaced Sea_King drop
+        Rate: 100
         RandomOptionGroup: sword
       - Item: Tide_Caller
         Rate: 100

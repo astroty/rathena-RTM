@@ -1743,6 +1743,23 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_CURSE, 3 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 
+	case WL_HELLINFERNO: // Noirua 
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		break;
+
+	case DK_SWORDFLURRY: // Noirua
+		if ((sc->data[SC_OVERBRANDREADY]))
+		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
+		status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+		break;
+
+	case DK_SCOURGE: // New DK Skill
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
+		if (sd && skill_lv > 0 && pc_checkskill(sd, AB_ANCILLA) > 0) {
+			sc_start(src, bl, SC_BLEEDING, 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		}
+		break;
+
 	case WS_CARTTERMINATION:	// Cart termination
 		sc_start(src, bl, SC_STUN, 5 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
@@ -2345,6 +2362,42 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_SP_SHA, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 2000);
 		break;
+	case CR_SHIELDBOOMERANG:
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		break;
+	case SC_TRIANGLESHOT:
+		if (sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+		}
+		break;
+	case PA_SHIELDCHAIN:
+		if (sc->data[SC_SPL_ATK]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		}
+		break;
+	case RK_SONICWAVE:
+		if (sc->data[SC_FORCEOFVANGUARD]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		}
+		break;
+	case KN_BOWLINGBASH:
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		break;
+	case KN_SPEARSTAB:
+		if (sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+		}
+		break;
+	case KN_BRANDISHSPEAR:
+		if (sc->data[SC_SPL_ATK]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		}
+		break;
 	} //end switch skill_id
 
 	if (md && battle_config.summons_trigger_autospells && md->master_id && md->special_state.ai)
@@ -2621,7 +2674,10 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 		}
 		it.lock = false;
 		sd->state.autocast = 0;
+		if (skill_id == TK_JUMPKICK && skill == SO_PSYCHIC_WAVE)
+			clif_showscript(&sd->bl, "Devil Raid !!", AREA); // Override Text
 	}
+
 
 	if (sd && !sd->autobonus3.empty()) {
 		for (auto& it : sd->autobonus3) {
@@ -3865,6 +3921,20 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 	switch (skill_id) {
 	case PA_GOSPEL: //Should look like Holy Cross [Skotlex]
 		dmg.dmotion = clif_skill_damage(src, bl, tick, dmg.amotion, dmg.dmotion, damage, dmg.div_, CR_HOLYCROSS, -1, DMG_SPLASH);
+		break;
+	case DK_SWORDFLURRY: // New DK Skills
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 3, RG_BACKSTAP, skill_lv, dmg_type); //Steals the physical animation for basic attacking
+		clif_specialeffect(bl, 567, AREA); // For skill visuals
+		clif_showscript(src, "Sword Flurry !!", AREA); // Added to display the proper name callout when stealing bash vx
+		break;
+	case DK_SCOURGE: // New DK Skills
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 1, AC_SHOWER, skill_lv, dmg_type); //Steals the physical animation for basic attacking
+		clif_specialeffect(bl, 812, AREA); // For skill visuals
+		clif_showscript(src, "Scourge !!", AREA); // Added to display the proper name callout when stealing bash vx
+		break;
+	case TK_JUMPKICK: // Devil Raid
+		dmg.amotion = clif_skill_damage(dsrc, bl, tick, dmg.amotion, dmg.amotion, damage, 1, skill_id, skill_lv, dmg_type);
+		clif_showscript(src, "Devil Raid !!", AREA); // Override Text
 		break;
 		//Skills that need be passed as a normal attack for the client to display correctly.
 	case HVAN_EXPLOSION:
@@ -5155,6 +5225,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	map_freeblock_lock();
 
 	switch (skill_id) {
+	case DK_SWORDFLURRY: // New DK Skills
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
 	case MER_CRASH:
 	case SM_BASH:
 	case MS_BASH:
@@ -5297,8 +5370,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case LK_HEADCRUSH:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
-	case BA_MUSICALSTRIKE:
+	case BA_MUSICALSTRIKE: // Noirua
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
 		if (tsc && tsc->data[SC_FREEZE])
 			status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
@@ -5563,6 +5637,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 		//Splash attack skills.
+	case DK_SCOURGE: // New DK Skills
+		skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
 	case AS_GRIMTOOTH:
 	case MC_CARTREVOLUTION:
 	case NPC_SPLASHATTACK:
@@ -5874,7 +5951,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case KN_SPEARSTAB:
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
-				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 3);
+				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 5);
 		}
 		if (skill_check_unit_movepos(5, src, bl->x, bl->y, 1, 1))
 			skill_blown(src, src, 1, (dir_ka + 4) % 8, BLOWN_NONE); // Target position is actually one cell next to the target
@@ -8107,6 +8184,17 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 
 		//List of self skills that give damage around caster
+	case DK_SCOURGE: // New DK Skill
+		skill_area_temp[1] = 0;
+#if PACKETVER >= 20180207
+		clif_skill_nodamage(src, bl, SM_BASH, skill_lv, 1);
+		clif_specialeffect(src, 129, AREA); // For skill visuals
+		clif_showscript(src, "Scourge !!", AREA); // Added to display the proper name callout when stealing bash vx
+#else
+		clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SINGLE);
+#endif
+		map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_SKILL, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		break;
 	case ASC_METEORASSAULT:
 	case GS_SPREADATTACK:
 	case RK_WINDCUTTER:
@@ -8235,6 +8323,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			skill_get_splash(skill_id, skill_lv), splash_target(src),
 			BF_MAGIC, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
 		break;
+
 
 	case HVAN_EXPLOSION:	//[orn]
 	case NPC_SELFDESTRUCTION:
@@ -11934,23 +12023,26 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			}
 
 			// Confusion is still inflicted (but rate isn't reduced), no matter map type.
-			status_change_start(src, src, SC_CONFUSION, 2500, skill_lv, 0, 0, 0, skill_get_time(skill_id, skill_lv), SCSTART_NORATEDEF);
-			status_change_start(src, bl, SC_CONFUSION, 7500, skill_lv, 0, 0, 0, skill_get_time(skill_id, skill_lv), SCSTART_NORATEDEF);
+			// status_change_start(src, src, SC_CONFUSION, 2500, skill_lv, 0, 0, 0, skill_get_time(skill_id, skill_lv), SCSTART_NORATEDEF);
+			// status_change_start(src, bl, SC_CONFUSION, 7500, skill_lv, 0, 0, 0, skill_get_time(skill_id, skill_lv), SCSTART_NORATEDEF);
 			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			//clif_skill_estimation(sd, bl);
 			// Sense skill to mobinfo
-			npc_event(sd, "illusionclones::OnClones", 0);
-			if (skill_check_unit_movepos(5, src, bl->x, bl->y, 0, 0)) {
-				clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
-				clif_blown(src);
-				if (!unit_blown_immune(bl, 0x1)) {
-					unit_movepos(bl, x, y, 0, 0);
-					if (bl->type == BL_PC && pc_issit((TBL_PC*)bl))
-						clif_sitting(bl); //Avoid sitting sync problem
-					clif_blown(bl);
-					map_foreachinallrange(unit_changetarget, src, AREA_SIZE, BL_CHAR, src, bl);
+			if (src->type == BL_PC)
+			{
+				npc_event(sd, "illusionclones::OnClones", 0);
+				if (skill_check_unit_movepos(5, src, bl->x, bl->y, 0, 0)) {
+					clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
+					clif_blown(src);
+					if (!unit_blown_immune(bl, 0x1)) {
+						unit_movepos(bl, x, y, 0, 0);
+						if (bl->type == BL_PC && pc_issit((TBL_PC*)bl))
+							clif_sitting(bl); //Avoid sitting sync problem
+						clif_blown(bl);
+						map_foreachinallrange(unit_changetarget, src, AREA_SIZE, BL_CHAR, src, bl);
+					}
 				}
-			}
+			}	
 		}
 		break;
 	case OB_AKAITSUKI:
@@ -16502,7 +16594,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		if (sc->data[SC_QD_SHOT_READY])
 			break;
 	case CH_TIGERFIST:
-		if (!(sc && sc->data[SC_COMBO] && sc->data[SC_COMBO]->val1 == MO_COMBOFINISH))
+		if (!sc)
 			return false;
 		break;
 	case CH_CHAINCRUSH:
@@ -18233,9 +18325,9 @@ int skill_delayfix(struct block_list* bl, uint16 skill_id, uint16 skill_lv)
 	case SR_FALLENEMPIRE:
 	case SJ_PROMINENCEKICK:
 	case LG_HESPERUSLIT:
-		//If delay not specified, it will be 1000 - 4*agi - 2*dex
+		//If delay not specified, it will be 100 - 4*agi - 2*dex
 		if (time == 0)
-			time = 1000;
+			time = 100;
 		time -= (2 * status_get_agi(bl) + 1 * status_get_dex(bl));
 		break;
 #ifndef RENEWAL
