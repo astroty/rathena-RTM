@@ -11741,8 +11741,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 		case SC_WEAPONBLOCKING:
 			val2 = 25 + 2 * val1; // Chance
-			val4 = tick / 15000;
-			tick_time = 15000; // [GodLesZ] tick time
+			val4 = tick / 5000;
+			tick_time = 5000; // [GodLesZ] tick time
 			break;
 		case SC_OBLIVIONCURSE:
 			if (val3 == 0)
@@ -14758,7 +14758,7 @@ TIMER_FUNC(status_change_timer){
 		if( --(sce->val4) >= 0 ) {
 			if( !status_charge(bl,0,3) )
 				break;
-			sc_timer_next(15000+tick);
+			sc_timer_next(5000+tick);
 			return 0;
 		}
 		break;
