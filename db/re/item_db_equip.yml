@@ -1490,7 +1490,8 @@ Body:
          }
       if (.@r >= 9) {
          bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
-         bonus4 bAutoSpellOnSkill,"DK_SCOURGE","NPC_EVILLAND",7,1000;
+         bonus4 bAutoSpellOnSkill,"DK_SCOURGE","NPC_EVILLAND",1,1000;
+         bonus2 bSkillCooldown,"DK_SCOURGE",5000;
          bonus2 bSkillAtk,"NPC_DARKCROSS",90;
          bonus2 bSkillAtk,"NPC_BLOODDRAIN",90;;
          bonus2 bSkillAtk,"NPC_GRANDDARKNESS",100;
@@ -1499,7 +1500,7 @@ Body:
          bonus2 bHPLossRate,800,700;
          }
       if (.@r >= 10) {
-         bonus2 bSkillAtk,"NPC_EVILLAND",50;
+         bonus2 bSkillAtk,"NPC_EVILLAND",500;
          bonus2 bSkillAtk,"NPC_DARKCROSS",50;
          bonus2 bSkillAtk,"MO_INVESTIGATE",15;
          bonus2 bSkillAtk,"NPC_BLOODDRAIN",20;
@@ -1512,7 +1513,7 @@ Body:
       bonus2 bSkillAtk,"NPC_BLOODDRAIN",20*(.@r);
       bonus2 bSkillAtk,"NPC_GRANDDARKNESS",5*(.@r);
       bonus2 bSkillAtk,"NPC_DARKCROSS",5*(.@r);
-      bonus2 bSkillAtk,"NPC_EVILLAND",5*(.@r);
+      bonus2 bSkillAtk,"NPC_EVILLAND",100*(.@r);
       bonus2 bSkillUseSP,"MO_INVESTIGATE",-10000;
       bonus bNoRegen,1;
       bonus bNoRegen,2;
@@ -67036,11 +67037,9 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |  #Added Vengeance 1 so you aren't AAing on dk like a mistake, veng dmg boost and small hp drain
-      skill "SM_BASH",1;
+    Script: |  #Added Dark Cross 1 so you aren't AAing on dk like a monkey, veng dmg boost and small hp drain
+      skill "NPC_DARKCROSS",1;
       bonus2 bSkillAtk,"SM_BASH",5;
-      .@r = getrefine();
-      skill "LK_PARRYING",.@r;
       bonus bAtkEle,Ele_Dark;
       bonus2 bExpAddClass,Class_All,10;
       bonus bHPDrainValue,15;
@@ -124185,7 +124184,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bSkillCooldown,"OB_AKAITSUKI",-2000*(.@r);
-  - Id: 24713
+  - Id: 24713 #DK Rework
     AegisName: Call_Abyss_A
     Name: Call Abyss A
     Type: Shadowgear
@@ -124205,9 +124204,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
-      bonus bStr,.@r;
+      bonus bMatkRate,(.@r)/2;
+      bonus bVit,.@r;
+      bonus4 bAutoSpellOnSkill,"SC_FATALMENACE","DK_SCOURGE",1,1000;
   - Id: 24714
     AegisName: Call_Abyss_G
     Name: Call Abyss G
@@ -124228,9 +124227,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
-      bonus bDex,.@r;
+      bonus bMatkRate,(.@r)/2;
+      bonus bStr,.@r;
+      bonus4 bAutoSpellOnSkill,"SM_BASH","DK_SCOURGE",1,1000;
   - Id: 24715
     AegisName: Call_Abyss_S
     Name: Call Abyss S
@@ -124251,9 +124250,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
+      bonus bMatkRate,(.@r)/2;
       bonus bAgi,.@r;
+      bonus4 bAutoSpellOnSkill,"DK_SWORDFLURRY","DK_SCOURGE",1,1000;
   - Id: 24722
     AegisName: Call_Abyss_P
     Name: Call Abyss P
@@ -124274,10 +124273,10 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
-      bonus bInt,.@r;
-  - Id: 24723
+      bonus bMatkRate,(.@r)/2;
+      bonus bDex,.@r;
+      bonus4 bAutoSpellOnSkill,"MO_INVESTIGATE","DK_SCOURGE",1,1000;
+  - Id: 24723 #DK Rework
     AegisName: Cold_Embrace_A
     Name: Cold Embrace A
     Type: Shadowgear
@@ -124297,7 +124296,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillCooldown,"NC_COLDSLOWER",-500*(.@r);
+      bonus2 bSkillCooldown,"NC_COLDSLOWER",-200*(.@r);
   - Id: 24724
     AegisName: Cold_Embrace_G
     Name: Cold Embrace G
@@ -124361,7 +124360,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bSkillAtk,"BA_MUSICALSTRIKE",2*(.@r);
-  - Id: 24727
+  - Id: 24727 #DK Rework
     AegisName: Devil_Arms_A
     Name: Devil Arms A
     Type: Shadowgear
@@ -124381,7 +124380,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"TK_JUMPKICK",10+(2*(.@r));
+      bonus2 bSkillAtk,"DK_SWORDFLURRY",10+(.@r);
   - Id: 24728
     AegisName: Devil_Arms_G
     Name: Devil Arms G
@@ -124445,7 +124444,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bSkillAtk,"MO_INVESTIGATE",10+(.@r);
-  - Id: 24731
+  - Id: 24731 #DK Rework
     AegisName: Heart_Darkness_A
     Name: Heart Darkness A
     Type: Shadowgear
@@ -124465,20 +124464,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSubDefEle,Ele_Dark,3*(.@r);
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
+      bonus2 bSubDefEle,Ele_Dark,5*(.@r);
   - Id: 24732
     AegisName: Heart_Darkness_G
     Name: Heart Darkness G
@@ -124499,21 +124485,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,(.@r)/2;
+      bonus2 bSubDefEle,Ele_Poison,1*(.@r);
       bonus bAspd,(.@r);
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
   - Id: 24733
     AegisName: Heart_Darkness_S
     Name: Heart Darkness S
@@ -124534,21 +124507,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bMatk,(.@r)/2;
+      bonus2 bSubDefEle,Ele_Neutral,1*(.@r);
       bonus bSpeedAddRate,(.@r);
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
   - Id: 24734
     AegisName: Heart_Darkness_P
     Name: Heart Darkness P
@@ -124568,20 +124528,9 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"RK_DEATHBOUND",-4900;
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
+      .@r = getrefine();
+      bonus2 bSubDefEle,Ele_Undead,1*(.@r);
+      bonus bHPrecovRate,50*(.@r);
   - Id: 24735
     AegisName: School_Cats_A
     Name: School Cats A

@@ -1743,8 +1743,18 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_CURSE, 3 * skill_lv, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 
+	case WL_HELLINFERNO: // Noirua 
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		break;
+
+	case DK_SWORDFLURRY: // Noirua
+		if ((sc->data[SC_OVERBRANDREADY]))
+		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
+		status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+		break;
+
 	case DK_SCOURGE: // New DK Skill
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 3000);
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
 		if (sd && skill_lv > 0 && pc_checkskill(sd, AB_ANCILLA) > 0) {
 			sc_start(src, bl, SC_BLEEDING, 20, skill_lv, skill_get_time2(skill_id, skill_lv));
 		}
@@ -5215,13 +5225,13 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	map_freeblock_lock();
 
 	switch (skill_id) {
+	case DK_SWORDFLURRY: // New DK Skills
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		break;
 	case MER_CRASH:
 	case SM_BASH:
 	case MS_BASH:
 	case MC_MAMMONITE:
-	case DK_SWORDFLURRY: // New DK Skills
-		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		break;
 	case TF_DOUBLE:
 	case AC_DOUBLE:
 	case MA_DOUBLE:
@@ -5360,8 +5370,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case LK_HEADCRUSH:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
-	case BA_MUSICALSTRIKE:
+	case BA_MUSICALSTRIKE: // Noirua
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
 		if (tsc && tsc->data[SC_FREEZE])
 			status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
