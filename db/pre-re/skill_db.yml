@@ -18797,7 +18797,7 @@ Body:
     HitCount: 1
     AfterCastActDelay: 2000
     Duration1: 180000
-    Duration2: 10000
+    Duration2: 15000
     Requires:
       SpCost:
         - Level: 1
