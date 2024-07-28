@@ -3703,7 +3703,7 @@ Body:
         - Level: 4
           Amount: 120
         - Level: 5
-          Amount: 140
+          Amount: 210
     Unit:
       Id: Dummyskill
       Layout: 2
@@ -13208,7 +13208,7 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
-    Duration1: 20000
+    Duration1: 360000
     Cooldown: 20000
     Requires:
       SpRateCost: 55
@@ -15113,7 +15113,7 @@ Body:
         - Level: 4
           Amount: 140
         - Level: 5
-          Amount: 200
+          Amount: 300
     Unit:
       Id: Dummyskill
       Layout: 2
@@ -15415,7 +15415,7 @@ Body:
         - Level: 4
           Amount: 220
         - Level: 5
-          Amount: 240
+          Amount: 360
     Unit:
       Id: Dummyskill
       Layout: 3
@@ -15585,7 +15585,7 @@ Body:
         - Level: 9
           Amount: 220
         - Level: 10
-          Amount: 240
+          Amount: 360
     Unit:
       Id: Dummyskill
       Layout:
@@ -19295,6 +19295,8 @@ Body:
     MaxLevel: 5
     Type: Magic
     TargetType: Ground
+    Flags:
+      IsAutoShadowSpell: true
     DamageFlags:
       Splash: true
     Range: 11
