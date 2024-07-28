@@ -35786,8 +35786,8 @@ Body:
       DropEffect: YELLOW_PILLAR
     Script: | #Unique card for Tyrfing. Description is intentionally vague in-game.
       if(getequipid(EQI_HAND_R) == 1139) {
-         bonus2 bSkillCooldown,"WL_HELLINFERNO",-2000;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-2000;
+         bonus2 bSkillCooldown,"DK_SWORDFLURRY",-2000;
+         bonus2 bSkillCooldown,"DK_SCOURGE",-2000;
          bonus2 bSkillCooldown,"BA_MUSICALSTRIKE",-2000;
          bonus2 bSkillAtk,"SP_CURSEEXPLOSION",25;
          bonus2 bSkillAtk,"NPC_GRANDDARKNESS",25;
