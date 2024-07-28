@@ -60378,7 +60378,7 @@ Body:
         Rate: 500
         RandomOptionGroup: armor
       - Item: Dream_Pouch
-        Rate: 1000
+        Rate: 300
   - Id: 2656
     AegisName: C1_SLEEPER
     Name: Converted Zealot
@@ -60429,7 +60429,7 @@ Body:
         Rate: 500
         RandomOptionGroup: manual
       - Item: Dream_Pouch
-        Rate: 1000
+        Rate: 300
   - Id: 2657
     AegisName: C2_SKOGUL
     Name: Godly Seeker
