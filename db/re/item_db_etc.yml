@@ -1,4 +1,4 @@
-# This file is a part of rAthena.
+bonus2 bSkillCooldown,"TK_JUMPKICK",-100;# This file is a part of rAthena.
 #   Copyright(C) 2021 rAthena Development Team
 #   https://rathena.org - https://github.com/rathena
 #
@@ -7963,6 +7963,7 @@ Body:
       DropEffect: YELLOW_PILLAR
     Script: |
       bonus2 bSkillAtk,"TK_JUMPKICK",10;
+      bonus2 bSkillCooldown,"TK_JUMPKICK",-100;
   - Id: 4374
     AegisName: Vesper_Card
     Name: Vesper Card
