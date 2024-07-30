@@ -15,8 +15,51 @@ front_out,232,180,4	script	Kafra#front	117,{
 	mes "I'm the only Kafra working in Maroll.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -27,7 +70,7 @@ front_out,232,180,4	script	Kafra#front	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -35,7 +78,7 @@ front_out,232,180,4	script	Kafra#front	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location, for 1000z.";
 		next;
@@ -67,49 +110,6 @@ front_out,232,180,4	script	Kafra#front	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -130,8 +130,51 @@ dewata,198,184,4	script	Kafra#dew	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -142,7 +185,7 @@ dewata,198,184,4	script	Kafra#dew	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -150,7 +193,7 @@ dewata,198,184,4	script	Kafra#dew	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -182,49 +225,6 @@ dewata,198,184,4	script	Kafra#dew	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -249,8 +249,51 @@ prontera,156,182,4	script	Kafra#Prontera	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Guild Menu:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Guild Menu:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -261,7 +304,7 @@ prontera,156,182,4	script	Kafra#Prontera	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -269,7 +312,7 @@ prontera,156,182,4	script	Kafra#Prontera	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -411,96 +454,53 @@ prontera,156,182,4	script	Kafra#Prontera	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
-	if (getskilllv("GD_KAFRACONTRACT") < 1) {
-	mes "[Kafra]";
-	mes "I can't provide you with Guild Services, sorry!";
-	close2;
-	cutin "",255;
-	end;
-	}
-	switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
-	case 1:
-	if (getskilllv("GD_GUILD_STORAGE") < 1) {
-	mes "You don't have access to the guild storage, sorry!";
-	close2;
-	cutin "",255;
-	end;
-	}
-	next;
-	mes "[Kafra Service]";
-	mes "The Storage won't open if someone is using it or you don't have permission ok?";	
-	close2;
-	cutin "",255;
-	guildopenstorage();
-	end;
-	case 2:
-	close2;
-	cutin "",255;
-	callshop "toolorphanshop",0;
-	end;
-	case 3:
-	close2;
-	cutin "",255;
-	percentheal 100,100;
-	specialeffect2 EF_HEAL2;
-	end;
-	case 4:
-	mes "[Kafra Service]";
-	mes "The War of Emperium is not happening right now.";
-	cutin "",255;
-	close;
-	case 5:
-		mes "[Kafra Service]";
-		mes "Let me know if you change your mind!";
-		mes "Thanks for your patronage!";
-		cutin "",255;
-		close;
-		break;
-	}
+		if (getskilllv("GD_KAFRACONTRACT") < 1) {
+			mes "[Kafra]";
+			mes "I can't provide you with Guild Services, sorry!";
+			close2;
+			cutin "",255;
+			end;
+		}
+		switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
+			case 1:
+				if (getskilllv("GD_GUILD_STORAGE") < 1) {
+					mes "You don't have access to the guild storage, sorry!";
+					close2;
+					cutin "",255;
+					end;
+				}
+				next;
+				mes "[Kafra Service]";
+				mes "The Storage won't open if someone is using it or you don't have permission ok?";
+				close2;
+				cutin "",255;
+				guildopenstorage();
+				end;
+			case 2:
+				close2;
+				cutin "",255;
+				callshop "toolorphanshop",0;
+				end;
+			case 3:
+				close2;
+				cutin "",255;
+				percentheal 100,100;
+				specialeffect2 EF_HEAL2;
+				end;
+			case 4:
+				mes "[Kafra Service]";
+				mes "The War of Emperium is not happening right now.";
+				cutin "",255;
+				close;
+			case 5:
+				mes "[Kafra Service]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				cutin "",255;
+				close;
+				break;
+			}
 	case 6:
 		mes "[Kafra Service]";
 		mes "Let me know if you change your mind!";
@@ -521,8 +521,51 @@ payon,178,103,4	script	Kafra#Payon	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -533,7 +576,7 @@ payon,178,103,4	script	Kafra#Payon	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -541,7 +584,7 @@ payon,178,103,4	script	Kafra#Payon	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -625,49 +668,6 @@ payon,178,103,4	script	Kafra#Payon	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -688,8 +688,51 @@ morocc,161,98,4	script	Kafra#Morroc	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -700,7 +743,7 @@ morocc,161,98,4	script	Kafra#Morroc	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -708,7 +751,7 @@ morocc,161,98,4	script	Kafra#Morroc	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -802,49 +845,6 @@ morocc,161,98,4	script	Kafra#Morroc	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -865,8 +865,51 @@ geffen,120,67,4	script	Kafra#gef	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -877,7 +920,7 @@ geffen,120,67,4	script	Kafra#gef	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -885,7 +928,7 @@ geffen,120,67,4	script	Kafra#gef	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -979,49 +1022,6 @@ geffen,120,67,4	script	Kafra#gef	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -1042,8 +1042,51 @@ alberta,113,60,4	script	Kafra#alb	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -1054,7 +1097,7 @@ alberta,113,60,4	script	Kafra#alb	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -1062,7 +1105,7 @@ alberta,113,60,4	script	Kafra#alb	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -1156,49 +1199,6 @@ alberta,113,60,4	script	Kafra#alb	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -1219,8 +1219,51 @@ izlude,128,146,4	script	Kafra#izl	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -1231,7 +1274,7 @@ izlude,128,146,4	script	Kafra#izl	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -1239,7 +1282,7 @@ izlude,128,146,4	script	Kafra#izl	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -1333,49 +1376,6 @@ izlude,128,146,4	script	Kafra#izl	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -1397,8 +1397,51 @@ aldebaran,145,113,4	script	Kafra#adb	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -1409,7 +1452,7 @@ aldebaran,145,113,4	script	Kafra#adb	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -1417,7 +1460,7 @@ aldebaran,145,113,4	script	Kafra#adb	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -1472,49 +1515,6 @@ aldebaran,145,113,4	script	Kafra#adb	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -1535,8 +1535,51 @@ xmas,149,132,4	script	Kafra#xmas	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -1547,7 +1590,7 @@ xmas,149,132,4	script	Kafra#xmas	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -1555,7 +1598,7 @@ xmas,149,132,4	script	Kafra#xmas	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -1587,49 +1630,6 @@ xmas,149,132,4	script	Kafra#xmas	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -1650,8 +1650,51 @@ comodo,209,143,4	script	Kafra#cmd	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -1662,7 +1705,7 @@ comodo,209,143,4	script	Kafra#cmd	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -1670,7 +1713,7 @@ comodo,209,143,4	script	Kafra#cmd	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -1745,49 +1788,6 @@ comodo,209,143,4	script	Kafra#cmd	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -1812,8 +1812,51 @@ yuno,169,80,4	script	Kafra#yuno	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Guild Menu:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Guild Menu:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -1824,7 +1867,7 @@ yuno,169,80,4	script	Kafra#yuno	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -1832,7 +1875,7 @@ yuno,169,80,4	script	Kafra#yuno	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -1896,95 +1939,52 @@ yuno,169,80,4	script	Kafra#yuno	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break;
 	case 5:
 	if (getskilllv("GD_KAFRACONTRACT") < 1) {
-	mes "[Kafra]";
-	mes "I can't provide you with Guild Services, sorry!";
-	close2;
-	cutin "",255;
-	end;
+		mes "[Kafra]";
+		mes "I can't provide you with Guild Services, sorry!";
+		close2;
+		cutin "",255;
+		end;
 	}
 	switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
-	case 1:
-	if (getskilllv("GD_GUILD_STORAGE") < 1) {
-	mes "You don't have access to the guild storage, sorry!";
-	close2;
-	cutin "",255;
-	end;
-	}
-	next;
-	mes "[Kafra Service]";
-	mes "The Storage won't open if someone is using it or you don't have permission ok?";	
-	close2;
-	cutin "",255;
-	guildopenstorage();
-	end;
-	case 2:
-	close2;
-	cutin "",255;
-	callshop "toolorphanshop",0;
-	end;
-	case 3:
-	close2;
-	cutin "",255;
-	percentheal 100,100;
-	specialeffect2 EF_HEAL2;
-	end;
-	case 4:
-	mes "[Kafra Service]";
-	mes "The War of Emperium is not happening right now.";
-	cutin "",255;
-	close;
-	case 5:
-		mes "[Kafra Service]";
-		mes "Let me know if you change your mind!";
-		mes "Thanks for your patronage!";
-		cutin "",255;
-		close;
-		break;
+		case 1:
+			if (getskilllv("GD_GUILD_STORAGE") < 1) {
+				mes "You don't have access to the guild storage, sorry!";
+				close2;
+				cutin "",255;
+				end;
+			}
+			next;
+			mes "[Kafra Service]";
+			mes "The Storage won't open if someone is using it or you don't have permission ok?";
+			close2;
+			cutin "",255;
+			guildopenstorage();
+			end;
+		case 2:
+			close2;
+			cutin "",255;
+			callshop "toolorphanshop",0;
+			end;
+		case 3:
+			close2;
+			cutin "",255;
+			percentheal 100,100;
+			specialeffect2 EF_HEAL2;
+			end;
+		case 4:
+			mes "[Kafra Service]";
+			mes "The War of Emperium is not happening right now.";
+			cutin "",255;
+			close;
+		case 5:
+			mes "[Kafra Service]";
+			mes "Let me know if you change your mind!";
+			mes "Thanks for your patronage!";
+			cutin "",255;
+			close;
+			break;
 	}
 	case 6:
 		mes "[Kafra]";
@@ -2006,8 +2006,51 @@ amatsu,206,112,4	script	Kafra#ama	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2018,7 +2061,7 @@ amatsu,206,112,4	script	Kafra#ama	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2026,7 +2069,7 @@ amatsu,206,112,4	script	Kafra#ama	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2071,49 +2114,6 @@ amatsu,206,112,4	script	Kafra#ama	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2134,8 +2134,51 @@ umbala,99,154,4	script	Kafra#umb	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2146,7 +2189,7 @@ umbala,99,154,4	script	Kafra#umb	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2154,7 +2197,7 @@ umbala,99,154,4	script	Kafra#umb	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2199,49 +2242,6 @@ umbala,99,154,4	script	Kafra#umb	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2266,8 +2266,51 @@ niflheim,196,188,4	script	Kafra#nif	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2278,7 +2321,7 @@ niflheim,196,188,4	script	Kafra#nif	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2286,7 +2329,7 @@ niflheim,196,188,4	script	Kafra#nif	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2308,49 +2351,6 @@ niflheim,196,188,4	script	Kafra#nif	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2371,8 +2371,51 @@ ayothaya,216,184,4	script	Kafra#ayo	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2383,7 +2426,7 @@ ayothaya,216,184,4	script	Kafra#ayo	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2391,7 +2434,7 @@ ayothaya,216,184,4	script	Kafra#ayo	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2436,49 +2479,6 @@ ayothaya,216,184,4	script	Kafra#ayo	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2499,8 +2499,51 @@ malaya,236,201,4	script	Kafra#mal	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2511,7 +2554,7 @@ malaya,236,201,4	script	Kafra#mal	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2519,7 +2562,7 @@ malaya,236,201,4	script	Kafra#mal	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2564,49 +2607,6 @@ malaya,236,201,4	script	Kafra#mal	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2628,8 +2628,51 @@ einbroch,233,216,4	script	Kafra#einb	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2640,7 +2683,7 @@ einbroch,233,216,4	script	Kafra#einb	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2648,7 +2691,7 @@ einbroch,233,216,4	script	Kafra#einb	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2702,49 +2745,6 @@ einbroch,233,216,4	script	Kafra#einb	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2765,8 +2765,51 @@ einbech,189,139,4	script	Kafra#bech	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2777,7 +2820,7 @@ einbech,189,139,4	script	Kafra#bech	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2785,7 +2828,7 @@ einbech,189,139,4	script	Kafra#bech	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2839,49 +2882,6 @@ einbech,189,139,4	script	Kafra#bech	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -2902,8 +2902,51 @@ lighthalzen,154,98,4	script	Kafra#lhz	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -2914,7 +2957,7 @@ lighthalzen,154,98,4	script	Kafra#lhz	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -2922,7 +2965,7 @@ lighthalzen,154,98,4	script	Kafra#lhz	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -2976,49 +3019,6 @@ lighthalzen,154,98,4	script	Kafra#lhz	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -3039,8 +3039,51 @@ hugel,101,147,4	script	Kafra#hug	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -3051,7 +3094,7 @@ hugel,101,147,4	script	Kafra#hug	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -3059,7 +3102,7 @@ hugel,101,147,4	script	Kafra#hug	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -3113,49 +3156,6 @@ hugel,101,147,4	script	Kafra#hug	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -3180,8 +3180,51 @@ rachel,139,144,4	script	Kafra#rch	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Use Guild Menu:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Use Guild Menu:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -3192,7 +3235,7 @@ rachel,139,144,4	script	Kafra#rch	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -3200,7 +3243,7 @@ rachel,139,144,4	script	Kafra#rch	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -3224,96 +3267,54 @@ rachel,139,144,4	script	Kafra#rch	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
-	case 5:
-	if (getskilllv("GD_KAFRACONTRACT") < 1) {
-	mes "[Kafra]";
-	mes "I can't provide you with Guild Services, sorry!";
-	close2;
-	cutin "",255;
-	end;
-	}
-	switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
-	case 1:
-	if (getskilllv("GD_GUILD_STORAGE") < 1) {
-	mes "You don't have access to the guild storage, sorry!";
-	close2;
-	cutin "",255;
-	end;
-	}
-	next;
-	mes "[Kafra Service]";
-	mes "The Storage won't open if someone is using it or you don't have permission ok?";	
-	close2;
-	cutin "",255;
-	guildopenstorage();
-	end;
-	case 2:
-	close2;
-	cutin "",255;
-	callshop "toolorphanshop",0;
-	end;
-	case 3:
-	close2;
-	cutin "",255;
-	percentheal 100,100;
-	specialeffect2 EF_HEAL2;
-	end;
-	case 4:
-	mes "[Kafra Service]";
-	mes "The War of Emperium is not happening right now.";
-	cutin "",255;
-	close;
-	case 5:
-		mes "[Kafra Service]";
-		mes "Let me know if you change your mind!";
-		mes "Thanks for your patronage!";
-		cutin "",255;
-		close;
-		break;
-	}
+
+		case 5:
+			if (getskilllv("GD_KAFRACONTRACT") < 1) {
+				mes "[Kafra]";
+				mes "I can't provide you with Guild Services, sorry!";
+				close2;
+				cutin "",255;
+				end;
+			}
+		switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
+			case 1:
+			if (getskilllv("GD_GUILD_STORAGE") < 1) {
+				mes "You don't have access to the guild storage, sorry!";
+				close2;
+				cutin "",255;
+				end;
+			}
+			next;
+			mes "[Kafra Service]";
+			mes "The Storage won't open if someone is using it or you don't have permission ok?";
+			close2;
+			cutin "",255;
+			guildopenstorage();
+			end;
+			case 2:
+				close2;
+				cutin "",255;
+				callshop "toolorphanshop",0;
+				end;
+			case 3:
+				close2;
+				cutin "",255;
+				percentheal 100,100;
+				specialeffect2 EF_HEAL2;
+				end;
+			case 4:
+				mes "[Kafra Service]";
+				mes "The War of Emperium is not happening right now.";
+				cutin "",255;
+				close;
+			case 5:
+				mes "[Kafra Service]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				cutin "",255;
+				close;
+				break;
+			}
 	case 6:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -3338,8 +3339,51 @@ mora,56,149,4	script	Kafra#mora	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -3350,7 +3394,7 @@ mora,56,149,4	script	Kafra#mora	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -3358,7 +3402,7 @@ mora,56,149,4	script	Kafra#mora	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -3394,49 +3438,6 @@ mora,56,149,4	script	Kafra#mora	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -3457,8 +3458,51 @@ moscovia,227,196,4	script	Kafra#mosk	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport - 3000z:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -3469,7 +3513,7 @@ moscovia,227,196,4	script	Kafra#mosk	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -3477,7 +3521,7 @@ moscovia,227,196,4	script	Kafra#mosk	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
 		next;
@@ -3522,49 +3566,6 @@ moscovia,227,196,4	script	Kafra#mosk	117,{
 				close;
 				break;
 		}
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
@@ -3589,8 +3590,51 @@ nomadvill,152,149,4	script	Kafra#nomad	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Save:Use Storage:Teleport to Orphanage:Refill Elixir:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport to Orphanage:Nothing")) {
 	case 1:
+		specialeffect2 305;
+		mes .@npc$;
+		if(countitem(520) >= 1) {
+			set .elixir, countitem(520);
+			delitem 520,.elixir;
+		}
+		getitem 520,3;
+		if (getequipid(EQI_ACC_L) == 2935){
+			getitem 520,1;
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			getitem 520,3;
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			getitem 520,2;
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			getitem 520,6;
+		}
+		if (bonuselixir ==1) {
+			getitem 520,1;
+		}
+		mes "[Kafra]";
+		mes "I have refilled your Kafra Elixir. Take Care!";
+		if (getequipid(EQI_ACC_L) == 2935){
+			mes "I added +1 extra due to that cool Badge!";
+		}
+		if (getequipid(EQI_GARMENT) == 2576){
+			mes "I added +3 extra due to that large backpack you're carrying!";
+		}
+		if (getequipid(EQI_HEAD_TOP) == 18533){
+			mes "I added +2 extra due to that sweet hat!";
+		}
+		if (getequipid(EQI_ARMOR) == 2386){
+			mes "I added +6 extra since those robes have so many pockets!";
+		}
+		if (bonuselixir == 1){
+			mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
+		}
+		close2;
+		cutin "",255;
+		break;
+	case 2:
 		mes "[Kafra]";
 		mes "Your Save Point has been set at your current location!";
 		next;
@@ -3601,7 +3645,7 @@ nomadvill,152,149,4	script	Kafra#nomad	117,{
 		close2;
 		cutin "",255;
 		break;
-	case 2:
+	case 3:
 		mes "[Kafra]";
 		mes "I'll access your Storage for you.";
 		mes "Thank you for hiring our services!";
@@ -3609,7 +3653,7 @@ nomadvill,152,149,4	script	Kafra#nomad	117,{
 		openstorage;
 		cutin "",255;
 		break;
-	case 3:
+	case 4:
 		mes "[Kafra]";
 		mes "Good Luck Orphan!";
 		close2;
@@ -3617,49 +3661,7 @@ nomadvill,152,149,4	script	Kafra#nomad	117,{
 		warp "va_orpha",266,308;
 		end;
 		break;
-	case 4:
-    specialeffect2 305;
-    mes .@npc$;
-    if(countitem(520) >= 1) {
-    set .elixir, countitem(520);
-    delitem 520,.elixir;
-    }
-    getitem 520,3;
-    if (getequipid(EQI_ACC_L) == 2935){
-    getitem 520,1;
-    }
-	 if (getequipid(EQI_GARMENT) == 2576){
-    getitem 520,3;
-    }
-	 if (getequipid(EQI_HEAD_TOP) == 18533){
-	getitem 520,2;
-    }
-	 if (getequipid(EQI_ARMOR) == 2386){
-	getitem 520,6;
-    }
-	 if (bonuselixir ==1) {
-	getitem 520,1;
-    }
-	mes "[Kafra]";
-    mes "I have refilled your Kafra Elixir. Take Care!";
-	 if (getequipid(EQI_ACC_L) == 2935){
-	mes "I added +1 extra due to that cool Badge!";
-	 }
-	  if (getequipid(EQI_GARMENT) == 2576){
-	mes "I added +3 extra due to that large backpack you're carrying!";
-	 }
-	if (getequipid(EQI_HEAD_TOP) == 18533){
-	mes "I added +2 extra due to that sweet hat!";
-	}
-	if (getequipid(EQI_ARMOR) == 2386){
-	mes "I added +6 extra since those robes have so many pockets!";
-	}
-	if (bonuselixir == 1){
-	mes "I added +1 extra for bringing back Allysia's Ring! Thanks for it!";
-	 }
-	close2;
-    cutin "",255;
-    break; 
+
 	case 5:
 		mes "[Kafra]";
 		mes "Let me know if you change your mind!";
