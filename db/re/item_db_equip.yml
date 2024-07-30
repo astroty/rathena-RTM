@@ -1881,7 +1881,7 @@ Body:
       bonus bAtkRate,4;
   - Id: 1150
     AegisName: Relic_Claymore
-    Name: Relic Claymore #DK Rework
+    Name: Relic Claymore #DK Rework #Removed 1% leech power at 100% rate, enables leech items too early. 
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -1906,11 +1906,10 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |  #Made it more of a poison themed weapon. Small % life leech added and high refine bonus damage. Increased veng cooldown until +9
+    Script: |  #Made it more of a poison themed weapon.  High refine bonus damage. Increased veng cooldown until +9
       bonus bHPDrainValue,100;
       bonus4 bAutoSpellOnSkill,"SM_BASH","NPC_CLOUD_KILL",1,1000;
       bonus bShortWeaponDamageReturn,5;
-      bonus2 bHPDrainRate,1000,1;
       bonus2 bSkillCooldown,"SM_BASH",2000;
       bonus bAtkEle,Ele_Poison;
       .@r = getrefine();
@@ -3123,7 +3122,7 @@ Body:
       bonus2 bAddEff,Eff_Burning,200*.@r;
   - Id: 1185
     AegisName: Sea_King
-    Name: Sea King #DK Rework
+    Name: Sea King #DK Rework, this is the Twilight Edge Knight Sword in-game. #Fixed refine bonuses to sync with Cold Embrace
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -3174,13 +3173,13 @@ Body:
          bonus2 bSkillAtk,"WL_HELLINFERNO",75;
          bonus2 bSkillAtk,"NC_COLDSLOWER",400;
          bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-5000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-4000;
          }
       if (.@r >= 10) {
          bonus2 bSkillAtk,"WL_HELLINFERNO",100;
          bonus2 bSkillAtk,"NC_COLDSLOWER",75;
-         bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-5000;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-3000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-3000;
          }         
       skill "WL_HELLINFERNO",.@r;
       skill "NC_COLDSLOWER",(.@r)/2;
@@ -67046,7 +67045,7 @@ Body:
       bonus bHPrecovRate,60;
   - Id: 13411
     AegisName: Darkness_Metal_S
-    Name: Darkness Metal S #DK Rework
+    Name: Darkness Metal S #DK Rework #Removed 100% leech rate. Buffed HP regen rate per refine
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -67071,7 +67070,7 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |  #Turned it into an actual electrically charged raiding claymore, heavy refine bonus. pairs with gwisin warrior cards and tiny life steal
+    Script: |  #Turned it into an actual electrically charged raiding claymore, heavy refine bonus. pairs with gwisin warrior cards.
       bonus2 bSkillCooldown,"TK_JUMPKICK",-800;
       bonus2 bSkillAtk,"TK_JUMPKICK",200;
       .@r = getrefine();
@@ -67081,11 +67080,10 @@ Body:
          bonus2 bSkillAtk,"TK_JUMPKICK",100;
          }
       bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SO_PSYCHIC_WAVE",1,1000;
-      bonus2 bHPDrainRate,1000,1;
-      bonus bHPrecovRate,20*.@r;
+      bonus bHPrecovRate,50*.@r;
   - Id: 13412
     AegisName: Twin_Edge_B
-    Name: Twin Edge of Naght Sieger #DK Rework this replaced the Sea_King drop.
+    Name: Twin Edge of Naght Sieger #DK Rework, this replaced the Sea_King drop from Siren.
     Type: Weapon
     SubType: 1hSword
     Buy: 20
