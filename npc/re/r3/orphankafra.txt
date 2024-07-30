@@ -28,7 +28,7 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Refill Elixir:Save:Use Storage:Teleport:Tell me about yourself:Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport:Guild Menu:Tell me about yourself:Nothing")) {
 		case 1:
 			if (achiev4 ==0 ){
 				achievementcomplete(200024);
@@ -1300,7 +1300,54 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 				cutin "",255;
 				end;
 			}
-		case 5:
+	case 5:
+		if (getskilllv("GD_KAFRACONTRACT") < 1) {
+			mes "[Kafra]";
+			mes "I can't provide you with Guild Services, sorry!";
+			close2;
+			cutin "",255;
+			end;
+		}
+		switch(select("Use Guild Storage:Tool Dealer:Heal:Teleport to WoE:Nothing")) {
+			case 1:
+				if (getskilllv("GD_GUILD_STORAGE") < 1) {
+					mes "You don't have access to the guild storage, sorry!";
+					close2;
+					cutin "",255;
+					end;
+				}
+				next;
+				mes "[Kafra Service]";
+				mes "The Storage won't open if someone is using it or you don't have permission ok?";
+				close2;
+				cutin "",255;
+				guildopenstorage();
+				end;
+			case 2:
+				close2;
+				cutin "",255;
+				callshop "toolorphanshop",0;
+				end;
+			case 3:
+				close2;
+				cutin "",255;
+				percentheal 100,100;
+				specialeffect2 EF_HEAL2;
+				end;
+			case 4:
+				mes "[Kafra Service]";
+				mes "The War of Emperium is not happening right now.";
+				cutin "",255;
+				close;
+			case 5:
+				mes "[Kafra Service]";
+				mes "Let me know if you change your mind!";
+				mes "Thanks for your patronage!";
+				cutin "",255;
+				close;
+				break;
+			}
+		case 6:
 		if(countitem(1065) >= 1) {
 			if (bonuselixir !=1) {
 			emotion ET_SURPRISE;
@@ -1358,7 +1405,7 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 			cutin "",255;
 			close;
 			break;
-		case 6:
+		case 7:
 			mes "[Kafra Allysia]";
 			mes "Let me know if you change your mind!";
 			mes "Thanks for your patronage!";
