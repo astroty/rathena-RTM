@@ -11223,7 +11223,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      if (!(getequipcardid(EQI_HEAD_MID,0) == getequipcardid(EQI_HEAD_MID,1)))
+      if (getequipcardid(EQI_HEAD_MID,0) != getequipcardid(EQI_HEAD_MID,1))
       {
         bonus bASPDCap,2;
         bonus bMaxHPrate,-10;
