@@ -1522,6 +1522,24 @@ va_orpha,383,205,4	script	Mary Cenia#orphanage	10122,{
 			close;
 	}
 }
+
+va_orpha,286,342,4	script	Stuff Tester	810,{
+	.@slot = EQI_HEAD_MID;
+	mes "Checking your head...";
+	if (getequipisequiped(.@slot)) {
+		.@id = getequipid(.@slot);
+		.@ref = getequiprefinerycnt(.@slot);
+		mes "Your hat is... " + getitemname(.@id) + "...";
+		if (.@ref)
+			mes "It has been refined " + .@ref + " times.";
+		mes "Card Slot 0:" + getequipcardid(.@slot,0) + " 1:" + getequipcardid(.@slot,1);
+		mes "Card Slot 2:" + getequipcardid(.@slot,2) + " 3:" + getequipcardid(.@slot,3);
+		close;
+	}
+	mes "Nothing?";
+	emotion ET_SCRATCH;
+	close;
+}
 	
 va_orpha,276,342,4	script	Amadeus Windsor#orphanage	10085,{
 	cutin "ep15_rekenber01",2;
