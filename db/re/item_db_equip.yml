@@ -1437,7 +1437,7 @@ Body:
       bonus bNoWalkDelay;
   - Id: 1139
     AegisName: Tyrfing
-    Name: Tyrfing #DK Rework
+    Name: Tyrfing #DK Rework #Added 2k flat HP drain at +9 and +10 retains 10% additional leech power.
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -1497,6 +1497,7 @@ Body:
          bonus2 bSkillAtk,"NPC_GRANDDARKNESS",100;
          bonus2 bSkillAtk,"SP_CURSEEXPLOSION",175;
          bonus2 bSkillCooldown,"SM_BASH",500;
+         bonus2 bHPDrainRate,1000,10;
          bonus2 bHPLossRate,800,700;
          }
       if (.@r >= 10) {
@@ -1505,7 +1506,7 @@ Body:
          bonus2 bSkillAtk,"MO_INVESTIGATE",15;
          bonus2 bSkillAtk,"NPC_BLOODDRAIN",20;
          bonus2 bSkillAtk,"NPC_GRANDDARKNESS",75;
-         bonus2 bHPDrainRate,1000,10;
+         bonus bHPDrainValue,2000;
          skill "AL_INCAGI",10;
          bonus bAspd,20;
          }
@@ -1906,14 +1907,13 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |  #Made it more of a poison themed weapon. Small % life leech added and high refine bonus damage. Increased veng cooldown until +9
-      bonus bHPDrainValue,100;
+    Script: |  #Made it more of a poison themed weapon. HP Drain now scales per 2 refines. 1% leech power removed.
+     .@r = getrefine();
+      bonus bHPDrainValue,20*(.@r/2);
       bonus4 bAutoSpellOnSkill,"SM_BASH","NPC_CLOUD_KILL",1,1000;
       bonus bShortWeaponDamageReturn,5;
-      bonus2 bHPDrainRate,1000,1;
       bonus2 bSkillCooldown,"SM_BASH",2000;
       bonus bAtkEle,Ele_Poison;
-      .@r = getrefine();
       if (.@r >= 9) {
          bonus2 bSkillAtk,"NPC_CLOUD_KILL",300;
          bonus2 bSkillCooldown,"SM_BASH",-2000;
@@ -3123,7 +3123,7 @@ Body:
       bonus2 bAddEff,Eff_Burning,200*.@r;
   - Id: 1185
     AegisName: Sea_King
-    Name: Sea King #DK Rework
+    Name: Sea King #DK Rework #fixed refine bonuses to pair accordingly with Cold Embrace. Changed Def pierce to mdef pierce. tiny buff to conflag damage on refine 3
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -3153,16 +3153,19 @@ Body:
     Refineable: true 
     Flags:
       DropEffect: RED_PILLAR
-    Script: | #reworked to fit the more auxiliry skills of DK. Heavy refine investment. An experimental knight sword implementation
-      bonus2 bIgnoreDefRaceRate,RC_All,15;
+    Script: | #reworked to fit the more auxiliry skills of DK. Heavy refine investment. replaced leech % for drain values.
+      bonus2 bIgnoreMdefRaceRate,RC_All,15;
       bonus4 bAutoSpellOnSkill,"RK_DEATHBOUND","NPC_IGNITIONBREAK",5,1000;
       bonus4 bAutoSpellOnSkill,"PR_GLORIA","NPC_DRAGONFEAR",5,1000;
       bonus2 bSkillAtk,"WL_HELLINFERNO",25;
       bonus2 bSkillAtk,"NC_COLDSLOWER",25;
-      bonus2 bHPDrainRate,1000,5;
+      bonus bHPDrainValue,450;
+      bonus bSPDrainValue,45;
+      bonus bLongSPGainValue,50;
+      bonus bMagicSPGainValue,50;
       .@r = getrefine();
       if (.@r >= 3) {
-         bonus2 bSkillAtk,"WL_HELLINFERNO",50;
+         bonus2 bSkillAtk,"WL_HELLINFERNO",75;
          bonus2 bSkillAtk,"NC_COLDSLOWER",75;
          }
       if (.@r >= 6) {
@@ -3174,13 +3177,13 @@ Body:
          bonus2 bSkillAtk,"WL_HELLINFERNO",75;
          bonus2 bSkillAtk,"NC_COLDSLOWER",400;
          bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-5000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-4000;
          }
       if (.@r >= 10) {
          bonus2 bSkillAtk,"WL_HELLINFERNO",100;
          bonus2 bSkillAtk,"NC_COLDSLOWER",75;
-         bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
-         bonus2 bSkillCooldown,"NC_COLDSLOWER",-5000;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-3000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-3000;
          }         
       skill "WL_HELLINFERNO",.@r;
       skill "NC_COLDSLOWER",(.@r)/2;
@@ -67045,7 +67048,7 @@ Body:
       bonus bHPrecovRate,60;
   - Id: 13411
     AegisName: Darkness_Metal_S
-    Name: Darkness Metal S #DK Rework
+    Name: Darkness Metal S #DK Rework #1% leech removed, hp regen per refine increased
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -67070,7 +67073,7 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |  #Turned it into an actual electrically charged raiding claymore, heavy refine bonus. pairs with gwisin warrior cards and tiny life steal
+    Script: |  #Turned it into an actual electrically charged raiding claymore, heavy refine bonus. pairs with gwisin warrior cards
       bonus2 bSkillCooldown,"TK_JUMPKICK",-800;
       bonus2 bSkillAtk,"TK_JUMPKICK",200;
       .@r = getrefine();
@@ -67080,11 +67083,10 @@ Body:
          bonus2 bSkillAtk,"TK_JUMPKICK",100;
          }
       bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SO_PSYCHIC_WAVE",1,1000;
-      bonus2 bHPDrainRate,1000,1;
-      bonus bHPrecovRate,20*.@r;
+      bonus bHPrecovRate,50*.@r;
   - Id: 13412
     AegisName: Twin_Edge_B
-    Name: Twin Edge of Naght Sieger #DK Rework this replaced the Sea_King drop.
+    Name: Twin Edge of Naght Sieger #DK Rework this replaced the Sea_King drop from Siren
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -124340,7 +124342,7 @@ Body:
       bonus2 bSkillAtk,"WL_HELLINFERNO",2*(.@r);
   - Id: 24726
     AegisName: Cold_Embrace_P
-    Name: Cold Embrace P
+    Name: Cold Embrace P #Changed Shatter Cross dmg to Death Bound cooldown reduction to make use of Ignition Break.
     Type: Shadowgear
     Buy: 2000
     Weight: 100
@@ -124358,7 +124360,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"BA_MUSICALSTRIKE",2*(.@r);
+      bonus2 bSkillCooldown,"RK_DEATHBOUND",-400*(.@r);
   - Id: 24727 #DK Rework
     AegisName: Devil_Arms_A
     Name: Devil Arms A
