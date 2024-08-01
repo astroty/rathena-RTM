@@ -439,7 +439,7 @@ assas_03,140,63,3	script	Duelist#guild	803,{
 		mes "You need to use those skill points first.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
 	mes "Why don't you go and train a little more before trying to take the next step? Maybe Job Level 50 is a good start.";
 	close;
@@ -450,8 +450,9 @@ assas_03,140,63,3	script	Duelist#guild	803,{
 	mes .@npc$;
 	mes "A Duelist is a strong warrior who takes the front when needed. Don't let anyone tell you otherwise!";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Stalker;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
