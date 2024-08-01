@@ -166,9 +166,9 @@ assas_03,19,64,3	script	Blade Dancer#guild	998,{
 		mes "You still have skill points. So you haven't mastered your skills as an Assassin.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "Not yet, Orphan. You need to master your basic skills first. Why not return to me once you're job level 50?";
+	mes "Not yet, Orphan. You need to master your basic skills first. Why not return to me once you're job level 40?";
 	close;
 	}
 	mes .@npc$;
@@ -177,13 +177,15 @@ assas_03,19,64,3	script	Blade Dancer#guild	998,{
 	mes .@npc$;
 	mes "A Blade Dancer shall let their weapons speak and dance around, while enemies have no chance to react. Use this power well.";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Assassin_Cross;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set bladedancerjob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "There we go! This long coat will help you conceal your blades, and the belts will keep your body working under pressure even if you're wounded. Not that I expect you to get hurt.";
 	next;
@@ -255,9 +257,9 @@ assas_03,114,131,3	script	Saboteur#guild	750,{
 		mes "You still have skill points. I know, they are not as cool as explosives, but yeah...protocol.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "I can't let you use explosives that strong if you're not ready. Why don't you come back once you're job level 50?";
+	mes "I can't let you use explosives that strong if you're not ready. Why don't you come back once you're job level 40?";
 	close;
 	}
 	mes .@npc$;
@@ -266,13 +268,15 @@ assas_03,114,131,3	script	Saboteur#guild	750,{
 	mes .@npc$;
 	mes "A Saboteur is a strong member of any team. Specially if this team needs some...fire...power...HAHAHAHA!";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Creator;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set saboteurjob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "There you go...No, no, don't wear that jacket! Just leave it hanging on your back, it'll look cooler...also...easier for you to hide your stuff on your back!";
 	next;
@@ -347,9 +351,9 @@ assas_03,29,33,3	script	Scoundrel#guild	997,{
 		mes "Spend your skill points. You need to know the basics to learn true power.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "You're not even Job Level 50, I can't even consider your name as a new Scoundrel.";
+	mes "You're not even Job Level 40, I can't even consider your name as a new Scoundrel.";
 	close;
 	}
 	mes .@npc$;
@@ -358,13 +362,15 @@ assas_03,29,33,3	script	Scoundrel#guild	997,{
 	mes .@npc$;
 	mes "A Scoundrel can kill an enemy from the inside. Becoming a disease that can't be cured. A wound that never closes.";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Whitesmith;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set scoundreljob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "This armor is only as intimidating as the wearer. Keep it always clean and they will never suspect when you take their lives.";
 	next;
@@ -439,9 +445,9 @@ assas_03,140,63,3	script	Duelist#guild	803,{
 		mes "You need to use those skill points first.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "Why don't you go and train a little more before trying to take the next step? Maybe Job Level 50 is a good start.";
+	mes "Why don't you go and train a little more before trying to take the next step? Maybe Job Level 40 is a good start.";
 	close;
 	}
 	mes .@npc$;
@@ -450,13 +456,15 @@ assas_03,140,63,3	script	Duelist#guild	803,{
 	mes .@npc$;
 	mes "A Duelist is a strong warrior who takes the front when needed. Don't let anyone tell you otherwise!";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Stalker;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set duelistjob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "All set! Wear that cape proud so it can protect and hide your smallest movements properly. And make sure to keep your hands always ready!";
 	next;
@@ -534,9 +542,9 @@ assas_03,178,15,3	script	Shinobi#guild	637,{
 		mes "Your skill points as an Assassin are of no use for a Shinobi. Use them.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "You're not Job Level 50? Why would you be here then?";
+	mes "You're not Job Level 40? Why would you be here then?";
 	close;
 	}
 	mes .@npc$;
@@ -545,13 +553,15 @@ assas_03,178,15,3	script	Shinobi#guild	637,{
 	mes .@npc$;
 	mes "A Shinobi can handle any fighting situation. Avoiding, attacking, controling the ground and attacking all enemies with all elements. You can do it all!";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_High_Wizard;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set shinobijob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "The garments I provide you come straight from Amatsu's Ninja Guild. They only provide it for those who can prove they are the best. Wear it with honor.";
 	next;
@@ -623,9 +633,9 @@ assas_03,182,124,3	script	Deadeye#guild	10211,{
 		mes "Use those skill points. They are no good for us.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "You still have a way to go, come back when you're Job Level 50.";
+	mes "You still have a way to go, come back when you're Job Level 40.";
 	close;
 	}
 	mes .@npc$;
@@ -634,13 +644,15 @@ assas_03,182,124,3	script	Deadeye#guild	10211,{
 	mes .@npc$;
 	mes "Learning how to breath, how to stay calm, how to get the perfect shot...that should be your priority from now on.";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Sniper;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set deadeyejob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "Lets get that jacket ready for you and...great, It fits! You can have quick access to your items there.";
 	next;
@@ -715,9 +727,9 @@ assas_03,120,140,3	script	Mystic#guild	10059,{
 		mes "You need to use those skill points to learn new skills from me.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "Get Job Level 50 and then come back. I can't teach you new spells if you don't know your current skills.";
+	mes "Get Job Level 40 and then come back. I can't teach you new spells if you don't know your current skills.";
 	close;
 	}
 	mes .@npc$;
@@ -726,13 +738,15 @@ assas_03,120,140,3	script	Mystic#guild	10059,{
 	mes .@npc$;
 	mes "The elements are mere toys at the hands of a Mystic, you will be able to take down anyone before they have a chance to react.";
 	next;
+	.var = JobLevel;
 	callfunc "Job_Change",Job_Professor;
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set mysticjob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "Let's get you a new coat...It came from an ancient group of Geffen Wizards...they were afraid of its power...hah!";
 	next;
@@ -801,9 +815,9 @@ assas_03,120,171,5	script	Executioner#guild	880,{
 		mes "Use those skill points. No point keeping them.";
 		close;
 	}
-	if ( JobLevel <= 49) {
+	if ( JobLevel <= 39) {
 	mes .@npc$;
-	mes "You Need Job Level 50...come on, you already know this.";
+	mes "You Need Job Level 40...come on, you already know this.";
 	close;
 	}
 	mes .@npc$;
@@ -813,12 +827,13 @@ assas_03,120,171,5	script	Executioner#guild	880,{
 	mes "An Executioner doesn't care how strong it's enemy is. The power of justice and punishment will make sure everyone meets the same, fair fate.";
 	next;
 	atcommand "@job 4009";
-	set JobLevel, 50;
+	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
 	set specjob,1;
 	set executionerjob,1;
 	resetskill();
+	.var = "";
 	mes .@npc$;
 	mes "All done. Those were once the clothes Master Loki himself picked for his personal guards. Wear them with honor.";
 	next;
