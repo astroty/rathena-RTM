@@ -1578,53 +1578,53 @@ Body:
       - Level: 26
         Exp: 24000
       - Level: 27
-        Exp: 26000
+        Exp: 25000
       - Level: 28
-        Exp: 28000
+        Exp: 27000
       - Level: 29
-        Exp: 30000
+        Exp: 29000
       - Level: 30
-        Exp: 32000
+        Exp: 31000
       - Level: 31
-        Exp: 34000
+        Exp: 35000
       - Level: 32
-        Exp: 36000
+        Exp: 39000
       - Level: 33
-        Exp: 38500
+        Exp: 43000
       - Level: 34
-        Exp: 41000
+        Exp: 47000
       - Level: 35
-        Exp: 43500
+        Exp: 51000
       - Level: 36
-        Exp: 46000
+        Exp: 55000
       - Level: 37
-        Exp: 49000
+        Exp: 59000
       - Level: 38
-        Exp: 52000
+        Exp: 63000
       - Level: 39
-        Exp: 56000
+        Exp: 67000
       - Level: 40
-        Exp: 62000
+        Exp: 72000
       - Level: 41
-        Exp: 68000
+        Exp: 77000
       - Level: 42
-        Exp: 77500
+        Exp: 82000
       - Level: 43
-        Exp: 87000
+        Exp: 86000
       - Level: 44
-        Exp: 97500
+        Exp: 92000
       - Level: 45
-        Exp: 108000
+        Exp: 97000
       - Level: 46
-        Exp: 118500
+        Exp: 105000
       - Level: 47
-        Exp: 129000
+        Exp: 110000
       - Level: 48
-        Exp: 139500
+        Exp: 120000
       - Level: 49
-        Exp: 150000
+        Exp: 130000
       - Level: 50
-        Exp: 162000
+        Exp: 150000
   - Jobs:
       Gunslinger: true
       Ninja: true
@@ -1683,39 +1683,39 @@ Body:
       - Level: 25
         Exp: 26000
       - Level: 26
-        Exp: 26000
+        Exp: 28500
       - Level: 27
-        Exp: 28000
+        Exp: 31000
       - Level: 28
-        Exp: 30000
+        Exp: 33500
       - Level: 29
-        Exp: 32000
-      - Level: 30
-        Exp: 34000
-      - Level: 31
         Exp: 36000
+      - Level: 30
+        Exp: 39500
+      - Level: 31
+        Exp: 43500
       - Level: 32
-        Exp: 39000
+        Exp: 46500
       - Level: 33
-        Exp: 42500
+        Exp: 49500
       - Level: 34
-        Exp: 45000
+        Exp: 52500
       - Level: 35
-        Exp: 48500
+        Exp: 57000
       - Level: 36
-        Exp: 52000
-      - Level: 37
-        Exp: 56000
-      - Level: 38
         Exp: 62000
+      - Level: 37
+        Exp: 67000
+      - Level: 38
+        Exp: 72000
       - Level: 39
-        Exp: 68000
+        Exp: 77000
       - Level: 40
-        Exp: 74000
+        Exp: 82000
       - Level: 41
-        Exp: 80000
+        Exp: 90000
       - Level: 42
-        Exp: 95000
+        Exp: 98000
       - Level: 43
         Exp: 106000
       - Level: 44
@@ -1723,47 +1723,47 @@ Body:
       - Level: 45
         Exp: 123000
       - Level: 46
-        Exp: 114000
-      - Level: 47
-        Exp: 122000
-      - Level: 48
         Exp: 132000
+      - Level: 47
+        Exp: 141000
+      - Level: 48
+        Exp: 150000
       - Level: 49
-        Exp: 142000
+        Exp: 160000
       - Level: 50
-        Exp: 152000
+        Exp: 170000
       - Level: 51
-        Exp: 165000
-      - Level: 52
         Exp: 180000
+      - Level: 52
+        Exp: 190000
       - Level: 53
         Exp: 200000
       - Level: 54
-        Exp: 220000
+        Exp: 215000
       - Level: 55
-        Exp: 240000
+        Exp: 230000
       - Level: 56
-        Exp: 260000
+        Exp: 245000
       - Level: 57
-        Exp: 280000
+        Exp: 265000
       - Level: 58
-        Exp: 305000
+        Exp: 286000
       - Level: 59
-        Exp: 330000
+        Exp: 307000
       - Level: 60
-        Exp: 360000
+        Exp: 328000
       - Level: 61
-        Exp: 390000
+        Exp: 349000
       - Level: 62
-        Exp: 410000
+        Exp: 380000
       - Level: 63
-        Exp: 440000
+        Exp: 415000
       - Level: 64
-        Exp: 470000
+        Exp: 450000
       - Level: 65
-        Exp: 500000
+        Exp: 485000
       - Level: 66
-        Exp: 530000
+        Exp: 520000
       - Level: 67
         Exp: 560000
       - Level: 68
@@ -2189,107 +2189,107 @@ Body:
       - Level: 19
         Exp: 14500
       - Level: 20
-        Exp: 12000
-      - Level: 21
-        Exp: 14000
-      - Level: 22
         Exp: 16000
-      - Level: 23
+      - Level: 21
         Exp: 18000
-      - Level: 24
+      - Level: 22
         Exp: 20000
-      - Level: 25
+      - Level: 23
         Exp: 22000
-      - Level: 26
+      - Level: 24
         Exp: 24000
-      - Level: 27
+      - Level: 25
         Exp: 26000
+      - Level: 26
+        Exp: 28500
+      - Level: 27
+        Exp: 31000
       - Level: 28
-        Exp: 28000
+        Exp: 33500
       - Level: 29
-        Exp: 30000
-      - Level: 30
-        Exp: 32000
-      - Level: 31
-        Exp: 34000
-      - Level: 32
         Exp: 36000
-      - Level: 33
-        Exp: 38500
-      - Level: 34
-        Exp: 41000
-      - Level: 35
+      - Level: 30
+        Exp: 39500
+      - Level: 31
         Exp: 43500
+      - Level: 32
+        Exp: 46500
+      - Level: 33
+        Exp: 49500
+      - Level: 34
+        Exp: 52500
+      - Level: 35
+        Exp: 57000
       - Level: 36
-        Exp: 46000
-      - Level: 37
-        Exp: 49000
-      - Level: 38
-        Exp: 52000
-      - Level: 39
-        Exp: 56000
-      - Level: 40
         Exp: 62000
+      - Level: 37
+        Exp: 67000
+      - Level: 38
+        Exp: 72000
+      - Level: 39
+        Exp: 77000
+      - Level: 40
+        Exp: 82000
       - Level: 41
-        Exp: 68000
+        Exp: 90000
       - Level: 42
-        Exp: 77500
+        Exp: 98000
       - Level: 43
-        Exp: 87000
+        Exp: 106000
       - Level: 44
-        Exp: 97500
+        Exp: 114000
       - Level: 45
-        Exp: 108000
+        Exp: 123000
       - Level: 46
-        Exp: 118500
+        Exp: 132000
       - Level: 47
-        Exp: 129000
-      - Level: 48
-        Exp: 139500
-      - Level: 49
-        Exp: 150000
-      - Level: 50
-        Exp: 162000
-	  - Level: 51
         Exp: 141000
-      - Level: 52
-        Exp: 154000
-      - Level: 53
+      - Level: 48
+        Exp: 150000
+      - Level: 49
+        Exp: 160000
+      - Level: 50
         Exp: 170000
+      - Level: 51
+        Exp: 180000
+      - Level: 52
+        Exp: 190000
+      - Level: 53
+        Exp: 200000
       - Level: 54
-        Exp: 194500
+        Exp: 215000
       - Level: 55
-        Exp: 210000
+        Exp: 230000
       - Level: 56
-        Exp: 237000
+        Exp: 245000
       - Level: 57
-        Exp: 250000
+        Exp: 265000
       - Level: 58
-        Exp: 280000
+        Exp: 286000
       - Level: 59
-        Exp: 300000
+        Exp: 307000
       - Level: 60
-        Exp: 320000
-	  - Level: 61
-        Exp: 350000
+        Exp: 328000
+      - Level: 61
+        Exp: 349000
       - Level: 62
         Exp: 380000
       - Level: 63
-        Exp: 420500
+        Exp: 415000
       - Level: 64
-        Exp: 463000
+        Exp: 450000
       - Level: 65
-        Exp: 500000
+        Exp: 485000
       - Level: 66
-        Exp: 545000
+        Exp: 520000
       - Level: 67
-        Exp: 590000
+        Exp: 560000
       - Level: 68
-        Exp: 640000
+        Exp: 600000
       - Level: 69
-        Exp: 690000
+        Exp: 650000
       - Level: 70
-        Exp: 740000
+        Exp: 720000
   - Jobs:
       Rune_Knight: true
       Paladin: true
