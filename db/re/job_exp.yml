@@ -1721,9 +1721,9 @@ Body:
       - Level: 44
         Exp: 114000
       - Level: 45
-        Exp: 123000
-      - Level: 46
         Exp: 114000
+      - Level: 46
+        Exp: 123000
       - Level: 47
         Exp: 122000
       - Level: 48
@@ -2250,14 +2250,14 @@ Body:
         Exp: 150000
       - Level: 50
         Exp: 162000
-	  - Level: 51
+      - Level: 51
         Exp: 141000
       - Level: 52
         Exp: 154000
       - Level: 53
         Exp: 170000
       - Level: 54
-        Exp: 194500
+        Exp: 194000
       - Level: 55
         Exp: 210000
       - Level: 56
@@ -2270,7 +2270,7 @@ Body:
         Exp: 300000
       - Level: 60
         Exp: 320000
-	  - Level: 61
+      - Level: 61
         Exp: 350000
       - Level: 62
         Exp: 380000
