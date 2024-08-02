@@ -826,7 +826,7 @@ assas_03,120,171,5	script	Executioner#guild	880,{
 	mes .@npc$;
 	mes "An Executioner doesn't care how strong it's enemy is. The power of justice and punishment will make sure everyone meets the same, fair fate.";
 	next;
-	atcommand "@job 4009";
+	callfunc "Job_Change", Job_High_Priest;
 	set JobLevel, .var;
 	set skillpoint, 0;
 	specialeffect2 687;
