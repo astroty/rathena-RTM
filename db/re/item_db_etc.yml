@@ -43257,7 +43257,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Armor: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
