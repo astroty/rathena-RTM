@@ -63456,8 +63456,8 @@ Body:
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 10
-    Range: 7
+    Attack: 15
+    Range: 9
     Slots: 4
     Jobs:
       SuperNovice: true
@@ -63478,24 +63478,25 @@ Body:
       NoAuction: true
     Script: |
       bonus bHit,15;
-      bonus3 bAutoSpell,"MO_CALLSPIRITS",1,50;
+      bonus3 bAutoSpell,"MO_CALLSPIRITS",2,50;
       bonus bSPDrainValue,-1;
       bonus bAllStats,1;
       bonus bSPrecovRate,200;
+      bonus bLongAtkRate,2*(readparam(bDex)/5);
       .@r = getrefine();
-      bonus bLongAtkRate,.@r;
+      bonus2 bSkillAtk,"CH_CHAINCRUSH",4*.@r;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13101
     AegisName: WastelandRevolver
     Name: WastelandRevolver
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 15
-    Range: 7
+    Attack: 20
+    Range: 9
     Slots: 3
     Jobs:
       SuperNovice: true
@@ -63516,24 +63517,25 @@ Body:
       NoAuction: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RL_QD_SHOT",3*.@r;
+      bonus2 bSkillAtk,"RL_QD_SHOT",4*.@r;
       bonus bAspdRate,25;
       bonus bSPDrainValue,-2;
       bonus bSPrecovRate,200;
       bonus bAspd,1;
+      bonus bASPDCap,2;
       bonus bLongAtkRate,(readparam(bAgi)/5);
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13102
     AegisName: LongRevolver
     Name: LongRevolver
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 18
-    Range: 10
+    Attack: 23
+    Range: 12
     Slots: 2
     Jobs:
       SuperNovice: true
@@ -63554,23 +63556,67 @@ Body:
       NoAuction: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RL_MASS_SPIRAL",4*.@r;
+      bonus bFixedCast,-100*.@r;
+      bonus2 bSkillAtk,"RL_MASS_SPIRAL",6*.@r;
+      bonus4 bAutoSpellOnSkill,"RL_QD_SHOT","CH_SOULCOLLECT",10,1000;
       bonus bSPDrainValue,-3;
       bonus bSPrecovRate,200;
-      bonus2 bAddSkillBlow,"RL_SLUGSHOT",3;
+      bonus2 bAddSkillBlow,"RL_MASS_SPIRAL",3;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13103
     AegisName: DarkStRevolver
     Name: DarkStRevolver
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 21
-    Range: 7
-    Slots: 1
+    Attack: 26
+    Range: 9
+    Slots: 3
+    Jobs:
+      SuperNovice: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 25
+    Refineable: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+       .@r = getrefine();
+      bonus2 bSkillAtk,"RL_FIREDANCE",4*.@r;
+      bonus2 bSkillCooldown,"RL_FIREDANCE",-100*.@r;
+      bonus2 bHPDrainRate,250,10;
+      bonus2 bIgnoreDefRaceRate,RC_All,15;
+      autobonus3 "{}",10000,10000,2564,"{ sc_start SC_MANU_DEF,2000,1;}";
+      bonus bSPDrainValue,-4;
+      bonus bSPrecovRate,200;
+      bonus bDelayRate,-20;
+      bonus bSpeedAddRate,20;
+      bonus4 bAutoSpellOnSkill,"RL_FIREDANCE","MO_CALLSPIRITS",2,1000;
+    EquipScript: |
+      sc_start SC_OVERBRANDREADY,3000,100;
+    UnEquipScript: |
+      percentheal 0,0;
+  - Id: 13104
+    AegisName: BlessedRevolver
+    Name: BlessedRevolver
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Attack: 29
+    Range: 9
+    Slots: 2
     Jobs:
       SuperNovice: true
     Locations:
@@ -63590,47 +63636,14 @@ Body:
       NoAuction: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RL_FIREDANCE",3*.@r;
-      bonus bSPDrainValue,-4;
-      bonus bSPrecovRate,200;
-      bonus bDelayRate,-10;
-      bonus bSpeedAddRate,10;
-    EquipScript: |
-      sc_start SC_OVERBRANDREADY,3000,100;
-    UnEquipScript: |
-      percentheal 0,-25;
-  - Id: 13104
-    AegisName: BlessedRevolver
-    Name: BlessedRevolver
-    Type: Weapon
-    SubType: Revolver
-    Buy: 20
-    Attack: 24
-    Range: 7
-    Jobs:
-      SuperNovice: true
-    Locations:
-      Both_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 25
-    Refineable: true
-    Trade:
-      Override: 100
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
-    Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"RL_D_TAIL",5*.@r;
+      bonus2 bSkillAtk,"RL_D_TAIL",6*.@r;
+      bonus2 bSkillCooldown,"RL_D_TAIL",-4000*.@r;
+      bonus2 bSkillAtk,"RL_D_TAIL",(readparam(bAgi)*3);
+      autobonus3 "{}",10000,10000,2564,"{ sc_start SC_MANU_DEF,2000,1;}";
+      bonus bUseSPrate,-20;
       bonus bMaxSPrate,20;
       bonus bSPDrainValue,-5;
       bonus bSPrecovRate,200;
-      bonus bMaxHPrate,2*.@r;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
   - Id: 13105
@@ -63639,8 +63652,8 @@ Body:
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 25
-    Range: 7
+    Attack: 30
+    Range: 9
     Slots: 4
     Jobs:
       SuperNovice: true
@@ -63660,25 +63673,25 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus bPerfectHitAddRate,15;
-      bonus3 bAutoSpell,"MO_CALLSPIRITS",1,50;
+      bonus3 bAutoSpell,"MO_CALLSPIRITS",2,50;
       bonus bSPDrainValue,-1;
       bonus bAllStats,3;
       bonus bSPrecovRate,200;
+      bonus bLongAtkRate,3*(readparam(bDex)/5);
       .@r = getrefine();
-      bonus bLongAtkRate,3*(.@r);
+      bonus2 bSkillAtk,"CH_CHAINCRUSH",5*.@r;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13106
     AegisName: ArenaeS
     Name: ArenaeS
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 20
-    Range: 7
+    Attack: 25
+    Range: 9
     Slots: 4
     Jobs:
       SuperNovice: true
@@ -63699,25 +63712,26 @@ Body:
       NoAuction: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RL_QD_SHOT",3*.@r;
+      bonus2 bSkillAtk,"RL_QD_SHOT",5*.@r;
       bonus bAspdRate,30;
       bonus bSPDrainValue,-2;
       bonus bSPrecovRate,200;
       bonus bAspd,3;
-      bonus bLongAtkRate,2*(readparam(bAgi)/5);
+      bonus bLongAtkRate,3*(readparam(bAgi)/5);
+      bonus bASPDCap,3;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13107
     AegisName: IgnisD
     Name: IgnisD
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 23
-    Range: 11
-    Slots: 3
+    Attack: 28
+    Range: 13
+    Slots: 4
     Jobs:
       SuperNovice: true
     Locations:
@@ -63737,14 +63751,17 @@ Body:
       NoAuction: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RL_MASS_SPIRAL",4*.@r;
+      bonus bFixedCast,-200*.@r;
+      bonus2 bSkillAtk,"RL_MASS_SPIRAL",6*.@r;
+      bonus4 bAutoSpellOnSkill,"RL_QD_SHOT","CH_SOULCOLLECT",10,1000;
+      bonus4 bAutoSpellOnSkill,"RL_MASS_SPIRAL","RL_MASS_SPIRAL",5,1000;
       bonus bSPDrainValue,-3;
       bonus bSPrecovRate,200;
-      bonus2 bAddSkillBlow,"RL_SLUGSHOT",5;
+      bonus2 bAddSkillBlow,"RL_MASS_SPIRAL",3;  
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13108
     AegisName: AurumM
     Name: AurumM
@@ -63752,8 +63769,8 @@ Body:
     SubType: Revolver
     Buy: 20
     Attack: 26
-    Range: 7
-    Slots: 2
+    Range: 9
+    Slots: 4
     Jobs:
       SuperNovice: true
     Locations:
@@ -63773,62 +63790,29 @@ Body:
       NoAuction: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RL_FIREDANCE",3*.@r;
-      bonus2 bIgnoreDefRaceRate,RC_All,20;
+      bonus2 bSkillAtk,"RL_FIREDANCE",5*.@r;
+      bonus2 bSkillCooldown,"RL_FIREDANCE",-200*.@r;
+      bonus2 bHPDrainRate,500,5;
+      bonus4 bAutoSpellOnSkill,"RL_FIREDANCE","RL_FIREDANCE",10,1000;
+      autobonus3 "{}",10000,10000,2564,"{ sc_start SC_MANU_DEF,2000,1;}";
+      bonus2 bIgnoreDefRaceRate,RC_All,25;
       bonus bSPDrainValue,-4;
       bonus bSPrecovRate,200;
-      bonus bDelayRate,-15;
-      bonus bSpeedAddRate,15;
-      bonus4 bAutoSpellOnSkill,"RL_FIREDANCE","MO_CALLSPIRITS",1,1000;
+      bonus bDelayRate,-25;
+      bonus bSpeedAddRate,25;
+      bonus4 bAutoSpellOnSkill,"RL_FIREDANCE","MO_CALLSPIRITS",2,1000;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13109
     AegisName: IudexDA
     Name: IudexDA
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 29
-    Range: 7
-    Slots: 1
-    Jobs:
-      SuperNovice: true
-    Locations:
-      Both_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 80
-    Refineable: true
-    Trade:
-      Override: 100
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
-    Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"RL_D_TAIL",5*.@r;
-      bonus bMaxSPrate,30;
-      bonus bSPDrainValue,-5;
-      bonus bSPrecovRate,200;
-      bonus bMaxHPrate,4*.@r;
-      bonus bVariableCastrate,-25;
-    EquipScript: |
-      sc_start SC_OVERBRANDREADY,3000,100;
-  - Id: 13110
-    AegisName: IceHeartRevolver
-    Name: IceHeartRevolver
-    Type: Weapon
-    SubType: Revolver
-    Buy: 20
-    Attack: 15
-    MagicAttack: 15
-    Range: 7
+    Attack: 31
+    Range: 9
     Slots: 3
     Jobs:
       SuperNovice: true
@@ -63848,15 +63832,58 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus3 bAutoSpell,"NJ_HYOUSENSOU",7,250;
-      bonus4 bAutoSpellOnSkill,"RL_QD_SHOT","NJ_HYOUSENSOU",7,250;
-      bonus bSPDrainValue,-3;
-      bonus bInt,5;
+     .@r = getrefine();
+      bonus2 bSkillAtk,"RL_D_TAIL",6*.@r;
+      bonus2 bSkillCooldown,"RL_D_TAIL",-4500*.@r;
+      bonus2 bSkillAtk,"RL_D_TAIL",(readparam(bAgi)*3);
+      autobonus3 "{}",10000,10000,2564,"{ sc_start SC_MANU_DEF,2000,1;}";
+      bonus bUseSPrate,-30;
+      bonus bMaxSPrate,30;
+      bonus bSPDrainValue,-5;
       bonus bSPrecovRate,200;
+      bonus bFixedCast,-500;
+    EquipScript: |
+      sc_start SC_OVERBRANDREADY,3000,100;
+  - Id: 13110
+    AegisName: IceHeartRevolver
+    Name: IceHeartRevolver
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Attack: 15
+    MagicAttack: 50
+    Range: 13
+    Slots: 4
+    Jobs:
+      SuperNovice: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 1
+    EquipLevelMin: 80
+    Refineable: true
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus3 bAutoSpell,"NJ_HYOUSENSOU",5,500;
+      bonus4 bAutoSpellOnSkill,"RL_QD_SHOT","NJ_HYOUSENSOU",7,750;
+      bonus4 bAutoSpellOnSkill,"CH_CHAINCRUSH","NJ_HYOUSENSOU",10,1000;
+      bonus bSPDrainValue,-1;
+      bonus bInt,10;
+      bonus bSPrecovRate,300;
+      bonus bAspdRate,100;
+      bonus bASPDCap,10;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13111
     AegisName: KingofSeas
     Name: KingofSeas
@@ -63864,13 +63891,13 @@ Body:
     SubType: Revolver
     Buy: 20
     Attack: 25
-    Range: 7
-    Slots: 2
+    Range: 9
+    Slots: 3
     Jobs:
       SuperNovice: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 1
     EquipLevelMin: 25
     Refineable: true
     Trade:
@@ -63884,26 +63911,27 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus bSplashRange,2;
-      bonus bSPDrainValue,-5;
-      bonus bMaxHPrate,5;
-      bonus bSPrecovRate,200;
+      bonus bSplashRange,5;
+      bonus bSPDrainValue,-3;
+      bonus bMaxHPrate,25;
+      bonus bSPrecovRate,500;
       .@r = getrefine();
-      bonus bCritAtkRate,5*(.@r);
-      bonus bCritical,10;
+      bonus bLongAtkRate,4*.@r;
+      bonus bAspdRate,-10;
+      bonus2 bAddGetZenyNum,5*.@r,100;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13112
     AegisName: RubrumV
     Name: RubrumV
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 20
-    Range: 7
-    Slots: 3
+    Attack: 25
+    Range: 9
+    Slots: 4
     Jobs:
       SuperNovice: true
     Locations:
@@ -63923,23 +63951,27 @@ Body:
       NoAuction: true
     Script: |
       bonus bSPDrainValue,-2;
+      autobonus3 "{}",10000,10000,2564,"{ sc_start SC_MANU_DEF,2000,1;}";
+      bonus4 bAutoSpellOnSkill,"RL_FALLEN_ANGEL","CH_SOULCOLLECT",10,1000;
       bonus bMaxSp,100;
       bonus2 bHPDrainRate,300,5;
       bonus bSPrecovRate,200;
+      bonus bCriticalRate,25;
       .@r = getrefine();
-      bonus2 bSkillAtk,"MO_FINGEROFFENSIVE",3*.@r;
+      bonus2 bSkillAtk,"MO_FINGEROFFENSIVE",5*.@r;
+      bonus bCritAtkRate,5*(.@r);
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13113
     AegisName: TenebrisRosa
     Name: TenebrisRosa
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Attack: 35
-    Range: 8
+    Attack: 40
+    Range: 12
     Slots: 4
     Jobs:
       SuperNovice: true
@@ -63959,18 +63991,19 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus bPerfectHitAddRate,100;
+      skill "WS_OVERTHRUSTMAX",5;
+      autobonus3 "{}",10000,10000,2559,"{ sc_start SC_MANU_DEF,2000,1;}";
       bonus bSPDrainValue,-5;
-      bonus bAllStats,5;
-      bonus bSPrecovRate,200;
+      bonus bAllStats,10;
+      bonus bSPrecovRate,300;
       .@r = getrefine();
-      bonus bAtkRate,.@r;
-      bonus2 bSkillCooldown,"MO_FINGEROFFENSIVE",-200*(.@r);
-      bonus bASPDCap,2;
+      bonus2 bIgnoreDefRaceRate,RC_All,3*.@r;
+      bonus bAtkRate,2*.@r;
+      bonus2 bSkillAtk,"CH_CHAINCRUSH",2*.@r;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13114
     AegisName: Master_Revolver
     Name: Master Revolver
@@ -63996,12 +64029,12 @@ Body:
       bonus bAspd,.@a;
       bonus bAtkRate,.@a;
       bonus bMatkRate,.@a;
-      bonus bDex,.@a;
+      bonus bDex,2*.@a;
       bonus bSPrecovRate,200;
     EquipScript: |
       sc_start SC_OVERBRANDREADY,3000,100;
     UnEquipScript: |
-      percentheal 0,-25;
+      percentheal 0,0;
   - Id: 13115
     AegisName: Upg_Revolver
     Name: Upg Revolver
