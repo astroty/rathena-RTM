@@ -63593,7 +63593,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-       .@r = getrefine();
+      .@r = getrefine();
       bonus2 bSkillAtk,"RL_FIREDANCE",4*.@r;
       bonus2 bSkillCooldown,"RL_FIREDANCE",-100*.@r;
       bonus2 bHPDrainRate,250,10;
@@ -63953,8 +63953,6 @@ Body:
       bonus bSPDrainValue,-2;
       autobonus3 "{}",10000,10000,2564,"{ sc_start SC_MANU_DEF,2000,1;}";
       bonus4 bAutoSpellOnSkill,"RL_FALLEN_ANGEL","CH_SOULCOLLECT",10,1000;
-      bonus bMaxSp,100;
-      bonus2 bHPDrainRate,300,5;
       bonus bSPrecovRate,200;
       bonus bCriticalRate,25;
       .@r = getrefine();
