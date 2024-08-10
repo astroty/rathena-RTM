@@ -1,5 +1,4 @@
-//!rathena
-//==================== rAthena Script=======================================
+//====================rAthena Script=======================================
 //=                  ___   __  __                                          
 //=            _____/   | / /_/ /_  ___  ____  ____ _                      
 //=           / ___/ /| |/ __/ __ \\/ _ \\/ __ \\/ __ `/                   
@@ -827,7 +826,6 @@ assas_03,120,171,5	script	Executioner#guild	880,{
 	mes .@npc$;
 	mes "An Executioner doesn't care how strong it's enemy is. The power of justice and punishment will make sure everyone meets the same, fair fate.";
 	next;
-	.var = JobLevel;
 	callfunc "Job_Change", Job_High_Priest;
 	set JobLevel, .var;
 	set skillpoint, 0;
