@@ -2363,7 +2363,9 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 2000);
 		break;
 	case CR_SHIELDBOOMERANG:
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		if (sc->data[SC_FORCEOFVANGUARD]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		}
 		break;
 	case SC_TRIANGLESHOT:
 		if (sc->data[SC_OVERBRANDREADY]) {
@@ -2384,7 +2386,9 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case KN_BOWLINGBASH:
 		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		if (sc->data[SC_FORCEOFVANGUARD]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+		}
 		break;
 	case KN_SPEARSTAB:
 		if (sc->data[SC_OVERBRANDREADY]) {
