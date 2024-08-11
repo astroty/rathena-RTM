@@ -7501,7 +7501,7 @@ void atcmd_mobinfo(struct map_session_data* sd, struct block_list* dst)
 	else
 		sprintf(atcmd_output, msg_txt(sd, 1241), mob->name.c_str(), mob->jname.c_str(), mob->sprite.c_str(), mob->id); // Monster: '%s'/'%s'/'%s' (%d)
 	clif_displaymessage(sd->fd, atcmd_output);
-	sprintf(atcmd_output, "Lv:%d  HP:%d/%d  Base EXP:%llu  Job EXP:%llu  HIT:%d  FLEE:%d", mob->lv, md->status.hp, mob->status.max_hp, base_exp, job_exp, MOB_HIT(mob), MOB_FLEE(mob)); //  Lv:%d  HP:%d  Base EXP:%llu  Job EXP:%llu  HIT:%d  FLEE:%d
+	sprintf(atcmd_output, "Lv:%d  HP:%d/%d  Base EXP:%lu  Job EXP:%lu  HIT:%d  FLEE:%d", mob->lv, md->status.hp, mob->status.max_hp, base_exp, job_exp, MOB_HIT(mob), MOB_FLEE(mob)); //  Lv:%d  HP:%d  Base EXP:%llu  Job EXP:%llu  HIT:%d  FLEE:%d
 	clif_displaymessage(sd->fd, atcmd_output);
 	sprintf(atcmd_output, msg_txt(sd, 1243), //  DEF:%d  MDEF:%d  STR:%d  AGI:%d  VIT:%d  INT:%d  DEX:%d  LUK:%d
 		mob->status.def, mob->status.mdef, mob->status.str, mob->status.agi,
