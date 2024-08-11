@@ -249,7 +249,7 @@ vip_bath,0,0	monster	Strange Thief	2551,30,5000
 vip_bath,0,0	monster	Strange Monk	2554,30,5000
 vip_bath,0,0	monster	Strange Wizard	2555,30,5000
 vip_bath,0,0	monster	Strange Crusader	2556,30,5000
-vip_bath,0,0	monster	Strange Angry Wanderer	2560,1,5000
+vip_bath,0,0	monster	Strange Angry Wanderer	2560,3,5000
 vip_bath,0,0,0,0	boss_monster	Angry Pyuriel	2249,1,2700000,5400000,0
 
 ////Distortion Morroc
