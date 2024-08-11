@@ -45777,6 +45777,7 @@ Body:
     AegisName: Wind_Cantrips
     Name: Wind Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true
@@ -45796,6 +45797,7 @@ Body:
     AegisName: Heal_Cantrips
     Name: Heal Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true

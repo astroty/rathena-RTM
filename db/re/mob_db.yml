@@ -1468,7 +1468,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Waterdrop_Br
-        Rate: 850
+        Rate: 250
         RandomOptionGroup: accessory
       - Item: Life_Essence_A
         Rate: 550
@@ -1886,10 +1886,10 @@ Body:
     Ai: 09
     Drops:
       - Item: Heart_Container
-        Rate: 950
+        Rate: 900
         RandomOptionGroup: accessory
       - Item: Obeaune_Card
-        Rate: 100
+        Rate: 200
         StealProtected: true
       - Item: Crystal_Blue
         Rate: 10000
@@ -1937,7 +1937,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: DrownedQ_Armor
-        Rate: 950
+        Rate: 650
         RandomOptionGroup: armor
       - Item: Deep_Dive_P
         Rate: 550
@@ -2759,7 +2759,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Fluffy_Fish_Sh
-        Rate: 200
+        Rate: 300
         RandomOptionGroup: shoes
       - Item: Life_Essence_G
         Rate: 550
@@ -2767,9 +2767,11 @@ Body:
       - Item: Dream_StoneMVP
         Rate: 10
       - Item: Heart_Card
-        Rate: 750
+        Rate: 300
+        RandomOptionGroup: deck
       - Item: Heart_Card
-        Rate: 425
+        Rate: 450
+        RandomOptionGroup: deck
   - Id: 1065
     AegisName: STROUF
     Name: Strouf
@@ -2806,7 +2808,7 @@ Body:
         Rate: 150
         StealProtected: true
       - Item: DrownedQ_Boots
-        Rate: 850
+        Rate: 650
         RandomOptionGroup: shoes
       - Item: Deep_Dive_A
         Rate: 550
@@ -2898,7 +2900,7 @@ Body:
       - Item: Crystal_Blue
         Rate: 10000
       - Item: Iron_Shield
-        Rate: 1000
+        Rate: 850
         RandomOptionGroup: shield
       - Item: Legacy_of_Steel_A
         Rate: 550
@@ -4689,7 +4691,7 @@ Body:
       - Item: Petite_DiablOfs_Wing
         Rate: 10000
       - Item: The_Cape
-        Rate: 150
+        Rate: 450
         RandomOptionGroup: garment
       - Item: Torn_CapeMVP
         Rate: 10
@@ -4781,18 +4783,18 @@ Body:
         Rate: 550
         RandomOptionGroup: shadowfirst
       - Item: Blood_Reaver
-        Rate: 800
+        Rate: 300
         RandomOptionGroup: dagger
       - Item: The_Dagger
-        Rate: 1050
+        Rate: 450
         RandomOptionGroup: dagger
       - Item: Torn_CapeMVP
         Rate: 10
       - Item: Rotten_Cutter
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: sword
       - Item: Heal_Cantrips
-        Rate: 800
+        Rate: 250
       - Item: Halloween_Coin
         Rate: 200
   - Id: 1112
@@ -5633,12 +5635,12 @@ Body:
       - Item: C_Pumpkin_Hat
         Rate: 55
       - Item: The_Cloak
-        Rate: 1050
+        Rate: 450
         RandomOptionGroup: garment
       - Item: Torn_CapeMVP
         Rate: 10
       - Item: Night_Boots
-        Rate: 100
+        Rate: 375
         RandomOptionGroup: shoes
   - Id: 1131
     AegisName: JOKER
@@ -6232,7 +6234,7 @@ Body:
       - Item: Crystal_Blue
         Rate: 10000
       - Item: 5_of_Clubs
-        Rate: 1000
+        Rate: 850
         RandomOptionGroup: deck
       - Item: C_Colorful_Dancing_Octopus
         Rate: 60
@@ -6434,23 +6436,23 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: 4_of_Spades
-        Rate: 550
+        Rate: 350
         RandomOptionGroup: deck
       - Item: 4_of_Clubs
-        Rate: 550
+        Rate: 350
         RandomOptionGroup: deck
       - Item: 4_of_Hearts
-        Rate: 550
+        Rate: 350
         RandomOptionGroup: deck
       - Item: 4_of_Diamonds
-        Rate: 550
+        Rate: 350
         RandomOptionGroup: deck
       - Item: Cardinal_Jewel_
         Rate: 65
       - Item: Dream_StoneMVP
         Rate: 10
       - Item: Gambler_Clothes
-        Rate: 500
+        Rate: 450
         RandomOptionGroup: armor
   - Id: 1149
     AegisName: MINOROUS
@@ -6650,7 +6652,7 @@ Body:
       - Item: Orcish_Cuspid
         Rate: 10000
       - Item: Orc_Armor
-        Rate: 450
+        Rate: 350
         RandomOptionGroup: armor
       - Item: Immortal_A
         Rate: 350
@@ -6698,7 +6700,7 @@ Body:
       - Item: Orcish_Cuspid
         Rate: 10000
       - Item: Orc_Ring
-        Rate: 450
+        Rate: 350
         RandomOptionGroup: accessory
       - Item: Immortal_G
         Rate: 350
@@ -7812,7 +7814,7 @@ Body:
       - Item: Orcish_Cuspid
         Rate: 10000
       - Item: Orc_Helm
-        Rate: 800
+        Rate: 350
       - Item: Immortal_S
         Rate: 550
         RandomOptionGroup: shadow
@@ -11554,7 +11556,7 @@ Body:
       - Item: Fish_TailMVP
         Rate: 10
       - Item: Coral_Sword
-        Rate: 300
+        Rate: 650
         RandomOptionGroup: sword
   - Id: 1265
     AegisName: COOKIE
@@ -12216,7 +12218,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Fluffy_Fish_Sh
-        Rate: 500
+        Rate: 400
         RandomOptionGroup: shoes
       - Item: Durga
         Rate: 350
@@ -23056,7 +23058,8 @@ Body:
       - Item: MVP_Reward_Box
         Rate: 2250
       - Item: Heart_Card
-        Rate: 500
+        Rate: 777
+        RandomOptionGroup: deck
       - Item: 4_of_Spades
         Rate: 1500
         RandomOptionGroup: deck
@@ -33117,7 +33120,7 @@ Body:
       - Item: Lantern
         Rate: 10000
       - Item: Pickaxe_
-        Rate: 250
+        Rate: 275
         RandomOptionGroup: scythe
       - Item: C_Mine_Helm
         Rate: 75
@@ -33125,7 +33128,7 @@ Body:
         Rate: 300
         RandomOptionGroup: shadow
       - Item: Pocket_Dagger
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: dagger
       - Item: Knocker_Card
         Rate: 100
@@ -37768,10 +37771,10 @@ Body:
       - Item: Orcish_Cuspid
         Rate: 10000
       - Item: Orc_Armor
-        Rate: 750
+        Rate: 350
         RandomOptionGroup: armor
       - Item: Orc_Bow_
-        Rate: 700
+        Rate: 300
         RandomOptionGroup: bow
       - Item: Immortal_P
         Rate: 300
@@ -37779,14 +37782,14 @@ Body:
       - Item: Fallen_Tribe_Coffer
         Rate: 200
       - Item: Acrobatic_Boots
-        Rate: 550
+        Rate: 200
         RandomOptionGroup: shoes
       - Item: Growth_Shadow_Coffer
         Rate: 425
       - Item: Orc_KoinMVP
         Rate: 10
       - Item: 7_of_Hearts
-        Rate: 500
+        Rate: 350
         RandomOptionGroup: deck
   - Id: 1972
     AegisName: E_MARINA
@@ -46109,16 +46112,16 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: DrownedQ_Cape
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: garment
       - Item: DrownedQ_Armor
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: armor
       - Item: DrownedQ_Boots
-        Rate: 50
+        Rate: 500
         RandomOptionGroup: shoes
       - Item: Heart_Container
-        Rate: 400
+        Rate: 1500
         RandomOptionGroup: accessory
   - Id: 2199
     AegisName: SIORAVA
@@ -46364,7 +46367,7 @@ Body:
       - Item: Mistic_Frozen
         Rate: 10000
       - Item: Rusty_Eater
-        Rate: 850
+        Rate: 700
         RandomOptionGroup: sword
       - Item: Sedora_Card
         Rate: 150
@@ -46375,7 +46378,7 @@ Body:
       - Item: Fish_TailMVP
         Rate: 10
       - Item: Coral_Sword
-        Rate: 300
+        Rate: 550
         RandomOptionGroup: sword
 #  - Id: 2205
 #    AegisName: TACNU
@@ -46517,7 +46520,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: DrownedQ_Cape
-        Rate: 150
+        Rate: 650
         RandomOptionGroup: garment
       - Item: Deep_Dive_S
         Rate: 550
@@ -48470,7 +48473,7 @@ Body:
       - Item: Small_Towel
         Rate: 10000
       - Item: Clean_Towel
-        Rate: 800
+        Rate: 400
         RandomOptionGroup: garment
       - Item: Fehu_Rune_of_Farming
         Rate: 250
@@ -56314,16 +56317,16 @@ Body:
       - Item: Boody_Red
         Rate: 10000
       - Item: Blood_Reaver
-        Rate: 1050
+        Rate: 400
         RandomOptionGroup: scythe
       - Item: Blood_Mage_Card
-        Rate: 100
+        Rate: 200
         StealProtected: true
       - Item: The_Dagger
-        Rate: 1050
+        Rate: 500
         RandomOptionGroup: dagger
       - Item: Magician_Robes
-        Rate: 1050
+        Rate: 400
         RandomOptionGroup: armor
       - Item: Legacy_Adv_Coffer
         Rate: 300
@@ -56333,7 +56336,7 @@ Body:
       - Item: Torn_CapeMVP
         Rate: 10
       - Item: Silver_Crossbow
-        Rate: 1000
+        Rate: 375
         RandomOptionGroup: bow
       - Item: Halloween_Coin
         Rate: 200
@@ -56380,10 +56383,10 @@ Body:
       - Item: C_Love_Rabbit_Hood
         Rate: 60
       - Item: Master_Dagger
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: dagger
       - Item: Master_Katar
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: katar
       - Item: Colorful_TowelMVP
         Rate: 10
@@ -56522,10 +56525,10 @@ Body:
       - Item: Small_Towel
         Rate: 10000
       - Item: Master_Axe
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: axe
       - Item: 5_of_Spades
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: deck
       - Item: Colorful_TowelMVP
         Rate: 10
@@ -56570,15 +56573,15 @@ Body:
       - Item: Small_Towel
         Rate: 10000
       - Item: Master_Scythe
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: scythe
       - Item: Master_Bow
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: bow
       - Item: Colorful_TowelMVP
         Rate: 10
       - Item: Wind_Cantrips
-        Rate: 800
+        Rate: 250
   - Id: 2556
     AegisName: GEFFEN_MAGE_6
     Name: Strange Crusader
@@ -56622,10 +56625,10 @@ Body:
       - Item: C_Bunny_Band
         Rate: 50
       - Item: Master_Sword
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: sword
       - Item: Master_WSpear
-        Rate: 800
+        Rate: 600
         RandomOptionGroup: spear
       - Item: Elunium
         Rate: 300
