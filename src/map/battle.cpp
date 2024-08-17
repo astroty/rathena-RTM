@@ -2479,8 +2479,11 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 		case GC_CROSSIMPACT:
 		case RA_WUGSTRIKE:
 		case RG_BACKSTAP:
-		case SR_KNUCKLEARROW:
 			// Cast range is 7 cells and player jumps to target but skill is considered melee
+			return BF_SHORT;
+		case SR_KNUCKLEARROW:
+			if (src->type == BL_MOB)
+				return BF_LONG;
 			return BF_SHORT;
 	}
 
