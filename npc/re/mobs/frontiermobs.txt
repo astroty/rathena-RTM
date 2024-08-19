@@ -16,9 +16,10 @@ fro_fild01,0,0	monster	Magetin	2662,12,5000
 fro_fild01,0,0	monster	Baby Molinet	2663,12,5000
 fro_fild01,0,0	monster	Adult Molinet	2664,3,5000
 //
-fro_fild02,0,0	monster	Rocky Boy	2665,5,5000
-fro_fild02,0,0	monster	Bubble Girl	2666,5,5000
-fro_fild02,0,0	monster	Adult Molinet	2664,2,5000
+
+fro_fild02,0,0	monster	Bubble Girl	2666,4,5000
+fro_fild02,0,0	monster	Magetin	2662,4,5000
+fro_fild02,0,0	monster	Adult Molinet	2664,3,5000
 fro_fild02,0,0,1,1	boss_monster	Rockullanux	2667,1,600000,2500000,0
 //
 fro_fild03,0,0	monster	Rocky Boy	2665,12,5000
