@@ -6941,10 +6941,8 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		batk += batk * sc->data[SC_INCATKRATE]->val1/100;
 	if(sc->data[SC_PROVOKE])
 		batk += batk * sc->data[SC_PROVOKE]->val3/100;
-#ifndef RENEWAL
 	if(sc->data[SC_CONCENTRATION])
 		batk += batk * sc->data[SC_CONCENTRATION]->val2/100;
-#endif
 	if(sc->data[SC_SKE])
 		batk += batk * 3;
 	if(sc->data[SC_BLOODLUST])
@@ -11472,14 +11470,10 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			}
 			break;
 		case SC_CONCENTRATION:
-#ifdef RENEWAL
+
 			val2 = 1 + val1 * 1; // Batk/Watk Increase
-			val4 = 5 + val1 * 5; // Def reduction
-#else
-			val2 = 5*val1; // Batk/Watk Increase
-			val4 = 5*val1; // Def reduction
-#endif
 			val3 = 10*val1; // Hit Increase
+			val4 = 5 + val1 * 5; // Def reduction
 			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			break;
 		case SC_ANGELUS:
