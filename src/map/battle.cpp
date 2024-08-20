@@ -4799,7 +4799,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			RE_LVL_DMOD(120);
 			break;
 		case LG_RAGEBURST:
-				skillratio += 150 + (20 * skill_lv);
+				skillratio += 200 + (50 * skill_lv) + 5 * (sstatus->vit);
 				if (sd && sd->spiritball_old) 
 					skillratio += ((sstatus->vit) * sd->spiritball_old);
 			break;
