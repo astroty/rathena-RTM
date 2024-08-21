@@ -1749,7 +1749,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 
 	case DK_SWORDFLURRY: // Noirua
 		if ((sc->data[SC_OVERBRANDREADY]))
-		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
 		status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 		break;
 
@@ -1851,6 +1851,11 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case NPC_JACKFROST:
 		sc_start(src, bl, SC_FREEZE, 200, skill_lv, skill_get_time(skill_id, skill_lv));
+		break;
+	case RA_WUGSTRIKE:
+		if ((sc->data[SC_SPL_ATK]))
+			sc_start(src, src, SC_SUNSTANCE, 100, skill_lv,-1);
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		break;
 	case RA_WUGBITE: {
 		int wug_rate = (50 + 10 * skill_lv) + 2 * ((sd) ? pc_checkskill(sd, RA_TOOTHOFWUG) * 2 : skill_get_max(RA_TOOTHOFWUG)) - (status_get_agi(bl) / 4);
