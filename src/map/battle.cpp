@@ -1702,6 +1702,21 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 	sc = status_get_sc(src);
 
 	if (sc && sc->count) {
+		if (sc->getSCE(SC_EXPLOSIONSPIRITS)) {
+			switch (skill_id) {
+				case SO_EARTHGRAVE:
+				case AS_GRIMTOOTH:
+					damage += damage * 50 / 100;
+					break;
+				case AS_SONICBLOW:
+				case GC_CROSSIMPACT;
+					damage += damage * 100 / 100;
+					break;
+
+			}
+		}
+
+	if (sc && sc->count) {
 		if( sc->data[SC_INVINCIBLE] && !sc->data[SC_INVINCIBLEOFF] )
 			damage += damage * 75 / 100;
 
@@ -4088,9 +4103,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 25 * skill_lv + (5* (sstatus->vit));
 			break;
 		case AS_GRIMTOOTH:
-			skillratio += 30 + 10 * skill_lv + (sstatus->luk);
-			if (sc->data[SC_EXPLOSIONSPIRITS])
-				skillratio += 100; //It's 50 but gets doubled with Katar equipped
+			skillratio += 30 + 10 * skill_lv + (sstatus->luk); //It's 50 but gets doubled with Katar equipped
 			break;
 		case AS_POISONREACT:
 			skillratio += 40 * skill_lv;
@@ -4100,8 +4113,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 125 + 10 * skill_lv + (sstatus->luk);
 			if (tstatus->hp < tstatus->max_hp >> 1)
 				skillratio += skillratio / 2;
-			if (sc->data[SC_EXPLOSIONSPIRITS])
-				skillratio += 100; //It's 50 but gets doubled with Katar equipped
 #else
 			skillratio += 300 + 40 * skill_lv;
 #endif
