@@ -1702,19 +1702,20 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 	sc = status_get_sc(src);
 
 	if (sc && sc->count) {
-		if (sc->getSCE(SC_EXPLOSIONSPIRITS)) {
+		if (sc->data[SC_EXPLOSIONSPIRITS]) {
 			switch (skill_id) {
 				case SO_EARTHGRAVE:
 				case AS_GRIMTOOTH:
 					damage += damage * 60 / 100;
 					break;
 				case AS_SONICBLOW:
-				case GC_CROSSIMPACT;
+				case GC_CROSSIMPACT:
 					damage += damage * 120 / 100;
 					break;
 
 			}
 		}
+	}
 
 	if (sc && sc->count) {
 		if( sc->data[SC_INVINCIBLE] && !sc->data[SC_INVINCIBLEOFF] )
