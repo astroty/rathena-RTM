@@ -1706,11 +1706,11 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			switch (skill_id) {
 				case SO_EARTHGRAVE:
 				case AS_GRIMTOOTH:
-					damage += damage * 50 / 100;
+					damage += damage * 60 / 100;
 					break;
 				case AS_SONICBLOW:
 				case GC_CROSSIMPACT;
-					damage += damage * 100 / 100;
+					damage += damage * 120 / 100;
 					break;
 
 			}
