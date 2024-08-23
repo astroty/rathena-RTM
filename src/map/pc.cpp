@@ -14148,7 +14148,7 @@ uint16 pc_maxparameter(struct map_session_data *sd, e_params param) {
 short pc_maxaspd(map_session_data* sd) {
 	nullpo_ret(sd);
 
-if (sd->class_ & MAPID_UPPERMASK) == MAPID_KAGEROUOBORO) {
+if ((sd->class_ & MAPID_UPPERMASK) == MAPID_KAGEROUOBORO) {
 	return battle_config.max_legend_aspd;
 }
 
@@ -14156,7 +14156,7 @@ if ((sd->class_ & MAPID_UPPERMASK) == MAPID_REBELLION) {
 	return battle_config.max_extended_aspd;
 }
 
-if (sd->class_ & MAPID_BASEMASK) == MAPID_SUMMONER) {
+if ((sd->class_ & MAPID_BASEMASK) == MAPID_SUMMONER) {
 	return battle_config.max_summoner_aspd;
 }
 
