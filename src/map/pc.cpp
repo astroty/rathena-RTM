@@ -14148,10 +14148,11 @@ uint16 pc_maxparameter(struct map_session_data *sd, e_params param) {
 short pc_maxaspd(map_session_data* sd) {
 	nullpo_ret(sd);
 
-	return ((sd->class_ & JOBL_THIRD) ? battle_config.max_third_aspd : (
-		((sd->class_ & MAPID_UPPERMASK) == MAPID_KAGEROUOBORO || (sd->class_ & MAPID_UPPERMASK) == MAPID_REBELLION) ? battle_config.max_extended_aspd : (
-			(sd->class_ & MAPID_BASEMASK) == MAPID_SUMMONER) ? battle_config.max_summoner_aspd :
-		battle_config.max_aspd));
+	if (sd->class_ & JOBL_THIRD)								 return battle_config.max_third_aspd;
+	if (sd->class_ & MAPID_UPPERMASK 	== MAPID_KAGEROUOBORO)	 return battle_config.max_legend_aspd;
+	if (sd->class_ & MAPID_UPPERMASK 	== MAPID_REBELLION)		 return battle_config.max_extended_aspd;
+	if (sd->class_ & MAPID_BASEMASK 	== MAPID_SUMMONER)		 return battle_config.max_summoner_aspd;
+	return battle_config.max_aspd;
 }
  
 /**

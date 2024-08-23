@@ -528,6 +528,7 @@ struct Battle_Config
 	int max_fourth_trait;
 	int max_third_aspd;
 	int max_summoner_aspd;
+	int max_legend_aspd;
 	int vcast_stat_scale;
 
 	int mvp_tomb_enabled;
