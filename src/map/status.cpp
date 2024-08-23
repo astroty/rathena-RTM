@@ -4368,7 +4368,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 			wa->matk += sd->inventory_data[index]->matk;
 			wa->wlv = wlv;
 			// Renewal magic attack refine bonus
-			if( info != nullptr && sd->weapontype1 != W_BOW ){
+			if( info != nullptr){
 				wa->matk += info->bonus / 100;
 
 				// TODO: additional grade bonus
