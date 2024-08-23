@@ -394,6 +394,8 @@ Body:
             MaxValue: 10
             Chance: 4000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 10
+            MaxValue: 10
             Chance: 1000
           - Option: REFLECT_DAMAGE_PERCENT
             MinValue: 100
@@ -485,17 +487,15 @@ Body:
           - Option: ADDSKILLMDAMAGE_ALL
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
+            Chance: 3000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
+            Chance: 3000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
-          - Option: RANGE_ATTACK_DAMAGE_TARGET
-            Chance: 1000
+            Chance: 3000
           - Option: REFLECT_DAMAGE_PERCENT
             MinValue: 100
             MaxValue: 100
@@ -586,13 +586,15 @@ Body:
           - Option: ADDSKILLMDAMAGE_ALL
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
+            Chance: 3000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
+            Chance: 3000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            Chance: 1000
+            MinValue: 10
+            MaxValue: 10
+            Chance: 3000
           - Option: REFLECT_DAMAGE_PERCENT
             MinValue: 100
             MaxValue: 100
@@ -683,13 +685,15 @@ Body:
           - Option: DAMAGE_CRI_TARGET
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
+            Chance: 3000
           - Option: MELEE_ATTACK_DAMAGE_TARGET
             MinValue: 10
             MaxValue: 10
-            Chance: 4000
+            Chance: 3000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            Chance: 1000
+            MinValue: 10
+            MaxValue: 10
+            Chance: 3000
           - Option: REFLECT_DAMAGE_PERCENT
             MinValue: 100
             MaxValue: 100
@@ -1742,8 +1746,8 @@ Body:
             MaxValue: 5
             Chance: 4000
           - Option: RANGE_ATTACK_DAMAGE_TARGET
-            MinValue: 5
-            MaxValue: 5
+            MinValue: 10
+            MaxValue: 10
             Chance: 4000
           - Option: VAR_MAGICATKPERCENT
             MinValue: 5
