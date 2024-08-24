@@ -12543,7 +12543,7 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"GC_ROLLINGCUTTER","NC_AXETORNADO",getskilllv("NC_AXETORNADO"),1000;
+      bonus4 bAutoSpellOnSkill,"GC_ROLLINGCUTTER","NC_AXETORNADO",10,1000;
   - Id: 4698
     AegisName: Dataring_Card
     Name: Dataring Card
@@ -43261,13 +43261,16 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Armor: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      if (unchainedjob !=1){
-        bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-3480000;
-      }
+      .@r = getrefine();
+      bonus bMaxHPRate,5+(.@r);
+      bonus bMaxSPrate,5+(.@r);
+      bonus bAllStats,5;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
   - Id: 27322
     AegisName: Demon_God's_Apostle_Ahat_Card
     Name: Demon God's Apostle Ahat Card
