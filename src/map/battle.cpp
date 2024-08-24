@@ -2136,8 +2136,8 @@ int64 battle_addmastery(struct map_session_data *sd,struct block_list *target,in
 				damage += (skill * 3);
 			if ((skill = pc_checkskill(sd, BA_MUSICALLESSON)) > 0)
 				damage += (skill * 1);
-			if ((skill = pc_checkskill(sd, SM_SWORD)) > 0)
-				damage += (skill * 3);
+			// if ((skill = pc_checkskill(sd, SM_SWORD)) > 0) // Dagger + Sword shouldn't apply twice [Shift]
+			// 	damage += (skill * 3);
 			if ((skill = pc_checkskill(sd, SA_ADVANCEDBOOK)) > 0)
 				damage += (skill * 1);
 			if ((skill = pc_checkskill(sd, SM_TWOHAND)) > 0)
