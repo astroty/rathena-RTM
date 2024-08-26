@@ -2640,8 +2640,6 @@ Body:
         Rate: 200
       - Item: Torn_CapeMVP
         Rate: 10
-      - Item: Halloween_Coin
-        Rate: 200
   - Id: 1062
     AegisName: PORING_
     Name: Santa Poring
@@ -4695,8 +4693,6 @@ Body:
         RandomOptionGroup: garment
       - Item: Torn_CapeMVP
         Rate: 10
-      - Item: Halloween_Coin
-        Rate: 200
   - Id: 1110
     AegisName: DOKEBI
     Name: Dokebi
@@ -4795,8 +4791,6 @@ Body:
         RandomOptionGroup: sword
       - Item: Heal_Cantrips
         Rate: 250
-      - Item: Halloween_Coin
-        Rate: 200
   - Id: 1112
     AegisName: DRAKE
     Name: Drake
@@ -8166,8 +8160,6 @@ Body:
         Rate: 300
       - Item: Mark_of_SorrowMVP
         Rate: 10
-      - Item: Halloween_Coin
-        Rate: 1000
   - Id: 1186
     AegisName: WHISPER_BOSS
     Name: Giant Whisper
@@ -20372,8 +20364,6 @@ Body:
         RandomOptionGroup: bow
       - Item: Enriched_Oridecon
         Rate: 25
-      - Item: Halloween_Coin
-        Rate: 500
   - Id: 1504
     AegisName: DULLAHAN
     Name: Dullahan
@@ -20424,8 +20414,6 @@ Body:
       - Item: F_Wizard_Robe_
         Rate: 100
         RandomOptionGroup: armor
-      - Item: Halloween_Coin
-        Rate: 500
   - Id: 1505
     AegisName: LOLI_RURI
     Name: Loli Ruri
@@ -20479,8 +20467,6 @@ Body:
       - Item: F_Wizard_Boots_
         Rate: 100
         RandomOptionGroup: shoes
-      - Item: Halloween_Coin
-        Rate: 500
   - Id: 1506
     AegisName: DISGUISE
     Name: Disguise
@@ -20526,8 +20512,6 @@ Body:
         RandomOptionGroup: scythe
       - Item: Costume_Disguise_Mantle
         Rate: 25
-      - Item: Halloween_Coin
-        Rate: 500
   - Id: 1507
     AegisName: BLOODY_MURDERER
     Name: Bloody Murderer
@@ -20583,8 +20567,6 @@ Body:
         RandomOptionGroup: bow
       - Item: C_Hockey_Mask
         Rate: 35
-      - Item: Halloween_Coin
-        Rate: 500
   - Id: 1508
     AegisName: QUVE
     Name: Quve
@@ -20715,8 +20697,6 @@ Body:
       - Item: F_Wizard_Shawl_
         Rate: 100
         RandomOptionGroup: garment
-      - Item: Halloween_Coin
-        Rate: 500
   - Id: 1511
     AegisName: AMON_RA
     Name: Amon Ra
@@ -28757,8 +28737,6 @@ Body:
       KnockBackImmune: true
       StatusImmune: true
     Drops:
-      - Item: Halloween_Coin
-        Rate: 10000
       - Item: Jack_Emblem
         Rate: 200
       - Item: Jack_GiftBox
@@ -35215,8 +35193,6 @@ Body:
       - Item: Black_Hole_Sun
         Rate: 50
         RandomOptionGroup: whip
-      - Item: Halloween_Coin
-        Rate: 1000
   - Id: 1893
     AegisName: G_KNIGHT_OF_ABYSS
     Name: White Knight
@@ -41018,8 +40994,6 @@ Body:
       - Item: Cleric_Manual
         Rate: 50
         RandomOptionGroup: manual
-      - Item: Halloween_Coin
-        Rate: 1500
       - Item: Broken_ShieldMVP
         Rate: 10
   - Id: 2060
@@ -56338,8 +56312,6 @@ Body:
       - Item: Silver_Crossbow
         Rate: 375
         RandomOptionGroup: bow
-      - Item: Halloween_Coin
-        Rate: 200
   - Id: 2551
     AegisName: GEFFEN_MAGE_3_1
     Name: Strange Thief
@@ -57474,8 +57446,6 @@ Body:
       - Item: Rebound_Bow
         Rate: 100
         RandomOptionGroup: bow
-      - Item: Halloween_Coin
-        Rate: 1500
       - Item: Broken_ShieldMVP
         Rate: 10
   - Id: 2580
@@ -65313,8 +65283,6 @@ Body:
         RandomOptionGroup: armor
       - Item: Master_Cantrips
         Rate: 75
-      - Item: Halloween_Coin
-        Rate: 1500
       - Item: Broken_ShieldMVP
         Rate: 10
   - Id: 2775
@@ -71636,8 +71604,6 @@ Body:
         Rate: 300
       - Item: Mark_of_SorrowMVP
         Rate: 10
-      - Item: Halloween_Coin
-        Rate: 1000
   - Id: 2929
     AegisName: T_PLASMA_G
     Name: Plasma
@@ -72893,8 +72859,6 @@ Body:
       - Item: Castle_Armguard
         Rate: 100
         RandomOptionGroup: manual
-      - Item: Halloween_Coin
-        Rate: 1500
       - Item: Broken_ShieldMVP
         Rate: 10
   - Id: 2988
@@ -76237,8 +76201,6 @@ Body:
       - Item: Showstopper
         Rate: 100
         RandomOptionGroup: garment
-      - Item: Halloween_Coin
-        Rate: 1000
   - Id: 3109
     AegisName: JITTERBUG2
     Name: Voice of Sorrow
