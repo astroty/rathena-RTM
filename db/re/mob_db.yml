@@ -24048,10 +24048,10 @@ Body:
       - Item: Glittering_Crystal
         Rate: 10000
       - Item: Thief_Treasure
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: accessory
       - Item: Pollution_A
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Elunium
         Rate: 100
@@ -24093,10 +24093,10 @@ Body:
       - Item: Glittering_Crystal
         Rate: 10000
       - Item: Lust_Gauche
-        Rate: 150
+        Rate: 175
         RandomOptionGroup: dagger
       - Item: Pollution_S
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Oridecon
         Rate: 100
@@ -24141,17 +24141,17 @@ Body:
       - Item: Glittering_Crystal
         Rate: 10000
       - Item: Mine_Bag
-        Rate: 125
+        Rate: 200
         RandomOptionGroup: garment
       - Item: Pollution_G
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Oridecon
         Rate: 100
       - Item: GrinderMVP
         Rate: 10
       - Item: Darkness_Metal_S
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: sword
   - Id: 1617
     AegisName: WASTE_STOVE
@@ -24197,13 +24197,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Digging_Sword
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: sword
       - Item: Pollution_P
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Dagaz_Rune_of_Hope
-        Rate: 50
+        Rate: 75
         RandomOptionGroup: manual
       - Item: Elunium
         Rate: 100
@@ -39780,7 +39780,7 @@ Body:
         Rate: 1
         StealProtected: true
   - Id: 2024
-    AegisName: BRADIUM_GOLEM
+    AegisName: RUBY_GOLEM
     Name: Ruby Golem
     Level: 74
     Hp: 15000
@@ -39821,19 +39821,19 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Wandering_Boots
-        Rate: 150
+        Rate: 225
         RandomOptionGroup: shoes
       - Item: Pollution_A
-        Rate: 50
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Pollution_G
-        Rate: 50
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Pollution_S
-        Rate: 50
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Pollution_P
-        Rate: 50
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Bradium
         Rate: 150
