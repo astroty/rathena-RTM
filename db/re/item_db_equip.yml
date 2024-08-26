@@ -77943,6 +77943,7 @@ Body:
       bonus bMdef,5;
       bonus bBaseAtk,.@r;
       bonus bMatk,.@r;
+      skill "TF_BACKSLIDING",1;
   - Id: 16131
     AegisName: Insect_Wings
     Name: Insect Wings
