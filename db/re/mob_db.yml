@@ -56437,7 +56437,7 @@ Body:
       - Item: Distortion_Essence
         Rate: 150
       - Item: Cold_Heart
-        Rate: 50
+        Rate: 75
         RandomOptionGroup: accessory
       - Item: Assassin_Dagger
         Rate: 150
@@ -56448,7 +56448,7 @@ Body:
       - Item: Distortion_Shard
         Rate: 10000
       - Item: Forgotten_Bow
-        Rate: 50
+        Rate: 100
         RandomOptionGroup: bow
       - Item: Loki_WhisperMVP
         Rate: 10
@@ -56654,7 +56654,7 @@ Body:
       - Item: Growth_Shadow_Coffer
         Rate: 100
       - Item: Paradise_Lost
-        Rate: 50
+        Rate: 125
         RandomOptionGroup: katar
       - Item: Distortion_Shard
         Rate: 10000
@@ -57010,7 +57010,7 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Paradise_Lost
-        Rate: 50
+        Rate: 125
         RandomOptionGroup: katar
       - Item: Growth_Shadow_Coffer
         Rate: 100
@@ -57075,7 +57075,7 @@ Body:
         Rate: 300
         RandomOptionGroup: manual
       - Item: Paradise_Lost
-        Rate: 200
+        Rate: 750
         RandomOptionGroup: katar
       - Item: Distortion_Shard
         Rate: 10000
@@ -71911,10 +71911,10 @@ Body:
       - Item: MVP_Reward_Box
         Rate: 4750
       - Item: Paradise_Lost
-        Rate: 1500
+        Rate: 2000
         RandomOptionGroup: katar
       - Item: Assassin_Muffler
-        Rate: 1500
+        Rate: 2000
         RandomOptionGroup: garment
       - Item: Necklace_of_Despair
         Rate: 10000
