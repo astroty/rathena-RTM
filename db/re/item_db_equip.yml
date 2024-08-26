@@ -137526,6 +137526,8 @@ Body:
       .@r = getrefine();
       bonus bAtkRate,.@r;
       bonus bMatkRate,.@r;
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+	    bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30042
     AegisName: Infinite_Daggers_G
     Name: Infinite Daggers G
@@ -137544,6 +137546,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bASPD,.@r;
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+	    bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30043
     AegisName: Infinite_Daggers_S
     Name: Infinite Daggers S
@@ -137562,6 +137566,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bFlee,(.@r * 2);
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+	    bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30044
     AegisName: Infinite_Daggers_P
     Name: Infinite Daggers P
@@ -137580,6 +137586,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bCritical,(.@r * 2);
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+	    bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30045
     AegisName: Undying_Wishes_A
     Name: Undying Wishes A
