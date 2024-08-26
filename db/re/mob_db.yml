@@ -4371,13 +4371,13 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_A
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Medic_Manual_Z
-        Rate: 75
+        Rate: 100
         RandomOptionGroup: manual
       - Item: Clock_Shield
-        Rate: 100
+        Rate: 175
         RandomOptionGroup: shield
       - Item: Melting_ClockMVP
         Rate: 10
@@ -4385,7 +4385,7 @@ Body:
         Rate: 200
         RandomOptionGroup: spear
       - Item: Pethro_Rune_of_Occult
-        Rate: 50
+        Rate: 100
         RandomOptionGroup: manual
   - Id: 1103
     AegisName: CARAMEL
@@ -8475,10 +8475,10 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_G
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Sentinel_Bow
-        Rate: 150
+        Rate: 200
         RandomOptionGroup: bow
       - Item: C_Alarm_Mask
         Rate: 75
@@ -8489,7 +8489,7 @@ Body:
       - Item: Melting_ClockMVP
         Rate: 10
       - Item: Ticking_Timer
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: armor
   - Id: 1194
     AegisName: ARCLOUSE
@@ -11777,20 +11777,20 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_S
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Clock_Shield
-        Rate: 100
+        Rate: 175
         RandomOptionGroup: shield
       - Item: C_Triangular_Roof_Hat
         Rate: 50
       - Item: Melting_ClockMVP
         Rate: 10
       - Item: Power_Cantrips
-        Rate: 100
+        Rate: 200
   - Id: 1270
     AegisName: C_TOWER_MANAGER
-    Name: Tower Manager
+    Name: Clock Tower Manager
     Level: 69
     Hp: 10000
     BaseExp: 2000
@@ -11824,17 +11824,17 @@ Body:
     Drops:
       - Item: Key_Of_Clock_Tower
         Rate: 10000
-      - Item: Tower_Manager_Card
-        Rate: 100
+      - Item: Clock_Tower_Manager_Card
+        Rate: 200
         StealProtected: true
       - Item: Black_Rapier
-        Rate: 150
+        Rate: 250
         RandomOptionGroup: sword
       - Item: Sentinel_Bow
         Rate: 250
         RandomOptionGroup: bow
       - Item: C_C_Tower_Manager_Incom
-        Rate: 25
+        Rate: 30
       - Item: Melting_ClockMVP
         Rate: 10
   - Id: 1271
@@ -15968,13 +15968,13 @@ Body:
         Rate: 550
         RandomOptionGroup: shadow
       - Item: Lost_Time_P
-        Rate: 50
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: G_Magician_Cape
-        Rate: 125
+        Rate: 150
         RandomOptionGroup: garment
       - Item: Wunjo_Rune_of_Joy
-        Rate: 50
+        Rate: 80
         RandomOptionGroup: manual
       - Item: Dark_Arrow
         Rate: 50

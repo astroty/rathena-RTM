@@ -5923,8 +5923,8 @@ Body:
     Script: |
       bonus2 bSkillAtk,"KO_KAIHOU",8;
   - Id: 4229
-    AegisName: Tower_Manager_Card
-    Name: Tower Manager Card
+    AegisName: Clock_Tower_Manager_Card
+    Name: Clock Tower Manager Card
     Type: Card
     Buy: 20
     Weight: 10

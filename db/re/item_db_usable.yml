@@ -45855,6 +45855,7 @@ Body:
     AegisName: Power_Cantrips
     Name: Power Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true
