@@ -38294,7 +38294,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Green_Dagger
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: dagger
       - Item: Sweet_CandyMVP
         Rate: 10
@@ -39927,7 +39927,7 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: First_Marker
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: axe
       - Item: Sweet_CandyMVP
         Rate: 10
@@ -40102,13 +40102,13 @@ Body:
       - Item: 1st_Shadow_Coffer
         Rate: 300
       - Item: Dandelion_Eyepatch
-        Rate: 100
+        Rate: 500
         RandomOptionGroup: shadow
       - Item: Cross_Katar
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: katar
       - Item: Memento_Families
-        Rate: 100
+        Rate: 150
         RandomOptionGroup: shield
       - Item: Sweet_CandyMVP
         Rate: 10
@@ -72099,10 +72099,10 @@ Body:
         Rate: 300
         StealProtected: true
       - Item: Sacrifice_Offhand
-        Rate: 500
+        Rate: 1500
         RandomOptionGroup: manual
       - Item: Dandelion_Eyepatch
-        Rate: 1500
+        Rate: 10000
         RandomOptionGroup: shadow
       - Item: MVP_Reward_Box
         Rate: 5250
