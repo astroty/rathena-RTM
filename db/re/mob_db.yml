@@ -9339,13 +9339,13 @@ Body:
       - Item: Fluorescent_Liquid
         Rate: 10000
       - Item: Venom_Fang_A
-        Rate: 200
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Venom_Fang_G
-        Rate: 200
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Scorpion_Spear
-        Rate: 300
+        Rate: 350
         RandomOptionGroup: spear
       - Item: Toxic_Scorpion_Card
         Rate: 100
@@ -9353,7 +9353,7 @@ Body:
       - Item: Faceworm_EggMVP
         Rate: 10
       - Item: Midnight_Armor
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: armor
   - Id: 1213
     AegisName: HIGH_ORC
@@ -55477,10 +55477,10 @@ Body:
       - Item: Fluorescent_Liquid
         Rate: 10000
       - Item: Venom_Fang_S
-        Rate: 200
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Venom_Fang_P
-        Rate: 200
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Faceworm_Card
         Rate: 100
@@ -55489,18 +55489,18 @@ Body:
         Rate: 300
         RandomOptionGroup: dagger
       - Item: Faceworm_Eye
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: accessory
       - Item: Coat_Knives
-        Rate: 150
+        Rate: 300
         RandomOptionGroup: armor
       - Item: Jera_Rune_of_Reward
-        Rate: 50
+        Rate: 100
         RandomOptionGroup: manual
       - Item: Faceworm_EggMVP
         Rate: 10
       - Item: Forest_Scream
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: shoes
   - Id: 2529
     AegisName: FACEWORM_QUEEN
@@ -55567,7 +55567,6 @@ Body:
   - Id: 2530
     AegisName: FACEWORM_DARK
     Name: Dark Faceworm
-    JapaneseName: Faceworm Dark
     Level: 69
     Hp: 15000
     BaseExp: 4100
@@ -55601,24 +55600,24 @@ Body:
       - Item: Fluorescent_Liquid
         Rate: 10000
       - Item: Venom_Fang_A
-        Rate: 100
+        Rate: 175
         RandomOptionGroup: shadow
-      - Item: Faceworm_D_Card
-        Rate: 100
+      - Item: Dark_Faceworm_Card
+        Rate: 150
         StealProtected: true
       - Item: Venom_Fang_G
-        Rate: 100
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Venom_Fang_S
-        Rate: 100
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Venom_Fang_P
-        Rate: 100
+        Rate: 175
         RandomOptionGroup: shadow
       - Item: Faceworm_EggMVP
         Rate: 10
       - Item: Nest_Avenger
-        Rate: 300
+        Rate: 350
         RandomOptionGroup: axe
   - Id: 2531
     AegisName: VENOM_BUG

@@ -41848,7 +41848,7 @@ Body:
       bonus3 bAutoSpell,"TF_POISON",10,100;
       bonus bAspd,-5;
   - Id: 27165
-    AegisName: Faceworm_D_Card
+    AegisName: Dark_Faceworm_Card
     Name: Dark Faceworm Card
     Type: Card
     Buy: 20
