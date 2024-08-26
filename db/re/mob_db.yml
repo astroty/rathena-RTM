@@ -17444,12 +17444,12 @@ Body:
       - Item: Ectoplasm
         Rate: 10000
       - Item: Peaceful_Past_G
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: SoulinaboxMVP
         Rate: 10
       - Item: Afterlife_Scythe
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: scythe
   - Id: 1413
     AegisName: WILD_GINSENG
@@ -17578,13 +17578,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: YinYang_Amulet
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: accessory
       - Item: Peaceful_Past_S
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Specter_Dagger
-        Rate: 200
+        Rate: 300
         RandomOptionGroup: manual
       - Item: SoulinaboxMVP
         Rate: 10
@@ -20786,20 +20786,20 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: Jiangshi_Clothes
-        Rate: 200
+        Rate: 300
         RandomOptionGroup: armor
       - Item: Golden_Bow
-        Rate: 50
+        Rate: 200
         RandomOptionGroup: bow
       - Item: Peaceful_Past_A
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Ectoplasm
         Rate: 10000
       - Item: Immaterial_Arrow
-        Rate: 50
+        Rate: 300
       - Item: Nauthiz_Rune_of_Shadows
-        Rate: 50
+        Rate: 150
         RandomOptionGroup: manual
       - Item: SoulinaboxMVP
         Rate: 10
@@ -21056,21 +21056,21 @@ Body:
       - Item: C_Zaha_Doll_Hat
         Rate: 30
       - Item: YinYang_Earring
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: manual
       - Item: Oracle_Spirit_Card
-        Rate: 100
+        Rate: 150
         StealProtected: true
       - Item: Ectoplasm
         Rate: 10000
       - Item: Medic_Manual_Z
-        Rate: 50
+        Rate: 150
         RandomOptionGroup: manual
       - Item: Peaceful_Past_S
-        Rate: 50
+        Rate: 200
         RandomOptionGroup: shadow
       - Item: Peaceful_Past_P
-        Rate: 50
+        Rate: 200
         RandomOptionGroup: shadow
       - Item: Growth_Shadow_Coffer
         Rate: 100
@@ -21109,13 +21109,13 @@ Body:
         Rate: 100
         StealProtected: true
       - Item: 6_of_Clubs
-        Rate: 200
+        Rate: 300
         RandomOptionGroup: deck
       - Item: YinYang_Talisman
         Rate: 200
         RandomOptionGroup: accessory
       - Item: Peaceful_Past_P
-        Rate: 100
+        Rate: 250
         RandomOptionGroup: shadow
       - Item: Ectoplasm
         Rate: 10000
@@ -56004,7 +56004,7 @@ Body:
         StealProtected: true
   - Id: 2542
     AegisName: IRENE_ELDER
-    Name: Elder Memory
+    Name: Elder Spirit
     Level: 68
     Hp: 12450
     BaseExp: 2750
@@ -56031,8 +56031,8 @@ Body:
     DamageMotion: 360
     Ai: 21
     Drops:
-      - Item: Elder_Memory_Card
-        Rate: 100
+      - Item: Elder_Spirit_Card
+        Rate: 150
         StealProtected: true
       - Item: Haedonggum
         Rate: 200
@@ -56040,16 +56040,16 @@ Body:
       - Item: Ectoplasm
         Rate: 10000
       - Item: Golden_Bow
-        Rate: 100
+        Rate: 300
         RandomOptionGroup: bow
       - Item: Peaceful_Past_A
-        Rate: 50
+        Rate: 200
         RandomOptionGroup: shadow
       - Item: Peaceful_Past_G
-        Rate: 50
+        Rate: 200
         RandomOptionGroup: shadow
       - Item: Isaz_Rune_of_Deception
-        Rate: 50
+        Rate: 175
         RandomOptionGroup: manual
       - Item: SoulinaboxMVP
         Rate: 10

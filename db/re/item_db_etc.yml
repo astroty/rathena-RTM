@@ -41889,8 +41889,8 @@ Body:
       bonus2 bSubEle,Ele_Neutral,15;
       bonus2 bMagicAtkEle,Ele_Water,getrefine()*3;
   - Id: 27168
-    AegisName: Elder_Memory_Card
-    Name: Elder Memory Card
+    AegisName: Elder_Spirit_Card
+    Name: Elder Spirit Card
     Type: Card
     Buy: 20
     Weight: 10
