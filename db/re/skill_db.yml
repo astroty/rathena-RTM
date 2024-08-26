@@ -25179,7 +25179,7 @@ Body:
       SpCost: 45
   - Id: 2338
     Name: SR_RAISINGDRAGON
-    Description: Loki's Fury
+    Description: Loki's Wrath
     MaxLevel: 10
     TargetType: Self
     DamageFlags:
