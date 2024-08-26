@@ -137524,7 +137524,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bASPDCap,1;
+      bonus bAtkRate,.@r;
+      bonus bMatkRate,.@r;
   - Id: 30042
     AegisName: Infinite_Daggers_G
     Name: Infinite Daggers G
@@ -137542,7 +137543,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bASPDCap,1;
+      bonus bASPD,.@r;
   - Id: 30043
     AegisName: Infinite_Daggers_S
     Name: Infinite Daggers S
@@ -137560,7 +137561,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bASPDCap,1;
+      bonus bFlee,(.@r * 2);
   - Id: 30044
     AegisName: Infinite_Daggers_P
     Name: Infinite Daggers P
@@ -137578,7 +137579,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bCritical,2*.@r;
+      bonus bCritical,(.@r * 2);
   - Id: 30045
     AegisName: Undying_Wishes_A
     Name: Undying Wishes A
