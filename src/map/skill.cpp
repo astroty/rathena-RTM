@@ -2211,7 +2211,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case RL_BANISHING_BUSTER: {
 		if (sc && sc->data[SC_WEAPONBLOCKING]) {
 			if (sc->data[SC_WEAPONBLOCK_ON]) // End existing Counter State before reapplying [Shift]
-				status_change_end(src, SC_WEAPONBLOCK_ON);
+				status_change_end(src, SC_WEAPONBLOCK_ON,INVALID_TIMER);
 			sc_start(src, src, SC_WEAPONBLOCK_ON, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
 		}
 		uint16 i, n = skill_lv;
