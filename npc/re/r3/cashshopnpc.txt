@@ -1,3 +1,4 @@
+//!rathena
 va_orpha,301,369,4	script	Mr Kim#orphanage	10006 ,{
 	mes "[Mr Kim]";
 	mes "Hello! I'm Mr Kim! A Rich man!";
@@ -469,76 +470,76 @@ function	script	HalloweenBox	{
 	end;
 }
 
-nif_fild01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-niflheim,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_fild02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-gef_dun00,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-gef_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-gef_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_cas01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_cas02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-moc_prydb1,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_fild01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// niflheim,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_fild02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// gef_dun00,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// gef_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// gef_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_cas01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_cas02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// moc_prydb1,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
 
--	itemshop	halloweenshop	-1,6657,14503:1,20394:1,31853:1,31120:1,19903:1,31121:1,20174:1.
+// -	itemshop	halloweenshop	-1,6657,14503:1,20394:1,31853:1,31120:1,19903:1,31121:1,20174:1.
 
-va_orpha,272,367,4	script	Jack O'Morroc#halloween	10015,{
+// va_orpha,272,367,4	script	Jack O'Morroc#halloween	10015,{
 	
-	cutin "morrocjakk.png",2;
-	set .@npc$, "[Jack O'Morroc]";
-	mes .@npc$;
-	mes "Hey there Cursed One! I'm taking a break around this FAAANCYYY place~~";
-	next;
-	mes .@npc$;
-	mes "~I've been looking for some coins... The  <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. I'll give you some cool Emblems for those! ";
-	next;
-	if (halloweenfree ==0){
-		emotion ET_SPARK;
-		mes "[Jack O'Morroc]";
-		mes "Take this as a token of my faith in your hunting skills! They allow you to collect those! Now go get me some coins!";
-		getitem 31771,1;
-		set halloweenfree, 1;
-		emotion ET_SPARK;
-		close2;
-		cutin "",255;
-		end;
-	}
-	switch(select("I want to deliver 50 coins.:Show me the Emblem rewards.:Nevermind.")) {
-	case 1:
-	if(countitem(6658) < 50) goto L_noitems;
-	emotion ET_SPARK;
-	mes .@npc$;
-	mes "Excelennnnntt~~~Now go get more Coins before I bite your head off! Hehehehe!";
-	mes "So far, I gave-away "+$jackfill+" Emblems! Can you guys get to 5.000?";
-	set $jackfill,$jackfill+1;
-	delitem 6658,50;
-	getitem 6657,1;
-	specialeffect2 845;
-	close2;
-	cutin "",255;
-	end;
-	L_noitems:
-		emotion ET_SMILE;
-		mes .@npc$;
-		mes "You don't have <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. Come oooon~~";
-		close2;
-		cutin "",255;
-		end;
-	case 2:
-	emotion ET_SMILE;
-	mes .@npc$;
-	mes "These items are pretty great! Take a look!";
-	close2;
-	cutin "",255;
-	callshop "halloweenshop",1;
-	break;
-	case 3:
-	emotion ET_SMILE;
-	mes .@npc$;
-	mes "Come back anytime... HYAHAHAHAHA~~";
-	close2;
-	cutin "",255;
-	break;
-}
-}
+// 	cutin "morrocjakk.png",2;
+// 	set .@npc$, "[Jack O'Morroc]";
+// 	mes .@npc$;
+// 	mes "Hey there Cursed One! I'm taking a break around this FAAANCYYY place~~";
+// 	next;
+// 	mes .@npc$;
+// 	mes "~I've been looking for some coins... The  <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. I'll give you some cool Emblems for those! ";
+// 	next;
+// 	if (halloweenfree ==0){
+// 		emotion ET_SPARK;
+// 		mes "[Jack O'Morroc]";
+// 		mes "Take this as a token of my faith in your hunting skills! They allow you to collect those! Now go get me some coins!";
+// 		getitem 31771,1;
+// 		set halloweenfree, 1;
+// 		emotion ET_SPARK;
+// 		close2;
+// 		cutin "",255;
+// 		end;
+// 	}
+// 	switch(select("I want to deliver 50 coins.:Show me the Emblem rewards.:Nevermind.")) {
+// 	case 1:
+// 	if(countitem(6658) < 50) goto L_noitems;
+// 	emotion ET_SPARK;
+// 	mes .@npc$;
+// 	mes "Excelennnnntt~~~Now go get more Coins before I bite your head off! Hehehehe!";
+// 	mes "So far, I gave-away "+$jackfill+" Emblems! Can you guys get to 5.000?";
+// 	set $jackfill,$jackfill+1;
+// 	delitem 6658,50;
+// 	getitem 6657,1;
+// 	specialeffect2 845;
+// 	close2;
+// 	cutin "",255;
+// 	end;
+// 	L_noitems:
+// 		emotion ET_SMILE;
+// 		mes .@npc$;
+// 		mes "You don't have <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. Come oooon~~";
+// 		close2;
+// 		cutin "",255;
+// 		end;
+// 	case 2:
+// 	emotion ET_SMILE;
+// 	mes .@npc$;
+// 	mes "These items are pretty great! Take a look!";
+// 	close2;
+// 	cutin "",255;
+// 	callshop "halloweenshop",1;
+// 	break;
+// 	case 3:
+// 	emotion ET_SMILE;
+// 	mes .@npc$;
+// 	mes "Come back anytime... HYAHAHAHAHA~~";
+// 	close2;
+// 	cutin "",255;
+// 	break;
+// }
+// }
