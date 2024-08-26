@@ -97981,8 +97981,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     EquipLevelMin: 1
-    Script: |
-      # bonus2 bAddMonsterDropItem,6658,300;
   - Id: 19910
     AegisName: C_Halloween_Hat
     Name: Costume Halloween Hat
@@ -97992,8 +97990,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     Refineable: true
-    Script: |
-      # bonus2 bAddMonsterDropItem,6658,300;
   - Id: 19911
     AegisName: C_Triangular_Roof_Hat
     Name: Costume Triangle roof hat
@@ -100528,10 +100524,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     EquipLevelMin: 1
-    Script: |
-      # bonus2 bDropAddRace,RC_All,5;
-      # bonus2 bExpAddClass,Class_All,5;
-      # bonus2 bAddMonsterDropItem,6658,300;
   - Id: 20175
     AegisName: C_Diabolic_Headphone
     Name: Costume Diabolic Headphone
@@ -144685,8 +144677,6 @@ Body:
     EquipLevelMin: 1
     Flags:
       DropEffect: PURPLE_PILLAR
-    Script: |
-      # bonus2 bAddMonsterDropItem,6658,300;
   - Id: 31770
     AegisName: C_Vampire_Tie
     Name: C Vampire Tie
@@ -144698,8 +144688,6 @@ Body:
     EquipLevelMin: 1
     Flags:
       DropEffect: PURPLE_PILLAR
-    Script: |
-      # bonus2 bAddMonsterDropItem,6658,300;
   - Id: 31771
     AegisName: C_Witching_Hat
     Name: C Witching Hat
@@ -144713,8 +144701,6 @@ Body:
     EquipLevelMin: 1
     Flags:
       DropEffect: PURPLE_PILLAR
-    Script: |
-      # bonus2 bAddMonsterDropItem,6658,300;
   - Id: 31772
     AegisName: C_Halloween_Collar
     Name: C Halloween Collar
