@@ -3358,9 +3358,9 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 						status->rhw.range += val;
 				}
 				break;
-			case 1:
+			case 1: //Corax: apply range bonus from left hand weapon effects/cards to main hand aswell
 				status->lhw.range += val;
-				break;
+			//	break; //Fallthrough
 			default:
 				status->rhw.range += val;
 				break;
