@@ -4211,7 +4211,7 @@ Body:
     Weight: 600
     Attack: 5
     MagicAttack: 5
-    Range: 4
+    Range: 1
     Jobs:
       All: true
       Acolyte: false
@@ -4236,6 +4236,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "TF_DOUBLE",1;
+      bonus bAtkRange,4;
   - Id: 1216
     AegisName: Stiletto
     Name: Stiletto
