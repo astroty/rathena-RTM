@@ -1674,6 +1674,9 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		if( sd && (sce = sc->data[SC_FORCEOFVANGUARD]) && flag&BF_WEAPON && rnd()%100 < sce->val2 )
 			pc_addspiritball(sd,skill_get_time(LG_FORCEOFVANGUARD,sce->val1),sce->val3);
 
+		if (sd && (sce = sc->data[SC_CONCENTRATION]) && flag & BF_WEAPON && rnd() % 100 < sce->val2)
+			pc_addspiritball(sd, skill_get_time(LK_CONCENTRATION, sce->val1), sce->val3);
+
 		if( sd && (sce = sc->data[SC_GT_ENERGYGAIN]) && flag&BF_WEAPON && rnd()%100 < sce->val2 ) {
 			int spheres = 5;
 
@@ -4054,8 +4057,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case KN_SPEARSTAB:
 			skillratio += 50 + 5 * skill_lv + 2 * sstatus->str;
-		if (sd && sd->spiritball)
-			skillratio += (25 * sd->spiritball) + (sstatus->vit * sd->spiritball);
+			if (sc && sc->data[SC_FORCEOFVANGUARD])
+				skillratio += (25 * sd->spiritball) + (sstatus->vit * sd->spiritball);
+			if (sc && sc->data[SC_CONCENTRATION])
+				skillratio += (25 * sd->spiritball) + (sstatus->agi * sd->spiritball);
+// Original Code:
+//if (sd && sd->spiritball)
+//skillratio += (25 * sd->spiritball) + (sstatus->vit * sd->spiritball);
 			break;
 		case KN_SPEARBOOMERANG:
 			skillratio += 50 + 10 * skill_lv + (sstatus->dex);
@@ -4067,9 +4075,14 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 #ifdef RENEWAL
 		case KN_BRANDISHSPEAR:
-			skillratio += 150 + 15 * skill_lv + 3 * (sstatus->vit);
-			if (sd && sd->spiritball)
+			skillratio += 150 + 15 * skill_lv + 3 * (sstatus->vit) + 2 * (sstatus->agi);
+			if (sc && sc->data[SC_FORCEOFVANGUARD])
+				skillratio += 30 * sd->spiritball + (sstatus->int_ * sd->spiritball);
+			if (sc && sc->data[SC_CONCENTRATION])
 				skillratio += 30 * sd->spiritball + (sstatus->str * sd->spiritball);
+// Original Code:
+//if (sd && sd->spiritball)
+//skillratio += 30 * sd->spiritball + (sstatus->str * sd->spiritball);
 			break;
 #else
 		case KN_BRANDISHSPEAR:
@@ -4095,9 +4108,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case KN_BOWLINGBASH:
 		case MS_BOWLINGBASH:
-			skillratio += 75 + 15 * skill_lv + (2 * (sstatus->str));
+			skillratio += 65 + 15 * skill_lv + (2 * (sstatus->str));
 			if (sc && sc->data[SC_FORCEOFVANGUARD])
 				skillratio += (1 * sstatus->vit) + (1 * sstatus->agi);
+			if (sc && sc->data[SC_CONCENTRATION])
+				skillratio += (1 * sstatus->luk) + (1 * sstatus->str);
 			break;
 		case RK_DRAGONBREATH:
 		case RK_DRAGONBREATH_WATER:
@@ -4186,11 +4201,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break; 
 		case CR_SHIELDBOOMERANG:
 #ifdef RENEWAL
-			skillratio += 100 + 20 * skill_lv + (2 * sstatus->vit) + (5 * pc_checkskill(sd, AL_DP));
+			skillratio += 100 + 20 * skill_lv + (2 * sstatus->vit) + sstatus->agi + (5 * pc_checkskill(sd, AL_DP));
 			if (sc && sc->data[SC_SHIELDSPELL_ATK])
 				skillratio += 1 * (sstatus->vit) + 1 * (sstatus->str);
 			if (sc->data[SC_FORCEOFVANGUARD])
-				skillratio += sstatus->agi + sstatus->str;
+				skillratio += sstatus->int_ + sstatus->vit;
+			if (sc->data[SC_CONCENTRATION])
+				skillratio += sstatus->str + sstatus->luk;
 #else
 			skillratio += 30 * skill_lv;
 #endif
@@ -4418,13 +4435,15 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case PA_SHIELDCHAIN:
 #ifdef RENEWAL
-		skillratio += 100 + (25 * skill_lv) + (2 * (sstatus->vit) + (2 * sstatus->str)) + (5 * pc_checkskill(sd, AL_DP));
+		skillratio += 100 + (25 * skill_lv) + (2 * (4 * sstatus->agi) + (2 * sstatus->str) + (2	* sstatus->vit)) + (5 * pc_checkskill(sd, AL_DP));
 		if (sc && sc->data[SC_SHIELDSPELL_ATK])
 			skillratio += 2 * (sstatus->vit) + 1 * (sstatus->str);
 		if (sc && sc->data[SC_FORCEOFVANGUARD])
-			skillratio += 2 * sstatus->agi;
+			skillratio += 2 * sstatus->vit;
 		if (sc && sc->data[SC_SPL_ATK])
 			skillratio += (5 * (sstatus->int_ + sstatus->luk)) / 10;
+		if (sc && sc->data[SC_CONCENTRATION])
+			skillratio += 2 * sstatus->str;
 #else
 			skillratio += 30 * skill_lv;
 #endif
@@ -4572,6 +4591,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 70 + 25 * skill_lv + 2 * (sstatus->str);
 			if (sc && sc->data[SC_FORCEOFVANGUARD])
 				skillratio += (1 * (sstatus->vit + sstatus->agi));
+			if (sc && sc->data[SC_CONCENTRATION])
+				skillratio += (2 * (sstatus->luk + sstatus->dex)) + sstatus->str;
 			break;
 		case RK_HUNDREDSPEAR:
 			if (tsc && tsc->data[SC_SOULCURSE])
@@ -4784,6 +4805,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 100 + 10 * skill_lv + 3 * sstatus->agi;
 			if (sc->data[SC_FORCEOFVANGUARD])
 				skillratio += 2 * sstatus->vit;
+			if (sc->data[SC_CONCENTRATION])
+				skillratio += 2 * sstatus->str;
 			break;
 		case SC_FEINTBOMB:
 			skillratio += 100 + 25 * skill_lv + (sstatus->luk) + (sstatus->int_) + (10 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));
@@ -5363,7 +5386,7 @@ static int64 battle_calc_skill_constant_addition(struct Damage* wd, struct block
 		break;
 #endif
 	case KN_SPEARSTAB:
-		atk = (status_get_hp(src)) / 10;
+		atk = (status_get_hp(src)) / 6;
 		break;
 	}
 	return atk;

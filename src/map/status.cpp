@@ -896,7 +896,7 @@ void initChangeTables(void)
 #ifndef RENEWAL
 		SCB_BATK|SCB_WATK|SCB_HIT|SCB_DEF|SCB_DEF2 );
 #else
-		SCB_HIT|SCB_DEF );
+		SCB_BATK|SCB_DEF|SCB_MDEF );
 #endif
 	set_sc( LK_TENSIONRELAX		, SC_TENSIONRELAX	, EFST_TENSIONRELAX	, SCB_REGEN );
 	set_sc( LK_BERSERK		, SC_BERSERK		, EFST_BERSERK		, SCB_DEF|SCB_DEF2|SCB_MDEF|SCB_MDEF2|SCB_FLEE|SCB_SPEED|SCB_ASPD|SCB_MAXHP|SCB_REGEN );
@@ -6941,8 +6941,10 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		batk += batk * sc->data[SC_INCATKRATE]->val1/100;
 	if(sc->data[SC_PROVOKE])
 		batk += batk * sc->data[SC_PROVOKE]->val3/100;
-	if(sc->data[SC_CONCENTRATION])
-		batk += batk * sc->data[SC_CONCENTRATION]->val2/100;
+//	if(sc->data[SC_CONCENTRATION])
+//		batk += batk * sc->data[SC_CONCENTRATION]->val4/100;
+	if (sc->data[SC_CONCENTRATION])
+		batk += (2 * sc->data[SC_CONCENTRATION]->val1);
 	if(sc->data[SC_SKE])
 		batk += batk * 3;
 	if(sc->data[SC_BLOODLUST])
@@ -7019,7 +7021,7 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
 		}
 	}
 	if(sc->data[SC_CONCENTRATION])
-		watk += watk * sc->data[SC_CONCENTRATION]->val2 / 100;
+		watk += watk * sc->data[SC_CONCENTRATION]->val4 / 100;
 #endif
 	if(sc->data[SC_INCATKRATE])
 		watk += watk * sc->data[SC_INCATKRATE]->val1/100;
@@ -7294,8 +7296,8 @@ static signed short status_calc_hit(struct block_list *bl, struct status_change 
 		hit += sc->data[SC_TRUESIGHT]->val3;
 	if(sc->data[SC_HUMMING])
 		hit += sc->data[SC_HUMMING]->val2;
-	if(sc->data[SC_CONCENTRATION])
-		hit += sc->data[SC_CONCENTRATION]->val3;
+//	if(sc->data[SC_CONCENTRATION])
+//		hit += sc->data[SC_CONCENTRATION]->val3;
 	if(sc->data[SC_INSPIRATION])
 		hit += 3 * sc->data[SC_INSPIRATION]->val1;
 	if(sc->data[SC_ADJUSTMENT])
@@ -7542,8 +7544,11 @@ static defType status_calc_def(struct block_list *bl, struct status_change *sc, 
 		def >>=1;
 	if(sc->data[SC_SIGNUMCRUCIS])
 		def -= def * sc->data[SC_SIGNUMCRUCIS]->val2/100;
-	if(sc->data[SC_CONCENTRATION])
-		def -= def * sc->data[SC_CONCENTRATION]->val4/100;
+//Original Code:
+// 	if(sc->data[SC_CONCENTRATION])
+//		def -= def * sc->data[SC_CONCENTRATION]->val4/100;
+	if (sc->data[SC_CONCENTRATION])
+		def -= (1 * sc->data[SC_CONCENTRATION]->val1);
 	if(sc->data[SC_SKE])
 		def >>=1;
 	if(sc->data[SC_PROVOKE] && bl->type != BL_PC) // Provoke doesn't alter player defense->
@@ -7714,6 +7719,8 @@ static defType status_calc_mdef(struct block_list *bl, struct status_change *sc,
 		mdef += sc->data[SC_STONE_WALL]->val3;
 	if (sc->data[SC_PACKING_ENVELOPE8])
 		mdef += sc->data[SC_PACKING_ENVELOPE8]->val1;
+	if (sc->data[SC_CONCENTRATION])
+		mdef -= (1 * sc->data[SC_CONCENTRATION]->val1);
 
 	return (defType)cap_value(mdef,DEFTYPE_MIN,DEFTYPE_MAX);
 }
@@ -11469,13 +11476,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					tick += tick / 10; //If caster has Hilt Binding, duration increases by 10%
 			}
 			break;
-		case SC_CONCENTRATION:
-
-			val2 = 1 + val1 * 1; // Batk/Watk Increase
-			val3 = 10*val1; // Hit Increase
-			val4 = 5 + val1 * 5; // Def reduction
-			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
-			break;
 		case SC_ANGELUS:
 			val2 = 3*val1; // def increase
 			break;
@@ -11994,6 +11994,17 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = 10; // Max rage counters
 			tick = INFINITE_TICK; // Endless duration in the client
 			tick_time = 10000; // [GodLesZ] tick time
+			break;
+		case SC_CONCENTRATION:
+//Original Code:
+//	val2 = 1 + val1 * 1; // Batk/Watk Increase
+//	val3 = 10 * val1; // Hit Increase
+// 	val4 = 5 + val1 * 5; // Def reduction
+//			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
+			val2 = 25 + 15 * val1; // Chance
+			val3 = 10; // Max Rage Counters
+			tick = INFINITE_TICK;
+			tick_time = 10000;
 			break;
 		case SC_EXEEDBREAK:
 			val2 = 100 * val1;
@@ -12773,6 +12784,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC__LAZINESS:
 		case SC__UNLUCKY:
 		case SC_FORCEOFVANGUARD:
+		case SC_CONCENTRATION:
 		case SC_SPELLFIST:
 		case SC_CURSEDCIRCLE_ATKER:
 		case SC_PYROTECHNIC_OPTION:
@@ -13784,10 +13796,10 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			}
 			break;
 
-		case SC_CONCENTRATION:
-			if (sc->data[SC_ENDURE] && !sc->data[SC_ENDURE]->val4)
-				status_change_end(bl, SC_ENDURE, INVALID_TIMER);
-			break;
+//		case SC_CONCENTRATION:
+//			if (sc->data[SC_ENDURE] && !sc->data[SC_ENDURE]->val4)
+//				status_change_end(bl, SC_ENDURE, INVALID_TIMER);
+//			break;
 		case SC_BERSERK:
 			if(status->hp > 200 && sc && sc->data[SC__BLOODYLUST]) {
 				status_percent_heal(bl, 25, 0);

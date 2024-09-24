@@ -2373,11 +2373,25 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc->data[SC_FORCEOFVANGUARD]) {
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
 		}
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Shield Boomerang can build up to 5 Duel Counter Stacks
+		}
+		if (sc && sc->data[SC_CONCENTRATION]) {
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Shield Boomerang can build up to 5 Duel Counter Stacks
+		}
 		break;
 	case SC_TRIANGLESHOT:
 		if (sc->data[SC_OVERBRANDREADY]) {
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+		}
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
+				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Delta Skyfall will add 5 Duel Counter Stacks
+		}
+		if (sc && sc->data[SC_CONCENTRATION]) {
+			for (int i = 0; i < sc->data[SC_CONCENTRATION]->val3; i++)
+				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Delta Skyfall will add 5 Duel Counter Stacks
 		}
 		break;
 	case PA_SHIELDCHAIN:
@@ -2390,17 +2404,37 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc->data[SC_FORCEOFVANGUARD]) {
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
 		}
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Wind Slash can build up to 5 Duel Counter Stacks
+		}
+		if (sc && sc->data[SC_CONCENTRATION]) {
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Wind Slash can build up to 5 Duel Counter Stacks
+		}
 		break;
 	case KN_BOWLINGBASH:
 		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		if (sc->data[SC_FORCEOFVANGUARD]) {
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
 		}
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Overpower can built up to 5 Duel Counter Stacks
+		}
+		if (sc && sc->data[SC_CONCENTRATION]) {
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Overpower can built up to 5 Duel Counter Stacks
+		}
 		break;
 	case KN_SPEARSTAB:
 		if (sc->data[SC_OVERBRANDREADY]) {
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+		}
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
+				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
+		}
+		if (sc && sc->data[SC_CONCENTRATION]) {
+			for (int i = 0; i < sc->data[SC_CONCENTRATION]->val3; i++)
+				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
 		}
 		break;
 	case KN_BRANDISHSPEAR:
@@ -3885,9 +3919,10 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 
 	switch (skill_id) {
 	case SC_TRIANGLESHOT:
-		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+		// Original Code for Duel Counter Stacks Creation
+/*		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5);
-		}
+		}	*/
 		if (rnd() % 100 > (1 + skill_lv))
 			dmg.blewcount = 0;
 		break;
@@ -5960,10 +5995,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	break;
 
 	case KN_SPEARSTAB:
-		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
-			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
-				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 5);
-		}
 		if (skill_check_unit_movepos(5, src, bl->x, bl->y, 1, 1))
 			skill_blown(src, src, 1, (dir_ka + 4) % 8, BLOWN_NONE); // Target position is actually one cell next to the target
 		skill_addtimerskill(src, tick + 300, bl->id, 0, 0, skill_id, skill_lv, BF_WEAPON, flag | SD_LEVEL | 2);
