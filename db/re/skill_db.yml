@@ -9704,43 +9704,19 @@ Body:
     Name: LK_CONCENTRATION
     Description: Ready to Rip
     MaxLevel: 5
-#    Type: Weapon
     TargetType: Self
     DamageFlags:
       NoDamage: true
     Hit: Single
     HitCount: 1
-    Duration1: 300000
     CastCancel: true
-    AfterCastActDelay: 1000
     FixedCastTime: 500
     CastTimeFlags:
     IgnoreDex: true
     IgnoreStatus: true
     IgnoreItemBonus: true
-#      - Level: 1
-#        Time: 50000
-#      - Level: 2
-#        Time: 50000
-#      - Level: 3
-#        Time: 50000
-#      - Level: 4
-#        Time: 50000
-#      - Level: 5
-#        Time: 50000
-#    Cooldown: 120000
     Requires:
       SpCost: 30
-#        - Level: 1
-#          Amount: 25
-#        - Level: 2
-#          Amount: 30
-#        - Level: 3
-#          Amount: 35
-#        - Level: 4
-#          Amount: 40
-#        - Level: 5
-#          Amount: 45
   - Id: 358
     Name: LK_TENSIONRELAX
     Description: Relax
@@ -24131,8 +24107,6 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    AfterCastActDelay: 1000
-    Duration1: 300000
     FixedCastTime: 500
     CastTimeFlags:
       IgnoreDex: true

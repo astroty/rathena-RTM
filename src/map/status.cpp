@@ -10268,6 +10268,13 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		status_change_end(bl, SC_STARSTANCE, INVALID_TIMER);
 		status_change_end(bl, SC_UNIVERSESTANCE, INVALID_TIMER);
 		break;
+	case SC_CONCENTRATION:
+	case SC_FORCEOFVANGUARD:
+		if (sc->data[type])
+			break;
+		status_change_end(bl, SC_CONCENTRATION, INVALID_TIMER);
+		status_change_end(bl, SC_FORCEOFVANGUARD, INVALID_TIMER);
+		break;
 	case SC_SPIRIT:
 	case SC_SOULGOLEM:
 	case SC_SOULSHADOW:
@@ -10303,12 +10310,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		status_change_end(bl, SC_TOXIN, INVALID_TIMER);
 		status_change_end(bl, SC_MAGICMUSHROOM, INVALID_TIMER);
 		break;
-#ifndef RENEWAL
-	case SC_KYRIE:
-		// Cancels Assumptio
-		status_change_end(bl, SC_ASSUMPTIO, INVALID_TIMER);
-		break;
-#endif
 	case SC_DELUGE:
 		if (sc->data[SC_FOGWALL] && sc->data[SC_BLIND])
 			status_change_end(bl, SC_BLIND, INVALID_TIMER);
@@ -10335,16 +10336,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			status_change_end(bl, SC_AURABLADE, INVALID_TIMER);
 			status_change_end(bl, SC_MERC_QUICKEN, INVALID_TIMER);
 		}
-#ifdef RENEWAL
 		else {
 			status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
 		}
-#endif
 		break;
 	case SC_ASSUMPTIO:
-#ifndef RENEWAL
-		status_change_end(bl, SC_KYRIE, INVALID_TIMER);
-#endif
 		status_change_end(bl, SC_KAITE, INVALID_TIMER);
 		break;
 	case SC_KAITE:
