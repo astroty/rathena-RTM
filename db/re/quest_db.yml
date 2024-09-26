@@ -6800,7 +6800,7 @@ Body:
   - Id: 12105
     Title: Moving Rocks
     Targets:
-      - Mob: BRADIUM_GOLEM
+      - Mob: RUBY_GOLEM
         Count: 10
   - Id: 12106
     Title: A child on a flower
