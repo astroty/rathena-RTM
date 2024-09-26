@@ -22689,6 +22689,9 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case SJ_UNIVERSESTANCE:
 	case SJ_SUNSTANCE:
 	case SP_SOULCOLLECT:
+	case LK_CONCENTRATION:
+	case LG_FORCEOFVANGUARD:
+	case LK_BERSERK:
 		if (sc->data[status_skill2sc(skill_id)])
 			return 1;
 		break;
