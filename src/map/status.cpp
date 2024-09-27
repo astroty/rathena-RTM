@@ -1217,7 +1217,7 @@ void initChangeTables(void)
 
 	/* Royal Guard */
 	set_sc( LG_REFLECTDAMAGE	, SC_REFLECTDAMAGE	, EFST_LG_REFLECTDAMAGE	, SCB_NONE );
-	set_sc( DL_DUELSTANCE	, SC_DUELSTANCE	, EFST_DUELSTANCE	, SCB_MAXHP );
+	set_sc( LG_FORCEOFVANGUARD	, SC_FORCEOFVANGUARD	, EFST_FORCEOFVANGUARD	, SCB_MAXHP );
 	set_sc( LG_EXEEDBREAK		, SC_EXEEDBREAK		, EFST_EXEEDBREAK		, SCB_NONE );
 	set_sc( LG_PRESTIGE		, SC_PRESTIGE		, EFST_PRESTIGE		, SCB_DEF );
 	set_sc( LG_BANDING		, SC_BANDING		, EFST_BANDING		, SCB_DEF|SCB_WATK|SCB_REGEN );
@@ -3790,8 +3790,8 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 				bonus += sc->data[SC_FRIGG_SONG]->val2;
 			if(sc->data[SC_LERADSDEW])
 				bonus += sc->data[SC_LERADSDEW]->val3;
-			if(sc->data[SC_DUELSTANCE])
-				bonus += (2 * sc->data[SC_DUELSTANCE]->val1);
+			if(sc->data[SC_FORCEOFVANGUARD])
+				bonus += (2 * sc->data[SC_FORCEOFVANGUARD]->val1);
 			if(sc->data[SC_INSPIRATION])
 				bonus += (2 * sc->data[SC_INSPIRATION]->val1);
 			if(sc->data[SC_GT_REVITALIZE])
@@ -10269,11 +10269,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		status_change_end(bl, SC_UNIVERSESTANCE, INVALID_TIMER);
 		break;
 	case SC_CONCENTRATION:
-	case SC_DUELSTANCE:
+	case SC_FORCEOFVANGUARD:
 		if (sc->data[type])
 			break;
 		status_change_end(bl, SC_CONCENTRATION, INVALID_TIMER);
-		status_change_end(bl, SC_DUELSTANCE, INVALID_TIMER);
+		status_change_end(bl, SC_FORCEOFVANGUARD, INVALID_TIMER);
 		break;
 	case SC_SPIRIT:
 	case SC_SOULGOLEM:
@@ -11985,7 +11985,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val4 = tick/1000; // Number of SP cycles (duration)
 			tick_time = 1000; // [GodLesZ] tick time
 			break;
-		case SC_DUELSTANCE:
+		case SC_FORCEOFVANGUARD:
 			val2 = 25 + 15 * val1; // Chance
 			val3 = 10; // Max rage counters
 			tick = INFINITE_TICK; // Endless duration in the client
@@ -12779,7 +12779,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC__GROOMY:
 		case SC__LAZINESS:
 		case SC__UNLUCKY:
-		case SC_DUELSTANCE:
+		case SC_FORCEOFVANGUARD:
 		case SC_CONCENTRATION:
 		case SC_SPELLFIST:
 		case SC_CURSEDCIRCLE_ATKER:
@@ -14909,7 +14909,7 @@ TIMER_FUNC(status_change_timer){
 		}
 		break;
 
-	case SC_DUELSTANCE:
+	case SC_FORCEOFVANGUARD:
 		if( !status_charge(bl,0,24 - 4 * sce->val1) )
 			break;
 		sc_timer_next(10000 + tick);

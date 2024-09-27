@@ -1588,7 +1588,7 @@ SC_REFLECTDAMAGE	()
 	desc:
 	val1:
 
-SC_DUELSTANCE	()
+SC_FORCEOFVANGUARD	()
 	desc:
 	val1:
 

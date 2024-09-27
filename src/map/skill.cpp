@@ -2370,10 +2370,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 2000);
 		break;
 	case CR_SHIELDBOOMERANG:
-		if (sc->data[SC_DUELSTANCE]) {
+		if (sc->data[SC_FORCEOFVANGUARD]) {
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
 		}
-		if (sc && sc->data[SC_DUELSTANCE]) {
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Shield Boomerang can build up to 5 Duel Counter Stacks
 		}
 		if (sc && sc->data[SC_CONCENTRATION]) {
@@ -2385,8 +2385,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
 		}
-		if (sc && sc->data[SC_DUELSTANCE]) {
-			for (int i = 0; i < sc->data[SC_DUELSTANCE]->val3; i++)
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
 				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Delta Skyfall will add 5 Duel Counter Stacks
 		}
 		if (sc && sc->data[SC_CONCENTRATION]) {
@@ -2401,10 +2401,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		}
 		break;
 	case RK_SONICWAVE:
-		if (sc->data[SC_DUELSTANCE]) {
+		if (sc->data[SC_FORCEOFVANGUARD]) {
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
 		}
-		if (sc && sc->data[SC_DUELSTANCE]) {
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Wind Slash can build up to 5 Duel Counter Stacks
 		}
 		if (sc && sc->data[SC_CONCENTRATION]) {
@@ -2413,10 +2413,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case KN_BOWLINGBASH:
 		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
-		if (sc->data[SC_DUELSTANCE]) {
+		if (sc->data[SC_FORCEOFVANGUARD]) {
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
 		}
-		if (sc && sc->data[SC_DUELSTANCE]) {
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Overpower can built up to 5 Duel Counter Stacks
 		}
 		if (sc && sc->data[SC_CONCENTRATION]) {
@@ -2428,9 +2428,9 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
 		}
-		if (sc && sc->data[SC_DUELSTANCE]) {
-			for (int i = 0; i < sc->data[SC_DUELSTANCE]->val3; i++)
-				pc_addspiritball(sd, skill_get_time(DL_DUELSTANCE, 1), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
+		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
+			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
+				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
 		}
 		if (sc && sc->data[SC_CONCENTRATION]) {
 			for (int i = 0; i < sc->data[SC_CONCENTRATION]->val3; i++)
@@ -3920,7 +3920,7 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 	switch (skill_id) {
 	case SC_TRIANGLESHOT:
 		// Original Code for Duel Counter Stacks Creation
-/*		if (sc && sc->data[SC_DUELSTANCE]) {
+/*		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5);
 		}	*/
 		if (rnd() % 100 > (1 + skill_lv))
@@ -8576,14 +8576,14 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 
 	case AS_CLOAKING:
 	case GC_CLOAKINGEXCEED:
-	case DL_DUELSTANCE:
+	case LG_FORCEOFVANGUARD:
 	case SC_REPRODUCE:
 	case SC_INVISIBILITY:
 	case RA_CAMOUFLAGE:
 		if (tsce) {
 			i = status_change_end(bl, type, INVALID_TIMER);
 			if (i)
-				clif_skill_nodamage(src, bl, skill_id, (skill_id == DL_DUELSTANCE || skill_id == RA_CAMOUFLAGE) ? skill_lv : -1, i);
+				clif_skill_nodamage(src, bl, skill_id, (skill_id == LG_FORCEOFVANGUARD || skill_id == RA_CAMOUFLAGE) ? skill_lv : -1, i);
 			else if (sd)
 				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 			map_freeblock_unlock();
@@ -8591,7 +8591,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		}
 		i = sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		if (i)
-			clif_skill_nodamage(src, bl, skill_id, (skill_id == DL_DUELSTANCE || skill_id == RA_CAMOUFLAGE) ? skill_lv : -1, i);
+			clif_skill_nodamage(src, bl, skill_id, (skill_id == LG_FORCEOFVANGUARD || skill_id == RA_CAMOUFLAGE) ? skill_lv : -1, i);
 		else if (sd)
 			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		break;
@@ -9241,7 +9241,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 				case SC_SOULCOLD:		case SC_HAWKEYES:		case SC_REGENERATION:
 				case SC_PUSH_CART:		case SC_RAISINGDRAGON:	case SC_GT_ENERGYGAIN:
 				case SC_GT_CHANGE:		case SC_GT_REVITALIZE:	case SC_REFLECTDAMAGE:
-				case SC_INSPIRATION:	case SC_EXEEDBREAK:		case SC_DUELSTANCE:
+				case SC_INSPIRATION:	case SC_EXEEDBREAK:		case SC_FORCEOFVANGUARD:
 				case SC_BANDING:		case SC_DUPLELIGHT:		case SC_EXPIATIO:
 				case SC_LAUDAAGNUS:		case SC_LAUDARAMUS:		case SC_GATLINGFEVER:
 				case SC_INCREASING:		case SC_ADJUSTMENT:		case SC_MADNESSCANCEL:
@@ -16850,7 +16850,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 
 	case GS_GLITTERING:
 	case RL_RICHS_COIN:
-		if (sd && skill_lv > 0 && pc_checkskill(sd, DL_DUELSTANCE) > 0) {
+		if (sd && skill_lv > 0 && pc_checkskill(sd, LG_FORCEOFVANGUARD) > 0) {
 			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 			return false;
 		}
@@ -22690,7 +22690,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case SJ_SUNSTANCE:
 	case SP_SOULCOLLECT:
 	case LK_CONCENTRATION:
-	case DL_DUELSTANCE:
+	case LG_FORCEOFVANGUARD:
 	case LK_BERSERK:
 		if (sc->data[status_skill2sc(skill_id)])
 			return 1;

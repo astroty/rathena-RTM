@@ -24098,7 +24098,7 @@ Body:
         1hSpear: true
         2hSpear: true
   - Id: 2313
-    Name: DL_DUELSTANCE
+    Name: LG_FORCEOFVANGUARD
     Description: Duel Stance
     MaxLevel: 5
     TargetType: Self

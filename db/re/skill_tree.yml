@@ -2044,7 +2044,7 @@ Body:
     Tree:
       - Name: KN_AUTOCOUNTER
         MaxLevel: 5
-      - Name: DL_DUELSTANCE
+      - Name: LG_FORCEOFVANGUARD
         MaxLevel: 5
       - Name: LG_RAGEBURST
         MaxLevel: 10

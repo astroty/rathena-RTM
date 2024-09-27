@@ -1321,7 +1321,7 @@
 	export_constant(SC_OBLIVIONCURSE);
 	export_constant(SC_LEECHESEND);
 	export_constant(SC_REFLECTDAMAGE);
-	export_constant(SC_DUELSTANCE);
+	export_constant(SC_FORCEOFVANGUARD);
 	export_constant(SC_SHIELDSPELL_HP);
 	export_constant(SC_SHIELDSPELL_SP);
 	export_constant(SC_SHIELDSPELL_ATK);
@@ -2012,7 +2012,7 @@
 	export_deprecated_constant2("SI_STR_SCROLL",388);
 	export_deprecated_constant2("SI_INT_SCROLL",389);
 	export_deprecated_constant2("SI_LG_REFLECTDAMAGE",390);
-	export_deprecated_constant2("SI_DUELSTANCE",391);
+	export_deprecated_constant2("SI_FORCEOFVANGUARD",391);
 	export_deprecated_constant2("SI_BUCHEDENOEL",392);
 	export_deprecated_constant2("SI_AUTOSHADOWSPELL",393);
 	export_deprecated_constant2("SI_SHADOWFORM",394);
@@ -2959,7 +2959,7 @@
 	export_constant(EFST_STR_SCROLL);
 	export_constant(EFST_INT_SCROLL);
 	export_constant(EFST_LG_REFLECTDAMAGE);
-	export_constant(EFST_DUELSTANCE);
+	export_constant(EFST_FORCEOFVANGUARD);
 	export_constant(EFST_BUCHEDENOEL);
 	export_constant(EFST_AUTOSHADOWSPELL);
 	export_constant(EFST_SHADOWFORM);
