@@ -3939,8 +3939,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 25;
 		if (sc && sc->data[SC_TRUESIGHT])
 			skillratio += 2 * sc->data[SC_TRUESIGHT]->val1;
-		if (sc->data[SC_CONCENTRATION] && (skill_id != RK_DRAGONBREATH && skill_id != RK_DRAGONBREATH_WATER && skill_id != NPC_DRAGONBREATH))
-			skillratio += sc->data[SC_CONCENTRATION]->val2;
+//		if (sc->data[SC_CONCENTRATION] && (skill_id != RK_DRAGONBREATH && skill_id != RK_DRAGONBREATH_WATER && skill_id != NPC_DRAGONBREATH))
+//			skillratio += sc->data[SC_CONCENTRATION]->val2;
 #endif
 		if (!skill_id || skill_id == KN_AUTOCOUNTER) {
 			if (sc->data[SC_CRUSHSTRIKE]) {
@@ -7426,7 +7426,25 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 
 		//Apply the physical part of the skill's damage. [Skotlex]
 		switch(skill_id) {
-			case CR_GRANDCROSS:
+			case CR_GRANDCROSS: {
+			struct Damage wd = battle_calc_weapon_attack(src, target, skill_id, skill_lv, mflag);
+			ad.damage = battle_attr_fix(src, target, wd.damage + ad.damage, s_ele, tstatus->def_ele, tstatus->ele_lv) * (150 + 20 * skill_lv + (sstatus->int_ * 3) + (sstatus->vit * 2)) /45;
+			if (sc->data[SC_FORCEOFVANGUARD]) {
+				skillratio += sstatus->vit + (2*sstatus->agi);
+			}
+			if (sc->data[SC_CONCENTRATION]) {
+				skillratio += sstatus->int_ + (2*sstatus->str);
+			}
+			if (sc->data[SC_OVERBRANDREADY]) {
+				skillratio += 50;
+			}
+			if (sc->data[SC_SPL_ATK]) {
+				skillratio += 100;
+			}
+			if (src == target)
+				ad.damage = 0;
+			}
+		    break;
 			case NPC_GRANDDARKNESS: {
 				struct Damage wd = battle_calc_weapon_attack(src, target, skill_id, skill_lv, mflag);
 
@@ -7445,8 +7463,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							ad.damage = 0;
 					}
 #endif
-				}
-				break;
+			}
+			break;
 		}
 
 #ifndef RENEWAL

@@ -2371,7 +2371,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case CR_SHIELDBOOMERANG:
 		if (sc->data[SC_FORCEOFVANGUARD]) {
-			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
+		}
+		if (sc->data[SC_CONCENTRATION]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
 		}
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Shield Boomerang can build up to 5 Duel Counter Stacks
@@ -2383,7 +2386,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case SC_TRIANGLESHOT:
 		if (sc->data[SC_OVERBRANDREADY]) {
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
-			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 10000);
 		}
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
@@ -2402,7 +2405,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case RK_SONICWAVE:
 		if (sc->data[SC_FORCEOFVANGUARD]) {
-			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
+		}
+		if (sc->data[SC_CONCENTRATION]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
 		}
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Wind Slash can build up to 5 Duel Counter Stacks
@@ -2414,7 +2420,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case KN_BOWLINGBASH:
 		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		if (sc->data[SC_FORCEOFVANGUARD]) {
-			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 4000);
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
+		}
+		if (sc->data[SC_CONCENTRATION]) {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
 		}
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Overpower can built up to 5 Duel Counter Stacks
@@ -2426,11 +2435,11 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case KN_SPEARSTAB:
 		if (sc->data[SC_OVERBRANDREADY]) {
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
-			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 6000);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 10000);
 		}
 		if (sc && sc->data[SC_FORCEOFVANGUARD]) {
 			for (int i = 0; i < sc->data[SC_FORCEOFVANGUARD]->val3; i++)
-				pc_addspiritball(sd, skill_get_time(LG_FORCEOFVANGUARD, 1), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
+				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
 		}
 		if (sc && sc->data[SC_CONCENTRATION]) {
 			for (int i = 0; i < sc->data[SC_CONCENTRATION]->val3; i++)
@@ -7719,7 +7728,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case LK_AURABLADE:
 	case LK_PARRYING:
 	case MS_PARRYING:
-	case LK_CONCENTRATION:
 #ifdef RENEWAL
 	case HP_BASILICA:
 #endif
@@ -7729,6 +7737,17 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case WS_OVERTHRUSTMAX:
 	case ST_REJECTSWORD:
 	case HW_MAGICPOWER:
+	case LK_CONCENTRATION: {
+		struct status_change* wsc = status_get_sc(src);
+		if (wsc->data[SC_CONCENTRATION]) {
+			status_change_end(src, SC_CONCENTRATION, INVALID_TIMER);
+		}
+		else {
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+			// sc_start(src, src, SC_CONCENTRATION, 100, skill_lv, INFINITE_TICK);
+		}
+		break;
+		}
 	case PF_MEMORIZE:
 	case PA_SACRIFICE:
 	case ASC_EDP:

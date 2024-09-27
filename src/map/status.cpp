@@ -896,7 +896,7 @@ void initChangeTables(void)
 #ifndef RENEWAL
 		SCB_BATK|SCB_WATK|SCB_HIT|SCB_DEF|SCB_DEF2 );
 #else
-		SCB_BATK|SCB_DEF|SCB_MDEF );
+		SCB_BATK);
 #endif
 	set_sc( LK_TENSIONRELAX		, SC_TENSIONRELAX	, EFST_TENSIONRELAX	, SCB_REGEN );
 	set_sc( LK_BERSERK		, SC_BERSERK		, EFST_BERSERK		, SCB_DEF|SCB_DEF2|SCB_MDEF|SCB_MDEF2|SCB_FLEE|SCB_SPEED|SCB_ASPD|SCB_MAXHP|SCB_REGEN );
@@ -11996,7 +11996,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 //	val2 = 1 + val1 * 1; // Batk/Watk Increase
 //	val3 = 10 * val1; // Hit Increase
 // 	val4 = 5 + val1 * 5; // Def reduction
-//			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
+//	sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			val2 = 25 + 15 * val1; // Chance
 			val3 = 10; // Max Rage Counters
 			tick = INFINITE_TICK;
@@ -14911,6 +14911,12 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_FORCEOFVANGUARD:
 		if( !status_charge(bl,0,24 - 4 * sce->val1) )
+			break;
+		sc_timer_next(10000 + tick);
+		return 0;
+
+	case SC_CONCENTRATION:
+		if (!status_charge(bl, 0, 24 - 4 * sce->val1))
 			break;
 		sc_timer_next(10000 + tick);
 		return 0;
