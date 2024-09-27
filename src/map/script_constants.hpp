@@ -1055,6 +1055,7 @@
 	export_constant(SC_AURABLADE);
 	export_constant(SC_PARRYING);
 	export_constant(SC_CONCENTRATION);
+	export_constant(SC_ENGARDESTANCE);
 	export_constant(SC_TENSIONRELAX);
 	export_constant(SC_BERSERK);
 	export_constant(SC_FURY);

@@ -2050,7 +2050,7 @@ Body:
         MaxLevel: 10
       - Name: SC_TRIANGLESHOT
         MaxLevel: 10
-      - Name: LK_CONCENTRATION
+      - Name: DL_ENGARDESTANCE
         MaxLevel: 5
   - Job: Creator
     Inherit:

@@ -2376,7 +2376,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc && sc->data[SC_DUELSTANCE]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Shield Boomerang can build up to 5 Duel Counter Stacks
 		}
-		if (sc && sc->data[SC_CONCENTRATION]) {
+		if (sc && sc->data[SC_ENGARDESTANCE]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Shield Boomerang can build up to 5 Duel Counter Stacks
 		}
 		break;
@@ -2389,8 +2389,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			for (int i = 0; i < sc->data[SC_DUELSTANCE]->val3; i++)
 				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Delta Skyfall will add 5 Duel Counter Stacks
 		}
-		if (sc && sc->data[SC_CONCENTRATION]) {
-			for (int i = 0; i < sc->data[SC_CONCENTRATION]->val3; i++)
+		if (sc && sc->data[SC_ENGARDESTANCE]) {
+			for (int i = 0; i < sc->data[SC_ENGARDESTANCE]->val3; i++)
 				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Delta Skyfall will add 5 Duel Counter Stacks
 		}
 		break;
@@ -2407,7 +2407,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc && sc->data[SC_DUELSTANCE]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Wind Slash can build up to 5 Duel Counter Stacks
 		}
-		if (sc && sc->data[SC_CONCENTRATION]) {
+		if (sc && sc->data[SC_ENGARDESTANCE]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Wind Slash can build up to 5 Duel Counter Stacks
 		}
 		break;
@@ -2419,7 +2419,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc && sc->data[SC_DUELSTANCE]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Overpower can built up to 5 Duel Counter Stacks
 		}
-		if (sc && sc->data[SC_CONCENTRATION]) {
+		if (sc && sc->data[SC_ENGARDESTANCE]) {
 			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Overpower can built up to 5 Duel Counter Stacks
 		}
 		break;
@@ -2432,8 +2432,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			for (int i = 0; i < sc->data[SC_DUELSTANCE]->val3; i++)
 				pc_addspiritball(sd, skill_get_time(DL_DUELSTANCE, 1), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
 		}
-		if (sc && sc->data[SC_CONCENTRATION]) {
-			for (int i = 0; i < sc->data[SC_CONCENTRATION]->val3; i++)
+		if (sc && sc->data[SC_ENGARDESTANCE]) {
+			for (int i = 0; i < sc->data[SC_ENGARDESTANCE]->val3; i++)
 				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5); //Rook's Smash will add 5 stacks Duel Counter Stacks
 		}
 		break;
@@ -7697,10 +7697,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		}
 	case PR_SLOWPOISON:
 	case PR_LEXAETERNA:
-#ifndef RENEWAL
-	case PR_IMPOSITIO:
-	case PR_SUFFRAGIUM:
-#endif
 	case MS_BERSERK:
 	case KN_TWOHANDQUICKEN:
 	case KN_ONEHAND:
@@ -7709,9 +7705,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case CR_REFLECTSHIELD:
 	case MS_REFLECTSHIELD:
 	case AS_POISONREACT:
-#ifndef RENEWAL
-	case MC_LOUD:
-#endif
 	case MG_ENERGYCOAT:
 	case MO_EXPLOSIONSPIRITS:
 	case MO_STEELBODY:
@@ -7720,9 +7713,8 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case LK_PARRYING:
 	case MS_PARRYING:
 	case LK_CONCENTRATION:
-#ifdef RENEWAL
+	case DL_ENGARDESTANCE:
 	case HP_BASILICA:
-#endif
 	case WS_CARTBOOST:
 	case SN_SIGHT:
 	case WS_MELTDOWN:
@@ -22690,6 +22682,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case SJ_SUNSTANCE:
 	case SP_SOULCOLLECT:
 	case LK_CONCENTRATION:
+	case DL_ENGARDESTANCE:
 	case DL_DUELSTANCE:
 	case LK_BERSERK:
 		if (sc->data[status_skill2sc(skill_id)])
