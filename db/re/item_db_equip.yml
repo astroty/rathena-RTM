@@ -92485,7 +92485,7 @@ Body:
       if (getskilllv("LG_MOONSLASHER")>=5) {
          bonus2 bSkillVariableCast,"LG_OVERBRAND",-1000;
       }
-      if (getskilllv("LG_FORCEOFVANGUARD")>=5) {
+      if (getskilllv("DL_DUELSTANCE")>=5) {
          .@hp += 10;
          .@mdef += 15;
          bonus bMaxSPrate,10;
@@ -113232,11 +113232,11 @@ Body:
     Script: |
       bonus bVit,3;
       skill "SC_TRIANGLESHOT",5;
-      skill "LG_FORCEOFVANGUARD",3;
+      skill "DL_DUELSTANCE",3;
     EquipScript: |
-      sc_end SC_FORCEOFVANGUARD;
+      sc_end SC_DUELSTANCE;
     UnEquipScript: |
-      sc_end SC_FORCEOFVANGUARD;
+      sc_end SC_DUELSTANCE;
   - Id: 24086
     AegisName: Deadeye_M
     Name: Deadeye M
