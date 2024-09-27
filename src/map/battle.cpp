@@ -1674,8 +1674,8 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		if( sd && (sce = sc->data[SC_DUELSTANCE]) && flag&BF_WEAPON && rnd()%100 < sce->val2 )
 			pc_addspiritball(sd,skill_get_time(DL_DUELSTANCE,sce->val1),sce->val3);
 
-		if (sd && (sce = sc->data[SC_ENGARDESTANCE]) && flag & BF_WEAPON && rnd() % 100 < sce->val2)
-			pc_addspiritball(sd, skill_get_time(DL_ENGARDESTANCE, sce->val1), sce->val3);
+		if (sd && (sce = sc->data[SC_CONCENTRATION]) && flag & BF_WEAPON && rnd() % 100 < sce->val2)
+			pc_addspiritball(sd, skill_get_time(LK_CONCENTRATION, sce->val1), sce->val3);
 
 		if( sd && (sce = sc->data[SC_GT_ENERGYGAIN]) && flag&BF_WEAPON && rnd()%100 < sce->val2 ) {
 			int spheres = 5;
@@ -3933,11 +3933,15 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		if(sc->data[SC_MAXOVERTHRUST])
 			skillratio += sc->data[SC_MAXOVERTHRUST]->val2;
 		if(sc->data[SC_BERSERK])
+#ifndef RENEWAL
+			skillratio += 20;
+#else
 			skillratio += 25;
 		if (sc && sc->data[SC_TRUESIGHT])
 			skillratio += 2 * sc->data[SC_TRUESIGHT]->val1;
-		if (sc->data[SC_ENGARDESTANCE] && (skill_id != RK_DRAGONBREATH && skill_id != RK_DRAGONBREATH_WATER && skill_id != NPC_DRAGONBREATH))
-			skillratio += sc->data[SC_ENGARDESTANCE]->val2;
+		if (sc->data[SC_CONCENTRATION] && (skill_id != RK_DRAGONBREATH && skill_id != RK_DRAGONBREATH_WATER && skill_id != NPC_DRAGONBREATH))
+			skillratio += sc->data[SC_CONCENTRATION]->val2;
+#endif
 		if (!skill_id || skill_id == KN_AUTOCOUNTER) {
 			if (sc->data[SC_CRUSHSTRIKE]) {
 				if (sd) { //ATK [{Weapon Level * (Weapon Upgrade Level + 6) * 100} + (Weapon ATK) + (Weapon Weight)]%
@@ -4055,7 +4059,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 50 + 5 * skill_lv + 2 * sstatus->str;
 			if (sc && sc->data[SC_DUELSTANCE])
 				skillratio += (25 * sd->spiritball) + (sstatus->vit * sd->spiritball);
-			if (sc && sc->data[SC_ENGARDESTANCE])
+			if (sc && sc->data[SC_CONCENTRATION])
 				skillratio += (25 * sd->spiritball) + (sstatus->agi * sd->spiritball);
 // Original Code:
 //if (sd && sd->spiritball)
@@ -4069,16 +4073,20 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += sstatus->luk + ((5 * sstatus->agi) / 10);
 			}
 			break;
+#ifdef RENEWAL
 		case KN_BRANDISHSPEAR:
 			skillratio += 150 + 15 * skill_lv + 3 * (sstatus->vit) + 2 * (sstatus->agi);
 			if (sc && sc->data[SC_DUELSTANCE])
 				skillratio += 30 * sd->spiritball + (sstatus->int_ * sd->spiritball);
-			if (sc && sc->data[SC_ENGARDESTANCE])
+			if (sc && sc->data[SC_CONCENTRATION])
 				skillratio += 30 * sd->spiritball + (sstatus->str * sd->spiritball);
 // Original Code:
 //if (sd && sd->spiritball)
 //skillratio += 30 * sd->spiritball + (sstatus->str * sd->spiritball);
 			break;
+#else
+		case KN_BRANDISHSPEAR:
+#endif
 		case ML_BRANDISH:
 			{
 				int ratio = 100 + 20 * skill_lv;
@@ -4103,7 +4111,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 65 + 15 * skill_lv + (2 * (sstatus->str));
 			if (sc && sc->data[SC_DUELSTANCE])
 				skillratio += (1 * sstatus->vit) + (1 * sstatus->agi);
-			if (sc && sc->data[SC_ENGARDESTANCE])
+			if (sc && sc->data[SC_CONCENTRATION])
 				skillratio += (1 * sstatus->luk) + (1 * sstatus->str);
 			break;
 		case RK_DRAGONBREATH:
@@ -4192,21 +4200,27 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 50;
 			break; 
 		case CR_SHIELDBOOMERANG:
+#ifdef RENEWAL
 			skillratio += 100 + 20 * skill_lv + (2 * sstatus->vit) + sstatus->agi + (5 * pc_checkskill(sd, AL_DP));
 			if (sc && sc->data[SC_SHIELDSPELL_ATK])
 				skillratio += 1 * (sstatus->vit) + 1 * (sstatus->str);
 			if (sc->data[SC_DUELSTANCE])
 				skillratio += sstatus->int_ + sstatus->vit;
-			if (sc->data[SC_ENGARDESTANCE])
+			if (sc->data[SC_CONCENTRATION])
 				skillratio += sstatus->str + sstatus->luk;
+#else
+			skillratio += 30 * skill_lv;
+#endif
 			break;
 		case NPC_DARKCROSS:
 		case CR_HOLYCROSS:
+#ifdef RENEWAL
 			if (tsc && tsc->data[SC_JYUMONJIKIRI])
 				skillratio += 50 +  (sstatus->dex);
 			if(sd && sd->status.weapon == W_DOUBLE_SS)
 				skillratio += 100 + 45 * skill_lv + 2 * (sstatus->agi);
 			else
+#endif
 				skillratio += 100 + 30 * skill_lv + 2 * (sstatus->agi);
 			break;
 		case AM_DEMONSTRATION:
@@ -4420,6 +4434,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 10 * skill_lv;
 			break;
 		case PA_SHIELDCHAIN:
+#ifdef RENEWAL
 		skillratio += 100 + (25 * skill_lv) + (2 * (4 * sstatus->agi) + (2 * sstatus->str) + (2	* sstatus->vit)) + (5 * pc_checkskill(sd, AL_DP));
 		if (sc && sc->data[SC_SHIELDSPELL_ATK])
 			skillratio += 2 * (sstatus->vit) + 1 * (sstatus->str);
@@ -4427,8 +4442,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 2 * sstatus->vit;
 		if (sc && sc->data[SC_SPL_ATK])
 			skillratio += (5 * (sstatus->int_ + sstatus->luk)) / 10;
-		if (sc && sc->data[SC_ENGARDESTANCE])
+		if (sc && sc->data[SC_CONCENTRATION])
 			skillratio += 2 * sstatus->str;
+#else
+			skillratio += 30 * skill_lv;
+#endif
 			break;
 		case WS_CARTTERMINATION:
 			i = 10 * (16 - skill_lv);
@@ -4573,7 +4591,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 70 + 25 * skill_lv + 2 * (sstatus->str);
 			if (sc && sc->data[SC_DUELSTANCE])
 				skillratio += (1 * (sstatus->vit + sstatus->agi));
-			if (sc && sc->data[SC_ENGARDESTANCE])
+			if (sc && sc->data[SC_CONCENTRATION])
 				skillratio += (2 * (sstatus->luk + sstatus->dex)) + sstatus->str;
 			break;
 		case RK_HUNDREDSPEAR:
@@ -4787,7 +4805,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 100 + 10 * skill_lv + 3 * sstatus->agi;
 			if (sc->data[SC_DUELSTANCE])
 				skillratio += 2 * sstatus->vit;
-			if (sc->data[SC_ENGARDESTANCE])
+			if (sc->data[SC_CONCENTRATION])
 				skillratio += 2 * sstatus->str;
 			break;
 		case SC_FEINTBOMB:

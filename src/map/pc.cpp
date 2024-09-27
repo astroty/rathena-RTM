@@ -11549,7 +11549,9 @@ bool pc_unequipitem(struct map_session_data *sd, int n, int flag) {
 		skill_enchant_elemental_end(&sd->bl, SC_NONE);
 		status_change_end(&sd->bl, SC_FEARBREEZE, INVALID_TIMER);
 		status_change_end(&sd->bl, SC_EXEEDBREAK, INVALID_TIMER);
+#ifdef RENEWAL
 		status_change_end(&sd->bl, SC_MAXOVERTHRUST, INVALID_TIMER);
+#endif
 	}
 
 	// On armor change
@@ -11559,6 +11561,12 @@ bool pc_unequipitem(struct map_session_data *sd, int n, int flag) {
 		//status_change_end(&sd->bl, SC_BENEDICTIO, INVALID_TIMER); // No longer is removed? Need confirmation
 		status_change_end(&sd->bl, SC_ARMOR_RESIST, INVALID_TIMER);
 	}
+
+	// On equipment change
+#ifndef RENEWAL
+	if (!(flag&4))
+		status_change_end(&sd->bl, SC_CONCENTRATION, INVALID_TIMER);
+#endif
 
 	// On ammo change
 	if (sd->inventory_data[n]->type == IT_AMMO && (sd->inventory_data[n]->nameid != ITEMID_SILVER_BULLET || sd->inventory_data[n]->nameid != ITEMID_PURIFICATION_BULLET || sd->inventory_data[n]->nameid != ITEMID_SILVER_BULLET_))

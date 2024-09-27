@@ -892,12 +892,25 @@ void initChangeTables(void)
 	add_sc( NPC_INVISIBLE		, SC_CLOAKING		);
 	set_sc( LK_AURABLADE		, SC_AURABLADE		, EFST_AURABLADE		, SCB_NONE );
 	set_sc( LK_PARRYING		, SC_PARRYING		, EFST_PARRYING		, SCB_NONE );
-	set_sc( LK_CONCENTRATION	, SC_CONCENTRATION	, EFST_LKCONCENTRATION	, SCB_BATK|SCB_DEF|SCB_MDEF);
-	set_sc( DL_ENGARDESTANCE	, SC_ENGARDESTANCE	, EFST_LKCONCENTRATION	, SCB_BATK|SCB_DEF|SCB_MDEF);
+	set_sc( LK_CONCENTRATION	, SC_CONCENTRATION	, EFST_LKCONCENTRATION	,
+#ifndef RENEWAL
+		SCB_BATK|SCB_WATK|SCB_HIT|SCB_DEF|SCB_DEF2 );
+#else
+		SCB_BATK|SCB_DEF|SCB_MDEF );
+#endif
 	set_sc( LK_TENSIONRELAX		, SC_TENSIONRELAX	, EFST_TENSIONRELAX	, SCB_REGEN );
 	set_sc( LK_BERSERK		, SC_BERSERK		, EFST_BERSERK		, SCB_DEF|SCB_DEF2|SCB_MDEF|SCB_MDEF2|SCB_FLEE|SCB_SPEED|SCB_ASPD|SCB_MAXHP|SCB_REGEN );
-	set_sc( HP_ASSUMPTIO		, SC_ASSUMPTIO		, EFST_ASSUMPTIO_BUFF	, SCB_DEF );
+	set_sc( HP_ASSUMPTIO		, SC_ASSUMPTIO		,
+#ifndef RENEWAL
+			EFST_ASSUMPTIO		, SCB_NONE );
+#else
+			EFST_ASSUMPTIO_BUFF	, SCB_DEF );
+#endif
+#ifdef RENEWAL
 	set_sc( HP_BASILICA			, SC_BASILICA	, EFST_BASILICA_BUFF	, SCB_ALL );
+#else
+	add_sc( HP_BASILICA		, SC_BASILICA		);
+#endif
 	set_sc( HW_MAGICPOWER		, SC_MAGICPOWER		, EFST_MAGICPOWER		, SCB_MATK );
 	add_sc( PA_SACRIFICE		, SC_SACRIFICE		);
 	set_sc( PA_GOSPEL		, SC_GOSPEL		, EFST_GOSPEL		, SCB_SPEED|SCB_ASPD );
@@ -6932,8 +6945,6 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 //		batk += batk * sc->data[SC_CONCENTRATION]->val4/100;
 	if (sc->data[SC_CONCENTRATION])
 		batk += (2 * sc->data[SC_CONCENTRATION]->val1);
-	if (sc->data[SC_ENGARDESTANCE])
-		batk += (2 * sc->data[SC_ENGARDESTANCE]->val1);
 	if(sc->data[SC_SKE])
 		batk += batk * 3;
 	if(sc->data[SC_BLOODLUST])
@@ -6997,6 +7008,21 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
 		watk += sc->data[SC_MERC_ATKUP]->val2;
 	if(sc->data[SC_WATER_BARRIER])
 		watk -= sc->data[SC_WATER_BARRIER]->val2;
+#ifndef RENEWAL
+	if(sc->data[SC_NIBELUNGEN]) {
+		if (bl->type != BL_PC)
+			watk += sc->data[SC_NIBELUNGEN]->val2;
+		else {
+			TBL_PC *sd = (TBL_PC*)bl;
+			short index = sd->equip_index[sd->state.lr_flag?EQI_HAND_L:EQI_HAND_R];
+
+			if(index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_WEAPON && sd->inventory_data[index]->weapon_level == 4)
+				watk += sc->data[SC_NIBELUNGEN]->val2;
+		}
+	}
+	if(sc->data[SC_CONCENTRATION])
+		watk += watk * sc->data[SC_CONCENTRATION]->val4 / 100;
+#endif
 	if(sc->data[SC_INCATKRATE])
 		watk += watk * sc->data[SC_INCATKRATE]->val1/100;
 	if(sc->data[SC_PROVOKE])
@@ -7523,8 +7549,6 @@ static defType status_calc_def(struct block_list *bl, struct status_change *sc, 
 //		def -= def * sc->data[SC_CONCENTRATION]->val4/100;
 	if (sc->data[SC_CONCENTRATION])
 		def -= (1 * sc->data[SC_CONCENTRATION]->val1);
-	if (sc->data[SC_ENGARDESTANCE])
-		def -= (1 * sc->data[SC_ENGARDESTANCE]->val1);
 	if(sc->data[SC_SKE])
 		def >>=1;
 	if(sc->data[SC_PROVOKE] && bl->type != BL_PC) // Provoke doesn't alter player defense->
@@ -7579,7 +7603,11 @@ static defType status_calc_def(struct block_list *bl, struct status_change *sc, 
 static signed short status_calc_def2(struct block_list *bl, struct status_change *sc, int def2)
 {
 	if(!sc || !sc->count)
+#ifdef RENEWAL
 		return (short)cap_value(def2,SHRT_MIN,SHRT_MAX);
+#else
+		return (short)cap_value(def2,1,SHRT_MAX);
+#endif
 
 	if(sc->data[SC_BERSERK])
 		return 0;
@@ -7590,10 +7618,18 @@ static signed short status_calc_def2(struct block_list *bl, struct status_change
 
 	if(sc->data[SC_SUN_COMFORT])
 		def2 += sc->data[SC_SUN_COMFORT]->val2;
+#ifdef RENEWAL
 	if (sc->data[SC_SKA])
 		def2 += 80;
+#endif
 	if(sc->data[SC_ANGELUS])
+#ifdef RENEWAL /// The VIT stat bonus is boosted by angelus [RENEWAL]
 		def2 += status_get_vit(bl) * sc->data[SC_ANGELUS]->val2/100;
+#else
+		def2 += def2 * sc->data[SC_ANGELUS]->val2/100;
+	if(sc->data[SC_CONCENTRATION])
+		def2 -= def2 * sc->data[SC_CONCENTRATION]->val4/100;
+#endif
 	if(sc->data[SC_POISON])
 		def2 -= def2 * 10/100;
 	if(sc->data[SC_DPOISON])
@@ -7685,8 +7721,6 @@ static defType status_calc_mdef(struct block_list *bl, struct status_change *sc,
 		mdef += sc->data[SC_PACKING_ENVELOPE8]->val1;
 	if (sc->data[SC_CONCENTRATION])
 		mdef -= (1 * sc->data[SC_CONCENTRATION]->val1);
-	if (sc->data[SC_ENGARDESTANCE])
-		mdef -= (1 * sc->data[SC_ENGARDESTANCE]->val1);
 
 	return (defType)cap_value(mdef,DEFTYPE_MIN,DEFTYPE_MAX);
 }
@@ -10238,7 +10272,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_DUELSTANCE:
 		if (sc->data[type])
 			break;
-		status_change_end(bl, SC_ENGARDESTANCE, INVALID_TIMER);
+		status_change_end(bl, SC_CONCENTRATION, INVALID_TIMER);
 		status_change_end(bl, SC_DUELSTANCE, INVALID_TIMER);
 		break;
 	case SC_SPIRIT:
@@ -10297,7 +10331,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		if(battle_config.berserk_cancels_buffs) {
 			status_change_end(bl, SC_ONEHAND, INVALID_TIMER);
 			status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
-			status_change_end(bl, SC_ENGARDESTANCE, INVALID_TIMER);
+			status_change_end(bl, SC_CONCENTRATION, INVALID_TIMER);
 			status_change_end(bl, SC_PARRYING, INVALID_TIMER);
 			status_change_end(bl, SC_AURABLADE, INVALID_TIMER);
 			status_change_end(bl, SC_MERC_QUICKEN, INVALID_TIMER);
@@ -11968,12 +12002,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK;
 			tick_time = 10000;
 			break;
-		case SC_ENGARDESTANCE:
-			val2 = 25 + 15 * val1; // Chance
-			val3 = 10; // Max Rage Counters
-			tick = INFINITE_TICK;
-			tick_time = 10000;
-			break;
 		case SC_EXEEDBREAK:
 			val2 = 100 * val1;
 			if (sd) { // Players
@@ -12753,7 +12781,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC__UNLUCKY:
 		case SC_DUELSTANCE:
 		case SC_CONCENTRATION:
-		case SC_ENGARDESTANCE:
 		case SC_SPELLFIST:
 		case SC_CURSEDCIRCLE_ATKER:
 		case SC_PYROTECHNIC_OPTION:
@@ -12914,7 +12941,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_ONEHAND:
 		case SC_SPEARQUICKEN:
 		case SC_CONCENTRATION:
-		case SC_ENGARDESTANCE:
 		case SC_MERC_QUICKEN:
 			sc->opt3 |= OPT3_QUICKEN;
 			opt_flag = OCF_NONE;
@@ -14150,7 +14176,6 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 	case SC_ONEHAND:
 	case SC_SPEARQUICKEN:
 	case SC_CONCENTRATION:
-	case SC_ENGARDESTANCE:
 	case SC_MERC_QUICKEN:
 		sc->opt3 &= ~OPT3_QUICKEN;
 		opt_flag = OCF_NONE;

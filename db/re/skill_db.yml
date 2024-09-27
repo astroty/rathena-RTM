@@ -38476,20 +38476,3 @@ Body:
         - Level: 5
           Amount: 35
       HpRateCost: 30         
-  - Id: 779
-    Name: DL_ENGARDESTANCE
-    Description: En Garde Stance
-    MaxLevel: 5
-    TargetType: Self
-    DamageFlags:
-      NoDamage: true
-    Hit: Single
-    HitCount: 1
-    CastCancel: true
-    FixedCastTime: 500
-    CastTimeFlags:
-    IgnoreDex: true
-    IgnoreStatus: true
-    IgnoreItemBonus: true
-    Requires:
-      SpCost: 30
