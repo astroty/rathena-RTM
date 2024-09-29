@@ -36443,7 +36443,7 @@ Body:
     Type: Armor
     Buy: 500
     Weight: 100
-    Slots: 1
+    Slots: 2
     Jobs:
       Assassin: true
       Rogue: true
