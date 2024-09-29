@@ -11526,7 +11526,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,5;
+      bonus bPerfectHitAddRate,20;
   - Id: 4636
     AegisName: Bijou_Card
     Name: Bijou Card
@@ -41899,7 +41899,8 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,1;
+      bonus bAgi,1;
+      bonus bLuk,1;
       bonus bflee2,1;
       bonus bAspd,1;
   - Id: 27169

@@ -18272,7 +18272,7 @@ Body:
       bonus bSPDrainValue,-10;
       skill "AC_VULTURE",10;
       .@a = getskilllv("AC_OWL");
-      bonus bPerfectHitAddRate,.@a;
+      bonus bLongAtkRate,.@a;
       bonus bMatkRate,.@a;
       bonus bAtkRate,.@a;
       bonus bDex,.@a;
@@ -41578,7 +41578,7 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 70
     Script: |
-      bonus bPerfectHitAddRate,10;
+      bonus bPerfectHitAddRate,30;
   - Id: 2952
     AegisName: T_Target_Ring_
     Name: True Target Ring
@@ -41593,7 +41593,7 @@ Body:
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,10;
+      bonus bPerfectHitAddRate,30;
   - Id: 2953
     AegisName: F_Target_Ring
     Name: Fake Target Ring
@@ -42227,7 +42227,7 @@ Body:
     EquipLevelMin: 100
     Script: |
       bonus bDex,(readparam(bDex)/9);
-      bonus bPerfectHitAddRate,5;
+      bonus2 bIgnoreDefRaceRate,RC_All,5;
   - Id: 5005
     AegisName: Gas_Mask
     Name: Gas Mask
@@ -47692,7 +47692,8 @@ Body:
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,3;
+      bonus bMaxHPrate,2;
+      bonus bMaxSPrate,2;
       bonus bHitRate,3;
   - Id: 5326
     AegisName: Masquerade_C
@@ -60797,7 +60798,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "TF_DOUBLE",8;
-      bonus bPerfectHitAddRate,10;
+      bonus bAtkRate,2;
       bonus bPerfectHide;
       bonus2 bSkillCooldown,"AS_CLOAKING",-10000;
       bonus bAspd,2;
@@ -78441,7 +78442,7 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bFlee2,3;
-      bonus bPerfectHitAddRate,3;
+      bonus bLuk,5;
       bonus bSPrecovRate,15;
       bonus bHPrecovRate,15;
   - Id: 16155
@@ -109560,7 +109561,7 @@ Body:
       if (readparam(bVit) > 49) bonus bMaxHPRate,3;
       if (readparam(bStr) > 49) bonus bAtkRate,3;
       if (readparam(bInt) > 49) bonus bMatkRate,3;
-      if (readparam(bDex) > 49) bonus bPerfectHitAddRate,4;
+      if (readparam(bDex) > 49) bonus bLongAtkRate,3;
       if (readparam(bAgi) > 49) bonus bAspd,2;
       if (readparam(bLuk) > 49) bonus bCritAtkRate,4;
   - Id: 22071
@@ -113665,7 +113666,7 @@ Body:
       DropEffect: PURPLE_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bPerfectHitAddRate,2*.@r;
+      bonus bPerfectHitAddRate,5*.@r;
       bonus bIntravision;
     EquipScript: |
       i = getlook(LOOK_CLOTHES_COLOR);
@@ -118412,7 +118413,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,7;
+      bonus bCritical,7;
   - Id: 24403
     AegisName: Undying_A
     Name: Undying A
