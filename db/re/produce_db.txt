@@ -300,7 +300,7 @@
 //===== Stones and Metals === ItemLV=21 ========
 
 //---- Metals ----------------------------------
-//-- Iron <-- BS_IRON & 1 Iron Ore
+//-- Iron <-- UC_MEMORY & 1 Iron Ore
 112,998,21,94,1,1002,1
 //-- Steel <-- BS_STEEL & 5 Iron, 1 Coal
 113,999,21,95,1,998,5,1003,1

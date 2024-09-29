@@ -20859,7 +20859,7 @@ bool skill_produce_mix(struct map_session_data* sd, uint16 skill_id, t_itemid na
 
 	if (!equip) {
 		switch (skill_id) {
-		case BS_IRON:
+		case UC_MEMORY:
 		case BS_STEEL:
 		case BS_ENCHANTEDSTONE:
 			// Ores & Metals Refining - skill bonuses are straight from kRO website [DracoRPG]
@@ -21258,7 +21258,7 @@ bool skill_produce_mix(struct map_session_data* sd, uint16 skill_id, t_itemid na
 				clif_produceeffect(sd, 2, nameid);
 				clif_misceffect(&sd->bl, 5);
 				break;
-			case BS_IRON:
+			case UC_MEMORY:
 			case BS_STEEL:
 			case BS_ENCHANTEDSTONE:
 				clif_produceeffect(sd, 0, nameid);
@@ -21351,7 +21351,7 @@ bool skill_produce_mix(struct map_session_data* sd, uint16 skill_id, t_itemid na
 			clif_misceffect(&sd->bl, 6);
 			sd->potion_success_counter = 0; // Fame point system [DracoRPG]
 			break;
-		case BS_IRON:
+		case UC_MEMORY:
 		case BS_STEEL:
 		case BS_ENCHANTEDSTONE:
 			clif_produceeffect(sd, 1, nameid);

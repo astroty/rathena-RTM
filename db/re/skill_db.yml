@@ -3786,7 +3786,7 @@ Body:
     Requires:
       SpCost: 5
   - Id: 94
-    Name: BS_IRON
+    Name: UC_MEMORY
     Description: Memory of Loki
     MaxLevel: 5
     Type: Weapon

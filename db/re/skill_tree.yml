@@ -686,17 +686,17 @@ Body:
       Novice: true
       Merchant: true
     Tree:
-      - Name: BS_IRON
+      - Name: UC_MEMORY
         MaxLevel: 5
       - Name: BS_STEEL
         MaxLevel: 5
         Requires:
-          - Name: BS_IRON
+          - Name: UC_MEMORY
             Level: 1
       - Name: BS_ENCHANTEDSTONE
         MaxLevel: 5
         Requires:
-          - Name: BS_IRON
+          - Name: UC_MEMORY
             Level: 1
       - Name: BS_ORIDEOCON
         MaxLevel: 5
