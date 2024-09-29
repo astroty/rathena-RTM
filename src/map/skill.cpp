@@ -2553,10 +2553,6 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 
 			if (skill == PF_SPIDERWEB) //Special case, due to its nature of coding.
 				type = CAST_GROUND;
-#ifndef RENEWAL
-			else if (skill == AS_SONICBLOW)
-				pc_stop_attack(sd); //Special case, Sonic Blow autospell should stop the player attacking.
-#endif
 
 			sd->state.autocast = 1;
 			skill_consume_requirement(sd, skill, autospl_skill_lv, 1);
@@ -5290,9 +5286,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case NPC_PETRIFYATTACK:
 	case NPC_CURSEATTACK:
 	case NPC_SLEEPATTACK:
-#ifdef RENEWAL
 	case CR_ACIDDEMONSTRATION:
-#endif
 	case LK_AURABLADE:
 	case LK_SPIRALPIERCE:
 	case ML_SPIRALPIERCE:
@@ -5308,9 +5302,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case TK_COUNTER:
 	case GS_CHAINACTION:
 	case GS_TRIPLEACTION:
-#ifndef RENEWAL
-	case GS_MAGICALBULLET:
-#endif
 	case GS_TRACKING:
 	case GS_PIERCINGSHOT:
 	case GS_RAPIDSHOWER:

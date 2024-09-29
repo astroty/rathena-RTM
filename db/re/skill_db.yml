@@ -4719,10 +4719,10 @@ Body:
     TargetType: Attack
     Range: 1
     Hit: Multi_Hit
-    HitCount: -8
+    HitCount: 8
     Element: Weapon
     Duration2: 5000
-    Cooldown: 3000
+    Cooldown: 1750
     DamageFlags:
       Critical: true
     CopyFlags:
