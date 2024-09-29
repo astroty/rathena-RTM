@@ -1887,13 +1887,8 @@ void clif_hominfo( struct map_session_data *sd, struct homun_data *hd, int flag 
 	}else{
 		p.crit = status->cri / 10;
 	}
-#ifdef RENEWAL
 	p.def = status->def + status->def2;
 	p.mdef = status->mdef + status->mdef2;
-#else
-	p.def = status->def + status->vit;
-	p.mdef = status->mdef;
-#endif
 	p.flee = status->flee;
 	p.amotion = (flag) ? 0 : status->amotion;
 #if PACKETVER >= 20141016
@@ -3553,9 +3548,6 @@ void clif_updatestatus(struct map_session_data *sd,int type)
 			int mdef2 = pc_rightside_mdef(sd);
 
 			WFIFOL(fd,4)=
-#ifndef RENEWAL
-			( mdef2 < 0 ) ? 0 :
-#endif
 			mdef2;
 
 		}
@@ -3969,9 +3961,6 @@ void clif_initialstatus(struct map_session_data *sd) {
 	WBUFW(buf,28) = pc_leftside_mdef(sd);
 	mdef2 = pc_rightside_mdef(sd);
 	WBUFW(buf,30) =
-#ifndef RENEWAL
-		( mdef2 < 0 ) ? 0 : //Negative check for Frenzy'ed characters.
-#endif
 		mdef2;
 	WBUFW(buf,32) = sd->battle_status.hit;
 	WBUFW(buf,34) = sd->battle_status.flee;
@@ -7175,9 +7164,7 @@ void clif_item_refine_list( struct map_session_data *sd ){
 	refine_item[0] = pc_search_inventory( sd, ITEMID_PHRACON );
 	refine_item[1] = pc_search_inventory( sd, ITEMID_EMVERETARCON );
 	refine_item[2] = refine_item[3] = pc_search_inventory( sd, ITEMID_ORIDECON );
-#ifdef RENEWAL
 	refine_item[4] = -1;
-#endif
 
 	int count = 0;
 	for( int i = 0; i < MAX_INVENTORY; i++ ){
@@ -8411,7 +8398,6 @@ void clif_autospell(struct map_session_data *sd,uint16 skill_lv)
 
 	int fd = sd->fd;
 
-#ifdef RENEWAL
 	uint16 autospell_skill[][2] = { 
 		{ NJ_KOUENKA, 0 }, { NJ_HYOUSENSOU, 0 }, { NJ_HUUJIN, 0 },
 		{ MG_SOULSTRIKE, 3 }, { MG_FIREBALL, 3 },
@@ -8435,41 +8421,6 @@ void clif_autospell(struct map_session_data *sd,uint16 skill_lv)
 	WFIFOL(fd, 4) = count;
 
 	WFIFOSET(fd, WFIFOW(fd, 2));
-#else
-	WFIFOHEAD(fd,packet_len(0x1cd));
-	WFIFOW(fd, 0)=0x1cd;
-
-	if(skill_lv>0 && pc_checkskill(sd,MG_SOULSTRIKE)>0)
-		WFIFOL(fd,2)= MG_SOULSTRIKE;
-	else
-		WFIFOL(fd,2)= 0x00000000;
-	if(skill_lv>1 && pc_checkskill(sd,AB_JUDEX)>0)
-		WFIFOL(fd,6)= AB_JUDEX;
-	else
-		WFIFOL(fd,6)= 0x00000000;
-	if(skill_lv>1 && pc_checkskill(sd,NJ_KOUENKA)>0)
-		WFIFOL(fd,10)= NJ_KOUENKA;
-	else
-		WFIFOL(fd,10)= 0x00000000;
-	if(skill_lv>1 && pc_checkskill(sd,NJ_HUUJIN)>0)
-		WFIFOL(fd,14)= NJ_HUUJIN;
-	else
-		WFIFOL(fd,14)= 0x00000000;
-	if(skill_lv>4 && pc_checkskill(sd,MG_FIREBALL)>0)
-		WFIFOL(fd,18)= MG_FIREBALL;
-	else
-		WFIFOL(fd,18)= 0x00000000;
-	if(skill_lv>7 && pc_checkskill(sd,MG_FROSTDIVER)>0)
-		WFIFOL(fd,22)= MG_FROSTDIVER;
-	else
-		WFIFOL(fd,22)= 0x00000000;
-	if(skill_lv>8 && pc_checkskill(sd,WZ_WATERBALL)>0)
-		WFIFOL(fd,26)= WZ_WATERBALL;
-	else
-		WFIFOL(fd,26)= 0x00000000;
-
-	WFIFOSET(fd,packet_len(0x1cd));
-#endif
 
 	sd->menuskill_id = SA_AUTOSPELL;
 	sd->menuskill_val = skill_lv;
@@ -12164,9 +12115,7 @@ void clif_parse_NpcClicked(int fd,struct map_session_data *sd)
 	}
 
 	if( pc_cant_act2(sd) || sd->npc_id || pc_hasprogress( sd, WIP_DISABLE_NPC ) ){
-#ifdef RENEWAL
 		clif_msg( sd, WORK_IN_PROGRESS );
-#endif
 		return;
 	}
 
@@ -12182,12 +12131,10 @@ void clif_parse_NpcClicked(int fd,struct map_session_data *sd)
 			clif_parse_ActionRequest_sub(sd, 0x07, bl->id, gettick());
 			break;
 		case BL_NPC:
-#ifdef RENEWAL
 			if (sd->ud.skill_id < RK_ENCHANTBLADE && sd->ud.skilltimer != INVALID_TIMER) { // Should only show an error message for non-3rd job skills with a running timer
 				clif_msg(sd, WORK_IN_PROGRESS);
 				break;
 			}
-#endif
 			if( bl->m != -1 ){ // the user can't click floating npcs directly (hack attempt)
 				struct npc_data* nd = (struct npc_data*)bl;
 
@@ -12608,12 +12555,10 @@ void clif_parse_ChangeCart(int fd,struct map_session_data *sd)
 	if( !sd || pc_checkskill(sd, MC_CHANGECART) < 1 )
 		return;
 
-#ifdef RENEWAL
 	if (sd->npc_id || pc_hasprogress(sd, WIP_DISABLE_SKILLITEM)) {
 		clif_msg(sd, WORK_IN_PROGRESS);
 		return;
 	}
-#endif
 
 	type = (int)RFIFOW(fd,packet_db[RFIFOW(fd,0)].pos[0]);
 
@@ -12708,11 +12653,7 @@ static void clif_parse_UseSkillToPos_homun(struct homun_data *hd, struct map_ses
 		return;
 	}
 
-#ifdef RENEWAL
 	if (hd->sc.data[SC_BASILICA_CELL])
-#else
-	if (hd->sc.data[SC_BASILICA])
-#endif
 		return;
 	lv = hom_checkskill(hd, skill_id);
 	if( skill_lv > lv )
@@ -12761,11 +12702,7 @@ static void clif_parse_UseSkillToPos_mercenary(s_mercenary_data *md, struct map_
 		return;
 	}
 
-#ifdef RENEWAL
 	if (md->sc.data[SC_BASILICA_CELL])
-#else
-	if (md->sc.data[SC_BASILICA])
-#endif
 		return;
 	lv = mercenary_checkskill(md, skill_id);
 	if( skill_lv > lv )
@@ -12809,9 +12746,7 @@ void clif_parse_skill_toid( struct map_session_data* sd, uint16 skill_id, uint16
 
 	if( sd->npc_id ){
 		if( pc_hasprogress( sd, WIP_DISABLE_SKILLITEM ) || !sd->npc_item_flag || !( inf & INF_SELF_SKILL ) ){
-#ifdef RENEWAL
 			clif_msg( sd, WORK_IN_PROGRESS );
-#endif
 			return;
 		}
 	}
@@ -12847,10 +12782,6 @@ void clif_parse_skill_toid( struct map_session_data* sd, uint16 skill_id, uint16
 	if( sd->sc.option&OPTION_COSTUME )
 		return;
 
-#ifndef RENEWAL
-	if( sd->sc.data[SC_BASILICA] && (skill_id != HP_BASILICA || sd->sc.data[SC_BASILICA]->val4 != sd->bl.id) )
-		return; // On basilica only caster can use Basilica again to stop it.
-#endif
 
 	if( sd->menuskill_id ) {
 		if( sd->menuskill_id == SA_TAMINGMONSTER ) {
@@ -12925,9 +12856,7 @@ static void clif_parse_UseSkillToPosSub(int fd, struct map_session_data *sd, uin
 	}
 
 	if( pc_hasprogress( sd, WIP_DISABLE_SKILLITEM ) ){
-#ifdef RENEWAL
 		clif_msg( sd, WORK_IN_PROGRESS );
-#endif
 		return;
 	}
 
@@ -12975,10 +12904,6 @@ static void clif_parse_UseSkillToPosSub(int fd, struct map_session_data *sd, uin
 	if( sd->sc.option&OPTION_COSTUME )
 		return;
 
-#ifndef RENEWAL
-	if( sd->sc.data[SC_BASILICA] && (skill_id != HP_BASILICA || sd->sc.data[SC_BASILICA]->val4 != sd->bl.id) )
-		return; // On basilica only caster can use Basilica again to stop it.
-#endif
 
 	if( sd->menuskill_id ) {
 		if( sd->menuskill_id == SA_TAMINGMONSTER ) {
@@ -21466,11 +21391,7 @@ void clif_weight_limit( struct map_session_data* sd ){
 
 	WFIFOHEAD(fd, packet_len(0xADE));
 	WFIFOW(fd, 0) = 0xADE;
-#ifdef RENEWAL
 	WFIFOL(fd, 2) = battle_config.natural_heal_weight_rate_renewal;
-#else
-	WFIFOL(fd, 2) = battle_config.natural_heal_weight_rate;
-#endif
 	WFIFOSET(fd, packet_len(0xADE));
 #endif
 }
@@ -21840,12 +21761,10 @@ void clif_parse_equipswitch_request_single( int fd, struct map_session_data* sd 
 	// Check if the item was already added to equip switch
 	if( sd->inventory.u.items_inventory[index].equipSwitch ){
 		if( sd->npc_id ){
-#ifdef RENEWAL
 			if( pc_hasprogress( sd, WIP_DISABLE_SKILLITEM ) ){
 				clif_msg( sd, WORK_IN_PROGRESS );
 				return;
 			}
-#endif
 			if( !sd->npc_item_flag ){
 				return;
 			}

@@ -236,11 +236,7 @@ enum e_item_job : uint16
 	ITEMJ_ALL_BABY = ITEMJ_BABY | ITEMJ_THIRD_BABY,
 	ITEMJ_ALL_THIRD = ITEMJ_THIRD | ITEMJ_THIRD_UPPER | ITEMJ_THIRD_BABY,
 
-#ifdef RENEWAL
 	ITEMJ_ALL = ITEMJ_NORMAL | ITEMJ_UPPER | ITEMJ_BABY | ITEMJ_THIRD | ITEMJ_THIRD_UPPER | ITEMJ_THIRD_BABY | ITEMJ_FOURTH,
-#else
-	ITEMJ_ALL = ITEMJ_NORMAL | ITEMJ_UPPER | ITEMJ_BABY,
-#endif
 };
 
 #define AMMO_TYPE_ALL ((1<<MAX_AMMO_TYPE)-1)
@@ -895,9 +891,7 @@ struct item_data
 	uint16 armor_level;
 	t_itemid view_id;
 	uint16 elvmax; ///< Maximum level for this item
-#ifdef RENEWAL
 	uint32 matk;
-#endif
 
 //Lupus: I rearranged order of these fields due to compatibility with ITEMINFO script command
 //		some script commands should be revised as well...

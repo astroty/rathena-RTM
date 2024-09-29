@@ -1233,11 +1233,6 @@ enum e_unit_blown unit_blown_immune(struct block_list* bl, uint8 flag)
 		case BL_PC: {
 				struct map_session_data *sd = BL_CAST(BL_PC, bl);
 
-#ifndef RENEWAL
-				// Basilica caster can't be knocked-back by normal monsters.
-				if( !(flag&0x4) && sd->sc.data[SC_BASILICA] && sd->sc.data[SC_BASILICA]->val4 == sd->bl.id)
-					return UB_TARGET_BASILICA;
-#endif
 				// Target has special_state.no_knockback (equip)
 				if( (flag&(0x1|0x2)) && !(flag&0x8) && sd->special_state.no_knockback )
 					return UB_TARGET_NO_KNOCKBACK;
@@ -1479,9 +1474,6 @@ int unit_can_move(struct block_list *bl) {
 		if( sc->cant.move // status placed here are ones that cannot be cached by sc->cant.move for they depend on other conditions other than their availability
 			|| sc->data[SC_SPIDERWEB]
 			|| (sc->data[SC_DANCING] && sc->data[SC_DANCING]->val4 && (
-#ifndef RENEWAL
-				!sc->data[SC_LONGING] ||
-#endif
 				(sc->data[SC_DANCING]->val1&0xFFFF) == CG_MOONLIT ||
 				(sc->data[SC_DANCING]->val1&0xFFFF) == CG_HERMODE
 				) )
@@ -1911,12 +1903,6 @@ int unit_skilluse_id2(struct block_list *src, int target_id, uint16 skill_id, ui
 			if (sc && sc->data[SC_RUN])
 				casttime = -1;
 		break;
-#ifndef RENEWAL
-		case HP_BASILICA:
-			if( sc && sc->data[SC_BASILICA] )
-				casttime = -1; // No Casting time on basilica cancel
-		break;
-#endif
 #ifndef RENEWAL_CAST
 		case KN_CHARGEATK:
 		{
@@ -1965,9 +1951,6 @@ int unit_skilluse_id2(struct block_list *src, int target_id, uint16 skill_id, ui
 		unit_stop_walking(src, 1); // Even though this is not how official works but this will do the trick. bugreport:6829
 
 	// SC_MAGICPOWER needs to switch states at start of cast
-#ifndef RENEWAL
-	skill_toggle_magicpower(src, skill_id);
-#endif
 
 	// In official this is triggered even if no cast time.
 	clif_skillcasting(src, src->id, target_id, 0,0, skill_id, skill_lv, skill_get_ele(skill_id, skill_lv), casttime);
@@ -2226,9 +2209,6 @@ int unit_skilluse_pos2( struct block_list *src, short skill_x, short skill_y, ui
 	unit_stop_walking(src,1);
 
 	// SC_MAGICPOWER needs to switch states at start of cast
-#ifndef RENEWAL
-	skill_toggle_magicpower(src, skill_id);
-#endif
 
 	// In official this is triggered even if no cast time.
 	clif_skillcasting(src, src->id, 0, skill_x, skill_y, skill_id, skill_lv, skill_get_ele(skill_id, skill_lv), casttime);
@@ -3023,11 +3003,7 @@ int unit_remove_map_(struct block_list *bl, clr_type clrtype, const char* file, 
 
 	if(sc && sc->count ) { // map-change/warp dispells.
 		status_change_end(bl, SC_BLADESTOP, INVALID_TIMER);
-#ifdef RENEWAL
 		status_change_end(bl, SC_BASILICA_CELL, INVALID_TIMER);
-#else
-		status_change_end(bl, SC_BASILICA, INVALID_TIMER);
-#endif
 		status_change_end(bl, SC_ANKLE, INVALID_TIMER);
 		status_change_end(bl, SC_TRICKDEAD, INVALID_TIMER);
 		status_change_end(bl, SC_BLADESTOP_WAIT, INVALID_TIMER);
@@ -3544,9 +3520,7 @@ int unit_free(struct block_list *bl, clr_type clrtype)
 				if( sd )
 					sd->status.hom_id = 0;
 
-#ifdef RENEWAL
 				status_change_end(&sd->bl, status_skill2sc(AM_CALLHOMUN), INVALID_TIMER);
-#endif
 			}
 
 			if( sd )

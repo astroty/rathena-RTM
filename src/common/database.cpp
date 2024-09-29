@@ -178,11 +178,7 @@ void YamlDatabase::parseImports( const YAML::Node& rootNode ){
 						continue;
 					}
 
-#ifdef RENEWAL
 					std::string compiledMode = "Renewal";
-#else
-					std::string compiledMode = "Prerenewal";
-#endif
 
 					if( compiledMode != mode ){
 						// Skip this import

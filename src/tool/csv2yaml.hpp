@@ -176,11 +176,9 @@ static std::map<std::string, int> um_mapid2jobname {
 //	{ "Gangsi", 26 },
 //	{ "DeathKnight", 27 },
 //	{ "DarkCollector", 28 },
-#ifdef RENEWAL
 	{ "KagerouOboro", 29 }, // Kagerou and Oboro share the same value
 	{ "Rebellion", 30 },
 	{ "Summoner", 31 },
-#endif
 };
 
 static std::unordered_map<std::string, equip_pos> um_equipnames {

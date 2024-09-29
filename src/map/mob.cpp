@@ -2666,13 +2666,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 	) { //Experience calculation.
 		int bonus = 100; //Bonus on top of your share (common to all attackers).
 		int pnum = 0;
-#ifndef RENEWAL
-		if (md->sc.data[SC_RICHMANKIM])
-			bonus += md->sc.data[SC_RICHMANKIM]->val2;
-#else
 		if (sd && sd->sc.data[SC_RICHMANKIM])
 			bonus += sd->sc.data[SC_RICHMANKIM]->val2;
-#endif
 		if(sd) {
 			temp = status_get_class(&md->bl);
 			if(sd->sc.data[SC_MIRACLE]) i = 2; //All mobs are Star Targets
@@ -2740,9 +2735,6 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			}
 
 			if (map_getmapflag(m, MF_NOJOBEXP) || !md->db->job_exp
-#ifndef RENEWAL
-				|| md->dmglog[i].flag == MDLF_HOMUN // Homun earned job-exp is always lost.
-#endif
 			)
 				job_exp = 0;
 			else {
@@ -2776,13 +2768,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 					flag = 0;
 				}
 			}
-#ifdef RENEWAL
 			if (base_exp && tmpsd[i] && tmpsd[i]->hd)
 				hom_gainexp(tmpsd[i]->hd, base_exp * battle_config.homunculus_exp_gain / 100); // Homunculus only receive 10% of EXP
-#else
-			if (base_exp && md->dmglog[i].flag == MDLF_HOMUN) //tmpsd[i] is null if it has no homunc.
-				hom_gainexp(tmpsd[i]->hd, base_exp);
-#endif
 			if(flag) {
 				if(base_exp || job_exp) {
 					if( md->dmglog[i].flag != MDLF_PET || battle_config.pet_attack_exp_to_master ) {
@@ -4463,18 +4450,10 @@ uint64 MobDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asUInt16(node, "Attack2", atk))
 			return 0;
 
-#ifdef RENEWAL
 		mob->status.rhw.matk = atk;
-#else
-		mob->status.rhw.atk2 = atk;
-#endif
 	} else {
 		if (!exists)
-#ifdef RENEWAL
 			mob->status.rhw.matk = 0;
-#else
-			mob->status.rhw.atk2 = 0;
-#endif
 	}
 
 	if (this->nodeExists(node, "Defense")) {

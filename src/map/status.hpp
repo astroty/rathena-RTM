@@ -25,11 +25,7 @@ struct status_change;
 /**
  * Max Refine available to your server
  **/
-#ifdef RENEWAL
 #	define MAX_REFINE 10
-#else
-#	define MAX_REFINE 10
-#endif
 
 /// Refine type
 enum e_refine_type : uint16{
@@ -1027,9 +1023,7 @@ enum sc_type : int16 {
 	SC_BURNT,
 	SC_CHILL,
 
-#ifdef RENEWAL
 	SC_EXTREMITYFIST2, //! NOTE: This SC should be right before SC_MAX, so it doesn't disturb if RENEWAL is disabled
-#endif
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 };
 
@@ -2656,10 +2650,8 @@ struct weapon_atk {
 	unsigned short atk, atk2;
 	unsigned short range;
 	unsigned char ele;
-#ifdef RENEWAL
 	unsigned short matk;
 	unsigned char wlv;
-#endif
 };
 
 extern sc_type SkillStatusChangeTable[MAX_SKILL];   /// skill  -> status
@@ -2680,10 +2672,8 @@ struct status_data {
 		eatk;
 	unsigned short
 		batk,
-#ifdef RENEWAL
 		watk,
 		watk2,
-#endif
 		matk_min, matk_max,
 		speed,
 		amotion, adelay, dmotion;
@@ -2785,9 +2775,6 @@ struct status_change {
 /**
  * The Storm Gust counter was dropped in renewal
  **/
-#ifndef RENEWAL
-	unsigned char sg_counter; //Storm gust counter (previous hits from storm gust)
-#endif
 	struct status_change_entry *data[SC_MAX];
 };
 
@@ -2949,16 +2936,11 @@ int status_check_visibility(struct block_list *src, struct block_list *target);
 
 int status_change_spread(struct block_list *src, struct block_list *bl, bool type);
 
-#ifndef RENEWAL
-unsigned short status_base_matk_min(const struct status_data* status);
-unsigned short status_base_matk_max(const struct status_data* status);
-#else
 unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd);
 unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status, int level);
 unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status, int level);
 unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status, int level);
 unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level);
-#endif
 
 #ifdef RENEWAL_ASPD
 short status_calc_aspd(struct block_list* bl, struct status_change* sc, bool fixed);

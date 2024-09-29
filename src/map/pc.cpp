@@ -1403,18 +1403,6 @@ static bool pc_isItemClass (struct map_session_data *sd, struct item_data* item)
 	while (1) {
 		if (item->class_upper&ITEMJ_NORMAL && !(sd->class_&(JOBL_UPPER|JOBL_THIRD|JOBL_BABY)))	//normal classes (no upper, no baby, no third)
 			break;
-#ifndef RENEWAL
-		//allow third classes to use trans. class items
-		if (item->class_upper&ITEMJ_UPPER && sd->class_&(JOBL_UPPER|JOBL_THIRD))	//trans. classes
-			break;
-		//third-baby classes can use same item too
-		if (item->class_upper&ITEMJ_BABY && sd->class_&JOBL_BABY)	//baby classes
-			break;
-		//don't need to decide specific rules for third-classes?
-		//items for third classes can be used for all third classes
-		if (item->class_upper&(ITEMJ_THIRD|ITEMJ_THIRD_UPPER|ITEMJ_THIRD_BABY) && sd->class_&JOBL_THIRD)
-			break;
-#else
 		//trans. classes (exl. third-trans.)
 		if (item->class_upper&ITEMJ_UPPER && sd->class_&JOBL_UPPER && !(sd->class_&JOBL_THIRD))
 			break;
@@ -1433,7 +1421,6 @@ static bool pc_isItemClass (struct map_session_data *sd, struct item_data* item)
 		//fourth classes
 		if (item->class_upper&ITEMJ_FOURTH && sd->class_&JOBL_FOURTH)
 			break;
-#endif
 		return false;
 	}
 	return true;
@@ -1484,22 +1471,12 @@ uint8 pc_isequip(struct map_session_data *sd,int n)
 			case AMMO_BULLET:
 			case AMMO_SHELL:
 				if (battle_config.ammo_check_weapon && sd->status.weapon != W_REVOLVER && sd->status.weapon != W_RIFLE && sd->status.weapon != W_GATLING
-#ifdef RENEWAL
 					&& sd->status.weapon != W_SHOTGUN
-#endif
 					) {
 					clif_msg(sd, ITEM_BULLET_EQUIP_FAIL);
 					return ITEM_EQUIP_ACK_FAIL;
 				}
 				break;
-#ifndef RENEWAL
-			case AMMO_GRENADE:
-				if (battle_config.ammo_check_weapon && sd->status.weapon != W_GRENADE) {
-					clif_msg(sd, ITEM_BULLET_EQUIP_FAIL);
-					return ITEM_EQUIP_ACK_FAIL;
-				}
-				break;
-#endif
 			case AMMO_CANNONBALL:
 				if (!pc_ismadogear(sd) && (sd->status.class_ == JOB_MECHANIC_T || sd->status.class_ == JOB_MECHANIC)) {
 					clif_msg(sd, ITEM_NEED_MADOGEAR); // Item can only be used when Mado Gear is mounted.
@@ -2457,11 +2434,7 @@ void pc_updateweightstatus(struct map_session_data *sd)
 	nullpo_retv(sd);
 
 	old_overweight = (sd->sc.data[SC_WEIGHT90]) ? 2 : (sd->sc.data[SC_WEIGHT50]) ? 1 : 0;
-#ifdef RENEWAL
 	new_overweight = (pc_is90overweight(sd)) ? 2 : (pc_is70overweight(sd)) ? 1 : 0;
-#else
-	new_overweight = (pc_is90overweight(sd)) ? 2 : (pc_is50overweight(sd)) ? 1 : 0;
-#endif
 
 	if( old_overweight == new_overweight )
 		return; // no change
@@ -3219,23 +3192,14 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 			break;
 		case SP_BASE_ATK:
 			if(sd->state.lr_flag != 2) {
-#ifdef RENEWAL
 				bonus = sd->bonus.eatk + val;
 				sd->bonus.eatk = cap_value(bonus, SHRT_MIN, SHRT_MAX);
-#else
-				bonus = status->batk + val;
-				status->batk = cap_value(bonus, 0, USHRT_MAX);
-#endif
 			}
 			break;
 		case SP_DEF1:
 			if(sd->state.lr_flag != 2) {
 				bonus = status->def + val;
-#ifdef RENEWAL
 				status->def = cap_value(bonus, SHRT_MIN, SHRT_MAX);
-#else
-				status->def = cap_value(bonus, CHAR_MIN, CHAR_MAX);
-#endif
 			}
 			break;
 		case SP_DEF2:
@@ -3247,11 +3211,7 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 		case SP_MDEF1:
 			if(sd->state.lr_flag != 2) {
 				bonus = status->mdef + val;
-#ifdef RENEWAL
 				status->mdef = cap_value(bonus, SHRT_MIN, SHRT_MAX);
-#else
-				status->mdef = cap_value(bonus, CHAR_MIN, CHAR_MAX);
-#endif
 				if( sd->state.lr_flag == 3 ) {//Shield, used for royal guard
 					sd->bonus.shieldmdef += bonus;
 				}
@@ -5929,9 +5889,7 @@ int pc_useitem(struct map_session_data *sd,int n)
 		}
 
 		if( pc_hasprogress( sd, WIP_DISABLE_SKILLITEM ) || !sd->npc_item_flag ){
-#ifdef RENEWAL
 			clif_msg( sd, WORK_IN_PROGRESS );
-#endif
 			return 0;
 		}
 	}
@@ -6277,9 +6235,7 @@ bool pc_steal_item(struct map_session_data *sd,struct block_list *bl, uint16 ski
 	rate += sd->bonus.add_steal_rate;
 
 	if( rate < 1
-#ifdef RENEWAL
 		|| rnd()%100 >= rate
-#endif
 	)
 		return false;
 
@@ -6287,9 +6243,6 @@ bool pc_steal_item(struct map_session_data *sd,struct block_list *bl, uint16 ski
 	// Droprate is affected by the skill success rate.
 	for( i = 0; i < MAX_MOB_DROP; i++ )
 		if( md->db->dropitem[i].nameid > 0 && !md->db->dropitem[i].steal_protected && itemdb_exists(md->db->dropitem[i].nameid) && rnd() % 10000 < md->db->dropitem[i].rate
-#ifndef RENEWAL
-		* rate/100.
-#endif
 		)
 			break;
 	if( i == MAX_MOB_DROP )
@@ -9378,11 +9331,7 @@ int64 pc_readparam(struct map_session_data* sd,int64 type)
 		case SP_CRITICAL:        val = sd->battle_status.cri/10; break;
 		case SP_ASPD:            val = (2000-sd->battle_status.amotion)/10; break;
 		case SP_BASE_ATK:
-#ifdef RENEWAL
 			val = sd->bonus.eatk;
-#else
-			val = sd->battle_status.batk;
-#endif
 			break;
 		case SP_DEF1:		     val = sd->battle_status.def; break;
 		case SP_DEF2:		     val = sd->battle_status.def2; break;
@@ -9840,20 +9789,16 @@ int pc_itemheal(struct map_session_data *sd, t_itemid itemid, int hp, int sp)
 			sp += sp / 10;
 		}
 
-#ifdef RENEWAL
 		if (sd->sc.data[SC_APPLEIDUN])
 			hp += sd->sc.data[SC_APPLEIDUN]->val3 / 100;
-#endif
 
 		if (penalty > 0) {
 			hp -= hp * penalty / 100;
 			sp -= sp * penalty / 100;
 		}
 
-#ifdef RENEWAL
 		if (sd->sc.data[SC_EXTREMITYFIST2])
 			sp = 0;
-#endif
 		if (sd->sc.data[SC_BITESCAR])
 			hp = 0;
 	}
@@ -10418,11 +10363,7 @@ bool pc_can_attack( struct map_session_data *sd, int target_id ) {
 		return false;
 
 	if(
-#ifdef RENEWAL
 		sd->sc.data[SC_BASILICA_CELL] ||
-#else
-		sd->sc.data[SC_BASILICA] ||
-#endif
 		sd->sc.data[SC__SHADOWFORM] ||
 		sd->sc.data[SC_CURSEDCIRCLE_ATKER] ||
 		sd->sc.data[SC_CURSEDCIRCLE_TARGET] ||
@@ -11280,18 +11221,10 @@ bool pc_equipitem(struct map_session_data *sd,short n,int req_pos,bool equipswit
 				case AMMO_BULLET:
 				case AMMO_SHELL:
 					if (id->subtype != W_REVOLVER && id->subtype != W_RIFLE && id->subtype != W_GATLING 
-#ifdef RENEWAL
 						&& id->subtype != W_SHOTGUN
-#endif
 						)
 						pc_unequipitem(sd, idx, 2 | 4);
 					break;
-#ifndef RENEWAL
-				case AMMO_GRENADE:
-					if (id->subtype != W_GRENADE)
-						pc_unequipitem(sd, idx, 2 | 4);
-					break;
-#endif
 			}
 		}
 	}
@@ -11549,9 +11482,7 @@ bool pc_unequipitem(struct map_session_data *sd, int n, int flag) {
 		skill_enchant_elemental_end(&sd->bl, SC_NONE);
 		status_change_end(&sd->bl, SC_FEARBREEZE, INVALID_TIMER);
 		status_change_end(&sd->bl, SC_EXEEDBREAK, INVALID_TIMER);
-#ifdef RENEWAL
 		status_change_end(&sd->bl, SC_MAXOVERTHRUST, INVALID_TIMER);
-#endif
 	}
 
 	// On armor change
@@ -11563,10 +11494,6 @@ bool pc_unequipitem(struct map_session_data *sd, int n, int flag) {
 	}
 
 	// On equipment change
-#ifndef RENEWAL
-	if (!(flag&4))
-		status_change_end(&sd->bl, SC_CONCENTRATION, INVALID_TIMER);
-#endif
 
 	// On ammo change
 	if (sd->inventory_data[n]->type == IT_AMMO && (sd->inventory_data[n]->nameid != ITEMID_SILVER_BULLET || sd->inventory_data[n]->nameid != ITEMID_PURIFICATION_BULLET || sd->inventory_data[n]->nameid != ITEMID_SILVER_BULLET_))
@@ -12788,10 +12715,6 @@ static unsigned int pc_calc_basehp(uint16 level, uint16 job_id) {
 	std::shared_ptr<s_job_info> job = job_db.find(job_id);
 	double base_hp = 35 + level * (job->hp_multiplicator / 100.);
 
-#ifndef RENEWAL
-	if (level >= 10 && (job_id == JOB_NINJA || job_id == JOB_GUNSLINGER))
-		base_hp += 90;
-#endif
 	for (uint16 i = 2; i <= level; i++)
 		base_hp += floor(((job->hp_factor / 100.) * i) + 0.5); //Don't have round()
 	if (job_id == JOB_SUMMONER)
@@ -12924,9 +12847,7 @@ uint64 JobDatabase::parseBodyNode(const YAML::Node &node) {
 				const YAML::Node &aspdNode = node["BaseASPD"];
 				uint8 max = MAX_WEAPON_TYPE;
 
-#ifdef RENEWAL // Renewal adds an extra column for shields
 				max += 1;
-#endif
 
 				if (!exists) {
 					job->aspd_base.resize(max);
@@ -14108,11 +14029,7 @@ void pc_bonus_script_clear(struct map_session_data *sd, uint16 flag) {
 void pc_cell_basilica(struct map_session_data *sd) {
 	nullpo_retv(sd);
 
-#ifdef RENEWAL
 	enum sc_type type = SC_BASILICA_CELL;
-#else
-	enum sc_type type = SC_BASILICA;
-#endif
 
 	if (!map_getcell(sd->bl.m,sd->bl.x,sd->bl.y,CELL_CHKBASILICA)) {
 		if (sd->sc.data[type])

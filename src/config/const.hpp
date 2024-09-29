@@ -34,26 +34,16 @@
 /**
  * Path within the /db folder to (non-)renewal specific db files
  **/
-#ifdef RENEWAL
 	#define DBPATH "re/"
-#else
-	#define DBPATH "pre-re/"
-#endif
 
 #define DBIMPORT "import"
 
 /**
  * DefType
  **/
-#ifdef RENEWAL
 	typedef short defType;
 	#define DEFTYPE_MIN SHRT_MIN
 	#define DEFTYPE_MAX SHRT_MAX
-#else
-	typedef signed char defType;
-	#define DEFTYPE_MIN CHAR_MIN
-	#define DEFTYPE_MAX CHAR_MAX
-#endif
 
 /**
  * EXP definition type
@@ -82,13 +72,8 @@ const t_exp MAX_LEVEL_JOB_EXP = 999999999;
 #endif
 
 /* ATCMD_FUNC(mobinfo) HIT and FLEE calculations */
-#ifdef RENEWAL
 	#define MOB_FLEE(mob) ( mob->lv + mob->status.agi + 100 )
 	#define MOB_HIT(mob)  ( mob->lv + mob->status.dex + 175 )
-#else
-	#define MOB_FLEE(mob) ( mob->lv + mob->status.agi )
-	#define MOB_HIT(mob)  ( mob->lv + mob->status.dex )
-#endif
 
 /* Renewal's dmg level modifier, used as a macro for a easy way to turn off. */
 #ifdef RENEWAL_LVDMG
@@ -120,15 +105,9 @@ const t_exp MAX_LEVEL_JOB_EXP = 999999999;
  * Default coordinate for new char
  * That map should be loaded by a mapserv
  **/
-#ifdef RENEWAL
     #define MAP_DEFAULT_NAME "iz_int"
     #define MAP_DEFAULT_X 18
     #define MAP_DEFAULT_Y 26
-#else
-    #define MAP_DEFAULT_NAME "new_1-1"
-    #define MAP_DEFAULT_X 53
-    #define MAP_DEFAULT_Y 111
-#endif
 
 /**
  * End of File

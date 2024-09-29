@@ -243,7 +243,6 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 			item->atk = 0;
 	}
 
-#ifdef RENEWAL
 	if (this->nodeExists(node, "MagicAttack")) {
 		uint32 matk;
 
@@ -255,7 +254,6 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!exists)
 			item->matk = 0;
 	}
-#endif
 
 	if (this->nodeExists(node, "Defense")) {
 		uint32 def;
@@ -2416,7 +2414,6 @@ static bool itemdb_read_sqldb_sub(std::vector<std::string> str) {
 	if (!str[++index].empty())
 		node["UnEquipScript"] = str[index];
 
-#ifdef RENEWAL
 	if (!str[++index].empty())
 		node["MagicAttack"] = std::stoi(str[index]);
 	if (!str[++index].empty())
@@ -2433,7 +2430,6 @@ static bool itemdb_read_sqldb_sub(std::vector<std::string> str) {
 		jobs["Rebellion"] = std::stoi(str[index]) ? "true" : "false";
 	if (!str[++index].empty())
 		jobs["Summoner"] = std::stoi(str[index]) ? "true" : "false";
-#endif
 
 	node["Classes"] = classes;
 	node["Jobs"] = jobs;
@@ -2462,9 +2458,7 @@ static int itemdb_read_sqldb(void) {
 			"`flag_buyingstore`,`flag_deadbranch`,`flag_container`,`flag_uniqueid`,`flag_bindonequip`,`flag_dropannounce`,`flag_noconsume`,`flag_dropeffect`,"
 			"`delay_duration`,`delay_status`,`stack_amount`,`stack_inventory`,`stack_cart`,`stack_storage`,`stack_guildstorage`,`nouse_override`,`nouse_sitting`,"
 			"`trade_override`,`trade_nodrop`,`trade_notrade`,`trade_tradepartner`,`trade_nosell`,`trade_nocart`,`trade_nostorage`,`trade_noguildstorage`,`trade_nomail`,`trade_noauction`,`script`,`equip_script`,`unequip_script`"
-#ifdef RENEWAL
 			",`magic_attack`,`class_third`,`class_third_upper`,`class_third_baby`,`class_fourth`,`job_kagerouoboro`,`job_rebellion`,`job_summoner`"
-#endif
 			" FROM `%s`", item_db_name[fi]) ) {
 			Sql_ShowDebug(mmysql_handle);
 			continue;

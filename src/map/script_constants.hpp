@@ -1713,9 +1713,7 @@
 	export_constant(SC_WIDEWEB);
 	export_constant(SC_BURNT);
 	export_constant(SC_CHILL);
-#ifdef RENEWAL
 	export_constant(SC_EXTREMITYFIST2);
-#endif
 
 	/* status icons */
 	export_deprecated_constant2("SI_BLANK",-1);

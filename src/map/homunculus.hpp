@@ -11,16 +11,12 @@
 #include "status.hpp" // struct status_data, struct status_change
 #include "unit.hpp" // struct unit_data
 
-#ifdef RENEWAL
 	#define	HOMUN_LEVEL_STATWEIGHT_VALUE 0
 	#define APPLY_HOMUN_LEVEL_STATWEIGHT()( \
 		hom->str_value = hom->agi_value = \
 		hom->vit_value = hom->int_value = \
 		hom->dex_value = hom->luk_value = hom->level / 10 - HOMUN_LEVEL_STATWEIGHT_VALUE \
 		)
-#else
-	#define APPLY_HOMUN_LEVEL_STATWEIGHT()
-#endif
 
 struct s_homun_exp_db {
 	uint16 level;

@@ -850,18 +850,10 @@ uint64 ElementalDatabase::parseBodyNode(const YAML::Node &node) {
 		if (!this->asUInt16(node, "Attack2", atk))
 			return 0;
 
-#ifdef RENEWAL
 		elemental->status.rhw.matk = atk;
-#else
-		elemental->status.rhw.atk2 = atk;
-#endif
 	} else {
 		if (!exists)
-#ifdef RENEWAL
 			elemental->status.rhw.matk = 0;
-#else
-			elemental->status.rhw.atk2 = 0;
-#endif
 	}
 
 	if (this->nodeExists(node, "Defense")) {

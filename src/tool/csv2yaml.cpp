@@ -328,7 +328,6 @@ int do_init( int argc, char** argv ){
 		return 0;
 	}
 
-#ifdef RENEWAL
 	memset( level_penalty, 0, sizeof( level_penalty ) );
 	if (!process("PENALTY_DB", 1, { path_db_mode }, "level_penalty", [](const std::string& path, const std::string& name_ext) -> bool {
 		return sv_readdb(path.c_str(), name_ext.c_str(), ',', 4, 4, -1, &pc_readdb_levelpenalty, false) && pc_levelpenalty_yaml();
@@ -342,7 +341,6 @@ int do_init( int argc, char** argv ){
 	})) {
 		return 0;
 	}
-#endif
 
 	mob_txt_data(path_db_mode, path_db);
 	if (!process("MOB_DB", 2, { path_db_mode }, "mob_db", [](const std::string &path, const std::string &name_ext) -> bool {
@@ -2737,7 +2735,6 @@ static bool itemdb_read_db(const char* file) {
 		if (atoi(str[6]) > 0)
 			body << YAML::Key << "Weight" << YAML::Value << atoi(str[6]);
 
-#ifdef RENEWAL
 		int atk = 0, matk = 0;
 
 		itemdb_re_split_atoi(str[7], &atk, &matk);
@@ -2745,10 +2742,6 @@ static bool itemdb_read_db(const char* file) {
 			body << YAML::Key << "Attack" << YAML::Value << atk;
 		if (matk > 0)
 			body << YAML::Key << "MagicAttack" << YAML::Value << matk;
-#else
-		if (atoi(str[7]) > 0)
-			body << YAML::Key << "Attack" << YAML::Value << atoi(str[7]);
-#endif
 		if (atoi(str[8]) > 0)
 			body << YAML::Key << "Defense" << YAML::Value << atoi(str[8]);
 		if (atoi(str[9]) > 0)

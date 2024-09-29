@@ -2971,11 +2971,7 @@ bool char_config_read(const char* cfgName, bool normal){
 				charserv_config.autosave_interval = DEFAULT_AUTOSAVE_INTERVAL;
 		} else if (strcmpi(w1, "save_log") == 0) {
 			charserv_config.save_log = config_switch(w2);
-#ifdef RENEWAL
 		} else if (strcmpi(w1, "start_point") == 0) {
-#else
-		} else if (strcmpi(w1, "start_point_pre") == 0) {
-#endif
 			char_config_split_startpoint(w1, w2, charserv_config.start_point, &charserv_config.start_point_count);
 #if PACKETVER >= 20151001
 		} else if (strcmpi(w1, "start_point_doram") == 0) {

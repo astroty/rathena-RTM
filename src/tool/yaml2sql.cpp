@@ -192,17 +192,10 @@ int do_init( int argc, char** argv ){
 	const std::string path_db = std::string( db_path );
 	const std::string path_db_mode = path_db + "/" + DBPATH;
 	const std::string path_db_import = path_db + "/" + DBIMPORT + "/";
-#ifdef RENEWAL
 	const std::string item_table_name = "item_db_re";
 	const std::string item_import_table_name = "item_db2_re";
 	const std::string mob_table_name = "mob_db_re";
 	const std::string mob_import_table_name = "mob_db2_re";
-#else
-	const std::string item_table_name = "item_db";
-	const std::string item_import_table_name = "item_db2";
-	const std::string mob_table_name = "mob_db";
-	const std::string mob_import_table_name = "mob_db2";
-#endif
 	std::vector<std::string> item_table_suffixes = {
 		"usable",
 		"equip",
@@ -379,10 +372,8 @@ static bool item_db_yaml2sql(const std::string &file, const std::string &table) 
 			column.append("`weight`,");
 		if (appendEntry(input["Attack"], value))
 			column.append("`attack`,");
-#ifdef RENEWAL
 		if (appendEntry(input["MagicAttack"], value))
 			column.append("`magic_attack`,");
-#endif
 		if (appendEntry(input["Defense"], value))
 			column.append("`defense`,");
 		if (appendEntry(input["Range"], value))
@@ -413,10 +404,8 @@ static bool item_db_yaml2sql(const std::string &file, const std::string &table) 
 				column.append("`job_gunslinger`,");
 			if (appendEntry(jobs["Hunter"], value))
 				column.append("`job_hunter`,");
-#ifdef RENEWAL
 			if (appendEntry(jobs["KagerouOboro"], value))
 				column.append("`job_kagerouoboro`,");
-#endif
 			if (appendEntry(jobs["Knight"], value))
 				column.append("`job_knight`,");
 			if (appendEntry(jobs["Mage"], value))
@@ -431,10 +420,8 @@ static bool item_db_yaml2sql(const std::string &file, const std::string &table) 
 				column.append("`job_novice`,");
 			if (appendEntry(jobs["Priest"], value))
 				column.append("`job_priest`,");
-#ifdef RENEWAL
 			if (appendEntry(jobs["Rebellion"], value))
 				column.append("`job_rebellion`,");
-#endif
 			if (appendEntry(jobs["Rogue"], value))
 				column.append("`job_rogue`,");
 			if (appendEntry(jobs["Sage"], value))
@@ -443,10 +430,8 @@ static bool item_db_yaml2sql(const std::string &file, const std::string &table) 
 				column.append("`job_soullinker`,");
 			if (appendEntry(jobs["StarGladiator"], value))
 				column.append("`job_stargladiator`,");
-#ifdef RENEWAL
 			if (appendEntry(jobs["Summoner"], value))
 				column.append("`job_summoner`,");
-#endif
 			if (appendEntry(jobs["SuperNovice"], value))
 				column.append("`job_supernovice`,");
 			if (appendEntry(jobs["Swordman"], value))
@@ -488,7 +473,6 @@ static bool item_db_yaml2sql(const std::string &file, const std::string &table) 
 				value.append(",");
 				column.append("`class_baby`,");
 			}
-#ifdef RENEWAL
 			std::string str_all_third;
 
 			if (classes["All_Third"].IsDefined())
@@ -523,7 +507,6 @@ static bool item_db_yaml2sql(const std::string &file, const std::string &table) 
 			}
 			if (appendEntry(classes["Fourth"], value))
 				column.append("`class_fourth`,");
-#endif
 		}
 
 		if (appendEntry(input["Gender"], value, true))
