@@ -1247,6 +1247,11 @@ Body:
         Requires:
           - Name: AL_DP
             Level: 1
+      - Name: KS_SHIELDBASH
+        MaxLevel: 5
+        Requires:
+          - Name: AL_DP
+            Level: 1
   - Job: Alchemist
     Inherit:
       Novice: true

@@ -2452,6 +2452,19 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		}
 		break;
+	case KS_SHIELDBASH:
+		sc_start(src, bl, SC_STUN, (skill_lv * 5), skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_FORCEOFVANGUARD])
+		{
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5);
+		}
+		if (sc->data[SC_CONCENTRATION])
+		{
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 8000);
+			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), 5);
+		}
+		break;
 	} //end switch skill_id
 
 	if (md && battle_config.summons_trigger_autospells && md->master_id && md->special_state.ai)
@@ -5598,7 +5611,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		short dir = map_calc_dir(src, bl->x, bl->y);
 
 #ifdef RENEWAL
-		if (skill_id == MO_EXTREMITYFIST && sd && sd->spiritball_old > 5)
+		if (skill_id == MO_EXTREMITYFIST && sd && sd->spiritball > 5)
 			flag |= 1; // Give +100% damage increase
 #endif
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
@@ -6646,6 +6659,14 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 	case SR_KNUCKLEARROW:
+		// Holds current direction of bl/target to src/attacker before the src is moved to bl location
+		dir_ka = map_calc_dir(bl, src->x, src->y);
+		// Has slide effect
+		if (skill_check_unit_movepos(5, src, bl->x, bl->y, 1, 1))
+			skill_blown(src, src, 1, (dir_ka + 4) % 8, BLOWN_NONE); // Target position is actually one cell next to the target
+		skill_addtimerskill(src, tick + 300, bl->id, 0, 0, skill_id, skill_lv, BF_WEAPON, flag | SD_LEVEL | 2);
+		break;
+	case KS_SHIELDBASH:
 		// Holds current direction of bl/target to src/attacker before the src is moved to bl location
 		dir_ka = map_calc_dir(bl, src->x, src->y);
 		// Has slide effect

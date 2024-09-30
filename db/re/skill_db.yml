@@ -38475,4 +38475,40 @@ Body:
           Amount: 30
         - Level: 5
           Amount: 35
-      HpRateCost: 30         
+      HpRateCost: 30
+  - Id: 779
+    Name: KS_SHIELDBASH
+    Description: Shieldbash
+    MaxLevel: 5
+    TargetType: Attack
+    Range:
+      - Level: 1
+        Size: 2
+      - Level: 2
+        Size: 3
+      - Level: 3
+        Size: 4
+      - Level: 4
+        Size: 5
+      - Level: 5
+        Size: 6
+    DamageFlags:
+      IgnoreFlee: true
+    Hit: Single
+    HitCount: 1
+    Element: Weapon
+    Duration2: 2000
+    Cooldown: 5000
+    Requires:
+      SPCost:
+        - Level: 1
+          Amount: 25
+        - Level: 2
+          Amount: 30
+        - Level: 3
+          Amount: 35
+        - Level: 4
+          Amount: 40
+        - Level: 5
+          Amount: 45
+      State: Shield

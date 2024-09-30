@@ -1436,6 +1436,9 @@ void initChangeTables(void)
 	set_sc( SP_SOULREAPER	, SC_SOULREAPER		, EFST_SOULREAPER	, SCB_NONE );
 	set_sc( SP_SOULCOLLECT	, SC_SOULCOLLECT	, EFST_SOULCOLLECT	, SCB_NONE );
 
+	// Kingslayer
+	add_sc(	KS_SHIELDBASH,	SC_STUN);
+
 #ifdef RENEWAL
 	set_sc( NV_HELPANGEL			, SC_HELPANGEL		, EFST_HELPANGEL	, SCB_NONE );
 #endif

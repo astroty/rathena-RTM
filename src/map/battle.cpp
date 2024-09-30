@@ -2489,6 +2489,7 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 			break;
 #ifdef RENEWAL
 		case KN_BRANDISHSPEAR:
+			return BF_SHORT;
 		// Renewal changes to ranged physical damage
 #endif
 		case SR_RAMPAGEBLASTER:
@@ -2503,6 +2504,8 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 		case SR_KNUCKLEARROW:
 			if (src->type == BL_MOB)
 				return BF_LONG;
+			return BF_SHORT;
+		case KS_SHIELDBASH:
 			return BF_SHORT;
 	}
 
@@ -3316,6 +3319,7 @@ static void battle_calc_element_damage(struct Damage* wd, struct block_list *src
 		// Skills forced to neutral gain benefits from weapon element but final damage is considered "neutral" and resistances are applied again
 		switch (skill_id) {
 #ifdef RENEWAL
+			case KS_SHIELDBASH:
 			case CR_SHIELDBOOMERANG:
 			case PA_SHIELDCHAIN:
 #endif
@@ -3601,6 +3605,9 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 			}
 #endif
 			break;
+		case KN_AUTOCOUNTER:
+		case LG_RAGEBURST:
+		case KS_SHIELDBASH:
 		case CR_SHIELDBOOMERANG:
 		case PA_SHIELDCHAIN:
 			wd->damage = sstatus->batk;
@@ -3608,9 +3615,9 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 				short index = sd->equip_index[EQI_HAND_L];
 
 				if (index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_ARMOR) {
-					ATK_ADD(wd->damage, wd->damage2, sd->inventory_data[index]->weight / 9);
+					ATK_ADD(wd->damage, wd->damage2, sd->inventory_data[index]->weight / 5);
 #ifdef RENEWAL
-					ATK_ADD(wd->weaponAtk, wd->weaponAtk2, sd->inventory_data[index]->weight / 9);
+					ATK_ADD(wd->weaponAtk, wd->weaponAtk2, sd->inventory_data[index]->weight / 5);
 #endif
 				}
 			} else
@@ -4058,9 +4065,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case KN_SPEARSTAB:
 			skillratio += 50 + 5 * skill_lv + 2 * sstatus->str;
 			if (sc && sc->data[SC_FORCEOFVANGUARD])
-				skillratio += (25 * sd->spiritball) + (sstatus->vit * sd->spiritball);
+				skillratio += 25 + ((sstatus->vit) * sd->spiritball);
 			if (sc && sc->data[SC_CONCENTRATION])
-				skillratio += (25 * sd->spiritball) + (sstatus->agi * sd->spiritball);
+				skillratio += 50 + ((sstatus->agi) * sd->spiritball);
 // Original Code:
 //if (sd && sd->spiritball)
 //skillratio += (25 * sd->spiritball) + (sstatus->vit * sd->spiritball);
@@ -4077,9 +4084,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case KN_BRANDISHSPEAR:
 			skillratio += 150 + 15 * skill_lv + 3 * (sstatus->vit) + 2 * (sstatus->agi);
 			if (sc && sc->data[SC_FORCEOFVANGUARD])
-				skillratio += 30 * sd->spiritball + (sstatus->int_ * sd->spiritball);
+				skillratio += 30 + ((sstatus->int_) * sd->spiritball);
 			if (sc && sc->data[SC_CONCENTRATION])
-				skillratio += 30 * sd->spiritball + (sstatus->str * sd->spiritball);
+				skillratio += 60 + ((sstatus->str) * sd->spiritball);
 // Original Code:
 //if (sd && sd->spiritball)
 //skillratio += 30 * sd->spiritball + (sstatus->str * sd->spiritball);
@@ -4110,9 +4117,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case MS_BOWLINGBASH:
 			skillratio += 65 + 15 * skill_lv + (2 * (sstatus->str));
 			if (sc && sc->data[SC_FORCEOFVANGUARD])
-				skillratio += (1 * sstatus->vit) + (1 * sstatus->agi);
+				skillratio += 15 + ((1 * (sstatus->vit)) + (1 * (sstatus->agi)));
 			if (sc && sc->data[SC_CONCENTRATION])
-				skillratio += (1 * sstatus->luk) + (1 * sstatus->str);
+				skillratio += 25 + ((1 * (sstatus->luk)) + (1 * (sstatus->str)));
 			break;
 		case RK_DRAGONBREATH:
 		case RK_DRAGONBREATH_WATER:
@@ -4198,16 +4205,23 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 3 * sstatus->agi;
 			if (sc && sc->data[SC_MANU_DEF])
 				skillratio += 50;
-			break; 
+			break;
+		case KS_SHIELDBASH:
+			skillratio += 55 + 15 * skill_lv + (sstatus->str) + (sstatus->agi) + (sstatus->vit);
+			if (sc->data[SC_FORCEOFVANGUARD])
+				skillratio += 15 + (sstatus->vit) + (sstatus->agi) + (sstatus->int_);
+			if (sc->data[SC_CONCENTRATION])
+				skillratio += 25 + (sstatus->str) + (sstatus->agi) + (sstatus->luk);
+			break;
 		case CR_SHIELDBOOMERANG:
 #ifdef RENEWAL
 			skillratio += 100 + 20 * skill_lv + (2 * sstatus->vit) + sstatus->agi + (5 * pc_checkskill(sd, AL_DP));
 			if (sc && sc->data[SC_SHIELDSPELL_ATK])
-				skillratio += 1 * (sstatus->vit) + 1 * (sstatus->str);
+				skillratio += (1 * (sstatus->vit)) + (1 * (sstatus->str));
 			if (sc->data[SC_FORCEOFVANGUARD])
-				skillratio += sstatus->int_ + sstatus->vit;
+				skillratio += 50 + ((sstatus->int_) + (sstatus->vit));
 			if (sc->data[SC_CONCENTRATION])
-				skillratio += sstatus->str + sstatus->luk;
+				skillratio += 25 + ((sstatus->str) + (sstatus->luk));
 #else
 			skillratio += 30 * skill_lv;
 #endif
@@ -4267,12 +4281,18 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 #endif
 			break;
 		case MO_EXTREMITYFIST:
-			skillratio += 2 * (sstatus->sp) + (sstatus->str + sstatus->agi + sstatus->vit + sstatus->luk);
+			skillratio += 2 * (sstatus->sp);
+			if (sc->data[SC_FORCEOFVANGUARD])
+				skillratio *=2;
+			if (sc->data[SC_CONCENTRATION])
+				skillratio *= 2;
+// Original Code
 #ifdef RENEWAL
 			if (wd->miscflag&1)
 				skillratio *= 2; // More than 5 spirit balls active
 #endif
-			skillratio = min(500000,skillratio); //We stop at roughly 50k SP for overflow protection
+
+//			skillratio = min(500000,skillratio); //We stop at roughly 50k SP for overflow protection
 			break;
 		case MO_TRIPLEATTACK:
 			skillratio += 20 * skill_lv;
@@ -4590,9 +4610,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RK_SONICWAVE:
 			skillratio += 70 + 25 * skill_lv + 2 * (sstatus->str);
 			if (sc && sc->data[SC_FORCEOFVANGUARD])
-				skillratio += (1 * (sstatus->vit + sstatus->agi));
+				skillratio += 15 + ((sstatus->vit) + (sstatus->agi));
 			if (sc && sc->data[SC_CONCENTRATION])
-				skillratio += (2 * (sstatus->luk + sstatus->dex)) + sstatus->str;
+				skillratio += 25 + ((2 * (sstatus->luk) + (sstatus->dex)) + sstatus->str);
 			break;
 		case RK_HUNDREDSPEAR:
 			if (tsc && tsc->data[SC_SOULCURSE])
@@ -4804,9 +4824,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case SC_TRIANGLESHOT:
 			skillratio += 100 + 10 * skill_lv + 3 * sstatus->agi;
 			if (sc->data[SC_FORCEOFVANGUARD])
-				skillratio += 2 * sstatus->vit;
+				skillratio += 25 + (2 * (sstatus->vit));
 			if (sc->data[SC_CONCENTRATION])
-				skillratio += 2 * sstatus->str;
+				skillratio += 15 + (2 * (sstatus->str));
 			break;
 		case SC_FEINTBOMB:
 			skillratio += 100 + 25 * skill_lv + (sstatus->luk) + (sstatus->int_) + (10 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));
@@ -4835,8 +4855,10 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case LG_RAGEBURST:
 				skillratio += 200 + (50 * skill_lv) + 5 * (sstatus->vit);
-				if (sd && sd->spiritball_old) 
-					skillratio += ((sstatus->vit) * sd->spiritball_old);
+				if (sc->data[SC_FORCEOFVANGUARD])
+					skillratio += (25 * sd->spiritball) + (5 * (sstatus->vit));
+				if (sc->data[SC_CONCENTRATION])
+					skillratio += (50 * sd->spiritball) + (10 * (sstatus->str));
 			break;
 		case LG_MOONSLASHER:
 			skillratio += 10 + 1 * skill_lv ;
@@ -4942,7 +4964,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 120 + 30 * skill_lv + 3 * sstatus->dex;
 			break;
 		case SR_KNUCKLEARROW:
-			skillratio += 100 + 25 * skill_lv + (sstatus->str);
+			skillratio += 100 + 25 * skill_lv + (2 * sstatus->str);
+			if (sc->data[SC_FORCEOFVANGUARD])
+				skillratio += 2 * sstatus->vit;
+			if (sc->data[SC_CONCENTRATION])
+				skillratio += 25 + (sstatus->agi + sstatus->luk);
 			break;
 		case SR_WINDMILL: // ATK [(Caster Base Level + Caster DEX) x Caster Base Level / 100] %
 			skillratio += -100 + status_get_lv(src) + sstatus->dex;
@@ -5366,7 +5392,9 @@ static int64 battle_calc_skill_constant_addition(struct Damage* wd, struct block
 	//Constant/misc additions from skills
 	switch (skill_id) {
 		case MO_EXTREMITYFIST:
-			atk = 250 + 150 * skill_lv;
+			atk = 1000 + (350 * skill_lv) + ((status_get_max_sp(src)) * 2) + ((status_get_max_hp(src)) * 3);
+// Original Code
+//			atk = 250 + 150 * skill_lv;
 			break;
 #ifndef RENEWAL
 		case GS_MAGICALBULLET:
@@ -6477,7 +6505,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 		} else
 			ATK_ADD(wd.damage, wd.damage2, ((wd.div_ < 1) ? 1 : wd.div_) * sd->spiritball * 1);
 #endif
-		if( skill_id == CR_SHIELDBOOMERANG || skill_id == PA_SHIELDCHAIN ) { //Refine bonus applies after cards and elements.
+		if( skill_id == CR_SHIELDBOOMERANG || skill_id == PA_SHIELDCHAIN || skill_id == KS_SHIELDBASH || skill_id == KN_AUTOCOUNTER || skill_id == LG_RAGEBURST) { //Refine bonus applies after cards and elements.
 			short index = sd->equip_index[EQI_HAND_L];
 
 			if( index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_ARMOR )
@@ -7430,16 +7458,10 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 			struct Damage wd = battle_calc_weapon_attack(src, target, skill_id, skill_lv, mflag);
 			ad.damage = battle_attr_fix(src, target, wd.damage + ad.damage, s_ele, tstatus->def_ele, tstatus->ele_lv) * (150 + 20 * skill_lv + (sstatus->int_ * 3) + (sstatus->vit * 2)) /45;
 			if (sc->data[SC_FORCEOFVANGUARD]) {
-				skillratio += sstatus->vit + (2*sstatus->agi);
+				skillratio += ((sstatus->vit) + (2*(sstatus->agi)));
 			}
 			if (sc->data[SC_CONCENTRATION]) {
-				skillratio += sstatus->int_ + (2*sstatus->str);
-			}
-			if (sc->data[SC_OVERBRANDREADY]) {
-				skillratio += 50;
-			}
-			if (sc->data[SC_SPL_ATK]) {
-				skillratio += 100;
+				skillratio += ((sstatus->int_) + (2*(sstatus->str)));
 			}
 			if (src == target)
 				ad.damage = 0;
