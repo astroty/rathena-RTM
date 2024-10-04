@@ -1379,10 +1379,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case AS_SONICBLOW:
 		sc_start(src, bl, SC_STUN, (2 * skill_lv + 10), skill_lv, skill_get_time2(skill_id, skill_lv));
 		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
-			sc_start4(src, bl, SC_BURNING, 1000, skill_lv, 7, 1000, 0, 3000);
+			sc_start4(src, bl, SC_BURNING, 500, skill_lv, 5, 1000, 0, 2000);
 		break;
 
-	case AS_GRIMTOOTH:
+	case AS_IMPACTTOOTH:
 		if (dstmd && !status_has_mode(tstatus, MD_STATUSIMMUNE))
 			sc_start(src, bl, SC_QUAGMIRE, 100, 0, skill_get_time2(skill_id, skill_lv));
 		break;
@@ -1878,7 +1878,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_EXPLOSIONSPIRITS, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+					sc_start(src, src, SC_FURY, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
 					clif_specialeffect(src, 1730, AREA);
 					clif_specialeffect(src, 1862, AREA);
 					clif_specialeffect(src, 1865, AREA);
@@ -5147,7 +5147,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case AB_DUPLELIGHT_MELEE:
 	case NC_BOOSTKNUCKLE:
 	case NC_PILEBUNKER:
-	case NC_AXEBOOMERANG:
+	case AS_BOOMERAXE:
 	case NC_POWERSWING:
 	case NPC_MAGMA_ERUPTION:
 	case NC_MAGMA_ERUPTION:
@@ -5358,7 +5358,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		if (skill_id == MO_EXTREMITYFIST) {
 			status_set_sp(src, 0, 0);
-			status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
+			status_change_end(src, SC_FURY, INVALID_TIMER);
 			status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
 			sc_start(src, src, SC_EXTREMITYFIST2, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		}
@@ -5447,7 +5447,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case DK_SCOURGE: // New DK Skills
 		skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
-	case AS_GRIMTOOTH:
+	case AS_IMPACTTOOTH:
 	case MC_CARTREVOLUTION:
 	case NPC_SPLASHATTACK:
 		flag |= SD_PREAMBLE; // a fake packet will be sent for the first target to be hit
@@ -5460,7 +5460,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case RG_RAID:
 	case SN_SHARPSHOOTING:
 	case HW_NAPALMVULCAN:
-	case NJ_HUUMA:
+	case AS_BURSTPETAL:
 	case ASC_METEORASSAULT:
 	case GS_SPREADATTACK:
 	case NPC_PULSESTRIKE:
@@ -5484,7 +5484,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case NC_VULCANARM:
 	case NC_COLDSLOWER:
 	case NC_SELFDESTRUCTION:
-	case NC_AXETORNADO:
+	case AS_AXETORNADO:
 	case GC_ROLLINGCUTTER:
 	case GC_COUNTERSLASH:
 	case LG_CANNONSPEAR:
@@ -5505,7 +5505,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case GN_DEMONIC_FIRE:
 	case GN_FIRE_EXPANSION_ACID:
 	case GN_HELLS_PLANT_ATK:
-	case KO_HAPPOKUNAI:
+	case AS_FANOFKNIVES:
 	case KO_HUUMARANKA:
 	case KO_MUCHANAGE:
 	case KO_BAKURETSU:
@@ -5586,7 +5586,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			case SU_SCRATCH:
 				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 				break;
-			case NJ_HUUMA:
+			case AS_BURSTPETAL:
 			case LG_MOONSLASHER:
 			case MH_XENO_SLASHER:
 				clif_skill_damage(src, bl, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SINGLE);
@@ -7433,9 +7433,9 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case CR_SPEARQUICKEN:
 	case CR_REFLECTSHIELD:
 	case MS_REFLECTSHIELD:
-	case AS_POISONREACT:
+	case AS_VENOMCOAT:
 	case MG_ENERGYCOAT:
-	case MO_EXPLOSIONSPIRITS:
+	case AS_FURY:
 	case MO_STEELBODY:
 	case MO_BLADESTOP:
 	case LK_AURABLADE:
@@ -7959,7 +7959,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case GS_SPREADATTACK:
 	case RK_WINDCUTTER:
 	case RK_STORMBLAST:
-	case NC_AXETORNADO:
+	case AS_AXETORNADO:
 	case SR_SKYNETBLOW:
 	case SR_RAMPAGEBLASTER:
 	case SR_HOWLINGOFLION:
@@ -7967,7 +7967,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case LG_OVERBRAND:
 	case NPC_RAYOFGENESIS:
 	case LG_RAYOFGENESIS:
-	case KO_HAPPOKUNAI:
+	case AS_FANOFKNIVES:
 	case RL_FIREDANCE:
 	case RL_R_TRIP:
 	case SJ_FULLMOONKICK:
@@ -8004,7 +8004,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
 			src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
-		if (!i && (skill_id == RK_WINDCUTTER || skill_id == NC_AXETORNADO || skill_id == LG_CANNONSPEAR || skill_id == SR_SKYNETBLOW || skill_id == KO_HAPPOKUNAI))
+		if (!i && (skill_id == RK_WINDCUTTER || skill_id == AS_AXETORNADO || skill_id == LG_CANNONSPEAR || skill_id == SR_SKYNETBLOW || skill_id == AS_FANOFKNIVES))
 			clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SINGLE);
 	}
 	break;
@@ -8141,7 +8141,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 
 	case BS_ADRENALINE:
-	case BS_ADRENALINE2:
+	case AS_QUICKENING:
 	case BS_WEAPONPERFECT:
 	case BS_OVERTHRUST:
 		if (sd == NULL || sd->status.party_id == 0 || (flag & 1)) {
@@ -10340,7 +10340,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
 		break;
 
-	case GC_HALLUCINATIONWALK:
+	case AS_HALLUCINATIONWALK:
 	{
 		int heal = status_get_max_hp(bl) / 10;
 		if (status_get_hp(bl) < heal) { // if you haven't enough HP skill fails.
@@ -11057,7 +11057,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case SR_RAISINGDRAGON:
 		if (sd) {
 			short max = 0;
-			sc_start(src, bl, SC_EXPLOSIONSPIRITS, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+			sc_start(src, bl, SC_FURY, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 			for (i = 0; i < max; i++) // Don't call more than max available spheres.
 				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), max);
 			clif_skill_nodamage(src, bl, skill_id, skill_lv, sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
@@ -12245,7 +12245,7 @@ static int8 skill_castend_id_check(struct block_list* src, struct block_list* ta
 		break;
 	case MG_NAPALMBEAT:
 	case MG_FIREBALL:
-	case AS_GRIMTOOTH:
+	case AS_IMPACTTOOTH:
 	case MO_COMBOFINISH:
 	case NC_VULCANARM:
 	case SR_TIGERCANNON:
@@ -12581,7 +12581,7 @@ TIMER_FUNC(skill_castend_id) {
 		sc = &sd->sc;
 		if (sc->count)
 		{	//End states
-			status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
+			status_change_end(src, SC_FURY, INVALID_TIMER);
 			status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
 			sc_start(src, src, SC_EXTREMITYFIST2, 100, ud->skill_lv, skill_get_time(ud->skill_id, ud->skill_lv));
 		}
@@ -16394,7 +16394,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		}
 	}
 				   break;
-	case GC_HALLUCINATIONWALK:
+	case AS_HALLUCINATIONWALK:
 		if (sc && (sc->data[SC_HALLUCINATIONWALK] || sc->data[SC_HALLUCINATIONWALK_POSTDELAY])) {
 			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 			return false;
@@ -17390,7 +17390,7 @@ struct s_skill_condition skill_get_requirement(struct map_session_data* sd, uint
 			req.sp = 2; //Monk Spirit makes monk/champion combo skills cost 2 SP regardless of original cost
 		break;
 	case MO_BODYRELOCATION:
-		if (sc && sc->data[SC_EXPLOSIONSPIRITS])
+		if (sc && sc->data[SC_FURY])
 			req.spiritball = 0;
 		break;
 	case MO_EXTREMITYFIST:

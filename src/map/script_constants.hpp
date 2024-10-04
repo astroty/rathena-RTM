@@ -971,7 +971,7 @@
 	export_constant(SC_HIDING);
 	export_constant(SC_CLOAKING);
 	export_constant(SC_ENCPOISON);
-	export_constant(SC_POISONREACT);
+	export_constant(SC_VENOMCOAT);
 	export_constant(SC_QUAGMIRE);
 	export_constant(SC_ANGELUS);
 	export_constant(SC_BLESSING);
@@ -1036,7 +1036,7 @@
 	export_constant(SC_SAFETYWALL);
 	export_constant(SC_RUWACH);
 	export_constant(SC_EXTREMITYFIST);
-	export_constant(SC_EXPLOSIONSPIRITS);
+	export_constant(SC_FURY);
 	export_constant(SC_COMBO);
 	export_constant(SC_BLADESTOP_WAIT);
 	export_constant(SC_BLADESTOP);
@@ -1089,7 +1089,7 @@
 	export_constant(SC_DODGE);
 	export_constant(SC_RUN);
 	export_constant(SC_SHADOWWEAPON);
-	export_constant(SC_ADRENALINE2);
+	export_constant(SC_QUICKENING);
 	export_constant(SC_GHOSTWEAPON);
 	export_constant(SC_KAIZEL);
 	export_constant(SC_KAAHI);

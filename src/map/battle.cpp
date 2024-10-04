@@ -1569,10 +1569,10 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 	sc = status_get_sc(src);
 
 	if (sc && sc->count) {
-		if (sc->data[SC_EXPLOSIONSPIRITS]) {
+		if (sc->data[SC_FURY]) {
 			switch (skill_id) {
 				case SO_EARTHGRAVE:
-				case AS_GRIMTOOTH:
+				case AS_IMPACTTOOTH:
 					damage += damage * 60 / 100;
 					break;
 				case AS_SONICBLOW:
@@ -2706,7 +2706,7 @@ static int is_attack_piercing(struct Damage* wd, struct block_list *src, struct 
 		struct map_session_data *sd = BL_CAST(BL_PC, src);
 		struct status_data *tstatus = status_get_status_data(target);
 
-		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS && skill_id != PA_SHIELDCHAIN && skill_id != KO_HAPPOKUNAI
+		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS && skill_id != PA_SHIELDCHAIN && skill_id != AS_FANOFKNIVES
 		)
 		{ //Elemental/Racial adjustments
 			if( sd && (sd->right_weapon.def_ratio_atk_ele & (1<<tstatus->def_ele) || sd->right_weapon.def_ratio_atk_ele & (1<<ELE_ALL) ||
@@ -3199,7 +3199,7 @@ static void battle_calc_attack_masteries(struct Damage* wd, struct block_list *s
 		//General skill masteries
 		if(skill_id == TF_POISON) //Additional ATK from Envenom is treated as mastery type damage [helvetica]
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 15 * skill_lv + 2 * sstatus->int_ + (10 * pc_checkskill(sd, GC_RESEARCHNEWPOISON)));
-		if (skill_id == TF_POISON && sc && sc->data[SC_POISONREACT])
+		if (skill_id == TF_POISON && sc && sc->data[SC_VENOMCOAT])
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 15 * skill_lv + sstatus->int_);
 		if (skill_id != MC_CARTREVOLUTION && pc_checkskill(sd, BS_HILTBINDING) > 0)
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 4);
@@ -3368,7 +3368,7 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 				ATK_ADD(wd->weaponAtk, wd->weaponAtk2, damagevalue);
 			}
 			break;
-		case KO_HAPPOKUNAI:
+		case AS_FANOFKNIVES:
 			if(sd) {
 				short index = sd->equip_index[EQI_AMMO];
 				int damagevalue = 3 * (
@@ -3557,7 +3557,7 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 		case RL_QD_SHOT:
 			wd->div_ = skill_lv + (sd ? sd->status.job_level : 1) / 25 + (tsc && tsc->data[SC_C_MARKER] ? 1 : 0);
 			break;
-		case AS_POISONREACT:
+		case AS_VENOMCOAT:
 			skill_lv = pc_checkskill(sd, TF_DOUBLE);
 			if (skill_lv > 0) {
 				if(rnd()%100 < (7 * skill_lv)) {
@@ -3685,7 +3685,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 50 + 15 * skill_lv + (2 * sstatus->dex) + (5 * (pc_checkskill(sd, BS_SKINTEMPER)));
 			if (sc && sc->data[SC_ASPERSIO])
 				skillratio += 10 + sstatus->int_;
-			if (sc && sc->data[SC_EXPLOSIONSPIRITS])
+			if (sc && sc->data[SC_FURY])
 				skillratio += 10 + sstatus->luk;
 			if (sc && sc->data[SC_WATERWEAPON])
 				skillratio += ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
@@ -3776,10 +3776,10 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RK_DRAGONBREATH_WATER:
 			skillratio += 25 * skill_lv + (5* (sstatus->vit));
 			break;
-		case AS_GRIMTOOTH:
+		case AS_IMPACTTOOTH:
 			skillratio += 30 + 10 * skill_lv + (sstatus->luk); //It's 50 but gets doubled with Katar equipped
 			break;
-		case AS_POISONREACT:
+		case AS_VENOMCOAT:
 			skillratio += 40 * skill_lv;
 			break;
 		case AS_SONICBLOW:
@@ -4002,7 +4002,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case AS_SPLASHER:
 		skillratio += 100 + 15 * skill_lv + 1 * (sstatus->vit) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
 		if (sd)
-			skillratio += 5 * pc_checkskill(sd, AS_POISONREACT);
+			skillratio += 5 * pc_checkskill(sd, AS_VENOMCOAT);
 		break;
 		case ASC_BREAKER:
 			skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
@@ -4084,9 +4084,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case GS_GROUNDDRIFT:
 			skillratio += 100 + 20 * skill_lv;
 			break;
-		case NJ_HUUMA:
+		case AS_BURSTPETAL:
 			skillratio += 50 + 10 * skill_lv + 2 *(sstatus->dex);
-			if (sc && sc->data[SC_ADRENALINE2])
+			if (sc && sc->data[SC_QUICKENING])
 				skillratio += 5 * pc_checkskill(sd, TK_SPTIME);
 			break;
 		case NJ_TATAMIGAESHI:
@@ -4316,7 +4316,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 2 * (sstatus->luk);
 			break;
-		case NC_AXEBOOMERANG:
+		case AS_BOOMERAXE:
 			skillratio += 60 + 15 * skill_lv + (sstatus->vit);
 			if (tsc && tsc->data[SC_POISON])
 				skillratio += 3 * (sstatus->int_);
@@ -4331,11 +4331,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
 			skillratio += 2 * (sstatus->int_);
 			break;
-		case NC_AXETORNADO:
+		case AS_AXETORNADO:
 			skillratio += 100 + 10 * skill_lv + (sstatus->vit);
 			if (sc && sc->data[SC_POISON] || sc && sc->data[SC_DPOISON])
 				skillratio += 3 * (sstatus->int_);
-			if (sc && sc->data[SC_POISONREACT])
+			if (sc && sc->data[SC_VENOMCOAT])
 				skillratio += 5 * pc_checkskill(sd, SM_RECOVERY);
 			if (sc && sc->data[SC_ROLLINGCUTTER])
 			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
@@ -4411,7 +4411,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 10 * skill_lv;
 			if (sc && sc->data[SC_ASPERSIO])
 				skillratio += 10 + sstatus->int_;
-			if (sc && sc->data[SC_EXPLOSIONSPIRITS])
+			if (sc && sc->data[SC_FURY])
 				skillratio += 10 + sstatus->luk;
 			if (sc && sc->data[SC_WATERWEAPON])
 				skillratio += ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
@@ -4430,7 +4430,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 50 + 5 * skill_lv + (1 * sstatus->dex) + (5 * (pc_checkskill(sd, BS_SKINTEMPER)));
 				if (sc && sc->data[SC_ASPERSIO])
 				skillratio += 10 + sstatus->int_;
-				if (sc && sc->data[SC_EXPLOSIONSPIRITS])
+				if (sc && sc->data[SC_FURY])
 					skillratio += 10 + sstatus->luk;
 				if (sc && sc->data[SC_WATERWEAPON])
 					skillratio += ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
@@ -4507,7 +4507,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case AS_SILENTSTRIKE:
 			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->dex);
-			if (sc && sc->data[SC_ADRENALINE2])
+			if (sc && sc->data[SC_QUICKENING])
 				skillratio += 5 * pc_checkskill(sd, TK_SPTIME);
 			break;
 		case SR_HOWLINGOFLION:
@@ -4791,7 +4791,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 5 * skill_lv;
 			if (sc && sc->data[SC_ASPERSIO])
 				skillratio += 10 + sstatus->int_;
-			if (sc && sc->data[SC_EXPLOSIONSPIRITS])
+			if (sc && sc->data[SC_FURY])
 				skillratio += 10 + sstatus->luk;
 			if (sc && sc->data[SC_WATERWEAPON])
 				skillratio += ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
@@ -4974,7 +4974,7 @@ static void battle_attack_sc_bonus(struct Damage* wd, struct block_list *src, st
 			switch(skill_id) {
 				case KO_MUCHANAGE:
 				case NJ_KUNAI:
-				case KO_HAPPOKUNAI:
+				case AS_FANOFKNIVES:
 				// Pre-Renewal only: Soul Breaker ignores EDP
 				// Renewal only: Grimtooth and Venom Knife ignore EDP
 				// Both: Venom Splasher and Meteor Assault ignore EDP [helvetica]
@@ -7852,22 +7852,22 @@ enum damage_lv battle_weapon_attack(struct block_list* src, struct block_list* t
 	}
 
 	if (tsc) {
-		if (damage > 0 && tsc->data[SC_POISONREACT] &&
-			(rnd()%100 < tsc->data[SC_POISONREACT]->val3
+		if (damage > 0 && tsc->data[SC_VENOMCOAT] &&
+			(rnd()%100 < tsc->data[SC_VENOMCOAT]->val3
 			|| sstatus->def_ele == ELE_POISON) &&
 //			check_distance_bl(src, target, tstatus->rhw.range+1) && Doesn't checks range! o.O;
 			status_check_skilluse(target, src, GC_ROLLINGCUTTER, 0)
 		) {	//Poison React
-			struct status_change_entry *sce = tsc->data[SC_POISONREACT];
+			struct status_change_entry *sce = tsc->data[SC_VENOMCOAT];
 			if (sstatus->def_ele == ELE_POISON) {
 				sce->val2 = 0;
-				skill_attack(BF_WEAPON,target,target,src,AS_POISONREACT,sce->val1,tick,0);
+				skill_attack(BF_WEAPON,target,target,src,AS_VENOMCOAT,sce->val1,tick,0);
 			} else {
 				skill_attack(BF_WEAPON,target,target,src,TF_POISON, 10, tick, 0);
 				--sce->val2;
 			}
 			if (sce->val2 <= 0)
-				status_change_end(target, SC_POISONREACT, INVALID_TIMER);
+				status_change_end(target, SC_VENOMCOAT, INVALID_TIMER);
 		}
 	}
 	map_freeblock_unlock();
@@ -8034,7 +8034,7 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 						case RK_DRAGONBREATH:
 						case RK_DRAGONBREATH_WATER:
 						case NC_SELFDESTRUCTION:
-						case NC_AXETORNADO:
+						case AS_AXETORNADO:
 						case SR_SKYNETBLOW:
 							// Can only hit traps in PVP/GVG maps
 							if (!mapdata->flag[MF_PVP] && !mapdata->flag[MF_GVG])
@@ -8051,7 +8051,7 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 					case RK_DRAGONBREATH:
 					case RK_DRAGONBREATH_WATER:
 					case NC_SELFDESTRUCTION:
-					case NC_AXETORNADO:
+					case AS_AXETORNADO:
 					case SR_SKYNETBLOW:
 						// Can only hit icewall in PVP/GVG maps
 						if (!mapdata->flag[MF_PVP] && !mapdata->flag[MF_GVG])

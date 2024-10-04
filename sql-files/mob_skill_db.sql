@@ -706,7 +706,7 @@ REPLACE INTO `mob_skill_db` VALUES (1131,'Joker@NPC_EMOTION','idle',197,1,100,0,
 REPLACE INTO `mob_skill_db` VALUES (1131,'Joker@NPC_EMOTION','attack',197,1,10000,0,60000,'yes','self','always','0',6,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1131,'Joker@NPC_EMOTION_ON','idle',474,1,100,0,60000,'yes','self','always','0',22,0x83,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1132,'Khalitzburg@AL_TELEPORT','idle',26,1,10000,0,0,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1132,'Khalitzburg@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1132,'Khalitzburg@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1132,'Khalitzburg@BS_MAXIMIZE','attack',114,5,500,1000,5000,'no','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1132,'Khalitzburg@BS_MAXIMIZE','chase',114,5,500,1000,5000,'no','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1132,'Khalitzburg@NPC_SPLASHATTACK','attack',174,1,2000,0,5000,'yes','target','attackpcge','2',NULL,NULL,NULL,NULL,NULL,'9',NULL);
@@ -1372,7 +1372,7 @@ REPLACE INTO `mob_skill_db` VALUES (1290,'Skeleton General@NPC_SPLASHATTACK','at
 REPLACE INTO `mob_skill_db` VALUES (1290,'Skeleton General@NPC_SUMMONSLAVE','idle',196,2,10000,2000,60000,'no','self','slavele','0',1028,1016,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@AL_DECAGI','chase',30,9,500,1000,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@AL_TELEPORT','idle',26,1,10000,0,0,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@NPC_CURSEATTACK','attack',181,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@NPC_CURSEATTACK','chase',181,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1291,'Wraith Dead@NPC_POISON','attack',176,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
@@ -1449,7 +1449,7 @@ REPLACE INTO `mob_skill_db` VALUES (1303,'Giant Hornet@NPC_SILENCEATTACK','chase
 REPLACE INTO `mob_skill_db` VALUES (1303,'Giant Hornet@NPC_STUNATTACK','attack',179,3,500,1500,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1303,'Giant Hornet@NPC_WINDATTACK','attack',187,2,500,500,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1304,'Giant Spider@AL_TELEPORT','idle',26,1,10000,0,0,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1304,'Giant Spider@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1304,'Giant Spider@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1304,'Giant Spider@NPC_POISON','attack',176,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1304,'Giant Spider@NPC_STOP','attack',342,1,500,0,30000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1304,'Giant Spider@NPC_EMOTION','chase',197,1,200,0,5000,'yes','self','always','0',19,0x81,NULL,NULL,NULL,NULL,NULL);
@@ -1799,7 +1799,7 @@ REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@AL_TELEPORT','idle',26,1,5000,
 REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@AL_TELEPORT','walk',26,1,5000,0,5000,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@NPC_HELLJUDGEMENT','chase',662,10,10000,500,20000,'no','self','myhpltmaxrate','80',NULL,NULL,NULL,NULL,NULL,'36',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@NPC_HELLJUDGEMENT','attack',662,10,10000,500,20000,'no','self','myhpltmaxrate','80',NULL,NULL,NULL,NULL,NULL,'36',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@NPC_AGIUP','attack',350,5,10000,0,30000,'yes','self','myhpltmaxrate','30',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@NPC_BLOODDRAIN','attack',199,1,3000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1389,'Dracula@NPC_ENERGYDRAIN','chase',200,1,3000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -2159,12 +2159,12 @@ REPLACE INTO `mob_skill_db` VALUES (1437,'Joker@NPC_WINDATTACK','chase',187,2,50
 REPLACE INTO `mob_skill_db` VALUES (1437,'Joker@WZ_HEAVENDRIVE','chase',91,5,500,1200,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1437,'Joker@NPC_DARKTHUNDER','chase',341,5,500,1500,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1437,'Joker@WZ_QUAGMIRE','chase',92,5,500,700,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@AS_GRIMTOOTH','follow',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@AS_IMPACTTOOTH','follow',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@BS_MAXIMIZE','follow',114,5,500,1000,5000,'no','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@BS_MAXIMIZE','angry',114,5,500,1000,5000,'no','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@NPC_SPLASHATTACK','angry',174,1,2000,0,5000,'yes','target','attackpcge','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@NPC_STUNATTACK','angry',179,3,500,1500,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@BS_MAXIMIZE','chase',114,5,500,1000,5000,'no','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@BS_MAXIMIZE','attack',114,5,500,1000,5000,'no','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1438,'Khalitzburg@NPC_SPLASHATTACK','attack',174,1,2000,0,5000,'yes','target','attackpcge','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -2551,7 +2551,7 @@ REPLACE INTO `mob_skill_db` VALUES (1502,'Bring it on!@RG_STRIPARMOR','attack',2
 REPLACE INTO `mob_skill_db` VALUES (1502,'Bring it on!@RG_STRIPHELM','attack',218,5,2000,0,3000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1502,'Bring it on!@RG_STRIPSHIELD','attack',216,5,2000,0,3000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1502,'Bring it on!@RG_STRIPWEAPON','attack',215,5,2000,0,3000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1503,'Gibbet@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1503,'Gibbet@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1503,'Gibbet@NPC_CURSEATTACK','attack',181,3,1000,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1503,'Gibbet@NPC_UNDEADATTACK','attack',347,2,500,500,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1504,'Dullahan@NPC_CRITICALSLASH','attack',170,1,1000,500,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -2655,7 +2655,7 @@ REPLACE INTO `mob_skill_db` VALUES (1519,'Chung E@TF_POISON','attack',52,10,1000
 REPLACE INTO `mob_skill_db` VALUES (1520,'Boiled Rice@CR_AUTOGUARD','idle',249,10,10000,0,300000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1520,'Boiled Rice@NPC_SUICIDE','attack',175,1,10000,4000,0,'no','self','myhpltmaxrate','50',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 #REPLACE INTO `mob_skill_db` VALUES (1566,'Wraith Dead@AL_DECAGI','chase',30,9,500,1000,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
-#REPLACE INTO `mob_skill_db` VALUES (1566,'Wraith Dead@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+#REPLACE INTO `mob_skill_db` VALUES (1566,'Wraith Dead@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 #REPLACE INTO `mob_skill_db` VALUES (1566,'Wraith Dead@NPC_CURSEATTACK','attack',181,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 #REPLACE INTO `mob_skill_db` VALUES (1566,'Wraith Dead@NPC_CURSEATTACK','chase',181,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 #REPLACE INTO `mob_skill_db` VALUES (1566,'Wraith Dead@NPC_POISON','attack',176,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
@@ -2866,14 +2866,14 @@ REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_CLOAKING','idle',135,1
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_CLOAKING','chase',135,1,2000,200,5000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AL_TELEPORT','idle',26,1,10000,0,0,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AL_TELEPORT','walk',26,1,5000,0,5000,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_GRIMTOOTH','idle',137,5,10000,0,0,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_GRIMTOOTH','chase',137,5,10000,0,0,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_IMPACTTOOTH','idle',137,5,10000,0,0,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_IMPACTTOOTH','chase',137,5,10000,0,0,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@ASC_BREAKER','chase',379,10,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@ASC_METEORASSAULT','attack',406,10,2000,0,10000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@TF_POISON','attack',52,10,1000,0,10000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@NPC_AGIUP','attack',350,5,2000,0,100000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_SONICBLOW','attack',136,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_GRIMTOOTH','chase',137,5,2000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_IMPACTTOOTH','chase',137,5,2000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_VENOMDUST','idle',140,1,2000,0,50000,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@AS_VENOMDUST','attack',140,1,2000,0,50000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1635,'Eremes Guile@NPC_CRITICALSLASH','attack',170,1,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -3003,8 +3003,8 @@ REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@NPC_SELFDESTRUCT
 #REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@RG_INTIMIDATE','attack',219,10,100,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@WZ_METEOR','idle',83,1,10000,0,0,'yes','target','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@WZ_METEOR','walk',83,1,5000,0,5000,'yes','target','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_GRIMTOOTH','idle',137,5,10000,0,0,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_GRIMTOOTH','chase',137,5,10000,0,0,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_IMPACTTOOTH','idle',137,5,10000,0,0,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_IMPACTTOOTH','chase',137,5,10000,0,0,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@ASC_BREAKER','chase',379,10,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@ASC_METEORASSAULT','attack',406,10,2000,0,10000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@NPC_INVISIBLE','idle',353,1,2000,0,30000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -3015,7 +3015,7 @@ REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@NPC_AGIUP','atta
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@NPC_AGIUP','attack',350,5,2000,0,25000,'yes','self','myhpltmaxrate','30',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_SONICBLOW','attack',136,10,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_SONICBLOW','attack',136,10,3000,0,0,'yes','target','myhpltmaxrate','30',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_GRIMTOOTH','chase',137,5,2000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_IMPACTTOOTH','chase',137,5,2000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_VENOMDUST','idle',140,1,2000,0,10000,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@AS_VENOMDUST','attack',140,1,2000,0,10000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1641,'Assassin Cross Eremes@NPC_CRITICALSLASH','attack',170,1,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -3153,8 +3153,8 @@ REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_CALLSLAVE','
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_SUMMONSLAVE','attack',196,5,10000,700,10000,'no','self','slavele','3',1640,1642,1643,1644,1645,'0',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_SUMMONSLAVE','idle',196,5,10000,700,10000,'no','self','slavele','3',1640,1642,1643,1644,1645,'0',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_SUMMONMONSTER','attack',209,5,10000,700,60000000,'yes','self','myhpltmaxrate','30',1640,1642,1643,1644,1645,'0',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_GRIMTOOTH','idle',137,5,10000,0,0,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_GRIMTOOTH','chase',137,5,10000,0,0,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_IMPACTTOOTH','idle',137,5,10000,0,0,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_IMPACTTOOTH','chase',137,5,10000,0,0,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_INVISIBLE','idle',353,1,2000,0,30000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_INVISIBLE','attack',353,1,2000,0,30000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_GUIDEDATTACK','attack',172,10,2000,0,15000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -3163,7 +3163,7 @@ REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_AGIUP','atta
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@NPC_AGIUP','attack',350,5,2000,0,25000,'yes','self','myhpltmaxrate','30',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_SONICBLOW','attack',136,10,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_SONICBLOW','attack',136,10,3000,0,0,'yes','target','myhpltmaxrate','30',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_GRIMTOOTH','chase',137,5,2000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_IMPACTTOOTH','chase',137,5,2000,0,0,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_VENOMDUST','idle',140,1,2000,0,10000,'yes','randomtarget','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@AS_VENOMDUST','attack',140,1,2000,0,10000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1647,'Assassin Cross Eremes@ASC_BREAKER','chase',379,10,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -3515,7 +3515,7 @@ REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@NPC_EMOTION','idle',197,1,2
 REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@KN_PIERCE','attack',56,5,1000,700,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@NPC_PIERCINGATT','attack',158,10,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@AL_TELEPORT','idle',26,1,10000,0,0,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@AS_GRIMTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@AS_IMPACTTOOTH','chase',137,5,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'29',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@NPC_COMBOATTACK','attack',171,1,500,700,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1681,'Gemini-S58@NPC_COMBOATTACK','chase',171,1,500,700,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1682,'Remover@SM_BASH','attack',5,5,500,800,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -3985,7 +3985,7 @@ REPLACE INTO `mob_skill_db` VALUES (1751,'Valkyrie Randgris@WZ_VERMILION','attac
 REPLACE INTO `mob_skill_db` VALUES (1751,'Valkyrie Randgris@WZ_VERMILION','chase',85,21,2000,1000,5000,'no','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@TF_HIDING','idle',51,1,2000,0,180000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,'9',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@MG_SOULSTRIKE','chase',13,5,2000,0,3000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@AS_GRIMTOOTH','idle',137,5,10000,0,700,'yes','randomtarget','mystatuson','hiding',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@AS_IMPACTTOOTH','idle',137,5,10000,0,700,'yes','randomtarget','mystatuson','hiding',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@NPC_CURSEATTACK','attack',181,5,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@NPC_DARKNESSATTACK','attack',190,5,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'9',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1752,'Skogul@NPC_SUMMONSLAVE','attack',196,1,100,0,3600000,'no','self','slavele','0',1762,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -4053,7 +4053,7 @@ REPLACE INTO `mob_skill_db` VALUES (1756,'Hydro@NPC_CALLSLAVE','idle',352,1,1000
 REPLACE INTO `mob_skill_db` VALUES (1756,'Hydro@NPC_CALLSLAVE','chase',352,1,10000,0,30000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1761,'Skogul@TF_HIDING','idle',51,1,2000,0,180000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,'9',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1761,'Skogul@MG_SOULSTRIKE','chase',13,5,2000,0,3000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1761,'Skogul@AS_GRIMTOOTH','idle',137,5,10000,0,700,'yes','randomtarget','mystatuson','hiding',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+REPLACE INTO `mob_skill_db` VALUES (1761,'Skogul@AS_IMPACTTOOTH','idle',137,5,10000,0,700,'yes','randomtarget','mystatuson','hiding',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1761,'Skogul@NPC_CURSEATTACK','attack',181,5,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1761,'Skogul@NPC_DARKNESSATTACK','attack',190,5,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'9',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1762,'Frus@RG_STRIPARMOR','attack',217,3,500,0,30000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'2',NULL);
@@ -4606,8 +4606,8 @@ REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@NPC_CALLSLAVE','idle',352,1,10
 REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@SM_BASH','attack',5,5,500,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AL_TELEPORT','idle',26,1,10000,0,0,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AL_TELEPORT','walk',26,1,5000,0,5000,'yes','self','rudeattacked',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AS_GRIMTOOTH','idle',137,5,10000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
-REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AS_GRIMTOOTH','chase',137,5,10000,0,5000,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AS_IMPACTTOOTH','idle',137,5,10000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);
+REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AS_IMPACTTOOTH','chase',137,5,10000,0,5000,'yes','target','skillused','18',NULL,NULL,NULL,NULL,NULL,'6',NULL);
 REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@ASC_BREAKER','chase',379,3,2000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@ASC_METEORASSAULT','attack',406,2,500,0,5000,'yes','self','always','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 REPLACE INTO `mob_skill_db` VALUES (1839,'Byorgue@AS_SONICBLOW','attack',136,5,1000,0,5000,'yes','target','always','0',NULL,NULL,NULL,NULL,NULL,'6',NULL);

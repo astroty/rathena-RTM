@@ -714,7 +714,7 @@ void initChangeTables(void)
 	set_sc( AS_CLOAKING		, SC_CLOAKING		, EFST_CLOAKING		, SCB_CRI|SCB_SPEED );
 	add_sc( AS_SONICBLOW		, SC_STUN		);
 	set_sc( AS_ENCHANTPOISON	, SC_ENCPOISON		, EFST_ENCHANTPOISON, SCB_ATK_ELE );
-	set_sc( AS_POISONREACT		, SC_POISONREACT	, EFST_POISONREACT	, SCB_NONE );
+	set_sc( AS_VENOMCOAT		, SC_VENOMCOAT	, EFST_POISONREACT	, SCB_NONE );
 	add_sc( AS_VENOMDUST		, SC_POISON		);
 	set_sc( AS_SPLASHER		, SC_SPLASHER	, EFST_SPLASHER	, SCB_NONE );
 	set_sc( NV_TRICKDEAD		, SC_TRICKDEAD		, EFST_TRICKDEAD		, SCB_REGEN );
@@ -775,7 +775,7 @@ void initChangeTables(void)
 	set_sc( MO_STEELBODY		, SC_STEELBODY		, EFST_STEELBODY		, SCB_DEF|SCB_MDEF|SCB_ASPD|SCB_SPEED );
 	add_sc( MO_BLADESTOP		, SC_BLADESTOP_WAIT	);
 	set_sc( MO_BLADESTOP		, SC_BLADESTOP	, EFST_BLADESTOP	, SCB_NONE );
-	set_sc( MO_EXPLOSIONSPIRITS	, SC_EXPLOSIONSPIRITS	, EFST_EXPLOSIONSPIRITS	, SCB_CRI|SCB_REGEN );
+	set_sc( AS_FURY	, SC_FURY	, EFST_EXPLOSIONSPIRITS	, SCB_CRI|SCB_REGEN );
 	set_sc( MO_EXTREMITYFIST	, SC_EXTREMITYFIST	, EFST_BLANK			, SCB_REGEN );
 	set_sc( MO_EXTREMITYFIST	, SC_EXTREMITYFIST2	, EFST_EXTREMITYFIST	, SCB_NONE );
 	set_sc( SA_MAGICROD		, SC_MAGICROD	, EFST_MAGICROD	, SCB_NONE );
@@ -878,7 +878,7 @@ void initChangeTables(void)
 	add_sc( SG_FRIEND		, SC_SKILLRATE_UP	);
 	set_sc( SG_KNOWLEDGE		, SC_KNOWLEDGE		, EFST_BLANK		, SCB_ALL );
 	set_sc( SG_FUSION		, SC_FUSION		, EFST_BLANK		, SCB_SPEED );
-	set_sc( BS_ADRENALINE2		, SC_ADRENALINE2	, EFST_ADRENALINE2	, SCB_ASPD );
+	set_sc( AS_QUICKENING		, SC_QUICKENING	, EFST_ADRENALINE2	, SCB_ASPD );
 	set_sc( SL_KAIZEL		, SC_KAIZEL		, EFST_KAIZEL		, SCB_NONE );
 	set_sc( SL_KAAHI		, SC_KAAHI		, EFST_KAAHI		, SCB_NONE );
 	set_sc( SL_KAUPE		, SC_KAUPE		, EFST_KAUPE		, SCB_NONE );
@@ -1059,7 +1059,7 @@ void initChangeTables(void)
 	set_sc( GC_POISONINGWEAPON	, SC_POISONINGWEAPON	, EFST_POISONINGWEAPON	, SCB_NONE );
 	set_sc( GC_WEAPONBLOCKING	, SC_WEAPONBLOCKING	, EFST_WEAPONBLOCKING	, SCB_NONE );
 	set_sc( GC_CLOAKINGEXCEED	, SC_CLOAKINGEXCEED	, EFST_CLOAKINGEXCEED	, SCB_SPEED );
-	set_sc( GC_HALLUCINATIONWALK	, SC_HALLUCINATIONWALK	, EFST_HALLUCINATIONWALK	, SCB_FLEE );
+	set_sc( AS_HALLUCINATIONWALK	, SC_HALLUCINATIONWALK	, EFST_HALLUCINATIONWALK	, SCB_FLEE );
 	set_sc( GC_ROLLINGCUTTER	, SC_ROLLINGCUTTER	, EFST_ROLLINGCUTTER	, SCB_NONE );
 	set_sc_with_vfx( GC_DARKCROW	, SC_DARKCROW		, EFST_DARKCROW		, SCB_NONE );
 
@@ -6802,8 +6802,8 @@ static signed short status_calc_critical(struct block_list *bl, struct status_ch
 		critical += 300;// crit +30
 	if (sc->data[SC_CRIFOOD])
 		critical += sc->data[SC_CRIFOOD]->val1;
-	if (sc->data[SC_EXPLOSIONSPIRITS])
-		critical += sc->data[SC_EXPLOSIONSPIRITS]->val2;
+	if (sc->data[SC_FURY])
+		critical += sc->data[SC_FURY]->val2;
 	if (sc->data[SC_FORTUNE])
 		critical += sc->data[SC_FORTUNE]->val2;
 	if (sc->data[SC_TRUESIGHT])
@@ -7497,7 +7497,7 @@ short status_calc_aspd(struct block_list* bl, struct status_change* sc, bool fix
 			// !TODO: How does Two-Hand Quicken, Adrenaline Rush, and Spear quick change? (+10%)
 			if (bonus < 9 && (sc->data[SC_TWOHANDQUICKEN] || sc->data[SC_ONEHAND] || sc->data[SC_MERC_QUICKEN] || sc->data[SC_ADRENALINE] || sc->data[SC_SPEARQUICKEN]))
 				bonus = 9;
-			else if (bonus < 6 && sc->data[SC_ADRENALINE2])
+			else if (bonus < 6 && sc->data[SC_QUICKENING])
 				bonus = 6;
 			else if (bonus < 5 && sc->data[SC_FLEET])
 				bonus = 5;
@@ -7654,9 +7654,9 @@ short status_calc_aspd_rate(struct block_list* bl, struct status_change* sc, int
 			max < sc->data[SC_MERC_QUICKEN]->val2)
 			max = sc->data[SC_MERC_QUICKEN]->val2;
 
-		if(sc->data[SC_ADRENALINE2] &&
-			max < sc->data[SC_ADRENALINE2]->val3)
-			max = sc->data[SC_ADRENALINE2]->val3;
+		if(sc->data[SC_QUICKENING] &&
+			max < sc->data[SC_QUICKENING]->val3)
+			max = sc->data[SC_QUICKENING]->val3;
 
 		if(sc->data[SC_ADRENALINE] &&
 			max < sc->data[SC_ADRENALINE]->val3)
@@ -9245,7 +9245,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			return 0; // Overthrust can't take effect if under Max Overthrust. [Skotlex]
 	break;
 	case SC_ADRENALINE:
-	case SC_ADRENALINE2:
+	case SC_QUICKENING:
 		if (sc->data[SC_QUAGMIRE] || sc->data[SC_DECREASEAGI])
 			return 0;
 	break;
@@ -9615,7 +9615,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		// Also blocks the ones below...
 		status_change_end(bl, SC_INCREASEAGI, INVALID_TIMER);
 		status_change_end(bl, SC_ADRENALINE, INVALID_TIMER);
-		status_change_end(bl, SC_ADRENALINE2, INVALID_TIMER);
+		status_change_end(bl, SC_QUICKENING, INVALID_TIMER);
 		status_change_end(bl, SC_SPEARQUICKEN, INVALID_TIMER);
 		status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
 		status_change_end(bl, SC_ONEHAND, INVALID_TIMER);
@@ -9649,7 +9649,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	case SC_DONTFORGETME:
 		status_change_end(bl, SC_INCREASEAGI, INVALID_TIMER);
 		status_change_end(bl, SC_ADRENALINE, INVALID_TIMER);
-		status_change_end(bl, SC_ADRENALINE2, INVALID_TIMER);
+		status_change_end(bl, SC_QUICKENING, INVALID_TIMER);
 		status_change_end(bl, SC_SPEARQUICKEN, INVALID_TIMER);
 		status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
 		status_change_end(bl, SC_ONEHAND, INVALID_TIMER);
@@ -9987,7 +9987,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					val1 = sce->val1;
 				break;
 			case SC_ADRENALINE:
-			case SC_ADRENALINE2:
+			case SC_QUICKENING:
 			case SC_WEAPONPERFECTION:
 			case SC_OVERTHRUST:
 				if (sce->val2 > val2)
@@ -10212,7 +10212,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				}
 			}
 			break;
-		case SC_POISONREACT:
+		case SC_VENOMCOAT:
 			val2=val1 *2;
 			val3=50; // + 5*val1; // Chance to counter. [Skotlex]
 			break;
@@ -10402,7 +10402,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = val1 < 10 ? 9 + val1 : 20; // MaxSP percent increase
 			val3 = 5 + val1; // SP cost reduction
 			break;
-		case SC_EXPLOSIONSPIRITS:
+		case SC_FURY:
 			if (sd->status.weapon == W_KATAR)
 				val2 = 40*val1; // Cri bonus doubled
 			else
@@ -10833,7 +10833,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = val1; // Power increase
 			break;
 		case SC_OVERTHRUST:
-		case SC_ADRENALINE2:
+		case SC_QUICKENING:
 		case SC_ADRENALINE:
 		case SC_WEAPONPERFECTION:
 			{
@@ -10842,7 +10842,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					// val2 holds if it was casted on self, or is bonus received from others
 						val3 = (val2) ? 5 * val1 : (val1 > 4) ? 15 : (val1 > 2) ? 10 : 5; // Power increase
 				}
-				else if (type == SC_ADRENALINE2 || type == SC_ADRENALINE) {
+				else if (type == SC_QUICKENING || type == SC_ADRENALINE) {
 					val3 = (val2) ? 300 : 300; // Aspd increase
 				}
 				if (s_sd && pc_checkskill(s_sd, BS_HILTBINDING) > 0)
@@ -12313,7 +12313,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				opt_flag = OCF_NONE;
 				break;
 			}
-		case SC_EXPLOSIONSPIRITS:
+		case SC_FURY:
 			sc->opt3 |= OPT3_EXPLOSIONSPIRITS;
 			opt_flag = OCF_NONE;
 			break;
@@ -13221,7 +13221,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			clif_millenniumshield(bl, 0);
 			break;
 		case SC_HALLUCINATIONWALK:
-			sc_start(bl,bl,SC_HALLUCINATIONWALK_POSTDELAY,100,sce->val1,skill_get_time2(GC_HALLUCINATIONWALK,sce->val1));
+			sc_start(bl,bl,SC_HALLUCINATIONWALK_POSTDELAY,100,sce->val1,skill_get_time2(AS_HALLUCINATIONWALK,sce->val1));
 			break;
 		case SC_WHITEIMPRISON:
 			{
@@ -13528,7 +13528,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			opt_flag = OCF_NONE;
 			break;
 		}
-	case SC_EXPLOSIONSPIRITS:
+	case SC_FURY:
 		sc->opt3 &= ~OPT3_EXPLOSIONSPIRITS;
 		opt_flag = OCF_NONE;
 		break;
@@ -15170,7 +15170,7 @@ static int status_natural_heal(struct block_list* bl, va_list args)
 		if(bl->type==BL_HOM)
 			rate *= 2;
 		if (bl->type == BL_PC && (((TBL_PC*)bl)->class_&MAPID_UPPERMASK) == MAPID_MONK &&
-			sc && sc->data[SC_EXPLOSIONSPIRITS] && (!sc->data[SC_SPIRIT] || sc->data[SC_SPIRIT]->val2 != SL_MONK))
+			sc && sc->data[SC_FURY] && (!sc->data[SC_SPIRIT] || sc->data[SC_SPIRIT]->val2 != SL_MONK))
 			rate /= 2; // Tick is doubled in Fury state
 		regen->tick.sp += rate;
 

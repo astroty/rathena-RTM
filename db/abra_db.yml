@@ -219,7 +219,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: NC_AXEBOOMERANG
+  - Skill: AS_BOOMERAXE
     Probability:
       - Level: 2
         Probability: 1000
@@ -327,7 +327,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: AS_GRIMTOOTH
+  - Skill: AS_IMPACTTOOTH
     Probability:
       - Level: 4
         Probability: 1000
@@ -351,7 +351,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: NJ_HUUMA
+  - Skill: AS_BURSTPETAL
     Probability:
       - Level: 4
         Probability: 1000
@@ -405,7 +405,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: NC_AXETORNADO
+  - Skill: AS_AXETORNADO
     Probability:
       - Level: 4
         Probability: 1000
@@ -459,7 +459,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: KO_HAPPOKUNAI
+  - Skill: AS_FANOFKNIVES
     Probability:
       - Level: 4
         Probability: 1000

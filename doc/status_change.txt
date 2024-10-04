@@ -106,7 +106,7 @@ SC_ENCPOISON	(EFST_ENCHANTPOISON)
 	desc: Change weapon element to ELE_POISON; Poisoning chance is (2.5+0.5%)
 	val1:
 
-SC_POISONREACT	(EFST_POISONREACT)
+SC_VENOMCOAT	(EFST_POISONREACT)
 	desc: Increase ATK by (100+30*Skill Lv))%; Counter physical attack with Envenoms skill
 	val1:
 
@@ -370,7 +370,7 @@ SC_EXTREMITYFIST	(EFST_EXTREMITYFIST)
 	desc: Stop SP Regeneration by setting RGN_SP
 	val1:
 
-SC_EXPLOSIONSPIRITS	(EFST_EXPLOSIONSPIRITS)
+SC_FURY	(EFST_EXPLOSIONSPIRITS)
 	desc: Stop SP Regeneration by setting RGN_SP; +Crit
 	val1:
 
@@ -601,7 +601,7 @@ SC_SHADOWWEAPON	()
 	desc:
 	val1:
 
-SC_ADRENALINE2	()
+SC_QUICKENING	()
 	desc:
 	val1:
 

@@ -786,7 +786,7 @@ Body:
         MaxLevel: 1
       - Name: BS_GREED
         MaxLevel: 1
-      - Name: BS_ADRENALINE2
+      - Name: AS_QUICKENING
         MaxLevel: 1
         Requires:
           - Name: BS_ADRENALINE
@@ -916,7 +916,7 @@ Body:
         MaxLevel: 10
       - Name: AS_KATAR
         MaxLevel: 10
-      - Name: AS_GRIMTOOTH
+      - Name: AS_IMPACTTOOTH
         MaxLevel: 10
         Requires:
           - Name: AS_KATAR
@@ -924,16 +924,16 @@ Body:
       - Name: AS_SONICBLOW
         MaxLevel: 10
         Requires:
-          - Name: AS_GRIMTOOTH
+          - Name: AS_IMPACTTOOTH
             Level: 1      
-      - Name: MO_EXPLOSIONSPIRITS
+      - Name: AS_FURY
         MaxLevel: 5
         Requires:
           - Name: AS_SONICBLOW
             Level: 1
       - Name: SM_SWORD
         MaxLevel: 10
-      - Name: KO_HAPPOKUNAI
+      - Name: AS_FANOFKNIVES
         MaxLevel: 10
         Requires:
           - Name: SM_SWORD
@@ -941,33 +941,33 @@ Body:
       - Name: AS_SHADOWSLASH
         MaxLevel: 10
         Requires:
-          - Name: KO_HAPPOKUNAI
+          - Name: AS_FANOFKNIVES
             Level: 1
-      - Name: GC_HALLUCINATIONWALK
+      - Name: AS_HALLUCINATIONWALK
         MaxLevel: 5
         Requires:
           - Name: AS_SHADOWSLASH
             Level: 1
       - Name: AM_AXEMASTERY
         MaxLevel: 10
-      - Name: NC_AXETORNADO
+      - Name: AS_AXETORNADO
         MaxLevel: 10
         Requires:
           - Name: AM_AXEMASTERY
             Level: 1
-      - Name: NC_AXEBOOMERANG
+      - Name: AS_BOOMERAXE
         MaxLevel: 10
         Requires:
-          - Name: NC_AXETORNADO
+          - Name: AS_AXETORNADO
             Level: 1
-      - Name: AS_POISONREACT
+      - Name: AS_VENOMCOAT
         MaxLevel: 5
         Requires:
-          - Name: NC_AXEBOOMERANG
+          - Name: AS_BOOMERAXE
             Level: 1
       - Name: MO_DODGE
         MaxLevel: 10
-      - Name: NJ_HUUMA
+      - Name: AS_BURSTPETAL
         MaxLevel: 10
         Requires:
           - Name: MO_DODGE
@@ -975,9 +975,9 @@ Body:
       - Name: AS_SILENTSTRIKE
         MaxLevel: 10
         Requires:
-          - Name: NJ_HUUMA
+          - Name: AS_BURSTPETAL
             Level: 1
-      - Name: BS_ADRENALINE2
+      - Name: AS_QUICKENING
         MaxLevel: 5
         Requires:
           - Name: AS_SILENTSTRIKE
@@ -1013,7 +1013,7 @@ Body:
         MaxLevel: 10
       - Name: MO_DODGE
         MaxLevel: 10
-      - Name: KO_HAPPOKUNAI
+      - Name: AS_FANOFKNIVES
         MaxLevel: 10
       - Name: CG_ARROWVULCAN
         MaxLevel: 10
@@ -1021,13 +1021,13 @@ Body:
         MaxLevel: 5
       - Name: SC_FEINTBOMB
         MaxLevel: 5
-      - Name: GC_HALLUCINATIONWALK
+      - Name: AS_HALLUCINATIONWALK
         MaxLevel: 5
       - Name: AS_SHADOWSLASH
         MaxLevel: 10
-      - Name: AS_POISONREACT
+      - Name: AS_VENOMCOAT
         MaxLevel: 5
-      - Name: MO_EXPLOSIONSPIRITS
+      - Name: AS_FURY
         MaxLevel: 5
   - Job: Monk
     Inherit:
@@ -4428,7 +4428,7 @@ Body:
         Requires:
           - Name: TF_POISON
             Level: 1
-      - Name: AS_POISONREACT
+      - Name: AS_VENOMCOAT
         MaxLevel: 5
         Requires:
           - Name: AS_ENCHANTPOISON
@@ -4441,7 +4441,7 @@ Body:
       - Name: AS_SPLASHER
         MaxLevel: 10
         Requires:
-          - Name: AS_POISONREACT
+          - Name: AS_VENOMCOAT
             Level: 1
           - Name: AS_VENOMDUST
             Level: 1
@@ -4510,7 +4510,7 @@ Body:
         Requires:
           - Name: MO_CALLSPIRITS
             Level: 1
-      - Name: MO_EXPLOSIONSPIRITS
+      - Name: AS_FURY
         MaxLevel: 5
         Requires:
           - Name: MO_ABSORBSPIRITS
@@ -4523,7 +4523,7 @@ Body:
       - Name: CH_SOULCOLLECT
         MaxLevel: 1
         Requires:
-          - Name: MO_EXPLOSIONSPIRITS
+          - Name: AS_FURY
             Level: 1
       - Name: NV_BREAKTHROUGH
         MaxLevel: 1

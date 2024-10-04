@@ -3690,7 +3690,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",7;
+      bonus2 bSkillAtk,"AS_AXETORNADO",7;
   - Id: 4067
     AegisName: Megalodon_Card
     Name: Megalodon Card
@@ -6302,7 +6302,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",12;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",12;
   - Id: 4256
     AegisName: Orc_Archer_Card
     Name: Orc Archer Card
@@ -9297,7 +9297,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"AS_POISONREACT",-50000;
+      bonus2 bSkillCooldown,"AS_VENOMCOAT",-50000;
   - Id: 4471
     AegisName: Egg_Of_Draco_Card
     Name: Draco Egg Card
@@ -12391,7 +12391,7 @@ Body:
          .@b += 20;
       if (getequipweaponlv() == 4)
          .@b += 20;
-      bonus2 bSkillAtk,"NC_AXETORNADO",20+.@b;
+      bonus2 bSkillAtk,"AS_AXETORNADO",20+.@b;
   - Id: 4689
     AegisName: Real_Seyren_Card
     Name: True Seyren Windsor Card
@@ -12539,7 +12539,7 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"GC_ROLLINGCUTTER","NC_AXETORNADO",10,1000;
+      bonus4 bAutoSpellOnSkill,"GC_ROLLINGCUTTER","AS_AXETORNADO",10,1000;
   - Id: 4698
     AegisName: Dataring_Card
     Name: Dataring Card
@@ -32727,9 +32727,9 @@ Body:
     Script: |
       bonus bAtkEle,Ele_Ghost;
     EquipScript: |
-      sc_end SC_EXPLOSIONSPIRITS;
+      sc_end SC_FURY;
     UnEquipScript: |
-      sc_end SC_EXPLOSIONSPIRITS;
+      sc_end SC_FURY;
   - Id: 13248
     AegisName: Wicked_Eden_T
     Name: Wicked Eden T
@@ -37163,7 +37163,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","SO_EARTHGRAVE",getskilllv("AS_GRIMTOOTH")/2,1000;
+      bonus4 bAutoSpellOnSkill,"AS_IMPACTTOOTH","SO_EARTHGRAVE",getskilllv("AS_IMPACTTOOTH")/2,1000;
   - Id: 14736
     AegisName: Weapon_Voucher
     Name: Weapon Voucher
@@ -46186,7 +46186,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",15;
+      bonus2 bSkillAtk,"AS_AXETORNADO",15;
   - Id: 29485
     AegisName: WanderMinstrelStone_Top_
     Name: Clown Gypsy Stone (Upper)
@@ -46905,7 +46905,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"NJ_HUUMA",20;
+      bonus2 bSkillAtk,"AS_BURSTPETAL",20;
   - Id: 29661
     AegisName: NinjaStone_Bottom_
     Name: Ninja Stone (Bottom)
@@ -47825,7 +47825,7 @@ Body:
       bonus bVit,1;
       bonus bDex,2;
       bonus bMaxHPrate,10;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",10;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",10;
       bonus2 bSkillAtk,"NC_VULCANARM",10;
   - Id: 300078
     AegisName: Sweetie_Card
@@ -50233,7 +50233,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-(100*getskilllv("WS_OVERTHRUSTMAX"));
+      bonus2 bSkillCooldown,"AS_BOOMERAXE",-(100*getskilllv("WS_OVERTHRUSTMAX"));
   - Id: 310005
     AegisName: Mechanic_Middle2
     Name: Whitesmith Stone II (Middle)
@@ -51009,13 +51009,13 @@ Body:
     SubType: Enchant
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXETORNADO",15;
+      bonus2 bSkillAtk,"AS_AXETORNADO",15;
       bonus2 bSkillAtk,"NC_POWERSWING",15;
       if (.@r>=9) {
-         bonus2 bSkillAtk,"NC_AXETORNADO",3;
+         bonus2 bSkillAtk,"AS_AXETORNADO",3;
          bonus2 bSkillAtk,"NC_POWERSWING",3;
          if (.@r>=11) {
-            bonus2 bSkillAtk,"NC_AXETORNADO",7;
+            bonus2 bSkillAtk,"AS_AXETORNADO",7;
             bonus2 bSkillAtk,"NC_POWERSWING",7;
          }
       }
@@ -53251,16 +53251,16 @@ Body:
     SubType: Enchant
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",15;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",15;
       bonus2 bSkillAtk,"NC_VULCANARM",15;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",15;
+         bonus2 bSkillAtk,"AS_BOOMERAXE",15;
          bonus2 bSkillAtk,"NC_VULCANARM",15;
          if (.@r>=9) {
-            bonus2 bSkillAtk,"NC_AXEBOOMERANG",15;
+            bonus2 bSkillAtk,"AS_BOOMERAXE",15;
             bonus2 bSkillAtk,"NC_VULCANARM",15;
             if (.@r>=11) {
-               bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-2000;
+               bonus2 bSkillCooldown,"AS_BOOMERAXE",-2000;
                bonus2 bSkillAtk,"NC_VULCANARM",15;
             }
          }
@@ -53272,16 +53272,16 @@ Body:
     SubType: Enchant
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXETORNADO",15;
+      bonus2 bSkillAtk,"AS_AXETORNADO",15;
       bonus2 bSkillAtk,"NC_POWERSWING",15;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"NC_AXETORNADO",15;
+         bonus2 bSkillAtk,"AS_AXETORNADO",15;
          bonus2 bSkillAtk,"NC_POWERSWING",15;
          if (.@r>=9) {
-            bonus2 bSkillAtk,"NC_AXETORNADO",15;
+            bonus2 bSkillAtk,"AS_AXETORNADO",15;
             bonus2 bSkillAtk,"NC_POWERSWING",15;
             if (.@r>=11) {
-               bonus2 bSkillAtk,"NC_AXETORNADO",15;
+               bonus2 bSkillAtk,"AS_AXETORNADO",15;
                bonus2 bSkillAtk,"NC_POWERSWING",15;
             }
          }
@@ -57578,7 +57578,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",35+5*getenchantgrade();
+      bonus2 bSkillAtk,"AS_AXETORNADO",35+5*getenchantgrade();
   - Id: 311033
     AegisName: Gear_BO1
     Name: Precision Tuning Device (Acidified Zone)

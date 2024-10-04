@@ -4717,18 +4717,18 @@ Body:
     MaxLevel: 13
     Type: Weapon
     TargetType: Attack
+    DamageFlags:
+      Critical: true
     Range: 1
     Hit: Multi_Hit
     HitCount: 8
     Element: Weapon
-    Duration2: 5000
-    Cooldown: 1750
-    DamageFlags:
-      Critical: true
     CopyFlags:
       Skill:
         Plagiarism: true
         Reproduce: true
+    Duration2: 5000
+    Cooldown: 2000
     CastDelayFlags:
       IgnoreStatus: true
     Requires:
@@ -4756,9 +4756,9 @@ Body:
       Weapon:
         Katar: true
   - Id: 137
-    Name: AS_GRIMTOOTH
+    Name: AS_IMPACTTOOTH
     Description: Impact Tooth
-    MaxLevel: 10
+    MaxLevel: 13
     Type: Weapon
     TargetType: Attack
     DamageFlags:
@@ -4769,15 +4769,31 @@ Body:
       IgnoreHovering: true
     Range:
       - Level: 1
-        Size: 3
+        Size: 2
       - Level: 2
-        Size: 4
+        Size: 2
       - Level: 3
-        Size: 5
+        Size: 3
       - Level: 4
-        Size: 6
+        Size: 3
       - Level: 5
-        Size: 7
+        Size: 4
+      - Level: 6
+        Size: 4
+      - Level: 7
+        Size: 5
+      - Level: 8
+        Size: 5
+      - Level: 9
+        Size: 5
+      - Level: 10
+        Size: 5
+      - Level: 11
+        Size: 5
+      - Level: 12
+        Size: 5
+      - Level: 13
+        Size: 6
     Hit: Single
     HitCount: -2
     Element: Weapon
@@ -4854,7 +4870,7 @@ Body:
       SpRateCost: -50
       SpCost: 20
   - Id: 139
-    Name: AS_POISONREACT
+    Name: AS_VENOMCOAT
     Description: Venom Coat
     MaxLevel: 5
     TargetType: Self
@@ -7492,7 +7508,7 @@ Body:
         Huuma: true
       SpiritSphereCost: 1
   - Id: 270
-    Name: MO_EXPLOSIONSPIRITS
+    Name: AS_FURY
     Description: Fury
     MaxLevel: 5
     TargetType: Self
@@ -12532,7 +12548,7 @@ Body:
         - Level: 5
           Amount: 60
   - Id: 459
-    Name: BS_ADRENALINE2
+    Name: AS_QUICKENING
     Description: Quickening
     MaxLevel: 5
     TargetType: Self
@@ -14614,9 +14630,9 @@ Body:
         Kunai: true
       AmmoAmount: 1
   - Id: 525
-    Name: NJ_HUUMA
-    Description: Throw Huuma Shuriken
-    MaxLevel: 10
+    Name: AS_BURSTPETAL
+    Description: Burst Petal
+    MaxLevel: 13
     Type: Weapon
     TargetType: Attack
     DamageFlags:
@@ -14650,10 +14666,9 @@ Body:
         Area: 2
     CastTime: 1500
     AfterCastActDelay: 1000
-    Cooldown: 2000
     Duration1: 100
+    Cooldown: 2000
     FixedCastTime: 500
-    
     Requires:
       SpCost:
         - Level: 1
@@ -20350,7 +20365,7 @@ Body:
     Requires:
       SpCost: 30
   - Id: 2035
-    Name: GC_HALLUCINATIONWALK
+    Name: AS_HALLUCINATIONWALK
     Description: Hallucination Walk
     MaxLevel: 5
     TargetType: Self
@@ -22735,7 +22750,7 @@ Body:
     Description: Research Fire/Earth
     MaxLevel: 5
   - Id: 2278
-    Name: NC_AXEBOOMERANG
+    Name: AS_BOOMERAXE
     Description: Boomeraxe
     MaxLevel: 13
     Type: Weapon
@@ -22878,14 +22893,11 @@ Body:
         - Level: 10
           Amount: 70
   - Id: 2280
-    Name: NC_AXETORNADO
+    Name: AS_AXETORNADO
     Description: Axe Tornado
-    MaxLevel: 10
+    MaxLevel: 13
     Type: Weapon
     TargetType: Self
-    CopyFlags:
-      Skill:
-        Plagiarism: true
     DamageFlags:
       Splash: true
     Flags:
@@ -22905,6 +22917,9 @@ Body:
         Area: 3
       - Level: 5
         Area: 3
+    CopyFlags:
+      Skill:
+        Plagiarism: true
     AfterCastActDelay: 600
     Cooldown:
       - Level: 1
@@ -25215,7 +25230,7 @@ Body:
       SpRateCost: -25
   - Id: 2339
     Name: SR_GENTLETOUCH
-    Description: Silent Strike
+    Description: Silent Strike Not Used I think
     MaxLevel: 5
     HitCount: 1
     CopyFlags:
@@ -31606,9 +31621,9 @@ Body:
         NoOverlap: true
         PathCheck: true
   - Id: 3007
-    Name: KO_HAPPOKUNAI
+    Name: AS_FANOFKNIVES
     Description: Fan of Knives
-    MaxLevel: 10
+    MaxLevel: 13
     Type: Weapon
     TargetType: Self
     DamageFlags:

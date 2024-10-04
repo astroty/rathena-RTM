@@ -6338,8 +6338,8 @@ Body:
     Script: |
       bonus bCritAtkRate,15;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","AS_SHADOWSLASH",1,1000;
-      bonus2 bSkillCooldown,"AS_GRIMTOOTH",1000;
+      bonus4 bAutoSpellOnSkill,"AS_IMPACTTOOTH","AS_SHADOWSLASH",1,1000;
+      bonus2 bSkillCooldown,"AS_IMPACTTOOTH",1000;
       bonus bMatkRate,.@r;
       bonus bAtkRate,.@r;
       bonus bPerfectHide;
@@ -6368,8 +6368,8 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus bCritAtkRate,10;
-      bonus2 bSkillAtk,"AS_GRIMTOOTH",20;
-      bonus2 bSkillCooldown,"AS_GRIMTOOTH",-200;
+      bonus2 bSkillAtk,"AS_IMPACTTOOTH",20;
+      bonus2 bSkillCooldown,"AS_IMPACTTOOTH",-200;
   - Id: 1282
     AegisName: Cross_Katar
     Name: Cross Katar
@@ -6922,7 +6922,7 @@ Body:
     EquipLevelMin: 40
     Refineable: true
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",15;
+      bonus2 bSkillAtk,"AS_AXETORNADO",15;
       bonus bSplashRange,1;
   - Id: 1302
     AegisName: Axe_
@@ -6949,7 +6949,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",15;
+      bonus2 bSkillAtk,"AS_AXETORNADO",15;
       bonus bSplashRange,1;
   - Id: 1303
     AegisName: Master_Axe
@@ -7041,7 +7041,7 @@ Body:
       bonus bAtkEle,Ele_Poison;
       .@r = getrefine();
       bonus bInt,.@r;
-      bonus2 bSkillCooldown,"AS_POISONREACT",-600000;
+      bonus2 bSkillCooldown,"AS_VENOMCOAT",-600000;
       bonus2 bSkillAtk,"AS_SPLASHER",20;
       bonus2 bAddEle,Ele_Neutral,15;
       bonus2 bAddEle,Ele_Ghost,-15;
@@ -7075,7 +7075,7 @@ Body:
     Script: |
       bonus bSplashRange,2;
       .@r = getrefine();
-      bonus5 bAddEffOnSkill,"NC_AXETORNADO",Eff_Bleeding,3000*(.@r),ATF_TARGET,10000;
+      bonus5 bAddEffOnSkill,"AS_AXETORNADO",Eff_Bleeding,3000*(.@r),ATF_TARGET,10000;
   - Id: 1307
     AegisName: Acid_Elevation
     Name: Acid Elevation
@@ -7166,7 +7166,7 @@ Body:
     Script: |
       bonus bSplashRange,2;
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",3*(.@r);
+      bonus2 bSkillAtk,"AS_BOOMERAXE",3*(.@r);
       bonus bVit,5;
       skill "TF_DOUBLE",3;
       bonus bDoubleRate,30;
@@ -7718,8 +7718,8 @@ Body:
       else if (.@r >= 7) {
         .@val = 20;
       }
-      bonus2 bSkillAtk,"NC_AXETORNADO",(100+.@val);
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",(100+.@val);
+      bonus2 bSkillAtk,"AS_AXETORNADO",(100+.@val);
+      bonus2 bSkillAtk,"AS_BOOMERAXE",(100+.@val);
       bonus2 bSkillAtk,"GN_CART_TORNADO",(75+.@val);
   - Id: 1331
     AegisName: Hurricane_Plague
@@ -7750,7 +7750,7 @@ Body:
       .@r = getrefine();
       bonus2 bMagicAtkEle,Ele_Poison,10;
       bonus bSplashRange,1;
-      bonus5 bAddEffOnSkill,"NC_AXETORNADO",Eff_Poison,400*(.@r),ATF_TARGET,10000;
+      bonus5 bAddEffOnSkill,"AS_AXETORNADO",Eff_Poison,400*(.@r),ATF_TARGET,10000;
       bonus bVariableCastrate,-10;
   - Id: 1333
     AegisName: Golden_Wrench
@@ -7785,7 +7785,7 @@ Body:
       bonus bBaseAtk,4*.@r;
       if (.@r>=11) .@val = 35;
       else if (.@r>=9) .@val = 20;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",.@val;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",.@val;
       bonus2 bSkillAtk,"NC_POWERSWING",.@val;
   - Id: 1336
     AegisName: Guardian_Knight_Axe
@@ -7820,7 +7820,7 @@ Body:
       bonus bLongAtkRate,.@r;
       if (.@r >= 9) {
         bonus2 bSkillAtk,"NC_POWERSWING",20;
-        bonus2 bSkillAtk,"NC_AXEBOOMERANG",20;
+        bonus2 bSkillAtk,"AS_BOOMERAXE",20;
       }
       if (.@r >= 11) {
         bonus2 bAddRace,RC_Undead,20;
@@ -7982,8 +7982,8 @@ Body:
     Script: |
       bonus bSplashRange,2;
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXETORNADO",2*.@r;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",2*.@r;
+      bonus2 bSkillAtk,"AS_AXETORNADO",2*.@r;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",2*.@r;
   - Id: 1358
     AegisName: Buster_
     Name: Buster
@@ -8012,8 +8012,8 @@ Body:
     Script: |
       bonus bSplashRange,2;
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXETORNADO",2*.@r;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",2*.@r;
+      bonus2 bSkillAtk,"AS_AXETORNADO",2*.@r;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",2*.@r;
   - Id: 1359
     AegisName: Buster__XX
     Name: BusterXX
@@ -9099,7 +9099,7 @@ Body:
       bonus2 bIgnoreDefRaceRate,RC_Player_Human,30;
       .@r = getrefine();
       if (.@r>=6) {
-        bonus2 bSkillAtk,"NC_AXEBOOMERANG",80;
+        bonus2 bSkillAtk,"AS_BOOMERAXE",80;
         bonus2 bSkillAtk,"NC_POWERSWING",80;
       }
       if (.@r>=9) {
@@ -10170,7 +10170,7 @@ Body:
       bonus bFlee2,20;
       bonus bDelayRate,-3*(.@r);
       if (.@r >= 9) {
-        skill "GC_HALLUCINATIONWALK",3;
+        skill "AS_HALLUCINATIONWALK",3;
       }
   - Id: 1433
     AegisName: Imperial_Spear
@@ -13213,7 +13213,7 @@ Body:
       bonus2 bHPDrainRate,1000,20;
       bonus bSpeedAddRate,10;
       bonus bFlee2,10;
-      skill "GC_HALLUCINATIONWALK",1;
+      skill "AS_HALLUCINATIONWALK",1;
     UnEquipScript: |
       sc_end SC_HALLUCINATIONWALK;
       sc_end SC_HALLUCINATIONWALK_POSTDELAY;
@@ -19901,7 +19901,7 @@ Body:
       if (.@r>8) {
         bonus2 bVariableCastrate,"MO_EXTREMITYFIST",-100;
         bonus2 bFixedCastrate,"MO_EXTREMITYFIST",-100;
-        bonus4 bautospellonskill,"MO_EXPLOSIONSPIRITS","CH_SOULCOLLECT",1,1000;
+        bonus4 bautospellonskill,"AS_FURY","CH_SOULCOLLECT",1,1000;
       }
   - Id: 1828
     AegisName: Monk_Knuckle
@@ -20038,7 +20038,7 @@ Body:
       if (.@r>9) {
         bonus2 bVariableCastrate,"MO_EXTREMITYFIST",-100;
         bonus2 bFixedCastrate,"MO_EXTREMITYFIST",-100;
-        bonus4 bAutoSpellOnSkill,"MO_EXPLOSIONSPIRITS","CH_SOULCOLLECT",1,10000;
+        bonus4 bAutoSpellOnSkill,"AS_FURY","CH_SOULCOLLECT",1,10000;
         bonus2 bHPLossRate,500,3000;
       }
   - Id: 1833
@@ -29820,7 +29820,7 @@ Body:
       bonus bMaxHPrate,15;
       bonus bMaxSPrate,10;
       bonus bMdef,5;
-      bonus2 bSkillAtk,"NJ_HUUMA",50;
+      bonus2 bSkillAtk,"AS_BURSTPETAL",50;
       bonus2 bSkillAtk,"AS_SILENTSTRIKE",50;
       bonus bSPrecovRate,25;
       bonus2 bResEff,Eff_Silence,2500;
@@ -34101,8 +34101,8 @@ Body:
     Script: |
       bonus bFlee2,3;
       bonus bMdef,1;
-      bonus2 bSkillAtk,"KO_HAPPOKUNAI",30;
-      bonus2 bSkillCooldown,"KO_HAPPOKUNAI",-1000;
+      bonus2 bSkillAtk,"AS_FANOFKNIVES",30;
+      bonus2 bSkillCooldown,"AS_FANOFKNIVES",-1000;
       bonus bDex,5;
   - Id: 2545
     AegisName: Rachel_Mantle
@@ -36359,7 +36359,7 @@ Body:
       bonus bBaseAtk,15;
       bonus2 bSubEle,Ele_Fire,10;
       bonus3 bAutoSpell,"CH_SOULCOLLECT",1,30;
-      bonus3 bAutoSpell,"MO_EXPLOSIONSPIRITS",1,10;
+      bonus3 bAutoSpell,"AS_FURY",1,10;
       bonus3 bAutoSpell,"PA_PRESSURE",2,30;
       bonus3 bAutoSpell,"MG_FIREBALL",1,150;
       bonus3 bAutoSpell,"KN_BOWLINGBASH",5,20;
@@ -36534,7 +36534,7 @@ Body:
       bonus bUseSPrate,25;
       bonus3 bSplashSkill,"AS_SONICBLOW",3,100;
       bonus3 bSplashSkill,"AS_SHADOWSLASH",3,100;
-      bonus3 bSplashSkill,"NC_AXEBOOMERANG",3,100;
+      bonus3 bSplashSkill,"AS_BOOMERAXE",3,100;
       bonus3 bSplashSkill,"AS_SILENTSTRIKE",3,100;
       bonus bPerfectHitAddRate,100;
   - Id: 2685
@@ -38774,7 +38774,7 @@ Body:
       bonus bBaseAtk,15;
       bonus2 bSubEle,Ele_Fire,10;
       bonus3 bAutoSpell,"CH_SOULCOLLECT",1,30;
-      bonus3 bAutoSpell,"MO_EXPLOSIONSPIRITS",1,10;
+      bonus3 bAutoSpell,"AS_FURY",1,10;
       bonus3 bAutoSpell,"PA_PRESSURE",2,30;
       bonus3 bAutoSpell,"MG_FIREBALL",1,150;
       bonus3 bAutoSpell,"KN_BOWLINGBASH",5,20;
@@ -58050,7 +58050,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",20;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",20;
       .@dmg = 20;
       .@r = getrefine();
       if (.@r>=7) {
@@ -58059,7 +58059,7 @@ Body:
       if (.@r>=9) {
         .@dmg += getskilllv("NC_TRAININGAXE");
       }
-      bonus2 bSkillAtk,"NC_AXETORNADO",.@dmg;
+      bonus2 bSkillAtk,"AS_AXETORNADO",.@dmg;
   - Id: 5909
     AegisName: C_Valkyrie_Circlet
     Name: C Valkyrie Circlet
@@ -61051,9 +61051,9 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "TF_DOUBLE",4;
-      bonus4 bAutoSpellOnSkill,"SR_SKYNETBLOW","NJ_HUUMA",1,200;
+      bonus4 bAutoSpellOnSkill,"SR_SKYNETBLOW","AS_BURSTPETAL",1,200;
       bonus2 bSkillAtk,"SR_SKYNETBLOW",10;
-      bonus2 bSkillAtk,"NJ_HUUMA",10;
+      bonus2 bSkillAtk,"AS_BURSTPETAL",10;
       bonus bMaxSPrate,-20;
   - Id: 13032
     AegisName: Mail_Breaker_
@@ -65792,7 +65792,7 @@ Body:
     EquipLevelMin: 70
     Refineable: true
     Script: |
-      bonus2 bSkillAtk,"NJ_HUUMA",30;
+      bonus2 bSkillAtk,"AS_BURSTPETAL",30;
       bonus bNoCastCancel;
   - Id: 13305
     AegisName: BF_Huuma_Shuriken1
@@ -65857,7 +65857,7 @@ Body:
       bonus bDex,1;
       bonus2 bAddRace,RC_DemiHuman,95;
       bonus2 bAddRace,RC_Player_Human,95;
-      autobonus "{ bonus2 bSkillAtk,\"NJ_HUUMA\",100;  bonus2 bSkillAtk,\"NJ_ISSEN\",100; }",50,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      autobonus "{ bonus2 bSkillAtk,\"AS_BURSTPETAL\",100;  bonus2 bSkillAtk,\"NJ_ISSEN\",100; }",50,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
       bonus bUnbreakableWeapon;
   - Id: 13307
     AegisName: Krieger_Huuma_Shuriken1
@@ -65890,7 +65890,7 @@ Body:
       bonus2 bAddRace,RC_Player_Human,95;
       bonus2 bIgnoreDefRaceRate,RC_DemiHuman,20;
       bonus2 bIgnoreDefRaceRate,RC_Player_Human,20;
-      autobonus "{ bonus2 bSkillAtk,\"NJ_HUUMA\",100; bonus2 bSkillAtk,\"NJ_ISSEN\",100; }",50,10000;
+      autobonus "{ bonus2 bSkillAtk,\"AS_BURSTPETAL\",100; bonus2 bSkillAtk,\"NJ_ISSEN\",100; }",50,10000;
       bonus bUnbreakableWeapon;
       .@r = getrefine();
       if (.@r>5) {
@@ -65901,7 +65901,7 @@ Body:
       }
       if (.@r>8) {
          bonus5 bAutoSpellOnSkill,"NJ_ISSEN","AL_HEAL",10,1000,1;
-         bonus4 bAutoSpellOnSkill,"NJ_HUUMA","NPC_CRITICALWOUND",2,200;
+         bonus4 bAutoSpellOnSkill,"AS_BURSTPETAL","NPC_CRITICALWOUND",2,200;
       }
   - Id: 13308
     AegisName: Huuma_Blaze_I
@@ -66169,7 +66169,7 @@ Body:
       bonus bDex,1;
       bonus2 bAddRace,RC_DemiHuman,40;
       bonus2 bAddRace,RC_Player_Human,40;
-      autobonus "{ bonus2 bSkillAtk,\"NJ_HUUMA\",100; bonus2 bSkillAtk,\"NJ_ISSEN\",100; }",50,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      autobonus "{ bonus2 bSkillAtk,\"AS_BURSTPETAL\",100; bonus2 bSkillAtk,\"NJ_ISSEN\",100; }",50,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
       bonus bUnbreakableWeapon;
   - Id: 13322
     AegisName: Huuma_Metal_Shuriken
@@ -66500,7 +66500,7 @@ Body:
     Refineable: true
     Script: |
       bonus bDex,2;
-      bonus2 bSkillAtk,"KO_HAPPOKUNAI",(9*getrefine());
+      bonus2 bSkillAtk,"AS_FANOFKNIVES",(9*getrefine());
   - Id: 13341
     AegisName: Rebeginer_KO_Humma
     Name: Beginner Kagerou&Oboro's Huuma Shuriken
@@ -71093,7 +71093,7 @@ Body:
       bonus bMaxSPrate,5;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
       bonus2 bSkillAtk,"SJ_SOLARBURST",20;
-      bonus2 bSkillAtk,"NC_AXETORNADO",20;
+      bonus2 bSkillAtk,"AS_AXETORNADO",20;
   - Id: 15053
     AegisName: Special_Ninja_Suit
     Name: Special Ninja Suit
@@ -73047,7 +73047,7 @@ Body:
       .@r = getrefine();
       bonus bflee,5*(.@r/2);
       if (.@r>=9)
-         bonus2 bSkillAtk,"KO_HAPPOKUNAI",20;
+         bonus2 bSkillAtk,"AS_FANOFKNIVES",20;
   - Id: 15179
     AegisName: Mine_Worker_Vest
     Name: Mine Worker's Vest
@@ -82372,7 +82372,7 @@ Body:
       bonus3 bAutoSpellWhenHit,"CR_GRANDCROSS",5,5;
       bonus3 bAutoSpellWhenHit,"ASC_METEORASSAULT",5,5;
       bonus3 bAutoSpellWhenHit,"MO_CALLSPIRITS",5,10;
-      bonus3 bAutoSpellWhenHit,"MO_EXPLOSIONSPIRITS",5,10;
+      bonus3 bAutoSpellWhenHit,"AS_FURY",5,10;
       bonus3 bAutoSpellWhenHit,"PR_KYRIE",5,10;
       bonus3 bAutoSpellWhenHit,"AC_CONCENTRATION",5,5;
       bonus3 bAutoSpellWhenHit,"WZ_QUAGMIRE",3,5;
@@ -83680,7 +83680,7 @@ Body:
     Script: |
       bonus3 bAutoSpellWhenHit,"SM_ENDURE",1,10;
       bonus3 bAutoSpellWhenHit,"MO_CALLSPIRITS",5,10;
-      bonus3 bAutoSpellWhenHit,"MO_EXPLOSIONSPIRITS",5,10;
+      bonus3 bAutoSpellWhenHit,"AS_FURY",5,10;
       bonus3 bAutoSpell,"BS_MAXIMIZE",5,10;
       bonus3 bAutoSpell,"MC_LOUD",1,10;
       bonus3 bAutoSpell,"AC_CONCENTRATION",5,10;
@@ -88148,7 +88148,7 @@ Body:
       bonus bMaxHPrate,(.@r/2);
       bonus bMaxSPrate,(.@r/2);
       bonus2 bSkillAtk,"NC_POWERSWING",20*(.@r/2);
-      bonus2 bSkillAtk,"NC_AXETORNADO",20*(.@r/2);
+      bonus2 bSkillAtk,"AS_AXETORNADO",20*(.@r/2);
   - Id: 18974
     AegisName: Old_Driver_Band_Y
     Name: Old Driver Band(Yellow)
@@ -91247,7 +91247,7 @@ Body:
       bonus bBaseAtk,10*(.@r/2);
       bonus bAspdRate,2*(.@r/3);
       if (.@r>=8)
-         bonus bLongAtkRate,getskilllv("NJ_HUUMA");
+         bonus bLongAtkRate,getskilllv("AS_BURSTPETAL");
       if (.@r>=11)
          bonus2 bSkillAtk,"KO_HUUMARANKA",30;
   - Id: 19204
@@ -92842,18 +92842,18 @@ Body:
       .@r = getrefine();
       bonus bMdef,15;
       bonus bVit,10;
-      bonus2 bSkillAtk,"NC_AXETORNADO",20;
+      bonus2 bSkillAtk,"AS_AXETORNADO",20;
       bonus2 bVariableCastrate,"BS_GREED",-100;
       if (getskilllv("NC_MAGICDECOY") >= 5)
          bonus2 bAddClass,Class_Boss,50;
-      if (getskilllv("NC_AXEBOOMERANG") >= 5)
+      if (getskilllv("AS_BOOMERAXE") >= 5)
          bonus bBaseAtk,100;
       if (getskilllv("NC_MAGMA_ERUPTION") >= 5)
          bonus2 bAddMonsterDropItem,732,10;
       if (.@r>=7)
-         bonus2 bSkillAtk,"NC_AXETORNADO",30;
+         bonus2 bSkillAtk,"AS_AXETORNADO",30;
       if (.@r>=9)
-         bonus2 bSkillAtk,"NC_AXETORNADO",50;
+         bonus2 bSkillAtk,"AS_AXETORNADO",50;
       if (.@r>=10)
          bonus bIgnoreDefRace,RC_All;
   - Id: 19409
@@ -105276,8 +105276,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      if (getskilllv("AS_GRIMTOOTH") == 5) {
-         bonus2 bSkillAtk,"AS_GRIMTOOTH",50;
+      if (getskilllv("AS_IMPACTTOOTH") == 5) {
+         bonus2 bSkillAtk,"AS_IMPACTTOOTH",50;
       }
       if (getskilllv("GC_CROSSIMPACT") == 5) {
          bonus2 bSkillAtk,"GC_CROSSIMPACT",5;
@@ -105287,7 +105287,7 @@ Body:
       }
       if (.@r>=7) {
          .@delay += 3;
-         bonus2 bSkillAtk,"AS_GRIMTOOTH",Baselevel;
+         bonus2 bSkillAtk,"AS_IMPACTTOOTH",Baselevel;
          bonus2 bSkillAtk,"ASC_BREAKER",Baselevel/3;
          bonus2 bSkillAtk,"GC_CROSSIMPACT",Baselevel/30;
       }
@@ -110661,7 +110661,7 @@ Body:
          .@dmg = BaseLevel;
          if (.@r >= 7) {
             .@hpsp += 10;
-            .@dmg += BaseLevel + 30*getskilllv("AS_POISONREACT");
+            .@dmg += BaseLevel + 30*getskilllv("AS_VENOMCOAT");
          }
          bonus2 bSkillAtk,"ASC_METEORASSAULT",.@dmg;
       }
@@ -110671,7 +110671,7 @@ Body:
       skill "BS_MAXIMIZE",1;
       bonus2 bSkillUseSP,"ASC_METEORASSAULT",8;
       bonus2 bAddClass,Class_All,4*.@a;
-      bonus2 bSkillCooldown,"GC_HALLUCINATIONWALK",-5000*.@b;
+      bonus2 bSkillCooldown,"AS_HALLUCINATIONWALK",-5000*.@b;
       bonus2 bIgnoreDefRaceRate,RC_All,20*.@c;
       bonus2 bVariableCastrate,"ASC_METEORASSAULT",-7*(.@a+.@b+.@c);
   - Id: 22138
@@ -114164,7 +114164,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",12*(.@r);
+      bonus2 bSkillAtk,"AS_BOOMERAXE",12*(.@r);
   - Id: 24134
     AegisName: Master_Tradition_P
     Name: Master Tradition P
@@ -114185,7 +114185,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NJ_HUUMA",12*(.@r);
+      bonus2 bSkillAtk,"AS_BURSTPETAL",12*(.@r);
   - Id: 24135
     AegisName: Eihwaz_Rune_of_Yggdrasil
     Name: Eihwaz Rune of Yggdrasil
@@ -117780,7 +117780,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",3*.@r;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",3*.@r;
       bonus bBaseAtk,3;
   - Id: 24361
     AegisName: Desert_Shadow_P
@@ -121035,7 +121035,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",50;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",50;
   - Id: 24552
     AegisName: Green_Mist_A
     Name: Green Mist A
@@ -121516,7 +121516,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"AS_GRIMTOOTH",50;
+      bonus2 bSkillAtk,"AS_IMPACTTOOTH",50;
   - Id: 24576
     AegisName: Sonic_Cross_A
     Name: Sonic Cross A
@@ -128868,7 +128868,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus bCritAtkRate,5;
-      bonus2 bSkillCooldown,"AS_GRIMTOOTH",-200;
+      bonus2 bSkillCooldown,"AS_IMPACTTOOTH",-200;
       bonus bLongAtkRate,10;
   - Id: 28008
     AegisName: Sinister_Katar
@@ -129442,7 +129442,7 @@ Body:
       bonus2 bMagicAtkEle,Ele_Fire,10;
       .@r = getrefine();
       bonus bSplashRange,1;
-      bonus4 bAutoSpellOnSkill,"NC_AXEBOOMERANG","NJ_KOUENKA",.@r,1000;
+      bonus4 bAutoSpellOnSkill,"AS_BOOMERAXE","NJ_KOUENKA",.@r,1000;
       bonus bAtkEle,Ele_Fire;
   - Id: 28101
     AegisName: Forgotten_Noble
@@ -129470,8 +129470,8 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus bSplashRange,2;
-      bonus2 bSkillAtk,"NC_AXETORNADO",100;
-      bonus2 bSkillCooldown,"NC_AXETORNADO",2000;
+      bonus2 bSkillAtk,"AS_AXETORNADO",100;
+      bonus2 bSkillCooldown,"AS_AXETORNADO",2000;
       .@r = getrefine();
       bonus2 bSkillAtk,"GC_ROLLINGCUTTER",5*(.@r);
   - Id: 28102
@@ -129697,7 +129697,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",10;
+      bonus2 bSkillAtk,"AS_AXETORNADO",10;
       bonus bUnbreakableWeapon;
       bonus bBaseAtk,9*getrefine()+8*(min(BaseLevel,150)/10);
   - Id: 28116
@@ -129826,10 +129826,10 @@ Body:
       NoAuction: true
     Script: |
       bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"NC_AXETORNADO",20;
+      bonus2 bSkillAtk,"AS_AXETORNADO",20;
       bonus bBaseAtk,6*(min(BaseLevel,160)/10);
       if (getrefine()>=7) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-100*getskilllv("BS_WEAPONRESEARCH");
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-100*getskilllv("BS_WEAPONRESEARCH");
       }
   - Id: 28130
     AegisName: Avenger
@@ -129857,10 +129857,10 @@ Body:
          bonus bBaseAtk,.@r/2*10;
       }
       if (.@r>=3) {
-         bonus2 bSkillAtk,"NC_AXETORNADO",.@r/3*10;
+         bonus2 bSkillAtk,"AS_AXETORNADO",.@r/3*10;
       }
       if (.@r>=9) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",40;
+         bonus2 bSkillAtk,"AS_BOOMERAXE",40;
       }
       if (.@r>=11) {
          bonus2 bAddSize,Size_All,15;
@@ -129964,7 +129964,7 @@ Body:
       bonus bBaseAtk,10*(.@r/2);
       bonus2 bSkillAtk,"NC_POWERSWING",10*(.@r/3);
       if (.@r>=7) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-1000;
       }
       if (.@r>=9) {
          bonus2 bAddSize,Size_All,15;
@@ -129995,11 +129995,11 @@ Body:
       bonus2 bSubSize,Size_Small,10;
       bonus2 bSubSize,Size_Medium,10;
       if (.@r>=9) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-1000;
          bonus2 bSkillCooldown,"NC_MAGMA_ERUPTION",-1000;
       }
       if (.@r>=11)
-         bonus2 bSkillAtk,"NC_AXETORNADO",15;
+         bonus2 bSkillAtk,"AS_AXETORNADO",15;
   - Id: 28140
     AegisName: Ein_BHAXE
     Name: Saw Axe
@@ -130064,8 +130064,8 @@ Body:
       bonus bUnbreakableWeapon;
       bonus bLongAtkRate,.@r;
       if (.@r>=9) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
-         bonus2 bSkillAtk,"NC_AXETORNADO",20;
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-1000;
+         bonus2 bSkillAtk,"AS_AXETORNADO",20;
          bonus2 bSkillAtk,"NC_MAGMA_ERUPTION",20;
       }
       if (.@r>=11) {
@@ -132233,7 +132233,7 @@ Body:
     EquipLevelMin: 20
     Script: |
       bonus2 bSkillAtk,"MC_CARTREVOLUTION",Baselevel;
-      bonus2 bSkillAtk,"NC_AXETORNADO",(Baselevel/3);
+      bonus2 bSkillAtk,"AS_AXETORNADO",(Baselevel/3);
       bonus2 bSkillAtk,"NC_POWERSWING",(Baselevel/5);
       bonus2 bSkillUseSP,"NC_POWERSWING",2;
       bonus2 bAddMonsterDropItem,529,2000;
@@ -137949,7 +137949,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      skill "GC_HALLUCINATIONWALK",5;
+      skill "AS_HALLUCINATIONWALK",5;
     UnEquipScript: |
       sc_end SC_HALLUCINATIONWALK;
       sc_end SC_HALLUCINATIONWALK_POSTDELAY;
@@ -143524,7 +143524,7 @@ Body:
       bonus bSpeedAddRate,5;
       if ( BaseJob == Job_Assassin) {
         skill "AS_SONICBLOW",13;
-        skill "NC_AXEBOOMERANG",13;
+        skill "AS_BOOMERAXE",13;
         skill "AS_SHADOWSLASH",13;
         skill "AS_SILENTSTRIKE",13;
         skill "AS_CLOAKING",13;
@@ -147032,7 +147032,7 @@ Body:
       bonus2 bAddClass,Class_All,5;
       if (getskilllv("KO_ZANZOU")>=5) {
          bonus2 bSkillAtk,"KO_HUUMARANKA",Baselevel/4;
-         bonus2 bSkillAtk,"NJ_HUUMA",2*(Baselevel/4);
+         bonus2 bSkillAtk,"AS_BURSTPETAL",2*(Baselevel/4);
       }
       if (getskilllv("KO_KYOUGAKU")>=5) {
          bonus2 bSkillUseSP,"KO_HUUMARANKA",10;
@@ -153830,13 +153830,13 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      .@lvl = getskilllv("NC_AXEBOOMERANG");
+      .@lvl = getskilllv("AS_BOOMERAXE");
       bonus bMdef,10;
       bonus bMaxHPrate,3;
       bonus bMaxSPrate,3;
       skill "SM_MAGNUM",3;
-      bonus2 bSkillAtk,"NC_AXETORNADO",30*.@lvl;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",20*.@lvl;
+      bonus2 bSkillAtk,"AS_AXETORNADO",30*.@lvl;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",20*.@lvl;
       bonus bIgnoreDefRace,20*getskilllv("NC_MAGMA_ERUPTION");
       if (getskilllv("NC_MAGICDECOY") == 5) {
          bonus bAspdRate,10;
@@ -153866,13 +153866,13 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      .@lvl = getskilllv("NC_AXEBOOMERANG");
+      .@lvl = getskilllv("AS_BOOMERAXE");
       bonus bMdef,10;
       bonus bMaxHPrate,3;
       bonus bMaxSPrate,3;
       skill "SM_MAGNUM",3;
-      bonus2 bSkillAtk,"NC_AXETORNADO",30*.@lvl;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",20*.@lvl;
+      bonus2 bSkillAtk,"AS_AXETORNADO",30*.@lvl;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",20*.@lvl;
       bonus bIgnoreDefRace,20*getskilllv("NC_MAGMA_ERUPTION");
       if (getskilllv("NC_MAGICDECOY") == 5) {
          bonus bAspdRate,10;
@@ -154683,8 +154683,8 @@ Body:
       bonus bMaxSPrate,2;
       bonus2 bAddSize,Size_All,5;
       bonus2 bSubClass,Class_Boss,5;
-      bonus2 bSkillAtk,"NC_AXETORNADO",20*getskilllv("NC_AXEBOOMERANG");
-      bonus2 bSkillAtk,"NC_POWERSWING",20*getskilllv("NC_AXEBOOMERANG");
+      bonus2 bSkillAtk,"AS_AXETORNADO",20*getskilllv("AS_BOOMERAXE");
+      bonus2 bSkillAtk,"NC_POWERSWING",20*getskilllv("AS_BOOMERAXE");
       if (getskilllv("NC_MAGICDECOY") == 5)
          bonus bPerfectHitAddRate,50;
       if (getskilllv("NC_MAGMA_ERUPTION") == 5) {
@@ -157838,10 +157838,10 @@ Body:
          bonus2 bSkillAtk,"NC_POWERSWING",15;
       }
       if (.@r>=9) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-1000;
       }
       if (.@r>=11) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",25;
+         bonus2 bSkillAtk,"AS_BOOMERAXE",25;
       }
   - Id: 520008
     AegisName: Adulter_F_Axe
@@ -157865,14 +157865,14 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",10;
+      bonus2 bSkillAtk,"AS_BOOMERAXE",10;
       bonus bBaseAtk,12*(.@r/3);
       if (.@r>=7) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",20;
+         bonus2 bSkillAtk,"AS_BOOMERAXE",20;
          if (.@r>=9) {
             bonus2 bAddSize,Size_All,15;
             if (.@r>=11) {
-               bonus2 bSkillAtk,"NC_AXEBOOMERANG",25;
+               bonus2 bSkillAtk,"AS_BOOMERAXE",25;
                if (.@r>=12) {
                   bonus bLongAtkRate,15;
                }
@@ -160272,7 +160272,7 @@ Body:
       bonus bBaseAtk,.@r*3;
       bonus bBaseAtk,min(BaseLevel,180)/15*3;
       if (.@r>=7) {
-         bonus bMaxHPrate,getskilllv("MO_EXPLOSIONSPIRITS")*2;
+         bonus bMaxHPrate,getskilllv("AS_FURY")*2;
       }
       if (.@r>=9) {
          bonus2 bAddSize,Size_All,10;
@@ -163134,8 +163134,8 @@ Body:
          bonus bShortAtkRate,getskilllv("BS_WEAPONRESEARCH");
       }
       if (.@r>=9) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
-         bonus2 bSkillAtk,"NC_AXETORNADO",25;
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-1000;
+         bonus2 bSkillAtk,"AS_AXETORNADO",25;
          bonus2 bSkillAtk,"NC_POWERSWING",25;
       }
       if (.@r>=11) {
@@ -163143,7 +163143,7 @@ Body:
          bonus bDelayrate,-10;
       }
       if (.@r>=13) {
-         bonus2 bSkillAtk,"NC_AXETORNADO",15;
+         bonus2 bSkillAtk,"AS_AXETORNADO",15;
          bonus2 bSkillAtk,"NC_POWERSWING",15;
       }
   - Id: 620004
@@ -163169,10 +163169,10 @@ Body:
       .@r = getrefine();
       bonus bUnbreakableWeapon;
       bonus bBaseAtk,.@r/2*15;
-      bonus2 bSkillAtk,"NC_AXETORNADO",10*(.@r/3);
+      bonus2 bSkillAtk,"AS_AXETORNADO",10*(.@r/3);
       if (.@r>=7) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",40;
-         bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-1000;
+         bonus2 bSkillAtk,"AS_BOOMERAXE",40;
+         bonus2 bSkillCooldown,"AS_BOOMERAXE",-1000;
       }
       if (.@r>=9) {
          bonus2 bAddSize,Size_All,15;
@@ -163273,14 +163273,14 @@ Body:
       bonus2 bAddClass,Class_All,5;
       bonus bShortAtkRate,1*.@a;
       if (BaseLevel>=105) {
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
-         bonus2 bSkillAtk,"NC_AXETORNADO",25;
+         bonus2 bSkillCooldown,"AS_AXETORNADO",-1000;
+         bonus2 bSkillAtk,"AS_AXETORNADO",25;
          bonus2 bSkillAtk,"NC_POWERSWING",25;
          if (BaseLevel>=110) {
             bonus bDelayrate,-10;
             bonus2 bAddSize,Size_All,15;
             if (BaseLevel>=115) {
-               bonus2 bSkillAtk,"NC_AXETORNADO",15;
+               bonus2 bSkillAtk,"AS_AXETORNADO",15;
                bonus2 bSkillAtk,"NC_POWERSWING",15;
             }
          }
@@ -164287,7 +164287,7 @@ Body:
       if (BaseLevel>=75)
          bonus2 bSkillAtk,"NJ_KUNAI",20;
       if (BaseLevel>=90)
-         bonus2 bSkillAtk,"NJ_HUUMA",20;
+         bonus2 bSkillAtk,"AS_BURSTPETAL",20;
   - Id: 650012
     AegisName: 3Para_Humma1_KO
     Name: Paradise Kagerou&Oboro Fuuma Shuriken

@@ -211,7 +211,7 @@ Body:
   - Id: 45
     Option: DAMAGE_PROPERTY_WIND_TARGET
     Script: |
-      bonus2 bSkillAtk,"KO_HAPPOKUNAI",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_FANOFKNIVES",getrandomoptinfo(ROA_VALUE);
   - Id: 46
     Option: DAMAGE_PROPERTY_POISON_USER
     Script: |
@@ -219,15 +219,15 @@ Body:
   - Id: 47
     Option: DAMAGE_PROPERTY_POISON_TARGET
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_AXETORNADO",getrandomoptinfo(ROA_VALUE);
   - Id: 48
     Option: DAMAGE_PROPERTY_SAINT_USER
     Script: |
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_BOOMERAXE",getrandomoptinfo(ROA_VALUE);
   - Id: 49
     Option: DAMAGE_PROPERTY_SAINT_TARGET
     Script: |
-      bonus2 bSkillAtk,"AS_GRIMTOOTH",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_IMPACTTOOTH",getrandomoptinfo(ROA_VALUE);
   - Id: 50
     Option: DAMAGE_PROPERTY_DARKNESS_USER
     Script: |
@@ -235,7 +235,7 @@ Body:
   - Id: 51
     Option: DAMAGE_PROPERTY_DARKNESS_TARGET
     Script: |
-      bonus2 bSkillAtk,"NJ_HUUMA",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_BURSTPETAL",getrandomoptinfo(ROA_VALUE);
   - Id: 52
     Option: DAMAGE_PROPERTY_TELEKINESIS_USER
     Script: |

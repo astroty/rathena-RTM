@@ -6741,7 +6741,7 @@ static void pc_checkallowskill(struct map_session_data *sd)
 		SC_PARRYING,
 		SC_SPEARQUICKEN,
 		SC_ADRENALINE,
-		SC_ADRENALINE2,
+		SC_QUICKENING,
 		SC_DANCING,
 		SC_GATLINGFEVER,
 	};
