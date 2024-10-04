@@ -1378,7 +1378,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 
 	case AS_SONICBLOW:
 		sc_start(src, bl, SC_STUN, (2 * skill_lv + 10), skill_lv, skill_get_time2(skill_id, skill_lv));
-		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+		if (sd && pc_checkskill(sd, UC_MEMORY > 0))
 			sc_start4(src, bl, SC_BURNING, 500, skill_lv, 5, 1000, 0, 2000);
 		break;
 
@@ -1825,7 +1825,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case AS_SILENTSTRIKE:  //  [(Skill Level x 5) + (Caster?s DEX + Caster?s Base Level) / 10]
 		sc_start(src, bl, SC_SILENCE, 20 * skill_lv + (status_get_dex(src) + status_get_lv(src)) / 10, skill_lv, skill_get_time(skill_id, skill_lv));
-		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+		if (sd && pc_checkskill(sd, UC_MEMORY > 0))
 			sc_start(src, bl, SC_MAGIC_POISON, 100, skill_lv, 6000);
 		break;
 	case SR_EARTHSHAKER:
@@ -6024,7 +6024,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		}
 		status_change_end(src, SC_CLOAKING, INVALID_TIMER);
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+		if (sd && pc_checkskill(sd, UC_MEMORY > 0))
 			sc_start(src, src, SC_CLOAKING, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case RK_PHANTOMTHRUST:
@@ -8285,6 +8285,8 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 
 	case AS_CLOAKING:
+		if (sd && pc_checkskill(sd, UC_MEMORY > 0))
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
 	case GC_CLOAKINGEXCEED:
 	case LG_FORCEOFVANGUARD:
 	case SC_REPRODUCE:

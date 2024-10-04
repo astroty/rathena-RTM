@@ -9277,9 +9277,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		// if (sd && val1 < 3 && skill_check_cloaking(bl,NULL))
 		if( sd && pc_checkskill(sd, AS_CLOAKING) < 1 && !skill_check_cloaking(bl,NULL) )
 			return 0;
-		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
-			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
-
 	break;
 	case SC_NEWMOON:
  		if (sc->data[SC_BITE])
