@@ -1379,7 +1379,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case AS_SONICBLOW:
 		sc_start(src, bl, SC_STUN, (2 * skill_lv + 10), skill_lv, skill_get_time2(skill_id, skill_lv));
 		if (sd && pc_checkskill(sd, UC_MEMORY))
-			sc_start4(src, bl, SC_BURNING, 500, skill_lv, 1, 100, 0, 2000);
+			sc_start4(src, bl, SC_BURNING, 1000, skill_lv, 1000, 100, 0, 2000);
 		break;
 
 	case AS_IMPACTTOOTH:

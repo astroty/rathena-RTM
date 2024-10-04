@@ -1582,7 +1582,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			}
 		}
 
-		if( sc->data[SC_CLOAKING] && pc_checkskill(sd, UC_MEMORY) && sc->data[SC_OVERBRANDREADY]){
+		if (pc_checkskill(sd, UC_MEMORY) && sc->data[SC_OVERBRANDREADY]){
 			damage += damage * 25 / 100;
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 		}
