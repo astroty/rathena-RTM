@@ -1579,12 +1579,13 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 				case GC_CROSSIMPACT:
 					damage += damage * 120 / 100;
 					break;
-
 			}
 		}
-	}
 
-	if (sc && sc->count) {
+		if( sc->data[SC_CLOAKING] && pc_checkskill(sd, UL_MEMORY > 0) && sc->data[SC_OVERBRANDREADY]){
+			damage += damage * 25 / 100;
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+		}
 		if( sc->data[SC_INVINCIBLE] && !sc->data[SC_INVINCIBLEOFF] )
 			damage += damage * 75 / 100;
 
@@ -2339,7 +2340,7 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 		// Renewal changes to ranged physical damage
 		case SR_RAMPAGEBLASTER:
 			return BF_SHORT;
-		case NJ_KIRIKAGE:
+		case AS_SHADOWSLASH:
 			// Cast range mimics NJ_SHADOWJUMP but damage is considered melee
 		case GC_CROSSIMPACT:
 		case RA_WUGSTRIKE:
@@ -2672,7 +2673,7 @@ static bool is_attack_critical(struct Damage* wd, struct block_list *src, struct
 				if (sc && sc->data[SC_OVERBRANDREADY])
 					cri += 500; // !TODO: Confirm new bonus
 				break;
-			case NJ_KIRIKAGE:
+			case AS_SHADOWSLASH:
 				cri += 50 + 50*skill_lv;
 				break;
 			case ASC_BREAKER:
@@ -4099,7 +4100,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc->data[SC_GT_CHANGE])
 				skillratio += (sstatus->dex);
 			break;
-		case NJ_KIRIKAGE:
+		case AS_SHADOWSLASH:
 			skillratio += 100 + 15 * skill_lv + (sstatus->luk);
 			if (sc && sc->data[SC_HALLUCINATIONWALK])
 				skillratio += 5 * pc_checkskill(sd, TF_MISS);
@@ -4504,7 +4505,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc && sc->data[SC_SPL_ATK])
 				skillratio += 2 * (sstatus->str);
 			break;
-		case SR_GENTLETOUCH_QUIET:
+		case AS_SILENTSTRIKE:
 			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->dex);
 			if (sc && sc->data[SC_ADRENALINE2])
 				skillratio += 5 * pc_checkskill(sd, TK_SPTIME);

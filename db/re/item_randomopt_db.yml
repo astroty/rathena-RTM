@@ -215,7 +215,7 @@ Body:
   - Id: 46
     Option: DAMAGE_PROPERTY_POISON_USER
     Script: |
-      bonus2 bSkillAtk,"NJ_KIRIKAGE",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_SHADOWSLASH",getrandomoptinfo(ROA_VALUE);
   - Id: 47
     Option: DAMAGE_PROPERTY_POISON_TARGET
     Script: |
@@ -239,7 +239,7 @@ Body:
   - Id: 52
     Option: DAMAGE_PROPERTY_TELEKINESIS_USER
     Script: |
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",getrandomoptinfo(ROA_VALUE);
+      bonus2 bSkillAtk,"AS_SILENTSTRIKE",getrandomoptinfo(ROA_VALUE);
   - Id: 53
     Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
     Script: |

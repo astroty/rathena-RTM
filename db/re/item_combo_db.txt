@@ -38,7 +38,7 @@
 1223:4121,{ bonus bFlee2,3; }
 1240:16154,{ bonus bHPrecovRate,100; bonus bSPrecovRate,100; bonus bAllStats,1; }
 13034:13035,{ skill "TF_DOUBLE",10; bonus2 bMagicAddSize,Size_Medium,5; bonus2 bAddSize,Size_Medium,5; bonus bAspd,5; if (getequiprefinerycnt(EQI_HAND_R)+getequiprefinerycnt(EQI_HAND_L) >= 12) { bonus bNoSizeFix; } }
-13036:13037,{ bonus4 bAutoSpellOnSkill,"ASC_BREAKER","NJ_KIRIKAGE",1,500; bonus4 bAutoSpellOnSkill,"SR_SKYNETBLOW","ASC_METEORASSAULT",1,500; }
+13036:13037,{ bonus4 bAutoSpellOnSkill,"ASC_BREAKER","AS_SHADOWSLASH",1,500; bonus4 bAutoSpellOnSkill,"SR_SKYNETBLOW","ASC_METEORASSAULT",1,500; }
 13058:1118,{ .@a = getskilllv("HT_STEELCROW"); bonus bAspd,.@a; bonus bAtkRate,7; }
 13069:13070,{ bonus bBaseAtk,15; bonus bMatk,15; }
 13074:20738,{ bonus2 bSkillCooldown,"RG_BACKSTAP",-500; bonus bDelayRate,-10; }
@@ -1235,7 +1235,7 @@
 24058:24068,{ bonus2 bExpAddRace,RC_Angel,3; }
 24059:24069,{ bonus2 bExpAddRace,RC_Formless,3; }
 24060:24061:24062:24063,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bMagicAtkEle,Ele_Fire,.@r; bonus2 bMagicAtkEle,Ele_Water,.@r; bonus2 bMagicAtkEle,Ele_Wind,.@r; bonus4 bAutoSpellOnSkill,"NJ_KOUENKA","NJ_HYOUSENSOU",7,50; bonus4 bAutoSpellOnSkill,"NJ_HUUJIN","NJ_KOUENKA",7,50; bonus4 bAutoSpellOnSkill,"NJ_HYOUSENSOU","NJ_HUUJIN",7,50; }
-24064:24065:24066:24067,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; skill "NJ_KIRIKAGE",(.@r)/4; bonus2 bSkillAtk,"NJ_KIRIKAGE",.@r; }
+24064:24065:24066:24067,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; skill "AS_SHADOWSLASH",(.@r)/4; bonus2 bSkillAtk,"AS_SHADOWSLASH",.@r; }
 24068:24069:24070:24071,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus bAspd,5; bonus bBaseAtk,(.@r)/4; }
 24072:24075,{ bonus bMaxHPrate,1; bonus bMaxSPrate,1; }
 24073:24076,{ bonus bMaxHPrate,1; bonus bMaxSPrate,1; }
@@ -1249,7 +1249,7 @@
 24093:24094:24095:24096,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bCastrate,"AL_PNEUMA",-100; bonus2 bFixedCastrate,"AL_PNEUMA",-100; bonus2 bCastrate,"MG_SAFETYWALL",-100; bonus2 bFixedCastrate,"MG_SAFETYWALL",-100; bonus4 bAutoSpellOnSkill,"MG_SAFETYWALL","SL_KAUPE",1,20*(.@r); bonus4 bAutoSpellOnSkill,"AL_PNEUMA","SL_KAUPE",1,20*(.@r); bonus2 bSkillUseSPrate,"AL_PNEUMA",50; bonus2 bSkillUseSPrate,"MG_SAFETYWALL",50; }
 24112:24113:24114:24115,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; skill "AL_HEAL",10; skill "TF_HIDING",10; skill "AL_INCAGI",10; bonus bMatkRate,(.@r)/4; bonus bAtkRate,(.@r)/4; }
 24119:24120:24121:24122,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus bUseSPrate,-(.@r); bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-3540000; }
-24125:24126:24127:24128,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus bMatkRate,5; bonus bAtkRate,5; bonus bHPrecovRate,2*(.@r); bonus bSPrecovRate,2*(.@r); skill "NJ_KIRIKAGE",10; skill "NJ_HUUMA",5; skill "SR_GENTLETOUCH_QUIET",10; }
+24125:24126:24127:24128,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus bMatkRate,5; bonus bAtkRate,5; bonus bHPrecovRate,2*(.@r); bonus bSPrecovRate,2*(.@r); skill "AS_SHADOWSLASH",10; skill "NJ_HUUMA",5; skill "AS_SILENTSTRIKE",10; }
 24131:24132:24133:24134,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus bMatkRate,5; bonus bAtkRate,5; bonus bHPrecovRate,2*(.@r); bonus bSPrecovRate,2*(.@r); skill "RK_SONICWAVE",10; skill "SC_FEINTBOMB",5; skill "RG_RAID",5; }
 24154:24155,{ bonus bDef,getequiprefinerycnt(EQI_SHADOW_ARMOR); if (getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 15) bonus bUnbreakableArmor; }
 24156:24166:24167,{ bonus bBaseAtk,5; if(getequiprefinerycnt(EQI_SHADOW_WEAPON)+getequiprefinerycnt(EQI_SHADOW_ACC_R)+getequiprefinerycnt(EQI_SHADOW_ACC_L)>=25) bonus bIgnoreDefRace,RC_DemiHuman; }
@@ -1472,7 +1472,7 @@
 28755:13603,{ bonus2 bIgnoreDefRaceRate,RC_All,4; bonus2 bIgnoreMdefClassRate,Class_Normal,4; bonus2 bIgnoreMdefClassRate,Class_Boss,4; }
 28755:13604,{ bonus bHPrecovRate,15; bonus bSPrecovRate,15; }
 28755:13605,{ bonus2 bExpAddClass,Class_All,7; }
-28763:28764,{ bonus2 bSkillCooldown,"NJ_KIRIKAGE",-1000; bonus bAtkRate,10; }
+28763:28764,{ bonus2 bSkillCooldown,"AS_SHADOWSLASH",-1000; bonus bAtkRate,10; }
 28765:28766,{ .@a = getequiprefinerycnt(EQI_HAND_L); .@b = getequiprefinerycnt(EQI_HAND_R); if (.@a+.@b >= 16) { bonus2 bSkillAtk,"GC_CROSSIMPACT",20; bonus2 bSkillAtk,"GC_COUNTERSLASH",20; } if (.@a+.@b >= 18) bonus2 bAddClass,Class_All,12; if (.@a+.@b >= 20) .@val = 20; bonus2 bSkillAtk,"ASC_BREAKER",40+.@val; bonus2 bSkillAtk,"ASC_METEORASSAULT",40+.@val; bonus bBaseAtk,8*((.@a+.@b)/2); }
 28906:2998,{ bonus bLongAtkRate,10; }
 28907:2998,{ bonus bSpeedRate,25; }

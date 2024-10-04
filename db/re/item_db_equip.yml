@@ -2875,8 +2875,8 @@ Body:
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,10;
       bonus bAtkEle,Ele_Wind;
-      bonus4 bAutoSpellOnSkill,"NJ_KIRIKAGE","RK_SONICWAVE",3,1000;
-      skill "NJ_KIRIKAGE",1;
+      bonus4 bAutoSpellOnSkill,"AS_SHADOWSLASH","RK_SONICWAVE",3,1000;
+      skill "AS_SHADOWSLASH",1;
   - Id: 1178
     AegisName: Raider_Saber_
     Name: Raider Saber
@@ -3561,7 +3561,7 @@ Body:
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,22;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"SC_TRIANGLESHOT","NJ_KIRIKAGE",1,1000;
+      bonus4 bAutoSpellOnSkill,"SC_TRIANGLESHOT","AS_SHADOWSLASH",1,1000;
       bonus bCritAtkRate,5*(.@r);
   - Id: 1196
     AegisName: Abandoned_Guardian
@@ -6338,7 +6338,7 @@ Body:
     Script: |
       bonus bCritAtkRate,15;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","NJ_KIRIKAGE",1,1000;
+      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","AS_SHADOWSLASH",1,1000;
       bonus2 bSkillCooldown,"AS_GRIMTOOTH",1000;
       bonus bMatkRate,.@r;
       bonus bAtkRate,.@r;
@@ -29821,7 +29821,7 @@ Body:
       bonus bMaxSPrate,10;
       bonus bMdef,5;
       bonus2 bSkillAtk,"NJ_HUUMA",50;
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",50;
+      bonus2 bSkillAtk,"AS_SILENTSTRIKE",50;
       bonus bSPrecovRate,25;
       bonus2 bResEff,Eff_Silence,2500;
   - Id: 2341
@@ -36533,9 +36533,9 @@ Body:
       bonus bAllStats,1;
       bonus bUseSPrate,25;
       bonus3 bSplashSkill,"AS_SONICBLOW",3,100;
-      bonus3 bSplashSkill,"NJ_KIRIKAGE",3,100;
+      bonus3 bSplashSkill,"AS_SHADOWSLASH",3,100;
       bonus3 bSplashSkill,"NC_AXEBOOMERANG",3,100;
-      bonus3 bSplashSkill,"SR_GENTLETOUCH_QUIET",3,100;
+      bonus3 bSplashSkill,"AS_SILENTSTRIKE",3,100;
       bonus bPerfectHitAddRate,100;
   - Id: 2685
     AegisName: Change_Ring
@@ -110776,7 +110776,7 @@ Body:
       bonus2 bVariableCastrate,"MO_STEELBODY",-.@c*10;
       bonus2 bFixedCastrate,"CH_SOULCOLLECT",-.@c*10;
       bonus bAspdRate,2*getskilllv("SR_GENTLETOUCH_CHANGE");
-      bonus2 bAddClass,Class_All,4*getskilllv("SR_GENTLETOUCH_QUIET");
+      bonus2 bAddClass,Class_All,4*getskilllv("AS_SILENTSTRIKE");
   - Id: 22167
     AegisName: Astraea_Shoes
     Name: Asteria's Boots
@@ -114143,7 +114143,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NJ_KIRIKAGE",12*(.@r);
+      bonus2 bSkillAtk,"AS_SHADOWSLASH",12*(.@r);
   - Id: 24133
     AegisName: Master_Tradition_S
     Name: Master Tradition S
@@ -117764,7 +117764,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NJ_KIRIKAGE",3*.@r;
+      bonus2 bSkillAtk,"AS_SHADOWSLASH",3*.@r;
       bonus bBaseAtk,3;
   - Id: 24360
     AegisName: Desert_Shadow_S
@@ -117796,7 +117796,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",3*.@r;
+      bonus2 bSkillAtk,"AS_SILENTSTRIKE",3*.@r;
       bonus bBaseAtk,3;
   - Id: 24362
     AegisName: Desert_Raider_A
@@ -120792,7 +120792,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NJ_KIRIKAGE",50;
+      bonus2 bSkillAtk,"AS_SHADOWSLASH",50;
   - Id: 24540
     AegisName: Fierce_Hawk_A
     Name: Fierce Hawk A
@@ -121276,7 +121276,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",50;
+      bonus2 bSkillAtk,"AS_SILENTSTRIKE",50;
   - Id: 24564
     AegisName: Element_Bender_A
     Name: Element Bender A
@@ -135403,7 +135403,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NJ_KIRIKAGE",20;
+      bonus2 bSkillAtk,"AS_SHADOWSLASH",20;
       bonus bCritAtkRate,5;
       skill "TF_DOUBLE",5;
   - Id: 28764
@@ -135439,7 +135439,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bSkillUseSPrate,"NJ_KIRIKAGE",50;
+      bonus2 bSkillUseSPrate,"AS_SHADOWSLASH",50;
       bonus bCritical,5;
       skill "TF_DOUBLE",1;
   - Id: 28765
@@ -143525,8 +143525,8 @@ Body:
       if ( BaseJob == Job_Assassin) {
         skill "AS_SONICBLOW",13;
         skill "NC_AXEBOOMERANG",13;
-        skill "NJ_KIRIKAGE",13;
-        skill "SR_GENTLETOUCH_QUIET",13;
+        skill "AS_SHADOWSLASH",13;
+        skill "AS_SILENTSTRIKE",13;
         skill "AS_CLOAKING",13;
       }
       if ( BaseJob == Job_Rogue) {

@@ -1378,6 +1378,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 
 	case AS_SONICBLOW:
 		sc_start(src, bl, SC_STUN, (2 * skill_lv + 10), skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+			sc_start4(src, bl, SC_BURNING, 1000, skill_lv, 7, 1000, 0, 3000);
 		break;
 
 	case AS_GRIMTOOTH:
@@ -1821,8 +1823,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		else if (dstmd)
 			sc_start(src, bl, SC_STUN, 100, skill_lv, 1000 + 1000 * (rnd() % 3));
 		break;
-	case SR_GENTLETOUCH_QUIET:  //  [(Skill Level x 5) + (Caster?s DEX + Caster?s Base Level) / 10]
+	case AS_SILENTSTRIKE:  //  [(Skill Level x 5) + (Caster?s DEX + Caster?s Base Level) / 10]
 		sc_start(src, bl, SC_SILENCE, 20 * skill_lv + (status_get_dex(src) + status_get_lv(src)) / 10, skill_lv, skill_get_time(skill_id, skill_lv));
+		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+			sc_start(src, bl, SC_MAGIC_POISON, 100, skill_lv, 6000);
 		break;
 	case SR_EARTHSHAKER:
 		sc_start(src, bl, SC_STUN, 25 + 5 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -5158,7 +5162,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case SR_FALLENEMPIRE:
 	case SR_CRESCENTELBOW_AUTOSPELL:
 	case SR_GATEOFHELL:
-	case SR_GENTLETOUCH_QUIET:
+	case AS_SILENTSTRIKE:
 	case WM_SEVERE_RAINSTORM_MELEE:
 	case WM_GREAT_ECHO:
 	case GN_SLINGITEM_RANGEMELEEATK:
@@ -6009,7 +6013,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if (sd && !(sc && sc->data[SC_GT_CHANGE]))
 			sc_start(src, src, SC_HIDING, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
-	case NJ_KIRIKAGE:
+	case AS_SHADOWSLASH:
 		if (!map_flag_gvg2(src->m) && !map_getmapflag(src->m, MF_BATTLEGROUND))
 		{	//You don't move on GVG grounds.
 			short x, y;
@@ -6020,6 +6024,8 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		}
 		status_change_end(src, SC_CLOAKING, INVALID_TIMER);
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+			sc_start(src, src, SC_CLOAKING, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case RK_PHANTOMTHRUST:
 	case NPC_PHANTOMTHRUST:

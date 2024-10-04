@@ -938,7 +938,7 @@ Body:
         Requires:
           - Name: SM_SWORD
             Level: 1
-      - Name: NJ_KIRIKAGE
+      - Name: AS_SHADOWSLASH
         MaxLevel: 10
         Requires:
           - Name: KO_HAPPOKUNAI
@@ -946,7 +946,7 @@ Body:
       - Name: GC_HALLUCINATIONWALK
         MaxLevel: 5
         Requires:
-          - Name: NJ_KIRIKAGE
+          - Name: AS_SHADOWSLASH
             Level: 1
       - Name: AM_AXEMASTERY
         MaxLevel: 10
@@ -972,7 +972,7 @@ Body:
         Requires:
           - Name: MO_DODGE
             Level: 1
-      - Name: SR_GENTLETOUCH_QUIET
+      - Name: AS_SILENTSTRIKE
         MaxLevel: 10
         Requires:
           - Name: NJ_HUUMA
@@ -980,7 +980,7 @@ Body:
       - Name: BS_ADRENALINE2
         MaxLevel: 5
         Requires:
-          - Name: SR_GENTLETOUCH_QUIET
+          - Name: AS_SILENTSTRIKE
             Level: 1
   - Job: Knight2
     Inherit:
@@ -1023,7 +1023,7 @@ Body:
         MaxLevel: 5
       - Name: GC_HALLUCINATIONWALK
         MaxLevel: 5
-      - Name: NJ_KIRIKAGE
+      - Name: AS_SHADOWSLASH
         MaxLevel: 10
       - Name: AS_POISONREACT
         MaxLevel: 5

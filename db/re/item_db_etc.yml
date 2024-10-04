@@ -7261,7 +7261,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",15;
+      bonus2 bSkillAtk,"AS_SILENTSTRIKE",15;
   - Id: 4326
     AegisName: See_Otter_Card
     Name: Sea-Otter Card

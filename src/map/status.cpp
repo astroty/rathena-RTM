@@ -9277,6 +9277,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		// if (sd && val1 < 3 && skill_check_cloaking(bl,NULL))
 		if( sd && pc_checkskill(sd, AS_CLOAKING) < 1 && !skill_check_cloaking(bl,NULL) )
 			return 0;
+		if (sd && pc_checkskill(sd, UL_MEMORY > 0))
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
+
 	break;
 	case SC_NEWMOON:
  		if (sc->data[SC_BITE])
@@ -10440,7 +10443,13 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_POISON:
 		case SC_BLEEDING:
 		case SC_BURNING:
-			tick_time = status_get_sc_interval(type);
+			//val2 = % of HP damage
+			//val3 = interval between ticks
+			//val4 = remaining tick value
+			//tick_time = status_get_sc_interval(type);
+			val2 = 1;
+			if (val3 > 0) tick_time = val3;
+			else tick_time = status_get_sc_interval(type);
 			val4 = tick - tick_time; // Remaining time
 			break;
 		case SC_TOXIN:
@@ -13768,7 +13777,7 @@ TIMER_FUNC(status_change_timer){
 	case SC_DPOISON:
 		if (sce->val4 >= 0 && !sc->data[SC_SLOWPOISON]) {
 			unsigned int damage = 0;																				
-			if (status->hp > umax(status->max_hp / 2, damage)) // Stop damaging after 25% HP left.
+			if (status->hp > umax(status->max_hp / 2, damage)) // Stop damaging after 50% HP left.
 				status_zap(bl, damage, 0);
 		}
 		break;
@@ -13786,7 +13795,7 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_BURNING:
 		if (sce->val4 >= 0) {
-			int64 damage = 200 + (1 * status->max_hp) / 100; // Deals fixed (1000 + 3%*MaxHP)
+			int64 damage = 200 + (sce->val2 * status->max_hp) / 100; // Deals fixed (2 + 1%*MaxHP)
 			map_freeblock_lock();
 			dounlock = true;
 			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false),0);

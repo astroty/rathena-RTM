@@ -183,7 +183,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: NJ_KIRIKAGE
+  - Skill: AS_SHADOWSLASH
     Probability:
       - Level: 2
         Probability: 1000
@@ -603,7 +603,7 @@ Body:
         Probability: 1000
       - Level: 10
         Probability: 10
-  - Skill: SR_GENTLETOUCH_QUIET
+  - Skill: AS_SILENTSTRIKE
     Probability:
       - Level: 6
         Probability: 1000

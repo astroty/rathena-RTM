@@ -14808,7 +14808,7 @@ Body:
       Status:
         Hiding: true
   - Id: 530
-    Name: NJ_KIRIKAGE
+    Name: AS_SHADOWSLASH
     Description: Shadow Slash
     MaxLevel: 13
     Type: Weapon
@@ -25339,7 +25339,7 @@ Body:
       Status:
         Explosionspirits: true
   - Id: 2344
-    Name: SR_GENTLETOUCH_QUIET
+    Name: AS_SILENTSTRIKE
     Description: Silent Strike
     MaxLevel: 13
     Type: Weapon
