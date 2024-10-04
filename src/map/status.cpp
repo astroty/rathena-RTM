@@ -10444,7 +10444,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			//val3 = interval between ticks
 			//val4 = remaining tick value
 			//tick_time = status_get_sc_interval(type);
-			val2 = 1;
+			val2 = 10;
 			if (val3 > 0) tick_time = val3;
 			else tick_time = status_get_sc_interval(type);
 			val4 = tick - tick_time; // Remaining time
