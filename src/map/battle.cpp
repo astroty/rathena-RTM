@@ -1582,10 +1582,11 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			}
 		}
 
-		if ((sc && sc->data[SC_OVERBRANDREADY]) && (pc_checkskill(sd, UC_MEMORY)) ){
-			damage += (damage * 25 / 100);
-			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
-		}
+        if (sc && sc->data[SC_OVERBRANDREADY] && tsd && pc_checkskill(tsd, UC_MEMORY) )
+        {
+            damage += (damage * 25 / 100);
+            status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+        }
 		if( sc->data[SC_INVINCIBLE] && !sc->data[SC_INVINCIBLEOFF] )
 			damage += damage * 75 / 100;
 
