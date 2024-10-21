@@ -6025,8 +6025,10 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		}
 		status_change_end(src, SC_CLOAKING, INVALID_TIMER);
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		if (sd && pc_checkskill(sd, UC_MEMORY))
+		if (sd && pc_checkskill(sd, UC_MEMORY)){
 			sc_start(src, src, SC_CLOAKING, 100, skill_lv, 100);
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
+		}
 		break;
 	case RK_PHANTOMTHRUST:
 	case NPC_PHANTOMTHRUST:

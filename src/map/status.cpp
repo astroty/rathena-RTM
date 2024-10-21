@@ -10445,8 +10445,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			//val4 = remaining tick value
 			//tick_time = status_get_sc_interval(type);
 			val2 = 10;
-			if (val3 > 0) tick_time = val3;
-			else tick_time = status_get_sc_interval(type);
+			if (val3 > 0) {tick_time = val3;}
+			else {tick_time = status_get_sc_interval(type);}
 			val4 = tick - tick_time; // Remaining time
 			break;
 		case SC_TOXIN:
@@ -13792,7 +13792,7 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_BURNING:
 		if (sce->val4 >= 0) {
-			int64 damage = (sce->val2)/100 * status->max_hp; // Deals fixed (2 + 1%*MaxHP)
+			int64 damage = (((sce->val2)/100) * (status->max_hp)); // Deals fixed (2 + 1%*MaxHP)
 			map_freeblock_lock();
 			dounlock = true;
 			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false),0);
