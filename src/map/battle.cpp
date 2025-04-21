@@ -5403,6 +5403,9 @@ static void battle_attack_sc_bonus(struct Damage* wd, struct block_list *src, st
 				ATK_ADD(wd->weaponAtk, wd->weaponAtk2, i64max(sstatus->matk_min - tmdef, 0));
 			}
 		}
+		if (sc->data[SC_MAGICALBULLET_2]) {
+			ATK_ADD(wd->weaponAtk, wd->weaponAtk2, (sstatus->matk_min + rnd() % (sstatus->matk_max - sstatus->matk_min / 2)));
+		}
 		if (sc->data[SC_GATLINGFEVER])
 			ATK_ADD(wd->equipAtk, wd->equipAtk2, sc->data[SC_GATLINGFEVER]->val3);
 #else

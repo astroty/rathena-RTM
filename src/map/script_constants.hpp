@@ -1518,6 +1518,7 @@
 	export_constant(SC_SUPER_STAR);
 	export_constant(SC_HEAT_BARREL);
 	export_constant(SC_MAGICALBULLET);
+	export_constant(SC_MAGICALBULLET_2);
 	export_constant(SC_P_ALTER);
 	export_constant(SC_E_CHAIN);
 	export_constant(SC_C_MARKER);
@@ -1713,6 +1714,9 @@
 	export_constant(SC_WIDEWEB);
 	export_constant(SC_BURNT);
 	export_constant(SC_CHILL);
+	export_constant(SC_SPLASH_TOGGLE);
+	export_constant(SC_WEAPONBLOCKING_FREE);
+
 #ifdef RENEWAL
 	export_constant(SC_EXTREMITYFIST2);
 #endif

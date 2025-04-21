@@ -1702,35 +1702,48 @@ Body:
     Inherit:
       Novice: true
     Tree:
+      - Name: VA_FREE_BASE_SKILLS
+        MaxLevel: 1
       - Name: TF_MISS
         MaxLevel: 10
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
       - Name: MC_INCCARRY
         MaxLevel: 10
-      - Name: MG_SRECOVERY
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
+      - Name: VA_AGIUP_PASSIVE
         MaxLevel: 10
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
       - Name: SM_RECOVERY
         MaxLevel: 10
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
       - Name: SM_SWORD
         MaxLevel: 10
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
       - Name: MO_DODGE
         MaxLevel: 10
-      - Name: AL_PNEUMA
-        MaxLevel: 8
         Requires:
-          - Name: TF_MISS
-            Level: 10
-          - Name: MC_INCCARRY
-            Level: 10
-          - Name: MG_SRECOVERY
-            Level: 10
-          - Name: SM_RECOVERY
-            Level: 10
-          - Name: SM_SWORD
-            Level: 10
-          - Name: MO_DODGE
-            Level: 10
-      - Name: LK_BERSERK
-        MaxLevel: 1
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
+      - Name: VA_SPLASH_TOGGLE
+        MaxLevel: 5
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
+      - Name: VA_REACH_BEYOND
+        MaxLevel: 3
+        Requires:
+          - Name: VA_FREE_BASE_SKILLS
+            Level: 1
   - Job: Novice_High
     Inherit:
       Novice: true
@@ -4547,40 +4560,18 @@ Body:
         MaxLevel: 5
       - Name: GN_TRAINING_SWORD
         MaxLevel: 5
-      - Name: AM_LEARNINGPOTION
-        MaxLevel: 10
       - Name: SA_ADVANCEDBOOK
         MaxLevel: 10
-      - Name: KN_TWOHANDQUICKEN
-        MaxLevel: 10
-        Requires:
-          - Name: AM_LEARNINGPOTION
-            Level: 10
-          - Name: SA_ADVANCEDBOOK
-            Level: 10
-          - Name: GN_TRAINING_SWORD
-            Level: 5
-      - Name: RK_ENCHANTBLADE
-        MaxLevel: 10
-        Requires:
-          - Name: KO_RIGHT
-            Level: 5
-          - Name: KO_LEFT
-            Level: 5
-          - Name: GN_TRAINING_SWORD
-            Level: 5
       - Name: SM_TWOHAND
         MaxLevel: 10
-        Requires:
-          - Name: RK_ENCHANTBLADE
-            Level: 10
-          - Name: KN_TWOHANDQUICKEN
-            Level: 10
-      - Name: MG_SAFETYWALL
+      - Name: LE_HARNESS_SPEED_P
+        MaxLevel: 10
+      - Name: LE_BULK_P
+        MaxLevel: 10
+      - Name: LE_RESIST_P
+        MaxLevel: 10
+      - Name: LE_LEGENDARY_P
         MaxLevel: 4
-        Requires:
-          - Name: SM_TWOHAND
-            Level: 10
   - Job: Oboro
     Inherit:
       Novice: true
@@ -4592,40 +4583,18 @@ Body:
         MaxLevel: 5
       - Name: GN_TRAINING_SWORD
         MaxLevel: 5
-      - Name: AM_LEARNINGPOTION
-        MaxLevel: 10
       - Name: SA_ADVANCEDBOOK
         MaxLevel: 10
-      - Name: KN_TWOHANDQUICKEN
-        MaxLevel: 10
-        Requires:
-          - Name: AM_LEARNINGPOTION
-            Level: 1
-          - Name: SA_ADVANCEDBOOK
-            Level: 1
-          - Name: GN_TRAINING_SWORD
-            Level: 1
-      - Name: RK_ENCHANTBLADE
-        MaxLevel: 10
-        Requires:
-          - Name: KO_RIGHT
-            Level: 1
-          - Name: KO_LEFT
-            Level: 1
-          - Name: GN_TRAINING_SWORD
-            Level: 1
       - Name: SM_TWOHAND
         MaxLevel: 10
-        Requires:
-          - Name: RK_ENCHANTBLADE
-            Level: 1
-          - Name: KN_TWOHANDQUICKEN
-            Level: 1
-      - Name: MG_SAFETYWALL
+      - Name: LE_HARNESS_SPEED_P
+        MaxLevel: 10
+      - Name: LE_BULK_P
+        MaxLevel: 10
+      - Name: LE_RESIST_P
+        MaxLevel: 10
+      - Name: LE_LEGENDARY_P
         MaxLevel: 4
-        Requires:
-          - Name: SM_TWOHAND
-            Level: 1
   - Job: Rebellion
     Inherit:
       Novice: true

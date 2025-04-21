@@ -17755,6 +17755,119 @@ Body:
       Flag:
         NoReiteration: true
         NoOverlap: true
+  - Id: 777
+    Name: DK_SWORDFLURRY #New DK Skills
+    Description: Sword Flurry
+    MaxLevel: 5
+    TargetType: Attack
+    DamageFlags:
+      IgnoreFlee: true
+    Flags:
+      TargetTrap: true
+    Range: 1 #Was too strong with 2 cell range
+    Hit: Multi_Hit
+    HitCount: -3
+    Element: Weapon
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+    AfterCastActDelay: 100
+    Cooldown: 3500
+    Requires:
+      SpCost:
+        - Level: 1
+          Amount: 25
+        - Level: 2
+          Amount: 30
+        - Level: 3
+          Amount: 35
+        - Level: 4
+          Amount: 40
+        - Level: 5
+          Amount: 45
+      HpRateCost: 30
+  - Id: 778
+    Name: DK_SCOURGE #New DK Skills
+    Description: Scourge
+    MaxLevel: 5
+    TargetType: Self
+    DamageFlags:
+      Splash: true  
+    Flags:
+      TargetTrap: true
+    Hit: Single
+    HitCount: 1
+    Element: Weapon
+    SplashArea: 3
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+    CastTime: 0
+    AfterCastActDelay: 200
+    Cooldown: 2500
+    Requires:
+      SpCost:
+        - Level: 1
+          Amount: 15
+        - Level: 2
+          Amount: 20
+        - Level: 3
+          Amount: 25
+        - Level: 4
+          Amount: 30
+        - Level: 5
+          Amount: 35
+      HpRateCost: 30         
+  - Id: 779
+    Name: VA_AGIUP_PASSIVE
+    Description: Agility UP (Passive)
+    MaxLevel: 10
+    Type: Weapon
+  - Id: 780
+    Name: VA_SPLASH_TOGGLE
+    Description: Splash Toggle
+    MaxLevel: 5
+    Type: Magic
+    TargetType: Self
+    DamageFlags:
+      NoDamage: true
+    Hit: Single
+    HitCount: 1
+    CastTime: 0
+    AfterCastActDelay: 0
+    Cooldown: 1000
+    Requires:
+      SpCost: 0
+  - Id: 781
+    Name: VA_FREE_BASE_SKILLS
+    Description: Free Basics
+    MaxLevel: 1
+    Type: Weapon
+  - Id: 782
+    Name: VA_REACH_BEYOND
+    Description: Reach Beyond
+    MaxLevel: 3
+    Type: Weapon
+  - Id: 783
+    Name: LE_HARNESS_SPEED_P
+    Description: Harness Speed (Passive)
+    MaxLevel: 10
+    Type: Weapon
+  - Id: 784
+    Name: LE_BULK_P
+    Description: Bulk Up
+    MaxLevel: 10
+    Type: Weapon
+  - Id: 785
+    Name: LE_LEGENDARY_P
+    Description: Legendary
+    MaxLevel: 4
+    Type: Weapon
+  - Id: 786
+    Name: LE_RESIST_P
+    Description: Magic Resist
+    MaxLevel: 10
+    Type: Weapon        
   - Id: 1001
     Name: KN_CHARGEATK
     Description: Thief Skills
@@ -38430,66 +38543,3 @@ Body:
     SplashArea: 15
     Duration1: 10000
     Cooldown: 600000
-  - Id: 777
-    Name: DK_SWORDFLURRY #New DK Skills
-    Description: Sword Flurry
-    MaxLevel: 5
-    TargetType: Attack
-    DamageFlags:
-      IgnoreFlee: true
-    Flags:
-      TargetTrap: true
-    Range: 1 #Was too strong with 2 cell range
-    Hit: Multi_Hit
-    HitCount: -3
-    Element: Weapon
-    CopyFlags:
-      Skill:
-        Plagiarism: true
-    AfterCastActDelay: 100
-    Cooldown: 3500
-    Requires:
-      SpCost:
-        - Level: 1
-          Amount: 25
-        - Level: 2
-          Amount: 30
-        - Level: 3
-          Amount: 35
-        - Level: 4
-          Amount: 40
-        - Level: 5
-          Amount: 45
-      HpRateCost: 30
-  - Id: 778
-    Name: DK_SCOURGE #New DK Skills
-    Description: Scourge
-    MaxLevel: 5
-    TargetType: Self
-    DamageFlags:
-      Splash: true  
-    Flags:
-      TargetTrap: true
-    Hit: Single
-    HitCount: 1
-    Element: Weapon
-    SplashArea: 3
-    CopyFlags:
-      Skill:
-        Plagiarism: true
-    CastTime: 0
-    AfterCastActDelay: 200
-    Cooldown: 2500
-    Requires:
-      SpCost:
-        - Level: 1
-          Amount: 15
-        - Level: 2
-          Amount: 20
-        - Level: 3
-          Amount: 25
-        - Level: 4
-          Amount: 30
-        - Level: 5
-          Amount: 35
-      HpRateCost: 30         

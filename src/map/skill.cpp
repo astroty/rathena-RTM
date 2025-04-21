@@ -5378,6 +5378,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case RA_AIMEDBOLT:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+	case MO_TRIPLEATTACK:
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag | SD_ANIMATION);
+		break;
 	case LK_HEADCRUSH:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
@@ -12468,6 +12471,18 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case NPC_PULSESTRIKE2:
 		for (int i = 0; i < 3; i++)
 			skill_addtimerskill(src, tick + (t_tick)skill_get_time(skill_id, skill_lv) * i, bl->id, 0, 0, skill_id, skill_lv, skill_get_type(skill_id), flag);
+		break;
+
+	case VA_SPLASH_TOGGLE:
+		if (!tsce)
+		{
+			status_change_start(src, bl, type, 10000, skill_lv, src->id, 0, 0, 1000, SCSTART_NONE);
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		}
+		else
+		{
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, status_change_end(bl, type, INVALID_TIMER));
+		}
 		break;
 
 	default:

@@ -112744,8 +112744,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      .@r = getrefine();
-      skill "SM_ENDURE",.@r;
+      bonus bNoWalkDelay;
   - Id: 24065
     AegisName: Great_Strider_G
     Name: Great Strider G
@@ -113309,8 +113308,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillUseSPrate,"KN_TWOHANDQUICKEN",100;
-      bonus bBaseAtk,3;
+      .@r = getrefine();
+      bonus bMaxHP,.@r * 100;
   - Id: 24090
     AegisName: Borrowed_Time_G
     Name: Borrowed Time G
@@ -113327,8 +113326,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillUseSPrate,"RK_ENCHANTBLADE",100;
-      bonus bMatk,3;
+      .@r = getrefine();
+      bonus bAtk,.@r * 2;
   - Id: 24091
     AegisName: Borrowed_Time_S
     Name: Borrowed Time S
@@ -113344,11 +113343,9 @@ Body:
     Refineable: true
     Flags:
       DropEffect: GREEN_PILLAR
-    Script: |
-      .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"KN_TWOHANDQUICKEN","GC_WEAPONBLOCKING",.@r/2,1000;
     EquipScript: |
-      sc_end SC_WEAPONBLOCKING;
+      .@r = getrefine();
+      sc_start4 SC_WEAPONBLOCKING_FREE,-1,.@r/2,0,1,0;
     UnEquipScript: |
       sc_end SC_WEAPONBLOCKING;
   - Id: 24092
@@ -113368,11 +113365,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"RK_ENCHANTBLADE","GS_MAGICALBULLET",.@r/2,1000;
-    EquipScript: |
-      sc_end SC_MAGICALBULLET;
-    UnEquipScript: |
-      sc_end SC_MAGICALBULLET;
+      bonus bHit,.@r * 2;
   - Id: 24093
     AegisName: Main_Explorer_A
     Name: Main Explorer A
@@ -113390,7 +113383,12 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"MG_SAFETYWALL","AL_HEAL",10,50*(.@r);
+      bonus2 bSkillHeal,"AL_HEAL",3*(.@r);
+      bonus2 bSkillHeal,"CR_SLIMPITCHER",3*(.@r);
+      bonus2 bSkillHeal,"AB_CHEAL",3*(.@r);
+      bonus2 bSkillHeal,"AM_POTIONPITCHER",3*(.@r);
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24094
     AegisName: Main_Explorer_G
     Name: Main Explorer G
@@ -113408,7 +113406,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"AL_PNEUMA","AL_HEAL",10,50*(.@r);
+      bonus bMatkRate,(2*.@r);
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24095
     AegisName: Main_Explorer_S
     Name: Main Explorer S
@@ -113426,7 +113426,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellWhenHit,"AL_PNEUMA",1,20*(.@r),0;
+      bonus bInt,.@r;
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24096
     AegisName: Main_Explorer_P
     Name: Main Explorer P
@@ -113444,7 +113446,10 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellWhenHit,"MG_SAFETYWALL",1,20*(.@r),0;
+      bonus2 bIgnoreMdefClassRate,Class_Normal,2*.@r;
+      bonus2 bIgnoreMdefClassRate,Class_Boss,2*.@r;
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24097
     AegisName: Saboteur_M
     Name: Saboteur M

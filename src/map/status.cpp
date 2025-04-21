@@ -997,6 +997,8 @@ void initChangeTables(void)
 #ifdef RENEWAL
 	set_sc( GS_MAGICALBULLET	, SC_MAGICALBULLET	, EFST_GS_MAGICAL_BULLET	, SCB_NONE );
 #endif
+	set_sc( GS_MAGICALBULLET	, SC_MAGICALBULLET_2	, EFST_GS_MAGICAL_BULLET	, SCB_NONE);
+
 	set_sc( GS_GATLINGFEVER		, SC_GATLINGFEVER	, EFST_GS_GATLINGFEVER, SCB_FLEE|SCB_SPEED|SCB_ASPD
 #ifndef RENEWAL
 		|SCB_BATK );
@@ -1439,6 +1441,8 @@ void initChangeTables(void)
 #ifdef RENEWAL
 	set_sc( NV_HELPANGEL			, SC_HELPANGEL		, EFST_HELPANGEL	, SCB_NONE );
 #endif
+
+	set_sc(VA_SPLASH_TOGGLE, SC_SPLASH_TOGGLE, EFST_SPLASH_TOGGLE, SCB_ALL);
 
 	/* Storing the target job rather than simply SC_SPIRIT simplifies code later on */
 	SkillStatusChangeTable[skill_get_index(SL_ALCHEMIST)]	= (sc_type)MAPID_ALCHEMIST,
@@ -3065,6 +3069,8 @@ int status_base_amotion_pc(struct map_session_data* sd, struct status_data* stat
 		val += (5  * skill_lv);
 	if ((skill_lv = pc_checkskill(sd, MO_DODGE)) > 0)
 		val += skill_lv;
+	if ((skill_lv = pc_checkskill(sd, VA_AGIUP_PASSIVE)) > 0) //AGI up passive
+		val += skill_lv;
 	if (pc_isriding(sd))
 		val -= 50 - 5 * pc_checkskill(sd, KN_CAVALIERMASTERY);
 	else if (pc_isridingdragon(sd))
@@ -4044,6 +4050,10 @@ static unsigned int status_calc_maxhpsp_pc(struct map_session_data* sd, unsigned
 		item_bonus = (dmax * status_get_spbonus_item(&sd->bl) / 100);
 		dmax += equip_bonus + item_bonus;
 		dmax += (int64)(dmax * status_get_spbonus(&sd->bl,STATUS_BONUS_RATE) / 100); //Aegis accuracy
+		if ((sd->class_ & MAPID_BASEMASK) == MAPID_NINJA) //Vagabond Class SP = 1
+		{
+			dmax = 1;
+		}
 	}
 
 	//Make sure it's not negative before casting to unsigned int
@@ -4604,6 +4614,11 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	sd->bonus.double_rate += sd->bonus.double_add_rate;
 	sd->bonus.perfect_hit += sd->bonus.perfect_hit_add;
 	sd->bonus.splash_range += sd->bonus.splash_add_range;
+	if (sd->sc.data[SC_SPLASH_TOGGLE])
+	{
+		sd->bonus.splash_range += (1 * sd->sc.data[SC_SPLASH_TOGGLE]->val1);
+		sd->bonus.atk_rate += (-5 * sd->sc.data[SC_SPLASH_TOGGLE]->val1);
+	}
 
 	// Damage modifiers from weapon type
 	std::shared_ptr<s_sizefix_db> right_weapon = size_fix_db.find(sd->weapontype1);
@@ -4670,6 +4685,57 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	if ((skill = pc_checkskill(sd, SG_FRIEND)) > 0)
 		base_status->luk += skill;
 
+	if ((skill = pc_checkskill(sd, VA_AGIUP_PASSIVE)) > 0) //AGI up passive
+	{
+		base_status->agi += 2 + skill;
+	}
+	if ((skill = pc_checkskill(sd, VA_FREE_BASE_SKILLS)) > 0)
+	{
+		pc_bonus_itembonus(sd->skillusesprate, AL_HEAL, 10000, true); //Heal
+		pc_bonus_itembonus(sd->skillusesprate, TF_HIDING, 10000, true); //Hiding
+		pc_bonus_itembonus(sd->skillusesprate, WZ_ESTIMATION, 10000, true); //Sense
+		pc_bonus_itembonus(sd->skillusesprate, BS_GREED, 10000, true); //Area Loot
+		pc_bonus_itembonus(sd->skillusesprate, AL_TELEPORT, 10000, true); //Teleport
+		pc_bonus_itembonus(sd->skillusesprate, AL_WARP, 10000, true); //Warp Portal
+		pc_bonus_itembonus(sd->skillusesprate, ALL_RESURRECTION, 10000, true); //Resurrection
+		pc_bonus_itembonus(sd->skillusesprate, TF_BACKSLIDING, 10000, true); //Back Slide
+		pc_bonus_itembonus(sd->skillusesprate, AB_CHEAL, 10000, true); //Coluceo Heal
+	}
+	if ((skill = pc_checkskill(sd, VA_REACH_BEYOND)) > 0)
+	{
+		if (skill >= 1)
+		{
+			sd->bonus.perfect_hit += 10;
+		}
+		if (skill >= 2)
+		{
+			sd->bonus.speed_add_rate -= 10;
+		}
+		if (skill == 3)
+		{
+			base_status->rhw.range += 1;
+			base_status->lhw.range += 1;
+		}
+	}
+	if ((skill = pc_checkskill(sd, LE_HARNESS_SPEED_P)) > 0)
+	{
+		base_status->hit += 3 * skill;
+		base_status->cri += skill * 10; //cri is crit in 0.1
+	}
+	if ((skill = pc_checkskill(sd, LE_BULK_P)) > 0)
+	{
+		sd->hprate += skill;
+	}
+	if ((skill = pc_checkskill(sd, LE_LEGENDARY_P)) > 0)
+	{
+		sd->bonus.aspd_cap += skill;
+		sd->bonus.aspd_add -= skill * 10;
+	}
+	if ((skill = pc_checkskill(sd, LE_RESIST_P)) > 0)
+	{
+		sd->special_state.no_magic_damage += 2 * skill;
+	}
+
 	// Bonuses from cards and equipment as well as base stat, remember to avoid overflows.
 	i = base_status->str + sd->status.str + sd->indexed_bonus.param_bonus[0] + sd->indexed_bonus.param_equip[0];
 	base_status->str = cap_value(i,0,USHRT_MAX);
@@ -4730,6 +4796,11 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 		base_status->max_sp = (unsigned int)(battle_config.sp_rate * (base_status->max_sp/100.));
 
 	base_status->max_sp = cap_value(base_status->max_sp,1,(unsigned int)battle_config.max_sp);
+
+	if ((sd->class_ & MAPID_BASEMASK) == MAPID_NINJA) //Hard set Vagabond/Legend SP to 1
+	{
+		base_status->max_sp = 1;
+	}
 
 // ----- RESPAWN HP/SP -----
 
@@ -6187,7 +6258,7 @@ void status_calc_bl_main(struct block_list *bl, /*enum scb_flag*/int flag)
 			maxaspd = cap_value(maxaspd, 100, 2000);
 			sc = status_get_sc(bl);
 			status->amotion = cap_value(amotion, maxaspd, 2000);
-			if (sc && sc->data[SC_BERSERK]) {
+			if (sc && sc->data[SC_BERSERK] || (pc_checkskill(sd, LE_LEGENDARY_P) > 0)) {
 				status->amotion = cap_value(amotion, 70, 2000);
 			
 			}// 199 max possible ASPD
@@ -7937,12 +8008,15 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max(val, 25); // !TODO: Confirm bonus movement speed
 		if (sc->data[SC_EMERGENCY_MOVE])
 			val = max(val, sc->data[SC_EMERGENCY_MOVE]->val2);
+		if ((pc_checkskill(sd, VA_AGIUP_PASSIVE)) > 0) //AGI Up Passive Movespeed
+			val = max(val, 3 * pc_checkskill(sd, VA_AGIUP_PASSIVE));
 
 		// !FIXME: official items use a single bonus for this [ultramage]
 		if( sc->data[SC_SPEEDUP0] ) // Temporary item-based speedup
 			val = max( val, sc->data[SC_SPEEDUP0]->val1 );
 		if( sd && sd->bonus.speed_rate + sd->bonus.speed_add_rate < 0 ) // Permanent item-based speedup
 			val = max( val, -(sd->bonus.speed_rate + sd->bonus.speed_add_rate) );
+
 
 		speed_rate -= val;
 
@@ -7982,12 +8056,14 @@ short status_calc_aspd(struct block_list* bl, struct status_change* sc, bool fix
 	if (!sc || !sc->count)
 		return 0;
 
+	struct map_session_data* sd = BL_CAST(BL_PC, bl);
+
 	if (fixed) {
 		enum sc_type sc_val;
 
 		if (!sc->data[SC_QUAGMIRE]) {
 			// !TODO: How does Two-Hand Quicken, Adrenaline Rush, and Spear quick change? (+10%)
-			if (bonus < 9 && (sc->data[SC_TWOHANDQUICKEN] || sc->data[SC_ONEHAND] || sc->data[SC_MERC_QUICKEN] || sc->data[SC_ADRENALINE] || sc->data[SC_SPEARQUICKEN]))
+			if (bonus < 9 && (sc->data[SC_TWOHANDQUICKEN] || sc->data[SC_ONEHAND] || sc->data[SC_MERC_QUICKEN] || sc->data[SC_ADRENALINE] || sc->data[SC_SPEARQUICKEN] || (pc_checkskill(sd, LE_HARNESS_SPEED_P) > 0)))
 				bonus = 9;
 			else if (bonus < 6 && sc->data[SC_ADRENALINE2])
 				bonus = 6;
@@ -8094,9 +8170,7 @@ short status_calc_aspd(struct block_list* bl, struct status_change* sc, bool fix
 		if (sc->data[SC_NIBELUNGEN] && sc->data[SC_NIBELUNGEN]->val2 == RINGNBL_ASPDRATE)
 			bonus += 20;
 
-		struct map_session_data* sd = BL_CAST(BL_PC, bl);
 		uint8 skill_lv;
-
 		if (sd && (skill_lv = pc_checkskill(sd, BA_MUSICALLESSON)) > 0)
 			bonus += skill_lv;
 	}
@@ -10731,6 +10805,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_CLAN_INFO:
 		case SC_DAILYSENDMAILCNT:
 		case SC_SOULATTACK:
+		case SC_SPLASH_TOGGLE:
 			tick = INFINITE_TICK;
 			break;
 
@@ -11738,6 +11813,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val4 = tick / 5000;
 			tick_time = 5000; // [GodLesZ] tick time
 			break;
+		case SC_WEAPONBLOCKING_FREE:
+			val2 = 25 + 2 * val1; // Chance
+			type = SC_WEAPONBLOCKING;
+			tick = INFINITE_TICK;
+			break;
 		case SC_OBLIVIONCURSE:
 			if (val3 == 0)
 				break;
@@ -12742,6 +12822,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_DRESSUP:
 		case SC_MISTY_FROST:
 		case SC_MADOGEAR:
+		case SC_SPLASH_TOGGLE:
 			val_flag |= 1;
 			break;
 		// Start |1|2 val_flag setting
@@ -12787,10 +12868,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 	}
 
-	if (sd && current_equip_combo_pos > 0 && tick == INFINITE_TICK) {
-		ShowWarning("sc_start: Item combo of item #%u contains an INFINITE_TICK duration. Skipping bonus.\n", sd->inventory_data[pc_checkequip(sd, current_equip_combo_pos)]->nameid);
-		return 0;
-	}
+	//Was only a check so there is not accidental unlimited status. Just make sure you remove it on the item uneqiup script of all set pieces!
+	//if (sd && current_equip_combo_pos > 0 && tick == INFINITE_TICK) {
+	//	ShowWarning("sc_start: Item combo of item #%u contains an INFINITE_TICK duration. Skipping bonus.\n", sd->inventory_data[pc_checkequip(sd, current_equip_combo_pos)]->nameid);
+	//	return 0;
+	//}
 
 	/* [Ind] */
 	if (StatusDisplayType[type]&bl->type) {
@@ -13417,6 +13499,13 @@ int status_change_clear(struct block_list* bl, int type)
 			case SC_CROSSBOWCLAN:
 			case SC_JUMPINGCLAN:
 			case SC_DAILYSENDMAILCNT:
+			case SC_SPLASH_TOGGLE:
+			case SC_MAGICALBULLET_2:
+				continue;
+			case SC_WEAPONBLOCKING:
+			case SC_ENCHANTBLADE:
+				if (sc->data[i]->val3 != 1)
+					break;
 				continue;
 			}
 		}
@@ -14079,6 +14168,10 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			if (sd && hom_is_active(sd->hd))
 				hom_vaporize(sd, HOM_ST_REST);
 			break;
+		case SC_SPLASH_TOGGLE:
+		{
+			status_change_end(bl, type, INVALID_TIMER);
+		} break;
 	}
 
 	uint16 opt_flag = OCF_SEND_OPTION;
@@ -14386,7 +14479,7 @@ TIMER_FUNC(status_change_timer){
 	case SC_HIDING:
 		if(--(sce->val2)>0) {
 
-			if(sce->val2 % sce->val4 == 0 && !status_charge(bl, 0, 1))
+			if(sce->val2 % sce->val4 == 0 && (pc_checkskill(sd, VA_FREE_BASE_SKILLS) > 0 ? false : !status_charge(bl, 0, 1)))
 				break; // Fail if it's time to substract SP and there isn't.
 
 			sc_timer_next(500+tick);
