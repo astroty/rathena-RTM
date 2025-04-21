@@ -1635,11 +1635,11 @@ bool itemdb_ishatched_egg(struct item* item) {
 char itemdb_isidentified(t_itemid nameid) {
 	int type=itemdb_type(nameid);
 	switch (type) {
-		case IT_WEAPON:
-		case IT_ARMOR:
-		case IT_PETARMOR:
-		case IT_SHADOWGEAR:
-			return 0;
+		//case IT_WEAPON:
+		//case IT_ARMOR:
+		//case IT_PETARMOR:
+		//case IT_SHADOWGEAR:
+		//	return 0;
 		default:
 			return 1;
 	}
