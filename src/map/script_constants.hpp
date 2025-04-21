@@ -609,12 +609,18 @@
 
 	export_constant2("bMaxHP",SP_MAXHP);
 	export_constant2("bMaxSP",SP_MAXSP);
-	export_constant2("bStr",SP_STR);
+	export_constant2("bStr", SP_STR);
+	export_constant2("bStrFull",SP_STR_FULL);
 	export_constant2("bAgi",SP_AGI);
+	export_constant2("bAgiFull", SP_AGI_FULL);
 	export_constant2("bVit",SP_VIT);
+	export_constant2("bVitFull", SP_VIT_FULL);
 	export_constant2("bInt",SP_INT);
+	export_constant2("bIntFull", SP_INT_FULL);
 	export_constant2("bDex",SP_DEX);
+	export_constant2("bDexFull", SP_DEX_FULL);
 	export_constant2("bLuk",SP_LUK);
+	export_constant2("bLukFull", SP_LUK_FULL);
 	export_constant2("bPow",SP_POW);
 	export_constant2("bSta",SP_STA);
 	export_constant2("bWis",SP_WIS);

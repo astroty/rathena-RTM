@@ -3095,7 +3095,7 @@ static void pc_bonus_subrace(struct map_session_data* sd, unsigned char race, sh
  * @param val: Value
  * @param cap_rate: If Value is a rate value that needs to be capped
  */
-static void pc_bonus_itembonus(std::vector<s_item_bonus> &bonus, uint16 id, int val, bool cap_rate)
+void pc_bonus_itembonus(std::vector<s_item_bonus> &bonus, uint16 id, int val, bool cap_rate)
 {
 	for (auto &it : bonus) {
 		if (it.id == id) {
@@ -9345,11 +9345,17 @@ int64 pc_readparam(struct map_session_data* sd,int64 type)
 		case SP_SP:              val = sd->battle_status.sp; break;
 		case SP_MAXSP:           val = sd->battle_status.max_sp; break;
 		case SP_STR:             val = sd->status.str; break;
+		case SP_STR_FULL:        val = sd->battle_status.str; break;
 		case SP_AGI:             val = sd->status.agi; break;
+		case SP_AGI_FULL:        val = sd->battle_status.agi; break;
 		case SP_VIT:             val = sd->status.vit; break;
+		case SP_VIT_FULL:        val = sd->battle_status.vit; break;
 		case SP_INT:             val = sd->status.int_; break;
+		case SP_INT_FULL:        val = sd->battle_status.int_; break;
 		case SP_DEX:             val = sd->status.dex; break;
+		case SP_DEX_FULL:        val = sd->battle_status.dex; break;
 		case SP_LUK:             val = sd->status.luk; break;
+		case SP_LUK_FULL:        val = sd->battle_status.luk; break;
 		case SP_POW:             val = sd->status.pow; break;
 		case SP_STA:             val = sd->status.sta; break;
 		case SP_WIS:             val = sd->status.wis; break;
