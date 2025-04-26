@@ -115954,7 +115954,7 @@ Body:
     Weight: 5000
     Locations:
       Shadow_Right_Accessory: true
-    EquipLevelMin: 130
+    EquipLevelMin: 10
     Flags:
       DropEffect: PURPLE_PILLAR
     Trade:
