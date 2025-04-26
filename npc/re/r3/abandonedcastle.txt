@@ -4,17 +4,19 @@ prt_gld,160,97,4	script	War Distortion#warp1	4_ed_orb,{
 	
 	mes "You can see a different reflection from this place. From the End Times.";
 	next;
-	mes "he War of Emperium is no more. An incredible guild with no code of honor has permanently taken over the kingdom and fused their souls into an abominable Emperium.";
+	mes "The War of Emperium is no more. An incredible guild with no code of honor has permanently taken over the kingdom and fused their souls into an abominable Emperium.";
 	next;
 	mes "No more hapiness on the Kingdom remains, what once was considered a celebration of union now only brings sadness and despair.";
 	next;
 	switch(select("Access Distortion Dungeon:Leave")) {
 	case 1:
-	if (temporalwarp >3){
-	mes "The Bifrost Shard's Eye of Balder Shines Brightly...And sends you 50 Years in the Future.";
-	close2;
-	warp "guild_falld",174,15;
-	break;
+	if (countitem(1632) > 0){
+		if (#temporalwarp > 3){
+			mes "The Bifrost Shard's Eye of Balder Shines Brightly...And sends you 50 Years in the Future.";
+			close2;
+			warp "guild_falld",174,15;
+			break;
+		}
 	}
 	mes "You don't have enough temporal energy to travel...Perhaps energy from a Son of Odin...?";
 	close;

@@ -1437,7 +1437,7 @@ Body:
       bonus bNoWalkDelay;
   - Id: 1139
     AegisName: Tyrfing
-    Name: Tyrfing
+    Name: Tyrfing #DK Rework #Added 2k flat HP drain at +9 and +10 retains 10% additional leech power.
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -1462,13 +1462,63 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,100;
-      bonus bMaxHPrate,25;
+    Script: |  #Reworked x2. A demonic dark blade that belows out in insatiable lust for blood. Huge refine bonuses. Unique card combo.
+      bonus2 bSkillCooldown,"BA_MUSICALSTRIKE",500;
+      bonus2 bSkillCooldown,"SC_FATALMENACE",500;
+      bonus2 bSkillCooldown,"DK_SWORDFLURRY",500;
+      bonus2 bSkillCooldown,"TK_JUMPKICK",500;
+      bonus2 bHPLossRate,500,1000;
+      bonus bSpeedRate,20;
       .@r = getrefine();
-      bonus2 bSkillAtk,"SM_BASH",5*(.@r);
+      if (.@r >= 3) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
+         bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SP_CURSEEXPLOSION",10,1000;
+         bonus4 bAutoSpellOnSkill,"DK_SWORDFLURRY","NPC_DARKCROSS",10,1000;
+         bonus4 bAutoSpellOnSkill,"SC_FATALMENACE","NPC_GRANDDARKNESS",10,1000;
+         bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","NPC_BLOODDRAIN",5,1000;
+         bonus2 bSkillCooldown,"SM_BASH",500;
+         bonus2 bHPLossRate,600,900;
+         }
+      if (.@r >= 6) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",200;
+         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",100;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",200;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",200;
+         bonus2 bSkillCooldown,"SM_BASH",500;
+         bonus2 bHPLossRate,700,800;
+         }
+      if (.@r >= 9) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","MO_INVESTIGATE",1,1000;
+         bonus4 bAutoSpellOnSkill,"DK_SCOURGE","NPC_EVILLAND",1,1000;
+         bonus2 bSkillCooldown,"DK_SCOURGE",5000;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",90;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",90;;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",100;
+         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",175;
+         bonus2 bSkillCooldown,"SM_BASH",500;
+         bonus2 bHPDrainRate,1000,10;
+         bonus2 bHPLossRate,800,700;
+         }
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"NPC_EVILLAND",500;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",50;
+         bonus2 bSkillAtk,"MO_INVESTIGATE",15;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",20;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",75;
+         bonus bHPDrainValue,2000;
+         skill "AL_INCAGI",10;
+         bonus bAspd,20;
+         }
+      bonus2 bSkillAtk,"MO_INVESTIGATE",5*(.@r);
+      bonus2 bSkillAtk,"NPC_BLOODDRAIN",20*(.@r);
+      bonus2 bSkillAtk,"NPC_GRANDDARKNESS",5*(.@r);
+      bonus2 bSkillAtk,"NPC_DARKCROSS",5*(.@r);
+      bonus2 bSkillAtk,"NPC_EVILLAND",100*(.@r);
+      bonus2 bSkillUseSP,"MO_INVESTIGATE",-10000;
       bonus bNoRegen,1;
       bonus bNoRegen,2;
+      bonus bHPDrainValue,25;
       bonus bSPGainValue,25;
   - Id: 1140
     AegisName: Black_Rapier
@@ -1832,7 +1882,7 @@ Body:
       bonus bAtkRate,4;
   - Id: 1150
     AegisName: Relic_Claymore
-    Name: Relic Claymore
+    Name: Relic Claymore #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -1857,12 +1907,17 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,250;
-      bonus bHPDrainValue,100;
+    Script: |  #Made it more of a poison themed weapon. HP Drain now scales per 2 refines. 1% leech power removed.
+     .@r = getrefine();
+      bonus bHPDrainValue,20*(.@r/2);
+      bonus4 bAutoSpellOnSkill,"SM_BASH","NPC_CLOUD_KILL",1,1000;
       bonus bShortWeaponDamageReturn,5;
-      bonus2 bSkillCooldown,"SM_BASH",1000;
+      bonus2 bSkillCooldown,"SM_BASH",2000;
       bonus bAtkEle,Ele_Poison;
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"NPC_CLOUD_KILL",300;
+         bonus2 bSkillCooldown,"SM_BASH",-2000;
+         }
   - Id: 1151
     AegisName: Slayer
     Name: Slayer
@@ -2654,7 +2709,7 @@ Body:
       bonus bMaxHPRate,.@r;
   - Id: 1174
     AegisName: AvengedTartaros
-    Name: AvengedTartaros
+    Name: AvengedTartaros #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -2678,26 +2733,43 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,1000;
-      bonus bHPrecovRate,2000;
-      bonus bUseSPrate,10000;
-      bonus bAspd,-10;
-      bonus bMaxSPrate,-99;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .heart, countitem(12333);
-        delitem 12333,.heart;
-      }
-      percentheal -99,-99;
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .heart, countitem(12333);
-        delitem 12333,.heart;
-      }
-      percentheal -99,-99;
+    Script: |  # Massively altered. Is now a combo sword with broken thanatos card. Heavily invests into Fatal Menace procs and SP management.
+      bonus2 bIgnoreDefRaceRate,RC_All,20;
+      bonus2 bSkillCooldown,"SM_BASH",800;
+      bonus bReduceDamageReturn,100;
+      bonus bHPDrainValue,150;
+      bonus bSPDrainValue,15;
+      bonus bAspd,-20;
+      .@r = getrefine();
+      if (.@r >= 3) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
+         bonus2 bSkillUseSP,"SM_BASH",-100;
+         }
+      if (.@r >= 6) {
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
+         bonus2 bSkillUseSP,"SM_BASH",-100;
+         }
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"SC_FATALMENACE",90;
+         bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
+         bonus2 bSkillCooldown,"SM_BASH",-300;
+         bonus2 bSkillUseSP,"SM_BASH",-100;
+         bonus2 bSPLossRate,400,8000;
+         }
+      if (.@r >= 10) {
+         bonus bMaxHPrate,15;
+         bonus bMaxSPrate,10;
+         bonus bSPrecovRate,25;
+         }
+      bonus bHitRate,1*.@r;
+      skill "LK_PARRYING",.@r;
+      bonus2 bHPDrainRate,1000,2*.@r;
+      bonus2 bSkillAtk,"SC_FATALMENACE",15;
+      bonus2 bSkillAtk,"SC_FATALMENACE",2*.@r;
+      bonus2 bSkillAtk,"SM_BASH",2*.@r;
+      bonus2 bSkillUseSP,"SM_BASH",-200;
+      bonus2 bSkillUseSP,"SC_FATALMENACE",-10000;
+      bonus2 bSPLossRate,250,15000;
   - Id: 1175
     AegisName: Atlas_Weapon
     Name: Atlas Weapon
@@ -3051,18 +3123,18 @@ Body:
       bonus2 bAddEff,Eff_Burning,200*.@r;
   - Id: 1185
     AegisName: Sea_King
-    Name: Sea King
+    Name: Sea King #DK Rework #fixed refine bonuses to pair accordingly with Cold Embrace. Changed Def pierce to mdef pierce. tiny buff to conflag damage on refine 3
     Type: Weapon
     SubType: 1hSword
     Buy: 500
     Sell: 250
     Weight: 2000
-    Attack: 10
-    MagicAttack: 25
+    Attack: 30 # from 10 to 30
+    MagicAttack: 30 #25 to 30
     Range: 2
-    Slots: 2
-    Jobs:
-      All: true
+    Slots: 3 # slots increased from 2 to 3
+    Jobs: #DK sword, reworked permissions to equip // acolyte is DK.
+      Acolyte: true
       Archer: false
       Gunslinger: false
       KagerouOboro: false
@@ -3075,23 +3147,46 @@ Body:
       SuperNovice: false
       Wizard: false
     Locations:
-      Right_Hand: true
+      Both_Hand: true #2handed sword
     WeaponLevel: 3
-    EquipLevelMin: 100
-    Refineable: true
+    EquipLevelMin: 85 #req level adjusted to be usable pre-100
+    Refineable: true 
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,15;
-      bonus bAtkEle,Ele_Water;
+    Script: | #reworked to fit the more auxiliry skills of DK. Heavy refine investment. replaced leech % for drain values.
+      bonus2 bIgnoreMdefRaceRate,RC_All,15;
+      bonus4 bAutoSpellOnSkill,"RK_DEATHBOUND","NPC_IGNITIONBREAK",5,1000;
+      bonus4 bAutoSpellOnSkill,"PR_GLORIA","NPC_DRAGONFEAR",5,1000;
+      bonus2 bSkillAtk,"WL_HELLINFERNO",25;
+      bonus2 bSkillAtk,"NC_COLDSLOWER",25;
+      bonus bHPDrainValue,450;
+      bonus bSPDrainValue,45;
+      bonus bLongSPGainValue,50;
+      bonus bMagicSPGainValue,50;
       .@r = getrefine();
-      bonus2 bAddEle,Ele_Fire,25;
-      bonus2 bMagicAddEle,Ele_Fire,25;
-      bonus2 bIgnoreDefRaceRate,RC_All,2*(.@r);
-      bonus2 bIgnoreMdefClassRate,Class_Normal,2*(.@r);
-      bonus2 bIgnoreMdefClassRate,Class_Boss,2*(.@r);
-      bonus bInt,5;
-      bonus bMatkRate,5;
+      if (.@r >= 3) {
+         bonus2 bSkillAtk,"WL_HELLINFERNO",75;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",75;
+         }
+      if (.@r >= 6) {
+         bonus2 bSkillAtk,"WL_HELLINFERNO",50;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",100;
+         }         
+      if (.@r >= 9) {
+         bonus2 bSkillAtk,"NPC_IGNITIONBREAK",90;
+         bonus2 bSkillAtk,"WL_HELLINFERNO",75;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",400;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-4000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-4000;
+         }
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"WL_HELLINFERNO",100;
+         bonus2 bSkillAtk,"NC_COLDSLOWER",75;
+         bonus2 bSkillCooldown,"WL_HELLINFERNO",-3000;
+         bonus2 bSkillCooldown,"NC_COLDSLOWER",-3000;
+         }         
+      skill "WL_HELLINFERNO",.@r;
+      skill "NC_COLDSLOWER",(.@r)/2;
   - Id: 1186
     AegisName: Lingering_Sadness
     Name: Lingering Sadness
@@ -3352,7 +3447,7 @@ Body:
       bonus2 bMagicAddEle,Ele_Dark,2*.@;
   - Id: 1193
     AegisName: Tartaros
-    Name: Tartaros
+    Name: Tartaros #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -3377,14 +3472,20 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,120;
-      bonus2 bHPDrainRate,1000,10;
-      bonus2 bSkillUseSP,"AB_ANCILLA",-10000;
-      bonus2 bSkillCooldown,"WL_HELLINFERNO",-5000;
+    Script: | #The staple DK knight sword. Reworked to be a very good defensive option,with heavy invest. high drain rate and weapon blocking
+      bonus2 bIgnoreDefRaceRate,RC_All,10;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SM_BASH",9*(.@r);
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"SM_BASH",100;
+         bonus2 bSkillCooldown,"SM_BASH",200;
+         }
+      skill "SM_BASH",10;
+      bonus4 bAutoSpellOnSkill,"AC_CONCENTRATION","GC_WEAPONBLOCKING",5,1000;
+      bonus2 bHPDrainRate,1000,5*(.@r);
       bonus bHPrecovRate,500;
       skill "SM_MOVINGRECOVERY",1;
-      bonus bMaxHPrate,15;
+      bonus bMaxHPrate,25;
   - Id: 1194
     AegisName: Royal_Saber
     Name: Royal Saber
@@ -4110,7 +4211,7 @@ Body:
     Weight: 600
     Attack: 5
     MagicAttack: 5
-    Range: 4
+    Range: 1
     Jobs:
       All: true
       Acolyte: false
@@ -4135,6 +4236,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "TF_DOUBLE",1;
+      bonus bAtkRange,4;
   - Id: 1216
     AegisName: Stiletto
     Name: Stiletto
@@ -15670,7 +15772,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -18171,7 +18272,7 @@ Body:
       bonus bSPDrainValue,-10;
       skill "AC_VULTURE",10;
       .@a = getskilllv("AC_OWL");
-      bonus bPerfectHitAddRate,.@a;
+      bonus bLongAtkRate,.@a;
       bonus bMatkRate,.@a;
       bonus bAtkRate,.@a;
       bonus bDex,.@a;
@@ -19264,11 +19365,7 @@ Body:
       .@r = getrefine();
       bonus bMatk,2*.@r;
       bonus2 bSkillAtk,"MG_SOULSTRIKE",3*.@r;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",1,400;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",3,300;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",5,200;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",7,100;
-      bonus3 bAutoSpell,"MG_SOULSTRIKE",10,50;
+      bonus3 bAutoSpell,"MG_SOULSTRIKE",5,800;
     EquipScript: |
       sc_end SC_HOMUN_TIME;
     UnEquipScript: |
@@ -41481,7 +41578,7 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 70
     Script: |
-      bonus bPerfectHitAddRate,10;
+      bonus bPerfectHitAddRate,30;
   - Id: 2952
     AegisName: T_Target_Ring_
     Name: True Target Ring
@@ -41496,7 +41593,7 @@ Body:
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,10;
+      bonus bPerfectHitAddRate,30;
   - Id: 2953
     AegisName: F_Target_Ring
     Name: Fake Target Ring
@@ -42130,7 +42227,7 @@ Body:
     EquipLevelMin: 100
     Script: |
       bonus bDex,(readparam(bDex)/9);
-      bonus bPerfectHitAddRate,5;
+      bonus2 bIgnoreDefRaceRate,RC_All,5;
   - Id: 5005
     AegisName: Gas_Mask
     Name: Gas Mask
@@ -47595,7 +47692,8 @@ Body:
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,3;
+      bonus bMaxHPrate,2;
+      bonus bMaxSPrate,2;
       bonus bHitRate,3;
   - Id: 5326
     AegisName: Masquerade_C
@@ -58218,7 +58316,7 @@ Body:
     View: 1888
     Buy: 500
     Weight: 100
-    Slots: 1
+    Slots: 2
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -58237,7 +58335,7 @@ Body:
     View: 1945
     Buy: 500
     Weight: 100
-    Slots: 1
+    Slots: 2
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -58256,7 +58354,7 @@ Body:
     View: 2004
     Buy: 2000
     Weight: 100
-    Slots: 1
+    Slots: 2
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -60700,7 +60798,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "TF_DOUBLE",8;
-      bonus bPerfectHitAddRate,10;
+      bonus bAtkRate,2;
       bonus bPerfectHide;
       bonus2 bSkillCooldown,"AS_CLOAKING",-10000;
       bonus bAspd,2;
@@ -61014,7 +61112,7 @@ Body:
       bonus bAtkEle,Ele_Dark;
   - Id: 13034
     AegisName: D_Twilight
-    Name: D Twilight
+    Name: Desert Twilight
     Type: Weapon
     SubType: Dagger
     Buy: 500
@@ -61052,7 +61150,7 @@ Body:
       bonus bFlee,5;
   - Id: 13035
     AegisName: D_Sandstorm
-    Name: D Sandstorm
+    Name: Desert Sandstorm
     Type: Weapon
     SubType: Dagger
     Buy: 500
@@ -66912,7 +67010,7 @@ Body:
       bonus bUseSPrate,-5;
   - Id: 13410
     AegisName: OrphanCurse
-    Name: OrphanCurse
+    Name: OrphanCurse #DK Rework
     Type: Weapon
     SubType: 1hSword
     Buy: 200
@@ -66932,7 +67030,7 @@ Body:
       Both_Hand: true
     WeaponLevel: 1
     EquipLevelMin: 1
-    EquipLevelMax: 30
+    EquipLevelMax: 150 #So you aren't homeless and fatherless after job changing
     Flags:
       DropEffect: RED_PILLAR
     Trade:
@@ -66943,14 +67041,16 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,100;
+    Script: |  #Added Dark Cross 1 so you aren't AAing on dk like a monkey, veng dmg boost and small hp drain
+      skill "NPC_DARKCROSS",1;
+      bonus2 bSkillAtk,"SM_BASH",5;
       bonus bAtkEle,Ele_Dark;
       bonus2 bExpAddClass,Class_All,10;
-      bonus bHPrecovRate,40;
+      bonus bHPDrainValue,15;
+      bonus bHPrecovRate,60;
   - Id: 13411
     AegisName: Darkness_Metal_S
-    Name: Darkness Metal S
+    Name: Darkness Metal S #DK Rework #1% leech removed, hp regen per refine increased
     Type: Weapon
     SubType: 1hSword
     Buy: 500
@@ -66975,42 +67075,57 @@ Body:
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,5;
+    Script: |  #Turned it into an actual electrically charged raiding claymore, heavy refine bonus. pairs with gwisin warrior cards
+      bonus2 bSkillCooldown,"TK_JUMPKICK",-800;
+      bonus2 bSkillAtk,"TK_JUMPKICK",200;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","BA_MUSICALSTRIKE",1,1000;
-      bonus bHPrecovRate,20*.@r;
+      if (.@r >= 9) bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",150;
+      if (.@r >= 10) {
+         bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",150;
+         bonus2 bSkillAtk,"TK_JUMPKICK",100;
+         }
+      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SO_PSYCHIC_WAVE",1,1000;
+      bonus bHPrecovRate,50*.@r;
   - Id: 13412
     AegisName: Twin_Edge_B
-    Name: Twin Edge of Naght Sieger
+    Name: Twin Edge of Naght Sieger #DK Rework this replaced the Sea_King drop from Siren
     Type: Weapon
     SubType: 1hSword
     Buy: 20
     Weight: 1500
-    Attack: 150
-    Range: 1
+    Attack: 10
+    MagicAttack: 25
+    Range: 2
     Slots: 3
     Jobs:
-      Alchemist: true
-      Assassin: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      Rogue: true
-      Swordman: true
-      Thief: true
-    Classes:
-      All_Upper: true
+      All: true
+      Archer: false
+      Gunslinger: false
+      KagerouOboro: false
+      Mage: false
+      Monk: false
+      Ninja: false
+      Novice: false
+      Rebellion: false
+      Summoner: false
+      SuperNovice: false
+      Wizard: false
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
-    EquipLevelMin: 75
+    WeaponLevel: 3
+    EquipLevelMin: 100
     Refineable: true
     Script: |
+      bonus2 bIgnoreDefRaceRate,RC_All,15;
       bonus bAtkEle,Ele_Water;
-      skill "MG_FROSTDIVER",5;
-      autobonus "{ bonus bIgnoreDefClass,Class_Normal; }",50,5000,BF_NORMAL,"{ specialeffect2 EF_ENHANCE; }";
+      .@r = getrefine();
+      bonus2 bAddEle,Ele_Fire,25;
+      bonus2 bMagicAddEle,Ele_Fire,25;
+      bonus2 bIgnoreDefRaceRate,RC_All,2*(.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Normal,2*(.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,2*(.@r);
+      bonus bInt,5;
+      bonus bMatkRate,5;
   - Id: 13413
     AegisName: Twin_Edge_R
     Name: Twin Edge of Naght Sieger
@@ -74661,12 +74776,13 @@ Body:
     Slots: 4
     Locations:
       Right_Accessory: true
+      Left_Accessory: true
     ArmorLevel: 1
     EquipLevelMin: 110
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bMaxSPrate,-90;
+      bonus bMaxSPrate,-15;
       bonus bAtkRate,1;
   - Id: 15404
     AegisName: Tetra_Brooch
@@ -74677,12 +74793,13 @@ Body:
     Slots: 4
     Locations:
       Left_Accessory: true
+      Right_Accessory: true
     ArmorLevel: 1
     EquipLevelMin: 110
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      bonus bMaxSPrate,-90;
+      bonus bMaxSPrate,-15;
       bonus bMatkRate,1;
   - Id: 15405
     AegisName: Fafnir_Scale
@@ -74926,7 +75043,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -74949,7 +75066,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -74972,7 +75089,7 @@ Body:
     Buy: 500
     Weight: 250
     Defense: 7
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -75446,7 +75563,7 @@ Body:
     Buy: 500
     Weight: 2000
     Defense: 45
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75469,7 +75586,7 @@ Body:
     Buy: 500
     Weight: 1500
     Defense: 30
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75492,7 +75609,7 @@ Body:
     Buy: 500
     Weight: 1000
     Defense: 10
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75515,7 +75632,7 @@ Body:
     Buy: 500
     Weight: 2000
     Defense: 40
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75538,7 +75655,7 @@ Body:
     Buy: 500
     Weight: 1500
     Defense: 20
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -75560,7 +75677,7 @@ Body:
     Type: Armor
     Buy: 500
     Weight: 1000
-    Slots: 1
+    Slots: 2
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -77828,6 +77945,7 @@ Body:
       bonus bMdef,5;
       bonus bBaseAtk,.@r;
       bonus bMatk,.@r;
+      skill "TF_BACKSLIDING",1;
   - Id: 16131
     AegisName: Insect_Wings
     Name: Insect Wings
@@ -78324,7 +78442,7 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bFlee2,3;
-      bonus bPerfectHitAddRate,3;
+      bonus bLuk,5;
       bonus bSPrecovRate,15;
       bonus bHPrecovRate,15;
   - Id: 16155
@@ -97866,7 +97984,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     Script: |
-      bonus2 bAddMonsterDropItem,6658,300;
   - Id: 19910
     AegisName: C_Halloween_Hat
     Name: Costume Halloween Hat
@@ -97877,7 +97994,6 @@ Body:
     ArmorLevel: 1
     Refineable: true
     Script: |
-      bonus2 bAddMonsterDropItem,6658,300;
   - Id: 19911
     AegisName: C_Triangular_Roof_Hat
     Name: Costume Triangle roof hat
@@ -100413,9 +100529,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus2 bExpAddClass,Class_All,5;
-      bonus2 bAddMonsterDropItem,6658,300;
   - Id: 20175
     AegisName: C_Diabolic_Headphone
     Name: Costume Diabolic Headphone
@@ -108511,7 +108624,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108534,7 +108647,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108557,7 +108670,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108581,7 +108694,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108604,7 +108717,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -108627,7 +108740,7 @@ Body:
     Buy: 1000
     Weight: 500
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -109448,7 +109561,7 @@ Body:
       if (readparam(bVit) > 49) bonus bMaxHPRate,3;
       if (readparam(bStr) > 49) bonus bAtkRate,3;
       if (readparam(bInt) > 49) bonus bMatkRate,3;
-      if (readparam(bDex) > 49) bonus bPerfectHitAddRate,4;
+      if (readparam(bDex) > 49) bonus bLongAtkRate,3;
       if (readparam(bAgi) > 49) bonus bAspd,2;
       if (readparam(bLuk) > 49) bonus bCritAtkRate,4;
   - Id: 22071
@@ -109458,7 +109571,7 @@ Body:
     Buy: 2000
     Weight: 250
     Defense: 15
-    Slots: 1
+    Slots: 2
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -109559,6 +109672,9 @@ Body:
       bonus bDelayRate,-(5+.@r);
       bonus bAspdrate,5+.@r;
       bonus bVariableCastrate,-(5+.@r);
+      bonus2 bIgnoreDefRaceRate,RC_All,(5+.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Normal,(5+.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,(5+.@r);
   - Id: 22078
     AegisName: Paradox_Shoes
     Name: Paradox Shoes
@@ -109585,7 +109701,7 @@ Body:
     Weight: 200
     Slots: 2
     Locations:
-      Right_Accessory: true
+      Left_Accessory: true
     ArmorLevel: 1
     EquipLevelMin: 100
     Flags:
@@ -112628,8 +112744,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      .@r = getrefine();
-      skill "SM_ENDURE",.@r;
+      bonus bNoWalkDelay;
   - Id: 24065
     AegisName: Great_Strider_G
     Name: Great Strider G
@@ -113193,8 +113308,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillUseSPrate,"KN_TWOHANDQUICKEN",100;
-      bonus bBaseAtk,3;
+      .@r = getrefine();
+      bonus bMaxHP,.@r * 100;
   - Id: 24090
     AegisName: Borrowed_Time_G
     Name: Borrowed Time G
@@ -113211,8 +113326,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillUseSPrate,"RK_ENCHANTBLADE",100;
-      bonus bMatk,3;
+      .@r = getrefine();
+      bonus bAtk,.@r * 2;
   - Id: 24091
     AegisName: Borrowed_Time_S
     Name: Borrowed Time S
@@ -113228,11 +113343,9 @@ Body:
     Refineable: true
     Flags:
       DropEffect: GREEN_PILLAR
-    Script: |
-      .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"KN_TWOHANDQUICKEN","GC_WEAPONBLOCKING",.@r/2,1000;
     EquipScript: |
-      sc_end SC_WEAPONBLOCKING;
+      .@r = getrefine();
+      sc_start4 SC_WEAPONBLOCKING_FREE,-1,.@r/2,0,1,0;
     UnEquipScript: |
       sc_end SC_WEAPONBLOCKING;
   - Id: 24092
@@ -113252,11 +113365,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"RK_ENCHANTBLADE","GS_MAGICALBULLET",.@r/2,1000;
-    EquipScript: |
-      sc_end SC_MAGICALBULLET;
-    UnEquipScript: |
-      sc_end SC_MAGICALBULLET;
+      bonus bHit,.@r * 2;
   - Id: 24093
     AegisName: Main_Explorer_A
     Name: Main Explorer A
@@ -113274,7 +113383,12 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"MG_SAFETYWALL","AL_HEAL",10,50*(.@r);
+      bonus2 bSkillHeal,"AL_HEAL",3*(.@r);
+      bonus2 bSkillHeal,"CR_SLIMPITCHER",3*(.@r);
+      bonus2 bSkillHeal,"AB_CHEAL",3*(.@r);
+      bonus2 bSkillHeal,"AM_POTIONPITCHER",3*(.@r);
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24094
     AegisName: Main_Explorer_G
     Name: Main Explorer G
@@ -113292,7 +113406,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"AL_PNEUMA","AL_HEAL",10,50*(.@r);
+      bonus bMatkRate,(2*.@r);
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24095
     AegisName: Main_Explorer_S
     Name: Main Explorer S
@@ -113310,7 +113426,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellWhenHit,"AL_PNEUMA",1,20*(.@r),0;
+      bonus bInt,.@r;
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24096
     AegisName: Main_Explorer_P
     Name: Main Explorer P
@@ -113328,7 +113446,10 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellWhenHit,"MG_SAFETYWALL",1,20*(.@r),0;
+      bonus2 bIgnoreMdefClassRate,Class_Normal,2*.@r;
+      bonus2 bIgnoreMdefClassRate,Class_Boss,2*.@r;
+    UnEquipScript: |
+      sc_end SC_MAGICALBULLET_2;
   - Id: 24097
     AegisName: Saboteur_M
     Name: Saboteur M
@@ -113550,7 +113671,7 @@ Body:
       DropEffect: PURPLE_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bPerfectHitAddRate,2*.@r;
+      bonus bPerfectHitAddRate,5*.@r;
       bonus bIntravision;
     EquipScript: |
       i = getlook(LOOK_CLOTHES_COLOR);
@@ -118297,7 +118418,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,7;
+      bonus bCritical,7;
   - Id: 24403
     AegisName: Undying_A
     Name: Undying A
@@ -124067,7 +124188,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bSkillCooldown,"OB_AKAITSUKI",-2000*(.@r);
-  - Id: 24713
+  - Id: 24713 #DK Rework
     AegisName: Call_Abyss_A
     Name: Call Abyss A
     Type: Shadowgear
@@ -124087,9 +124208,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
-      bonus bStr,.@r;
+      bonus bMatkRate,(.@r)/2;
+      bonus bVit,.@r;
+      bonus4 bAutoSpellOnSkill,"SC_FATALMENACE","DK_SCOURGE",1,1000;
   - Id: 24714
     AegisName: Call_Abyss_G
     Name: Call Abyss G
@@ -124110,9 +124231,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
-      bonus bDex,.@r;
+      bonus bMatkRate,(.@r)/2;
+      bonus bStr,.@r;
+      bonus4 bAutoSpellOnSkill,"SM_BASH","DK_SCOURGE",1,1000;
   - Id: 24715
     AegisName: Call_Abyss_S
     Name: Call Abyss S
@@ -124133,9 +124254,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
+      bonus bMatkRate,(.@r)/2;
       bonus bAgi,.@r;
+      bonus4 bAutoSpellOnSkill,"DK_SWORDFLURRY","DK_SCOURGE",1,1000;
   - Id: 24722
     AegisName: Call_Abyss_P
     Name: Call Abyss P
@@ -124156,10 +124277,10 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAtkRate,1;
-      bonus bMatkRate,1;
-      bonus bInt,.@r;
-  - Id: 24723
+      bonus bMatkRate,(.@r)/2;
+      bonus bDex,.@r;
+      bonus4 bAutoSpellOnSkill,"MO_INVESTIGATE","DK_SCOURGE",1,1000;
+  - Id: 24723 #DK Rework
     AegisName: Cold_Embrace_A
     Name: Cold Embrace A
     Type: Shadowgear
@@ -124179,7 +124300,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillCooldown,"NC_COLDSLOWER",-500*(.@r);
+      bonus2 bSkillCooldown,"NC_COLDSLOWER",-200*(.@r);
   - Id: 24724
     AegisName: Cold_Embrace_G
     Name: Cold Embrace G
@@ -124224,7 +124345,7 @@ Body:
       bonus2 bSkillAtk,"WL_HELLINFERNO",2*(.@r);
   - Id: 24726
     AegisName: Cold_Embrace_P
-    Name: Cold Embrace P
+    Name: Cold Embrace P #Changed Shatter Cross dmg to Death Bound cooldown reduction to make use of Ignition Break.
     Type: Shadowgear
     Buy: 2000
     Weight: 100
@@ -124242,8 +124363,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"BA_MUSICALSTRIKE",2*(.@r);
-  - Id: 24727
+      bonus2 bSkillCooldown,"RK_DEATHBOUND",-400*(.@r);
+  - Id: 24727 #DK Rework
     AegisName: Devil_Arms_A
     Name: Devil Arms A
     Type: Shadowgear
@@ -124263,7 +124384,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"TK_JUMPKICK",10+(2*(.@r));
+      bonus2 bSkillAtk,"DK_SWORDFLURRY",10+(.@r);
   - Id: 24728
     AegisName: Devil_Arms_G
     Name: Devil Arms G
@@ -124327,7 +124448,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bSkillAtk,"MO_INVESTIGATE",10+(.@r);
-  - Id: 24731
+  - Id: 24731 #DK Rework
     AegisName: Heart_Darkness_A
     Name: Heart Darkness A
     Type: Shadowgear
@@ -124347,20 +124468,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSubDefEle,Ele_Dark,3*(.@r);
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
+      bonus2 bSubDefEle,Ele_Dark,5*(.@r);
   - Id: 24732
     AegisName: Heart_Darkness_G
     Name: Heart Darkness G
@@ -124381,21 +124489,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,(.@r)/2;
+      bonus2 bSubDefEle,Ele_Poison,1*(.@r);
       bonus bAspd,(.@r);
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
   - Id: 24733
     AegisName: Heart_Darkness_S
     Name: Heart Darkness S
@@ -124416,21 +124511,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bMatk,(.@r)/2;
+      bonus2 bSubDefEle,Ele_Neutral,1*(.@r);
       bonus bSpeedAddRate,(.@r);
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
   - Id: 24734
     AegisName: Heart_Darkness_P
     Name: Heart Darkness P
@@ -124450,20 +124532,9 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"RK_DEATHBOUND",-4900;
-      bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .elixir, countitem(12333);
-        delitem 12333,.elixir;
-      }
+      .@r = getrefine();
+      bonus2 bSubDefEle,Ele_Undead,1*(.@r);
+      bonus bHPrecovRate,50*(.@r);
   - Id: 24735
     AegisName: School_Cats_A
     Name: School Cats A
@@ -137455,7 +137526,10 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bASPDCap,1;
+      bonus bAtkRate,.@r;
+      bonus bMatkRate,.@r;
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+      bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30042
     AegisName: Infinite_Daggers_G
     Name: Infinite Daggers G
@@ -137473,7 +137547,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bASPDCap,1;
+      bonus bASPD,.@r;
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+      bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30043
     AegisName: Infinite_Daggers_S
     Name: Infinite Daggers S
@@ -137491,7 +137567,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bASPDCap,1;
+      bonus bFlee,(.@r * 2);
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+      bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30044
     AegisName: Infinite_Daggers_P
     Name: Infinite Daggers P
@@ -137509,7 +137587,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bCritical,2*.@r;
+      bonus bCritical,(.@r * 2);
+      bonus2 bSkillUseSPrate,"LK_BERSERK",-10000;
+      bonus2 bSkillUseSP,"LK_BERSERK",-10000;
   - Id: 30045
     AegisName: Undying_Wishes_A
     Name: Undying Wishes A
@@ -140339,8 +140419,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bCritAtkRate,.@r;
-      bonus bCritical,.@r;
+      bonus bCritAtkRate,5+(2*(.@r));
+      bonus bCritical,5+(2*(.@r));
   - Id: 31212
     AegisName: Caelum_Moon
     Name: Caelum Moon
@@ -140377,8 +140457,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bShortAtkRate,.@r;
-      bonus bUseSPrate,-(.@r);
+      bonus bShortAtkRate,5+(.@r);
+      bonus bUseSPrate,-(5+(.@r));
   - Id: 31214
     AegisName: Apus_Moon
     Name: Apus Moon
@@ -140397,6 +140477,7 @@ Body:
     Script: |
       bonus bMdef,5;
       bonus bLongAtkRate,5;
+      bonus bUseSPrate,-5;
       bonus bAtkRange,1;
   - Id: 31215
     AegisName: Apus_Sun
@@ -140415,7 +140496,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bLongAtkRate,.@r;
+      bonus bLongAtkRate,5+(.@r);
+      bonus bUseSPrate,-(5+(.@r));
       bonus bAtkRange,1;
   - Id: 31216
     AegisName: Cygnus_Moon
@@ -140457,12 +140539,12 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus2 bSkillHeal,"AL_HEAL",.@r;
-      bonus2 bSkillHeal,"CR_SLIMPITCHER",.@r;
-      bonus2 bSkillHeal,"AB_CHEAL",.@r;
-      bonus2 bSkillHeal,"AM_POTIONPITCHER",.@r;
+      bonus2 bSkillHeal,"AL_HEAL",5+(2*(.@r));
+      bonus2 bSkillHeal,"CR_SLIMPITCHER",5+(2*(.@r));
+      bonus2 bSkillHeal,"AB_CHEAL",5+(2*(.@r));
+      bonus2 bSkillHeal,"AM_POTIONPITCHER",5+(2*(.@r));
       bonus2 bSkillUseSPrate,"AL_HEAL",50;
-      bonus bHealPower2,.@r;
+      bonus bHealPower2,5+(2*(.@r));
   - Id: 31218
     AegisName: Auriga_Moon
     Name: Auriga Moon
@@ -140480,9 +140562,7 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bMdef,5;
-      bonus bDelayRate,-5;
-      bonus bSpeedAddRate,5;
-      bonus bAspdRate,5;
+      bonus bAllStats,3;
   - Id: 31219
     AegisName: Auriga_Sun
     Name: Auriga Sun
@@ -140500,9 +140580,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bDelayRate,-(.@r);
-      bonus bSpeedAddRate,.@r;
-      bonus bAspdRate,.@r;
+      bonus bAllStats,5+(.@r);
   - Id: 31220
     AegisName: Volan_Moon
     Name: Volan Moon
@@ -140538,7 +140616,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus2 bHPDrainRate,(.@r)*10,.@r;
+      bonus2 bHPDrainRate,(5+(.@r))*10,5+(.@r);
   - Id: 31222
     AegisName: Lacerta_Moon
     Name: Lacerta Moon
@@ -140600,8 +140678,17 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bMdef,5;
-      bonus bNoWeaponDamage,5;
       bonus bMaxHPRate,5;
+      bonus2 bSubEle,Ele_Water,5;
+      bonus2 bSubEle,Ele_Fire,5;
+      bonus2 bSubEle,Ele_Wind,5;
+      bonus2 bSubEle,Ele_Earth,5;
+      bonus2 bSubEle,Ele_Holy,5;
+      bonus2 bSubEle,Ele_Dark,5;
+      bonus2 bSubEle,Ele_Poison,5;
+      bonus2 bSubEle,Ele_Ghost,5;
+      bonus2 bSubEle,Ele_Undead,5;
+      bonus2 bSubEle,Ele_Neutral,5;
   - Id: 31225
     AegisName: Scutum_Sun
     Name: Scutum Sun
@@ -140619,8 +140706,17 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bNoWeaponDamage,.@r;
-      bonus bMaxHPRate,.@r;
+      bonus bMaxHPRate,5+(.@r);
+      bonus2 bSubEle,Ele_Water,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Fire,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Wind,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Earth,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Holy,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Dark,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Poison,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Ghost,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Undead,5+(2*(.@r));
+      bonus2 bSubEle,Ele_Neutral,5+(2*(.@r));
   - Id: 31226
     AegisName: Fornax_Moon
     Name: Fornax Moon
@@ -140639,8 +140735,7 @@ Body:
     Script: |
       bonus bMdef,5;
       bonus bMatkRate,5;
-      bonus bVariableCastrate,-5;
-      bonus bFixedCastrate,-5;
+      bonus bSPrecovRate,5;
   - Id: 31227
     AegisName: Fornax_Sun
     Name: Fornax Sun
@@ -140658,9 +140753,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bMatkRate,.@r;
-      bonus bVariableCastrate,-(.@r);
-      bonus bFixedCastrate,-(.@r);
+      bonus bMatkRate,5+(.@r);
+      bonus bSPrecovRate,5+(.@r);
   - Id: 31228
     AegisName: C_Long_Twin_YL
     Name: C Long Twin Yellow
@@ -144594,7 +144688,6 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      bonus2 bAddMonsterDropItem,6658,300;
   - Id: 31770
     AegisName: C_Vampire_Tie
     Name: C Vampire Tie
@@ -144607,7 +144700,6 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      bonus2 bAddMonsterDropItem,6658,300;
   - Id: 31771
     AegisName: C_Witching_Hat
     Name: C Witching Hat
@@ -144622,7 +144714,6 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      bonus2 bAddMonsterDropItem,6658,300;
   - Id: 31772
     AegisName: C_Halloween_Collar
     Name: C Halloween Collar

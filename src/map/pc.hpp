@@ -1318,6 +1318,8 @@ void pc_exeautobonus(struct map_session_data &sd, std::vector<std::shared_ptr<s_
 TIMER_FUNC(pc_endautobonus);
 void pc_delautobonus(struct map_session_data &sd, std::vector<std::shared_ptr<s_autobonus>> &bonus, bool restore);
 
+void pc_bonus_itembonus(std::vector<s_item_bonus>& bonus, uint16 id, int val, bool cap_rate);
+
 void pc_bonus(struct map_session_data *sd, int type, int val);
 void pc_bonus2(struct map_session_data *sd, int type, int type2, int val);
 void pc_bonus3(struct map_session_data *sd, int type, int type2, int type3, int val);

@@ -3486,8 +3486,7 @@ Body:
       NoAuction: true
     Script: |
       specialeffect2 1044;
-      set .RNG,(rand(1,10));
-      getitem 7364,.RNG;
+      getitem 7364,100;
   - Id: 9510
     AegisName: Enchant_Stone_Box17
     Name: Costume Enchant Stone Box 17
@@ -45758,6 +45757,7 @@ Body:
     AegisName: Water_Cantrips
     Name: Water Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true
@@ -45777,6 +45777,7 @@ Body:
     AegisName: Wind_Cantrips
     Name: Wind Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true
@@ -45796,6 +45797,7 @@ Body:
     AegisName: Heal_Cantrips
     Name: Heal Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true
@@ -45853,6 +45855,7 @@ Body:
     AegisName: Power_Cantrips
     Name: Power Cantrips
     Type: Usable
+    Sell: 100
     Weight: 500
     Jobs:
       Swordman: true

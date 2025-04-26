@@ -3095,7 +3095,7 @@ static void pc_bonus_subrace(struct map_session_data* sd, unsigned char race, sh
  * @param val: Value
  * @param cap_rate: If Value is a rate value that needs to be capped
  */
-static void pc_bonus_itembonus(std::vector<s_item_bonus> &bonus, uint16 id, int val, bool cap_rate)
+void pc_bonus_itembonus(std::vector<s_item_bonus> &bonus, uint16 id, int val, bool cap_rate)
 {
 	for (auto &it : bonus) {
 		if (it.id == id) {
@@ -3358,9 +3358,9 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 						status->rhw.range += val;
 				}
 				break;
-			case 1:
+			case 1: //Corax: apply range bonus from left hand weapon effects/cards to main hand aswell
 				status->lhw.range += val;
-				break;
+			//	break; //Fallthrough
 			default:
 				status->rhw.range += val;
 				break;
@@ -9345,11 +9345,17 @@ int64 pc_readparam(struct map_session_data* sd,int64 type)
 		case SP_SP:              val = sd->battle_status.sp; break;
 		case SP_MAXSP:           val = sd->battle_status.max_sp; break;
 		case SP_STR:             val = sd->status.str; break;
+		case SP_STR_FULL:        val = sd->battle_status.str; break;
 		case SP_AGI:             val = sd->status.agi; break;
+		case SP_AGI_FULL:        val = sd->battle_status.agi; break;
 		case SP_VIT:             val = sd->status.vit; break;
+		case SP_VIT_FULL:        val = sd->battle_status.vit; break;
 		case SP_INT:             val = sd->status.int_; break;
+		case SP_INT_FULL:        val = sd->battle_status.int_; break;
 		case SP_DEX:             val = sd->status.dex; break;
+		case SP_DEX_FULL:        val = sd->battle_status.dex; break;
 		case SP_LUK:             val = sd->status.luk; break;
+		case SP_LUK_FULL:        val = sd->battle_status.luk; break;
 		case SP_POW:             val = sd->status.pow; break;
 		case SP_STA:             val = sd->status.sta; break;
 		case SP_WIS:             val = sd->status.wis; break;
@@ -11182,7 +11188,7 @@ bool pc_equipitem(struct map_session_data *sd,short n,int req_pos,bool equipswit
 	} else if(pos == EQP_ARMS && id->equip == EQP_HAND_R) { //Dual wield capable weapon.
 		pos = (req_pos&EQP_ARMS);
 		if (pos == EQP_ARMS) //User specified both slots, pick one for them.
-			pos = equip_index[EQI_HAND_R] >= 0 ? EQP_HAND_L : EQP_HAND_R;
+			pos = equip_index[EQI_HAND_R] >= 0 && equip_index[EQI_HAND_L] < 0 ? EQP_HAND_L : EQP_HAND_R; //Swap Right hand when dual wielding
 	} else if(pos == EQP_SHADOW_ACC) { // Shadow System
 		pos = req_pos&EQP_SHADOW_ACC;
 		if (pos == EQP_SHADOW_ACC)
@@ -14148,10 +14154,23 @@ uint16 pc_maxparameter(struct map_session_data *sd, e_params param) {
 short pc_maxaspd(map_session_data* sd) {
 	nullpo_ret(sd);
 
-	return ((sd->class_ & JOBL_THIRD) ? battle_config.max_third_aspd : (
-		((sd->class_ & MAPID_UPPERMASK) == MAPID_KAGEROUOBORO || (sd->class_ & MAPID_UPPERMASK) == MAPID_REBELLION) ? battle_config.max_extended_aspd : (
-			(sd->class_ & MAPID_BASEMASK) == MAPID_SUMMONER) ? battle_config.max_summoner_aspd :
-		battle_config.max_aspd));
+if ((sd->class_ & MAPID_UPPERMASK) == MAPID_KAGEROUOBORO) {
+	return battle_config.max_legend_aspd;
+}
+
+if ((sd->class_ & MAPID_UPPERMASK) == MAPID_REBELLION) {
+	return battle_config.max_extended_aspd;
+}
+
+if ((sd->class_ & MAPID_BASEMASK) == MAPID_SUMMONER) {
+	return battle_config.max_summoner_aspd;
+}
+
+if (sd->class_ & JOBL_THIRD) {
+	return battle_config.max_third_aspd;
+}
+
+return battle_config.max_aspd;
 }
  
 /**

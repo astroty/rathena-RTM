@@ -164,18 +164,8 @@ orpha_tut,125,43,4	script	Little Brother#Tutorial	896,{
 	mes .@npc$;
 	mes "Oh- Nothing!Nothing! I was talking about stats, can you explain again to me?";
 	next;
-	switch(select("Maybe later:Sure thing")) {
+	switch(select("Sure thing:Maybe later")) {
 	case 1:
-		emotion ET_DELIGHT;
-		mes .@npc$;
-		mes "Really? Well.. Ok I guess... I'll be waiting... Now how do I prepare when...";
-		close2;
-		enablenpc instance_npcname("Little Sister#Tutorial");
-		specialeffect 6,AREA,"Little Sister#Tutorial";
-		disablenpc instance_npcname("Little Brother#Tutorial");
-		set tutorialquest,1;
-		break;
-	case 2:
 		mes .@npc$;
 		mes "Yay! You're the best, so... what do I need to know?";
 		next;
@@ -241,6 +231,16 @@ orpha_tut,125,43,4	script	Little Brother#Tutorial	896,{
 		specialeffect 6,AREA,"Little Sister#Tutorial";
 		disablenpc instance_npcname("Little Brother#Tutorial");
 		break;
+	case 2:
+		emotion ET_DELIGHT;
+		mes .@npc$;
+		mes "Really? Well.. Ok I guess... I'll be waiting... Now how do I prepare when...";
+		close2;
+		enablenpc instance_npcname("Little Sister#Tutorial");
+		specialeffect 6,AREA,"Little Sister#Tutorial";
+		disablenpc instance_npcname("Little Brother#Tutorial");
+		set tutorialquest,1;
+		break;
 	}
 }
 
@@ -252,17 +252,8 @@ if (tutorialquest ==1){
 	mes .@npc$;
 	mes "HEEEEY!" + strcharinfo(0) + "! Wanna play with me?";
 	next;
-	switch(select("I'm busy:Sure!")) {
+	switch(select("Sure!:I'm busy")) {
 	case 1:
-		emotion ET_SWEAT;
-		mes .@npc$;
-		mes "No problem! I can play with my doll, Kimi, by Myself!";
-		close2;
-		enablenpc instance_npcname("Grandpa#Tutorial");
-		specialeffect 6,AREA,"Grandpa#Tutorial";
-		disablenpc instance_npcname("Little Sister#Tutorial");
-		break;
-	case 2:
 		emotion ET_SWEAT;
 		mes .@npc$;
 		mes "I'm playing pretend with Kimi.";
@@ -311,6 +302,15 @@ if (tutorialquest ==1){
 		specialeffect 6,AREA,"Grandpa#Tutorial";
 		disablenpc instance_npcname("Little Sister#Tutorial");
 		break;
+	case 2:
+		emotion ET_SWEAT;
+		mes .@npc$;
+		mes "No problem! I can play with my doll, Kimi, by Myself!";
+		close2;
+		enablenpc instance_npcname("Grandpa#Tutorial");
+		specialeffect 6,AREA,"Grandpa#Tutorial";
+		disablenpc instance_npcname("Little Sister#Tutorial");
+		break;
 	}
 }
 }
@@ -323,17 +323,8 @@ if (tutorialquest ==1){
 	mes .@npc$;
 	mes "Hmm...This part goes here... and this one...";
 	next;
-	switch(select("Let him work:Offer Help")) {
+	switch(select("Offer Help:Let him work")) {
 	case 1:
-		emotion ET_QUESTION;
-		mes .@npc$;
-		mes "Hmm... ok this is going well... Maybe now I need this...";
-		close2;
-		enablenpc instance_npcname("Anabelle#Tutorial");
-		specialeffect 6,AREA,"Anabelle#Tutorial";
-		disablenpc instance_npcname("Grandpa#Tutorial");
-		break;
-	case 2:
 		emotion ET_HUK;
 		mes .@npc$;
 		mes "Whoa!" + strcharinfo(0) + "! You scared this old man!";
@@ -378,6 +369,15 @@ if (tutorialquest ==1){
 		specialeffect 6,AREA,"Anabelle#Tutorial";
 		disablenpc instance_npcname("Grandpa#Tutorial");
 		break;
+	case 2:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "Hmm... ok this is going well... Maybe now I need this...";
+		close2;
+		enablenpc instance_npcname("Anabelle#Tutorial");
+		specialeffect 6,AREA,"Anabelle#Tutorial";
+		disablenpc instance_npcname("Grandpa#Tutorial");
+		break;
 	}
 }
 }
@@ -391,17 +391,8 @@ orpha_tut,108,66,4	script	Anabelle#Tutorial	10455,{
 	mes .@npc$;
 	mes "" + strcharinfo(0) + "! Get away from my room!";
 	next;
-	switch(select("Ok, I'm Leaving!:I just wanna talk!")) {
+	switch(select("I just wanna talk!:Ok, I'm Leaving!")) {
 	case 1:
-		mes .@npc$;
-		mes "Thanks! Now move!!!";
-		close2;
-		cutin "",255;
-		enablenpc instance_npcname("Mother#Tutorial");
-		specialeffect 6,AREA,"Mother#Tutorial";
-		disablenpc instance_npcname("Anabelle#Tutorial");
-		break;
-	case 2:
 		mes .@npc$;
 		mes "Don't you see I'm busy? I need to go help the guild!";
 		next;
@@ -456,6 +447,15 @@ orpha_tut,108,66,4	script	Anabelle#Tutorial	10455,{
 		specialeffect 6,AREA,"Mother#Tutorial";
 		disablenpc instance_npcname("Anabelle#Tutorial");
 		break;
+	case 2:
+		mes .@npc$;
+		mes "Thanks! Now move!!!";
+		close2;
+		cutin "",255;
+		enablenpc instance_npcname("Mother#Tutorial");
+		specialeffect 6,AREA,"Mother#Tutorial";
+		disablenpc instance_npcname("Anabelle#Tutorial");
+		break;
 	}
 }
 }
@@ -468,18 +468,8 @@ orpha_tut,112,37,3	script	Mother#Tutorial	959,{
 	mes .@npc$;
 	mes "" + strcharinfo(0) + ". I believe you'll like what I'm making here.";
 	next;
-	switch(select("Check it later:Check it now")) {
+	switch(select("Check it now:Check it later")) {
 	case 1:
-		mes .@npc$;
-		mes "Oh yeah! Your friend is waiting outside right? Take care!";
-		close2;
-		enablenpc instance_npcname("Hino Tres#TutorialA");
-		specialeffect 6,AREA,"Hino Tres#TutorialA";
-		enablenpc instance_npcname("LeaveOrphaHome1");
-		specialeffect 6,AREA,"LeaveOrphaHome1";
-		disablenpc instance_npcname("Mother#Tutorial");
-		break;
-	case 2:
 		mes .@npc$;
 		mes "It's a Scarf! since the weather has been a little wild...You need to take care of yourself.";
 		next;
@@ -528,6 +518,16 @@ orpha_tut,112,37,3	script	Mother#Tutorial	959,{
 		specialeffect 6,AREA,"LeaveOrphaHome1";
 		disablenpc instance_npcname("Mother#Tutorial");
 		break;
+	case 2:
+		mes .@npc$;
+		mes "Oh yeah! Your friend is waiting outside right? Take care!";
+		close2;
+		enablenpc instance_npcname("Hino Tres#TutorialA");
+		specialeffect 6,AREA,"Hino Tres#TutorialA";
+		enablenpc instance_npcname("LeaveOrphaHome1");
+		specialeffect 6,AREA,"LeaveOrphaHome1";
+		disablenpc instance_npcname("Mother#Tutorial");
+		break;
 	}
 }
 }
@@ -541,18 +541,8 @@ orpha_tut,82,36,4	script	Hino Tres#TutorialA	639,{
 	mes .@npc$;
 	mes "" + strcharinfo(0) + ". I believe you're late.";
 	next;
-	switch(select("Let's just go!:Apologize")) {
+	switch(select("Apologize:Let's just go!")) {
 	case 1:
-		mes .@npc$;
-		mes "Ever the same uh? Let's go play!";
-		close2;
-		cutin "",255;
-		enablenpc instance_npcname("Hino Tres#TutorialB");
-		specialeffect 6,AREA,"Hino Tres#TutorialB";
-		disablenpc instance_npcname("LeaveOrphaHome1");
-		disablenpc instance_npcname("Hino Tres#TutorialA");
-		break;
-	case 2:
 		mes .@npc$;
 		mes "Oh don't worry, I'm just teasing you...";
 		next;
@@ -607,6 +597,16 @@ orpha_tut,82,36,4	script	Hino Tres#TutorialA	639,{
 		cutin "",255;
 		getitem 1240,1;
 		set BaseLevel,BaseLevel+1;
+		enablenpc instance_npcname("Hino Tres#TutorialB");
+		specialeffect 6,AREA,"Hino Tres#TutorialB";
+		disablenpc instance_npcname("LeaveOrphaHome1");
+		disablenpc instance_npcname("Hino Tres#TutorialA");
+		break;
+	case 2:
+		mes .@npc$;
+		mes "Ever the same uh? Let's go play!";
+		close2;
+		cutin "",255;
 		enablenpc instance_npcname("Hino Tres#TutorialB");
 		specialeffect 6,AREA,"Hino Tres#TutorialB";
 		disablenpc instance_npcname("LeaveOrphaHome1");

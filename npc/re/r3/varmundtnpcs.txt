@@ -414,7 +414,7 @@ va_in01,296,344,3	script	Elder Varmundt#varmundt	654,{
 	mes "[Adult Varmundt]";
 	mes "And did you get the Bifrost Mirror Shard and an Eye on it?";
 	next;
-	if (temporalwarp ==0){
+	if (#temporalwarp ==0){
 	mes "[^6666CC" + strcharinfo(0) + "^000000]";
 	mes "I'm still working on it.";
 	next;

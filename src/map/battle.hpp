@@ -603,6 +603,7 @@ struct Battle_Config
 	int arrow_shower_knockback;
 	int devotion_rdamage_skill_only;
 	int max_extended_aspd;
+	int max_legend_aspd;
 	int mob_chase_refresh; //How often a monster should refresh its chase [Playtester]
 	int mob_icewall_walk_block; //How a normal monster should be trapped in icewall [Playtester]
 	int boss_icewall_walk_block; //How a boss monster should be trapped in icewall [Playtester]

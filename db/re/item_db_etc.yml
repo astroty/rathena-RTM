@@ -2162,7 +2162,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -2178,7 +2177,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -2196,7 +2194,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -2214,7 +2211,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -2672,7 +2668,7 @@ Body:
       DropEffect: RED_PILLAR
   - Id: 1771
     AegisName: Throwing_Dag
-    Name: Throwing Dag
+    Name: Corrupted Fang Knife
     Type: Ammo
     SubType: Kunai
     Buy: 100
@@ -5927,8 +5923,8 @@ Body:
     Script: |
       bonus2 bSkillAtk,"KO_KAIHOU",8;
   - Id: 4229
-    AegisName: Tower_Manager_Card
-    Name: Tower Manager Card
+    AegisName: Clock_Tower_Manager_Card
+    Name: Clock Tower Manager Card
     Type: Card
     Buy: 20
     Weight: 10
@@ -6584,7 +6580,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Head_Low: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -7625,18 +7621,23 @@ Body:
       bonus bDex,1;
   - Id: 4352
     AegisName: Forgt_Egnigem_Card
-    Name: Forgt Egnigem Card
+    Name: Forgt Egnigem Card #DK Rework
     Type: Card
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Right_Hand: true #Fixed Card Location
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
-    Script: |
-      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","SM_BASH",1,1000;
-      bonus bStr,1;
+    Script: |  #Small buff. Boosts Vengeance damage, lowers cooldown, and provides STR/PEN. Leech 5% of damage if worn by a dark knight.
+      bonus2 bSkillAtk,"SM_BASH",10;
+      bonus2 bSkillCooldown,"SM_BASH",-250;
+      bonus2 bIgnoreDefRaceRate,RC_All,5;
+      bonus bStr,3;
+      if (BaseClass == Job_Acolyte) {
+         bonus2 bHPDrainRate,1000,5;
+        }
   - Id: 4353
     AegisName: Removal_Card
     Name: Remover Card
@@ -7962,6 +7963,7 @@ Body:
       DropEffect: YELLOW_PILLAR
     Script: |
       bonus2 bSkillAtk,"TK_JUMPKICK",10;
+      bonus2 bSkillCooldown,"TK_JUMPKICK",-100;
   - Id: 4374
     AegisName: Vesper_Card
     Name: Vesper Card
@@ -11524,7 +11526,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,5;
+      bonus bPerfectHitAddRate,20;
   - Id: 4636
     AegisName: Bijou_Card
     Name: Bijou Card
@@ -12533,12 +12535,11 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Head_Low: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
-      bonus2 bSkillAtk,"NC_AXETORNADO",50;
+      bonus4 bAutoSpellOnSkill,"GC_ROLLINGCUTTER","NC_AXETORNADO",10,1000;
   - Id: 4698
     AegisName: Dataring_Card
     Name: Dataring Card
@@ -33724,7 +33725,7 @@ Body:
       bonus bAtkEle,Ele_Neutral;
   - Id: 13294
     AegisName: Explosive_Kunai
-    Name: Explosive Kunai
+    Name: Steel Kunai
     Type: Ammo
     SubType: Kunai
     Buy: 10000
@@ -35775,17 +35776,29 @@ Body:
       bonus bMatk,.@r;
   - Id: 13645
     AegisName: FallenLK_Card
-    Name: FallenLK Card
+    Name: FallenLK Card #DK Rework this card was a throw away garment card for a underused skill. repurposed into a special effect card.
     Type: Card
     Buy: 20
     Weight: 10
     Locations:
-      Garment: true
+      Right_Hand: true #Changed from garment to right hand for sword equipping.
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
-    Script: |
-      bonus2 bSkillAtk,"KO_BAKURETSU",15;
+    Script: | #Unique card for Tyrfing. Description is intentionally vague in-game.
+      if(getequipid(EQI_HAND_R) == 1139) {
+         bonus2 bSkillCooldown,"DK_SWORDFLURRY",-2000;
+         bonus2 bSkillCooldown,"DK_SCOURGE",-2000;
+         bonus2 bSkillCooldown,"BA_MUSICALSTRIKE",-2000;
+         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",25;
+         bonus2 bSkillAtk,"NPC_GRANDDARKNESS",25;
+         bonus2 bSkillAtk,"NPC_EVILLAND",225;
+         bonus2 bSkillAtk,"NPC_DARKCROSS",25;
+         bonus2 bSkillAtk,"NPC_BLOODDRAIN",25;
+         bonus2 bSkillAtk,"MO_INVESTIGATE",15;
+         bonus2 bSkillCooldown,"SM_BASH",100;
+         bonus bMaxHPrate,-25;
+        }
   - Id: 13646
     AegisName: FallenRK_Card
     Name: FallenRK Card
@@ -35969,24 +35982,24 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      if (readparam(bStr) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bStr) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bStr) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bVit) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bVit) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bVit) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bAgi) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bAgi) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bAgi) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bDex) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bDex) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bDex) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bInt) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bInt) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bInt) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
-      if (readparam(bLuk) > 98) bonus2 bIgnoreDefRaceRate,RC_All,15;
-      if (readparam(bLuk) > 98) bonus2 bIgnoreMdefClassRate,Class_Normal,15;
-      if (readparam(bLuk) > 98) bonus2 bIgnoreMdefClassRate,Class_Boss,15;
+      if (readparam(bStr) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bVit) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bAgi) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bDex) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bInt) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
+      if (readparam(bLuk) > 98){bonus2 bIgnoreDefRaceRate,RC_All,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Normal,15;
+                                bonus2 bIgnoreMdefClassRate,Class_Boss,15;}
   - Id: 13659
     AegisName: Haunting_Guise_Card
     Name: Haunting Guise Card
@@ -36732,18 +36745,23 @@ Body:
       bonus2 bIgnoreMdefClassRate,Class_Boss,10;
   - Id: 13720
     AegisName: B_Thanatos_Card
-    Name: B Thanatos Card
+    Name: B Thanatos Card #DK Rework
     Type: Card
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Right_Hand: true #Fixed Card Location
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
-    Script: |
-      bonus2 bSkillAtk,"MO_INVESTIGATE",25;
-      bonus bMaxHPrate,-50;
+    Script: | #Reworked to fit the avenged tartaros changes. Boosts Fatal Menace potential and combos with the sword when refined +9.
+      bonus2 bSkillAtk,"SC_FATALMENACE",25;
+      bonus4 bAutoSpellOnSkill,"SM_BASH","SC_FATALMENACE",1,1000;
+      bonus2 bSkillCooldown,"SM_BASH",700;
+      bonus bMaxHPrate,-25;
+      if(getequipid(EQI_HAND_R) == 1174 && getrefine() >= 9) {
+         skill "PF_HPCONVERSION",5;
+        }
   - Id: 13721
     AegisName: Detector_Card
     Name: Detector Card
@@ -36872,8 +36890,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bSpeedAddRate,-50;
-      bonus bUseSPrate,-40;
+      bonus bUseSPrate,-20;
+      bonus2 bAddRace,RC_All,5;
+      bonus2 bMagicAddRace,RC_All,5;
   - Id: 13730
     AegisName: Rekember_Core_Card
     Name: Rekember Core Card
@@ -36994,10 +37013,10 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bNoMagicDamage,5;
-      bonus bNoWeaponDamage,5;
-      bonus bNoMiscDamage,5;
-      bonus bUseSPrate,-20;
+      bonus bNoMagicDamage,10;
+      bonus bNoWeaponDamage,10;
+      bonus bNoMiscDamage,10;
+      bonus bUseSPrate,-35;
   - Id: 13740
     AegisName: Moon_Guardian_C
     Name: Moon Guardian C
@@ -37139,12 +37158,12 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Head_Low: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","SO_EARTHGRAVE",1,1000;
+      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","SO_EARTHGRAVE",getskilllv("AS_GRIMTOOTH")/2,1000;
   - Id: 14736
     AegisName: Weapon_Voucher
     Name: Weapon Voucher
@@ -41829,7 +41848,7 @@ Body:
       bonus3 bAutoSpell,"TF_POISON",10,100;
       bonus bAspd,-5;
   - Id: 27165
-    AegisName: Faceworm_D_Card
+    AegisName: Dark_Faceworm_Card
     Name: Dark Faceworm Card
     Type: Card
     Buy: 20
@@ -41870,8 +41889,8 @@ Body:
       bonus2 bSubEle,Ele_Neutral,15;
       bonus2 bMagicAtkEle,Ele_Water,getrefine()*3;
   - Id: 27168
-    AegisName: Elder_Memory_Card
-    Name: Elder Memory Card
+    AegisName: Elder_Spirit_Card
+    Name: Elder Spirit Card
     Type: Card
     Buy: 20
     Weight: 10
@@ -41880,7 +41899,8 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bPerfectHitAddRate,1;
+      bonus bAgi,1;
+      bonus bLuk,1;
       bonus bflee2,1;
       bonus bAspd,1;
   - Id: 27169
@@ -42651,6 +42671,8 @@ Body:
     Weight: 10
     Locations:
       Head_Low: true
+      Head_Mid: true
+      Head_Top: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
@@ -43236,13 +43258,16 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Armor: true
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      if (unchainedjob !=1){
-        bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-3480000;
-      }
+      .@r = getrefine();
+      bonus bMaxHPRate,5+(.@r);
+      bonus bMaxSPrate,5+(.@r);
+      bonus bAllStats,5;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
   - Id: 27322
     AegisName: Demon_God's_Apostle_Ahat_Card
     Name: Demon God's Apostle Ahat Card
